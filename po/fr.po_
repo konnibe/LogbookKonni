@@ -1,0 +1,851 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: logbookkonni_pi\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-10-11 22:07+0100\n"
+"PO-Revision-Date: 2011-10-12 23:28+0100\n"
+"Last-Translator: Gilletarom <gilletarom@netpratique.fr>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-SearchPath-0: .\n"
+#
+msgid ""
+"\n"
+"not found in layoutfile "
+msgstr ""
+"\n"
+"Pas trouver dans le fichier de mise en page"
+#
+msgid " - Timer on - Interval: "
+msgstr "- Minuterie active  - Délai :"
+#
+msgid ""
+"!\n"
+"\n"
+"Did you forget to add this line in your layout ?"
+msgstr ""
+"!\n"
+"\n"
+"Avez-vous oublié d'ajouter cette ligne dans votre mise en page ?"
+#
+msgid "\""
+msgstr "\""
+#
+msgid "'"
+msgstr "'"
+#
+msgid "0"
+msgstr "0"
+#
+msgid "Abbreviations"
+msgstr "Abréviations"
+#
+msgid "Active"
+msgstr "Actif"
+#
+msgid "Add Crew"
+msgstr "Ajouter un membre d'équipage"
+#
+msgid "Add Equipment"
+msgstr "Ajouter un équipement"
+#
+msgid "Add Line"
+msgstr "Ajouter une ligne"
+#
+msgid "Are you sure ?"
+msgstr "Etes vous certain  ?"
+#
+msgid "At"
+msgstr "A"
+#
+msgid ""
+"Automatic Line by Timer\n"
+"you can set/unset a timer\n"
+"or change this text in options"
+msgstr ""
+"Ligne automatique par minuterie\n"
+"Vous pouvez activer/désactiver la minuterie\n"
+"ou modifiez ce choix dans les options"
+#
+msgid ""
+"Automatic line by timer\n"
+"\n"
+"You can set/unset a timer-interval\n"
+"or change this text in Toolbox/Plugins/Logbook\n"
+"\n"
+"Shift+Enter appends a new line"
+msgstr ""
+"Ligne automatique par la minuterie\n"
+"\n"
+"Vous pouvez activer/désactiver l'intervalle de temps\n"
+"ou changer ce choix dans la \"Boite à outils\" d'OpenCPN, onglet \"Compléments"
+"\" puis \"Livre de bord\"\n"
+"\n"
+"Shift+Entre ouvre une nouvelle ligne"
+#
+msgid "Barometer"
+msgstr "Baromètre"
+#
+msgid "Beam"
+msgstr "Largeur de coque"
+#
+msgid "Best Etmal"
+msgstr "Meilleure distance en 24h"
+#
+msgid "Birthname"
+msgstr "Nom de jeune fille"
+#
+msgid "Boat"
+msgstr "Bateau"
+#
+msgid "Builder"
+msgstr "Constructeur"
+#
+msgid "Buy Parts"
+msgstr "Acheter des pièces"
+#
+msgid "Buy parts for this repair"
+msgstr "Acheter des pièces pour cette réparation"
+#
+msgid "Buy parts for this service"
+msgstr "Acheter des pièces pour cette action"
+#
+msgid "C/Strength"
+msgstr "C/Force"
+#
+msgid "COG (T)"
+msgstr "COG (Vrai)"
+#
+msgid "Callsign"
+msgstr "Indicatif d'appel"
+#
+msgid "Capacity"
+msgstr "Capacité"
+#
+msgid "Category"
+msgstr "Catégories"
+#
+msgid "Clouds"
+msgstr "Nuages"
+#
+msgid "Confirm"
+msgstr "Confirmez"
+#
+msgid "Construction"
+msgstr "Fabrication"
+#
+msgid "Country"
+msgstr "Pays"
+#
+msgid "CrewList"
+msgstr "Liste d'équipage"
+#
+msgid "Crewlist"
+msgstr "Liste d'équipage"
+#
+msgid "Current"
+msgstr "Courant"
+#
+msgid "Current "
+msgstr "Courant"
+#
+msgid "Current Peak"
+msgstr "Courant maximal"
+#
+msgid "Date"
+msgstr "Date"
+#
+msgid "Date Launched"
+msgstr "Date de fabrication"
+#
+msgid "Date of Birth"
+msgstr "Date de naissance"
+#
+msgid "Date of Issue"
+msgstr "Date d'émission"
+#
+msgid "Degres"
+msgstr "Degré"
+#
+msgid "Delete Row"
+msgstr "Supprimer la ligne"
+#
+#, c-format
+msgid "Delete Row Nr. %i ?"
+msgstr "Supprimer la ligne n° %i ?"
+#
+msgid "Depth"
+msgstr "Profondeur"
+#
+msgid "Description"
+msgstr "Description"
+#
+msgid "Designer"
+msgstr "Concepteur"
+#
+msgid "Details"
+msgstr "Détails"
+#
+msgid "Direction"
+msgstr "Direction"
+#
+msgid "Displacement"
+msgstr "Déplacement"
+#
+msgid "Distance"
+msgstr "Distance"
+#
+msgid "DistanceTotal"
+msgstr "Distance totale"
+#
+msgid "Draft"
+msgstr "Tirant d'eau"
+#
+msgid "E"
+msgstr "E"
+#
+msgid "Edit Layout"
+msgstr "Editer la mise en page"
+#
+msgid "End"
+msgstr "Fin"
+#
+msgid "End 1.Watch"
+msgstr "Arrêter 1.watch"
+#
+msgid "End 2.Watch"
+msgstr "Arrêter 2.watch"
+#
+msgid "End 3.Watch"
+msgstr "Arrêter 3.watch"
+#
+msgid "Engine"
+msgstr "Moteur"
+#
+msgid "EngineTotal"
+msgstr "Total moteur"
+#
+msgid "Equipment"
+msgstr "Equipement"
+#
+msgid "Etmal "
+msgstr "Distance parcourue en 24h."
+#
+msgid "Fathom"
+msgstr "Brasse"
+#
+msgid "Feet"
+msgstr "Pieds"
+#
+msgid "Firstname"
+msgstr "Prénom"
+#
+msgid "Fuel"
+msgstr "Carburant"
+#
+msgid "Fuel/Water"
+msgstr "Carburant/Eau"
+#
+msgid "FuelTotal"
+msgstr "Carburant total"
+#
+msgid "GPS Auto (Ocean Crossing)"
+msgstr "Auto GPS (Traversée océanique)"
+#
+msgid "GRT"
+msgstr "GRT"
+#
+msgid "Goto Route"
+msgstr "Faire route"
+#
+msgid "Greatest Width of Hull"
+msgstr "Largeur maximale"
+#
+msgid "GrossTonnage"
+msgstr "Déplacement"
+#
+msgid "HIN-Nr."
+msgstr "N° coque"
+#
+msgid ""
+"Have You forgotten to enclose the Header with [[ and ]]\n"
+" or Data with {{ and }} ?"
+msgstr ""
+"Havez vous oublié d'entourer l'entête avec  [[ et ]]\n"
+"ou les données avec  {{  et  }} ?"
+#
+msgid "Heading"
+msgstr "Cap"
+#
+msgid "Homeport"
+msgstr "Port d'attache"
+#
+msgid "Hull"
+msgstr "Coque"
+#
+msgid "If"
+msgstr "Si"
+#
+msgid "Information"
+msgstr "Information"
+#
+msgid "Install OpenCPN_Logbook_Layouts.zip"
+msgstr "Installer les mises en page possibles (OpenCPN_Logbook_Layouts.zip)"
+#
+msgid "Insurance"
+msgstr "Assurance"
+#
+msgid "Interval:"
+msgstr "Délai : "
+#
+msgid "Issued in"
+msgstr "Emis en"
+#
+msgid ""
+"It's not allowed to append Data to a old Logbook\n"
+"\n"
+"OpenCPN switchs to actuell logbook"
+msgstr ""
+"Il n'est pas autorisé d'ajouter des données à un ancien livre de bord\n"
+"\n"
+"OpenCPN passe au livre de bord actuel."
+#
+msgid "LOA"
+msgstr "LOA"
+#
+msgid "LOD"
+msgstr "LOD"
+#
+msgid "LWL"
+msgstr "LWL"
+#
+msgid "Languages installed"
+msgstr "Langue installée"
+#
+msgid "Last line from Logbook\n"
+msgstr "Dernière ligne du livre de bord\n"
+#
+msgid "Length in Waterline"
+msgstr "Longueur de flotaison"
+#
+msgid "Length over Deck"
+msgstr "Longueur du pont"
+#
+msgid "Length over all"
+msgstr "Longueur hors tout"
+#
+msgid "Local = UTC"
+msgstr "Localement = UTC"
+#
+msgid "Logbook"
+msgstr "Livre de bord"
+#
+msgid "Logbook Konni"
+msgstr "Livre de bord selon Konni"
+#
+msgid "Logbook Preferences"
+msgstr "Préférences de LogBook"
+#
+msgid "Logbook files (*.txt)|*.txt"
+msgstr "Fichiers des livres de bord (*.txt)|*.txt"
+#
+msgid "Logbook for OpenCPN"
+msgstr "Livre de bord pour OpenCPN"
+#
+msgid ""
+"Logbook for OpenCPN\n"
+"\n"
+"\t- automatic (NMEA) or manual input\n"
+"\t- Timer for automatic line insert\n"
+"\t- Fileexport to ods,html,xml(Windows only),csv\n"
+"\t- Multiple layouts\n"
+"\t- Costumizable layout\n"
+"\n"
+"Thanks's to the community for their helpfull suggestions.\n"
+"\n"
+"If You find a bug post it on\n"
+"http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945."
+"html\n"
+"Helpfull Videos are at Youtube, search for LogbookKonni."
+msgstr ""
+"Livre de bord pour OpenCPN\n"
+"\n"
+"\t- Entrée automatique (NMEA) or manuelle\n"
+"\t- Minuterie pour insertion automatique des lignes\n"
+"\t- Exportation des fichiers en ods,html,xm l(Windows seulement),csv\n"
+"\t- Mises en page mutiples\n"
+"\t- Mise en page adaptable\n"
+"\n"
+"Merci à la communauté pour son aide et ses suggestions\n"
+"\n"
+"Si vous remarquez un bug, mettez un post sur :\n"
+"http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945."
+"html\n"
+"Des vidéos d'aide sont sur Yoytube, cherchez LogbookKonni."
+#
+msgid "LogbookKonni"
+msgstr "LogBookKonni"
+#
+msgid "MMSI"
+msgstr "MMSI"
+#
+msgid "Magnetic"
+msgstr "Magnétique"
+#
+msgid "Maintenance"
+msgstr "Maintenance"
+#
+msgid "Meter"
+msgstr "Mètre"
+#
+msgid "Minutes"
+msgstr "Minute"
+#
+msgid "Minutes greater than 59"
+msgstr "Supérieur à 59 minutes"
+#
+msgid "Month"
+msgstr "Mois"
+#
+msgid "Motor Hours"
+msgstr "Usage du moteur"
+#
+msgid "Motor/Sails"
+msgstr "Moteur/Voiles"
+#
+msgid "NRT"
+msgstr "NRT"
+#
+msgid "Name"
+msgstr "Nom"
+#
+msgid "Name      "
+msgstr "Nom"
+#
+msgid "Nationality"
+msgstr "Nationnalité"
+#
+msgid "Navigation"
+msgstr "Navigation"
+#
+msgid "NetTonnage"
+msgstr "Volume intérieur disponible"
+#
+msgid "New Logbook"
+msgstr "Nouveau livre de bord"
+#
+msgid "No"
+msgstr "Non"
+#
+msgid "No GPS-Signal !"
+msgstr "Pas de signal GPS"
+#
+msgid ""
+"No Path set to HTML-Editor\n"
+"in ToolBox/Plugins/LogbookKonni/Preferences"
+msgstr ""
+"Pas de chemin vers l'éditeur HTML\n"
+"dans \"Boite à outils/Compléments/LogbookKonni/Préférences"
+#
+msgid "OK"
+msgstr "Ok"
+#
+msgid "Only Layouts with prefix:"
+msgstr "Seulement avec le préfixe de la mise en page"
+#
+msgid "Open old logbook file"
+msgstr "Ouvrir le fichier de l'ancien livre de bord"
+#
+msgid ""
+"Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV "
+"Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
+msgstr ""
+"Ouvrir le document (*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV Format "
+"OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
+#
+msgid "Overview"
+msgstr "Apperçu"
+#
+msgid "Owner"
+msgstr "Propriétaire"
+#
+msgid "Passport-Nr"
+msgstr "N° du passeport"
+#
+msgid "Path to HTML-Editor (optional)"
+msgstr "Chemin vers l'éditeur HTML (Optionnel)"
+#
+msgid "Place of Birth"
+msgstr "Lieu de naissance"
+#
+msgid ""
+"Please enter 0544512n0301205e for\n"
+"054Deg 45Min 12Sec N 030Deg 12Min 05Sec E"
+msgstr ""
+"Veuillez entrer 0544512n0301205e pour\n"
+"054Deg 45Min 12Sec N 030Deg 12Min 05Sec E"
+#
+msgid ""
+"Please enter like 1.30 or 1,30 or 1:30\n"
+"for 1:30h"
+msgstr ""
+"Veuillez entrer 1.30 or 1,30 or 1:30\n"
+"pour 1:30h"
+#
+#, fuzzy
+msgid "Policy"
+msgstr "Police"
+#
+msgid "Position"
+msgstr "Position"
+#
+msgid "Priority"
+msgstr "Priorité"
+#
+msgid "R"
+msgstr "R"
+#
+msgid "Reef"
+msgstr "Récifs"
+#
+msgid "Registration"
+msgstr "Inscription"
+#
+msgid "Relative"
+msgstr "Relative"
+#
+msgid "Reload Layouts"
+msgstr "Recharger les mises en page"
+#
+msgid "Remarks"
+msgstr "Remarque"
+#
+msgid "Repair done"
+msgstr "Réparation effectuée"
+#
+msgid "Repairs"
+msgstr "Réparations"
+#
+msgid "RepairsTODO"
+msgstr "Réparation à faire"
+#
+msgid "Route"
+msgstr "Route"
+#
+msgid "SOG"
+msgstr "SOG"
+#
+msgid "STW"
+msgstr "STW"
+#
+msgid "Sail-Nr."
+msgstr "N° de voile"
+#
+msgid "Sails"
+msgstr "Voiles"
+#
+msgid "Save"
+msgstr "Sauver"
+#
+msgid "Save Boat File"
+msgstr "Sauver le fichier du bateau"
+#
+msgid "Save CrewList File"
+msgstr "Sauver la liste d'équipage"
+#
+msgid "Save Logbook File"
+msgstr "Sauvegarder le livre de bord"
+#
+msgid "Schedule"
+msgstr "Calendrier"
+#
+msgid "Seconds"
+msgstr "Seconde"
+#
+msgid "Select Layout:"
+msgstr "Sélectionner une mise en page :"
+#
+msgid "Select Layout: "
+msgstr "Sélectionner une mise en page :"
+#
+msgid "Select Logbook"
+msgstr "Sélectionner le livre de bord"
+#
+msgid "Select Route"
+msgstr "Sélectionner la route"
+#
+msgid "Select zipped Languages-Files"
+msgstr "Sélectionner la langue du fichier zip"
+#
+msgid "Select zipped Layout-Files"
+msgstr "Sélectionner le fichier de mise en page"
+#
+msgid "Serial-Nr."
+msgstr "N° de série"
+#
+msgid "Service"
+msgstr "Action"
+#
+msgid "Service TODO"
+msgstr "Service à faire"
+#
+msgid "Service done"
+msgstr "Action effectuée"
+#
+msgid "Set Path to HTML-Editor"
+msgstr "Indiquer le chemin de l'éditeur HTML"
+#
+msgid "Show Depth in"
+msgstr "Profondeur en"
+#
+msgid "Show Logbook Icon"
+msgstr "Montrer l'icône de LogBook"
+#
+msgid "Show Maintence Rows coloured"
+msgstr "Montrer les ligne de \"maintenance en couleur"
+#
+msgid "Show Wave/Swell in"
+msgstr "Vague/houle en"
+#
+msgid "Show all Layouts"
+msgstr "Montrer les mises en page"
+#
+msgid "Sign"
+msgstr "Signe"
+#
+msgid "Sorry, 0 Hrs 0 Min 0 Sec are not possible"
+msgstr "Désolé, 0 Hrs 0 Min 0 Sec est impossible"
+#
+msgid "Sorry, Logbook has no lines"
+msgstr "Désolé, le livre de bord ne contient aucune ligne"
+#
+msgid "Sorry, Your Logbook has no lines"
+msgstr "Désolé, votre livre de bord est vide"
+#
+msgid "Sorry, no Layout installed"
+msgstr "Désolé, aucune mise en page installée"
+#
+msgid "Speed"
+msgstr "Vitesse"
+#
+msgid "Start"
+msgstr "Début"
+#
+msgid "Start 1.Watch"
+msgstr "Démarer 1.watch"
+#
+msgid "Start 2.Watch"
+msgstr "Démarrer 1.watch"
+#
+msgid "Start 3.Watch"
+msgstr "Démarrer 3.watch"
+#
+msgid "Startvalue"
+msgstr "Valeur initiale"
+#
+msgid "Street"
+msgstr "Rue"
+#
+msgid "Swell"
+msgstr "Houle"
+#
+msgid "Swell "
+msgstr "Houle"
+#
+msgid "Swell Peak"
+msgstr "Houle la plus haute"
+#
+msgid "Telephone"
+msgstr "Téléphone"
+#
+msgid "Thames"
+msgstr "Thèmes"
+#
+msgid "Time"
+msgstr "Heure"
+#
+msgid "Timer"
+msgstr "Minuterie"
+#
+msgid "Timer "
+msgstr "Minuterie"
+#
+msgid ""
+"Timer has 0 h 0 Min 0 sec.\n"
+"\n"
+"Please change settings in Options"
+msgstr ""
+"Minuterie : 0h 0 min. 0 sec.\n"
+"\n"
+"Veuillez changer les réglages dans 'Options'"
+#
+msgid "Timer on/off"
+msgstr "Marche/Arrêt"
+#
+msgid "Title"
+msgstr "Titre"
+#
+msgid "Today"
+msgstr "Aujourd'hui"
+#
+msgid "Town"
+msgstr "Ville"
+#
+msgid "True"
+msgstr "Vraie"
+#
+msgid "Type"
+msgstr "Type"
+#
+msgid "UTC"
+msgstr "UTC"
+#
+msgid "Urgentvalue"
+msgstr "Valeur urgente"
+#
+msgid "View"
+msgstr "Voir"
+#
+msgid "View Route"
+msgstr "Voir la route"
+#
+msgid "Visibility"
+msgstr "Visibilité"
+#
+msgid "W/Strength"
+msgstr "V/Force"
+#
+msgid "Warnvalue"
+msgstr "Valeur d'alarme"
+#
+msgid "Watch"
+msgstr "Regarder"
+#
+msgid "Water"
+msgstr "Eau"
+#
+msgid "WaterTotal"
+msgstr "Total eau"
+#
+msgid "Wave"
+msgstr "Vague"
+#
+msgid "Wave "
+msgstr "Vague"
+#
+msgid "Wave Peak"
+msgstr "Vague la plus haute"
+#
+msgid "Weather"
+msgstr "Temps"
+#
+msgid "Week"
+msgstr "Semaine"
+#
+msgid "Wind"
+msgstr "Vent"
+#
+msgid "Wind "
+msgstr "Vent"
+#
+msgid "Wind Peak"
+msgstr "Vent maximal"
+#
+msgid "Windspeed"
+msgstr "Vitesse du vent"
+#
+msgid "Windspeed (GPS off)"
+msgstr "Vent : Vitesse  (GPS Off)"
+#
+msgid "Work in Progress"
+msgstr "Travail en cours"
+#
+msgid "Write warning \"No GPS\""
+msgstr "Afficher une alerte \"Pas de GPS\""
+#
+msgid "Yard-Nr."
+msgstr "Place de port"
+#
+msgid "Yes"
+msgstr "Oui"
+#
+msgid ""
+"Your Logbook has 800 lines or more\n"
+"\n"
+"Please create a new logbook to minimize the loadingtime.\n"
+"\n"
+"If you have a running timer, it's stopped now !!!"
+msgstr ""
+"Votre livre de bord a 800 lignes ou plus\n"
+"\n"
+"Veuillez créer un nouveau livre de bord pour réduire le temps de chargement\n"
+"\n"
+"Si vous aviez une minuterie activée, celle ci est actuellement stoppée  !!!"
+#
+msgid "Your Logbook has no lines ?"
+msgstr "Votre livre de bord ne contient aucune ligne"
+#
+msgid "Zip"
+msgstr "Code postal"
+#
+msgid "available in version 0.908"
+msgstr "Disponible en version 0.908"
+#
+msgid "default"
+msgstr "par défaut"
+#
+msgid "en_"
+msgstr "en_"
+#
+msgid "fm"
+msgstr "fm"
+#
+msgid "ft"
+msgstr "ft"
+#
+msgid "fth"
+msgstr "fth"
+#
+msgid "gal"
+msgstr "Gal"
+#
+msgid "h"
+msgstr "h"
+#
+msgid "km/h"
+msgstr "km/h"
+#
+msgid "kts"
+msgstr "Nm/H"
+#
+msgid "m"
+msgstr "m"
+#
+msgid "m/s"
+msgstr "m/s"
+#
+msgid "mb"
+msgstr "Hp"
+#
+msgid "none"
+msgstr "Rien"
+#
+msgid "not implemented yet"
+msgstr "Pas implémenté actuellement"
+#
+msgid "s"
+msgstr "s"
+#
+msgid "sm"
+msgstr "sm"
+#
+msgid "to"
+msgstr "à"
+#
+#~ msgid "until_%s_%s_logbook.txt"
+#~ msgstr "until_%s_%s_logbook.txt"

@@ -1,0 +1,24 @@
+# CMake generation dependency list for this directory.
+C:/Dokumente und Einstellungen/Konni.MICKY-6B710455C/Eigene Dateien/Visual Studio 2008/Projects/opencpn/plugins/logbook_pi/src/CMakeLists.txt
+C:/Dokumente und Einstellungen/Konni.MICKY-6B710455C/Eigene Dateien/Visual Studio 2008/Projects/opencpn/plugins/logbook_pi/src/build/CMakeFiles/CMakeSystem.cmake
+C:/Dokumente und Einstellungen/Konni.MICKY-6B710455C/Eigene Dateien/Visual Studio 2008/Projects/opencpn/plugins/logbook_pi/src/build/CMakeFiles/CMakeCCompiler.cmake
+C:/Dokumente und Einstellungen/Konni.MICKY-6B710455C/Eigene Dateien/Visual Studio 2008/Projects/opencpn/plugins/logbook_pi/src/build/CMakeFiles/CMakeCXXCompiler.cmake
+C:/Programme/CMake 2.8/share/cmake-2.8/Modules/CMakeSystemSpecificInformation.cmake
+C:/Programme/CMake 2.8/share/cmake-2.8/Modules/CMakeGenericSystem.cmake
+C:/Programme/CMake 2.8/share/cmake-2.8/Modules/Platform/Windows.cmake
+C:/Programme/CMake 2.8/share/cmake-2.8/Modules/Platform/WindowsPaths.cmake
+C:/Programme/CMake 2.8/share/cmake-2.8/Modules/CMakeCInformation.cmake
+C:/Programme/CMake 2.8/share/cmake-2.8/Modules/Platform/Windows-cl.cmake
+C:/Dokumente und Einstellungen/Konni.MICKY-6B710455C/Eigene Dateien/Visual Studio 2008/Projects/opencpn/plugins/logbook_pi/src/build/CMakeFiles/CMakeCPlatform.cmake
+C:/Dokumente und Einstellungen/Konni.MICKY-6B710455C/Eigene Dateien/Visual Studio 2008/Projects/opencpn/plugins/logbook_pi/src/build/CMakeFiles/CMakeCXXPlatform.cmake
+C:/Programme/CMake 2.8/share/cmake-2.8/Modules/Platform/cl.cmake
+C:/Dokumente und Einstellungen/Konni.MICKY-6B710455C/Eigene Dateien/Visual Studio 2008/Projects/opencpn/plugins/logbook_pi/src/build/CMakeFiles/CMakeRCCompiler.cmake
+C:/Programme/CMake 2.8/share/cmake-2.8/Modules/CMakeRCInformation.cmake
+C:/Programme/CMake 2.8/share/cmake-2.8/Modules/CMakeCommonLanguageInclude.cmake
+C:/Programme/CMake 2.8/share/cmake-2.8/Modules/CMakeCXXInformation.cmake
+C:/Programme/CMake 2.8/share/cmake-2.8/Modules/CMakeCommonLanguageInclude.cmake
+C:/Programme/CMake 2.8/share/cmake-2.8/Modules/FindwxWidgets.cmake
+C:/Programme/CMake 2.8/share/cmake-2.8/Modules/FindPackageHandleStandardArgs.cmake
+C:/Programme/CMake 2.8/share/cmake-2.8/Modules/FindPackageMessage.cmake
+C:/Programme/CMake 2.8/share/cmake-2.8/Modules/UsewxWidgets.cmake
+C:/Programme/CMake 2.8/share/cmake-2.8/Modules/FindGettext.cmake

@@ -1,0 +1,3 @@
+C:/Dokumente und Einstellungen/Konni.MICKY-6B710455C/opencpn/plugins/logbook_pi/src/CMakeFiles/ALL_BUILD.dir
+C:/Dokumente und Einstellungen/Konni.MICKY-6B710455C/opencpn/plugins/logbook_pi/src/CMakeFiles/ZERO_CHECK.dir
+C:/Dokumente und Einstellungen/Konni.MICKY-6B710455C/opencpn/plugins/logbook_pi/src/CMakeFiles/logbook_pi.dir
