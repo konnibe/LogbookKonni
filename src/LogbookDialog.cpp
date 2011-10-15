@@ -1422,7 +1422,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_panel16->Layout();
 	fgSizer1511->Fit( m_panel16 );
 	m_notebook6->AddPage( m_panel16, _("Buy Parts"), false );
-	m_panel15 = new wxPanel( m_notebook6, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+/*	m_panel15 = new wxPanel( m_notebook6, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	m_panel15->Enable( false );
 	m_panel15->Hide();
 	
@@ -1565,7 +1565,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_panel15->Layout();
 	fgSizer1512->Fit( m_panel15 );
 	m_notebook6->AddPage( m_panel15, _("Schedule"), false );
-	
+*/	
 	bSizer13->Add( m_notebook6, 1, wxEXPAND | wxALL, 5 );
 	
 	m_panel13->SetSizer( bSizer13 );
@@ -2285,7 +2285,6 @@ Backup Logbook(*.txt)|*.txt");
 	this->m_gridOverview->SetColLabelValue( 11, m_gridOverview->GetColLabelValue(11)+_T(" Ø") );
 	this->m_gridOverview->SetColLabelValue( 13, m_gridOverview->GetColLabelValue(13)+_T(" Ø") );
 	this->m_gridOverview->SetColLabelValue( 15, m_gridOverview->GetColLabelValue(15)+_T(" Ø") );
-
 }
 
 void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )

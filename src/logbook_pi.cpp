@@ -351,12 +351,12 @@ void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 	{
 		loadLayouts(parent);
 		AddLocaleCatalog( _T("opencpn-logbookkonni_pi") );
+		delete opt;
+		opt = new Options();
+		LoadConfig();
 		opt->firstTime = false;
 	}
-/*	delete opt;
-	opt = new Options();
-	LoadConfig();
-*/
+
 #ifdef __WXMSW__
 	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 620,604 ),
 		wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );

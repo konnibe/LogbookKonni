@@ -617,7 +617,7 @@ void Logbook::appendRow()
 {
 	wxString s;
 
-	//checkGPS();
+	checkGPS();
 	if(noAppend) return;
 
 	wxFileName fn(logbookFile->GetName());
@@ -698,7 +698,7 @@ Please create a new logbook to minimize the loadingtime.\n\nIf you have a runnin
 	dialog->logGrids[0]->SetCellValue(lastRow,4,getWake());
 
 //	if(dialog->timer->IsRunning())
-		dialog->logGrids[0]->SetCellValue(lastRow,13,sLogText);
+	dialog->logGrids[0]->SetCellValue(lastRow,13,sLogText);
 
 	changeCellValue(lastRow, 0,1);
 	dialog->setEqualRowHeight(lastRow);

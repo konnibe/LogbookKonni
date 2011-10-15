@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-14 21:01+0200\n"
+"POT-Creation-Date: 2011-10-15 02:58+0200\n"
 "PO-Revision-Date: 2011-10-14 20:49+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -846,14 +846,20 @@ msgstr "à"
 #
 #
 #
+#
+#
 #~ msgid "0"
 #~ msgstr "0"
 #
 #
 #
 #
+#
+#
 #~ msgid "No"
 #~ msgstr "Non"
+#
+#
 #
 #
 #
