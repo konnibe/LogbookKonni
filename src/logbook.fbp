@@ -2349,15 +2349,15 @@
                                             <property name="bg"></property>
                                             <property name="cell_bg"></property>
                                             <property name="cell_font"></property>
-                                            <property name="cell_horiz_alignment">wxALIGN_LEFT</property>
+                                            <property name="cell_horiz_alignment">wxALIGN_RIGHT</property>
                                             <property name="cell_text"></property>
                                             <property name="cell_vert_alignment">wxALIGN_TOP</property>
                                             <property name="col_label_horiz_alignment">wxALIGN_CENTRE</property>
                                             <property name="col_label_size">30</property>
-                                            <property name="col_label_values">&quot;Route&quot; &quot;Start&quot; &quot;End&quot; &quot;Distance&quot; &quot;Etmal Ø&quot; &quot;Best Etmal&quot; &quot;Engine&quot; &quot;Fuel&quot; &quot;Water&quot; &quot;Wind Ø&quot; &quot;Wind Peak&quot; &quot;Current Ø&quot; &quot;Current Peak&quot; &quot;Wave Ø&quot; &quot;Wave Peak&quot; &quot;Swell Ø&quot; &quot;Swell Peak&quot; &quot;Sails&quot;</property>
+                                            <property name="col_label_values">&quot;Route&quot; &quot;Start&quot; &quot;End&quot; &quot;Distance&quot; &quot;Etmal Ø&quot; &quot;Best Etmal&quot; &quot;Engine&quot; &quot;Fuel&quot; &quot;Water&quot; &quot;Wind from&quot; &quot;Wind&quot; &quot;Wind Peak&quot; &quot;Current from&quot; &quot;Current&quot; &quot;Current Peak&quot; &quot;Wave&quot; &quot;Wave Peak&quot; &quot;Swell&quot; &quot;Swell Peak&quot; &quot;Sails&quot;</property>
                                             <property name="col_label_vert_alignment">wxALIGN_CENTRE</property>
-                                            <property name="cols">18</property>
-                                            <property name="column_sizes">144,60,60,80,80,80,80,80,80,80,80,80,80,80,80,80,80,200</property>
+                                            <property name="cols">20</property>
+                                            <property name="column_sizes">144,60,60,80,80,80,80,80,80,80,80,80,93,80,80,80,80,76,80,140</property>
                                             <property name="context_help"></property>
                                             <property name="context_menu">0</property>
                                             <property name="drag_col_move">0</property>
@@ -8420,7 +8420,7 @@
                                             <object class="notebookpage" expanded="1">
                                                 <property name="bitmap"></property>
                                                 <property name="label">Service</property>
-                                                <property name="select">0</property>
+                                                <property name="select">1</property>
                                                 <object class="wxPanel" expanded="1">
                                                     <property name="bg"></property>
                                                     <property name="context_help"></property>
@@ -11215,7 +11215,7 @@
                                             <object class="notebookpage" expanded="0">
                                                 <property name="bitmap"></property>
                                                 <property name="label">Schedule</property>
-                                                <property name="select">1</property>
+                                                <property name="select">0</property>
                                                 <object class="wxPanel" expanded="0">
                                                     <property name="bg"></property>
                                                     <property name="context_help"></property>
@@ -12363,7 +12363,7 @@
                 </object>
             </object>
         </object>
-        <object class="Dialog" expanded="0">
+        <object class="Dialog" expanded="1">
             <property name="bg"></property>
             <property name="center">wxBOTH</property>
             <property name="context_help"></property>
@@ -16646,7 +16646,7 @@
                                 <property name="selection">0</property>
                                 <property name="size">100,-1</property>
                                 <property name="subclass"></property>
-                                <property name="tooltip"></property>
+                                <property name="tooltip">default = Relative to Boat&#x0A;Heading = Actual wind direction</property>
                                 <property name="validator_data_type"></property>
                                 <property name="validator_style">wxFILTER_NONE</property>
                                 <property name="validator_type">wxDefaultValidator</property>
@@ -17279,7 +17279,7 @@
                             <property name="proportion">0</property>
                             <object class="wxBitmapButton" expanded="0">
                                 <property name="bg"></property>
-                                <property name="bitmap">../../grib2_pi/src/folder.xpm; Load From File</property>
+                                <property name="bitmap">folder.xpm; Load From File</property>
                                 <property name="context_help"></property>
                                 <property name="context_menu">1</property>
                                 <property name="default">0</property>
@@ -17419,7 +17419,7 @@
                 </object>
             </object>
         </object>
-        <object class="Dialog" expanded="0">
+        <object class="Dialog" expanded="1">
             <property name="bg"></property>
             <property name="center">wxBOTH</property>
             <property name="context_help"></property>
@@ -17477,7 +17477,7 @@
             <event name="OnSetFocus"></event>
             <event name="OnSize"></event>
             <event name="OnUpdateUI"></event>
-            <object class="wxFlexGridSizer" expanded="0">
+            <object class="wxFlexGridSizer" expanded="1">
                 <property name="cols">1</property>
                 <property name="flexible_direction">wxBOTH</property>
                 <property name="growablecols"></property>
@@ -17489,7 +17489,7 @@
                 <property name="permission">none</property>
                 <property name="rows">2</property>
                 <property name="vgap">0</property>
-                <object class="sizeritem" expanded="0">
+                <object class="sizeritem" expanded="1">
                     <property name="border">5</property>
                     <property name="flag">wxEXPAND</property>
                     <property name="proportion">1</property>
@@ -18059,7 +18059,7 @@
                             <property name="proportion">0</property>
                             <object class="wxBitmapButton" expanded="0">
                                 <property name="bg"></property>
-                                <property name="bitmap">../../grib2_pi/src/folder.xpm; Load From File</property>
+                                <property name="bitmap">folder.xpm; Load From File</property>
                                 <property name="context_help"></property>
                                 <property name="context_menu">1</property>
                                 <property name="default">0</property>
@@ -18132,6 +18132,196 @@
                         <property name="Yes">0</property>
                         <property name="minimum_size"></property>
                         <property name="name">m_sdbSizer3</property>
+                        <property name="permission">protected</property>
+                        <event name="OnApplyButtonClick"></event>
+                        <event name="OnCancelButtonClick"></event>
+                        <event name="OnContextHelpButtonClick"></event>
+                        <event name="OnHelpButtonClick"></event>
+                        <event name="OnNoButtonClick"></event>
+                        <event name="OnOKButtonClick"></event>
+                        <event name="OnSaveButtonClick"></event>
+                        <event name="OnYesButtonClick"></event>
+                    </object>
+                </object>
+            </object>
+        </object>
+        <object class="Dialog" expanded="1">
+            <property name="bg"></property>
+            <property name="center">wxBOTH</property>
+            <property name="context_help"></property>
+            <property name="context_menu">1</property>
+            <property name="enabled">1</property>
+            <property name="event_handler">impl_virtual</property>
+            <property name="extra_style"></property>
+            <property name="fg"></property>
+            <property name="font"></property>
+            <property name="hidden">0</property>
+            <property name="id">wxID_ANY</property>
+            <property name="maximum_size"></property>
+            <property name="minimum_size"></property>
+            <property name="name">SelectLogbook</property>
+            <property name="pos"></property>
+            <property name="size">219,252</property>
+            <property name="style">wxDEFAULT_DIALOG_STYLE</property>
+            <property name="subclass"></property>
+            <property name="title">Select Logbook</property>
+            <property name="tooltip"></property>
+            <property name="validator_data_type"></property>
+            <property name="validator_style">wxFILTER_NONE</property>
+            <property name="validator_type">wxDefaultValidator</property>
+            <property name="validator_variable"></property>
+            <property name="window_extra_style"></property>
+            <property name="window_name"></property>
+            <property name="window_style"></property>
+            <event name="OnActivate"></event>
+            <event name="OnActivateApp"></event>
+            <event name="OnChar"></event>
+            <event name="OnClose"></event>
+            <event name="OnEnterWindow"></event>
+            <event name="OnEraseBackground"></event>
+            <event name="OnHibernate"></event>
+            <event name="OnIconize"></event>
+            <event name="OnIdle"></event>
+            <event name="OnInitDialog">OnInit</event>
+            <event name="OnKeyDown"></event>
+            <event name="OnKeyUp"></event>
+            <event name="OnKillFocus"></event>
+            <event name="OnLeaveWindow"></event>
+            <event name="OnLeftDClick"></event>
+            <event name="OnLeftDown"></event>
+            <event name="OnLeftUp"></event>
+            <event name="OnMiddleDClick"></event>
+            <event name="OnMiddleDown"></event>
+            <event name="OnMiddleUp"></event>
+            <event name="OnMotion"></event>
+            <event name="OnMouseEvents"></event>
+            <event name="OnMouseWheel"></event>
+            <event name="OnPaint"></event>
+            <event name="OnRightDClick"></event>
+            <event name="OnRightDown"></event>
+            <event name="OnRightUp"></event>
+            <event name="OnSetFocus"></event>
+            <event name="OnSize"></event>
+            <event name="OnUpdateUI"></event>
+            <object class="wxFlexGridSizer" expanded="1">
+                <property name="cols">1</property>
+                <property name="flexible_direction">wxBOTH</property>
+                <property name="growablecols"></property>
+                <property name="growablerows"></property>
+                <property name="hgap">0</property>
+                <property name="minimum_size"></property>
+                <property name="name">fgSizer26</property>
+                <property name="non_flexible_grow_mode">wxFLEX_GROWMODE_SPECIFIED</property>
+                <property name="permission">none</property>
+                <property name="rows">2</property>
+                <property name="vgap">0</property>
+                <object class="sizeritem" expanded="1">
+                    <property name="border">5</property>
+                    <property name="flag">wxEXPAND</property>
+                    <property name="proportion">1</property>
+                    <object class="wxFlexGridSizer" expanded="0">
+                        <property name="cols">2</property>
+                        <property name="flexible_direction">wxBOTH</property>
+                        <property name="growablecols"></property>
+                        <property name="growablerows"></property>
+                        <property name="hgap">0</property>
+                        <property name="minimum_size"></property>
+                        <property name="name">fgSizer27</property>
+                        <property name="non_flexible_grow_mode">wxFLEX_GROWMODE_SPECIFIED</property>
+                        <property name="permission">none</property>
+                        <property name="rows">2</property>
+                        <property name="vgap">0</property>
+                        <object class="sizeritem" expanded="0">
+                            <property name="border">5</property>
+                            <property name="flag">wxALL</property>
+                            <property name="proportion">0</property>
+                            <object class="wxListCtrl" expanded="0">
+                                <property name="bg"></property>
+                                <property name="context_help"></property>
+                                <property name="context_menu">1</property>
+                                <property name="enabled">1</property>
+                                <property name="fg"></property>
+                                <property name="font"></property>
+                                <property name="hidden">0</property>
+                                <property name="id">wxID_ANY</property>
+                                <property name="maximum_size"></property>
+                                <property name="minimum_size"></property>
+                                <property name="name">m_listCtrlSelectLogbook</property>
+                                <property name="permission">public</property>
+                                <property name="pos"></property>
+                                <property name="size">200,180</property>
+                                <property name="style">wxLC_ICON</property>
+                                <property name="subclass"></property>
+                                <property name="tooltip"></property>
+                                <property name="validator_data_type"></property>
+                                <property name="validator_style">wxFILTER_NONE</property>
+                                <property name="validator_type">wxDefaultValidator</property>
+                                <property name="validator_variable"></property>
+                                <property name="window_extra_style"></property>
+                                <property name="window_name"></property>
+                                <property name="window_style"></property>
+                                <event name="OnChar"></event>
+                                <event name="OnEnterWindow"></event>
+                                <event name="OnEraseBackground"></event>
+                                <event name="OnKeyDown"></event>
+                                <event name="OnKeyUp"></event>
+                                <event name="OnKillFocus"></event>
+                                <event name="OnLeaveWindow"></event>
+                                <event name="OnLeftDClick"></event>
+                                <event name="OnLeftDown"></event>
+                                <event name="OnLeftUp"></event>
+                                <event name="OnListBeginDrag"></event>
+                                <event name="OnListBeginLabelEdit"></event>
+                                <event name="OnListBeginRDrag"></event>
+                                <event name="OnListCacheHint"></event>
+                                <event name="OnListColBeginDrag"></event>
+                                <event name="OnListColClick"></event>
+                                <event name="OnListColDragging"></event>
+                                <event name="OnListColEndDrag"></event>
+                                <event name="OnListColRightClick"></event>
+                                <event name="OnListDeleteAllItems"></event>
+                                <event name="OnListDeleteItem"></event>
+                                <event name="OnListEndLabelEdit"></event>
+                                <event name="OnListInsertItem"></event>
+                                <event name="OnListItemActivated"></event>
+                                <event name="OnListItemDeselected"></event>
+                                <event name="OnListItemFocused"></event>
+                                <event name="OnListItemMiddleClick"></event>
+                                <event name="OnListItemRightClick"></event>
+                                <event name="OnListItemSelected"></event>
+                                <event name="OnListKeyDown"></event>
+                                <event name="OnMiddleDClick"></event>
+                                <event name="OnMiddleDown"></event>
+                                <event name="OnMiddleUp"></event>
+                                <event name="OnMotion"></event>
+                                <event name="OnMouseEvents"></event>
+                                <event name="OnMouseWheel"></event>
+                                <event name="OnPaint"></event>
+                                <event name="OnRightDClick"></event>
+                                <event name="OnRightDown"></event>
+                                <event name="OnRightUp"></event>
+                                <event name="OnSetFocus"></event>
+                                <event name="OnSize"></event>
+                                <event name="OnUpdateUI"></event>
+                            </object>
+                        </object>
+                    </object>
+                </object>
+                <object class="sizeritem" expanded="1">
+                    <property name="border">5</property>
+                    <property name="flag">wxALIGN_CENTER</property>
+                    <property name="proportion">0</property>
+                    <object class="wxStdDialogButtonSizer" expanded="1">
+                        <property name="Apply">0</property>
+                        <property name="Cancel">1</property>
+                        <property name="ContextHelp">0</property>
+                        <property name="Help">0</property>
+                        <property name="No">0</property>
+                        <property name="OK">1</property>
+                        <property name="Save">0</property>
+                        <property name="Yes">0</property>
+                        <property name="minimum_size"></property>
+                        <property name="name">m_sdbSizer4</property>
                         <property name="permission">protected</property>
                         <event name="OnApplyButtonClick"></event>
                         <event name="OnCancelButtonClick"></event>

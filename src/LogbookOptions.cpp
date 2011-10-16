@@ -18,7 +18,7 @@
 #include <wx/filedlg.h>
 
 #include <memory>
-#include "../../grib2_pi/src/folder.xpm"
+#include "folder.xpm"
 using namespace std;
 
 ///////////////////////////////////////////////////////////////////////////
@@ -442,6 +442,8 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	int m_choiceWindToNChoices = sizeof( m_choiceWindToChoices ) / sizeof( wxString );
 	m_choiceWindTo = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 100,-1 ), m_choiceWindToNChoices, m_choiceWindToChoices, 0 );
 	m_choiceWindTo->SetSelection( 0 );
+	m_choiceWindTo->SetToolTip( wxT("default = Relative to Boat\nHeading = Actual wind direction") );
+
 	
 	fgSizer91->Add( m_choiceWindTo, 0, wxALL, 0 );
 	

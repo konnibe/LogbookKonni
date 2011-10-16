@@ -88,7 +88,9 @@ SET(SRC_DEMO
 		src/boat.h
 		src/boat.cpp
 		src/Maintenance.h
-		src/Maintenance.cpp		
+		src/Maintenance.cpp	
+		src/OverView.h		
+		src/OverView.cpp	
  	)
 
 SET(SRC_NMEA0183

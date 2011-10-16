@@ -47,7 +47,6 @@
 #include <wx/mimetype.h>
 #include <wx/platinfo.h>
 #include <wx/timer.h> 
-#include <wx/stdpaths.h>
 
 //////////////////////////////////////////////////////////////////////////
 
@@ -394,7 +393,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridOverview = new wxGrid( m_panel142, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 	
 	// Grid
-	m_gridOverview->CreateGrid( 1, 18 );
+	m_gridOverview->CreateGrid( 1, 20 );
 	m_gridOverview->EnableEditing( false );
 	m_gridOverview->EnableGridLines( true );
 	m_gridOverview->EnableDragGridSize( false );
@@ -413,12 +412,14 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridOverview->SetColSize( 9, 80 );
 	m_gridOverview->SetColSize( 10, 80 );
 	m_gridOverview->SetColSize( 11, 80 );
-	m_gridOverview->SetColSize( 12, 80 );
+	m_gridOverview->SetColSize( 12, 93 );
 	m_gridOverview->SetColSize( 13, 80 );
 	m_gridOverview->SetColSize( 14, 80 );
 	m_gridOverview->SetColSize( 15, 80 );
 	m_gridOverview->SetColSize( 16, 80 );
-	m_gridOverview->SetColSize( 17, 200 );
+	m_gridOverview->SetColSize( 17, 76 );
+	m_gridOverview->SetColSize( 18, 80 );
+	m_gridOverview->SetColSize( 19, 140 );
 	m_gridOverview->EnableDragColMove( false );
 	m_gridOverview->EnableDragColSize( true );
 	m_gridOverview->SetColLabelSize( 30 );
@@ -426,20 +427,22 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridOverview->SetColLabelValue( 1, _("Start") );
 	m_gridOverview->SetColLabelValue( 2, _("End") );
 	m_gridOverview->SetColLabelValue( 3, _("Distance") );
-	m_gridOverview->SetColLabelValue( 4, _("Etmal ") );
+	m_gridOverview->SetColLabelValue( 4, _("Etmal") );
 	m_gridOverview->SetColLabelValue( 5, _("Best Etmal") );
 	m_gridOverview->SetColLabelValue( 6, _("Engine") );
 	m_gridOverview->SetColLabelValue( 7, _("Fuel") );
 	m_gridOverview->SetColLabelValue( 8, _("Water") );
-	m_gridOverview->SetColLabelValue( 9, _("Wind ") );
-	m_gridOverview->SetColLabelValue( 10, _("Wind Peak") );
-	m_gridOverview->SetColLabelValue( 11, _("Current ") );
-	m_gridOverview->SetColLabelValue( 12, _("Current Peak") );
-	m_gridOverview->SetColLabelValue( 13, _("Wave ") );
-	m_gridOverview->SetColLabelValue( 14, _("Wave Peak") );
-	m_gridOverview->SetColLabelValue( 15, _("Swell ") );
-	m_gridOverview->SetColLabelValue( 16, _("Swell Peak") );
-	m_gridOverview->SetColLabelValue( 17, _("Sails") );
+	m_gridOverview->SetColLabelValue( 9, _("Wind from") );
+	m_gridOverview->SetColLabelValue( 10, _("Wind") );
+	m_gridOverview->SetColLabelValue( 11, _("Wind Peak") );
+	m_gridOverview->SetColLabelValue( 12, _("Current from") );
+	m_gridOverview->SetColLabelValue( 13, _("Current") );
+	m_gridOverview->SetColLabelValue( 14, _("Current Peak") );
+	m_gridOverview->SetColLabelValue( 15, _("Wave") );
+	m_gridOverview->SetColLabelValue( 16, _("Wave Peak") );
+	m_gridOverview->SetColLabelValue( 17, _("Swell") );
+	m_gridOverview->SetColLabelValue( 18, _("Swell Peak") );
+	m_gridOverview->SetColLabelValue( 19, _("Sails") );
 	m_gridOverview->SetColLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
 	
 	// Rows
@@ -450,7 +453,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	// Label Appearance
 	
 	// Cell Defaults
-	m_gridOverview->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
+	m_gridOverview->SetDefaultCellAlignment( wxALIGN_RIGHT, wxALIGN_TOP );
 	m_gridOverview->SetMinSize( wxSize( -1,400 ) );
 	
 	m_menuOverView = new wxMenu();
@@ -462,7 +465,6 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_menuItemOverviewView = new wxMenuItem( m_menuOverView, wxID_ANY, wxString( _("View Route") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menuOverView->Append( m_menuItemOverviewView );
 	
-//	m_gridOverview->Connect( wxEVT_RIGHT_DOWN, wxMouseEventHandler( LogbookDialog::m_gridOverviewOnContextMenu ), NULL, this ); 
 	
 	fgSizer251->Add( m_gridOverview, 1, wxALL|wxEXPAND, 5 );
 	
@@ -2258,6 +2260,7 @@ Backup Logbook(*.txt)|*.txt");
 	lastRowSelectedBuyParts = 0;
 
 	logbook = new Logbook(this,data,layoutHTML,layoutODT);
+	overview = new OverView(this,data,layoutHTML,layoutODT);
 	crewList = new CrewList(this,data,layoutHTML,layoutODT);
 	boat=new Boat(this,data,layoutHTML,layoutODT);
 	maintenance = new Maintenance(this,data,layoutHTML,layoutODT);
@@ -2279,12 +2282,7 @@ Backup Logbook(*.txt)|*.txt");
 	this->Connect( wxEVT_TIMER, wxObjectEventFunction( &LogbookDialog::OnTimerGPS ));
 	GPSTimer->Start(GPSTIMEOUT);
 
-	this->m_gridOverview->SetCellValue(0,0,_("available in version 0.908"));
-	m_gridOverview->SetColLabelValue( 4, m_gridOverview->GetColLabelValue(4)+_T(" Ø") );
-	m_gridOverview->SetColLabelValue( 9, m_gridOverview->GetColLabelValue(9)+_T(" Ø") );
-	this->m_gridOverview->SetColLabelValue( 11, m_gridOverview->GetColLabelValue(11)+_T(" Ø") );
-	this->m_gridOverview->SetColLabelValue( 13, m_gridOverview->GetColLabelValue(13)+_T(" Ø") );
-	this->m_gridOverview->SetColLabelValue( 15, m_gridOverview->GetColLabelValue(15)+_T(" Ø") );
+	//this->m_gridOverview->SetCellValue(0,0,_("available in version 0.908"));
 }
 
 void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )
@@ -3664,7 +3662,7 @@ RouteDialog::~RouteDialog()
 #include "Logbook.h"
 
 ///////////////////////////////////////////////////////////////////////////
-#include "../../grib2_pi/src/folder.xpm"
+#include "folder.xpm"
 LayoutDialog::LayoutDialog( wxWindow* parent, wxString location, wxChoice* choice, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
@@ -3781,4 +3779,55 @@ void LayoutDialog::OnButtonClickLoadLayout( wxCommandEvent& event )
 		layoutPath = dlg.GetPath();
 		layoutFileName = dlg.GetFilename();
 	}
+}
+
+////////////////////////////////////////////////////
+SelectLogbook::SelectLogbook( wxWindow* parent, wxString path, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->path = path;
+
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	
+	wxFlexGridSizer* fgSizer26;
+	fgSizer26 = new wxFlexGridSizer( 2, 1, 0, 0 );
+	fgSizer26->SetFlexibleDirection( wxBOTH );
+	fgSizer26->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+	
+	wxFlexGridSizer* fgSizer27;
+	fgSizer27 = new wxFlexGridSizer( 2, 2, 0, 0 );
+	fgSizer27->SetFlexibleDirection( wxBOTH );
+	fgSizer27->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+	
+	m_listCtrlSelectLogbook = new wxListCtrl( this, wxID_ANY, wxDefaultPosition, wxSize( 200,180 ), wxLC_ICON );
+	fgSizer27->Add( m_listCtrlSelectLogbook, 0, wxALL, 5 );
+	
+	fgSizer26->Add( fgSizer27, 1, wxEXPAND, 5 );
+	
+	m_sdbSizer4 = new wxStdDialogButtonSizer();
+	m_sdbSizer4OK = new wxButton( this, wxID_OK );
+	m_sdbSizer4->AddButton( m_sdbSizer4OK );
+	m_sdbSizer4Cancel = new wxButton( this, wxID_CANCEL );
+	m_sdbSizer4->AddButton( m_sdbSizer4Cancel );
+	m_sdbSizer4->Realize();
+	fgSizer26->Add( m_sdbSizer4, 0, wxALIGN_CENTER, 5 );
+	
+	this->SetSizer( fgSizer26 );
+	this->Layout();
+	
+	this->Centre( wxBOTH );
+
+	this->Connect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( SelectLogbook::OnInit ) );
+}
+
+SelectLogbook::~SelectLogbook()
+{
+}
+
+void SelectLogbook::OnInit(wxInitDialogEvent& ev)
+{
+	wxArrayString files;
+	wxDir::GetAllFiles(path,&files,_T("*logbook.txt"));
+	wxListItem *item = new wxListItem();
+	item->SetData(&files);
+	this->m_listCtrlSelectLogbook->InsertItem(*item);
 }

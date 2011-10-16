@@ -140,7 +140,7 @@ void Logbook::SetSentence(wxString &sentence)
                     mUTCDateTime.ParseFormat(dt.c_str(), _T("%Y%m%d%H%M%S"));
 					if(opt->local)
 					{
-						wxTimeSpan span(opt->tzHour, 0, 0, 0);;
+						wxTimeSpan span(opt->tzHour, 0, 0, 0);
 						if(opt->tzIndicator == 0)
 							mCorrectedDateTime = mUTCDateTime + span;
 						else
@@ -333,6 +333,11 @@ void Logbook::selectLogbook()
 {
 	wxString path(*dialog->pHome_Locn);
 	path = path + wxFileName::GetPathSeparator() + _T("data");
+
+	SelectLogbook selLogbook(dialog,path);
+	
+	if(selLogbook.ShowModal() == wxID_CANCEL)
+		return;
 
     wxFileDialog 
             openFileDialog(dialog, _("Open old logbook file"), path, _T("*logbook*.txt"),

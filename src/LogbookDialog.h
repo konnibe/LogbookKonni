@@ -11,6 +11,7 @@
 #include "CrewList.h"
 #include "Maintenance.h"
 #include "boat.h"
+#include "OverView.h"
 
 #include <wx/string.h>
 #include <wx/button.h>
@@ -447,6 +448,7 @@ enum FORMAT {HTML,ODT};
 		logbookkonni_pi*	logbookPlugIn;
 		wxString*			pHome_Locn;
 		Logbook*			logbook;
+		OverView*			overview;
 
 		wxMenuItem*			menuItemTimer;
 		wxString			layoutHTML;
@@ -573,6 +575,29 @@ class LayoutDialog : public wxDialog
 		
 		LayoutDialog( wxWindow* parent, wxString location, wxChoice* choice,wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 307,205 ), long style = wxDEFAULT_DIALOG_STYLE );
 		~LayoutDialog();
+	
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class SelectLogbookDialog
+///////////////////////////////////////////////////////////////////////////////
+class SelectLogbook : public wxDialog 
+{
+	private:
+		wxString path;
+	
+	protected:
+		wxStdDialogButtonSizer* m_sdbSizer4;
+		wxButton* m_sdbSizer4OK;
+		wxButton* m_sdbSizer4Cancel;
+	
+	public:
+		wxListCtrl* m_listCtrlSelectLogbook;
+
+		virtual void OnInit( wxInitDialogEvent& event );
+		
+		SelectLogbook( wxWindow* parent, wxString path, wxWindowID id = wxID_ANY, const wxString& title = wxT("Select Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 219,252 ), long style = wxDEFAULT_DIALOG_STYLE );
+		~SelectLogbook();
 	
 };
 
