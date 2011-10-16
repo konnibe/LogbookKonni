@@ -24,14 +24,14 @@ OverView::OverView(LogbookDialog* d, wxString data, wxString lay, wxString layou
 	loadAllLogbooks();
 	loadLogbookData(logbooks[0]);
 
-	grid->SetColLabelValue( FETMAL, grid->GetColLabelValue(FETMAL)+_T(" Ø") );
+/*	grid->SetColLabelValue( FETMAL, grid->GetColLabelValue(FETMAL)+_T(" Ø") );
 	grid->SetColLabelValue( FWINDDIR, grid->GetColLabelValue(FWINDDIR)+_T(" Ø") );
 	grid->SetColLabelValue( FWIND, grid->GetColLabelValue(FWIND)+_T(" Ø") );
 	grid->SetColLabelValue( FCURRENTDIR, grid->GetColLabelValue(FCURRENTDIR)+_T(" Ø") );
 	grid->SetColLabelValue( FCURRENT, grid->GetColLabelValue(FCURRENT)+_T(" Ø") );
 	grid->SetColLabelValue( FWAVE, grid->GetColLabelValue(FWAVE)+_T(" Ø") );
 	grid->SetColLabelValue( FSWELL, grid->GetColLabelValue(FSWELL)+_T(" Ø") );
-	
+*/	
 }
 
 OverView::~OverView(void)
@@ -43,7 +43,6 @@ void OverView::loadAllLogbooks()
 	wxArrayString files;
 
 	int i = wxDir::GetAllFiles(data_locn,&files,_T("*.txt"));
-	wxMessageBox(data_locn);
 
 	for(int f = 0; f < i; f++)
 	{
