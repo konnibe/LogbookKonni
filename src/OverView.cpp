@@ -31,6 +31,7 @@ OverView::OverView(LogbookDialog* d, wxString data, wxString lay, wxString layou
 	grid->SetColLabelValue( FCURRENT, grid->GetColLabelValue(FCURRENT)+_T(" Ø") );
 	grid->SetColLabelValue( FWAVE, grid->GetColLabelValue(FWAVE)+_T(" Ø") );
 	grid->SetColLabelValue( FSWELL, grid->GetColLabelValue(FSWELL)+_T(" Ø") );
+	
 }
 
 OverView::~OverView(void)
@@ -42,6 +43,7 @@ void OverView::loadAllLogbooks()
 	wxArrayString files;
 
 	int i = wxDir::GetAllFiles(data_locn,&files,_T("*.txt"));
+	wxMessageBox(data_locn);
 
 	for(int f = 0; f < i; f++)
 	{
@@ -243,23 +245,23 @@ void OverView::writeSumColumn(int row)
 
 	grid->SetCellValue(row,FSTART,startdate);
 	grid->SetCellValue(row,FEND,enddate);
-	grid->SetCellValue(row,FDISTANCE,wxString::Format(_T("%6.2f %s"),distance,opt->distance));
-	grid->SetCellValue(row,FETMAL,wxString::Format(_T("%6.2f %s"),etmal,opt->distance));
-	grid->SetCellValue(row,FBESTETMAL,wxString::Format(_T("%6.2f %s"),bestetmal,opt->distance));
+	grid->SetCellValue(row,FDISTANCE,wxString::Format(_T("%6.2f %s"),distance,opt->distance.c_str()));
+	grid->SetCellValue(row,FETMAL,wxString::Format(_T("%6.2f %s"),etmal,opt->distance.c_str()));
+	grid->SetCellValue(row,FBESTETMAL,wxString::Format(_T("%6.2f %s"),bestetmal,opt->distance.c_str()));
 
-	grid->SetCellValue(row,FFUEL,wxString::Format(_T("%6.2f %s"),abs(fuel),opt->vol));
-	grid->SetCellValue(row,FWATER,wxString::Format(_T("%6.2f %s"),abs(water),opt->vol));
+	grid->SetCellValue(row,FFUEL,wxString::Format(_T("%6.2f %s"),abs(fuel),opt->vol.c_str()));
+	grid->SetCellValue(row,FWATER,wxString::Format(_T("%6.2f %s"),abs(water),opt->vol.c_str()));
 	grid->SetCellValue(row,FWIND,wxString::Format(_T("%6.2f %s"),wind/windcount,_T("kts")));
-	grid->SetCellValue(row,FWINDDIR,wxString::Format(_T("%6.2f %s"),winddir/windcount,opt->Deg));
+	grid->SetCellValue(row,FWINDDIR,wxString::Format(_T("%6.2f %s"),winddir/windcount,opt->Deg.c_str()));
 	grid->SetCellValue(row,FWINDPEAK,wxString::Format(_T("%6.2f %s"),windpeak,_T("kts")));
-	grid->SetCellValue(row,FWAVE,wxString::Format(_T("%6.2f %s"),wave/wavecount,d));
-	grid->SetCellValue(row,FWAVEPEAK,wxString::Format(_T("%6.2f %s"),wavepeak,d));
-	grid->SetCellValue(row,FSWELL,wxString::Format(_T("%6.2f %s"),swell/swellcount,d));
-	grid->SetCellValue(row,FSWELLPEAK,wxString::Format(_T("%6.2f %s"),swellpeak,d));
-	grid->SetCellValue(row,FCURRENTDIR,wxString::Format(_T("%6.2f %s"),currentdir/currentcount,opt->Deg));
-	grid->SetCellValue(row,FCURRENT,wxString::Format(_T("%6.2f %s"),current/currentcount,d));
-	grid->SetCellValue(row,FCURRENTPEAK,wxString::Format(_T("%6.2f %s"),currentpeak,d));
-	grid->SetCellValue(row,FENGINE,wxString::Format(_T("%0002i:%02i %s"),enginehours,enginemin,opt->motorh));
+	grid->SetCellValue(row,FWAVE,wxString::Format(_T("%6.2f %s"),wave/wavecount,d.c_str()));
+	grid->SetCellValue(row,FWAVEPEAK,wxString::Format(_T("%6.2f %s"),wavepeak,d.c_str()));
+	grid->SetCellValue(row,FSWELL,wxString::Format(_T("%6.2f %s"),swell/swellcount,d.c_str()));
+	grid->SetCellValue(row,FSWELLPEAK,wxString::Format(_T("%6.2f %s"),swellpeak,d.c_str()));
+	grid->SetCellValue(row,FCURRENTDIR,wxString::Format(_T("%6.2f %s"),currentdir/currentcount,opt->Deg.c_str()));
+	grid->SetCellValue(row,FCURRENT,wxString::Format(_T("%6.2f %s"),current/currentcount,d.c_str()));
+	grid->SetCellValue(row,FCURRENTPEAK,wxString::Format(_T("%6.2f %s"),currentpeak,d.c_str()));
+	grid->SetCellValue(row,FENGINE,wxString::Format(_T("%0002i:%02i %s"),enginehours,enginemin,opt->motorh.c_str()));
 }
 
 void OverView::setLayoutLocation()
