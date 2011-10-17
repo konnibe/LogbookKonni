@@ -69,7 +69,7 @@ FIND_PACKAGE(Gettext REQUIRED)
 # header files and cpp/c files and CMake will sort them out
 
 
-SET(SRC_DEMO
+SET(SRC_LOGBOOKKONNI
        		src/logbook_pi.h
  		src/logbook_pi.cpp
  		src/Options.h
@@ -152,7 +152,7 @@ SET(SRC_NMEA0183
 	)
 INCLUDE_DIRECTORIES(src/nmea0183)
 
-ADD_LIBRARY(${PACKAGE_NAME} SHARED ${SRC_DEMO} ${SRC_NMEA0183} )
+ADD_LIBRARY(${PACKAGE_NAME} SHARED ${SRC_LOGBOOKKONNI} ${SRC_NMEA0183} )
 
 IF(WIN32)
   SET(OPENCPN_IMPORT_LIB "../../${CMAKE_CFG_INTDIR}/${PARENT}")
