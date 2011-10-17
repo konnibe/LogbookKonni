@@ -1,0 +1,1230 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: logbookkonni_pi 2.5.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2011-10-15 02:58+0200\n"
+"PO-Revision-Date: 2011-10-17 10:53+0100\n"
+"Last-Translator: Pavel Kalian <pavel@kalian.cz>\n"
+"Language-Team: Pavel Kalian <pavel@kalian.cz>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: Czech\n"
+"X-Poedit-Country: CZECH REPUBLIC\n"
+"X-Poedit-SourceCharset: utf-8\n"
+
+#: src/logbook_pi.cpp:123
+#: src/logbook_pi.cpp:332
+#: src/logbook_pi.cpp:379
+msgid "Logbook Konni"
+msgstr "Konniho lodní deník"
+
+#: src/logbook_pi.cpp:139
+#: src/logbook_pi.cpp:393
+#: src/Logbook.cpp:611
+#: src/LogbookDialog.cpp:327
+#: src/LogbookDialog.cpp:2472
+msgid "Logbook"
+msgstr "Lodní deník"
+
+#: src/logbook_pi.cpp:281
+msgid "LogbookKonni"
+msgstr ""
+
+#: src/logbook_pi.cpp:286
+msgid "Logbook for OpenCPN"
+msgstr "Lodní deník pro OpenCPN"
+
+#: src/logbook_pi.cpp:291
+msgid ""
+"Logbook for OpenCPN\n"
+"\n"
+"\t- automatic (NMEA) or manual input\n"
+"\t- Timer for automatic line insert\n"
+"\t- Fileexport to ods,html,xml(Windows only),csv\n"
+"\t- Multiple layouts\n"
+"\t- Costumizable layout\n"
+"\n"
+"Thanks's to the community for their helpfull suggestions.\n"
+"\n"
+"If You find a bug post it on\n"
+"http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945.html\n"
+"Helpfull Videos are at Youtube, search for LogbookKonni."
+msgstr ""
+"Lodní deník pro OpenCPN\n"
+"\n"
+"\t- automatický (NMEA) nebo manuální vstup\n"
+"\t- Časovač pro automatické záznamy\n"
+"\t- Export do ODS, HTML, XML(jen pod Windows), CSV\n"
+"\t- Několik rozvržení\n"
+"\t- Přizpůsobitelné rozvržení\n"
+"\n"
+"Díky komunitě za podnětné připomínky.\n"
+"\n"
+"Pokud najdeš chybu, popiš ji na\n"
+"http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945.html\n"
+"Na Youtube je pár videí, která Ti v začátku pomůžou, hledej \"LogbookKonni\"."
+
+#: src/logbook_pi.cpp:361
+#: src/logbook_pi.cpp:364
+msgid "Logbook Preferences"
+msgstr "Nastavení lodného deníku"
+
+#: src/logbook_pi.cpp:633
+msgid "Select zipped Layout-Files"
+msgstr "Vyber zabalené šablony"
+
+#: src/logbook_pi.cpp:680
+msgid "OK"
+msgstr ""
+
+#: src/logbook_pi.cpp:706
+msgid "Select zipped Languages-Files"
+msgstr "Vyber zabalené soubory s překlady"
+
+#: src/logbook_pi.cpp:728
+msgid "Languages installed"
+msgstr "Jazyky instalovány"
+
+#: src/Options.cpp:9
+#: src/LogbookOptions.cpp:59
+msgid "en_"
+msgstr ""
+
+#: src/Options.cpp:24
+msgid ""
+"Automatic line by timer\n"
+"\n"
+"You can set/unset a timer-interval\n"
+"or change this text in Toolbox/Plugins/Logbook\n"
+"\n"
+"Shift+Enter appends a new line"
+msgstr ""
+"Automatický záznam časovače\n"
+"\n"
+"Můžeš nastavit nebo zrušit interval časovače\n"
+"nebo změnit tento text v Nástroje/Zásuvné moduly/Lodní deník\n"
+"\n"
+"Shift+Enter přidá nový záznam"
+
+#: src/Options.cpp:31
+#: src/LogbookOptions.cpp:235
+msgid "'"
+msgstr ""
+
+#: src/Options.cpp:32
+#: src/LogbookOptions.cpp:242
+msgid "\""
+msgstr ""
+
+#: src/Options.cpp:34
+#: src/LogbookOptions.cpp:252
+msgid "sm"
+msgstr "NM"
+
+#: src/Options.cpp:35
+#: src/Options.cpp:43
+#: src/LogbookOptions.cpp:259
+#: src/LogbookOptions.cpp:363
+#: src/LogbookOptions.cpp:421
+msgid "kts"
+msgstr ""
+
+#: src/Options.cpp:37
+#: src/LogbookOptions.cpp:124
+#: src/LogbookOptions.cpp:285
+msgid "m"
+msgstr ""
+
+#: src/Options.cpp:38
+#: src/LogbookOptions.cpp:311
+msgid "ft"
+msgstr ""
+
+#: src/Options.cpp:39
+msgid "fth"
+msgstr ""
+
+#: src/Options.cpp:42
+#: src/LogbookOptions.cpp:356
+msgid "mb"
+msgstr ""
+
+#: src/Options.cpp:44
+#: src/LogbookOptions.cpp:384
+#: src/LogbookOptions.cpp:421
+msgid "m/s"
+msgstr ""
+
+#: src/Options.cpp:45
+#: src/LogbookOptions.cpp:405
+#: src/LogbookOptions.cpp:421
+msgid "km/h"
+msgstr ""
+
+#: src/Options.cpp:48
+#: src/LogbookOptions.cpp:458
+msgid "gal"
+msgstr ""
+
+#: src/Options.cpp:49
+#: src/LogbookOptions.cpp:116
+#: src/LogbookOptions.cpp:168
+#: src/LogbookOptions.cpp:465
+msgid "h"
+msgstr ""
+
+#: src/Logbook.cpp:256
+msgid "Are you sure ?"
+msgstr "Jsi si jist?"
+
+#: src/Logbook.cpp:256
+#: src/Logbook.cpp:267
+#: src/LogbookDialog.cpp:121
+msgid "New Logbook"
+msgstr "Nový lodní deník"
+
+#: src/Logbook.cpp:260
+msgid "Reset all Values to zero ?"
+msgstr "Resetovat všechny hodnoty na nulu"
+
+#: src/Logbook.cpp:267
+msgid "Your Logbook has no lines ?"
+msgstr "Tvůj lodní deník nemá žádné řádky?"
+
+#: src/Logbook.cpp:315
+msgid "Last line from Logbook\n"
+msgstr "Poslední řádka lodního deníku\n"
+
+#: src/Logbook.cpp:323
+msgid "Last Logbook is\n"
+msgstr "Poslední lodní deník je\n"
+
+#: src/Logbook.cpp:338
+msgid "Open old logbook file"
+msgstr "Otevřít starý soubor deníku"
+
+#: src/Logbook.cpp:339
+msgid "Logbook files (*.txt)|*.txt"
+msgstr "Soubory deníku (*.txt)|*.txt"
+
+#: src/Logbook.cpp:627
+msgid ""
+"It's not allowed to append Data to a old Logbook\n"
+"\n"
+"OpenCPN switchs to actuell logbook"
+msgstr ""
+"Není povoleno přidávat data do starého deníku\n"
+"\n"
+"OpenCPN přepne na aktuální deník"
+
+#: src/Logbook.cpp:628
+#: src/Logbook.cpp:638
+#: src/Logbook.cpp:929
+#: src/LogbookOptions.cpp:689
+#: src/LogbookHTML.cpp:111
+#: src/LogbookHTML.cpp:188
+#: src/LogbookHTML.cpp:203
+#: src/LogbookHTML.cpp:386
+#: src/LogbookHTML.cpp:531
+#: src/LogbookHTML.cpp:577
+#: src/CrewList.cpp:221
+#: src/CrewList.cpp:446
+#: src/CrewList.cpp:680
+#: src/boat.cpp:247
+#: src/boat.cpp:463
+msgid "Information"
+msgstr "Informace"
+
+#: src/Logbook.cpp:637
+msgid ""
+"Your Logbook has 800 lines or more\n"
+"\n"
+"Please create a new logbook to minimize the loadingtime.\n"
+"\n"
+"If you have a running timer, it's stopped now !!!"
+msgstr ""
+"Tvůj lodní deník má víc než 800 řádků\n"
+"\n"
+"Please create a new logbook to minimize the loadingtime.\n"
+"\n"
+"If you have a running timer, it's stopped now !!!"
+
+#: src/Logbook.cpp:842
+#: src/CrewList.cpp:639
+#: src/boat.cpp:685
+#, c-format
+msgid "Delete Row Nr. %i ?"
+msgstr "Smazat řádku č. %i ?"
+
+#: src/Logbook.cpp:842
+#: src/CrewList.cpp:639
+#: src/boat.cpp:685
+msgid "Confirm"
+msgstr "Potvrdit"
+
+#: src/Logbook.cpp:929
+msgid ""
+"Please enter 0544512n0301205e for\n"
+"054Deg 45Min 12Sec N 030Deg 12Min 05Sec E"
+msgstr ""
+"Prosím zadej 0544512n0301205e pro\n"
+"054Deg 45Min 12Sec N 030Deg 12Min 05Sec E"
+
+#: src/Logbook.cpp:1089
+msgid ""
+"Please enter like 1.30 or 1,30 or 1:30\n"
+"for 1:30h"
+msgstr ""
+"Prosím zadej jako 1.30 nebo 1,30 nebo 1:30\n"
+"pro 1:30h"
+
+#: src/Logbook.cpp:1098
+msgid "Minutes greater than 59"
+msgstr "Minuty větší než 59"
+
+#: src/Logbook.cpp:1264
+msgid "No GPS-Signal !"
+msgstr "Není GPS signál"
+
+#: src/LogbookDialog.cpp:78
+#: src/LogbookDialog.cpp:1074
+#: src/LogbookDialog.cpp:1201
+#: src/LogbookDialog.cpp:1319
+#: src/LogbookDialog.cpp:1437
+msgid "Add Line"
+msgstr "Přidat záznam"
+
+#: src/LogbookDialog.cpp:81
+#: src/LogbookDialog.cpp:341
+#: src/LogbookDialog.cpp:488
+#: src/LogbookDialog.cpp:653
+#: src/LogbookDialog.cpp:1077
+#: src/LogbookDialog.cpp:1204
+#: src/LogbookDialog.cpp:1322
+#: src/LogbookDialog.cpp:1442
+msgid "Save"
+msgstr "Uložit"
+
+#: src/LogbookDialog.cpp:87
+#: src/LogbookDialog.cpp:349
+#: src/LogbookDialog.cpp:494
+#: src/LogbookDialog.cpp:659
+msgid "Select Layout: "
+msgstr "Vybrat rozvržení:"
+
+#: src/LogbookDialog.cpp:96
+#: src/LogbookDialog.cpp:360
+#: src/LogbookDialog.cpp:503
+#: src/LogbookDialog.cpp:668
+#: src/LogbookDialog.cpp:1094
+#: src/LogbookDialog.cpp:1221
+#: src/LogbookDialog.cpp:1339
+#: src/LogbookDialog.cpp:1461
+msgid "R"
+msgstr ""
+
+#: src/LogbookDialog.cpp:97
+#: src/LogbookDialog.cpp:361
+msgid "Reload Layouts"
+msgstr "Nahrát rozvržení"
+
+#: src/LogbookDialog.cpp:102
+#: src/LogbookDialog.cpp:366
+#: src/LogbookDialog.cpp:506
+#: src/LogbookDialog.cpp:671
+#: src/LogbookDialog.cpp:1097
+#: src/LogbookDialog.cpp:1224
+#: src/LogbookDialog.cpp:1342
+#: src/LogbookDialog.cpp:1466
+msgid "E"
+msgstr ""
+
+#: src/LogbookDialog.cpp:103
+#: src/LogbookDialog.cpp:367
+msgid "Edit Layout"
+msgstr "Editovat rozvržení"
+
+#: src/LogbookDialog.cpp:115
+#: src/LogbookDialog.cpp:379
+#: src/LogbookDialog.cpp:516
+#: src/LogbookDialog.cpp:681
+#: src/LogbookDialog.cpp:1107
+#: src/LogbookDialog.cpp:1234
+#: src/LogbookDialog.cpp:1352
+#: src/LogbookDialog.cpp:1481
+msgid "View"
+msgstr "Zobrazit"
+
+#: src/LogbookDialog.cpp:124
+msgid "Select Logbook"
+msgstr "Vybrat lodní deník"
+
+#: src/LogbookDialog.cpp:171
+#: src/LogbookDialog.cpp:425
+msgid "Route"
+msgstr "Trasa"
+
+#: src/LogbookDialog.cpp:172
+#: src/LogbookDialog.cpp:1396
+msgid "Date"
+msgstr "Datum"
+
+#: src/LogbookDialog.cpp:173
+msgid "Time"
+msgstr "Čas"
+
+#: src/LogbookDialog.cpp:174
+msgid "Sign"
+msgstr ""
+
+#: src/LogbookDialog.cpp:175
+msgid "Watch"
+msgstr "Hlídka"
+
+#: src/LogbookDialog.cpp:176
+#: src/LogbookDialog.cpp:428
+#: src/LogbookOptions.cpp:248
+msgid "Distance"
+msgstr "Vzdálenost"
+
+#: src/LogbookDialog.cpp:177
+msgid "DistanceTotal"
+msgstr "Celková vzdálenost"
+
+#: src/LogbookDialog.cpp:178
+msgid "Position"
+msgstr "Pozice"
+
+#: src/LogbookDialog.cpp:179
+msgid "COG (T)"
+msgstr ""
+
+#: src/LogbookDialog.cpp:180
+#: src/LogbookOptions.cpp:323
+#: src/LogbookOptions.cpp:441
+msgid "Heading"
+msgstr ""
+
+#: src/LogbookDialog.cpp:181
+msgid "SOG"
+msgstr ""
+
+#: src/LogbookDialog.cpp:182
+msgid "STW"
+msgstr ""
+
+#: src/LogbookDialog.cpp:183
+msgid "Depth"
+msgstr "Hloubka"
+
+#: src/LogbookDialog.cpp:184
+#: src/LogbookDialog.cpp:303
+#: src/LogbookDialog.cpp:1030
+msgid "Remarks"
+msgstr "Poznámky"
+
+#: src/LogbookDialog.cpp:199
+msgid "Timer "
+msgstr "Časovač"
+
+#: src/LogbookDialog.cpp:204
+#: src/LogbookDialog.cpp:584
+#: src/LogbookDialog.cpp:1044
+#: src/LogbookDialog.cpp:1180
+#: src/LogbookDialog.cpp:1298
+#: src/LogbookDialog.cpp:1413
+#: src/LogbookDialog.cpp:2418
+msgid "Delete Row"
+msgstr "Smaž záznam"
+
+#: src/LogbookDialog.cpp:214
+#: src/LogbookOptions.cpp:218
+msgid "Navigation"
+msgstr "Navigace"
+
+#: src/LogbookDialog.cpp:242
+#: src/LogbookOptions.cpp:352
+msgid "Barometer"
+msgstr "Barometr"
+
+#: src/LogbookDialog.cpp:243
+msgid "Wind"
+msgstr "Vítr"
+
+#: src/LogbookDialog.cpp:244
+msgid "W/Strength"
+msgstr "V/Síla"
+
+#: src/LogbookDialog.cpp:245
+msgid "Current"
+msgstr "Proud"
+
+#: src/LogbookDialog.cpp:246
+msgid "C/Strength"
+msgstr "P/Síla"
+
+#: src/LogbookDialog.cpp:247
+msgid "Wave"
+msgstr "Vlna"
+
+#: src/LogbookDialog.cpp:248
+msgid "Swell"
+msgstr "Příboj"
+
+#: src/LogbookDialog.cpp:249
+#: src/LogbookDialog.cpp:268
+#: src/LogbookOptions.cpp:346
+msgid "Weather"
+msgstr "Počasí"
+
+#: src/LogbookDialog.cpp:250
+msgid "Clouds"
+msgstr "Mraky"
+
+#: src/LogbookDialog.cpp:251
+msgid "Visibility"
+msgstr "Viditelnost"
+
+#: src/LogbookDialog.cpp:295
+#: src/LogbookDialog.cpp:431
+msgid "Engine"
+msgstr "Motor"
+
+#: src/LogbookDialog.cpp:296
+msgid "EngineTotal"
+msgstr "Motor celkem"
+
+#: src/LogbookDialog.cpp:297
+#: src/LogbookDialog.cpp:432
+msgid "Fuel"
+msgstr "Palivo"
+
+#: src/LogbookDialog.cpp:298
+msgid "FuelTotal"
+msgstr "Palivo celkem"
+
+#: src/LogbookDialog.cpp:299
+#: src/LogbookDialog.cpp:442
+msgid "Sails"
+msgstr "Plachty"
+
+#: src/LogbookDialog.cpp:300
+msgid "Reef"
+msgstr "Ref"
+
+#: src/LogbookDialog.cpp:301
+#: src/LogbookDialog.cpp:433
+msgid "Water"
+msgstr "Voda"
+
+#: src/LogbookDialog.cpp:302
+msgid "WaterTotal"
+msgstr "Voda celkem"
+
+#: src/LogbookDialog.cpp:320
+msgid "Motor/Sails"
+msgstr "Motor/Plachty"
+
+#: src/LogbookDialog.cpp:426
+msgid "Start"
+msgstr "Start"
+
+#: src/LogbookDialog.cpp:427
+msgid "End"
+msgstr "Konec"
+
+#: src/LogbookDialog.cpp:429
+msgid "Etmal "
+msgstr "NM/24h"
+
+#: src/LogbookDialog.cpp:430
+msgid "Best Etmal"
+msgstr "Max NM/24h"
+
+#: src/LogbookDialog.cpp:434
+msgid "Wind "
+msgstr "Vítr"
+
+#: src/LogbookDialog.cpp:435
+msgid "Wind Peak"
+msgstr "Max vítr"
+
+#: src/LogbookDialog.cpp:436
+msgid "Current "
+msgstr "Proud"
+
+#: src/LogbookDialog.cpp:437
+msgid "Current Peak"
+msgstr "Max proud"
+
+#: src/LogbookDialog.cpp:438
+msgid "Wave "
+msgstr "Vlna"
+
+#: src/LogbookDialog.cpp:439
+msgid "Wave Peak"
+msgstr "Max vlna"
+
+#: src/LogbookDialog.cpp:440
+msgid "Swell "
+msgstr "Příboj"
+
+#: src/LogbookDialog.cpp:441
+msgid "Swell Peak"
+msgstr "Max příboj"
+
+#: src/LogbookDialog.cpp:458
+msgid "Goto Route"
+msgstr "Jít na trasu"
+
+#: src/LogbookDialog.cpp:462
+msgid "View Route"
+msgstr "Zobraz trasu"
+
+#: src/LogbookDialog.cpp:472
+msgid "Overview"
+msgstr "Přehled"
+
+#: src/LogbookDialog.cpp:485
+msgid "Add Crew"
+msgstr "Přidej posádku"
+
+#: src/LogbookDialog.cpp:557
+#: src/LogbookDialog.cpp:611
+#: src/LogbookDialog.cpp:709
+msgid "Name"
+msgstr "Příjmení"
+
+#: src/LogbookDialog.cpp:558
+msgid "Birthname"
+msgstr "Rodné příjmení"
+
+#: src/LogbookDialog.cpp:559
+#: src/LogbookDialog.cpp:612
+#: src/LogbookDialog.cpp:797
+msgid "Firstname"
+msgstr "Jméno"
+
+#: src/LogbookDialog.cpp:560
+#: src/LogbookDialog.cpp:1394
+msgid "Title"
+msgstr "Titul"
+
+#: src/LogbookDialog.cpp:561
+msgid "Date of Birth"
+msgstr "Datum narození"
+
+#: src/LogbookDialog.cpp:562
+msgid "Place of Birth"
+msgstr "Místo narození"
+
+#: src/LogbookDialog.cpp:563
+msgid "Nationality"
+msgstr "Národnost"
+
+#: src/LogbookDialog.cpp:564
+msgid "Passport-Nr"
+msgstr "Číslo pasu"
+
+#: src/LogbookDialog.cpp:565
+msgid "Issued in"
+msgstr "Vydán v"
+
+#: src/LogbookDialog.cpp:566
+msgid "Date of Issue"
+msgstr "Datum vydání"
+
+#: src/LogbookDialog.cpp:567
+#: src/LogbookDialog.cpp:830
+msgid "Zip"
+msgstr "PSČ"
+
+#: src/LogbookDialog.cpp:568
+msgid "Country"
+msgstr "Stát"
+
+#: src/LogbookDialog.cpp:569
+#: src/LogbookDialog.cpp:837
+msgid "Town"
+msgstr "Město"
+
+#: src/LogbookDialog.cpp:570
+#: src/LogbookDialog.cpp:823
+msgid "Street"
+msgstr "Ulice"
+
+#: src/LogbookDialog.cpp:613
+msgid "Start 1.Watch"
+msgstr "Začátek 1. hlídky"
+
+#: src/LogbookDialog.cpp:614
+msgid "End 1.Watch"
+msgstr "Konec 1. hlídky"
+
+#: src/LogbookDialog.cpp:615
+msgid "Start 2.Watch"
+msgstr "Začátek 2. hlídky"
+
+#: src/LogbookDialog.cpp:616
+msgid "End 2.Watch"
+msgstr "Konec 2. hlídky"
+
+#: src/LogbookDialog.cpp:617
+msgid "Start 3.Watch"
+msgstr "Začátek 3. hlídky"
+
+#: src/LogbookDialog.cpp:618
+msgid "End 3.Watch"
+msgstr "Konec 3. hlídky"
+
+#: src/LogbookDialog.cpp:637
+msgid "Crewlist"
+msgstr ""
+
+#: src/LogbookDialog.cpp:650
+msgid "Add Equipment"
+msgstr "Přidat vybavení"
+
+#: src/LogbookDialog.cpp:702
+#: src/LogbookDialog.cpp:1059
+#: src/LogbookDialog.cpp:2871
+msgid "Boat"
+msgstr "Loď"
+
+#: src/LogbookDialog.cpp:716
+msgid "Homeport"
+msgstr "Domovský přístav"
+
+#: src/LogbookDialog.cpp:723
+msgid "Callsign"
+msgstr "Volací znak"
+
+#: src/LogbookDialog.cpp:730
+msgid "HIN-Nr."
+msgstr "Č. trupu"
+
+#: src/LogbookDialog.cpp:737
+msgid "Sail-Nr."
+msgstr "Č. plachty"
+
+#: src/LogbookDialog.cpp:750
+msgid "Insurance"
+msgstr "Pojištění"
+
+#: src/LogbookDialog.cpp:757
+msgid "Registration"
+msgstr "Registrace"
+
+#: src/LogbookDialog.cpp:764
+msgid "Policy"
+msgstr "Podmínky"
+
+#: src/LogbookDialog.cpp:771
+msgid "MMSI"
+msgstr ""
+
+#: src/LogbookDialog.cpp:783
+msgid "Owner"
+msgstr "Majitel"
+
+#: src/LogbookDialog.cpp:790
+msgid "Name      "
+msgstr "Jméno"
+
+#: src/LogbookDialog.cpp:804
+msgid "Telephone"
+msgstr "Telefon"
+
+#: src/LogbookDialog.cpp:849
+msgid "Details"
+msgstr "Detaily"
+
+#: src/LogbookDialog.cpp:856
+#: src/LogbookDialog.cpp:1027
+msgid "Type"
+msgstr "Typ"
+
+#: src/LogbookDialog.cpp:863
+msgid "Builder"
+msgstr "Stavitel"
+
+#: src/LogbookDialog.cpp:870
+msgid "Hull"
+msgstr "Trup"
+
+#: src/LogbookDialog.cpp:877
+msgid "Date Launched"
+msgstr "Datum spuštění"
+
+#: src/LogbookDialog.cpp:884
+msgid "Yard-Nr."
+msgstr "Č. doku"
+
+#: src/LogbookDialog.cpp:891
+msgid "Designer"
+msgstr "Designer"
+
+#: src/LogbookDialog.cpp:898
+msgid "Construction"
+msgstr "Konstrukce"
+
+#: src/LogbookDialog.cpp:923
+msgid "LOA"
+msgstr ""
+
+#: src/LogbookDialog.cpp:928
+msgid "Length over all"
+msgstr "Celková délka"
+
+#: src/LogbookDialog.cpp:932
+msgid "LOD"
+msgstr ""
+
+#: src/LogbookDialog.cpp:937
+msgid "Length over Deck"
+msgstr "Délka přes palubu"
+
+#: src/LogbookDialog.cpp:941
+msgid "LWL"
+msgstr ""
+
+#: src/LogbookDialog.cpp:946
+msgid "Length in Waterline"
+msgstr "Délka vodorysky"
+
+#: src/LogbookDialog.cpp:950
+msgid "Beam"
+msgstr "Šířka"
+
+#: src/LogbookDialog.cpp:955
+msgid "Greatest Width of Hull"
+msgstr "Největší šířka trupu"
+
+#: src/LogbookDialog.cpp:959
+msgid "Draft"
+msgstr "Ponor"
+
+#: src/LogbookDialog.cpp:966
+msgid "GRT"
+msgstr ""
+
+#: src/LogbookDialog.cpp:971
+msgid "GrossTonnage"
+msgstr "Celková registrovaná prostornost"
+
+#: src/LogbookDialog.cpp:975
+msgid "NRT"
+msgstr ""
+
+#: src/LogbookDialog.cpp:980
+msgid "NetTonnage"
+msgstr "Čistá registrovaná prostornost"
+
+#: src/LogbookDialog.cpp:984
+msgid "Thames"
+msgstr ""
+
+#: src/LogbookDialog.cpp:991
+msgid "Displacement"
+msgstr "Výtlak"
+
+#: src/LogbookDialog.cpp:1007
+msgid "Equipment"
+msgstr "Vybavení"
+
+#: src/LogbookDialog.cpp:1028
+msgid "Description"
+msgstr "Popis"
+
+#: src/LogbookDialog.cpp:1029
+msgid "Serial-Nr."
+msgstr "Cériové č."
+
+#: src/LogbookDialog.cpp:1085
+#: src/LogbookDialog.cpp:1212
+#: src/LogbookDialog.cpp:1330
+#: src/LogbookDialog.cpp:1450
+msgid "Select Layout:"
+msgstr "Vyber rozložení:"
+
+#: src/LogbookDialog.cpp:1118
+#: src/LogbookDialog.cpp:1245
+#: src/LogbookDialog.cpp:1363
+#: src/LogbookDialog.cpp:1494
+msgid "Work in Progress"
+msgstr "Ve výrobě"
+
+#: src/LogbookDialog.cpp:1147
+#: src/LogbookDialog.cpp:1270
+#: src/LogbookDialog.cpp:1392
+msgid "Priority"
+msgstr "Priorita"
+
+#: src/LogbookDialog.cpp:1148
+msgid "Service TODO"
+msgstr "Co servisovat"
+
+#: src/LogbookDialog.cpp:1149
+msgid "If"
+msgstr "Pokud"
+
+#: src/LogbookDialog.cpp:1150
+msgid "Warnvalue"
+msgstr "Hodnota varování"
+
+#: src/LogbookDialog.cpp:1151
+msgid "Urgentvalue"
+msgstr "Urgentní hodnota"
+
+#: src/LogbookDialog.cpp:1152
+msgid "Startvalue"
+msgstr "Počáteční hodnota"
+
+#: src/LogbookDialog.cpp:1153
+#: src/LogbookDialog.cpp:1398
+msgid "Active"
+msgstr "Aktivní"
+
+#: src/LogbookDialog.cpp:1169
+msgid "Service done"
+msgstr "Servis proveden"
+
+#: src/LogbookDialog.cpp:1173
+msgid "Buy parts for this service"
+msgstr "Koupit díly na tento servis"
+
+#: src/LogbookDialog.cpp:1191
+msgid "Service"
+msgstr "Servis"
+
+#: src/LogbookDialog.cpp:1271
+msgid "RepairsTODO"
+msgstr "Co opravit"
+
+#: src/LogbookDialog.cpp:1287
+msgid "Repair done"
+msgstr "Oprava provedena"
+
+#: src/LogbookDialog.cpp:1291
+msgid "Buy parts for this repair"
+msgstr "Koupit díly na tuto opravu"
+
+#: src/LogbookDialog.cpp:1309
+msgid "Repairs"
+msgstr "Opravy"
+
+#: src/LogbookDialog.cpp:1393
+msgid "Category"
+msgstr "Kategorie"
+
+#: src/LogbookDialog.cpp:1395
+#: src/LogbookDialog.cpp:1424
+msgid "Buy Parts"
+msgstr "Koupit díly"
+
+#: src/LogbookDialog.cpp:1397
+msgid "At"
+msgstr "U"
+
+#: src/LogbookDialog.cpp:1513
+msgid "Today"
+msgstr "Dnes"
+
+#: src/LogbookDialog.cpp:1518
+msgid "Week"
+msgstr "Týden"
+
+#: src/LogbookDialog.cpp:1523
+msgid "Month"
+msgstr "Měsíc"
+
+#: src/LogbookDialog.cpp:1567
+msgid "Schedule"
+msgstr "Rozvrh"
+
+#: src/LogbookDialog.cpp:1574
+msgid "Maintenance"
+msgstr "Údržba"
+
+#: src/LogbookDialog.cpp:2003
+#: src/LogbookDialog.cpp:2041
+msgid "none"
+msgstr "nic"
+
+#: src/LogbookDialog.cpp:2187
+msgid "Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
+msgstr ""
+
+#: src/LogbookDialog.cpp:2192
+#: src/LogbookOptions.cpp:708
+msgid " - Timer on - Interval: "
+msgstr " - Časovač běží - Interval:"
+
+#: src/LogbookDialog.cpp:2282
+msgid "available in version 0.908"
+msgstr "dostupné ve verzi 0908"
+
+#: src/LogbookDialog.cpp:2389
+msgid "Select Route"
+msgstr "Vyber trasu"
+
+#: src/LogbookDialog.cpp:2419
+#: src/LogbookOptions.cpp:85
+msgid "Timer"
+msgstr "Časovač"
+
+#: src/LogbookDialog.cpp:2472
+msgid "Save Logbook File"
+msgstr "Ulož soubor deníku"
+
+#: src/LogbookDialog.cpp:2517
+msgid ""
+"Timer has 0 h 0 Min 0 sec.\n"
+"\n"
+"Please change settings in Options"
+msgstr ""
+"Časovač má 0h 0m 0s\n"
+"\n"
+"Prosím změň hodnoty v nastavení"
+
+#: src/LogbookDialog.cpp:2658
+msgid ""
+"No Path set to HTML-Editor\n"
+"in ToolBox/Plugins/LogbookKonni/Preferences"
+msgstr ""
+"Není nastavena cesta k editoru HTML\n"
+"v Nástroje/Zásuvné moduly/LogbookKonni/Nastavení"
+
+#: src/LogbookDialog.cpp:2767
+msgid "Save CrewList File"
+msgstr "Ulož soubor seznamu posádky"
+
+#: src/LogbookDialog.cpp:2767
+msgid "CrewList"
+msgstr "Seznam posádky"
+
+#: src/LogbookDialog.cpp:2871
+msgid "Save Boat File"
+msgstr "Ulož soubor lodi"
+
+#: src/LogbookOptions.cpp:42
+msgid "Show Logbook Icon"
+msgstr "Zobraz ikonu deníku"
+
+#: src/LogbookOptions.cpp:52
+msgid "Show all Layouts"
+msgstr "Zobraz všechna rozvržení"
+
+#: src/LogbookOptions.cpp:56
+msgid "Only Layouts with prefix:"
+msgstr "Pouze rozložení s prefixem:"
+
+#: src/LogbookOptions.cpp:62
+msgid "Show Maintence Rows coloured"
+msgstr "Zobraz řádky údržby v barvě"
+
+#: src/LogbookOptions.cpp:68
+msgid "Write warning \"No GPS\""
+msgstr "Vypisuj varování \"Není GPS\""
+
+#: src/LogbookOptions.cpp:102
+msgid "Timer on/off"
+msgstr "Časovač zap./vyp."
+
+#: src/LogbookOptions.cpp:108
+msgid "Interval:"
+msgstr "Interval:"
+
+#: src/LogbookOptions.cpp:132
+msgid "s"
+msgstr ""
+
+#: src/LogbookOptions.cpp:136
+msgid ""
+"Automatic Line by Timer\n"
+"you can set/unset a timer\n"
+"or change this text in options"
+msgstr ""
+"Automatický záznam časovače\n"
+"\n"
+"Můžeš nastavit nebo zrušit interval časovače\n"
+"nebo změnit tento text v Nástroje/Zásuvné moduly/Lodní deník"
+
+#: src/LogbookOptions.cpp:149
+msgid "UTC"
+msgstr ""
+
+#: src/LogbookOptions.cpp:152
+msgid "Local = UTC"
+msgstr "Lokální = UTC"
+
+#: src/LogbookOptions.cpp:172
+msgid "GPS Auto (Ocean Crossing)"
+msgstr "GPS Auto (přejezd oceánu)"
+
+#: src/LogbookOptions.cpp:174
+msgid "not implemented yet"
+msgstr "zatím neimplementováno"
+
+#: src/LogbookOptions.cpp:183
+msgid "Abbreviations"
+msgstr "Zkratky"
+
+#: src/LogbookOptions.cpp:224
+msgid "Degres"
+msgstr "Stupně"
+
+#: src/LogbookOptions.cpp:231
+msgid "Minutes"
+msgstr "Minuty"
+
+#: src/LogbookOptions.cpp:238
+msgid "Seconds"
+msgstr "Sekundy"
+
+#: src/LogbookOptions.cpp:255
+msgid "Speed"
+msgstr "Rychlost"
+
+#: src/LogbookOptions.cpp:271
+msgid "Show Depth in"
+msgstr "Zobraz hloubku v"
+
+#: src/LogbookOptions.cpp:275
+#: src/LogbookOptions.cpp:281
+#: src/LogbookOptions.cpp:301
+msgid "Meter"
+msgstr "Metry"
+
+#: src/LogbookOptions.cpp:275
+#: src/LogbookOptions.cpp:301
+#: src/LogbookOptions.cpp:307
+msgid "Feet"
+msgstr "Stopy"
+
+#: src/LogbookOptions.cpp:275
+#: src/LogbookOptions.cpp:301
+#: src/LogbookOptions.cpp:333
+msgid "Fathom"
+msgstr "Fathomy"
+
+#: src/LogbookOptions.cpp:297
+msgid "Show Wave/Swell in"
+msgstr "Zobraz vlny/příboj v"
+
+#: src/LogbookOptions.cpp:327
+#: src/LogbookOptions.cpp:431
+msgid "True"
+msgstr "Skutečný"
+
+#: src/LogbookOptions.cpp:327
+msgid "Magnetic"
+msgstr "Magnetický"
+
+#: src/LogbookOptions.cpp:337
+msgid "fm"
+msgstr ""
+
+#: src/LogbookOptions.cpp:359
+msgid "Windspeed"
+msgstr "Rychlost větru"
+
+#: src/LogbookOptions.cpp:417
+msgid "Windspeed (GPS off)"
+msgstr "Rychlost větru (bez GPS)"
+
+#: src/LogbookOptions.cpp:427
+msgid "Direction"
+msgstr "Směr"
+
+#: src/LogbookOptions.cpp:431
+msgid "Relative"
+msgstr "Relativní"
+
+#: src/LogbookOptions.cpp:437
+msgid "to"
+msgstr "do"
+
+#: src/LogbookOptions.cpp:441
+msgid "default"
+msgstr ""
+
+#: src/LogbookOptions.cpp:448
+msgid "Fuel/Water"
+msgstr "Palivo/voda"
+
+#: src/LogbookOptions.cpp:454
+msgid "Capacity"
+msgstr "Kapacita"
+
+#: src/LogbookOptions.cpp:461
+msgid "Motor Hours"
+msgstr "Motohodiny"
+
+#: src/LogbookOptions.cpp:491
+msgid "Install OpenCPN_Logbook_Layouts.zip"
+msgstr "Nainstalovat OpenCPN_Logbook_Layouts.zip"
+
+#: src/LogbookOptions.cpp:499
+msgid "Path to HTML-Editor (optional)"
+msgstr "Cesta k editoru HTML (volitelné)"
+
+#: src/LogbookOptions.cpp:689
+msgid "Sorry, 0 Hrs 0 Min 0 Sec are not possible"
+msgstr "Promiň, 0h 0m 0s není možné"
+
+#: src/LogbookOptions.cpp:764
+msgid "Set Path to HTML-Editor"
+msgstr "Nastavit cestu k editoru HTML"
+
+#: src/LogbookHTML.cpp:111
+#: src/LogbookHTML.cpp:386
+#: src/CrewList.cpp:221
+#: src/CrewList.cpp:446
+#: src/boat.cpp:247
+#: src/boat.cpp:463
+msgid "Sorry, no Layout installed"
+msgstr "Promiň, není instalováno žádné rozvržení"
+
+#: src/LogbookHTML.cpp:188
+#: src/CrewList.cpp:680
+msgid "Sorry, Logbook has no lines"
+msgstr "Promiň, deník nemá žádné záznamy"
+
+#: src/LogbookHTML.cpp:203
+msgid ""
+"\n"
+"not found in layoutfile "
+msgstr ""
+"\n"
+"nenalezeno v souboru rozvržení"
+
+#: src/LogbookHTML.cpp:203
+msgid ""
+"!\n"
+"\n"
+"Did you forget to add this line in your layout ?"
+msgstr ""
+"!\n"
+"\n"
+"Nezapomněl's přidat tuto řádku v rozvržení?"
+
+#: src/LogbookHTML.cpp:395
+msgid ""
+"Have You forgotten to enclose the Header with [[ and ]]\n"
+" or Data with {{ and }} ?"
+msgstr ""
+"Nezapomněl's uzavřít hlavičku do [[ a ]]\n"
+" nebo Data do {{ a }} ?"
+
+#: src/LogbookHTML.cpp:531
+#: src/LogbookHTML.cpp:577
+msgid "Sorry, Your Logbook has no lines"
+msgstr "Promiň, Tvůj deník nemá žádné řádky"
+
