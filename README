@@ -1,0 +1,23 @@
+Logbook Konni for OpenCPN
+==========================
+
+Building from source
+--------------------
+Clone the git repository to <OPENCPN_SOURCE_TLD>/plugins/LogbookKonni_pi (the _pi at the end matters!)
+cd <OPENCPN_SOURCE_TLD>/plugins
+git clone git://github.com/nohal/LogbookKonni.git LogbookKonni_pi
+
+Build OpenCPN as normally (build instructions on http://opencpn.org)
+
+Localizations distribution
+--------------------------
+OpenCPN_Logbook_Languages.zip
+The .mo files belong to the respective directory structure
+eg. 
+de\LC_MESSAGES\opencpn-logbookkonni_pi.mo
+es\LC_MESSAGES\opencpn-logbookkonni_pi.mo
+etc.
+
+Layouts distribution
+--------------------
+Zip the contents of data\Layouts into OpenCPN_Logbook_Layouts.zip
