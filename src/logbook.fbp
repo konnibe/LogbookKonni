@@ -18161,7 +18161,7 @@
             <property name="minimum_size"></property>
             <property name="name">SelectLogbook</property>
             <property name="pos"></property>
-            <property name="size">219,252</property>
+            <property name="size">297,252</property>
             <property name="style">wxDEFAULT_DIALOG_STYLE</property>
             <property name="subclass"></property>
             <property name="title">Select Logbook</property>
@@ -18249,8 +18249,8 @@
                                 <property name="name">m_listCtrlSelectLogbook</property>
                                 <property name="permission">public</property>
                                 <property name="pos"></property>
-                                <property name="size">200,180</property>
-                                <property name="style">wxLC_ICON</property>
+                                <property name="size">280,180</property>
+                                <property name="style">wxLC_LIST|wxLC_SINGLE_SEL</property>
                                 <property name="subclass"></property>
                                 <property name="tooltip"></property>
                                 <property name="validator_data_type"></property>

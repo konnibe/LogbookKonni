@@ -2296,7 +2296,7 @@ void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )
 	else if(ev.GetId() == SELECT_ROUTE)
 	{
 		RouteDialog *dlg = new RouteDialog(this);
-		    wxListItem itemCol;
+		wxListItem itemCol;
 		itemCol.SetText(_T("Route"));
 		itemCol.SetImage(-1);
 		itemCol.SetWidth(225);
@@ -3798,7 +3798,7 @@ SelectLogbook::SelectLogbook( wxWindow* parent, wxString path, wxWindowID id, co
 	fgSizer27->SetFlexibleDirection( wxBOTH );
 	fgSizer27->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
-	m_listCtrlSelectLogbook = new wxListCtrl( this, wxID_ANY, wxDefaultPosition, wxSize( 200,180 ), wxLC_ICON );
+	m_listCtrlSelectLogbook = new wxListCtrl( this, wxID_ANY, wxDefaultPosition, wxSize( 280,180 ), wxLC_LIST|wxLC_SINGLE_SEL );
 	fgSizer27->Add( m_listCtrlSelectLogbook, 0, wxALL, 5 );
 	
 	fgSizer26->Add( fgSizer27, 1, wxEXPAND, 5 );
@@ -3825,9 +3825,60 @@ SelectLogbook::~SelectLogbook()
 
 void SelectLogbook::OnInit(wxInitDialogEvent& ev)
 {
-	wxArrayString files;
+	wxString filename;
+	wxDateTime dtfrom, dtto;
+	wxListItem itemCol;
+	itemCol.SetText(_T("Logbuch"));
+	itemCol.SetImage(-1);
+	itemCol.SetWidth(200);
+	m_listCtrlSelectLogbook->InsertColumn(0, itemCol);
+
 	wxDir::GetAllFiles(path,&files,_T("*logbook.txt"));
-	wxListItem *item = new wxListItem();
-	item->SetData(&files);
-	this->m_listCtrlSelectLogbook->InsertItem(*item);
+
+	for(unsigned int i = 0; i < files.Count(); i++)
+	{
+		wxFileName fn(files[i]);
+		filename = fn.GetName();
+		if(filename == _T("logbook"))
+			filename = _("Actuell Logbook");
+		else
+		{
+			dtto = getDateTo(filename);
+			wxFileInputStream input( files[i]);
+			wxTextInputStream text( input );
+			wxString t = text.ReadLine();
+			wxStringTokenizer tk(t,_T("	"));
+			tk.GetNextToken();
+			wxString date = tk.GetNextToken();
+			date = dtfrom.ParseDate(date);
+			filename = wxString::Format(_("Logbook from %s to %s"),dtfrom.FormatDate(), dtto.FormatDate()); 
+		}
+		m_listCtrlSelectLogbook->InsertItem(i,filename);
+	}
+}
+
+wxDateTime SelectLogbook::getDateTo(wxString filename)
+{
+	wxDateTime dt;
+	dt = dt.Now();
+	wxString from, to, token, year, month, day;
+	long tday;
+	long tmonth;
+	long tyear;
+
+	to = filename.substr(filename.find_first_of('_')+1);
+	to = to.substr(0,to.find_first_of('_')+1);
+	to = to.RemoveLast();
+	wxStringTokenizer tkz(to,_T("-"));
+	year = tkz.GetNextToken();
+	month = tkz.GetNextToken();
+	day = tkz.GetNextToken();
+	day.ToLong(&tday);
+	month.ToLong(&tmonth);
+	year.ToLong(&tyear);
+	dt.SetYear((int)tyear);
+	dt.SetMonth((wxDateTime::Month)(tmonth-1));
+	dt.SetDay((int)tday);
+
+	return dt;
 }

@@ -585,6 +585,7 @@ class SelectLogbook : public wxDialog
 {
 	private:
 		wxString path;
+		wxDateTime getDateTo(wxString filename);
 	
 	protected:
 		wxStdDialogButtonSizer* m_sdbSizer4;
@@ -593,10 +594,11 @@ class SelectLogbook : public wxDialog
 	
 	public:
 		wxListCtrl* m_listCtrlSelectLogbook;
+		wxArrayString files;
 
 		virtual void OnInit( wxInitDialogEvent& event );
 		
-		SelectLogbook( wxWindow* parent, wxString path, wxWindowID id = wxID_ANY, const wxString& title = wxT("Select Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 219,252 ), long style = wxDEFAULT_DIALOG_STYLE );
+		SelectLogbook( wxWindow* parent, wxString path, wxWindowID id = wxID_ANY, const wxString& title = wxT("Select Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 297,252), long style = wxDEFAULT_DIALOG_STYLE );
 		~SelectLogbook();
 	
 };

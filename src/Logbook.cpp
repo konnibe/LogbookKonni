@@ -331,6 +331,7 @@ void Logbook::newLogbook()
 
 void Logbook::selectLogbook()
 {
+	int selIndex = -1;
 	wxString path(*dialog->pHome_Locn);
 	path = path + wxFileName::GetPathSeparator() + _T("data");
 
@@ -339,20 +340,24 @@ void Logbook::selectLogbook()
 	if(selLogbook.ShowModal() == wxID_CANCEL)
 		return;
 
-    wxFileDialog 
+	selIndex = selLogbook.m_listCtrlSelectLogbook->GetNextItem(selIndex,wxLIST_NEXT_ALL,wxLIST_STATE_SELECTED);
+	if(selIndex == -1) return;
+	
+wxString s = selLogbook.files[selIndex];
+/*    wxFileDialog 
             openFileDialog(dialog, _("Open old logbook file"), path, _T("*logbook*.txt"),
                            _("Logbook files (*.txt)|*.txt"), wxFD_OPEN|wxFD_FILE_MUST_EXIST);
 
     if (openFileDialog.ShowModal() == wxID_CANCEL)
             return;  
-
+*/
 	update();
 
 	for(int i = 0; i < LOGGRIDS; i++)
 		if(dialog->logGrids[i]->GetNumberRows() != 0)
 			dialog->logGrids[i]->DeleteRows(0,dialog->logGrids[i]->GetNumberRows());
 
-	wxString s = openFileDialog.GetPath();
+//	wxString s = openFileDialog.GetPath();
 	data_locn = s;
 	logbookFile = new wxTextFile(s);
 	setFileName(s,layout_locn);
