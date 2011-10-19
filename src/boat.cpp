@@ -38,16 +38,15 @@ Boat::Boat(LogbookDialog* d, wxString data, wxString lay, wxString layoutODT)
 
 Boat::~Boat(void)
 {
-/*	for(unsigned int i = 0; i < ctrl.GetCount(); i++)
+	for(unsigned int i = 0; i < ctrl.GetCount(); i++)
 	{
 		if(ctrl[i]->IsKindOf(CLASSINFO(wxTextCtrl)))
 		{
 			bool t =ctrl[i]->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, 
-				wxObjectEventFunction(&Boat::textCtrlOnTextChanged)  );
+				wxObjectEventFunction(&LogbookDialog::boatNameOnTextEnter)  );
 		}
 	}
-	ctrl.Clear();
-	*/
+//	ctrl.Clear();
 	saveData();
 }
 
@@ -168,6 +167,8 @@ void Boat::loadData()
 
 void Boat::saveData()
 {
+	if(!modified) return;
+
 	wxString t,s;
 
 	boatFile->Open();
@@ -657,6 +658,8 @@ void Boat::addEquip()
 {
 	wxString s;
 
+	modified = true;
+
 	parent->m_gridEquipment->AppendRows();
 	parent->m_gridEquipment->SetCellValue(parent->m_gridEquipment->GetNumberRows()-1,
 										  parent->m_gridEquipment->GetNumberCols()-1,_T(" "));
@@ -674,6 +677,8 @@ void Boat::addEquip()
 }
 void Boat::cellChanged(int row, int col)
 {
+	modified = true;
+
 	if(parent->m_gridEquipment->GetCellValue(
 		row,parent->m_gridEquipment->GetNumberCols()-1) == _T(""))
 			parent->m_gridEquipment->SetCellValue(

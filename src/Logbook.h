@@ -56,6 +56,7 @@ public:
 	wxString		layout_locn;
 	wxString		layoutODT;
 	wxString		data_locn;
+	bool			modified;
 
 public:
 	Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString layoutODT);
@@ -64,6 +65,7 @@ public:
 	void SetSentence(wxString &sentence);
 	void SetPosition(PlugIn_Position_Fix &pfix);
 	void loadData();
+	void loadSelectedData(wxString path);
 	void loadDatanew();
 	void deleteRow(int row);
 	void appendRow();
