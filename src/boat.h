@@ -34,6 +34,8 @@ public:
 	wxString		layout_locn;
 	wxString		layout;
 	wxString		ODTLayout;
+
+	bool			modified;
 private:
 	LogbookDialog*	parent; 
 	wxTextFile*		boatFile;
@@ -48,7 +50,7 @@ private:
 
 	wxWindowList	ctrl;		// all wxTextCtrl's in Window;
 	wxWindowList    ctrlStaticText; // all wxStaticText in Window
-	bool			modified;
+
 
 	void createFiles(wxString data, wxString lay);
 	void loadData();
@@ -59,7 +61,7 @@ private:
 	void saveODS( wxString path, bool mode );
 	wxString repeatArea(wxString html);
 	wxString repeatAreaODT(wxString odt);
-	void boatNameOnText( wxCommandEvent& ev );
+//	void boatOnTextEnter( wxCommandEvent& ev );
 
  //   DECLARE_EVENT_TABLE()
 

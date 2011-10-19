@@ -40,6 +40,8 @@ private:
 	wxString readLayoutODT(wxString layoutFileName);
 	wxString replacePlaceholder(wxString html, wxString s);
 
+	bool modified;
+
 	wxTextFile* crewListFile;
 	
 
