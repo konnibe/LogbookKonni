@@ -234,6 +234,7 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		// Virtual event handlers, overide them in your derived class
 		virtual void LogbookDialogOnClose( wxCloseEvent& event ) ;
 		virtual void LogbookDialogOnInitDialog( wxInitDialogEvent& event ) ;
+		virtual void OnNoteBookPageChangedLogbook( wxNotebookEvent& event );
 		virtual void m_button4OnButtonClick( wxCommandEvent& event ) ;
 		virtual void logSaveOnButtonClick( wxCommandEvent& event ) ;
 		virtual void onButtonReloadLayoutLogbook( wxCommandEvent& event ) ;
@@ -332,6 +333,9 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		virtual void OnGridLabelLeftClickOverview( wxGridEvent& event );
 		virtual void OnMenuSelectionGotoRoute( wxCommandEvent& event );
 		virtual void OnMenuSelectionViewRoute( wxCommandEvent& event );
+		virtual void onButtonClickSelectLogbook( wxCommandEvent& event );
+		virtual void OnRadioButtonActuellLogbook( wxCommandEvent& event );
+		virtual void OnRadioButtonAllLogbooks( wxCommandEvent& event );
 
 /*		virtual void onButtobClickAddLineMaintenance( wxCommandEvent& event ) ;
 		virtual void onButtobClickSaveMaintenance( wxCommandEvent& event ) ;
@@ -363,6 +367,9 @@ enum FORMAT {HTML,ODT};
 		wxButton* m_buttonEditLayoutOview;
 		wxRadioButton* m_radioBtnHTMLOverview;
 		wxRadioButton* m_radioBtnODTOverview;
+		wxRadioButton* m_radioBtnActuellLogbook;
+		wxRadioButton* m_radioBtnAllLogbooks;
+		wxButton* m_buttonSelectLogbook;
 		wxButton* m_buttonReloadCrew;
 		wxButton* m_buttonEditLayoutCrew;
 		wxRadioButton* m_radioBtnHTMLCrew;
@@ -433,6 +440,7 @@ enum FORMAT {HTML,ODT};
 		}
 
 		void writeToLogbook();
+		void setTitleExt();
 		wxString replaceDangerChar(wxString s);
 		wxString restoreDangerChar(wxString s);
 		void startBrowser(wxString filename);
@@ -585,6 +593,7 @@ class SelectLogbook : public wxDialog
 {
 	private:
 		wxString path;
+		wxDateTime getDateTo(wxString filename);
 	
 	protected:
 		wxStdDialogButtonSizer* m_sdbSizer4;
@@ -593,10 +602,11 @@ class SelectLogbook : public wxDialog
 	
 	public:
 		wxListCtrl* m_listCtrlSelectLogbook;
+		wxArrayString files;
 
 		virtual void OnInit( wxInitDialogEvent& event );
 		
-		SelectLogbook( wxWindow* parent, wxString path, wxWindowID id = wxID_ANY, const wxString& title = wxT("Select Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 219,252 ), long style = wxDEFAULT_DIALOG_STYLE );
+		SelectLogbook( wxWindow* parent, wxString path, wxWindowID id = wxID_ANY, const wxString& title = wxT("Select Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 297,252), long style = wxDEFAULT_DIALOG_STYLE );
 		~SelectLogbook();
 	
 };

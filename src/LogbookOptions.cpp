@@ -544,9 +544,9 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	setValues();
 	if(opt->timer)
 	{
-		this->m_textCtrTimerH->SetEditable(false);
-		this->m_textCtrlTimerM->SetEditable(false);
-		this->m_textCtrlTimerS->SetEditable(false);
+		this->m_textCtrTimerH->Enable(false);
+		this->m_textCtrlTimerM->Enable(false);
+		this->m_textCtrlTimerS->Enable(false);
 	}
 }
 
@@ -707,8 +707,9 @@ void LogbookOptions::m_checkBoxTimerOnCheckBox( wxCommandEvent& ev )
 		}
 		else
 		{
-			log_pi->m_plogbook_window->titleExt = _(" - Timer on - Interval: ")+wxString::Format(_T("%s h %s m %s s"),
-				this->m_textCtrTimerH->GetValue().c_str(),this->m_textCtrlTimerM->GetValue().c_str(),this->m_textCtrlTimerS->GetValue().c_str());
+			log_pi->m_plogbook_window->setTitleExt();
+			//titleExt = _(" - Timer on - Interval: ")+wxString::Format(_T("%s h %s m %s s"),
+			//	this->m_textCtrTimerH->GetValue().c_str(),this->m_textCtrlTimerM->GetValue().c_str(),this->m_textCtrlTimerS->GetValue().c_str());
 			log_pi->m_plogbook_window->SetTitle(log_pi->m_plogbook_window->GetTitle()+ log_pi->m_plogbook_window->titleExt);
 		}
 

@@ -35,6 +35,7 @@ Logbook::Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString
 : LogbookHTML(this,parent,data,layout)
 {
 	noSentence = true;
+	modified = false;
 	wxString logLay;
 
 	dialog = parent;
@@ -68,6 +69,7 @@ Logbook::Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString
 
 Logbook::~Logbook(void)
 {
+	update();
 }
 
 void Logbook::setLayoutLocation(wxString loc)
@@ -331,6 +333,7 @@ void Logbook::newLogbook()
 
 void Logbook::selectLogbook()
 {
+	int selIndex = -1;
 	wxString path(*dialog->pHome_Locn);
 	path = path + wxFileName::GetPathSeparator() + _T("data");
 
@@ -339,12 +342,10 @@ void Logbook::selectLogbook()
 	if(selLogbook.ShowModal() == wxID_CANCEL)
 		return;
 
-    wxFileDialog 
-            openFileDialog(dialog, _("Open old logbook file"), path, _T("*logbook*.txt"),
-                           _("Logbook files (*.txt)|*.txt"), wxFD_OPEN|wxFD_FILE_MUST_EXIST);
-
-    if (openFileDialog.ShowModal() == wxID_CANCEL)
-            return;  
+	selIndex = selLogbook.m_listCtrlSelectLogbook->GetNextItem(selIndex,wxLIST_NEXT_ALL,wxLIST_STATE_SELECTED);
+	if(selIndex == -1) return;
+	
+	wxString s = selLogbook.files[selIndex];
 
 	update();
 
@@ -352,21 +353,23 @@ void Logbook::selectLogbook()
 		if(dialog->logGrids[i]->GetNumberRows() != 0)
 			dialog->logGrids[i]->DeleteRows(0,dialog->logGrids[i]->GetNumberRows());
 
-	wxString s = openFileDialog.GetPath();
-	data_locn = s;
-	logbookFile = new wxTextFile(s);
-	setFileName(s,layout_locn);
-	wxFileName fn(s);
-	s = fn.GetName();
-	wxString ss = s.at(0);
+	loadSelectedData(s);
+}
+
+void Logbook::loadSelectedData(wxString path)
+{
+	data_locn = path;
+	logbookFile = new wxTextFile(path);
+	setFileName(path,layout_locn);
+	wxFileName fn(path);
+	path = fn.GetName();
+	wxString ss = path.at(0);
 	ss = ss.Upper();
-	ss += s.SubString(1,s.Length()-1);
+	ss += path.SubString(1,path.Length()-1);
 	dialog->SetTitle(ss);
 
 	loadData();
 }
-
-
 void Logbook::clearAllGrids()
 {
 	if(dialog->m_gridGlobal->GetNumberRows() > 0)
@@ -624,6 +627,7 @@ void Logbook::appendRow()
 
 	checkGPS();
 	if(noAppend) return;
+	modified = true;
 
 	wxFileName fn(logbookFile->GetName());
 	if(fn.GetName() != (_T("logbook")))
@@ -865,6 +869,8 @@ void Logbook::changeCellValue(int row, int col, int mode)
 
 void Logbook::update()
 {
+	if(!modified) return;
+
 	wxString s = _T(""), temp;
 
 	wxString newLocn = data_locn;
@@ -896,6 +902,8 @@ void Logbook::update()
 void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 {
 	wxString s, wind, depth;
+
+	modified = true;
 
 	s = dialog->logGrids[grid]->GetCellValue(row,col);
 

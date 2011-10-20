@@ -14,6 +14,7 @@
 
 class LogbookDialog;
 class Options;
+class Logbook;
 
 class OverView
 {
@@ -21,23 +22,34 @@ public:
 	OverView(LogbookDialog* d, wxString data, wxString lay, wxString layoutODT);
 	~OverView(void);
 
+	void refresh();
+	void actuellLogbook();
+	void allLogbooks();
+	void selectLogbook();
+	void setSelectedRow(int row);
+	void gotoRoute();
+
 private:
 	enum logfields{ROUTE,DATE, TIME, SIGN,WATCH, DISTANCE, DISTANCETOTAL, POSITION, COG, HEADING, SOG, STW, DEPTH,
 					REMARKS, BAROMETER, WIND, WINDFORCE, CURRENT, CURRENTFORCE, WAVE, SWELL, WEATHER,
 					CLOUDS, VISIBILITY, ENGINE, ENGINETOTAL, FUEL, FUELTOTAL, SAILS, REEF,WATER, WATERTOTAL, MREMARKS};
-	enum gridfields{FROUTE, FSTART, FEND, FDISTANCE, FETMAL, FBESTETMAL, FENGINE, FFUEL, FWATER, FWINDDIR, FWIND, FWINDPEAK, 
-					FCURRENTDIR, FCURRENT, FCURRENTPEAK, FWAVE, FWAVEPEAK, FSWELL, FSWELLPEAK, FSAILS };
+	enum gridfields{FLOG, FROUTE, FSTART, FEND, FDISTANCE, FETMAL, FBESTETMAL, FENGINE, FFUEL, FWATER, FWINDDIR, FWIND, FWINDPEAK, 
+					FCURRENTDIR, FCURRENT, FCURRENTPEAK, FWAVE, FWAVEPEAK, FSWELL, FSWELLPEAK, FSAILS, FPATH };
 
 	void setLayoutLocation();
 	void loadLogbookData(wxString filename);
 	void loadAllLogbooks();
-	void writeSumColumn(int row);
+	void writeSumColumn(int row, wxString logbook, wxString path);
 	void resetValues();
-
+	void clearGrid();
 
 	LogbookDialog*		parent;
 	wxGrid*				grid;
 	Options*			opt;
+	Logbook*			logbook;
+
+	int					row;
+	int					selectedRow;
 
 	wxString			ODTLayout_locn;
 	wxString			HTMLLayout_locn;

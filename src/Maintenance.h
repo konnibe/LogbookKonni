@@ -96,4 +96,6 @@ private:
 	wxString		data_locn;
 	wxString		data_locnRepairs;
 	wxString		data_locnBuyParts;
+
+	bool			modified;
 };

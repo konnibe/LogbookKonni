@@ -7,6 +7,7 @@
 #include "LogbookDialog.h"
 #include "logbook_pi.h"
 #include "Options.h"
+#include "Logbook.h"
 
 #include <wx/filename.h>
 #include <wx/dir.h>
@@ -20,9 +21,11 @@ OverView::OverView(LogbookDialog* d, wxString data, wxString lay, wxString layou
 	data_locn = data;
 	grid = d->m_gridOverview;
 	opt = d->logbookPlugIn->opt;
+	selectedRow = 0;
+	logbook = d->logbook;
+
 	setLayoutLocation();
 	loadAllLogbooks();
-	loadLogbookData(logbooks[0]);
 
 /*	grid->SetColLabelValue( FETMAL, grid->GetColLabelValue(FETMAL)+_T(" Ø") );
 	grid->SetColLabelValue( FWINDDIR, grid->GetColLabelValue(FWINDDIR)+_T(" Ø") );
@@ -38,9 +41,19 @@ OverView::~OverView(void)
 {
 }
 
+void OverView::refresh()
+{
+	grid->DeleteRows(0,grid->GetNumberRows());
+	row = -1;
+	if(parent->m_radioBtnActuellLogbook->GetValue())
+		actuellLogbook();
+	else if(parent->m_radioBtnAllLogbooks->GetValue())
+		allLogbooks();
+}
+
 void OverView::loadAllLogbooks()
 {
-	wxArrayString files;
+	wxArrayString		files;
 
 	int i = wxDir::GetAllFiles(data_locn,&files,_T("*.txt"));
 
@@ -52,6 +65,46 @@ void OverView::loadAllLogbooks()
 	}
 }
 
+void OverView::selectLogbook()
+{
+	grid->DeleteRows(0,grid->GetNumberRows());
+	row = -1;
+
+	int selIndex = -1;
+	wxString path(*parent->pHome_Locn);
+	path = path + wxFileName::GetPathSeparator() + _T("data");
+
+	SelectLogbook selLogbook(parent,path);
+	
+	if(selLogbook.ShowModal() == wxID_CANCEL)
+		return;
+
+	selIndex = selLogbook.m_listCtrlSelectLogbook->GetNextItem(selIndex,wxLIST_NEXT_ALL,wxLIST_STATE_SELECTED);
+	if(selIndex == -1) return;
+
+	loadLogbookData(selLogbook.files[selIndex]);
+}
+
+void OverView::actuellLogbook()
+{
+	clearGrid();
+	loadLogbookData(logbooks[0]);
+}
+
+void OverView::allLogbooks()
+{
+	clearGrid();
+	for(unsigned int i = 0; i < logbooks.Count(); i++)
+		loadLogbookData(logbooks[i]);
+}
+
+void OverView::clearGrid()
+{
+	if(row != -1)
+		grid->DeleteRows(0,grid->GetNumberRows());
+	row = -1;
+}
+
 void OverView::loadLogbookData(wxString logbook)
 {
 	wxString t,s;
@@ -61,13 +114,14 @@ void OverView::loadLogbookData(wxString logbook)
 	wxStringTokenizer tkz1;
 	wxTimeSpan span;
 
-	grid->DeleteRows(0,grid->GetNumberRows());
 	resetValues();
 
 	wxFileInputStream input( logbook );
 	wxTextInputStream* stream = new wxTextInputStream (input);
+	wxString path = logbook;
+	wxFileName fn(logbook);
+	logbook = fn.GetName();
 
-	int row = -1;
 	int lastrow = 0;
 
 	wxString route = _T("xxx");
@@ -196,7 +250,7 @@ void OverView::loadLogbookData(wxString logbook)
 			}
 			c++;
 		}
-		writeSumColumn(lastrow);
+		writeSumColumn(lastrow, logbook, path);
 		test = false;
 	}
 }
@@ -232,7 +286,7 @@ void OverView::resetValues()
 	etmalcount = 0;
 }
 
-void OverView::writeSumColumn(int row)
+void OverView::writeSumColumn(int row, wxString logbook, wxString path)
 {
 	wxString d;
 	switch(opt->showWaveSwell)
@@ -242,6 +296,11 @@ void OverView::writeSumColumn(int row)
 		case 2: d = opt->fathom; break;
 	}
 
+	grid->SetCellAlignment(row,FLOG,wxALIGN_LEFT, wxALIGN_TOP);
+	grid->SetCellAlignment(row,FROUTE,wxALIGN_LEFT, wxALIGN_TOP);
+	grid->SetCellAlignment(row,FSAILS,wxALIGN_LEFT, wxALIGN_TOP);
+
+	grid->SetCellValue(row,FLOG,logbook);
 	grid->SetCellValue(row,FSTART,startdate);
 	grid->SetCellValue(row,FEND,enddate);
 	grid->SetCellValue(row,FDISTANCE,wxString::Format(_T("%6.2f %s"),distance,opt->distance.c_str()));
@@ -261,6 +320,8 @@ void OverView::writeSumColumn(int row)
 	grid->SetCellValue(row,FCURRENT,wxString::Format(_T("%6.2f %s"),current/currentcount,d.c_str()));
 	grid->SetCellValue(row,FCURRENTPEAK,wxString::Format(_T("%6.2f %s"),currentpeak,d.c_str()));
 	grid->SetCellValue(row,FENGINE,wxString::Format(_T("%0002i:%02i %s"),enginehours,enginemin,opt->motorh.c_str()));
+	grid->SetCellValue(row,FPATH,path);
+
 }
 
 void OverView::setLayoutLocation()
@@ -275,4 +336,32 @@ void OverView::setLayoutLocation()
 	parent->appendOSDirSlash(&layout_locn);
 
 	parent->loadLayoutChoice(layout_locn,parent->boatChoice);
+}
+
+void OverView::setSelectedRow(int row)
+{
+	selectedRow = row;
+}
+
+void OverView::gotoRoute()
+{
+	wxString file = grid->GetCellValue(selectedRow,FLOG);
+	wxString route =  grid->GetCellValue(selectedRow,FROUTE);
+	wxString date =  grid->GetCellValue(selectedRow,FSTART);
+	wxString path  =  grid->GetCellValue(selectedRow,FPATH);
+
+	logbook->data_locn = path;
+	logbook->loadSelectedData(path);
+
+	int i;
+	for(i = 0; i < parent->m_gridGlobal->GetNumberRows(); i++)
+	{
+		if(parent->m_gridGlobal->GetCellValue(i,0) == route &&
+			parent->m_gridGlobal->GetCellValue(i,1) == date)
+			break;
+	}
+
+	parent->m_gridGlobal->MakeCellVisible(i,0);
+	parent->m_logbook->SetSelection(0);
+
 }

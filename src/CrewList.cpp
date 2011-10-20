@@ -22,6 +22,7 @@ CrewList::CrewList(LogbookDialog* d, wxString data, wxString layout, wxString la
 	gridWake = d->m_gridCrewWake;
 	this->layout = layout;
 	this->ODTLayout = layoutODT;
+	modified = false;
 
 	if(dialog->m_radioBtnHTMLCrew->GetValue())
 		layout_locn = layout;
@@ -55,6 +56,7 @@ CrewList::CrewList(LogbookDialog* d, wxString data, wxString layout, wxString la
 
 CrewList::~CrewList(void)
 {
+	saveData();
 }
 
 void CrewList::setLayoutLocation(wxString loc)
@@ -122,6 +124,8 @@ void CrewList::loadData()
 
 void CrewList::saveData()
 {
+	if(!modified) return;
+
 	wxString s = _T("");
 	crewListFile->Open();
 	crewListFile->Clear();
@@ -146,6 +150,8 @@ void CrewList::addCrew(wxGrid* grid, wxGrid* wake)
 {
 	wxString s;
 
+	modified = true;
+
 	gridCrew->AppendRows();
 	gridWake->AppendRows();
 	gridWake->SetCellValue(gridWake->GetNumberRows()-1,gridWake->GetNumberCols()-1,_T(" "));
@@ -154,6 +160,8 @@ void CrewList::addCrew(wxGrid* grid, wxGrid* wake)
 void CrewList::changeCrew(wxGrid* grid, int row, int col, int offset)
 {
 	wxString result;
+
+	modified = true;
 
 	if(col == 0 && offset == 0)
 			gridWake->SetCellValue(row,0,gridCrew->GetCellValue(row,0));

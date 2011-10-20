@@ -26,6 +26,7 @@ Maintenance::Maintenance(LogbookDialog* d, wxString data, wxString layout, wxStr
 	buyparts = d->m_gridMaintenanceBuyParts;
 	selectedCol = 0;
 	selectedRow = 0;
+	modified = false;
 
 	green = wxColour(0,255,0);
 	red = wxColour(255,0,0);
@@ -99,6 +100,9 @@ Maintenance::Maintenance(LogbookDialog* d, wxString data, wxString layout, wxStr
 
 Maintenance::~Maintenance(void)
 {
+	update();
+	updateRepairs();
+	updateBuyParts();
 }
 
 void Maintenance::setLayoutLocation()
@@ -155,7 +159,9 @@ void Maintenance::setAlignmentService()
 
 void Maintenance::addLine()
 {
+	modified = true;
 	grid->AppendRows();
+
 	lastRow = grid->GetNumberRows()-1;
 	selectedRow = lastRow;
 	setAlignmentService();
@@ -179,6 +185,7 @@ void Maintenance::addLine()
 
 void Maintenance::addLineRepairs()
 {
+	modified = true;
 	repairs->AppendRows();
 
 	lastRowRepairs = repairs->GetNumberRows()-1;
@@ -191,6 +198,7 @@ void Maintenance::addLineRepairs()
 
 void Maintenance::addLineBuyParts()
 {
+	modified = true;
 	buyparts->AppendRows();
 
 	lastRowBuyParts = buyparts->GetNumberRows()-1;
@@ -328,6 +336,7 @@ void Maintenance::loadData()
 	checkService(dialog->m_gridGlobal->GetNumberRows()-1);
 	checkRepairs();
 	checkBuyParts();
+	modified = false;
 }
 
 void Maintenance::buyParts(int i)
@@ -692,6 +701,8 @@ void Maintenance::cellSelected(int col, int row)
 
 void Maintenance::update()
 {
+//	if(!modified) return;
+
 	wxString s = _T(""), temp;
 
 	wxString newLocn = data_locn;
@@ -719,6 +730,7 @@ void Maintenance::update()
 
 void Maintenance::updateRepairs()
 {
+//	if(!modified) return;
 	wxString s = _T(""), temp;
 
 	wxString newLocn = data_locnRepairs;
@@ -746,6 +758,7 @@ void Maintenance::updateRepairs()
 
 void Maintenance::updateBuyParts()
 {
+//	if(!modified) return;
 	wxString s = _T(""), temp;
 
 	wxString newLocn = data_locnBuyParts;
