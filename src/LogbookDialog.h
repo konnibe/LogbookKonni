@@ -44,6 +44,7 @@
 #define LOGGRIDS 3
 #define DELETE_ROW   500
 #define SELECT_ROUTE 501
+#define MENUSAILS 502
 #define GPSTIMEOUT 5000
 
 ///////////////////////////////////////////////////////////////////////////////
@@ -57,7 +58,7 @@ class LogbookDialog : public wxDialog
 {
 	private:
 enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,BARO,WIND,WSPD,CURRENT,CSPD,
-			 WEATHER,CLOUDS,VISIBILITY,MOTOR,FUEL,SAILS,REEF,MREMARKS};	
+			 WEATHER,CLOUDS,VISIBILITY,MOTOR,FUEL,SAILS,REEF,MREMARKS };	
 
 		wxString columns[92];
 		wxString			clouds[10];
@@ -452,6 +453,7 @@ enum FORMAT {HTML,ODT};
 		void OnTimerGPS(wxTimerEvent& ev);
 		int  showLayoutDialog(wxChoice *choice, wxString location, int format);
 		void filterLayout(wxChoice *choice, wxString location, int format);
+		bool isInArrayString(wxArrayString ar, wxString s);
 
 		logbookkonni_pi*	logbookPlugIn;
 		wxString*			pHome_Locn;

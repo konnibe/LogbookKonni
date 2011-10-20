@@ -11,10 +11,18 @@
 #include <wx/tokenzr.h>
 #include <wx/wfstream.h> 
 #include <wx/txtstrm.h> 
+#include <wx/dynarray.h>
+#include <wx/arrimpl.cpp> 
+
+#include <map>
 
 class LogbookDialog;
 class Options;
 class Logbook;
+
+using namespace std;
+
+WX_DEFINE_ARRAY_INT(int, ArrayOfInts);
 
 class OverView
 {
@@ -56,6 +64,7 @@ private:
 	wxString			layout_locn;
 	wxString			data_locn;
 	wxArrayString		logbooks;
+	wxArrayString		sails;
 
 	wxString			startdate;
 	wxString			enddate;
@@ -85,5 +94,10 @@ private:
 	int					wavecount;
 	int					swellcount;
 	int					etmalcount;
+	ArrayOfInts			sailscount;
+
+	typedef std::map<wxString, int> collection;
+	typedef std::pair<wxString, int> pair;
+	collection t_coll;
 };
 #endif
