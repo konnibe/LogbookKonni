@@ -848,6 +848,8 @@ msgstr "à"
 #
 #
 #
+#
+#
 #~ msgid "0"
 #~ msgstr "0"
 #
@@ -856,8 +858,12 @@ msgstr "à"
 #
 #
 #
+#
+#
 #~ msgid "No"
 #~ msgstr "Non"
+#
+#
 #
 #
 #
