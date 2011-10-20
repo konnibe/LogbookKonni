@@ -1742,14 +1742,8 @@ LogbookDialog::~LogbookDialog()
 	delete logbook;
 	delete crewList;
 	delete boat;
-//	logbook->update();
-//	crewList->saveData();
-//	boat->saveData();
 	delete maintenance;
-/*	maintenance->update();
-	maintenance->updateRepairs();
-	maintenance->updateBuyParts();
-*/
+
 	if(GPSTimer->IsRunning())
 		GPSTimer->Stop();
 
@@ -2032,16 +2026,8 @@ int LogbookDialog::showLayoutDialog(wxChoice *choice, wxString location, int for
 		wxString g = choice->GetString(r);
 		if(!g.Contains(_T("_"))) continue; 
 		g = g.substr(0,g.find_first_of('_')+1);
-		bool ins = true;
-		for(unsigned int z = 1; z < ar.GetCount(); z ++)
-		{
-			if(g.Trim() == ar[z].Trim())
-			{
-				ins = false;
-				break;
-			}
-		}
-		if(ins)
+
+		if(!isInArrayString(ar,g))
 			ar.Add(g);
 	}
 	dlg->m_choice15->Clear();
@@ -2113,6 +2099,15 @@ int LogbookDialog::showLayoutDialog(wxChoice *choice, wxString location, int for
 
 	delete dlg;
 	return -1;				   //(format)?_T".odt"):_T("html");
+}
+
+bool LogbookDialog::isInArrayString(wxArrayString ar, wxString s)
+{
+	for(unsigned int z = 0; z < ar.GetCount(); z ++)
+		if(s.Trim() == ar[z].Trim())
+			return true;
+
+	return false;
 }
 
 void LogbookDialog::m_gridGlobalOnGridSelectCell( wxGridEvent& ev )
@@ -2310,12 +2305,12 @@ Backup Logbook(*.txt)|*.txt");
 	GPSTimer = new wxTimer(this,id);
 	this->Connect( wxEVT_TIMER, wxObjectEventFunction( &LogbookDialog::OnTimerGPS ));
 	GPSTimer->Start(GPSTIMEOUT);
-
-	//this->m_gridOverview->SetCellValue(0,0,_("available in version 0.908"));
 }
 
 void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )
 {
+	logbook->modified = true;
+
 	if(ev.GetId() == DELETE_ROW)
 	{
 		logbook->deleteRow(selGridRow);
@@ -2378,8 +2373,17 @@ void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )
 		delete dlg;
 	}
 	else
+	{
+		wxString s = logGrids[m_notebook8->GetSelection()]->GetCellValue(selGridRow,selGridCol);
 		logGrids[m_notebook8->GetSelection()]->SetCellValue(
-				selGridRow,selGridCol,m_menu1->GetLabelText(ev.GetId()));
+		selGridRow,selGridCol,
+		(s.IsEmpty()) 
+		? m_menu1->GetLabelText(ev.GetId())
+		: s + _T("\n") + m_menu1->GetLabelText(ev.GetId())
+		);
+		setEqualRowHeight(selGridRow);
+		logGrids[m_notebook8->GetSelection()]->Refresh();
+	}
 }
 
 void LogbookDialog::OnNoteBookPageChangedLogbook(wxNotebookEvent & ev)
@@ -2394,6 +2398,8 @@ void LogbookDialog::OnNoteBookPageChangedLogbook(wxNotebookEvent & ev)
 
 void LogbookDialog::m_gridGlobalOnGridCellRightClick( wxGridEvent& ev )
 {
+	wxString sails = _T("");
+
 	for(int i = 0; i < LOGGRIDS; i++)
 		logGrids[i]->ClearSelection();
 
@@ -2426,6 +2432,29 @@ void LogbookDialog::m_gridGlobalOnGridCellRightClick( wxGridEvent& ev )
 		m_menu1->Prepend( item );
 		this->Connect( item->GetId(), wxEVT_COMMAND_MENU_SELECTED, 
 				wxCommandEventHandler( LogbookDialog::m_menuItem1OnMenuSelection ) );
+	}
+
+	if(ev.GetCol() == 4 && (m_notebook8->GetSelection() == 2))
+	{
+		wxArrayString ar;
+
+		m_menu1->PrependSeparator();
+
+		for(int i = 0; i < m_gridGlobal->GetNumberRows()-1; i++)
+		{
+			sails = m_gridMotorSails->GetCellValue(i,4);
+			sails.Replace(_("\n"),_T(","));
+			if(!isInArrayString(ar,sails) && 
+				!sails.IsEmpty())
+			{
+				ar.Add(sails);
+				wxMenuItem *item = new wxMenuItem( m_menu1, wxID_ANY, 
+					sails, wxEmptyString, wxITEM_NORMAL );
+				m_menu1->Prepend( item );
+				this->Connect( item->GetId(), wxEVT_COMMAND_MENU_SELECTED, 
+					wxCommandEventHandler( LogbookDialog::m_menuItem1OnMenuSelection ) );		
+			}
+		}
 	}
 
 	if(ev.GetCol() == 8 && (m_notebook8->GetSelection() == 1))

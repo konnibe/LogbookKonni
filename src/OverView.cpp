@@ -12,6 +12,8 @@
 #include <wx/filename.h>
 #include <wx/dir.h>
 
+#include <map>
+using namespace std;
 OverView::OverView(LogbookDialog* d, wxString data, wxString lay, wxString layoutODT)
 {
 	parent = d;
@@ -23,7 +25,7 @@ OverView::OverView(LogbookDialog* d, wxString data, wxString lay, wxString layou
 	opt = d->logbookPlugIn->opt;
 	selectedRow = 0;
 	logbook = d->logbook;
-
+collection t_coll;
 	setLayoutLocation();
 	loadAllLogbooks();
 
@@ -113,6 +115,7 @@ void OverView::loadLogbookData(wxString logbook)
 	double x = 0;
 	wxStringTokenizer tkz1;
 	wxTimeSpan span;
+	collection::iterator it;
 
 	resetValues();
 
@@ -151,7 +154,10 @@ void OverView::loadLogbookData(wxString logbook)
 
 				break;
 			case DATE:				if(test)
+									{
 										startdate = s;
+										enddate = s;
+									}
 									else
 										enddate = s;
 
@@ -235,7 +241,30 @@ void OverView::loadLogbookData(wxString logbook)
 				break;
 			case FUELTOTAL:			
 				break;
-			case SAILS:				grid->SetCellValue(row,FSAILS,s);
+			case SAILS:				if(!s.empty())
+									{
+										bool found = false;
+										wxString result;
+										for(it = t_coll.begin(); it != t_coll.end(); ++it)
+										{
+											if( s == it->first)
+											{
+												int a = it->second;
+												it->second = ++a;
+												result += it->first+_("\n");
+												found = true;
+											}
+										}
+										if(!found)
+										{
+											t_coll.insert(pair(s,1)); 
+											wxString result;
+										for(it = t_coll.begin(); it != t_coll.end(); ++it)
+										{
+											result = it->first;
+										}
+										}
+									}
 				break;
 			case REEF:				
 				break;
@@ -250,7 +279,8 @@ void OverView::loadLogbookData(wxString logbook)
 			}
 			c++;
 		}
-		writeSumColumn(lastrow, logbook, path);
+		//if(test)
+			writeSumColumn(lastrow, logbook, path);
 		test = false;
 	}
 }
@@ -284,11 +314,12 @@ void OverView::resetValues()
 	swellcount = 0;
 	currentcount = 0;
 	etmalcount = 0;
+	t_coll.clear();
 }
 
 void OverView::writeSumColumn(int row, wxString logbook, wxString path)
 {
-	wxString d;
+	wxString d, sail;
 	switch(opt->showWaveSwell)
 	{
 		case 0:	d = opt->meter; break;
@@ -320,8 +351,15 @@ void OverView::writeSumColumn(int row, wxString logbook, wxString path)
 	grid->SetCellValue(row,FCURRENT,wxString::Format(_T("%6.2f %s"),current/currentcount,d.c_str()));
 	grid->SetCellValue(row,FCURRENTPEAK,wxString::Format(_T("%6.2f %s"),currentpeak,d.c_str()));
 	grid->SetCellValue(row,FENGINE,wxString::Format(_T("%0002i:%02i %s"),enginehours,enginemin,opt->motorh.c_str()));
+	grid->SetColumnWidth(FPATH,0);
 	grid->SetCellValue(row,FPATH,path);
 
+	int max = 0;wxString result;
+	collection::iterator it;
+
+	for(it = t_coll.begin(); it != t_coll.end(); ++it)
+		if(it->second >= max)  { sail = it->first; max = it->second; }
+	grid->SetCellValue(row,FSAILS,sail);
 }
 
 void OverView::setLayoutLocation()
