@@ -136,7 +136,7 @@ int logbookkonni_pi::Init(void)
 
 	if(opt->timer)
 	{
-		m_plogbook_window = new LogbookDialog(this, m_timer, m_parent_window, wxID_ANY,_("Logbook"), wxDefaultPosition, wxSize( opt->dlgWidth,opt->dlgHeight ), wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER);
+		m_plogbook_window = new LogbookDialog(this, m_timer, m_parent_window, wxID_ANY,_("Active Logbook"), wxDefaultPosition, wxSize( opt->dlgWidth,opt->dlgHeight ), wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER);
 		m_plogbook_window->init();
 
 		m_timer->Start(opt->timerSec);
@@ -390,7 +390,7 @@ void logbookkonni_pi::OnToolbarToolCallback(int id)
       // show the Logbook dialog
 	if(NULL == m_plogbook_window)
 	{
-        m_plogbook_window = new LogbookDialog(this, m_timer, m_parent_window, wxID_ANY,_("Logbook"), wxDefaultPosition, wxSize( opt->dlgWidth,opt->dlgHeight ), wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER);
+        m_plogbook_window = new LogbookDialog(this, m_timer, m_parent_window, wxID_ANY,_("Active Logbook"), wxDefaultPosition, wxSize( opt->dlgWidth,opt->dlgHeight ), wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER);
 		m_plogbook_window->init();
 	}
 	else

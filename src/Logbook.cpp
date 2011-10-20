@@ -363,10 +363,15 @@ void Logbook::loadSelectedData(wxString path)
 	setFileName(path,layout_locn);
 	wxFileName fn(path);
 	path = fn.GetName();
-	wxString ss = path.at(0);
-	ss = ss.Upper();
-	ss += path.SubString(1,path.Length()-1);
-	dialog->SetTitle(ss);
+	if(path == _T("logbook"))
+		path = _("Active Logbook");
+	else
+	{
+		wxDateTime dt = dialog->getDateTo(path);
+		path = wxString::Format(_("Old Logbook until %s"),dt.FormatDate()); 
+	}
+	title = path;
+	dialog->SetTitle(title);
 
 	loadData();
 }
@@ -383,6 +388,9 @@ void Logbook::clearAllGrids()
 void Logbook::loadData()
 {
 	wxString s = _T(""),t;
+
+	dialog->selGridCol = dialog->selGridRow = 0;
+	title = _("Active Logbook");
 
 	dialog->m_gridGlobal->GetGridWindow()->Freeze();
 	dialog->m_gridWeather->GetGridWindow()->Freeze();
@@ -500,7 +508,7 @@ void Logbook::loadData()
 	dialog->m_gridMotorSails->GetGridWindow()->Thaw();
 	dialog->selGridRow = 0; dialog->selGridCol = 0;
 }
-
+/*
 void Logbook::loadDatanew()
 {
 	wxString s = _T(""),t;
@@ -609,14 +617,14 @@ void Logbook::loadDatanew()
 	for(int i = 0; i < LOGGRIDS; i++)
 		dialog->logGrids[i]->MakeCellVisible(dialog->logGrids[i]->GetNumberRows()-1,0);
 }
-
+*/
 void Logbook::switchToActuellLogbook()
 {
 	dialog->selGridRow = 0; dialog->selGridCol = 0; 
 	logbookFile = new wxTextFile(logbookData_actuell);
 	data_locn = logbookData_actuell;
 	setFileName(logbookData_actuell,layout_locn);
-	dialog->SetTitle(_("Logbook"));	
+	dialog->SetTitle(_("Active Logbook"));	
 	loadData();
 }
 
@@ -632,11 +640,13 @@ void Logbook::appendRow()
 	wxFileName fn(logbookFile->GetName());
 	if(fn.GetName() != (_T("logbook")))
 	{
-		noAppend = true;
-		wxMessageBox(_("It's not allowed to append Data to a old Logbook\n\n\
-OpenCPN switchs to actuell logbook"),_("Information"),wxOK);
-		noAppend = false,
+
 		this->switchToActuellLogbook();
+		noAppend = true;
+		NoAppendDialog *x = new NoAppendDialog(dialog);
+		x->Show();
+
+		noAppend = false;
 	}
 
 	int lastRow = dialog->logGrids[0]->GetNumberRows();
@@ -706,7 +716,6 @@ Please create a new logbook to minimize the loadingtime.\n\nIf you have a runnin
 	dialog->logGrids[2]->SetCellValue(lastRow,8,_T(" "));
 	dialog->logGrids[0]->SetCellValue(lastRow,4,getWake());
 
-//	if(dialog->timer->IsRunning())
 	dialog->logGrids[0]->SetCellValue(lastRow,13,sLogText);
 
 	changeCellValue(lastRow, 0,1);
@@ -720,23 +729,16 @@ Please create a new logbook to minimize the loadingtime.\n\nIf you have a runnin
 	dialog->m_gridGlobal->MakeCellVisible(lastRow,0);
 	dialog->m_gridWeather->MakeCellVisible(lastRow,0);
 	dialog->m_gridMotorSails->MakeCellVisible(lastRow,0);
-	
-//	clearNMEAData();
-}
+	}
 
 wxString Logbook::getWake()
 {
 	wxString start, end, name = _T("");;
 	wxDateTime dtstart,dtend, now;
-/*	dtstart = dtend = now = wxDateTime::Today();
-	now = wxDateTime::Now();
-*/
 
-	//mUTCDateTime.ParseFormat(dt.c_str(), _T("%Y%m%d%H%M%S"));
 	dtstart = dtend = mCorrectedDateTime.Today();
 	now = mCorrectedDateTime;
-//	wxMessageBox(now.FormatDate()+_("  ")+now.FormatTime()+_("\n")+dtstart.FormatDate()+_("  ")+dtstart.FormatTime()
-//		+_("\n")+dtend.FormatDate()+_("  ")+dtend.FormatTime(),_("Init"));
+
 	int h,m,count = 0;
 
 	for(int r = 0; r < dialog->m_gridCrewWake->GetRows(); r++)
@@ -768,18 +770,12 @@ wxString Logbook::getWake()
 
 			if((dtstart.GetHour() > dtend.GetHour())) 
 			{
-//		wxMessageBox(now.FormatDate()+_("  ")+now.FormatTime()+_("\n")+dtstart.FormatDate()+_("  ")+dtstart.FormatTime()
-//		+_("\n")+dtend.FormatDate()+_("  ")+dtend.FormatTime(),_("hour"));
 				wxDateSpan sp(0,0,0,1);
 				if(now.GetHour() > dtstart.GetHour())
 					dtend.Add(sp);
 				else	
 					dtstart.Subtract(sp);
-//		wxMessageBox(now.FormatDate()+_("  ")+now.FormatTime()+_("\n")+dtstart.FormatDate()+_("  ")+dtstart.FormatTime()
-//		+_("\n")+dtend.FormatDate()+_("  ")+dtend.FormatTime(),_("hourend"));
 			}
-//		wxMessageBox(now.FormatDate()+_("  ")+now.FormatTime()+_("\n")+dtstart.FormatDate()+_("  ")+dtstart.FormatTime()
-//		+_("\n")+dtend.FormatDate()+_("  ")+dtend.FormatTime(),_("startend"));		
 
 			if(now >= dtstart && now <= dtend)
 			{			
@@ -787,11 +783,7 @@ wxString Logbook::getWake()
 					name += _T("\n");
 				name += dialog->m_gridCrewWake->GetCellValue(r,1)+ _T(" ") + dialog->m_gridCrewWake->GetCellValue(r,0);
 				count++;
-//	wxMessageBox(now.FormatDate()+_("  ")+now.FormatTime()+_("\n")+dtstart.FormatDate()+_("  ")+dtstart.FormatTime()
-//		+_("\n")+dtend.FormatDate()+_("  ")+dtend.FormatTime(),_("hit"));
 				dtend = mCorrectedDateTime.Today();
-//	wxMessageBox(now.FormatDate()+_("  ")+now.FormatTime()+_("\n")+dtstart.FormatDate()+_("  ")+dtstart.FormatTime()
-//		+_("\n")+dtend.FormatDate()+_("  ")+dtend.FormatTime(),_("end"));
 			}
 		}
 	}
@@ -1284,5 +1276,34 @@ bool Logbook::checkGPS()
 void Logbook::SetGPSStatus(bool status)
 {
 	gpsStatus = status;
+}
+
+////////////////////////////////////////////////////
+NoAppendDialog::NoAppendDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	
+	wxBoxSizer* bSizer20;
+	bSizer20 = new wxBoxSizer( wxVERTICAL );
+	
+	m_staticText73 = new wxStaticText( this, wxID_ANY, _("It's not allowed to append Data to a old Logbook\n\n\
+OpenCPN switchs to actuell logbook"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE );
+	m_staticText73->Wrap( -1 );
+	bSizer20->Add( m_staticText73, 0, wxALL|wxEXPAND, 5 );
+	
+	m_sdbSizer5 = new wxStdDialogButtonSizer();
+	m_sdbSizer5OK = new wxButton( this, wxID_OK );
+	m_sdbSizer5->AddButton( m_sdbSizer5OK );
+	m_sdbSizer5->Realize();
+	bSizer20->Add( m_sdbSizer5, 0, wxALIGN_CENTER, 5 );
+	
+	this->SetSizer( bSizer20 );
+	this->Layout();
+	
+	this->Centre( wxBOTH );
+}
+
+NoAppendDialog::~NoAppendDialog()
+{
 }
 

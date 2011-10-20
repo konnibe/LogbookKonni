@@ -390,6 +390,9 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_radioBtnAllLogbooks = new wxRadioButton( m_panel142, wxID_ANY, wxT("All Logbooks"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer61->Add( m_radioBtnAllLogbooks, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
+	m_radioBtnSelectLogbook = new wxRadioButton( m_panel142, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
+	bSizer61->Add( m_radioBtnSelectLogbook, 0, wxALL|wxEXPAND, 5 );
+
 	m_buttonSelectLogbook = new wxButton( m_panel142, wxID_ANY, wxT("Select Logbook"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer61->Add( m_buttonSelectLogbook, 0, wxALL, 5 );
 	
@@ -2388,7 +2391,7 @@ void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )
 
 void LogbookDialog::OnNoteBookPageChangedLogbook(wxNotebookEvent & ev)
 {
-	if(ev.GetSelection() == 1)
+	if(ev.GetEventObject() == this->m_logbook && ev.GetSelection() == 1)
 	{      // OverView
 		logbook->update();
 		overview->refresh();
@@ -2592,7 +2595,7 @@ void LogbookDialog::m_TimerOnMenuSelection( wxCommandEvent& ev )
 	{
 		timer->Stop();
 		logbookPlugIn->opt->timer = false;
-		this->SetTitle(this->GetTitle().BeforeFirst(' '));
+		this->SetTitle(logbook->title);
 	}
 }
 
@@ -2640,6 +2643,7 @@ void LogbookDialog::loadLayoutChoice(wxString path, wxChoice* choice)
 	}
 	choice->SetSelection(0);
 }
+
 
 void LogbookDialog::setEqualRowHeight(int row)
 {
@@ -3018,6 +3022,32 @@ void LogbookDialog::boatNameOnTextEnter( wxCommandEvent& ev )
 void LogbookDialog::m_menuItem3OnMenuSelection( wxCommandEvent& ev )
 {
 	boat->deleteRow(selGridRow);
+}
+
+wxDateTime LogbookDialog::getDateTo(wxString filename)
+{
+	wxDateTime dt;
+	dt = dt.Now();
+	wxString from, to, token, year, month, day;
+	long tday;
+	long tmonth;
+	long tyear;
+
+	to = filename.substr(filename.find_first_of('_')+1);
+	to = to.substr(0,to.find_first_of('_')+1);
+	to = to.RemoveLast();
+	wxStringTokenizer tkz(to,_T("-"));
+	year = tkz.GetNextToken();
+	month = tkz.GetNextToken();
+	day = tkz.GetNextToken();
+	day.ToLong(&tday);
+	month.ToLong(&tmonth);
+	year.ToLong(&tyear);
+	dt.SetYear((int)tyear);
+	dt.SetMonth((wxDateTime::Month)(tmonth-1));
+	dt.SetDay((int)tday);
+
+	return dt;
 }
 
 ////////////////////////////////////////////////////////////
@@ -3870,6 +3900,7 @@ void LayoutDialog::OnButtonClickLoadLayout( wxCommandEvent& event )
 SelectLogbook::SelectLogbook( wxWindow* parent, wxString path, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
 	this->path = path;
+	this->parent = (LogbookDialog*)parent;
 
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	
@@ -3928,7 +3959,7 @@ void SelectLogbook::OnInit(wxInitDialogEvent& ev)
 			filename = _("Actuell Logbook");
 		else
 		{
-			dtto = getDateTo(filename);
+			dtto = parent->getDateTo(filename);
 			wxFileInputStream input( files[i]);
 			wxTextInputStream text( input );
 			wxString t = text.ReadLine();
@@ -3942,28 +3973,3 @@ void SelectLogbook::OnInit(wxInitDialogEvent& ev)
 	}
 }
 
-wxDateTime SelectLogbook::getDateTo(wxString filename)
-{
-	wxDateTime dt;
-	dt = dt.Now();
-	wxString from, to, token, year, month, day;
-	long tday;
-	long tmonth;
-	long tyear;
-
-	to = filename.substr(filename.find_first_of('_')+1);
-	to = to.substr(0,to.find_first_of('_')+1);
-	to = to.RemoveLast();
-	wxStringTokenizer tkz(to,_T("-"));
-	year = tkz.GetNextToken();
-	month = tkz.GetNextToken();
-	day = tkz.GetNextToken();
-	day.ToLong(&tday);
-	month.ToLong(&tmonth);
-	year.ToLong(&tyear);
-	dt.SetYear((int)tyear);
-	dt.SetMonth((wxDateTime::Month)(tmonth-1));
-	dt.SetDay((int)tday);
-
-	return dt;
-}

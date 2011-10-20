@@ -702,8 +702,7 @@ void LogbookOptions::m_checkBoxTimerOnCheckBox( wxCommandEvent& ev )
 		if(log_pi->m_plogbook_window == NULL)
 		{
 			log_pi->m_plogbook_window =
-				new LogbookDialog(log_pi, log_pi->m_timer, log_pi->m_parent_window,wxID_ANY);
-			log_pi->m_plogbook_window->init();
+				new LogbookDialog(log_pi, log_pi->m_timer, log_pi->m_parent_window, wxID_ANY,_("Active Logbook"), wxDefaultPosition, wxSize( opt->dlgWidth,opt->dlgHeight ), wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER);					log_pi->m_plogbook_window->init();
 		}
 		else
 		{

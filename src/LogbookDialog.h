@@ -420,8 +420,9 @@ enum FORMAT {HTML,ODT};
 		wxToggleButton* m_toggleScheduleWeek;
 		wxToggleButton* m_toggleScheduleMonth;
 		wxGrid* m_gridSchedule;
+		wxRadioButton* m_radioBtnSelectLogbook;
 
-		LogbookDialog( logbookkonni_pi* d, wxTimer* t, wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1010,535 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER);
+		LogbookDialog( logbookkonni_pi* d, wxTimer* t, wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Active Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1010,535 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER);
 		~LogbookDialog();
 		
 		void m_gridGlobalOnContextMenu( wxMouseEvent &event )
@@ -454,6 +455,7 @@ enum FORMAT {HTML,ODT};
 		int  showLayoutDialog(wxChoice *choice, wxString location, int format);
 		void filterLayout(wxChoice *choice, wxString location, int format);
 		bool isInArrayString(wxArrayString ar, wxString s);
+		wxDateTime getDateTo(wxString filename);
 
 		logbookkonni_pi*	logbookPlugIn;
 		wxString*			pHome_Locn;
@@ -595,6 +597,7 @@ class SelectLogbook : public wxDialog
 {
 	private:
 		wxString path;
+		LogbookDialog* parent;
 		wxDateTime getDateTo(wxString filename);
 	
 	protected:
