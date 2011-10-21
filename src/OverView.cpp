@@ -25,7 +25,7 @@ OverView::OverView(LogbookDialog* d, wxString data, wxString lay, wxString layou
 	opt = d->logbookPlugIn->opt;
 	selectedRow = 0;
 	logbook = d->logbook;
-collection t_coll;
+	collection t_coll;
 	setLayoutLocation();
 	loadAllLogbooks();
 
@@ -51,6 +51,10 @@ void OverView::refresh()
 		actuellLogbook();
 	else if(parent->m_radioBtnAllLogbooks->GetValue())
 		allLogbooks();
+	else
+		if(parent->m_radioBtnSelectLogbook->GetValue())
+			if(!selectedLogbook.IsEmpty())
+				loadLogbookData(selectedLogbook,false);
 }
 
 void OverView::loadAllLogbooks()
@@ -69,9 +73,6 @@ void OverView::loadAllLogbooks()
 
 void OverView::selectLogbook()
 {
-	grid->DeleteRows(0,grid->GetNumberRows());
-	row = -1;
-
 	int selIndex = -1;
 	wxString path(*parent->pHome_Locn);
 	path = path + wxFileName::GetPathSeparator() + _T("data");
@@ -81,23 +82,35 @@ void OverView::selectLogbook()
 	if(selLogbook.ShowModal() == wxID_CANCEL)
 		return;
 
+	parent->m_radioBtnSelectLogbook->SetValue(true);
+	grid->DeleteRows(0,grid->GetNumberRows());
+	row = -1;
+
 	selIndex = selLogbook.m_listCtrlSelectLogbook->GetNextItem(selIndex,wxLIST_NEXT_ALL,wxLIST_STATE_SELECTED);
 	if(selIndex == -1) return;
 
-	loadLogbookData(selLogbook.files[selIndex]);
+	selectedLogbook = selLogbook.files[selIndex];
+	loadLogbookData(selectedLogbook,false);
 }
 
 void OverView::actuellLogbook()
 {
 	clearGrid();
-	loadLogbookData(logbooks[0]);
+	loadLogbookData(logbooks[0],false);
 }
 
 void OverView::allLogbooks()
 {
+	bool colour = false;
+
 	clearGrid();
 	for(unsigned int i = 0; i < logbooks.Count(); i++)
-		loadLogbookData(logbooks[i]);
+	{
+		if(i % 2)
+			loadLogbookData(logbooks[i],true);
+		else
+			loadLogbookData(logbooks[i],false);
+	}
 }
 
 void OverView::clearGrid()
@@ -107,10 +120,11 @@ void OverView::clearGrid()
 	row = -1;
 }
 
-void OverView::loadLogbookData(wxString logbook)
+void OverView::loadLogbookData(wxString logbook, bool colour)
 {
 	wxString t,s;
 	bool test = true;
+	bool write = true;
 	bool addValue = true;
 	double x = 0;
 	wxStringTokenizer tkz1;
@@ -124,6 +138,13 @@ void OverView::loadLogbookData(wxString logbook)
 	wxString path = logbook;
 	wxFileName fn(logbook);
 	logbook = fn.GetName();
+	if(logbook == _T("logbook"))
+		logbook = _T("Active Logbook");
+	else
+	{
+		wxDateTime dt = parent->getDateTo(logbook);
+		logbook = _("Logbook until ")+dt.FormatDate();
+	}
 
 	int lastrow = 0;
 
@@ -143,6 +164,7 @@ void OverView::loadLogbookData(wxString logbook)
 			{
 			case ROUTE:				if(route != s)
 									{
+										write = true;
 										resetValues();
 										grid->AppendRows();
 										route = s;
@@ -151,6 +173,8 @@ void OverView::loadLogbookData(wxString logbook)
 										test = true;
 										grid->SetCellValue(row,FROUTE,s);
 									}
+									else 
+										write = false;
 
 				break;
 			case DATE:				if(test)
@@ -279,8 +303,8 @@ void OverView::loadLogbookData(wxString logbook)
 			}
 			c++;
 		}
-		//if(test)
-			writeSumColumn(lastrow, logbook, path);
+//		if(write)
+			writeSumColumn(lastrow, logbook, path, colour);
 		test = false;
 	}
 }
@@ -317,7 +341,7 @@ void OverView::resetValues()
 	t_coll.clear();
 }
 
-void OverView::writeSumColumn(int row, wxString logbook, wxString path)
+void OverView::writeSumColumn(int row, wxString logbook, wxString path, bool colour)
 {
 	wxString d, sail;
 	switch(opt->showWaveSwell)
@@ -360,6 +384,10 @@ void OverView::writeSumColumn(int row, wxString logbook, wxString path)
 	for(it = t_coll.begin(); it != t_coll.end(); ++it)
 		if(it->second >= max)  { sail = it->first; max = it->second; }
 	grid->SetCellValue(row,FSAILS,sail);
+
+	if(colour)
+		for(int i = 0; i < grid->GetCols(); i++)
+			grid->SetCellBackgroundColour(row,i,wxColour(230,230,230));
 }
 
 void OverView::setLayoutLocation()
@@ -388,8 +416,11 @@ void OverView::gotoRoute()
 	wxString date =  grid->GetCellValue(selectedRow,FSTART);
 	wxString path  =  grid->GetCellValue(selectedRow,FPATH);
 
-	logbook->data_locn = path;
-	logbook->loadSelectedData(path);
+	if(logbook->data_locn != path)
+	{
+		logbook->data_locn = path;
+		logbook->loadSelectedData(path);
+	}
 
 	int i;
 	for(i = 0; i < parent->m_gridGlobal->GetNumberRows(); i++)
@@ -400,6 +431,12 @@ void OverView::gotoRoute()
 	}
 
 	parent->m_gridGlobal->MakeCellVisible(i,0);
+	parent->m_gridGlobal->SelectRow(i);
+	parent->m_gridWeather->MakeCellVisible(i,0);
+	parent->m_gridWeather->SelectRow(i);
+	parent->m_gridMotorSails->MakeCellVisible(i,0);
+	parent->m_gridMotorSails->SelectRow(i);
+
 	parent->m_logbook->SetSelection(0);
 
 }

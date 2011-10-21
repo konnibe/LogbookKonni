@@ -11,8 +11,6 @@
 #include <wx/tokenzr.h>
 #include <wx/wfstream.h> 
 #include <wx/txtstrm.h> 
-#include <wx/dynarray.h>
-#include <wx/arrimpl.cpp> 
 
 #include <map>
 
@@ -21,8 +19,6 @@ class Options;
 class Logbook;
 
 using namespace std;
-
-WX_DEFINE_ARRAY_INT(int, ArrayOfInts);
 
 class OverView
 {
@@ -45,9 +41,9 @@ private:
 					FCURRENTDIR, FCURRENT, FCURRENTPEAK, FWAVE, FWAVEPEAK, FSWELL, FSWELLPEAK, FSAILS, FPATH };
 
 	void setLayoutLocation();
-	void loadLogbookData(wxString filename);
+	void loadLogbookData(wxString filename, bool colour);
 	void loadAllLogbooks();
-	void writeSumColumn(int row, wxString logbook, wxString path);
+	void writeSumColumn(int row, wxString logbook, wxString path, bool colour);
 	void resetValues();
 	void clearGrid();
 
@@ -55,6 +51,7 @@ private:
 	wxGrid*				grid;
 	Options*			opt;
 	Logbook*			logbook;
+	wxString			selectedLogbook;
 
 	int					row;
 	int					selectedRow;
@@ -94,7 +91,6 @@ private:
 	int					wavecount;
 	int					swellcount;
 	int					etmalcount;
-	ArrayOfInts			sailscount;
 
 	typedef std::map<wxString, int> collection;
 	typedef std::pair<wxString, int> pair;
