@@ -3967,7 +3967,7 @@ void SelectLogbook::OnInit(wxInitDialogEvent& ev)
 			tk.GetNextToken();
 			wxString date = tk.GetNextToken();
 			date = dtfrom.ParseDate(date);
-			filename = wxString::Format(_("Logbook from %s to %s"),dtfrom.FormatDate(), dtto.FormatDate()); 
+			filename = wxString::Format(_("Logbook from %s to %s"),dtfrom.FormatDate().c_str(), dtto.FormatDate().c_str()); 
 		}
 		m_listCtrlSelectLogbook->InsertItem(i,filename);
 	}

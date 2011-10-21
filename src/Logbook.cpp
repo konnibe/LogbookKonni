@@ -368,7 +368,7 @@ void Logbook::loadSelectedData(wxString path)
 	else
 	{
 		wxDateTime dt = dialog->getDateTo(path);
-		path = wxString::Format(_("Old Logbook until %s"),dt.FormatDate()); 
+		path = wxString::Format(_("Old Logbook until %s"),dt.FormatDate().c_str()); 
 	}
 	title = path;
 	dialog->SetTitle(title);
