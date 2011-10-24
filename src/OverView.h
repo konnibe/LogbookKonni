@@ -12,15 +12,18 @@
 #include <wx/wfstream.h> 
 #include <wx/txtstrm.h> 
 
+#include "Export.h"
+
 #include <map>
 
 class LogbookDialog;
 class Options;
 class Logbook;
 
+
 using namespace std;
 
-class OverView
+class OverView : public Export
 {
 public:
 	OverView(LogbookDialog* d, wxString data, wxString lay, wxString layoutODT);
@@ -32,6 +35,13 @@ public:
 	void selectLogbook();
 	void setSelectedRow(int row);
 	void gotoRoute();
+	void setLayoutLocation();
+	void viewODT(wxString path,wxString layout,bool mode);
+	void viewHTML(wxString path,wxString layout,bool mode);
+	wxString toODT(wxString path,wxString layout,bool mode);
+	wxString toHTML(wxString path,wxString layout,bool mode);
+
+	wxString			layout_locn;
 
 private:
 	enum logfields{ROUTE,DATE, TIME, SIGN,WATCH, DISTANCE, DISTANCETOTAL, POSITION, COG, HEADING, SOG, STW, DEPTH,
@@ -40,12 +50,12 @@ private:
 	enum gridfields{FLOG, FROUTE, FSTART, FEND, FDISTANCE, FETMAL, FBESTETMAL, FENGINE, FFUEL, FWATER, FWINDDIR, FWIND, FWINDPEAK, 
 					FCURRENTDIR, FCURRENT, FCURRENTPEAK, FWAVE, FWAVEPEAK, FSWELL, FSWELLPEAK, FSAILS, FPATH };
 
-	void setLayoutLocation();
 	void loadLogbookData(wxString filename, bool colour);
 	void loadAllLogbooks();
 	void writeSumColumn(int row, wxString logbook, wxString path, bool colour);
 	void resetValues();
 	void clearGrid();
+	wxString setPlaceHolders(bool mode, wxGrid *grid, int row, wxString middle);
 
 	LogbookDialog*		parent;
 	wxGrid*				grid;
@@ -58,8 +68,8 @@ private:
 
 	wxString			ODTLayout_locn;
 	wxString			HTMLLayout_locn;
-	wxString			layout_locn;
 	wxString			data_locn;
+	wxString			data_file;
 	wxArrayString		logbooks;
 	wxArrayString		sails;
 

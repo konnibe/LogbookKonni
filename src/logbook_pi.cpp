@@ -358,10 +358,10 @@ void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 	}
 
 #ifdef __WXMSW__
-	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 620,604 ),
+	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 620,731  ),
 		wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
 #else
-	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 620,650 ),
+	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 620,920 ),
 		wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );	
 #endif
 	optionsDialog->m_checkBoxShowLogbook->SetValue(m_bLOGShowIcon);
@@ -724,8 +724,9 @@ void logbookkonni_pi::loadLanguages(wxWindow *parent)
 			zip.Read(out);
 			out.Close();
 		}
+		wxMessageBox(_("Languages installed"));
 	}
-	wxMessageBox(_("Languages installed"));
+
 }
 ////////////////////////////////////////////////////////
 void LogbookTimer::OnTimer(wxTimerEvent& ev)

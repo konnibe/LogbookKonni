@@ -47,6 +47,9 @@ class LogbookOptions : public wxDialog
 		
 		
 		wxCheckBox* m_checkBoxShowOnlySelectedLayouts;
+		
+		wxCheckBox* m_checkBox8;
+		wxTextCtrl* m_textCtrl55;
 		wxStaticLine* m_staticline25;
 		wxStaticText* m_staticText54;
 		wxStaticLine* m_staticline10;
@@ -173,6 +176,14 @@ class LogbookOptions : public wxDialog
 		wxTextCtrl* m_textCtrlLayoutPrefix;
 		wxCheckBox* m_checkBoxMaintenanceRowColoured;
 		wxCheckBox* m_checkBoxNoGPS;
+		wxCheckBox* m_checkBoxCourseChanged;
+		wxTextCtrl* m_textCtrlCourseCahngedMoreThen;
+		wxTextCtrl* m_textCtrlChancedCourse;
+		wxCheckBox* m_checkBoxGuardChanged;
+		wxTextCtrl* m_textCtrlGuradChanged;
+		wxCheckBox* m_checkBoxEverySM;
+		wxTextCtrl* m_textCtrlEverySM;
+		wxTextCtrl* m_textCtrlEverySMText;
 		wxRadioButton* m_radioBtnLocal;
 		wxChoice* m_choiceTzIndicator;
 		wxChoice* m_choiceTzHours;
@@ -184,7 +195,7 @@ class LogbookOptions : public wxDialog
 		wxTextCtrl* m_textCtrlHTMLEditorPath;
 		wxBitmapButton* m_bpButtonHTMLEditor;
 
-		LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi* log_pi, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 746,559 ), long style = wxDEFAULT_DIALOG_STYLE );
+		LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi* log_pi, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 585,687  ), long style = wxDEFAULT_DIALOG_STYLE );
 		~LogbookOptions();
 
 		void getValues();

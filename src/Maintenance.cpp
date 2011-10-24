@@ -214,7 +214,7 @@ void Maintenance::setAlignmentRepairs()
 	repairs->SetCellAlignment(lastRowRepairs,RPRIORITY,wxALIGN_CENTER, wxALIGN_TOP);
 	repairs->SetCellAlignment(lastRowRepairs,RTEXT,wxALIGN_LEFT, wxALIGN_TOP);
 
-	wxGridCellChoiceEditor *combo = new wxGridCellChoiceEditor(m_Priority);
+	//wxGridCellChoiceEditor *combo = new wxGridCellChoiceEditor(m_Priority);
 //	wxComboBox *box = (wxComboBox*)combo->GetControl();
 //	box->Connect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( Maintenance::test ), NULL, this );
 	repairs->SetCellEditor(lastRowRepairs,RPRIORITY,new wxGridCellChoiceEditor(m_Priority));
@@ -583,7 +583,7 @@ void Maintenance::setBuyPartsPriority(wxGrid *grid ,int row, int p, int t)
 void Maintenance::setRowDone(int row)
 {
 	wxString g = grid->GetCellValue(selectedRow,IF);
-	int choice;
+	int choice = -1;
 
 	if(g == m_choices[0])
 			choice = 0;
@@ -845,7 +845,7 @@ void Maintenance::viewHTML(int tab,wxString path,wxString layout,bool mode)
 wxString Maintenance::toHTML(int tab,wxString path,wxString layout,bool mode)
 {
 	wxArrayInt arrayRows;
-	int count = 0, selCount = 0;
+	int selCount = 0;
 	bool selection = false;
 
 	selCount = dialog->m_gridGlobal->GetSelectedRows().Count() ;
@@ -883,7 +883,7 @@ wxString Maintenance::toHTML(int tab,wxString path,wxString layout,bool mode)
 	middleHTML = html.substr(indexTop,(indexBottom-indexTop)-seperatorBottom.Len());
 
 	wxString layout_loc;
-	wxGrid * grid;
+	wxGrid * grid = NULL;
 	if(tab == dialog->SERVICE)
 	{
 		path = data_locn;
@@ -906,7 +906,7 @@ wxString Maintenance::toHTML(int tab,wxString path,wxString layout,bool mode)
 
 	wxString filename = path;
 
-	wxTextFile *logFile = new wxTextFile(path);
+//	wxTextFile *logFile = new wxTextFile(path);
 	if(mode == 0)
 		path.Replace(wxT("txt"),wxT("html"));
 //	else 
@@ -916,7 +916,7 @@ wxString Maintenance::toHTML(int tab,wxString path,wxString layout,bool mode)
 		::wxRemoveFile(path);
 
 	wxFileInputStream input( path );
-	wxTextInputStream* stream = new wxTextInputStream (input);
+//	wxTextInputStream* stream = new wxTextInputStream (input);
 	
 	wxFileOutputStream output( path );
 	wxTextOutputStream htmlFile(output);
@@ -992,7 +992,7 @@ wxString Maintenance::toODT(int tab,wxString path,wxString layout,bool mode)
 		return _("");
 
 	wxString layout_loc;
-	wxGrid * grid;
+	wxGrid * grid = NULL;
 	if(tab == dialog->SERVICE)
 	{
 		path = data_locn;
@@ -1055,7 +1055,7 @@ wxString Maintenance::toODT(int tab,wxString path,wxString layout,bool mode)
 		  else if(tab == dialog->BUYPARTS)		  
 		      newMiddleODT = setPlaceHoldersBuyParts(mode,buyparts, row, middleODT);
 		
-		  if(mode = 0) // HTML
+		  if(mode == 0) // HTML
 		      newMiddleODT.Replace(wxT("\n"),wxT("<br>"));
 		  else // ODT
 		    newMiddleODT.Replace(wxT("\n"),wxT("<text:line-break/>"));

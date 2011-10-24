@@ -78,6 +78,7 @@ public:
 	void changeCellValue(int row, int col, int offset);
 	void setLayoutLocation(wxString loc);
 	void SetGPSStatus(bool status);
+	bool checkGPS();
 
 
 	wxTextFile* logbookFile;
@@ -86,7 +87,6 @@ public:
 private:
 	wxString	logbookData_actuell;
 	bool		noAppend; // Old Logbook; append Rows not allowed
-	bool		checkGPS();
 };
 
 

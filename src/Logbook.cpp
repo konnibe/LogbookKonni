@@ -1,4 +1,4 @@
-#ifndef WX_PRECOMP
+﻿#ifndef WX_PRECOMP
       #include <wx/wx.h>
 #endif
 
@@ -87,8 +87,6 @@ void Logbook::SetPosition(PlugIn_Position_Fix &pfix)
 }
 void Logbook::clearNMEAData()
 {
-//	sTime = _T("");
-//	sDate = _T("");
 	noSentence = true;
 }
 
@@ -125,9 +123,37 @@ void Logbook::SetSentence(wxString &sentence)
 									sLon = this->toSDMM(2,lon);
 
 									gpsStatus = true;
-									dialog->GPSTimer->Stop();
+									//dialog->GPSTimer->Stop();
 									dialog->GPSTimer->Start(5000);
                         }
+                  }
+            }
+		else if(m_NMEA0183.LastSentenceIDReceived == _T("GLL"))
+            {
+                  if(m_NMEA0183.Parse())
+                  {
+                                    double lat, lon;
+									float llt = m_NMEA0183.Gll.Position.Latitude.Latitude;
+                                    int lat_deg_int = (int)(llt / 100);
+                                    float lat_deg = lat_deg_int;
+                                    float lat_min = llt - (lat_deg * 100);
+                                    lat = lat_deg + (lat_min/60.);
+                                    if(m_NMEA0183.Gll.Position.Latitude.Northing == South)
+                                          lat = -lat;
+									sLat = this->toSDMM(1,lat);
+
+									float lln = m_NMEA0183.Gll.Position.Longitude.Longitude;
+                                    int lon_deg_int = (int)(lln / 100);
+                                    float lon_deg = lon_deg_int;
+                                    float lon_min = lln - (lon_deg * 100);
+                                    lon = lon_deg + (lon_min/60.);
+                                    if(m_NMEA0183.Gll.Position.Longitude.Easting == West)
+                                          lon = -lon;
+									sLon = this->toSDMM(2,lon);
+
+									gpsStatus = true;
+									//dialog->GPSTimer->Stop();
+									dialog->GPSTimer->Start(5000);
                   }
             }
 			else if(m_NMEA0183.LastSentenceIDReceived == _T("ZDA"))
@@ -181,6 +207,28 @@ void Logbook::SetSentence(wxString &sentence)
             {
                   if(m_NMEA0183.Parse())
                   {
+                                    double lat, lon;
+									float llt = m_NMEA0183.Rmc.Position.Latitude.Latitude;
+                                    int lat_deg_int = (int)(llt / 100);
+                                    float lat_deg = lat_deg_int;
+                                    float lat_min = llt - (lat_deg * 100);
+                                    lat = lat_deg + (lat_min/60.);
+                                    if(m_NMEA0183.Rmc.Position.Latitude.Northing == South)
+                                          lat = -lat;
+									sLat = this->toSDMM(1,lat);
+
+									float lln = m_NMEA0183.Rmc.Position.Longitude.Longitude;
+                                    int lon_deg_int = (int)(lln / 100);
+                                    float lon_deg = lon_deg_int;
+                                    float lon_min = lln - (lon_deg * 100);
+                                    lon = lon_deg + (lon_min/60.);
+                                    if(m_NMEA0183.Rmc.Position.Longitude.Easting == West)
+                                          lon = -lon;
+									sLon = this->toSDMM(2,lon);
+
+									gpsStatus = true;
+									//dialog->GPSTimer->Stop();
+									dialog->GPSTimer->Start(5000);
 					  sSOG = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Rmc.SpeedOverGroundKnots,opt->speed.c_str());
 					  sCOG = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue, opt->Deg.c_str());
 				  }
@@ -634,6 +682,7 @@ void Logbook::appendRow()
 	wxString s;
 
 	checkGPS();
+//	wxMessageBox(wxString::Format(_("%i"),dialog->GPSTimer->GetInterval()));
 	if(noAppend) return;
 	modified = true;
 
@@ -792,7 +841,7 @@ wxString Logbook::getWake()
 
 wxString Logbook::calculateDistance(wxString fromstr, wxString tostr)
 {
-	if(fromstr.IsEmpty() || tostr.IsEmpty()) return wxString(_T("0.00"));
+	if(fromstr.IsEmpty() || tostr.IsEmpty()) return wxString(_T("0.00 ")+opt->distance);
 
 	wxString sLat, sLon, sLatto, sLonto;
 	wxDouble fromlat,fromlon,tolat,tolon, sm;
@@ -803,26 +852,28 @@ wxString Logbook::calculateDistance(wxString fromstr, wxString tostr)
 	wxStringTokenizer tkzto(tostr, _T("\n"));
 	sLatto = tkzto.GetNextToken();
 	sLonto = tkzto.GetNextToken();
-
-	fromlat = positionStringToDezimal(sLat);
-	fromlon = positionStringToDezimal(sLon);
-	tolat = positionStringToDezimal(sLatto);
-	tolon = positionStringToDezimal(sLonto);
+	
+	fromlat = positionStringToDezimal(sLat) * (PI/180);
+	fromlon = positionStringToDezimal(sLon)* (PI/180);
+	tolat = positionStringToDezimal(sLatto)* (PI/180);
+	tolon = positionStringToDezimal(sLonto)* (PI/180);
 
 	wxDouble x,y;
-	x = fromlat-tolat;
-	y = fromlon - tolon;
+	double lat = ((tolat+fromlat) / 2) ; // 1° = π/180 rad ≈ 0.01745
+	x = abs(0.60 * cos(lat)*(tolon-fromlon));
+	y = abs(0.60 * (tolat - fromlat));
+///////
+sm = acos(cos(fromlat)*cos(fromlon)*cos(tolat)*cos(tolon) + 
+		  cos(fromlat)*sin(fromlon)*cos(tolat)*sin(tolon) + sin(fromlat)*sin(tolat)) * 3443.9;
+////// code snippet from http://www2.nau.edu/~cvm/latlongdist.html#formats
 
-	sm = sqrt(x*x + y*y)*60;
-
-	return wxString::Format(_T("%.2f"),sm);
+	return wxString::Format(_T("%.2f %s"),sm,opt->distance.c_str());
 }
 
 wxDouble Logbook::positionStringToDezimal(wxString pos)
 {
 	wxDouble resdeg, resmin, ressec = 0;
 	wxString temp = pos;
-
 
 	wxStringTokenizer tkz(pos, _T(" "));
 	temp = tkz.GetNextToken();
@@ -947,7 +998,9 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 								s = temp;
 							}
 						}
-
+						if(row != 0)
+							dialog->logGrids[grid]->SetCellValue(row,5,
+							calculateDistance(dialog->logGrids[grid]->GetCellValue(row-1,col),s));
 						dialog->logGrids[grid]->SetCellValue(row,col,s);
 					}
 	else if(grid == 0 && col == 8)

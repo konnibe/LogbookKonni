@@ -42,7 +42,7 @@ Boat::~Boat(void)
 	{
 		if(ctrl[i]->IsKindOf(CLASSINFO(wxTextCtrl)))
 		{
-			bool t =ctrl[i]->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, 
+			ctrl[i]->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, 
 				wxObjectEventFunction(&LogbookDialog::boatNameOnTextEnter)  );
 		}
 	}

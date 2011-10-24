@@ -27,7 +27,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	this->opt = opt;
 	this->log_pi = log_pi;
 
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+//	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	
 	wxFlexGridSizer* fgSizer10;
 	fgSizer10 = new wxFlexGridSizer( 12, 1, 0, 0 );
@@ -69,6 +69,44 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_checkBoxNoGPS->SetValue(true); 
 	
 	fgSizer29->Add( m_checkBoxNoGPS, 0, wxALL, 5 );
+
+	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	m_checkBoxCourseChanged = new wxCheckBox( this, wxID_ANY, wxT("If Cource changes more then °"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_checkBoxCourseChanged->SetValue(true); 
+	m_checkBoxCourseChanged->Enable( false );
+	
+	fgSizer29->Add( m_checkBoxCourseChanged, 0, wxALL, 5 );
+	
+	m_textCtrlCourseCahngedMoreThen = new wxTextCtrl( this, wxID_ANY, wxT("45"), wxDefaultPosition, wxSize( 30,-1 ), 0 );
+	fgSizer29->Add( m_textCtrlCourseCahngedMoreThen, 0, wxALL, 5 );
+	
+	m_textCtrlChancedCourse = new wxTextCtrl( this, wxID_ANY, wxT("automatic line\nchange of course >"), wxDefaultPosition, wxSize( 200,-1 ), wxTE_MULTILINE );
+	fgSizer29->Add( m_textCtrlChancedCourse, 0, wxALL, 5 );
+	
+	m_checkBoxGuardChanged = new wxCheckBox( this, wxID_ANY, wxT("If Watch changed"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_checkBoxGuardChanged->SetValue(true); 
+	m_checkBoxGuardChanged->Enable( false );
+	
+	fgSizer29->Add( m_checkBoxGuardChanged, 0, wxALL, 5 );
+	
+	
+	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	m_textCtrlGuradChanged = new wxTextCtrl( this, wxID_ANY, wxT("automatic line\nchange of guards"), wxDefaultPosition, wxSize( -1,-1 ), wxTE_MULTILINE );
+	fgSizer29->Add( m_textCtrlGuradChanged, 0, wxALL|wxEXPAND, 5 );
+	
+	m_checkBoxEverySM = new wxCheckBox( this, wxID_ANY, wxT("Append Line every Nm"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_checkBoxEverySM->SetValue(true); 
+	m_checkBoxEverySM->Enable( false );
+	
+	fgSizer29->Add( m_checkBoxEverySM, 0, wxALL, 5 );
+	
+	m_textCtrlEverySM = new wxTextCtrl( this, wxID_ANY, wxT("10"), wxDefaultPosition, wxSize( 50,-1 ), 0 );
+	fgSizer29->Add( m_textCtrlEverySM, 0, wxALL, 5 );
+	
+	m_textCtrlEverySMText = new wxTextCtrl( this, wxID_ANY, wxT("automatic line\nDistance > "), wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE );
+	fgSizer29->Add( m_textCtrlEverySMText, 0, wxALL|wxEXPAND, 5 );
 	
 	fgSizer10->Add( fgSizer29, 1, wxEXPAND, 5 );
 	

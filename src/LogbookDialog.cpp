@@ -352,7 +352,6 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	wxArrayString overviewChoiceChoices;
 	overviewChoice = new wxChoice( m_panel142, wxID_ANY, wxDefaultPosition, wxSize( 180,-1 ), overviewChoiceChoices, 0 );
 	overviewChoice->SetSelection( 0 );
-	overviewChoice->Enable( false );
 	
 	bSizer61->Add( overviewChoice, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -376,7 +375,6 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	bSizer61->Add( m_radioBtnODTOverview, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	logViewOverview = new wxButton( m_panel142, wxID_ANY, _("View"), wxDefaultPosition, wxDefaultSize, 0 );
-	logViewOverview->Enable( false );
 	
 	bSizer61->Add( logViewOverview, 0, wxALL, 5 );
 	
@@ -418,8 +416,8 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridOverview->SetColSize( 2, 60 );
 	m_gridOverview->SetColSize( 3, 60 );
 	m_gridOverview->SetColSize( 4, 80 );
-	m_gridOverview->SetColSize( 5, 80 );
-	m_gridOverview->SetColSize( 6, 80 );
+	m_gridOverview->SetColSize( 5, 110 );
+	m_gridOverview->SetColSize( 6, 110 );
 	m_gridOverview->SetColSize( 7, 80 );
 	m_gridOverview->SetColSize( 8, 80 );
 	m_gridOverview->SetColSize( 9, 80 );
@@ -443,8 +441,8 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridOverview->SetColLabelValue( 2, wxT("Start") );
 	m_gridOverview->SetColLabelValue( 3, wxT("End") );
 	m_gridOverview->SetColLabelValue( 4, wxT("Distance") );
-	m_gridOverview->SetColLabelValue( 5, wxT("Etmal Ø") );
-	m_gridOverview->SetColLabelValue( 6, wxT("Best Etmal") );
+	m_gridOverview->SetColLabelValue( 5, wxT("Distance p. Day") );
+	m_gridOverview->SetColLabelValue( 6, wxT("Best Dist. p. Day") );
 	m_gridOverview->SetColLabelValue( 7, wxT("Engine") );
 	m_gridOverview->SetColLabelValue( 8, wxT("Fuel") );
 	m_gridOverview->SetColLabelValue( 9, wxT("Water") );
@@ -475,7 +473,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	
 	m_menuOverView = new wxMenu();
 	wxMenuItem* m_menuItemOverviewRoute;
-	m_menuItemOverviewRoute = new wxMenuItem( m_menuOverView, wxID_ANY, wxString( _("Goto Route") ) , wxEmptyString, wxITEM_CHECK );
+	m_menuItemOverviewRoute = new wxMenuItem( m_menuOverView, wxID_ANY, wxString( _("Goto Route") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menuOverView->Append( m_menuItemOverviewRoute );
 	
 	wxMenuItem* m_menuItemOverviewView;
@@ -2602,6 +2600,7 @@ void LogbookDialog::m_TimerOnMenuSelection( wxCommandEvent& ev )
 void LogbookDialog::OnTimerGPS(wxTimerEvent& ev)
 {
 	logbook->SetGPSStatus(false);
+	logbook->checkGPS();
 }
 
 void LogbookDialog::onRadioButtonHTML(wxCommandEvent& ev)
@@ -3448,27 +3447,39 @@ void LogbookDialog::OnButtonClickOverviewSave( wxCommandEvent& ev )
 
 void LogbookDialog::onButtonReloadLayoutOverView( wxCommandEvent& ev )
 {
-
+	overview->setLayoutLocation();
 }
 
 void LogbookDialog::onButtonClickEditLayoutOverview( wxCommandEvent& ev )
 {
+	int format;
 
+	if(this->m_radioBtnODTOverview->GetValue())
+		format = ODT;
+	else
+		format = HTML;
+
+	showLayoutDialog(overviewChoice,overview->layout_locn, format);
 }
 
 void LogbookDialog::onRadioButtonHTMLOverview( wxCommandEvent& ev )
 {
-
+	overview->setLayoutLocation();
 }
 
 void LogbookDialog::onRadioButtonODTOverView( wxCommandEvent& ev )
 {
-
+	overview->setLayoutLocation();
 }
 
 void LogbookDialog::OnButtonClickOverView( wxCommandEvent& ev )
 {
-
+	if(m_radioBtnHTMLOverview->GetValue())
+		overview->viewHTML(_T(""),
+		overviewChoice->GetString(overviewChoice->GetSelection()),false);
+	else
+		overview->viewODT(_T(""),
+		overviewChoice->GetString(overviewChoice->GetSelection()),false);
 }
 
 void LogbookDialog::OnGridCellRightClickOverview( wxGridEvent& ev )
@@ -3780,7 +3791,7 @@ RouteDialog::~RouteDialog()
 #include "folder.xpm"
 LayoutDialog::LayoutDialog( wxWindow* parent, wxString location, wxChoice* choice, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+//	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	
 	wxFlexGridSizer* fgSizer25;
 	fgSizer25 = new wxFlexGridSizer( 2, 1, 0, 0 );

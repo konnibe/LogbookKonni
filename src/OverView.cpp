@@ -10,17 +10,22 @@
 #include "Logbook.h"
 
 #include <wx/filename.h>
+#include <wx/txtstrm.h> 
+#include <wx/zipstrm.h> 
+#include <wx/generic/gridctrl.h>
 #include <wx/dir.h>
 
 #include <map>
 using namespace std;
 OverView::OverView(LogbookDialog* d, wxString data, wxString lay, wxString layoutODT)
+	: Export(d)
 {
 	parent = d;
 
 	ODTLayout_locn = layoutODT;
 	HTMLLayout_locn = lay;
 	data_locn = data;
+	data_file = data + _T("overview.html");
 	grid = d->m_gridOverview;
 	opt = d->logbookPlugIn->opt;
 	selectedRow = 0;
@@ -29,14 +34,15 @@ OverView::OverView(LogbookDialog* d, wxString data, wxString lay, wxString layou
 	setLayoutLocation();
 	loadAllLogbooks();
 
-/*	grid->SetColLabelValue( FETMAL, grid->GetColLabelValue(FETMAL)+_T(" Ø") );
+#ifdef __WXMSW__
+	grid->SetColLabelValue( FETMAL, grid->GetColLabelValue(FETMAL)+_T(" Ø") );
 	grid->SetColLabelValue( FWINDDIR, grid->GetColLabelValue(FWINDDIR)+_T(" Ø") );
 	grid->SetColLabelValue( FWIND, grid->GetColLabelValue(FWIND)+_T(" Ø") );
 	grid->SetColLabelValue( FCURRENTDIR, grid->GetColLabelValue(FCURRENTDIR)+_T(" Ø") );
 	grid->SetColLabelValue( FCURRENT, grid->GetColLabelValue(FCURRENT)+_T(" Ø") );
 	grid->SetColLabelValue( FWAVE, grid->GetColLabelValue(FWAVE)+_T(" Ø") );
 	grid->SetColLabelValue( FSWELL, grid->GetColLabelValue(FSWELL)+_T(" Ø") );
-*/	
+#endif
 }
 
 OverView::~OverView(void)
@@ -55,6 +61,68 @@ void OverView::refresh()
 		if(parent->m_radioBtnSelectLogbook->GetValue())
 			if(!selectedLogbook.IsEmpty())
 				loadLogbookData(selectedLogbook,false);
+}
+
+void OverView::viewODT(wxString path,wxString layout,bool mode)
+{
+	wxString fn;// = data_locn;
+
+	fn = toODT(path, layout, mode);
+
+	if(layout != _T(""))
+	{
+	    fn.Replace(_T("txt"),_T("odt"));
+		parent->startApplication(fn,_T(".odt"));
+	}
+}
+
+void OverView::viewHTML(wxString path,wxString layout,bool mode)
+{
+	wxString fn;// = data_locn;
+
+	fn = toHTML(path, layout, mode);
+
+	if(layout != _T(""))
+	{
+	    fn.Replace(_T("txt"),_T("html"));
+		parent->startBrowser(fn);
+	}
+}
+
+wxString OverView::toODT(wxString path,wxString layout,bool mode)
+{
+	wxString top;
+	wxString header;
+	wxString middle;
+	wxString bottom;
+	wxString tempPath = data_file;
+
+	wxString odt = readLayoutODT(layout_locn,layout);
+	if(!cutInPartsODT( odt, &top, &header,	&middle, &bottom))
+		return _T("");
+
+	wxTextFile* text = setFiles(&tempPath, mode);
+	writeToODT(text,parent->m_gridOverview,data_file,layout_locn+layout+_T(".odt"), top,header,middle,bottom,mode);
+
+	return data_file;
+}
+
+wxString OverView::toHTML(wxString path,wxString layout,bool mode)
+{
+	wxString top;
+	wxString header;
+	wxString middle;
+	wxString bottom;
+	wxString tempPath = data_file;
+
+	wxString html = readLayoutHTML(layout_locn,layout);
+	if(!cutInPartsHTML( html, &top, &header, &middle, &bottom))
+		return _T("");
+
+	wxTextFile* text = setFiles(&tempPath, mode);
+	writeToHTML(text,parent->m_gridOverview,data_file,layout_locn+layout+_T(".html"), top,header,middle,bottom,mode);
+
+	return data_file;
 }
 
 void OverView::loadAllLogbooks()
@@ -101,8 +169,6 @@ void OverView::actuellLogbook()
 
 void OverView::allLogbooks()
 {
-	bool colour = false;
-
 	clearGrid();
 	for(unsigned int i = 0; i < logbooks.Count(); i++)
 	{
@@ -125,7 +191,6 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 	wxString t,s;
 	bool test = true;
 	bool write = true;
-	bool addValue = true;
 	double x = 0;
 	wxStringTokenizer tkz1;
 	wxTimeSpan span;
@@ -396,12 +461,12 @@ void OverView::setLayoutLocation()
 		layout_locn = HTMLLayout_locn;
 	else
 		layout_locn = ODTLayout_locn;
-	wxString boatLay = layout_locn;
+	this->layout_locn = layout_locn;
 
-	layout_locn.Append(_T("overview"));
-	parent->appendOSDirSlash(&layout_locn);
+	this->layout_locn.Append(_T("overview"));
+	parent->appendOSDirSlash(&this->layout_locn);
 
-	parent->loadLayoutChoice(layout_locn,parent->boatChoice);
+	parent->loadLayoutChoice(this->layout_locn,parent->overviewChoice);
 }
 
 void OverView::setSelectedRow(int row)
@@ -439,4 +504,56 @@ void OverView::gotoRoute()
 
 	parent->m_logbook->SetSelection(0);
 
+}
+
+wxString OverView::setPlaceHolders(bool mode, wxGrid *grid, int row, wxString middle)
+{
+	wxString newMiddleODT = middle;
+
+	newMiddleODT.Replace(wxT("#FLOG#"),replaceNewLine(mode,grid->GetCellValue(row,FLOG)));
+	newMiddleODT.Replace(wxT("#FLOG#"),grid->GetTable()->GetColLabelValue(FLOG));
+	newMiddleODT.Replace(wxT("#FROUTE#"),replaceNewLine(mode,grid->GetCellValue(row,FROUTE)));
+	newMiddleODT.Replace(wxT("#LROUTE#"),grid->GetTable()->GetColLabelValue(FROUTE));
+	newMiddleODT.Replace(wxT("#FSTART#"),replaceNewLine(mode,grid->GetCellValue(row,FSTART)));
+	newMiddleODT.Replace(wxT("#LSTART#"),grid->GetTable()->GetColLabelValue(FSTART));
+	newMiddleODT.Replace(wxT("#FEND#"),replaceNewLine(mode,grid->GetCellValue(row,FEND)));
+	newMiddleODT.Replace(wxT("#LEND#"),grid->GetTable()->GetColLabelValue(FEND));
+	newMiddleODT.Replace(wxT("#FDISTANCE#"),replaceNewLine(mode,grid->GetCellValue(row,FDISTANCE)));
+	newMiddleODT.Replace(wxT("#LDISTANCE#"),grid->GetTable()->GetColLabelValue(FDISTANCE));
+	newMiddleODT.Replace(wxT("#FETMAL#"),replaceNewLine(mode,grid->GetCellValue(row,FETMAL)));
+	newMiddleODT.Replace(wxT("#LETMAL#"),grid->GetTable()->GetColLabelValue(FETMAL));
+	newMiddleODT.Replace(wxT("#FBESTETMAL#"),replaceNewLine(mode,grid->GetCellValue(row,FBESTETMAL)));
+	newMiddleODT.Replace(wxT("#LBESTETMAL#"),grid->GetTable()->GetColLabelValue(FBESTETMAL));
+
+	newMiddleODT.Replace(wxT("#FENGINE#"),replaceNewLine(mode,grid->GetCellValue(row,FENGINE)));
+	newMiddleODT.Replace(wxT("#LENGINE#"),grid->GetTable()->GetColLabelValue(FENGINE));
+	newMiddleODT.Replace(wxT("#FFUEL#"),replaceNewLine(mode,grid->GetCellValue(row,FFUEL)));
+	newMiddleODT.Replace(wxT("#LFUEL#"),grid->GetTable()->GetColLabelValue(FFUEL));
+	newMiddleODT.Replace(wxT("#FWATER#"),replaceNewLine(mode,grid->GetCellValue(row,FWATER)));
+	newMiddleODT.Replace(wxT("#LWATER#"),grid->GetTable()->GetColLabelValue(FWATER));
+	newMiddleODT.Replace(wxT("#FWINDDIR#"),replaceNewLine(mode,grid->GetCellValue(row,FWINDDIR)));
+	newMiddleODT.Replace(wxT("#LWINDDIR#"),grid->GetTable()->GetColLabelValue(FWINDDIR));
+	newMiddleODT.Replace(wxT("#FWIND#"),replaceNewLine(mode,grid->GetCellValue(row,FWIND)));
+	newMiddleODT.Replace(wxT("#LWIND#"),grid->GetTable()->GetColLabelValue(FWIND));
+	newMiddleODT.Replace(wxT("#FWINDPEAK#"),replaceNewLine(mode,grid->GetCellValue(row,FWINDPEAK)));
+	newMiddleODT.Replace(wxT("#LWINDPEAK#"),grid->GetTable()->GetColLabelValue(FWINDPEAK));
+	newMiddleODT.Replace(wxT("#FCURRENTDIR#"),replaceNewLine(mode,grid->GetCellValue(row,FCURRENTDIR)));
+	newMiddleODT.Replace(wxT("#LCURRENTDIR#"),grid->GetTable()->GetColLabelValue(FCURRENTDIR));
+
+	newMiddleODT.Replace(wxT("#FCURRENT#"),replaceNewLine(mode,grid->GetCellValue(row,FCURRENT)));
+	newMiddleODT.Replace(wxT("#LCURRENT#"),grid->GetTable()->GetColLabelValue(FCURRENT));
+	newMiddleODT.Replace(wxT("#FCURRENTPEAK#"),replaceNewLine(mode,grid->GetCellValue(row,FCURRENTPEAK)));
+	newMiddleODT.Replace(wxT("#LCURRENTPEAK#"),grid->GetTable()->GetColLabelValue(FCURRENTPEAK));
+	newMiddleODT.Replace(wxT("#FWAVE#"),replaceNewLine(mode,grid->GetCellValue(row,FWAVE)));
+	newMiddleODT.Replace(wxT("#LWAVE#"),grid->GetTable()->GetColLabelValue(FWAVE));
+	newMiddleODT.Replace(wxT("#FWAVEPEAK#"),replaceNewLine(mode,grid->GetCellValue(row,FWAVEPEAK)));
+	newMiddleODT.Replace(wxT("#LWAVEPEAK#"),grid->GetTable()->GetColLabelValue(FWAVEPEAK));
+	newMiddleODT.Replace(wxT("#FSWELL#"),replaceNewLine(mode,grid->GetCellValue(row,FSWELL)));
+	newMiddleODT.Replace(wxT("#LSWELL#"),grid->GetTable()->GetColLabelValue(FSWELL));
+	newMiddleODT.Replace(wxT("#FSWELLPEAK#"),replaceNewLine(mode,grid->GetCellValue(row,FSWELLPEAK)));
+	newMiddleODT.Replace(wxT("#LSWELLPEAK#"),grid->GetTable()->GetColLabelValue(FSWELLPEAK));
+	newMiddleODT.Replace(wxT("#FSAILS#"),replaceNewLine(mode,grid->GetCellValue(row,FSAILS)));
+	newMiddleODT.Replace(wxT("#LSAILS#"),grid->GetTable()->GetColLabelValue(FSAILS));
+
+	return newMiddleODT;
 }

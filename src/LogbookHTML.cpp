@@ -46,6 +46,8 @@ void LogbookHTML::setSelection()
 	int row = parent->selGridRow;
 	int z = 0 , r = 1, topRow, bottomRow, first, last;
 
+	first = last = 0;
+	
 	if(parent->logGrids[0]->GetRows() == 0) return;
 
 	if(parent->logGrids[parent->m_notebook8->GetSelection()]->IsSelection())
