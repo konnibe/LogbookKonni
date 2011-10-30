@@ -6,7 +6,7 @@
 #include "FastComboEditor.h"
 #include "GridCellChoiceRenderer.h"
 #include "LogbookDialog.h"
-#include "Logbook_pi.h"
+#include "logbook_pi.h"
 #include "Logbook.h"
 #include "Options.h"
 #include "Export.h"

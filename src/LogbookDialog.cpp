@@ -1023,8 +1023,9 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_panel8 = new wxPanel( m_splitter1, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), wxTAB_TRAVERSAL );
 	wxStaticBoxSizer* sbSizer12;
 	sbSizer12 = new wxStaticBoxSizer( new wxStaticBox( m_panel8, wxID_ANY, _("Equipment") ), wxVERTICAL );
-	
+
 	sbSizer12->SetMinSize( wxSize( -1,100 ) ); 
+
 	m_gridEquipment = new wxGrid( m_panel8, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 	
 	// Grid
@@ -1068,7 +1069,9 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_panel8->SetSizer( sbSizer12 );
 	m_panel8->Layout();
 	sbSizer12->Fit( m_panel8 );
+	
 	m_splitter1->SplitHorizontally( m_panel72, m_panel8, 314 );
+
 	fgSizer1->Add( m_splitter1, 1, wxEXPAND, 5 );
 	
 	m_panel3->SetSizer( fgSizer1 );
@@ -2294,6 +2297,25 @@ Backup Logbook(*.txt)|*.txt");
 	GPSTimer = new wxTimer(this,id);
 	this->Connect( wxEVT_TIMER, wxObjectEventFunction( &LogbookDialog::OnTimerGPS ));
 	GPSTimer->Start(GPSTIMEOUT);
+	
+#ifndef __WXMSW__  // wxWidgets won't set buttonwidth in Linux like in windows
+	m_buttonEditLayout->SetMinSize( wxSize( 25,-1 ) );
+	m_buttonReloadLayout->SetMinSize( wxSize( 25,-1 ) );
+	m_buttonEditLayoutOview->SetMinSize( wxSize( 25,-1 ) );
+	m_buttonReloadLayoutOview->SetMinSize( wxSize( 25,-1 ) );
+	m_buttonEditLayoutCrew->SetMinSize( wxSize( 25,-1 ) );
+	m_buttonReloadCrew->SetMinSize( wxSize( 25,-1 ) );	
+	
+	m_buttonEditLayoutBoat->SetMinSize( wxSize( 25,-1 ) );
+	m_buttonReloadLayoutsBoat->SetMinSize( wxSize( 25,-1 ) );
+	m_buttonReloadLayoutsServiceHTML->SetMinSize( wxSize( 25,-1 ) );
+	m_buttonEditLayoutODTService->SetMinSize( wxSize( 25,-1 ) );
+	m_buttonEditLayoutODTRepairs->SetMinSize( wxSize( 25,-1 ) );
+	m_buttonReloadLayoutsRepairsHTML->SetMinSize( wxSize( 25,-1 ) );
+	m_buttonEditLayoutODTBuyParts->SetMinSize( wxSize( 25,-1 ) );
+	m_buttonReloadLayoutsBuyPartsHTML->SetMinSize( wxSize( 25,-1 ) );
+	
+#endif
 }
 
 void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )
