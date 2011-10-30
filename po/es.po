@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-15 02:58+0200\n"
+"POT-Creation-Date: 2011-10-22 16:05+0200\n"
 "PO-Revision-Date: 2011-10-14 18:22+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -15,6 +15,9 @@ msgstr ""
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-Country: Spain\n"
 "X-Poedit-SearchPath-0: .\n"
+#
+msgid "\n"
+msgstr ""
 #
 msgid ""
 "\n"
@@ -46,6 +49,14 @@ msgstr "Abreviaciones"
 #
 msgid "Active"
 msgstr "Activo"
+#
+#, fuzzy
+msgid "Active Logbook"
+msgstr "Bitácora nueva"
+#
+#, fuzzy
+msgid "Actuell Logbook"
+msgstr "Bitácora nueva"
 #
 msgid "Add Crew"
 msgstr "Añadir tripulante"
@@ -91,9 +102,6 @@ msgstr "Barómetro"
 #
 msgid "Beam"
 msgstr "Manga"
-#
-msgid "Best Etmal"
-msgstr ""
 #
 msgid "Birthname"
 msgstr ""
@@ -147,13 +155,6 @@ msgid "Crewlist"
 msgstr "Listado de tripulación"
 #
 msgid "Current"
-msgstr "Corriente"
-#
-msgid "Current "
-msgstr "Corriente"
-#
-#, fuzzy
-msgid "Current Peak"
 msgstr "Corriente"
 #
 msgid "Date"
@@ -211,9 +212,6 @@ msgstr "E"
 msgid "Edit Layout"
 msgstr "Editar Layout"
 #
-msgid "End"
-msgstr ""
-#
 msgid "End 1.Watch"
 msgstr "Fin 1ª guardia"
 #
@@ -231,9 +229,6 @@ msgstr "Máquina total"
 #
 msgid "Equipment"
 msgstr "Equipamiento"
-#
-msgid "Etmal "
-msgstr ""
 #
 msgid "Fathom"
 msgstr "Brazas"
@@ -355,9 +350,6 @@ msgstr "Bitácora Konni"
 msgid "Logbook Preferences"
 msgstr "Bitácora preferencias"
 #
-msgid "Logbook files (*.txt)|*.txt"
-msgstr "Ficheros bitácora (*.txt)|*.txt"
-#
 msgid "Logbook for OpenCPN"
 msgstr "Bitácora para OpenCPN"
 #
@@ -392,6 +384,10 @@ msgstr ""
 "alerta\n"
 " "
 #
+#, c-format
+msgid "Logbook from %s to %s"
+msgstr ""
+#
 msgid "LogbookKonni"
 msgstr ""
 #
@@ -412,9 +408,6 @@ msgstr "Minutos"
 #
 msgid "Minutes greater than 59"
 msgstr "Minuteos mayor que 59!"
-#
-msgid "Month"
-msgstr "Mes"
 #
 msgid "Motor Hours"
 msgstr "Horas máquina"
@@ -454,11 +447,12 @@ msgstr ""
 msgid "OK"
 msgstr ""
 #
+#, fuzzy, c-format
+msgid "Old Logbook until %s"
+msgstr "Abrir fichero de bitácora antiguo"
+#
 msgid "Only Layouts with prefix:"
 msgstr ""
-#
-msgid "Open old logbook file"
-msgstr "Abrir fichero de bitácora antiguo"
 #
 msgid ""
 "Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV "
@@ -563,9 +557,6 @@ msgstr "Guardar Listado de tripulación"
 msgid "Save Logbook File"
 msgstr "Guardar Bitácora"
 #
-msgid "Schedule"
-msgstr "Calendário"
-#
 msgid "Seconds"
 msgstr "Segundos"
 #
@@ -636,10 +627,6 @@ msgstr "Siento, está sin instalar un layout"
 msgid "Speed"
 msgstr "Velocidad"
 #
-#, fuzzy
-msgid "Start"
-msgstr "Calle"
-#
 msgid "Start 1.Watch"
 msgstr "Inicio 1ªguardia"
 #
@@ -656,13 +643,6 @@ msgid "Street"
 msgstr "Calle"
 #
 msgid "Swell"
-msgstr "Mar de fondo"
-#
-msgid "Swell "
-msgstr "Mar de fondo"
-#
-#, fuzzy
-msgid "Swell Peak"
 msgstr "Mar de fondo"
 #
 msgid "Telephone"
@@ -694,9 +674,6 @@ msgstr "Temporizador activado/parado"
 #
 msgid "Title"
 msgstr "Título"
-#
-msgid "Today"
-msgstr "Hoy"
 #
 msgid "Town"
 msgstr "Ciudad"
@@ -741,27 +718,10 @@ msgstr "Agua total"
 msgid "Wave"
 msgstr "Oleaje"
 #
-msgid "Wave "
-msgstr "Oleaje"
-#
-#, fuzzy
-msgid "Wave Peak"
-msgstr "Oleaje"
-#
 msgid "Weather"
 msgstr "Meteo"
 #
-msgid "Week"
-msgstr "Semana"
-#
 msgid "Wind"
-msgstr "Viento"
-#
-msgid "Wind "
-msgstr "Viento"
-#
-#, fuzzy
-msgid "Wind Peak"
 msgstr "Viento"
 #
 msgid "Windspeed"
@@ -797,9 +757,6 @@ msgstr "La bitácora está sin entradas ?"
 #
 msgid "Zip"
 msgstr "CP"
-#
-msgid "available in version 0.908"
-msgstr ""
 #
 msgid "default"
 msgstr ""
@@ -852,6 +809,99 @@ msgstr ""
 #
 msgid "to"
 msgstr ""
+#
+#
+#
+#
+#~ msgid "Current "
+#~ msgstr "Corriente"
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Current Peak"
+#~ msgstr "Corriente"
+#
+#
+#
+#
+#~ msgid "Logbook files (*.txt)|*.txt"
+#~ msgstr "Ficheros bitácora (*.txt)|*.txt"
+#
+#
+#
+#
+#~ msgid "Month"
+#~ msgstr "Mes"
+#
+#
+#
+#
+#~ msgid "Schedule"
+#~ msgstr "Calendário"
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Start"
+#~ msgstr "Calle"
+#
+#
+#
+#
+#~ msgid "Swell "
+#~ msgstr "Mar de fondo"
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Swell Peak"
+#~ msgstr "Mar de fondo"
+#
+#
+#
+#
+#~ msgid "Today"
+#~ msgstr "Hoy"
+#
+#
+#
+#
+#~ msgid "Wave "
+#~ msgstr "Oleaje"
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Wave Peak"
+#~ msgstr "Oleaje"
+#
+#
+#
+#
+#~ msgid "Week"
+#~ msgstr "Semana"
+#
+#
+#
+#
+#~ msgid "Wind "
+#~ msgstr "Viento"
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Wind Peak"
+#~ msgstr "Viento"
+#
+#
+#
+#
 #
 #
 #

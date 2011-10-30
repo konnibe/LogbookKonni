@@ -358,10 +358,10 @@ void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 	}
 
 #ifdef __WXMSW__
-	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 620,731  ),
+	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 620,512  ),
 		wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
 #else
-	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 620,920 ),
+	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 620,612 ),
 		wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );	
 #endif
 	optionsDialog->m_checkBoxShowLogbook->SetValue(m_bLOGShowIcon);
@@ -416,6 +416,16 @@ void logbookkonni_pi::SaveConfig()
 			  pConf->Write( _T( "DlgWidth" ),  m_plogbook_window->GetSize().GetX());
 			  pConf->Write ( _T( "DlgHeight" ), m_plogbook_window->GetSize().GetY());
 			}
+
+			pConf->Write ( _T ( "GuardChange" ), opt->guardChange );
+			pConf->Write ( _T ( "GuardChangeText" ), opt->guardChangeText );
+			pConf->Write ( _T ( "CourseChange" ), opt->courseChange );
+			pConf->Write ( _T ( "CouseChangeDegrees" ), opt->courseChangeDegrees );
+			pConf->Write ( _T ( "CourseChangeText" ), opt->courseChangeText );
+			pConf->Write ( _T ( "EverySM" ), opt->everySM );
+			pConf->Write ( _T ( "EverySMAmount" ), opt->everySMAmount );
+			pConf->Write ( _T ( "everySMText" ), opt->everySMText );
+
 			pConf->Write ( _T ( "Timer" ), opt->timer );
 			pConf->Write ( _T ( "Local" ), opt->local );
 			pConf->Write ( _T ( "TzIndicator" ), opt->tzIndicator );
@@ -441,6 +451,10 @@ void logbookkonni_pi::SaveConfig()
 
 			pConf->Write ( _T ( "Vol" ), opt->vol );
 			pConf->Write ( _T ( "Motorhours" ), opt->motorh);
+
+			pConf->Write ( _T ( "Days" ), opt->days );
+			pConf->Write ( _T ( "Weeks" ), opt->weeks );
+			pConf->Write ( _T ( "Month" ), opt->month );
 
 			pConf->Write ( _T ( "ShowDepth" ), opt->showDepth);
 			pConf->Write ( _T ( "ShowWaveSwell" ), opt->showWaveSwell);
@@ -470,7 +484,15 @@ void logbookkonni_pi::SaveConfig()
 			for(unsigned int i = 0; i < opt->WakeColWidth.Count(); i++)
 				pConf->Write (wxString::Format(_T ( "WakeGridColWidth/%i"),i), opt->WakeColWidth[i]);
 			for(unsigned int i = 0; i < opt->EquipColWidth.Count(); i++)
-				pConf->Write (wxString::Format(_T ( "EquipGridColWidth/%i"),i), opt->EquipColWidth[i]);		
+				pConf->Write (wxString::Format(_T ( "EquipGridColWidth/%i"),i), opt->EquipColWidth[i]);	
+			for(unsigned int i = 0; i < opt->OverviewColWidth.Count(); i++)
+				pConf->Write (wxString::Format(_T ( "OverviewGridColWidth/%i"),i), opt->OverviewColWidth[i]);	
+			for(unsigned int i = 0; i < opt->ServiceColWidth.Count(); i++)
+				pConf->Write (wxString::Format(_T ( "ServiceGridColWidth/%i"),i), opt->ServiceColWidth[i]);
+			for(unsigned int i = 0; i < opt->RepairsColWidth.Count(); i++)
+				pConf->Write (wxString::Format(_T ( "RepairsGridColWidth/%i"),i), opt->RepairsColWidth[i]);
+			for(unsigned int i = 0; i < opt->BuyPartsColWidth.Count(); i++)
+				pConf->Write (wxString::Format(_T ( "BuyPartsGridColWidth/%i"),i), opt->BuyPartsColWidth[i]);
 	  }
 }
 
@@ -485,6 +507,17 @@ void logbookkonni_pi::LoadConfig()
 			pConf->Read ( _T( "FirstTime" ),  &opt->firstTime);
 			pConf->Read ( _T( "DlgWidth" ),  &opt->dlgWidth);
 			pConf->Read ( _T( "DlgHeight" ),  &opt->dlgHeight);
+
+			pConf->Read ( _T ( "GuardChange" ), &opt->guardChange );
+			pConf->Read ( _T ( "GuardChangeText" ), &opt->guardChangeText );
+			pConf->Read ( _T ( "CourseChange" ), &opt->courseChange );
+			pConf->Read ( _T ( "CouseChangeDegrees" ), &opt->courseChangeDegrees );
+			pConf->Read ( _T ( "CourseChangeText" ), &opt->courseChangeText );
+			pConf->Read ( _T ( "EverySM" ), &opt->everySM );
+			pConf->Read ( _T ( "EverySMAmount" ), &opt->everySMAmount );
+			pConf->Read ( _T ( "everySMText" ), &opt->everySMText );
+			opt->courseChangeDegrees.ToDouble(&opt->dCourseChangeDegrees);
+			opt->everySMAmount.ToDouble(&opt->dEverySM);
 
 			pConf->Read ( _T ( "Timer" ), &opt->timer );
 			pConf->Read ( _T ( "Local" ), &opt->local );
@@ -509,12 +542,16 @@ void logbookkonni_pi::LoadConfig()
 			pConf->Read ( _T ( "NavFeet" ), &opt->feet);
 			pConf->Read ( _T ( "NavFathom" ), &opt->fathom );
 
+			pConf->Read ( _T ( "Vol" ), &opt->vol );
+			pConf->Read ( _T ( "Motorhours" ), &opt->motorh);
+
 			pConf->Read ( _T ( "Windkts" ), &opt->windkts );
 			pConf->Read ( _T ( "WindMeter" ), &opt->windmeter );
 			pConf->Read ( _T ( "WindKmh" ), &opt->windkmh );
 
-			pConf->Read ( _T ( "Vol" ), &opt->vol );
-			pConf->Read ( _T ( "Motorhours" ), &opt->motorh);
+			pConf->Read ( _T ( "Days" ), &opt->days );
+			pConf->Read ( _T ( "Weeks" ), &opt->weeks );
+			pConf->Read ( _T ( "Month" ), &opt->month );
 
 			pConf->Read ( _T ( "ShowDepth" ), &opt->showDepth);
 			pConf->Read ( _T ( "ShowWaveSwell" ), &opt->showWaveSwell);
@@ -576,7 +613,35 @@ void logbookkonni_pi::LoadConfig()
 				r = pConf->Read (wxString::Format(_T ( "EquipGridColWidth/%i"),i++), &val);	
 				if(!r) break;
 				opt->EquipColWidth.Add(val);
-			}			
+			}	
+			i = 0; 
+			while(true)
+			{
+				r = pConf->Read (wxString::Format(_T ( "OverviewGridColWidth/%i"),i++), &val, -1);	
+				opt->OverviewColWidth.Add(val);
+				if(!r) break;
+			}
+			i = 0;
+			while(true)
+			{
+				r = pConf->Read (wxString::Format(_T ( "ServiceGridColWidth/%i"),i++), &val, -1);	
+				opt->ServiceColWidth.Add(val);
+				if(!r) break;
+			}
+			i = 0;
+			while(true)
+			{
+				r = pConf->Read (wxString::Format(_T ( "RepairsGridColWidth/%i"),i++), &val, -1);	
+				opt->RepairsColWidth.Add(val);
+				if(!r) break;
+			}
+			i = 0;
+			while(true)
+			{
+				r = pConf->Read (wxString::Format(_T ( "BuyPartsGridColWidth/%i"),i++), &val, -1);	
+				opt->BuyPartsColWidth.Add(val);
+				if(!r) break;
+			}
 	  }
 }
 
@@ -679,7 +744,8 @@ void logbookkonni_pi::loadLayouts(wxWindow *parent)
 		}
 		wxMessageBox(_("OK"));
 	}
-	loadLanguages(parent);
+	if(opt->firstTime)
+		loadLanguages(parent);
 }
 
 void logbookkonni_pi::loadLanguages(wxWindow *parent)

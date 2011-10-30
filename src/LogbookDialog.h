@@ -5,13 +5,14 @@
 // PLEASE DO "NOT" EDIT THIS FILE!
 ///////////////////////////////////////////////////////////////////////////
 
-#ifndef __logbook__
-#define __logbook__
+#ifndef __LOGBOOKDIALOG__
+#define __LOGBOOKDIALOG__
 
 #include "CrewList.h"
 #include "Maintenance.h"
 #include "boat.h"
 #include "OverView.h"
+#include "EzGrid.h"
 
 #include <wx/string.h>
 #include <wx/button.h>
@@ -38,6 +39,8 @@
 #include <wx/calctrl.h>
 #include <wx/tglbtn.h>
 #include <wx/mimetype.h>
+#include <wx/listctrl.h>
+#include <wx/gdicmn.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -337,6 +340,8 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		virtual void onButtonClickSelectLogbook( wxCommandEvent& event );
 		virtual void OnRadioButtonActuellLogbook( wxCommandEvent& event );
 		virtual void OnRadioButtonAllLogbooks( wxCommandEvent& event );
+		virtual void onGridCellLeftClickService( wxGridEvent& event );
+		virtual void onGridCellLeftClickBuyParts( wxGridEvent& event );
 
 /*		virtual void onButtobClickAddLineMaintenance( wxCommandEvent& event ) ;
 		virtual void onButtobClickSaveMaintenance( wxCommandEvent& event ) ;
@@ -389,7 +394,7 @@ enum FORMAT {HTML,ODT};
 		wxRadioButton* m_radioBtnHTMLService;
 		wxRadioButton* m_radioBtnODTService;
 		wxButton* m_buttonViewService;
-		wxGrid* m_gridMaintanence;
+		EzGrid* m_gridMaintanence;
 		wxButton* m_buttonAddLineRepairs;
 		wxButton* m_buttonSaveRepairs;
 		wxChoice* m_choiceSelectLayoutRepairs;
@@ -494,7 +499,7 @@ enum FORMAT {HTML,ODT};
 
 		wxString			titleExt;
 };
-
+/*
 class LogGridTable : public wxGridTableBase
 {
 public:
@@ -509,7 +514,7 @@ public:
         return wxString::Format(wxT("(%d, %d)"), row, col);
     }
 
-    void SetValue( int row, int col, const wxString& s  ) { /* ignore */ }
+    void SetValue( int row, int col, const wxString& s  ) {  ignore  }
     bool IsEmptyCell( int , int  ) { return false; }
 
 private:
@@ -518,19 +523,8 @@ private:
 
 };
 
-#endif //__logbook__
+*/
 
-#define __logbook__
-
-#include <wx/listctrl.h>
-#include <wx/gdicmn.h>
-#include <wx/font.h>
-#include <wx/colour.h>
-#include <wx/settings.h>
-#include <wx/string.h>
-#include <wx/sizer.h>
-#include <wx/button.h>
-#include <wx/dialog.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
@@ -623,4 +617,4 @@ class SelectLogbook : public wxDialog
 	
 };
 
-
+#endif //__logbook__

@@ -20,11 +20,22 @@ private:
 				 BARO,WIND,WSPD,CURRENT,CSPD,WAVE,SWELL,WEATHER,CLOUDS,VISIBILITY,
 				 MOTOR,MOTORT,FUEL,FUELT,SAILS,REEF,WATER,WATERT,MREMARKS};	
 
-	NMEA0183            		m_NMEA0183;
+	struct Pos{
+		double posLat;
+		double latitude;
+		double latmin;
+		char   NSflag;
+		double posLon;
+		double longitude;
+		double lonmin;
+		char   WEflag;
+				}oldPosition,newPosition;
+
+
+	NMEA0183       		m_NMEA0183;
 	wxString			sLat;
 	wxString			sLon;
 	wxDateTime			mUTCDateTime;
-	wxDateTime			mCorrectedDateTime;
 	wxString			sDate;
 	wxString			sTime;
 	wxString		    sSOG;
@@ -41,14 +52,27 @@ private:
 	bool				gpsStatus;
 	bool				bCOW;
 	double				dCOW;
+	double				dLastHeading;
+	double				dLastCourse;
+	long				dLastMinute;
+	bool				mode;
+	bool				courseChange;
+	bool				everySM;
+	bool				guardChange;
 
-	wxString			toSDMM ( int NEflag, double a );
+	wxString			toSDMM ( int NEflag, double a, bool mode );
 	void				getModifiedCellValue(int grid, int row, int selcol, int col);
 	wxString			computeCell(int grid,int row, int col, wxString s, bool mode);
 	void				clearAllGrids();
 	wxString			calculateDistance(wxString fromstr, wxString tostr);
 	wxDouble			positionStringToDezimal(wxString pos);
 	wxString			getWake();
+	void				checkCourseChanged();
+	void				checkGuardChanged();
+	void				checkDistance();
+	wxString			positionTraditional(int NEflag, double a, bool mode );
+	wxString			positionGPSLike(int NEflag, double a, bool mode );
+	void				setOldPosition();
 
 public:
 	LogbookDialog*	dialog;
@@ -57,6 +81,7 @@ public:
 	wxString		layoutODT;
 	wxString		data_locn;
 	bool			modified;
+	wxDateTime		mCorrectedDateTime;
 
 public:
 	Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString layoutODT);
@@ -74,7 +99,6 @@ public:
 	void newLogbook();
 	void switchToActuellLogbook();
 	void selectLogbook();
-//	wxString setLogbookData(int rowHeight, int totalColumns, int numPages, int row);
 	void changeCellValue(int row, int col, int offset);
 	void setLayoutLocation(wxString loc);
 	void SetGPSStatus(bool status);

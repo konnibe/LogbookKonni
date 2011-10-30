@@ -1,9 +1,16 @@
-#include "Maintenance.h"
-#include "LogbookDialog.h"
-
 #ifndef WX_PRECOMP
      # include <wx/wx.h>
 #endif
+
+#include "Maintenance.h"
+#include "FastComboEditor.h"
+#include "GridCellChoiceRenderer.h"
+#include "LogbookDialog.h"
+#include "Logbook_pi.h"
+#include "Logbook.h"
+#include "Options.h"
+#include "Export.h"
+#include "FastComboEditor.h"
 
 #include <wx/tokenzr.h>
 #include <wx/filename.h> 
@@ -12,11 +19,14 @@
 #include <wx/txtstrm.h> 
 #include <wx/zipstrm.h> 
 #include <wx/generic/gridctrl.h>
+#include <wx/datetime.h>
+
 
 #include <memory>
 using namespace std;
 
 Maintenance::Maintenance(LogbookDialog* d, wxString data, wxString layout, wxString layoutODT)
+	: Export(d)
 {
 	dialog = d;
 	this->layout_locn = layout;
@@ -78,24 +88,29 @@ Maintenance::Maintenance(LogbookDialog* d, wxString data, wxString layout, wxStr
 	data_locnRepairs = repairsData;
 
 	setLayoutLocation();
-
+/*
 	m_choices = wxArrayString();
 	m_choices.Add(dialog->m_gridGlobal->GetColLabelValue(6)+_T(" +")); // Distance/T
 	m_choices.Add(dialog->m_gridMotorSails->GetColLabelValue(1)+_T(" +")); // Motor/h
 	m_choices.Add(dialog->m_gridGlobal->GetColLabelValue(3)); // Sign
+*/
+	m_choices[0] = dialog->m_gridGlobal->GetColLabelValue(6)+_T(" +"); // Distance/T
+	m_choices[1] = dialog->m_gridMotorSails->GetColLabelValue(1)+_T(" +"); // Motor/h
+	m_choices[2] = dialog->m_gridGlobal->GetColLabelValue(3); // Sign
+	m_choices[3] = _("Fix Date");
+	m_choices[4] = _("Date + Days");
+	m_choices[5] = _("Date + Weeks");
+	m_choices[6] = _("Date + Month");
 
-	m_YesNo = wxArrayString();
-	m_YesNo.Add(_("Yes")); 
-	m_YesNo.Add(_("No")); 
+	m_YesNo[0] = _("Yes"); 
+	m_YesNo[1] = _("No"); 
 
-	m_Priority = wxArrayString();
-	m_Priority.Add(_T("0")); 
-	m_Priority.Add(_T("1")); 
-	m_Priority.Add(_T("2")); 
-	m_Priority.Add(_T("3")); 
-	m_Priority.Add(_T("4")); 
-	m_Priority.Add(_T("5"));
-
+	m_Priority[0] = _T("0"); 
+	m_Priority[1] = _T("1"); 
+	m_Priority[2] = _T("2"); 
+	m_Priority[3] = _T("3"); 
+	m_Priority[4] = _T("4"); 
+	m_Priority[5] = _T("5"); 
 }
 
 Maintenance::~Maintenance(void)
@@ -166,21 +181,23 @@ void Maintenance::addLine()
 	selectedRow = lastRow;
 	setAlignmentService();
 
+	grid->SetCellRenderer(lastRow, IF, new wxGridCellChoiceRenderer);
+	grid->SetCellEditor(lastRow,IF,new wxFastComboEditor(7,m_choices,true));
 
-	grid->SetCellEditor(lastRow,IF,new wxGridCellChoiceEditor(m_choices));
-	grid->SetCellEditor(lastRow,ACTIVE,new wxGridCellChoiceEditor(m_YesNo));
+	grid->SetCellRenderer(lastRow, ACTIVE, new wxGridCellChoiceRenderer);
+	grid->SetCellEditor(lastRow,ACTIVE,new wxFastComboEditor(2,m_YesNo,true));
 
-	grid->SetCellValue(lastRow,PRIORITY,_T("0"));
+	grid->SetCellValue(lastRow,PRIORITY,_T("5"));
 	grid->SetCellValue(lastRow,IF,m_choices[0]);
 	grid->SetCellValue(lastRow,WARN,_T("1"));
-	grid->SetCellValue(lastRow,URGENT,_T("1"));
+	grid->SetCellValue(lastRow,URGENT,_T("2"));
 	cellCollChanged(IF, lastRow);
 	cellCollChanged(WARN, lastRow);
 	checkService(dialog->m_gridGlobal->GetNumberRows()-1);
-	setRowBackground(lastRow,white);
+//	setRowBackground(lastRow,white);
 	grid->SetCellBackgroundColour(lastRow,START,wxColour( 240, 240, 240 ));
 
-	grid->SetCellValue(lastRow,ACTIVE,_("No"));
+	grid->SetCellValue(lastRow,ACTIVE,_("Yes"));
 }
 
 void Maintenance::addLineRepairs()
@@ -214,16 +231,15 @@ void Maintenance::setAlignmentRepairs()
 	repairs->SetCellAlignment(lastRowRepairs,RPRIORITY,wxALIGN_CENTER, wxALIGN_TOP);
 	repairs->SetCellAlignment(lastRowRepairs,RTEXT,wxALIGN_LEFT, wxALIGN_TOP);
 
-	//wxGridCellChoiceEditor *combo = new wxGridCellChoiceEditor(m_Priority);
-//	wxComboBox *box = (wxComboBox*)combo->GetControl();
-//	box->Connect( wxEVT_COMMAND_COMBOBOX_SELECTED, wxCommandEventHandler( Maintenance::test ), NULL, this );
-	repairs->SetCellEditor(lastRowRepairs,RPRIORITY,new wxGridCellChoiceEditor(m_Priority));
+	repairs->SetCellRenderer(lastRowRepairs, RPRIORITY, new wxGridCellChoiceRenderer);
+	repairs->SetCellEditor(lastRowRepairs,RPRIORITY,new wxFastComboEditor(6,m_Priority));
 	repairs->SetCellEditor(lastRowRepairs,RTEXT,new wxGridCellAutoWrapStringEditor);
 }
 
 void Maintenance::setAlignmentBuyParts()
 {
-	buyparts->SetCellEditor(lastRowBuyParts,PPRIORITY,new wxGridCellChoiceEditor(m_Priority));
+	repairs->SetCellRenderer(lastRowBuyParts, RPRIORITY, new wxGridCellChoiceRenderer);
+	buyparts->SetCellEditor(lastRowBuyParts,PPRIORITY,new wxFastComboEditor(6,m_Priority));
 	buyparts->SetCellEditor(lastRowBuyParts,PARTS,new wxGridCellAutoWrapStringEditor);
 	buyparts->SetCellAlignment(lastRowBuyParts,PPRIORITY,wxALIGN_CENTER, wxALIGN_TOP);
 	buyparts->SetCellAlignment(lastRowBuyParts,PCATEGORY,wxALIGN_CENTER, wxALIGN_TOP);
@@ -386,10 +402,12 @@ void Maintenance::setRowBackground(int row, wxColour &c)
 	else if(c == wxColour(255,255,255))
 		grid->SetCellValue(row,PRIORITY,_T("0"));
 }
-
+#include "time.h"
 void Maintenance::checkService(int row)
 {
-//	wxGridCellChoiceEditor *ed;
+	wxString date;
+	wxDateTime dtstart, dturgent, dtwarn;
+	wxDateSpan spanu,spanw;
 	wxString g, yesno;
 	int choice = -1;
 	double startValue, warnValue, urgentValue;
@@ -422,6 +440,14 @@ void Maintenance::checkService(int row)
 			choice = 1;
 		else if (g == m_choices[2])
 			choice = 2;
+		else if (g == m_choices[3])
+			choice = 3;
+		else if (g == m_choices[4])
+			choice = 4;
+		else if (g == m_choices[5])
+			choice = 5;
+		else if (g == m_choices[6])
+			choice = 6;
 
 		if(yesno != _("No"))
 		{
@@ -437,11 +463,8 @@ void Maintenance::checkService(int row)
 				}
 				else if(distanceTotal >= startValue+warnValue)
 				{
-					if(border != 2)
-					{
-						border = 1;
-						dialog->SetBackgroundColour(yellow);
-					}
+					border = 1;
+					dialog->SetBackgroundColour(yellow);
 					setRowBackground(r,yellow);
 					break;
 				}
@@ -460,11 +483,8 @@ void Maintenance::checkService(int row)
 				}
 				else if(motorTotal >= startValue+warnValue)
 				{
-					if(border != 2)
-					{
-						border = 1;
-						dialog->SetBackgroundColour(yellow);
-					}
+					border = 1;
+					dialog->SetBackgroundColour(yellow);
 					setRowBackground(r,yellow);
 					break;
 				}
@@ -486,7 +506,129 @@ void Maintenance::checkService(int row)
 					setRowBackground(r,green);
 				}
 				break;
+			case 3:	
+				date = grid->GetCellValue(r,URGENT);
+				dturgent.ParseDate(date);
+				date = grid->GetCellValue(r,WARN);
+				dtwarn.ParseDate(date);
+				dtstart.ParseDate(dtstart.Now().FormatDate());
+				if(dtstart >= dturgent)
+				{
+					border = 2;
+					dialog->SetBackgroundColour(red);
+					setRowBackground(r,red);
+					break;
+				}
+				else if(dtstart >= dtwarn)
+				{
+					border = 1;
+					dialog->SetBackgroundColour(yellow);
+					setRowBackground(r,yellow);
+					break;
+				}
+				else
+				{
+					setRowBackground(r,green);
+				}
 				break;
+			case 4:
+				date = dialog->m_gridMaintanence->GetCellValue(r,START);
+				dtstart.ParseDate(date.data());
+				long days;
+				grid->GetCellValue(r,WARN).ToLong(&days);
+				spanw.SetDays((int)days);
+				grid->GetCellValue(r,URGENT).ToLong(&days);
+				spanu.SetDays((int)days);
+				dturgent = dtstart;
+				dturgent += spanu;
+				dtwarn = dtstart;
+				dtwarn += spanw;
+				dtstart.ParseDate(dialog->m_gridGlobal->GetCellValue(row,1));
+		//		wxMessageBox(dtstart.FormatDate()+dturgent.FormatDate());
+				if(dtstart >= dturgent )
+				{
+					border = 2;
+					dialog->SetBackgroundColour(red);
+					setRowBackground(r,red);
+					break;
+				}
+				else if(dtstart >= dtwarn)
+				{
+					border = 1;
+					dialog->SetBackgroundColour(yellow);
+					setRowBackground(r,yellow);
+					break;
+				}
+				else
+				{
+					setRowBackground(r,green);
+				}
+				break;
+			case 5:
+				date = dialog->m_gridMaintanence->GetCellValue(r,START);
+				dtstart.ParseDate(date.data());
+				long weeks;
+				grid->GetCellValue(r,WARN).ToLong(&weeks);
+				spanw.SetWeeks((int) weeks);
+				grid->GetCellValue(r,URGENT).ToLong(&weeks);
+				spanu.SetWeeks((int) weeks);
+				dturgent = dtstart;
+				dturgent += spanu;
+				dtwarn = dtstart;
+				dtwarn += spanw;
+				dtstart.ParseDate(dialog->m_gridGlobal->GetCellValue(row,1));
+		//		wxMessageBox(dtstart.FormatDate()+dturgent.FormatDate());
+				if(dtstart >= dturgent )
+				{
+					border = 2;
+					dialog->SetBackgroundColour(red);
+					setRowBackground(r,red);
+					break;
+				}
+				else if(dtstart >= dtwarn)
+				{
+					border = 1;
+					dialog->SetBackgroundColour(yellow);
+					setRowBackground(r,yellow);
+					break;
+				}
+				else
+				{
+					setRowBackground(r,green);
+				}
+				break;
+			case 6:
+				date = dialog->m_gridMaintanence->GetCellValue(r,START);
+				dtstart.ParseDate(date.data());
+				long month;
+				grid->GetCellValue(r,WARN).ToLong(&month);
+				spanw.SetMonths((int)month);
+				grid->GetCellValue(r,URGENT).ToLong(&month);
+				spanu.SetMonths((int) month);
+				dturgent = dtstart;
+				dturgent += spanu;
+				dtwarn = dtstart;
+				dtwarn += spanw;
+				dtstart.ParseDate(dialog->m_gridGlobal->GetCellValue(row,1));
+		//		wxMessageBox(dtstart.FormatDate()+dturgent.FormatDate());
+				if(dtstart >= dturgent )
+				{
+					border = 2;
+					dialog->SetBackgroundColour(red);
+					setRowBackground(r,red);
+					break;
+				}
+				else if(dtstart >= dtwarn)
+				{
+					border = 1;
+					dialog->SetBackgroundColour(yellow);
+					setRowBackground(r,yellow);
+					break;
+				}
+				else
+				{
+					setRowBackground(r,green);
+				}
 			}
 		}
 		else
@@ -591,6 +733,14 @@ void Maintenance::setRowDone(int row)
 			choice = 1;
 	else if (g == m_choices[2])
 			choice = 2;
+	else if (g == m_choices[3])
+			choice = 3;
+	else if (g == m_choices[4])
+			choice = 4;
+	else if (g == m_choices[5])
+			choice = 5;
+	else if (g == m_choices[6])
+			choice = 6;
 
 	switch(choice)
 	{
@@ -605,13 +755,24 @@ void Maintenance::setRowDone(int row)
 					   dialog->m_gridGlobal->GetNumberRows()-1,1));
 		break;
 	case 2:
+		grid->SetCellValue(selectedRow,ACTIVE,_("No"));
+		checkService(dialog->m_gridGlobal->GetNumberRows()-1);
+		break;
+	case 3:
+		grid->SetCellValue(selectedRow,ACTIVE,_("No"));
+		grid->SetCellValue(selectedRow,WARN,wxDateTime::Now().FormatDate());
+		grid->SetCellValue(selectedRow,URGENT,wxDateTime::Now().FormatDate());
+	case 4:
+	case 5:
+	case 6:
+		grid->SetCellValue(selectedRow,START,wxDateTime::Now().FormatDate());
 		break;
 	}
 
 	if(grid->GetCellValue(row,ACTIVE) == _("Yes"))
 		setRowBackground(row,green);
 	else
-		setRowBackground(row,green);
+		setRowBackground(selectedRow,white);
 	grid->Refresh();
 }
 
@@ -651,7 +812,18 @@ void Maintenance::cellCollChanged(int col, int row)
 						grid->SetCellValue(selectedRow,WARN,
 							dialog->m_gridGlobal->GetCellValue(
 							dialog->m_gridGlobal->GetNumberRows()-1,3));
-
+		else if (g == m_choices[3])
+		{
+						grid->SetCellValue(selectedRow,START,_T(""));
+						grid->SetCellValue(selectedRow,WARN,  (wxDateTime::Now().Add(wxDateSpan(0,0,0,1))).FormatDate());
+						grid->SetCellValue(selectedRow,URGENT,(wxDateTime::Now().Add(wxDateSpan(0,0,0,1))).FormatDate());
+		}
+		else if (g == m_choices[4] || g == m_choices[5] || g == m_choices[6])
+		{
+						grid->SetCellValue(selectedRow,START,wxDateTime::Now().FormatDate());
+						grid->SetCellValue(selectedRow,WARN,_T("1"));
+						grid->SetCellValue(selectedRow,URGENT,_T("2"));
+		}
 		col = WARN;
 	}
 
@@ -669,10 +841,24 @@ void Maintenance::cellCollChanged(int col, int row)
 			grid->GetCellValue(row,col).ToDouble(&d);
 			ss = wxString::Format(_T("%5.0f %s"),d,s.c_str());
 		}
+		else if(g == m_choices[4] || g == m_choices[5] || g == m_choices[6])
+		{
+			wxString s;
+			if(g == m_choices[4])
+				s = dialog->logbookPlugIn->opt->days;
+			else if(g == m_choices[5])
+				s = dialog->logbookPlugIn->opt->weeks;
+			else if(g == m_choices[6])
+				s = dialog->logbookPlugIn->opt->month;
+			wxDouble d; 
+			grid->GetCellValue(row,col).ToDouble(&d);
+			ss = wxString::Format(_T("%5.0f %s"),d,s.c_str());
+		}
 		else 
 		{
-			ss = grid->GetCellValue(row,WARN);
+			ss = grid->GetCellValue(row,col);
 		}
+
 		if(col == WARN)
 		{
 			grid->SetCellValue(row,WARN,ss);
@@ -687,9 +873,8 @@ void Maintenance::cellCollChanged(int col, int row)
 		if(grid->GetCellValue(row,ACTIVE) == m_YesNo[0] && 
 			grid->GetCellValue(row,PRIORITY) == _T("0"))
 			grid->SetCellValue(row,PRIORITY,_T("5"));
-//		checkService(dialog->m_gridGlobal->GetNumberRows()-1);
+
 		setBuyPartsPriority(grid ,row, PRIORITY, TEXT);
-//		checkBuyParts();
 	}
 }
 
@@ -844,6 +1029,49 @@ void Maintenance::viewHTML(int tab,wxString path,wxString layout,bool mode)
 
 wxString Maintenance::toHTML(int tab,wxString path,wxString layout,bool mode)
 {
+	wxString top;
+	wxString header;
+	wxString middle;
+	wxString bottom;
+
+	wxString layout_loc;
+	wxGrid * grid = NULL;
+
+	if(tab == dialog->SERVICE)
+	{
+		path = data_locn;
+		layout_loc = layout_locnService;
+		grid = this->grid;
+	}
+	else if(tab == dialog->REPAIRS)
+	{
+
+		path = data_locnRepairs;
+		layout_loc = layout_locnRepairs;
+		grid = repairs;
+	}
+	else if(tab == dialog->BUYPARTS)
+	{
+		path = this->data_locnBuyParts;
+		layout_loc = layout_locnBuyParts;
+		grid = buyparts;
+	}
+
+	wxString tempPath = path;
+
+	wxString html = readLayoutHTML(layout_loc,layout);
+	if(!cutInPartsHTML( html, &top, &header, &middle, &bottom))
+		return _T("");
+
+	wxTextFile* text = setFiles(&tempPath, 1);
+//(wxTextFile* logFile, wxGrid* grid, wxString filenameOut,wxString filenameIn, 
+//		wxString top,wxString header,wxString middle,wxString bottom, bool mode)
+	writeToHTML(text,grid,tempPath,layout_loc+layout+_T(".html"), top,header,middle,bottom,mode);
+
+	return tempPath;
+
+/*
+
 	wxArrayInt arrayRows;
 	int selCount = 0;
 	bool selection = false;
@@ -943,16 +1171,57 @@ wxString Maintenance::toHTML(int tab,wxString path,wxString layout,bool mode)
 		      newMiddleHTML = setPlaceHoldersBuyParts(mode, buyparts, row, middleHTML);
 			
 		  htmlFile << newMiddleHTML;
+		  newMiddleHTML.Replace(wxT("\n"),wxT("<br/>"));
 		}
 	}
 	htmlFile << bottomHTML;
 
 	output.Close();
 	return path;
+*/
 }
 
 wxString Maintenance::toODT(int tab,wxString path,wxString layout,bool mode)
 {
+	wxString top;
+	wxString header;
+	wxString middle;
+	wxString bottom;
+
+	wxString layout_loc;
+	wxGrid * grid = NULL;
+
+	if(tab == dialog->SERVICE)
+	{
+		path = data_locn;
+		layout_loc = layout_locnService;
+		grid = this->grid;
+	}
+	else if(tab == dialog->REPAIRS)
+	{
+
+		path = data_locnRepairs;
+		layout_loc = layout_locnRepairs;
+		grid = repairs;
+	}
+	else if(tab == dialog->BUYPARTS)
+	{
+		path = this->data_locnBuyParts;
+		layout_loc = layout_locnBuyParts;
+		grid = buyparts;
+	}
+
+	wxString tempPath = path;
+
+	wxString odt = readLayoutODT(layout_loc,layout);
+	if(!cutInPartsODT( odt, &top, &header,	&middle, &bottom))
+		return _T("");
+
+	wxTextFile* text = setFiles(&tempPath, mode);
+	writeToODT(text,grid,tempPath,layout_loc+layout+_T(".odt"), top,header,middle,bottom,mode);
+
+	return tempPath;
+	/*
 	wxString s, odt;
 
 	if(layout == _T(""))
@@ -1055,12 +1324,9 @@ wxString Maintenance::toODT(int tab,wxString path,wxString layout,bool mode)
 		  else if(tab == dialog->BUYPARTS)		  
 		      newMiddleODT = setPlaceHoldersBuyParts(mode,buyparts, row, middleODT);
 		
-		  if(mode == 0) // HTML
-		      newMiddleODT.Replace(wxT("\n"),wxT("<br>"));
-		  else // ODT
-		    newMiddleODT.Replace(wxT("\n"),wxT("<text:line-break/>"));
+		  newMiddleODT.Replace(wxT("\n"),wxT("<text:line-break/>"));
 		
-		odtFile << newMiddleODT;
+		  odtFile << newMiddleODT;
 		}
 	}
 
@@ -1070,6 +1336,21 @@ wxString Maintenance::toODT(int tab,wxString path,wxString layout,bool mode)
 	logFile->Close();
 
 	return path;
+*/
+}
+
+wxString Maintenance::setPlaceHolders(bool mode, wxGrid *grid, int row, wxString middleODT)
+{
+	wxString s;
+
+	if(grid == this->grid)
+			s = setPlaceHoldersService(mode, grid, row, middleODT);		
+	else if(grid == repairs)
+			s = setPlaceHoldersRepairs(mode, grid, row, middleODT);	
+	else if(grid == buyparts)
+			s = setPlaceHoldersBuyParts(mode, grid, row, middleODT);
+
+	return s;
 }
 
 wxString Maintenance::setPlaceHoldersService(bool mode, wxGrid *grid, int row, wxString middleODT)
@@ -1083,7 +1364,6 @@ wxString Maintenance::setPlaceHoldersService(bool mode, wxGrid *grid, int row, w
 	newMiddleODT.Replace(wxT("#WARN#"),replaceNewLine(mode,grid->GetCellValue(row,WARN)));
 	newMiddleODT.Replace(wxT("#URGENT#"),replaceNewLine(mode,grid->GetCellValue(row,URGENT)));
 	newMiddleODT.Replace(wxT("#START#"),replaceNewLine(mode,grid->GetCellValue(row,START)));
-	//newMiddleODT.Replace(wxT("#END#"),grid->GetCellValue(row,PRIORITY);
 	newMiddleODT.Replace(wxT("#ACTIVE#"),replaceNewLine(mode,grid->GetCellValue(row,ACTIVE)));
 
 	return newMiddleODT;
@@ -1103,7 +1383,6 @@ wxString Maintenance::setPlaceHoldersRepairs(bool mode, wxGrid *grid, int row, w
 wxString Maintenance::setPlaceHoldersBuyParts(bool mode, wxGrid *grid, int row, wxString middleODT)
 {
 	wxString newMiddleODT;
-
 	newMiddleODT = middleODT;
 
 	newMiddleODT.Replace(wxT("#PRIORITY#"),replaceNewLine(mode,grid->GetCellValue(row,PPRIORITY)));
@@ -1125,7 +1404,7 @@ wxString Maintenance::replaceNewLine(bool mode, wxString str)
 
 	return str;
 }
-
+/*
 void Maintenance::viewODTRepairs(wxString path,wxString layout,bool mode)
 {
 	toODTRepairs(path, layout, mode);
@@ -1136,13 +1415,15 @@ void Maintenance::viewODTRepairs(wxString path,wxString layout,bool mode)
 		dialog->startApplication(fn,_T(".odt"));
 	}
 }
-
+*/
+/*
 wxString Maintenance::toODTRepairs(wxString path,wxString layout,bool mode)
 {
 
 return _("");
 }
-
+*/
+/*
 wxString Maintenance::readLayoutODT(wxString path,wxString layout)
 {
 	wxString odt = _T("");
@@ -1160,7 +1441,7 @@ wxString Maintenance::readLayoutODT(wxString path,wxString layout)
 	}
 	return odt;
 }
-
+*/
 wxString Maintenance::readLayoutHTML(wxString path1,wxString layoutFileName)
 {
 	wxString html, path;
@@ -1178,4 +1459,50 @@ wxString Maintenance::readLayoutHTML(wxString path1,wxString layoutFileName)
 	layout.Close();
 
 	return html;
+}
+
+void Maintenance::showDateDialog(int row, int col, wxGrid* grid)
+{
+	DateDialog* d = new DateDialog(grid);
+	if(d->ShowModal()== wxID_OK)
+	{
+		wxDateTime date = d->m_calendar2->GetDate();
+		grid->SetCellValue(row,col,date.FormatDate());
+	}
+}
+/////////////////////////////////////
+// DateDialog
+/////////////////////////////////////
+DateDialog::DateDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	
+	wxBoxSizer* bSizer21;
+	bSizer21 = new wxBoxSizer( wxVERTICAL );
+	
+	m_calendar2 = new wxCalendarCtrl( this, wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxCAL_SHOW_HOLIDAYS );
+	bSizer21->Add( m_calendar2, 0, wxALL, 5 );
+	
+	m_sdbSizer6 = new wxStdDialogButtonSizer();
+	m_sdbSizer6OK = new wxButton( this, wxID_OK );
+	m_sdbSizer6->AddButton( m_sdbSizer6OK );
+	m_sdbSizer6Cancel = new wxButton( this, wxID_CANCEL );
+	m_sdbSizer6->AddButton( m_sdbSizer6Cancel );
+	m_sdbSizer6->Realize();
+	bSizer21->Add( m_sdbSizer6, 0, wxALIGN_CENTER, 5 );
+	
+	this->SetSizer( bSizer21 );
+	this->Layout();
+	
+	this->Centre( wxBOTH );
+	
+	// Connect Events
+	m_calendar2->Connect( wxEVT_CALENDAR_SEL_CHANGED, wxCalendarEventHandler( DateDialog::OnCalenderSelChanged ), NULL, this );
+}
+
+DateDialog::~DateDialog()
+{
+	// Disconnect Events
+	m_calendar2->Disconnect( wxEVT_CALENDAR_SEL_CHANGED, wxCalendarEventHandler( DateDialog::OnCalenderSelChanged ), NULL, this );
+	
 }

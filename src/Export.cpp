@@ -73,7 +73,6 @@ bool Export::writeToHTML(wxTextFile* logFile, wxGrid* grid, wxString filenameOut
 		wxString top,wxString header,wxString middle,wxString bottom, bool mode)
 {
 	wxFileInputStream input( filenameIn );
-//	wxTextInputStream* stream = new wxTextInputStream (input);
 	
 	wxFileOutputStream output( filenameOut);
 	wxTextOutputStream htmlFile(output);
@@ -83,7 +82,6 @@ bool Export::writeToHTML(wxTextFile* logFile, wxGrid* grid, wxString filenameOut
 	top.Replace(wxT("#HOMEPORT#"),dialog->homeport->GetValue());
 	top.Replace(wxT("#CALLSIGN#"),dialog->callsign->GetValue());
 	top.Replace(wxT("#REGISTRATION#"),dialog->registration->GetValue());
-//	top.Replace(wxT("#LOCATION#"),layout_locn + layout + _T(".html"));
 
 	htmlFile << top;
 
@@ -91,13 +89,6 @@ bool Export::writeToHTML(wxTextFile* logFile, wxGrid* grid, wxString filenameOut
 	for(int row = 0; row < grid->GetNumberRows(); row++)
 		{
 		  newMiddle = setPlaceHolders(mode,grid, row, middle);
-/*		  if(tab == dialog->SERVICE)
-		      newMiddle = setPlaceHoldersService(mode, grid, row, *middle);
-		  else if(tab == dialog->REPAIRS)
-		      new*middle = setPlaceHoldersRepairs(mode, repairs, row, *middle);
-		  else if(tab == dialog->BUYPARTS)		  
-		      new*middle = setPlaceHoldersBuyParts(mode, buyparts, row, middleHTML);
-		*/	
 		  htmlFile << newMiddle;
 		}
 	
@@ -146,8 +137,10 @@ bool Export::cutInPartsHTML(wxString html, wxString* top, wxString* header, wxSt
 wxTextFile* Export::setFiles(wxString *path, bool mode)
 {
 	wxTextFile *logFile = new wxTextFile(*path);
-	if(mode == 0)
+	if(mode == 0 )
 		(*path).Replace(wxT("txt"),wxT("odt"));
+	else if(mode == 1)
+		(*path).Replace(wxT("txt"),wxT("html"));
 //	else 
 ///		path = savePath;
 
@@ -185,19 +178,7 @@ bool Export::writeToODT(wxTextFile* logFile,wxGrid* grid, wxString filenameOut,w
 	for(int row = 0; row < grid->GetNumberRows(); row++)
 		{
 		  newMiddle = setPlaceHolders(mode,grid, row, middle);
-	/*	  if(tab == dialog->SERVICE)
-		      newMiddleODT = setPlaceHoldersService(mode,grid, row, middleODT);
-		  else if(tab == dialog->REPAIRS)
-		      newMiddleODT = setPlaceHoldersRepairs(mode,repairs, row, middleODT);
-		  else if(tab == dialog->BUYPARTS)		  
-		      newMiddleODT = setPlaceHoldersBuyParts(mode,buyparts, row, middleODT);
-		
-		  if(mode = 0) // HTML
-		      newMiddleODT.Replace(wxT("\n"),wxT("<br>"));
-		  else // ODT
-		    newMiddleODT.Replace(wxT("\n"),wxT("<text:line-break/>"));
-		*/
-		odtFile << newMiddle;
+		  odtFile << newMiddle;
 		}
 
 	odtFile << bottom;
@@ -205,7 +186,6 @@ bool Export::writeToODT(wxTextFile* logFile,wxGrid* grid, wxString filenameOut,w
 	inzip.Eof() && outzip.Close() && out.Commit();
 	logFile->Close();
 
-//	return path;
 	return true;
 }
 
@@ -213,7 +193,7 @@ wxString Export::replaceNewLine(bool mode, wxString str)
 {
 	if(mode == 0) // HTML
 		 str.Replace(wxT("\n"),wxT("<br>"));
-	else // ODT
+	else		  // ODT
 		 str.Replace(wxT("\n"),wxT("<text:line-break/>"));
 
 	return str;

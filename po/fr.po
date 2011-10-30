@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-15 02:58+0200\n"
+"POT-Creation-Date: 2011-10-22 16:05+0200\n"
 "PO-Revision-Date: 2011-10-14 20:49+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -13,6 +13,9 @@ msgstr ""
 "X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-SearchPath-0: .\n"
+#
+msgid "\n"
+msgstr ""
 #
 msgid ""
 "\n"
@@ -44,6 +47,14 @@ msgstr "Abréviations"
 #
 msgid "Active"
 msgstr "Actif"
+#
+#, fuzzy
+msgid "Active Logbook"
+msgstr "Nouveau livre de bord"
+#
+#, fuzzy
+msgid "Actuell Logbook"
+msgstr "Nouveau livre de bord"
 #
 msgid "Add Crew"
 msgstr "Ajouter un membre d'équipage"
@@ -90,9 +101,6 @@ msgstr "Baromètre"
 #
 msgid "Beam"
 msgstr "Largeur de coque"
-#
-msgid "Best Etmal"
-msgstr "Meilleure distance en 24h"
 #
 msgid "Birthname"
 msgstr "Nom de jeune fille"
@@ -147,12 +155,6 @@ msgstr "Liste d'équipage"
 #
 msgid "Current"
 msgstr "Courant"
-#
-msgid "Current "
-msgstr "Courant"
-#
-msgid "Current Peak"
-msgstr "Courant maximal"
 #
 msgid "Date"
 msgstr "Date"
@@ -209,9 +211,6 @@ msgstr "E"
 msgid "Edit Layout"
 msgstr "Editer la mise en page"
 #
-msgid "End"
-msgstr "Fin"
-#
 msgid "End 1.Watch"
 msgstr "Arrêter 1.watch"
 #
@@ -229,9 +228,6 @@ msgstr "Total moteur"
 #
 msgid "Equipment"
 msgstr "Equipement"
-#
-msgid "Etmal "
-msgstr "Distance parcourue en 24h."
 #
 msgid "Fathom"
 msgstr "Brasse"
@@ -351,9 +347,6 @@ msgstr "Livre de bord selon Konni"
 msgid "Logbook Preferences"
 msgstr "Préférences de LogBook"
 #
-msgid "Logbook files (*.txt)|*.txt"
-msgstr "Fichiers des livres de bord (*.txt)|*.txt"
-#
 msgid "Logbook for OpenCPN"
 msgstr "Livre de bord pour OpenCPN"
 #
@@ -388,6 +381,10 @@ msgstr ""
 "html\n"
 "Des vidéos d'aide sont sur Yoytube, cherchez LogbookKonni."
 #
+#, c-format
+msgid "Logbook from %s to %s"
+msgstr ""
+#
 msgid "LogbookKonni"
 msgstr "LogBookKonni"
 #
@@ -408,9 +405,6 @@ msgstr "Minute"
 #
 msgid "Minutes greater than 59"
 msgstr "Supérieur à 59 minutes"
-#
-msgid "Month"
-msgstr "Mois"
 #
 msgid "Motor Hours"
 msgstr "Usage du moteur"
@@ -452,11 +446,12 @@ msgstr ""
 msgid "OK"
 msgstr "Ok"
 #
+#, fuzzy, c-format
+msgid "Old Logbook until %s"
+msgstr "Ouvrir le fichier de l'ancien livre de bord"
+#
 msgid "Only Layouts with prefix:"
 msgstr "Seulement avec le préfixe de la mise en page"
-#
-msgid "Open old logbook file"
-msgstr "Ouvrir le fichier de l'ancien livre de bord"
 #
 msgid ""
 "Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV "
@@ -560,9 +555,6 @@ msgstr "Sauver la liste d'équipage"
 msgid "Save Logbook File"
 msgstr "Sauvegarder le livre de bord"
 #
-msgid "Schedule"
-msgstr "Calendrier"
-#
 msgid "Seconds"
 msgstr "Seconde"
 #
@@ -632,9 +624,6 @@ msgstr "Désolé, aucune mise en page installée"
 msgid "Speed"
 msgstr "Vitesse"
 #
-msgid "Start"
-msgstr "Début"
-#
 msgid "Start 1.Watch"
 msgstr "Démarer 1.watch"
 #
@@ -652,12 +641,6 @@ msgstr "Rue"
 #
 msgid "Swell"
 msgstr "Houle"
-#
-msgid "Swell "
-msgstr "Houle"
-#
-msgid "Swell Peak"
-msgstr "Houle la plus haute"
 #
 msgid "Telephone"
 msgstr "Téléphone"
@@ -688,9 +671,6 @@ msgstr "Marche/Arrêt"
 #
 msgid "Title"
 msgstr "Titre"
-#
-msgid "Today"
-msgstr "Aujourd'hui"
 #
 msgid "Town"
 msgstr "Ville"
@@ -734,26 +714,11 @@ msgstr "Total eau"
 msgid "Wave"
 msgstr "Vague"
 #
-msgid "Wave "
-msgstr "Vague"
-#
-msgid "Wave Peak"
-msgstr "Vague la plus haute"
-#
 msgid "Weather"
 msgstr "Temps"
 #
-msgid "Week"
-msgstr "Semaine"
-#
 msgid "Wind"
 msgstr "Vent"
-#
-msgid "Wind "
-msgstr "Vent"
-#
-msgid "Wind Peak"
-msgstr "Vent maximal"
 #
 msgid "Windspeed"
 msgstr "Vitesse du vent"
@@ -788,9 +753,6 @@ msgstr "Votre livre de bord ne contient aucune ligne"
 #
 msgid "Zip"
 msgstr "Code postal"
-#
-msgid "available in version 0.908"
-msgstr "Disponible en version 0.908"
 #
 msgid "default"
 msgstr "par défaut"
@@ -850,8 +812,58 @@ msgstr "à"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "0"
 #~ msgstr "0"
+#
+#
+#
+#
+#~ msgid "Best Etmal"
+#~ msgstr "Meilleure distance en 24h"
+#
+#
+#
+#
+#~ msgid "Current "
+#~ msgstr "Courant"
+#
+#
+#
+#
+#~ msgid "Current Peak"
+#~ msgstr "Courant maximal"
+#
+#
+#
+#
+#~ msgid "End"
+#~ msgstr "Fin"
+#
+#
+#
+#
+#~ msgid "Etmal "
+#~ msgstr "Distance parcourue en 24h."
+#
+#
+#
+#
+#~ msgid "Logbook files (*.txt)|*.txt"
+#~ msgstr "Fichiers des livres de bord (*.txt)|*.txt"
+#
+#
+#
+#
+#~ msgid "Month"
+#~ msgstr "Mois"
+#
+#
+#
+#
 #
 #
 #
@@ -866,9 +878,79 @@ msgstr "à"
 #
 #
 #
+#~ msgid "Schedule"
+#~ msgstr "Calendrier"
+#
+#
+#
+#
+#~ msgid "Start"
+#~ msgstr "Début"
+#
+#
+#
+#
+#~ msgid "Swell "
+#~ msgstr "Houle"
+#
+#
+#
+#
+#~ msgid "Swell Peak"
+#~ msgstr "Houle la plus haute"
+#
+#
+#
+#
+#~ msgid "Today"
+#~ msgstr "Aujourd'hui"
+#
+#
+#
+#
+#~ msgid "Wave "
+#~ msgstr "Vague"
+#
+#
+#
+#
+#~ msgid "Wave Peak"
+#~ msgstr "Vague la plus haute"
+#
+#
+#
+#
+#~ msgid "Week"
+#~ msgstr "Semaine"
+#
+#
+#
+#
+#~ msgid "Wind "
+#~ msgstr "Vent"
+#
+#
+#
+#
+#~ msgid "Wind Peak"
+#~ msgstr "Vent maximal"
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
 #
 #~ msgid "Yes"
 #~ msgstr "Oui"
+#
+#
+#
+#
+#~ msgid "available in version 0.908"
+#~ msgstr "Disponible en version 0.908"

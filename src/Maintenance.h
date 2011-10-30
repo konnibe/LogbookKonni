@@ -6,10 +6,22 @@
 #include <wx/textfile.h> 
 #include <wx/grid.h>
 #include <wx/arrstr.h>
+#include <wx/calctrl.h>
+#include <wx/gdicmn.h>
+#include <wx/font.h>
+#include <wx/colour.h>
+#include <wx/settings.h>
+#include <wx/string.h>
+#include <wx/sizer.h>
+#include <wx/button.h>
+#include <wx/dialog.h>
+
+#include "Export.h"
 
 class LogbookDialog;
+class Options;
 
-class Maintenance
+class Maintenance : public Export
 {
 public:
 	enum fieldsRepairs{RPRIORITY,RTEXT};
@@ -43,6 +55,7 @@ public:
 	void viewODTBuyParts(wxString path,wxString layout,bool mode);
 	void viewHTML(int tab,wxString path,wxString layout,bool mode);
 	wxString toHTML(int tab,wxString path,wxString layout,bool mode);
+	void showDateDialog( int row, int col, wxGrid* grid);
 
 	wxGrid*		grid;
 	wxGrid*		buyparts;
@@ -61,9 +74,12 @@ public:
 	wxString	layout_locnRepairs;
 	wxString	layout_locnBuyParts;
 
+	wxString		m_choices[7];
+
 private:
 //enum fields{ REEF,MREMARKS};	
 	LogbookDialog*	dialog;
+	Options*		opt;
 
 	void setRowBackground(int row, wxColour &c);
 	void setRowBackgroundRepairs(int row, wxColour &c);
@@ -73,7 +89,7 @@ private:
 	void setAlignmentBuyParts();
 	void setBuyPartsPriority(wxGrid *grid ,int row, int col, int text);
 	wxString readLayoutHTML(wxString path,wxString layout);
-	wxString readLayoutODT(wxString path,wxString layout);
+	wxString setPlaceHolders(bool mode, wxGrid *grid, int row, wxString middleODT);
 	wxString setPlaceHoldersService(bool mode, wxGrid *grid, int row, wxString middleODT);
 	wxString setPlaceHoldersRepairs(bool mode, wxGrid *grid, int row, wxString middleODT);
 	wxString setPlaceHoldersBuyParts(bool mode, wxGrid *grid, int row, wxString middleODT);
@@ -89,13 +105,37 @@ private:
 	wxString		layout;
 	wxString		ODTLayout;
 
-	wxArrayString	m_choices;
-	wxArrayString	m_YesNo;
-	wxArrayString	m_Priority;
+	wxString		m_YesNo[2];
+	wxString		m_Priority[6];
 
 	wxString		data_locn;
 	wxString		data_locnRepairs;
 	wxString		data_locnBuyParts;
 
 	bool			modified;
+	bool			format; // 0 = ODT 1 = HTML
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class DateDialog
+///////////////////////////////////////////////////////////////////////////////
+class DateDialog : public wxDialog 
+{
+	private:
+	
+	protected:
+		wxStdDialogButtonSizer* m_sdbSizer6;
+		wxButton* m_sdbSizer6OK;
+		wxButton* m_sdbSizer6Cancel;
+		
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnCalenderSelChanged( wxCalendarEvent& event ) { event.Skip(); }
+		
+	
+	public:
+		
+		DateDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Select a date"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 193,211 ), long style = wxDEFAULT_DIALOG_STYLE );
+		~DateDialog();
+		wxCalendarCtrl* m_calendar2;
+	
 };

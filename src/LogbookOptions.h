@@ -43,13 +43,14 @@ class LogbookOptions : public wxDialog
 	private:
 	
 	public:
+		wxNotebook* m_notebook4;
+		wxPanel* m_panel15;
 		wxCheckBox* m_checkBoxShowLogbook;
 		
 		
 		wxCheckBox* m_checkBoxShowOnlySelectedLayouts;
 		
-		wxCheckBox* m_checkBox8;
-		wxTextCtrl* m_textCtrl55;
+		
 		wxStaticLine* m_staticline25;
 		wxStaticText* m_staticText54;
 		wxStaticLine* m_staticline10;
@@ -67,9 +68,13 @@ class LogbookOptions : public wxDialog
 		
 		wxRadioButton* m_radioBtnUTC;
 		wxStaticText* m_staticText71;
-		wxStaticLine* m_staticline11;
-		wxStaticText* m_staticText33;
-		wxStaticLine* m_staticline91;
+		wxStaticLine* m_staticline22;
+		
+		wxButton* m_buttonInstallHTMLFiles;
+		wxButton* m_buttonInstallLanguages;
+		wxStaticText* m_staticText62;
+		wxStaticLine* m_staticline13;
+		wxPanel* m_panel16;
 		
 		
 		
@@ -143,14 +148,10 @@ class LogbookOptions : public wxDialog
 		wxTextCtrl* m_sMotorh;
 		
 		
-		
-		
-		
-		
-		wxStaticLine* m_staticline22;
-		wxButton* m_buttonInstallHTMLFiles;
-		wxStaticText* m_staticText62;
-		wxStaticLine* m_staticline13;
+		wxStaticText* m_staticText70;
+		wxStaticText* m_staticText712;
+		wxStaticText* m_staticText72;
+		wxStaticText* m_staticText73;
 		wxStdDialogButtonSizer* m_sdbSizer1;
 		wxButton* m_sdbSizer1OK;
 		wxButton* m_sdbSizer1Cancel;
@@ -158,18 +159,20 @@ class LogbookOptions : public wxDialog
 		// Virtual event handlers, overide them in your derived class
 		virtual void onCeckBoxShowAllLayouts( wxCommandEvent& event );
 		virtual void onCheckBoxShowOnlySelectedLayouts( wxCommandEvent& event );
+		virtual void OnTextEnterLayoutPrefix( wxCommandEvent& event );
 		virtual void OnCheckBoxMaintenanceRowColoured( wxCommandEvent& event );
 		virtual void onCheckBoNoGPS( wxCommandEvent& event );
 		virtual void m_checkBoxTimerOnCheckBox( wxCommandEvent& event );
 		virtual void onRadioBtnUTC( wxCommandEvent& event );
 		virtual void onRadioBtnLocal( wxCommandEvent& event );
 		virtual void onRadioBtnGPSAuto( wxCommandEvent& event );
+		virtual void onButtonClickInstallHTMLFiles( wxCommandEvent& event );
+		virtual void onButtonClickInstallLanguages( wxCommandEvent& event );
+		virtual void onButtonHTMLEditor( wxCommandEvent& event );
 		virtual void onTextEnterm_sKnots( wxCommandEvent& event );
 		virtual void onTextEnterm_sMeterSec( wxCommandEvent& event );
 		virtual void onTextEnterm_sKmh( wxCommandEvent& event );
-		virtual void onClickInstallHTMLFiles( wxCommandEvent& event );
-		virtual void onButtonHTMLEditor( wxCommandEvent& event );
-		virtual void OnTextEnterLayoutPrefix( wxCommandEvent& event );
+		virtual void OnButtonOKClick( wxCommandEvent& event );
 	
 	public:
 		wxCheckBox* m_checkBoxShowAllLayouts;
@@ -188,12 +191,15 @@ class LogbookOptions : public wxDialog
 		wxChoice* m_choiceTzIndicator;
 		wxChoice* m_choiceTzHours;
 		wxRadioButton* m_radioBtnGPSAuto;
+		wxTextCtrl* m_textCtrlHTMLEditorPath;
+		wxBitmapButton* m_bpButtonHTMLEditor;
 		wxChoice* m_choiceDepth;
 		wxChoice* m_choiceWaveSwell;
 		wxChoice* m_choiceHeading;
 		wxChoice* m_choiceWindTo;
-		wxTextCtrl* m_textCtrlHTMLEditorPath;
-		wxBitmapButton* m_bpButtonHTMLEditor;
+		wxTextCtrl* m_Days;
+		wxTextCtrl* m_Weeks;
+		wxTextCtrl* m_textMonth;
 
 		LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi* log_pi, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 585,687  ), long style = wxDEFAULT_DIALOG_STYLE );
 		~LogbookOptions();

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-15 02:58+0200\n"
+"POT-Creation-Date: 2011-10-22 16:05+0200\n"
 "PO-Revision-Date: 2011-10-17 10:53+0100\n"
 "Last-Translator: Pavel Kalian <pavel@kalian.cz>\n"
 "Language-Team: Pavel Kalian <pavel@kalian.cz>\n"
@@ -17,6 +17,9 @@ msgstr ""
 "X-Poedit-Language: Czech\n"
 "X-Poedit-Country: CZECH REPUBLIC\n"
 "X-Poedit-SourceCharset: utf-8\n"
+#
+msgid "\n"
+msgstr ""
 #
 msgid ""
 "\n"
@@ -48,6 +51,14 @@ msgstr "Zkratky"
 #
 msgid "Active"
 msgstr "Aktivní"
+#
+#, fuzzy
+msgid "Active Logbook"
+msgstr "Nový lodní deník"
+#
+#, fuzzy
+msgid "Actuell Logbook"
+msgstr "Nový lodní deník"
 #
 msgid "Add Crew"
 msgstr "Přidej posádku"
@@ -94,9 +105,6 @@ msgstr "Barometr"
 #
 msgid "Beam"
 msgstr "Šířka"
-#
-msgid "Best Etmal"
-msgstr "Max NM/24h"
 #
 msgid "Birthname"
 msgstr "Rodné příjmení"
@@ -151,12 +159,6 @@ msgstr ""
 #
 msgid "Current"
 msgstr "Proud"
-#
-msgid "Current "
-msgstr "Proud"
-#
-msgid "Current Peak"
-msgstr "Max proud"
 #
 msgid "Date"
 msgstr "Datum"
@@ -213,9 +215,6 @@ msgstr ""
 msgid "Edit Layout"
 msgstr "Editovat rozvržení"
 #
-msgid "End"
-msgstr "Konec"
-#
 msgid "End 1.Watch"
 msgstr "Konec 1. hlídky"
 #
@@ -233,9 +232,6 @@ msgstr "Motor celkem"
 #
 msgid "Equipment"
 msgstr "Vybavení"
-#
-msgid "Etmal "
-msgstr "NM/24h"
 #
 msgid "Fathom"
 msgstr "Fathomy"
@@ -355,9 +351,6 @@ msgstr "Konniho lodní deník"
 msgid "Logbook Preferences"
 msgstr "Nastavení lodného deníku"
 #
-msgid "Logbook files (*.txt)|*.txt"
-msgstr "Soubory deníku (*.txt)|*.txt"
-#
 msgid "Logbook for OpenCPN"
 msgstr "Lodní deník pro OpenCPN"
 #
@@ -392,6 +385,10 @@ msgstr ""
 "html\n"
 "Na Youtube je pár videí, která Ti v začátku pomůžou, hledej \"LogbookKonni\"."
 #
+#, c-format
+msgid "Logbook from %s to %s"
+msgstr ""
+#
 msgid "LogbookKonni"
 msgstr ""
 #
@@ -412,9 +409,6 @@ msgstr "Minuty"
 #
 msgid "Minutes greater than 59"
 msgstr "Minuty větší než 59"
-#
-msgid "Month"
-msgstr "Měsíc"
 #
 msgid "Motor Hours"
 msgstr "Motohodiny"
@@ -456,11 +450,12 @@ msgstr ""
 msgid "OK"
 msgstr ""
 #
+#, fuzzy, c-format
+msgid "Old Logbook until %s"
+msgstr "Otevřít starý soubor deníku"
+#
 msgid "Only Layouts with prefix:"
 msgstr "Pouze rozložení s prefixem:"
-#
-msgid "Open old logbook file"
-msgstr "Otevřít starý soubor deníku"
 #
 msgid ""
 "Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV "
@@ -562,9 +557,6 @@ msgstr "Ulož soubor seznamu posádky"
 msgid "Save Logbook File"
 msgstr "Ulož soubor deníku"
 #
-msgid "Schedule"
-msgstr "Rozvrh"
-#
 msgid "Seconds"
 msgstr "Sekundy"
 #
@@ -634,9 +626,6 @@ msgstr "Promiň, není instalováno žádné rozvržení"
 msgid "Speed"
 msgstr "Rychlost"
 #
-msgid "Start"
-msgstr "Start"
-#
 msgid "Start 1.Watch"
 msgstr "Začátek 1. hlídky"
 #
@@ -654,12 +643,6 @@ msgstr "Ulice"
 #
 msgid "Swell"
 msgstr "Příboj"
-#
-msgid "Swell "
-msgstr "Příboj"
-#
-msgid "Swell Peak"
-msgstr "Max příboj"
 #
 msgid "Telephone"
 msgstr "Telefon"
@@ -690,9 +673,6 @@ msgstr "Časovač zap./vyp."
 #
 msgid "Title"
 msgstr "Titul"
-#
-msgid "Today"
-msgstr "Dnes"
 #
 msgid "Town"
 msgstr "Město"
@@ -736,26 +716,11 @@ msgstr "Voda celkem"
 msgid "Wave"
 msgstr "Vlna"
 #
-msgid "Wave "
-msgstr "Vlna"
-#
-msgid "Wave Peak"
-msgstr "Max vlna"
-#
 msgid "Weather"
 msgstr "Počasí"
 #
-msgid "Week"
-msgstr "Týden"
-#
 msgid "Wind"
 msgstr "Vítr"
-#
-msgid "Wind "
-msgstr "Vítr"
-#
-msgid "Wind Peak"
-msgstr "Max vítr"
 #
 msgid "Windspeed"
 msgstr "Rychlost větru"
@@ -790,9 +755,6 @@ msgstr "Tvůj lodní deník nemá žádné řádky?"
 #
 msgid "Zip"
 msgstr "PSČ"
-#
-msgid "available in version 0.908"
-msgstr "dostupné ve verzi 0908"
 #
 msgid "default"
 msgstr ""
@@ -844,3 +806,111 @@ msgstr "NM"
 #
 msgid "to"
 msgstr "do"
+#
+#
+#
+#
+#~ msgid "Best Etmal"
+#~ msgstr "Max NM/24h"
+#
+#
+#
+#
+#~ msgid "Current "
+#~ msgstr "Proud"
+#
+#
+#
+#
+#~ msgid "Current Peak"
+#~ msgstr "Max proud"
+#
+#
+#
+#
+#~ msgid "End"
+#~ msgstr "Konec"
+#
+#
+#
+#
+#~ msgid "Etmal "
+#~ msgstr "NM/24h"
+#
+#
+#
+#
+#~ msgid "Logbook files (*.txt)|*.txt"
+#~ msgstr "Soubory deníku (*.txt)|*.txt"
+#
+#
+#
+#
+#~ msgid "Month"
+#~ msgstr "Měsíc"
+#
+#
+#
+#
+#~ msgid "Schedule"
+#~ msgstr "Rozvrh"
+#
+#
+#
+#
+#~ msgid "Start"
+#~ msgstr "Start"
+#
+#
+#
+#
+#~ msgid "Swell "
+#~ msgstr "Příboj"
+#
+#
+#
+#
+#~ msgid "Swell Peak"
+#~ msgstr "Max příboj"
+#
+#
+#
+#
+#~ msgid "Today"
+#~ msgstr "Dnes"
+#
+#
+#
+#
+#~ msgid "Wave "
+#~ msgstr "Vlna"
+#
+#
+#
+#
+#~ msgid "Wave Peak"
+#~ msgstr "Max vlna"
+#
+#
+#
+#
+#~ msgid "Week"
+#~ msgstr "Týden"
+#
+#
+#
+#
+#~ msgid "Wind "
+#~ msgstr "Vítr"
+#
+#
+#
+#
+#~ msgid "Wind Peak"
+#~ msgstr "Max vítr"
+#
+#
+#
+#
+#~ msgid "available in version 0.908"
+#~ msgstr "dostupné ve verzi 0908"

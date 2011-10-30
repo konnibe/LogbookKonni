@@ -11,6 +11,16 @@ Options::Options(void)
 	showAllLayouts = true;
 	noGPS = true;
 	colouredMaintenance = true;
+	guardChange = true;
+	guardChangeText = _("automatic line\nchange of guards");
+	courseChange = true;
+	courseChangeDegrees = _T("90");
+	courseChangeText = _("automatic line\nchange of course >");
+	everySM = true;
+	everySMAmount = _T("10");
+	everySMText = _("automatic line\nDistance > ");
+	dCourseChangeDegrees = -1;
+	dEverySM = -1;
 
 	// Timer 
 	timer = false;
@@ -27,7 +37,7 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 	timerSec = 5;
 
 	// Grid Navigation
-	Deg = _T("°");
+	Deg = _T("\xB0");
 	Min = _("'");
 	Sec = _("\"");
 
@@ -47,6 +57,11 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 	// Grid MotorSails
 	vol = _("gal");
 	motorh = _("h");
+
+	//Maintenance
+	days = _("day(s)");
+	weeks = _("week(s)");
+	month = _("month");
 
 	//wxChoice
 	showDepth = 0;

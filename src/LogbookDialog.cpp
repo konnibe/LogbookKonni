@@ -11,6 +11,7 @@
 #include "Logbook.h"
 #include "logbook_pi.h"
 #include "Options.h"
+#include "EzGrid.h"
 
 #include <wx/string.h>
 #include <wx/button.h>
@@ -1132,17 +1133,11 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_staticline141 = new wxStaticLine( m_panel14, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
 	fgSizer151->Add( m_staticline141, 0, wxEXPAND | wxALL, 5 );
 	
-	m_staticText601 = new wxStaticText( m_panel14, wxID_ANY, _("Work in Progress"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText601->Wrap( -1 );
-	m_staticText601->SetFont( wxFont( 8, 74, 90, 92, false, _T("Tahoma") ) );
-	
-	fgSizer151->Add( m_staticText601, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
-	
 	wxBoxSizer* bSizer12;
 	bSizer12 = new wxBoxSizer( wxVERTICAL );
 	
 	bSizer12->SetMinSize( wxSize( -1,400 ) ); 
-	m_gridMaintanence = new wxGrid( m_panel14, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+	m_gridMaintanence = new EzGrid( m_panel14, wxID_ANY, wxDefaultPosition, wxSize(1000,400), 0 );
 	
 	// Grid
 	m_gridMaintanence->CreateGrid( 0, 7 );
@@ -1259,17 +1254,11 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_staticline1413 = new wxStaticLine( m_panel141, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
 	fgSizer1513->Add( m_staticline1413, 0, wxEXPAND | wxALL, 5 );
 	
-	m_staticText6013 = new wxStaticText( m_panel141, wxID_ANY, _("Work in Progress"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText6013->Wrap( -1 );
-	m_staticText6013->SetFont( wxFont( 8, 74, 90, 92, false, wxT("Tahoma") ) );
-	
-	fgSizer1513->Add( m_staticText6013, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
-	
 	wxBoxSizer* bSizer122;
 	bSizer122 = new wxBoxSizer( wxVERTICAL );
 	
 	bSizer122->SetMinSize( wxSize( -1,400 ) ); 
-	m_gridMaintanenceRepairs = new wxGrid( m_panel141, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+	m_gridMaintanenceRepairs = new EzGrid( m_panel141, wxID_ANY, wxDefaultPosition, wxSize( 1000,400 ), 0 );
 	
 	// Grid
 	m_gridMaintanenceRepairs->CreateGrid( 0, 2 );
@@ -1377,17 +1366,11 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_staticline1411 = new wxStaticLine( m_panel16, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
 	fgSizer1511->Add( m_staticline1411, 0, wxEXPAND | wxALL, 5 );
 	
-	m_staticText6011 = new wxStaticText( m_panel16, wxID_ANY, _("Work in Progress"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText6011->Wrap( -1 );
-	m_staticText6011->SetFont( wxFont( 8, 74, 90, 92, false, wxT("Tahoma") ) );
-	
-	fgSizer1511->Add( m_staticText6011, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
-	
 	wxBoxSizer* bSizer121;
 	bSizer121 = new wxBoxSizer( wxVERTICAL );
 	
 	bSizer121->SetMinSize( wxSize( -1,400 ) ); 
-	m_gridMaintenanceBuyParts = new wxGrid( m_panel16, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
+	m_gridMaintenanceBuyParts = new EzGrid( m_panel16, wxID_ANY, wxDefaultPosition, wxSize(1000,400), 0 );
 	
 	// Grid
 	m_gridMaintenanceBuyParts->CreateGrid( 0, 6 );
@@ -1675,6 +1658,9 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 
 	this->Connect( m_menuItem9->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceOK ) );
 	this->Connect( m_menuItem92->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceBuyParts ) );
+
+	m_gridMaintanence->Disconnect( wxEVT_GRID_CELL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::onGridCellLeftClickService ), NULL, this );
+	m_gridMaintanence->Connect( wxEVT_GRID_CELL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::onGridCellLeftClickService ), NULL, this );
 	m_gridMaintanence->Connect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::onGridCellRightClickService ), NULL, this );
 	m_buttonAddLineBuyParts->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::onButtobClickAddLineBuyParts ), NULL, this );
 	m_buttonAddLineRepairs->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::onButtobClickAddLineRepairs ), NULL, this );
@@ -1688,6 +1674,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridMaintenanceBuyParts->Connect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( LogbookDialog::onGridCellSelectedBuyParts ), NULL, this );
 	m_gridMaintenanceBuyParts->Connect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( LogbookDialog::onGridCellSelectedBuyParts ), NULL, this );
 	m_gridMaintenanceBuyParts->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( LogbookDialog::OnKeyDownBuyParts ), NULL, this );
+	m_gridMaintenanceBuyParts->Connect( wxEVT_GRID_CELL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::onGridCellLeftClickBuyParts ), NULL, this );
 
 	this->Connect( m_menuItem91->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionRepairsOK ) );
 	this->Connect( m_menuItem921->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionRepairsBuyParts ) );
@@ -1826,6 +1813,7 @@ LogbookDialog::~LogbookDialog()
 	m_radioBtnAllLogbooks->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookDialog::OnRadioButtonAllLogbooks ), NULL, this );
 	m_gridMaintanence->Disconnect( wxEVT_GRID_CELL_CHANGE, wxGridEventHandler( LogbookDialog::onGridCellServiceChange ), NULL, this );
 	m_gridMaintanence->Disconnect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( LogbookDialog::onGridCellServiceSelected ), NULL, this );
+	m_gridMaintenanceBuyParts->Disconnect( wxEVT_GRID_CELL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::onGridCellLeftClickBuyParts ), NULL, this );
 
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceOK ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceBuyParts ) );
@@ -2752,6 +2740,10 @@ void LogbookDialog::setIniValues()
 	opt->CrewColWidth.Clear();
 	opt->WakeColWidth.Clear();
 	opt->EquipColWidth.Clear();
+	opt->ServiceColWidth.Clear();
+	opt->RepairsColWidth.Clear();
+	opt->BuyPartsColWidth.Clear();
+	opt->OverviewColWidth.Clear();
 
 	opt->navGridLayoutChoice = logbookChoice->GetSelection();
 	opt->crewGridLayoutChoice = crewChoice->GetSelection();
@@ -2777,6 +2769,15 @@ void LogbookDialog::setIniValues()
 	for(int n = 0; n < m_gridEquipment->GetNumberCols(); n++)
 		opt->EquipColWidth.Add(m_gridEquipment->GetColumnWidth(n));
 
+	for(int n = 0; n < m_gridMaintanence->GetNumberCols(); n++)
+		opt->ServiceColWidth.Add(m_gridMaintanence->GetColumnWidth(n));
+	for(int n = 0; n < m_gridMaintanenceRepairs->GetNumberCols(); n++)
+		opt->RepairsColWidth.Add(m_gridMaintanenceRepairs->GetColumnWidth(n));
+	for(int n = 0; n < m_gridMaintenanceBuyParts->GetNumberCols(); n++)
+		opt->BuyPartsColWidth.Add(m_gridMaintenanceBuyParts->GetColumnWidth(n));
+
+	for(int n = 0; n < m_gridOverview->GetNumberCols(); n++)
+		opt->OverviewColWidth.Add(m_gridOverview->GetColumnWidth(n));
 }
 
 void LogbookDialog::getIniValues()
@@ -2808,7 +2809,36 @@ void LogbookDialog::getIniValues()
 	for(int n = 0; n < m_gridEquipment->GetNumberCols(); n++)
 		m_gridEquipment->SetColumnWidth(n,opt->EquipColWidth[n]);
 
+	for(int n = 0; n < m_gridOverview->GetNumberCols(); n++)
+	{
+		if(opt->OverviewColWidth[0] != -1 )
+			m_gridOverview->SetColumnWidth(n,opt->OverviewColWidth[n]);
+		else
+			m_gridOverview->SetColumnWidth(n,-1);
+	}
 
+	for(int n = 0; n < m_gridMaintanence->GetNumberCols(); n++)
+	{
+		if(opt->ServiceColWidth[0] != -1 )
+			m_gridMaintanence->SetColumnWidth(n,opt->ServiceColWidth[n]);
+		else
+			m_gridMaintanence->SetColumnWidth(n,-1);
+	}
+
+	for(int n = 0; n < m_gridMaintanenceRepairs->GetNumberCols(); n++)
+	{
+		if(opt->RepairsColWidth[0] != -1 )
+			m_gridMaintanenceRepairs->SetColumnWidth(n,opt->RepairsColWidth[n]);
+		else
+			m_gridMaintanenceRepairs->SetColumnWidth(n,-1);
+	}
+	for(int n = 0; n < m_gridMaintenanceBuyParts->GetNumberCols(); n++)
+	{
+		if(opt->BuyPartsColWidth[0] != -1 )
+			m_gridMaintenanceBuyParts->SetColumnWidth(n,opt->BuyPartsColWidth[n]);
+		else
+			m_gridMaintenanceBuyParts->SetColumnWidth(n,-1);
+	}
 }
 
 
@@ -3067,6 +3097,18 @@ void LogbookDialog::onButtonClickReloadLayoutsServiceHTML(wxCommandEvent &ev)
 	maintenance->setLayoutLocation();
 }
 
+void LogbookDialog::onGridCellLeftClickService(wxGridEvent &ev)
+{
+	if((ev.GetCol() == maintenance->WARN || ev.GetCol() == maintenance->URGENT) && 
+		m_gridMaintanence->GetCellValue(ev.GetRow(), maintenance->IF) == maintenance->m_choices[3])
+	{
+		 maintenance->showDateDialog(ev.GetRow(),ev.GetCol(),m_gridMaintanence);
+		 maintenance->cellCollChanged(ev.GetCol(),ev.GetRow());
+		 maintenance->checkService(m_gridGlobal->GetNumberRows()-1);
+	}
+	ev.Skip();
+}
+
 void LogbookDialog::onButtonClickEditLayoutODTService(wxCommandEvent &ev)
 {
 	int format;
@@ -3082,8 +3124,11 @@ void LogbookDialog::onButtonClickEditLayoutODTService(wxCommandEvent &ev)
 void LogbookDialog::onGridCellServiceChange( wxGridEvent& ev )
 {
 	maintenance->cellCollChanged(ev.GetCol(), ev.GetRow());
-	if(ev.GetCol() == maintenance->WARN || ev.GetCol() == maintenance->URGENT || ev.GetCol() == maintenance->ACTIVE)
-		maintenance->checkService(m_gridGlobal->GetNumberRows()-1);
+	if(ev.GetCol() == maintenance->IF|| ev.GetCol() == maintenance->WARN || 
+		ev.GetCol() == maintenance->URGENT || ev.GetCol() == maintenance->ACTIVE)
+			maintenance->checkService(m_gridGlobal->GetNumberRows()-1);
+
+
 }
 
 void LogbookDialog::onGridCellServiceSelected(wxGridEvent &ev)
@@ -3154,10 +3199,8 @@ void LogbookDialog::onGridCellRepairsSelected( wxGridEvent& ev )
 {
 	maintenance->selectedRowRepairs = ev.GetRow();
 	maintenance->selectedColRepairs = ev.GetCol();
-//	if(ev.GetCol() == maintenance->RPRIORITY)
-//	m_gridMaintanenceRepairs->GetCellEditor(ev.GetRow(),maintenance->RPRIORITY)->
-//		BeginEdit(ev.GetRow(),maintenance->RPRIORITY,m_gridMaintanenceRepairs);
 	m_gridMaintanenceRepairs->AutoSizeRow(lastRowSelectedRepairs,false);
+
 	if(ev.GetCol() == maintenance->RTEXT)
 		m_gridMaintanenceRepairs->SetRowHeight(ev.GetRow(),170);
 
@@ -3296,6 +3339,13 @@ void LogbookDialog::onGridCellRightClickBuyParts( wxGridEvent& ev )
 	m_gridMaintanence->PopupMenu( m_menu711, ev.GetPosition() );
 }
 
+void LogbookDialog::onGridCellLeftClickBuyParts(wxGridEvent& ev)
+{
+	if(ev.GetCol() == maintenance->DATE)
+		 maintenance->showDateDialog(ev.GetRow(),ev.GetCol(),m_gridMaintenanceBuyParts);
+	ev.Skip();
+}
+
 void LogbookDialog::onMenuSelectionBuyPartsDelete(wxCommandEvent &ev)
 {
 	m_gridMaintenanceBuyParts->DeleteRows(maintenance->selectedRowBuyParts);	
@@ -3308,6 +3358,7 @@ void LogbookDialog::onButtobClickAddLineBuyParts(wxCommandEvent &ev)
 
 void LogbookDialog::onGridCellChangeBuyParts(wxGridEvent &ev)
 {
+	maintenance->checkBuyParts();
 	ev.Skip();
 }
 void LogbookDialog::onButtobClickSaveBuyParts( wxCommandEvent& event )

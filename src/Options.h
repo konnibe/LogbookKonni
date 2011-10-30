@@ -15,6 +15,11 @@ WX_DEFINE_ARRAY_INT(int, ArrayOfMotorGridColWidth);
 WX_DEFINE_ARRAY_INT(int, ArrayOfCrewGridColWidth);
 WX_DEFINE_ARRAY_INT(int, ArrayOfWakeGridColWidth);
 WX_DEFINE_ARRAY_INT(int, ArrayOfEquipGridColWidth);
+WX_DEFINE_ARRAY_INT(int, ArrayOfOverviewGridColWidth);
+WX_DEFINE_ARRAY_INT(int, ArrayOfServiceGridColWidth);
+WX_DEFINE_ARRAY_INT(int, ArrayOfRepairsGridColWidth);
+WX_DEFINE_ARRAY_INT(int, ArrayOfBuyPartsGridColWidth);
+
 class Options
 {
 public:
@@ -31,6 +36,16 @@ public:
 	bool		showAllLayouts;
 	bool		noGPS;
 	bool		colouredMaintenance;
+	bool		guardChange;
+	wxString	guardChangeText;
+	bool		courseChange;
+	wxString	courseChangeDegrees;
+	double		dCourseChangeDegrees;
+	wxString    courseChangeText;
+	bool		everySM;
+	wxString	everySMAmount;
+	double		dEverySM;
+	wxString    everySMText;
 	// Timer 
 	bool		timer;
 	wxString	thour;
@@ -61,6 +76,11 @@ public:
 	wxString	vol;
 	wxString	motorh;
 
+	//Maintenance
+	wxString	days;
+	wxString	weeks;
+	wxString	month;
+
 	//Path to HTML-Editor
 	wxString    htmlEditor;
 
@@ -87,5 +107,9 @@ public:
 	ArrayOfCrewGridColWidth		CrewColWidth;
 	ArrayOfWakeGridColWidth		WakeColWidth;
 	ArrayOfEquipGridColWidth	EquipColWidth;
+	ArrayOfOverviewGridColWidth OverviewColWidth;
+	ArrayOfOverviewGridColWidth ServiceColWidth;
+	ArrayOfOverviewGridColWidth RepairsColWidth;
+	ArrayOfOverviewGridColWidth BuyPartsColWidth;
 };
 #endif

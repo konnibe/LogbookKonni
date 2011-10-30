@@ -75,6 +75,14 @@ SET(SRC_LOGBOOKKONNI
 		src/Maintenance.cpp	
 		src/OverView.h		
 		src/OverView.cpp	
+		src/Export.h
+		src/Export.cpp
+		src/FastComboEditor.h		
+		src/FastComboEditor.cpp
+		src/EzGrid.h
+		src/EzGrid.cpp
+		src/GridCellChoiceRenderer.h	
+		src/GridCellChoiceRenderer.cpp		
  	)
 
 SET(SRC_NMEA0183
