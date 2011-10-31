@@ -336,7 +336,7 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		virtual void OnGridCellRightClickOverview( wxGridEvent& event );
 		virtual void OnGridLabelLeftClickOverview( wxGridEvent& event );
 		virtual void OnMenuSelectionGotoRoute( wxCommandEvent& event );
-		virtual void OnMenuSelectionViewRoute( wxCommandEvent& event );
+//		virtual void OnMenuSelectionViewRoute( wxCommandEvent& event );
 		virtual void onButtonClickSelectLogbook( wxCommandEvent& event );
 		virtual void OnRadioButtonActuellLogbook( wxCommandEvent& event );
 		virtual void OnRadioButtonAllLogbooks( wxCommandEvent& event );
@@ -609,7 +609,7 @@ class SelectLogbook : public wxDialog
 
 		virtual void OnInit( wxInitDialogEvent& event );
 #ifdef __WXMSW__		
-		SelectLogbook( wxWindow* parent, wxString path, wxWindowID id = wxID_ANY, const wxString& title = wxT("Select Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 297,252), long style = wxDEFAULT_DIALOG_STYLE );
+		SelectLogbook( wxWindow* parent, wxString path, wxWindowID id = wxID_ANY, const wxString& title = _("Select Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 297,252), long style = wxDEFAULT_DIALOG_STYLE );
 #else
 		SelectLogbook( wxWindow* parent, wxString path, wxWindowID id = wxID_ANY, const wxString& title = wxT("Select Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 297,260), long style = wxDEFAULT_DIALOG_STYLE );		
 #endif

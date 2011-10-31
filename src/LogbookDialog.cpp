@@ -382,17 +382,17 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_staticline71 = new wxStaticLine( m_panel142, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
 	bSizer61->Add( m_staticline71, 0, wxEXPAND | wxALL, 5 );
 
-	m_radioBtnActuellLogbook = new wxRadioButton( m_panel142, wxID_ANY, wxT("Actuell Logbook"), wxDefaultPosition, wxDefaultSize, wxRB_GROUP );
+	m_radioBtnActuellLogbook = new wxRadioButton( m_panel142, wxID_ANY, _("Actuell Logbook"), wxDefaultPosition, wxDefaultSize, wxRB_GROUP );
 	m_radioBtnActuellLogbook->SetValue( true ); 
 	bSizer61->Add( m_radioBtnActuellLogbook, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_radioBtnAllLogbooks = new wxRadioButton( m_panel142, wxID_ANY, wxT("All Logbooks"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_radioBtnAllLogbooks = new wxRadioButton( m_panel142, wxID_ANY, _("All Logbooks"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer61->Add( m_radioBtnAllLogbooks, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	m_radioBtnSelectLogbook = new wxRadioButton( m_panel142, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer61->Add( m_radioBtnSelectLogbook, 0, wxALL|wxEXPAND, 5 );
 
-	m_buttonSelectLogbook = new wxButton( m_panel142, wxID_ANY, wxT("Select Logbook"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_buttonSelectLogbook = new wxButton( m_panel142, wxID_ANY, _("Select Logbook"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer61->Add( m_buttonSelectLogbook, 0, wxALL, 5 );
 	
 	bSizer51->Add( bSizer61, 1, wxEXPAND, 5 );
@@ -437,28 +437,28 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridOverview->EnableDragColMove( false );
 	m_gridOverview->EnableDragColSize( true );
 	m_gridOverview->SetColLabelSize( 30 );
-	m_gridOverview->SetColLabelValue( 0, wxT("Logbook") );
-	m_gridOverview->SetColLabelValue( 1, wxT("Route") );
-	m_gridOverview->SetColLabelValue( 2, wxT("Start") );
-	m_gridOverview->SetColLabelValue( 3, wxT("End") );
-	m_gridOverview->SetColLabelValue( 4, wxT("Distance") );
-	m_gridOverview->SetColLabelValue( 5, wxT("Distance p. Day") );
-	m_gridOverview->SetColLabelValue( 6, wxT("Best Dist. p. Day") );
-	m_gridOverview->SetColLabelValue( 7, wxT("Engine") );
-	m_gridOverview->SetColLabelValue( 8, wxT("Fuel") );
-	m_gridOverview->SetColLabelValue( 9, wxT("Water") );
-	m_gridOverview->SetColLabelValue( 10, wxT("Wind from") );
-	m_gridOverview->SetColLabelValue( 11, wxT("Wind") );
-	m_gridOverview->SetColLabelValue( 12, wxT("Wind Peak") );
-	m_gridOverview->SetColLabelValue( 13, wxT("Current from") );
-	m_gridOverview->SetColLabelValue( 14, wxT("Current") );
-	m_gridOverview->SetColLabelValue( 15, wxT("Current Peak") );
-	m_gridOverview->SetColLabelValue( 16, wxT("Wave") );
-	m_gridOverview->SetColLabelValue( 17, wxT("Wave Peak") );
-	m_gridOverview->SetColLabelValue( 18, wxT("Swell") );
-	m_gridOverview->SetColLabelValue( 19, wxT("Swell Peak") );
-	m_gridOverview->SetColLabelValue( 20, wxT("Sails") );
-	m_gridOverview->SetColLabelValue( 21, wxT("Path") );
+	m_gridOverview->SetColLabelValue( 0, _("Logbook") );
+	m_gridOverview->SetColLabelValue( 1, _("Route") );
+	m_gridOverview->SetColLabelValue( 2, _("Start") );
+	m_gridOverview->SetColLabelValue( 3, _("End") );
+	m_gridOverview->SetColLabelValue( 4, _("Distance") );
+	m_gridOverview->SetColLabelValue( 5, _("Distance p. Day") );
+	m_gridOverview->SetColLabelValue( 6, _("Best Dist. p. Day") );
+	m_gridOverview->SetColLabelValue( 7, _("Engine") );
+	m_gridOverview->SetColLabelValue( 8, _("Fuel") );
+	m_gridOverview->SetColLabelValue( 9, _("Water") );
+	m_gridOverview->SetColLabelValue( 10, _("Wind from") );
+	m_gridOverview->SetColLabelValue( 11, _("Wind") );
+	m_gridOverview->SetColLabelValue( 12, _("Wind Peak") );
+	m_gridOverview->SetColLabelValue( 13, _("Current from") );
+	m_gridOverview->SetColLabelValue( 14, _("Current") );
+	m_gridOverview->SetColLabelValue( 15, _("Current Peak") );
+	m_gridOverview->SetColLabelValue( 16, _("Wave") );
+	m_gridOverview->SetColLabelValue( 17, _("Wave Peak") );
+	m_gridOverview->SetColLabelValue( 18, _("Swell") );
+	m_gridOverview->SetColLabelValue( 19, _("Swell Peak") );
+	m_gridOverview->SetColLabelValue( 20, _("Sails") );
+	m_gridOverview->SetColLabelValue( 21, _("Path") );
 	m_gridOverview->SetColLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
 	
 	// Rows
@@ -476,11 +476,6 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	wxMenuItem* m_menuItemOverviewRoute;
 	m_menuItemOverviewRoute = new wxMenuItem( m_menuOverView, wxID_ANY, wxString( _("Goto Route") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menuOverView->Append( m_menuItemOverviewRoute );
-	
-	wxMenuItem* m_menuItemOverviewView;
-	m_menuItemOverviewView = new wxMenuItem( m_menuOverView, wxID_ANY, wxString( _("View Route") ) , wxEmptyString, wxITEM_NORMAL );
-	m_menuOverView->Append( m_menuItemOverviewView );
-	
 	
 	fgSizer251->Add( m_gridOverview, 1, wxALL|wxEXPAND, 5 );
 	
@@ -750,6 +745,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	fgSizer38->Add( m_staticText116, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	hin = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	hin->SetToolTip( _("Hull Identification No.") );
 	fgSizer38->Add( hin, 0, wxALL, 5 );
 	
 	m_staticText117 = new wxStaticText( m_panel72, wxID_ANY, _("Sail-Nr."), wxDefaultPosition, wxDefaultSize, 0 );
@@ -1645,7 +1641,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridOverview->Connect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::OnGridCellRightClickOverview ), NULL, this );
 	m_gridOverview->Connect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftClickOverview ), NULL, this );
 	this->Connect( m_menuItemOverviewRoute->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionGotoRoute ) );
-	this->Connect( m_menuItemOverviewView->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionViewRoute ) );
+//	this->Connect( m_menuItemOverviewView->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionViewRoute ) );
 	logSaveOverview->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnButtonClickOverviewSave ), NULL, this );
 	m_buttonReloadLayoutOview->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::onButtonReloadLayoutOverView ), NULL, this );
 	m_buttonEditLayoutOview->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::onButtonClickEditLayoutOverview ), NULL, this );
@@ -1804,7 +1800,7 @@ LogbookDialog::~LogbookDialog()
 	m_gridOverview->Disconnect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::OnGridCellRightClickOverview ), NULL, this );
 	m_gridOverview->Disconnect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftClickOverview ), NULL, this );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionGotoRoute ) );
-	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionViewRoute ) );
+//	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionViewRoute ) );
 	logSaveOverview->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnButtonClickOverviewSave ), NULL, this );
 	m_buttonReloadLayoutOview->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::onButtonReloadLayoutOverView ), NULL, this );
 	m_buttonEditLayoutOview->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::onButtonClickEditLayoutOverview ), NULL, this );
@@ -3558,7 +3554,7 @@ void LogbookDialog::OnButtonClickOverView( wxCommandEvent& ev )
 void LogbookDialog::OnGridCellRightClickOverview( wxGridEvent& ev )
 {
 	overview->setSelectedRow(ev.GetRow());
-	m_gridGlobal->PopupMenu( m_menuOverView, ev.GetPosition() );
+	m_gridOverview->PopupMenu( m_menuOverView, ev.GetPosition() );
 }
 
 void LogbookDialog::OnGridLabelLeftClickOverview( wxGridEvent& ev )
@@ -3580,12 +3576,12 @@ void LogbookDialog::OnMenuSelectionGotoRoute( wxCommandEvent& ev )
 {
 	overview->gotoRoute();
 }
-
+/*
 void LogbookDialog::OnMenuSelectionViewRoute( wxCommandEvent& ev )
 {
 
 }
-
+*/
 ////////////////////////////////////////////////////////////
 //   Quick 'n Dirty 
 ///////////////////////////////////////////////////////////
@@ -3879,7 +3875,7 @@ LayoutDialog::LayoutDialog( wxWindow* parent, wxString location, wxChoice* choic
 	
 	fgSizer23->Add( 10, 0, 1, wxEXPAND, 5 );
 	
-	m_radioBtnEdit = new wxRadioButton( this, wxID_ANY, wxT("Edit Layout"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_radioBtnEdit = new wxRadioButton( this, wxID_ANY, _("Edit Layout"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_radioBtnEdit->SetValue( true ); 
 	fgSizer23->Add( m_radioBtnEdit, 0, wxALL, 5 );
 	
@@ -3889,7 +3885,7 @@ LayoutDialog::LayoutDialog( wxWindow* parent, wxString location, wxChoice* choic
 	
 	fgSizer23->Add( 0, 0, 1, wxEXPAND, 5 );
 	
-	m_radioBtnFilter = new wxRadioButton( this, wxID_ANY, wxT("Filter Layout by"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_radioBtnFilter = new wxRadioButton( this, wxID_ANY, _("Filter Layout by"), wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer23->Add( m_radioBtnFilter, 0, wxALL, 5 );
 	
 	wxArrayString m_choice15Choices;
@@ -3900,7 +3896,7 @@ LayoutDialog::LayoutDialog( wxWindow* parent, wxString location, wxChoice* choic
 	
 	fgSizer23->Add( 0, 0, 1, wxEXPAND, 5 );
 	
-	m_radioBtnRename = new wxRadioButton( this, wxID_ANY, wxT("Rename Layout"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_radioBtnRename = new wxRadioButton( this, wxID_ANY, _("Rename Layout"), wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer23->Add( m_radioBtnRename, 0, wxALL, 5 );
 	
 	m_textCtrlRename = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxPoint( -1,-1 ), wxSize( 150,-1 ), 0 );
@@ -3909,7 +3905,7 @@ LayoutDialog::LayoutDialog( wxWindow* parent, wxString location, wxChoice* choic
 	
 	fgSizer23->Add( 0, 0, 1, wxEXPAND, 5 );
 	
-	m_radioBtnDelete = new wxRadioButton( this, wxID_ANY, wxT("Delete Layout"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_radioBtnDelete = new wxRadioButton( this, wxID_ANY, _("Delete Layout"), wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer23->Add( m_radioBtnDelete, 0, wxALL, 5 );
 	
 	
@@ -3918,7 +3914,7 @@ LayoutDialog::LayoutDialog( wxWindow* parent, wxString location, wxChoice* choic
 	
 	fgSizer23->Add( 0, 0, 1, wxEXPAND, 5 );
 	
-	m_radioBtnEmail = new wxRadioButton( this, wxID_ANY, wxT("Send Layout by email"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_radioBtnEmail = new wxRadioButton( this, wxID_ANY, _("Send Layout by email"), wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer23->Add( m_radioBtnEmail, 0, wxALL, 5 );
 	
 	
@@ -3927,7 +3923,7 @@ LayoutDialog::LayoutDialog( wxWindow* parent, wxString location, wxChoice* choic
 	
 	fgSizer23->Add( 0, 30, 1, wxEXPAND, 5 );
 	
-	m_radioBtnInstall = new wxRadioButton( this, wxID_ANY, wxT("Install single Layout"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_radioBtnInstall = new wxRadioButton( this, wxID_ANY, _("Install single Layout"), wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer23->Add( m_radioBtnInstall, 0, wxALL, 5 );
 	
 	m_bpButtonLoadLayout = new wxBitmapButton( this, wxID_ANY, wxBitmap( folder ), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
@@ -4028,7 +4024,7 @@ void SelectLogbook::OnInit(wxInitDialogEvent& ev)
 	wxString filename;
 	wxDateTime dtfrom, dtto;
 	wxListItem itemCol;
-	itemCol.SetText(_T("Logbuch"));
+	itemCol.SetText(_("Logbook"));
 	itemCol.SetImage(-1);
 	itemCol.SetWidth(200);
 	m_listCtrlSelectLogbook->InsertColumn(0, itemCol);

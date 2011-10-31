@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-22 16:05+0200\n"
+"POT-Creation-Date: 2011-10-31 02:51+0100\n"
 "PO-Revision-Date: 2011-10-14 18:22+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -44,6 +44,9 @@ msgstr "\""
 msgid "'"
 msgstr "'"
 #
+msgid "0"
+msgstr ""
+#
 msgid "Abbreviations"
 msgstr "Abreviaciones"
 #
@@ -66,6 +69,13 @@ msgstr "Añadir equipamiento"
 #
 msgid "Add Line"
 msgstr "Añadir línea"
+#
+#, fuzzy
+msgid "All Logbooks"
+msgstr "Bitácora nueva"
+#
+msgid "Append Line every Nm"
+msgstr ""
 #
 msgid "Are you sure ?"
 msgstr "Estás seguro ?"
@@ -102,6 +112,12 @@ msgstr "Barómetro"
 #
 msgid "Beam"
 msgstr "Manga"
+#
+msgid "Behavior"
+msgstr ""
+#
+msgid "Best Dist. p. Day"
+msgstr ""
 #
 msgid "Birthname"
 msgstr ""
@@ -157,8 +173,32 @@ msgstr "Listado de tripulación"
 msgid "Current"
 msgstr "Corriente"
 #
+#
+#
+#
+#, fuzzy
+msgid "Current Peak"
+msgstr "Corriente"
+#
+#
+#
+#
+#, fuzzy
+msgid "Current from"
+msgstr "Corriente"
+#
 msgid "Date"
 msgstr "Fecha"
+#
+msgid "Date + Days"
+msgstr ""
+#
+#, fuzzy
+msgid "Date + Month"
+msgstr "Fecha de nacimiento"
+#
+msgid "Date + Weeks"
+msgstr ""
 #
 msgid "Date Launched"
 msgstr "Fecha botadura"
@@ -169,8 +209,15 @@ msgstr "Fecha de nacimiento"
 msgid "Date of Issue"
 msgstr "Fecha expedición"
 #
+msgid "Day(s)"
+msgstr ""
+#
 msgid "Degres"
 msgstr "Grados"
+#
+#, fuzzy
+msgid "Delete Layout"
+msgstr "Seleccione Layout:"
 #
 msgid "Delete Row"
 msgstr "Elimiar línea"
@@ -200,6 +247,10 @@ msgstr "Desplazamiento"
 msgid "Distance"
 msgstr "DistanciaEtmal"
 #
+#, fuzzy
+msgid "Distance p. Day"
+msgstr "DistanciaEtmal"
+#
 msgid "DistanceTotal"
 msgstr "Distancia total"
 #
@@ -211,6 +262,9 @@ msgstr "E"
 #
 msgid "Edit Layout"
 msgstr "Editar Layout"
+#
+msgid "End"
+msgstr ""
 #
 msgid "End 1.Watch"
 msgstr "Fin 1ª guardia"
@@ -236,8 +290,16 @@ msgstr "Brazas"
 msgid "Feet"
 msgstr "Pie"
 #
+#, fuzzy
+msgid "Filter Layout by"
+msgstr "Editar Layout"
+#
 msgid "Firstname"
 msgstr "Nombre"
+#
+#, fuzzy
+msgid "Fix Date"
+msgstr "Fecha"
 #
 msgid "Fuel"
 msgstr "Combustible"
@@ -283,14 +345,30 @@ msgstr "Puerto de registro"
 msgid "Hull"
 msgstr "Casco"
 #
+msgid "Hull Identification No."
+msgstr ""
+#
 msgid "If"
 msgstr "Si"
+#
+msgid "If Course changes more then °"
+msgstr ""
+#
+msgid "If Watch changed"
+msgstr ""
 #
 msgid "Information"
 msgstr "Información"
 #
+#, fuzzy
+msgid "Install OpenCPN_Languages.zip"
+msgstr "Instalar OpenCPN_Logbook_Layouts.zip"
+#
 msgid "Install OpenCPN_Logbook_Layouts.zip"
 msgstr "Instalar OpenCPN_Logbook_Layouts.zip"
+#
+msgid "Install single Layout"
+msgstr ""
 #
 msgid "Insurance"
 msgstr "Seguro"
@@ -388,6 +466,10 @@ msgstr ""
 msgid "Logbook from %s to %s"
 msgstr ""
 #
+#, fuzzy
+msgid "Logbook until "
+msgstr "Abrir fichero de bitácora antiguo"
+#
 msgid "LogbookKonni"
 msgstr ""
 #
@@ -408,6 +490,12 @@ msgstr "Minutos"
 #
 msgid "Minutes greater than 59"
 msgstr "Minuteos mayor que 59!"
+#
+#
+#
+#
+msgid "Month"
+msgstr "Mes"
 #
 msgid "Motor Hours"
 msgstr "Horas máquina"
@@ -435,6 +523,9 @@ msgstr ""
 #
 msgid "New Logbook"
 msgstr "Bitácora nueva"
+#
+msgid "No"
+msgstr ""
 #
 msgid "No GPS-Signal !"
 msgstr ""
@@ -471,6 +562,10 @@ msgstr "Patrón"
 msgid "Passport-Nr"
 msgstr "Nº.Pasaporte"
 #
+#, fuzzy
+msgid "Path"
+msgstr "Guardia"
+#
 msgid "Path to HTML-Editor (optional)"
 msgstr "Ruta al editor HTML (opcional)"
 #
@@ -490,6 +585,9 @@ msgid ""
 msgstr ""
 "Entre por favor 1.30 o 1,30 o 1:30\n"
 "para 1:30h"
+#
+msgid "Please fill in one character in Degrees, Minutes and Seconds"
+msgstr ""
 #
 msgid "Policy"
 msgstr "Poliza"
@@ -517,6 +615,10 @@ msgstr "Leer Layouts de nuevo"
 #
 msgid "Remarks"
 msgstr "Comentarios"
+#
+#, fuzzy
+msgid "Rename Layout"
+msgstr "Leer Layouts de nuevo"
 #
 msgid "Repair done"
 msgstr "Reparación efectuada"
@@ -578,6 +680,9 @@ msgstr "Seleccione fichero .zip de idioma"
 msgid "Select zipped Layout-Files"
 msgstr "Seleccione ficheros .zip de layout"
 #
+msgid "Send Layout by email"
+msgstr ""
+#
 msgid "Serial-Nr."
 msgstr "Nº de serie"
 #
@@ -627,6 +732,13 @@ msgstr "Siento, está sin instalar un layout"
 msgid "Speed"
 msgstr "Velocidad"
 #
+#
+#
+#
+#, fuzzy
+msgid "Start"
+msgstr "Calle"
+#
 msgid "Start 1.Watch"
 msgstr "Inicio 1ªguardia"
 #
@@ -643,6 +755,13 @@ msgid "Street"
 msgstr "Calle"
 #
 msgid "Swell"
+msgstr "Mar de fondo"
+#
+#
+#
+#
+#, fuzzy
+msgid "Swell Peak"
 msgstr "Mar de fondo"
 #
 msgid "Telephone"
@@ -693,10 +812,6 @@ msgstr "ValorAlerta"
 msgid "View"
 msgstr "Ver"
 #
-#, fuzzy
-msgid "View Route"
-msgstr "Ruta"
-#
 msgid "Visibility"
 msgstr "Visibilidad"
 #
@@ -718,10 +833,45 @@ msgstr "Agua total"
 msgid "Wave"
 msgstr "Oleaje"
 #
+#
+#
+#
+#, fuzzy
+msgid "Wave Peak"
+msgstr "Oleaje"
+#
 msgid "Weather"
 msgstr "Meteo"
 #
+#
+#
+#
+#, fuzzy
+msgid "Week(s)"
+msgstr "Semana"
+#
+#
+#
+#
+#, fuzzy
+msgid "Weeks(s)"
+msgstr "Semana"
+#
 msgid "Wind"
+msgstr "Viento"
+#
+#
+#
+#
+#, fuzzy
+msgid "Wind Peak"
+msgstr "Viento"
+#
+#
+#
+#
+#, fuzzy
+msgid "Wind from"
 msgstr "Viento"
 #
 msgid "Windspeed"
@@ -730,14 +880,25 @@ msgstr "Fuerza Viento"
 msgid "Windspeed (GPS off)"
 msgstr "Fuerza viento (GPS off)"
 #
-msgid "Work in Progress"
-msgstr "Trabajo en curso"
-#
 msgid "Write warning \"No GPS\""
 msgstr ""
 #
 msgid "Yard-Nr."
 msgstr "Nº amarre"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+msgid "Yes"
+msgstr "Si"
 #
 msgid ""
 "Your Logbook has 800 lines or more\n"
@@ -758,7 +919,30 @@ msgstr "La bitácora está sin entradas ?"
 msgid "Zip"
 msgstr "CP"
 #
+msgid ""
+"automatic line\n"
+"Distance > "
+msgstr ""
+#
+msgid ""
+"automatic line\n"
+"change of course >"
+msgstr ""
+#
+msgid ""
+"automatic line\n"
+"change of guards"
+msgstr ""
+#
+msgid "day(s)"
+msgstr ""
+#
 msgid "default"
+msgstr ""
+#
+msgid ""
+"default = Relative to Boat\n"
+"Heading = Actual wind direction"
 msgstr ""
 #
 msgid "en_"
@@ -794,6 +978,13 @@ msgstr ""
 msgid "mb"
 msgstr ""
 #
+#
+#
+#
+#, fuzzy
+msgid "month"
+msgstr "Mes"
+#
 #, fuzzy
 msgid "none"
 msgstr "Máquina"
@@ -810,18 +1001,26 @@ msgstr ""
 msgid "to"
 msgstr ""
 #
+msgid "week(s)"
+msgstr ""
 #
 #
 #
-#~ msgid "Current "
-#~ msgstr "Corriente"
 #
 #
 #
 #
-#, fuzzy
-#~ msgid "Current Peak"
-#~ msgstr "Corriente"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -832,8 +1031,20 @@ msgstr ""
 #
 #
 #
-#~ msgid "Month"
-#~ msgstr "Mes"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -844,9 +1055,20 @@ msgstr ""
 #
 #
 #
-#, fuzzy
-#~ msgid "Start"
-#~ msgstr "Calle"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -857,9 +1079,20 @@ msgstr ""
 #
 #
 #
-#, fuzzy
-#~ msgid "Swell Peak"
-#~ msgstr "Mar de fondo"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -870,34 +1103,45 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "View Route"
+#~ msgstr "Ruta"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Wave "
 #~ msgstr "Oleaje"
 #
 #
 #
 #
-#, fuzzy
-#~ msgid "Wave Peak"
-#~ msgstr "Oleaje"
-#
-#
-#
-#
-#~ msgid "Week"
-#~ msgstr "Semana"
-#
-#
-#
-#
-#~ msgid "Wind "
-#~ msgstr "Viento"
-#
-#
-#
-#
-#, fuzzy
-#~ msgid "Wind Peak"
-#~ msgstr "Viento"
 #
 #
 #
@@ -910,5 +1154,8 @@ msgstr ""
 #
 #
 #
-#~ msgid "Yes"
-#~ msgstr "Si"
+#
+#
+#
+#~ msgid "Work in Progress"
+#~ msgstr "Trabajo en curso"

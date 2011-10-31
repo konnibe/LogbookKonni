@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-22 16:05+0200\n"
+"POT-Creation-Date: 2011-10-31 02:51+0100\n"
 "PO-Revision-Date: 2011-10-14 20:49+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -42,6 +42,20 @@ msgstr "\""
 msgid "'"
 msgstr "'"
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+msgid "0"
+msgstr "0"
+#
 msgid "Abbreviations"
 msgstr "Abréviations"
 #
@@ -64,6 +78,13 @@ msgstr "Ajouter un équipement"
 #
 msgid "Add Line"
 msgstr "Ajouter une ligne"
+#
+#, fuzzy
+msgid "All Logbooks"
+msgstr "Nouveau livre de bord"
+#
+msgid "Append Line every Nm"
+msgstr ""
 #
 msgid "Are you sure ?"
 msgstr "Etes vous certain  ?"
@@ -101,6 +122,12 @@ msgstr "Baromètre"
 #
 msgid "Beam"
 msgstr "Largeur de coque"
+#
+msgid "Behavior"
+msgstr ""
+#
+msgid "Best Dist. p. Day"
+msgstr ""
 #
 msgid "Birthname"
 msgstr "Nom de jeune fille"
@@ -156,8 +183,31 @@ msgstr "Liste d'équipage"
 msgid "Current"
 msgstr "Courant"
 #
+#
+#
+#
+msgid "Current Peak"
+msgstr "Courant maximal"
+#
+#
+#
+#
+#, fuzzy
+msgid "Current from"
+msgstr "Courant"
+#
 msgid "Date"
 msgstr "Date"
+#
+msgid "Date + Days"
+msgstr ""
+#
+#, fuzzy
+msgid "Date + Month"
+msgstr "Date de naissance"
+#
+msgid "Date + Weeks"
+msgstr ""
 #
 msgid "Date Launched"
 msgstr "Date de fabrication"
@@ -168,8 +218,15 @@ msgstr "Date de naissance"
 msgid "Date of Issue"
 msgstr "Date d'émission"
 #
+msgid "Day(s)"
+msgstr ""
+#
 msgid "Degres"
 msgstr "Degré"
+#
+#, fuzzy
+msgid "Delete Layout"
+msgstr "Sélectionner une mise en page :"
 #
 msgid "Delete Row"
 msgstr "Supprimer la ligne"
@@ -199,6 +256,10 @@ msgstr "Déplacement"
 msgid "Distance"
 msgstr "Distance"
 #
+#, fuzzy
+msgid "Distance p. Day"
+msgstr "Distance"
+#
 msgid "DistanceTotal"
 msgstr "Distance totale"
 #
@@ -210,6 +271,12 @@ msgstr "E"
 #
 msgid "Edit Layout"
 msgstr "Editer la mise en page"
+#
+#
+#
+#
+msgid "End"
+msgstr "Fin"
 #
 msgid "End 1.Watch"
 msgstr "Arrêter 1.watch"
@@ -235,8 +302,16 @@ msgstr "Brasse"
 msgid "Feet"
 msgstr "Pieds"
 #
+#, fuzzy
+msgid "Filter Layout by"
+msgstr "Editer la mise en page"
+#
 msgid "Firstname"
 msgstr "Prénom"
+#
+#, fuzzy
+msgid "Fix Date"
+msgstr "Date"
 #
 msgid "Fuel"
 msgstr "Carburant"
@@ -281,14 +356,30 @@ msgstr "Port d'attache"
 msgid "Hull"
 msgstr "Coque"
 #
+msgid "Hull Identification No."
+msgstr ""
+#
 msgid "If"
 msgstr "Si"
+#
+msgid "If Course changes more then °"
+msgstr ""
+#
+msgid "If Watch changed"
+msgstr ""
 #
 msgid "Information"
 msgstr "Information"
 #
+#, fuzzy
+msgid "Install OpenCPN_Languages.zip"
+msgstr "Installer les mises en page possibles (OpenCPN_Logbook_Layouts.zip)"
+#
 msgid "Install OpenCPN_Logbook_Layouts.zip"
 msgstr "Installer les mises en page possibles (OpenCPN_Logbook_Layouts.zip)"
+#
+msgid "Install single Layout"
+msgstr ""
 #
 msgid "Insurance"
 msgstr "Assurance"
@@ -385,6 +476,10 @@ msgstr ""
 msgid "Logbook from %s to %s"
 msgstr ""
 #
+#, fuzzy
+msgid "Logbook until "
+msgstr "Ouvrir le fichier de l'ancien livre de bord"
+#
 msgid "LogbookKonni"
 msgstr "LogBookKonni"
 #
@@ -405,6 +500,12 @@ msgstr "Minute"
 #
 msgid "Minutes greater than 59"
 msgstr "Supérieur à 59 minutes"
+#
+#
+#
+#
+msgid "Month"
+msgstr "Mois"
 #
 msgid "Motor Hours"
 msgstr "Usage du moteur"
@@ -432,6 +533,20 @@ msgstr "Volume intérieur disponible"
 #
 msgid "New Logbook"
 msgstr "Nouveau livre de bord"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+msgid "No"
+msgstr "Non"
 #
 msgid "No GPS-Signal !"
 msgstr "Pas de signal GPS"
@@ -469,6 +584,10 @@ msgstr "Propriétaire"
 msgid "Passport-Nr"
 msgstr "N° du passeport"
 #
+#, fuzzy
+msgid "Path"
+msgstr "Regarder"
+#
 msgid "Path to HTML-Editor (optional)"
 msgstr "Chemin vers l'éditeur HTML (Optionnel)"
 #
@@ -488,6 +607,9 @@ msgid ""
 msgstr ""
 "Veuillez entrer 1.30 or 1,30 or 1:30\n"
 "pour 1:30h"
+#
+msgid "Please fill in one character in Degrees, Minutes and Seconds"
+msgstr ""
 #
 msgid "Policy"
 msgstr "Police"
@@ -515,6 +637,10 @@ msgstr "Recharger les mises en page"
 #
 msgid "Remarks"
 msgstr "Remarque"
+#
+#, fuzzy
+msgid "Rename Layout"
+msgstr "Recharger les mises en page"
 #
 msgid "Repair done"
 msgstr "Réparation effectuée"
@@ -576,6 +702,9 @@ msgstr "Sélectionner la langue du fichier zip"
 msgid "Select zipped Layout-Files"
 msgstr "Sélectionner le fichier de mise en page"
 #
+msgid "Send Layout by email"
+msgstr ""
+#
 msgid "Serial-Nr."
 msgstr "N° de série"
 #
@@ -624,6 +753,12 @@ msgstr "Désolé, aucune mise en page installée"
 msgid "Speed"
 msgstr "Vitesse"
 #
+#
+#
+#
+msgid "Start"
+msgstr "Début"
+#
 msgid "Start 1.Watch"
 msgstr "Démarer 1.watch"
 #
@@ -641,6 +776,12 @@ msgstr "Rue"
 #
 msgid "Swell"
 msgstr "Houle"
+#
+#
+#
+#
+msgid "Swell Peak"
+msgstr "Houle la plus haute"
 #
 msgid "Telephone"
 msgstr "Téléphone"
@@ -690,9 +831,6 @@ msgstr "Valeur urgente"
 msgid "View"
 msgstr "Voir"
 #
-msgid "View Route"
-msgstr "Voir la route"
-#
 msgid "Visibility"
 msgstr "Visibilité"
 #
@@ -714,10 +852,43 @@ msgstr "Total eau"
 msgid "Wave"
 msgstr "Vague"
 #
+#
+#
+#
+msgid "Wave Peak"
+msgstr "Vague la plus haute"
+#
 msgid "Weather"
 msgstr "Temps"
 #
+#
+#
+#
+#, fuzzy
+msgid "Week(s)"
+msgstr "Semaine"
+#
+#
+#
+#
+#, fuzzy
+msgid "Weeks(s)"
+msgstr "Semaine"
+#
 msgid "Wind"
+msgstr "Vent"
+#
+#
+#
+#
+msgid "Wind Peak"
+msgstr "Vent maximal"
+#
+#
+#
+#
+#, fuzzy
+msgid "Wind from"
 msgstr "Vent"
 #
 msgid "Windspeed"
@@ -726,14 +897,25 @@ msgstr "Vitesse du vent"
 msgid "Windspeed (GPS off)"
 msgstr "Vent : Vitesse  (GPS Off)"
 #
-msgid "Work in Progress"
-msgstr "Travail en cours"
-#
 msgid "Write warning \"No GPS\""
 msgstr "Afficher une alerte \"Pas de GPS\""
 #
 msgid "Yard-Nr."
 msgstr "Place de port"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+msgid "Yes"
+msgstr "Oui"
 #
 msgid ""
 "Your Logbook has 800 lines or more\n"
@@ -754,8 +936,31 @@ msgstr "Votre livre de bord ne contient aucune ligne"
 msgid "Zip"
 msgstr "Code postal"
 #
+msgid ""
+"automatic line\n"
+"Distance > "
+msgstr ""
+#
+msgid ""
+"automatic line\n"
+"change of course >"
+msgstr ""
+#
+msgid ""
+"automatic line\n"
+"change of guards"
+msgstr ""
+#
+msgid "day(s)"
+msgstr ""
+#
 msgid "default"
 msgstr "par défaut"
+#
+msgid ""
+"default = Relative to Boat\n"
+"Heading = Actual wind direction"
+msgstr ""
 #
 msgid "en_"
 msgstr "fr_"
@@ -790,6 +995,13 @@ msgstr "m/s"
 msgid "mb"
 msgstr "Hp"
 #
+#
+#
+#
+#, fuzzy
+msgid "month"
+msgstr "Mois"
+#
 msgid "none"
 msgstr "Rien"
 #
@@ -805,6 +1017,8 @@ msgstr "sm"
 msgid "to"
 msgstr "à"
 #
+msgid "week(s)"
+msgstr ""
 #
 #
 #
@@ -816,8 +1030,13 @@ msgstr "à"
 #
 #
 #
-#~ msgid "0"
-#~ msgstr "0"
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -828,20 +1047,20 @@ msgstr "à"
 #
 #
 #
-#~ msgid "Current "
-#~ msgstr "Courant"
 #
 #
 #
 #
-#~ msgid "Current Peak"
-#~ msgstr "Courant maximal"
 #
 #
 #
 #
-#~ msgid "End"
-#~ msgstr "Fin"
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -852,14 +1071,30 @@ msgstr "à"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Logbook files (*.txt)|*.txt"
 #~ msgstr "Fichiers des livres de bord (*.txt)|*.txt"
 #
 #
 #
 #
-#~ msgid "Month"
-#~ msgstr "Mois"
 #
 #
 #
@@ -872,8 +1107,8 @@ msgstr "à"
 #
 #
 #
-#~ msgid "No"
-#~ msgstr "Non"
+#
+#
 #
 #
 #
@@ -884,8 +1119,20 @@ msgstr "à"
 #
 #
 #
-#~ msgid "Start"
-#~ msgstr "Début"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -896,8 +1143,20 @@ msgstr "à"
 #
 #
 #
-#~ msgid "Swell Peak"
-#~ msgstr "Houle la plus haute"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -908,32 +1167,44 @@ msgstr "à"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#~ msgid "View Route"
+#~ msgstr "Voir la route"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Wave "
 #~ msgstr "Vague"
 #
 #
 #
 #
-#~ msgid "Wave Peak"
-#~ msgstr "Vague la plus haute"
-#
-#
-#
-#
-#~ msgid "Week"
-#~ msgstr "Semaine"
-#
-#
-#
-#
-#~ msgid "Wind "
-#~ msgstr "Vent"
-#
-#
-#
-#
-#~ msgid "Wind Peak"
-#~ msgstr "Vent maximal"
 #
 #
 #
@@ -946,8 +1217,29 @@ msgstr "à"
 #
 #
 #
-#~ msgid "Yes"
-#~ msgstr "Oui"
+#
+#
+#
+#~ msgid "Work in Progress"
+#~ msgstr "Travail en cours"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #

@@ -323,7 +323,7 @@ void Logbook::newLogbook()
 	if(i == wxNO)
 		return;
 
-	i = wxMessageBox(_("Reset all Values to zero ?"),_(""),wxYES_NO );
+	i = wxMessageBox(_("Reset all Values to zero ?"),_T(""),wxYES_NO );
 	if(i == wxYES)
 		zero = true;
 
@@ -1464,7 +1464,7 @@ void Logbook::SetGPSStatus(bool status)
 }
 
 ////////////////////////////////////////////////////
-NoAppendDialog::NoAppendDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+NoAppendDialog::NoAppendDialog(wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	
