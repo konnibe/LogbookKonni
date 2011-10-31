@@ -5,7 +5,7 @@ Building from source
 --------------------
 Clone the git repository to <OPENCPN_SOURCE_TLD>/plugins/LogbookKonni_pi (the _pi at the end matters!)
 cd <OPENCPN_SOURCE_TLD>/plugins
-git clone git://github.com/nohal/LogbookKonni.git LogbookKonni_pi
+git clone git://github.com/konnibe/LogbookKonni.git LogbookKonni_pi
 
 Build OpenCPN as normally (build instructions on http://opencpn.org)
 
