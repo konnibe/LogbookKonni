@@ -67,7 +67,7 @@ Logbook::Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString
 	gpsStatus = false;
 	bCOW = false;
 	dCOW = -1;
-	dLastHeading = -1;
+	dCOG = -1;
 	courseChange = false;
 	everySM = false;
 	guardChange = false;
@@ -101,6 +101,7 @@ void Logbook::clearNMEAData()
 
 void Logbook::SetSentence(wxString &sentence)
 {
+	wxDateTime dt;
 	m_NMEA0183 << sentence;
 
 	if(m_NMEA0183.PreParse())
@@ -112,29 +113,11 @@ void Logbook::SetSentence(wxString &sentence)
                   {
                         if(m_NMEA0183.Gga.GPSQuality > 0)
                         {
-                                    double lat, lon;
-                                    float llt = m_NMEA0183.Gga.Position.Latitude.Latitude;
-                                    int lat_deg_int = (int)(llt / 100);
-                                    float lat_deg = lat_deg_int;
-                                    float lat_min = llt - (lat_deg * 100);
-                                    lat = lat_deg + (lat_min/60.);
-                                    if(m_NMEA0183.Gga.Position.Latitude.Northing == South)
-                                          lat = -lat;
-									sLat = this->toSDMM(1,lat, true);
+							setPositionString(m_NMEA0183.Gga.Position.Latitude.Latitude,
+											m_NMEA0183.Gga.Position.Latitude.Northing,
+											m_NMEA0183.Gga.Position.Longitude.Longitude,
+											m_NMEA0183.Gga.Position.Longitude.Easting);
 
-                                    float lln = m_NMEA0183.Gga.Position.Longitude.Longitude;
-                                    int lon_deg_int = (int)(lln / 100);
-                                    float lon_deg = lon_deg_int;
-                                    float lon_min = lln - (lon_deg * 100);
-                                    lon = lon_deg + (lon_min/60.);
-                                    if(m_NMEA0183.Gga.Position.Longitude.Easting == West)
-                                          lon = -lon;
-									sLon = this->toSDMM(2,lon, false);
-
-									gpsStatus = true;
-									dialog->GPSTimer->Start(5000);
-									if(opt->everySM)
-										checkDistance();
                         }
                   }
             }
@@ -142,56 +125,20 @@ void Logbook::SetSentence(wxString &sentence)
             {
                   if(m_NMEA0183.Parse())
                   {
-                                    double lat, lon;
-									float llt = m_NMEA0183.Gll.Position.Latitude.Latitude;
-                                    int lat_deg_int = (int)(llt / 100);
-                                    float lat_deg = lat_deg_int;
-                                    float lat_min = llt - (lat_deg * 100);
-                                    lat = lat_deg + (lat_min/60.);
-                                    if(m_NMEA0183.Gll.Position.Latitude.Northing == South)
-                                          lat = -lat;
-									sLat = this->toSDMM(1,lat, true);
-
-									float lln = m_NMEA0183.Gll.Position.Longitude.Longitude;
-                                    int lon_deg_int = (int)(lln / 100);
-                                    float lon_deg = lon_deg_int;
-                                    float lon_min = lln - (lon_deg * 100);
-                                    lon = lon_deg + (lon_min/60.);
-                                    if(m_NMEA0183.Gll.Position.Longitude.Easting == West)
-                                          lon = -lon;
-									sLon = this->toSDMM(2,lon, false);
-
-									gpsStatus = true;
-									dialog->GPSTimer->Start(5000);
-									if(opt->everySM)
-										checkDistance();
+					setPositionString(m_NMEA0183.Gll.Position.Latitude.Latitude,
+									m_NMEA0183.Gll.Position.Latitude.Northing,
+									m_NMEA0183.Gll.Position.Longitude.Longitude,
+									m_NMEA0183.Gll.Position.Longitude.Easting);
                   }
             }
 			else if(m_NMEA0183.LastSentenceIDReceived == _T("ZDA"))
             {
                   if(m_NMEA0183.Parse())
                   {
-                    wxString dt;
-                    dt.Printf(_T("%4d%02d%02d"), 
-						m_NMEA0183.Zda.Year, m_NMEA0183.Zda.Month, m_NMEA0183.Zda.Day);
-                    dt.Append(m_NMEA0183.Zda.UTCTime);
+					dt = dt.Set(m_NMEA0183.Zda.Day,(wxDateTime::Month)(m_NMEA0183.Zda.Month-1),m_NMEA0183.Zda.Year);
+					dt.ParseTime(dt.ParseFormat(m_NMEA0183.Zda.UTCTime,_T("%H%M%S")));
 
-                    mUTCDateTime.ParseFormat(dt.c_str(), _T("%Y%m%d%H%M%S"));
-					if(opt->local)
-					{
-						wxTimeSpan span(opt->tzHour, 0, 0, 0);
-						if(opt->tzIndicator == 0)
-							mCorrectedDateTime = mUTCDateTime + span;
-						else
-							mCorrectedDateTime = mUTCDateTime - span;
-					}
-					else
-						mCorrectedDateTime = mUTCDateTime;
-
-					sDate = mCorrectedDateTime.FormatDate();
-					sTime = mCorrectedDateTime.FormatTime();
-					if(opt->guardChange)
-						checkGuardChanged();
+					setDateTimeString(dt);
 				  }
 			}
 			else if(m_NMEA0183.LastSentenceIDReceived == _T("HDT"))
@@ -202,8 +149,6 @@ void Logbook::SetSentence(wxString &sentence)
 						sCOW = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Hdt.DegreesTrue,opt->Deg.c_str());
 					  dCOW = m_NMEA0183.Hdt.DegreesTrue;
 					  bCOW = true;
-					  if(opt->courseChange)
-						checkCourseChanged();
 				  }
 			}
 			else if(m_NMEA0183.LastSentenceIDReceived == _T("HDM"))
@@ -214,39 +159,31 @@ void Logbook::SetSentence(wxString &sentence)
 						sCOW = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Hdm.DegreesMagnetic,opt->Deg.c_str());
 					  dCOW = m_NMEA0183.Hdm.DegreesMagnetic;
 					  bCOW = true;
-					  if(opt->courseChange)
-						checkCourseChanged();
 				  }
 			}
 			else if(m_NMEA0183.LastSentenceIDReceived == _T("RMC"))
             {
                   if(m_NMEA0183.Parse())
                   {
-                    double lat, lon;
-					float llt = m_NMEA0183.Rmc.Position.Latitude.Latitude;
-                    int lat_deg_int = (int)(llt / 100);
-                    float lat_deg = lat_deg_int;
-                    float lat_min = llt - (lat_deg * 100);
-                    lat = lat_deg + (lat_min/60.);
-                    if(m_NMEA0183.Rmc.Position.Latitude.Northing == South)
-                            lat = -lat;
-					sLat = this->toSDMM(1,lat, true);
+					setPositionString(m_NMEA0183.Rmc.Position.Latitude.Latitude,
+									m_NMEA0183.Rmc.Position.Latitude.Northing,
+									m_NMEA0183.Rmc.Position.Longitude.Longitude,
+									m_NMEA0183.Rmc.Position.Longitude.Easting);
 
-					float lln = m_NMEA0183.Rmc.Position.Longitude.Longitude;
-                    int lon_deg_int = (int)(lln / 100);
-                    float lon_deg = lon_deg_int;
-                    float lon_min = lln - (lon_deg * 100);
-                    lon = lon_deg + (lon_min/60.);
-                    if(m_NMEA0183.Rmc.Position.Longitude.Easting == West)
-                             lon = -lon;
-					sLon = this->toSDMM(2,lon, false);
 
-					gpsStatus = true;
-					dialog->GPSTimer->Start(5000);
 					sSOG = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Rmc.SpeedOverGroundKnots,opt->speed.c_str());
 					sCOG = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue, opt->Deg.c_str());
-					if(opt->everySM)
-						checkDistance();
+					
+					bCOW = true;
+					dCOG = m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue;
+
+					dt.ParseDate(m_NMEA0183.Rmc.Date);
+					dt.ParseTime(dt.ParseFormat(m_NMEA0183.Rmc.UTCTime,_T("%H%M%S")));
+
+					setDateTimeString(dt);
+
+					if(opt->courseChange)
+						checkCourseChanged();
 				  }
 			}
 			else if(m_NMEA0183.LastSentenceIDReceived == _T("VHW"))
@@ -310,6 +247,55 @@ void Logbook::SetSentence(wxString &sentence)
 	}
 	m_NMEA0183.Dbt.ErrorMessage = _T("");
 	m_NMEA0183.ErrorMessage = _T("");
+}
+
+void Logbook::setDateTimeString(wxDateTime dt)
+{
+	mUTCDateTime = dt;
+
+	if(opt->local)
+	{
+		wxTimeSpan span(opt->tzHour, 0, 0, 0);
+		if(opt->tzIndicator == 0)
+			mCorrectedDateTime = mUTCDateTime + span;
+		else
+			mCorrectedDateTime = mUTCDateTime - span;
+	}
+	else
+		mCorrectedDateTime = mUTCDateTime;
+
+	sDate = mCorrectedDateTime.FormatDate();
+	sTime = mCorrectedDateTime.FormatTime();
+	if(opt->guardChange)
+		checkGuardChanged();
+}
+
+void Logbook::setPositionString(double dLat, int iNorth, double dLon, int iEast)
+{
+    double lat, lon;
+	float llt = dLat;
+    int lat_deg_int = (int)(llt / 100);
+    float lat_deg = lat_deg_int;
+    float lat_min = llt - (lat_deg * 100);
+    lat = lat_deg + (lat_min/60.);
+    if(iNorth== South)
+           lat = -lat;
+	sLat = this->toSDMM(1,lat, true);
+
+	float lln = dLon;
+    int lon_deg_int = (int)(lln / 100);
+    float lon_deg = lon_deg_int;
+    float lon_min = lln - (lon_deg * 100);
+    lon = lon_deg + (lon_min/60.);
+    if(iEast == West)
+          lon = -lon;
+	sLon = this->toSDMM(2,lon, false);
+
+	gpsStatus = true;
+	dialog->GPSTimer->Start(5000);
+
+	if(opt->everySM)
+		checkDistance();
 }
 
 void Logbook::newLogbook()
@@ -385,7 +371,7 @@ void Logbook::newLogbook()
 	}
 	else
 	{
-		appendRow();
+		appendRow(true);
 		dialog->logGrids[0]->SetCellValue(0,13,_("Last Logbook is\n")+ss);
 	}
 
@@ -572,116 +558,7 @@ void Logbook::loadData()
 	dialog->m_gridMotorSails->GetGridWindow()->Thaw();
 	dialog->selGridRow = 0; dialog->selGridCol = 0;
 }
-/*
-void Logbook::loadDatanew()
-{
-	wxString s = _T(""),t;
 
-	LogGridTable *tableL = new LogGridTable(2,13);
-	LogGridTable *tableW = new LogGridTable(2,10);
-	LogGridTable *tableM = new LogGridTable(2,11);
-	
-
-	bool o = dialog->m_gridGlobal->SetTable(tableL,true);
-	o = dialog->m_gridWeather->SetTable(tableW,true);
-	o = dialog->m_gridMotorSails->SetTable(tableM,true);
-
-	wxFileInputStream input( data_locn );
-	wxTextInputStream* stream = new wxTextInputStream (input);
-
-	int row = 0;
-	while( t = stream->ReadLine())
-	{
-		if(input.Eof()) break;
-		o = dialog->m_gridGlobal->AppendRows();
-		o = dialog->m_gridWeather->AppendRows();
-		o = dialog->m_gridMotorSails->AppendRows();
-
-		wxStringTokenizer tkz(t, _T(","));
-		int c = 0;
-		while ( tkz.HasMoreTokens() )
-		{
-			s = dialog->restoreDangerChar(tkz.GetNextToken());
-
-			switch(c)
-			{
-			case ROUTE:		dialog->m_gridGlobal->SetCellValue(row,c,s);
-				break;
-			case RDATE:		dialog->m_gridGlobal->SetCellValue(row,c,s);
-				break;
-			case RTIME:		dialog->m_gridGlobal->SetCellValue(row,c,s);
-				break;
-			case SIGN:		dialog->m_gridGlobal->SetCellValue(row,c,s);
-				break;
-			case WAKE:		dialog->m_gridGlobal->SetCellValue(row,c,s);
-				break;
-			case DISTANCE:	dialog->m_gridGlobal->SetCellValue(row,c,s);
-				break;
-			case DTOTAL:	dialog->m_gridGlobal->SetCellValue(row,c,s);
-				break;
-			case POSITION:	dialog->m_gridGlobal->SetCellValue(row,c,s);
-				break;
-			case COG:		dialog->m_gridGlobal->SetCellValue(row,c,s);
-				break;
-			case COW:		dialog->m_gridGlobal->SetCellValue(row,c,s);
-				break;
-			case SOG:		dialog->m_gridGlobal->SetCellValue(row,c,s);
-				break;
-			case SOW:		dialog->m_gridGlobal->SetCellValue(row,c,s);
-				break;
-			case DEPTH:		dialog->m_gridGlobal->SetCellValue(row,c,s);
-				break;
-			case REMARKS:	dialog->m_gridGlobal->SetCellValue(row,c,s);
-				break;
-			case BARO:		dialog->m_gridWeather->SetCellValue(row,0,s);
-				break;
-			case WIND:		dialog->m_gridWeather->SetCellValue(row,1,s);
-				break;
-			case WSPD:		dialog->m_gridWeather->SetCellValue(row,2,s);
-				break;
-			case CURRENT:	dialog->m_gridWeather->SetCellValue(row,3,s);
-				break;
-			case CSPD:		dialog->m_gridWeather->SetCellValue(row,4,s);
-				break;
-			case WAVE:		dialog->m_gridWeather->SetCellValue(row,5,s);
-				break;
-			case SWELL:		dialog->m_gridWeather->SetCellValue(row,6,s);
-				break;
-			case WEATHER:	dialog->m_gridWeather->SetCellValue(row,7,s);
-				break;
-			case CLOUDS:	dialog->m_gridWeather->SetCellValue(row,8,s);
-				break;
-			case VISIBILITY:dialog->m_gridWeather->SetCellValue(row,9,s);
-				break;
-			case MOTOR:		dialog->m_gridMotorSails->SetCellValue(row,0,s);
-				break;
-			case MOTORT:	dialog->m_gridMotorSails->SetCellValue(row,1,s);
-				break;
-			case FUEL:		dialog->m_gridMotorSails->SetCellValue(row,2,s);
-				break;
-			case FUELT:		dialog->m_gridMotorSails->SetCellValue(row,3,s);
-				break;
-			case SAILS:		dialog->m_gridMotorSails->SetCellValue(row,4,s);
-				break;
-			case REEF:		dialog->m_gridMotorSails->SetCellValue(row,5,s);
-				break;
-			case WATER:		dialog->m_gridMotorSails->SetCellValue(row,6,s);
-				break;
-			case WATERT:	dialog->m_gridMotorSails->SetCellValue(row,7,s);
-				break;
-			case MREMARKS:	dialog->m_gridMotorSails->SetCellValue(row,8,s);
-				break;
-			}
-			c++;
-		}
-		dialog->setEqualRowHeight(row);
-		row++;
-	}
-
-	for(int i = 0; i < LOGGRIDS; i++)
-		dialog->logGrids[i]->MakeCellVisible(dialog->logGrids[i]->GetNumberRows()-1,0);
-}
-*/
 void Logbook::switchToActuellLogbook()
 {
 	dialog->selGridRow = 0; dialog->selGridCol = 0; 
@@ -693,15 +570,22 @@ void Logbook::switchToActuellLogbook()
 }
 
 
-void Logbook::appendRow()
+void Logbook::appendRow(bool mode)
 {
 	wxString s;
+	int x,y,xMotor,yMotor,xWeather, yWeather;
 
 	checkGPS();
 
 	if(noAppend) return;
 	modified = true;
 
+	if(!mode)
+	{
+		dialog->m_gridGlobal->GetScrollHelper()->GetViewStart(&x, &y);
+		dialog->m_gridWeather->GetScrollHelper()->GetViewStart(&xWeather, &yWeather);
+		dialog->m_gridMotorSails->GetScrollHelper()->GetViewStart(&xMotor, &yMotor);
+	}
 	wxFileName fn(logbookFile->GetName());
 	if(fn.GetName() != (_T("logbook")))
 	{
@@ -745,10 +629,7 @@ Please create a new logbook to minimize the loadingtime.\n\nIf you have a runnin
 			dialog->logGrids[0]->SetCellValue(lastRow,3,dialog->logGrids[0]->GetCellValue(lastRow-1,3));
 			dialog->logGrids[0]->SetCellValue(lastRow,4,dialog->logGrids[0]->GetCellValue(lastRow-1,4));
 			dialog->logGrids[0]->SetCellValue(lastRow,7,sLat+sLon);
-			changeCellValue(lastRow, 0,1);
-			dialog->logGrids[0]->SetCellValue(lastRow,5,
-				calculateDistance(dialog->logGrids[0]->GetCellValue(lastRow-1,7),
-								  dialog->logGrids[0]->GetCellValue(lastRow,7)));
+			changeCellValue(lastRow, 0,0);
 			dialog->logGrids[0]->SetCellValue(lastRow,6,dialog->logGrids[0]->GetCellValue(lastRow-1,6));
 			dialog->logGrids[2]->SetCellValue(lastRow,1,dialog->logGrids[2]->GetCellValue(lastRow-1,1));
 			dialog->logGrids[2]->SetCellValue(lastRow,3,dialog->logGrids[2]->GetCellValue(lastRow-1,3));
@@ -791,30 +672,37 @@ Please create a new logbook to minimize the loadingtime.\n\nIf you have a runnin
 	dialog->m_gridMotorSails->SetReadOnly(lastRow,3);
 	dialog->m_gridMotorSails->SetReadOnly(lastRow,7);
 
-	dialog->m_gridGlobal->MakeCellVisible(lastRow,0);
-	dialog->m_gridWeather->MakeCellVisible(lastRow,0);
-	dialog->m_gridMotorSails->MakeCellVisible(lastRow,0);
+	if(mode)
+	{
+		dialog->m_gridGlobal->MakeCellVisible(lastRow,0);
+		dialog->m_gridWeather->MakeCellVisible(lastRow,0);
+		dialog->m_gridMotorSails->MakeCellVisible(lastRow,0);
+	}
+	else
+	{
+		dialog->m_gridGlobal->GetScrollHelper()->Scroll(x,y);
+		dialog->m_gridWeather->GetScrollHelper()->Scroll(xWeather,yWeather);
+		dialog->m_gridMotorSails->GetScrollHelper()->Scroll(xMotor,yMotor);
+	}
 }
 
 void Logbook::checkCourseChanged()
 {
-	if(dLastHeading != -1)
-	{
-		wxDouble headingChangeMax = dLastHeading+opt->dCourseChangeDegrees;
-		wxDouble headingChangeMin = dLastHeading-opt->dCourseChangeDegrees;
-		if(headingChangeMax > 360) headingChangeMax -= 360;
-		if(headingChangeMin < 0) headingChangeMin += 360;
+	wxDouble cog, cow;
+	wxGrid* grid = dialog->m_gridGlobal;
+	grid->GetCellValue(grid->GetNumberRows()-1,8).ToDouble(&cog);
+	grid->GetCellValue(grid->GetNumberRows()-1,9).ToDouble(&cow);
 
-		if(abs(dLastHeading - dCOW) >= opt->dCourseChangeDegrees )
+	if(cog == dCOG) return;
+
+	wxDouble result = abs(cog-dCOG); 
+	if(result > 180) result -= 360;
+	if(abs(result) >= opt->dCourseChangeDegrees)
 		{
 			courseChange = true;
-			dLastHeading = dCOW;
-			appendRow();
+			appendRow(false);
 			courseChange = false;
 		}
-	}
-		else
-			dLastHeading = dCOW;
 }
 
 void Logbook::checkGuardChanged()
@@ -846,7 +734,7 @@ void Logbook::checkGuardChanged()
 		if(append) 
 		{ 
 			guardChange = true;
-			appendRow();
+			appendRow(false);
 			guardChange = false;
 		}
 		dLastMinute = m_minute + 1;
@@ -875,7 +763,7 @@ void Logbook::checkDistance()
 	{
 		oldPosition = newPosition;
 		everySM = true;	
-		appendRow();
+		appendRow(false);
 		everySM = false;
 	}
 }
@@ -884,11 +772,10 @@ wxString Logbook::getWake()
 {
 	wxString start, end, name = _T("");;
 	wxDateTime dtstart,dtend, now;
+	int count = 0;
 
-	dtstart = dtend = mCorrectedDateTime.Today();
+	dtstart = dtend = mCorrectedDateTime;
 	now = mCorrectedDateTime;
-
-	int h,m,count = 0;
 
 	for(int r = 0; r < dialog->m_gridCrewWake->GetRows(); r++)
 	{
@@ -899,38 +786,22 @@ wxString Logbook::getWake()
 
 			if(start.IsEmpty() || end.IsEmpty()) continue;
 
-			wxStringTokenizer tkz(start,_T(":")); 
-			wxString token  = tkz.GetNextToken();
-			h = wxAtoi(token);
-			if(h > 23 || h < 0) h = 0;
-			token  = tkz.GetNextToken();
-			m  = wxAtoi(token);
-			if(m > 59 || m < 0) m = 0;
-			dtstart.Set(h,m);
+			dtstart.ParseTime(start);
+			dtend.ParseTime(end);
 
-			wxStringTokenizer tkze(end,_T(":")); 
-			token  = tkze.GetNextToken();
-			h = wxAtoi(token);
-			if(h > 23 || h < 0) h = 0;
-			token  = tkze.GetNextToken();
-			m  = wxAtoi(token);
-			if(m > 59 || m < 0) m = 0;
-			dtend.Set(h,m);
-
+			wxDateSpan sp(0,0,0,1);
 			if((dtstart.GetHour() > dtend.GetHour())) 
-			{
-				wxDateSpan sp(0,0,0,1);
-				if(now.GetHour() > dtstart.GetHour())
 					dtend.Add(sp);
-				else	
-					dtstart.Subtract(sp);
-			}
+//			else	
+//					dtstart.Subtract(sp);
+
 /*			wxString nodate =now.FormatDate();
 			wxString noetime = now.FormatTime();
 			wxString dtstartdate = dtstart.FormatDate();
 			wxString dstarttime = dtstart.FormatTime();
 			wxString dtenddate = dtend.FormatDate();
 			wxString dtendtie = dtend.FormatTime();
+wxMessageBox(_("now ")+nodate+_("  ")+noetime+_T("\n")+_T("start ")+dtstartdate+_("  ")+dstarttime+_T("\n")+_T("end ")+dtenddate+_("  ")+dtendtie);
 */
 			if(now >= dtstart && now <= dtend)
 			{			
@@ -938,7 +809,8 @@ wxString Logbook::getWake()
 					name += _T("\n");
 				name += dialog->m_gridCrewWake->GetCellValue(r,1)+ _T(" ") + dialog->m_gridCrewWake->GetCellValue(r,0);
 				count++;
-				dtend = mCorrectedDateTime.Today();
+				dtstart = mCorrectedDateTime;
+				dtend = mCorrectedDateTime;
 			}
 		}
 	}
@@ -947,7 +819,8 @@ wxString Logbook::getWake()
 
 wxString Logbook::calculateDistance(wxString fromstr, wxString tostr)
 {
-	if(fromstr.IsEmpty() || tostr.IsEmpty()) return wxString(_T("0.00 ")+opt->distance);
+	if((fromstr.IsEmpty() || tostr.IsEmpty()) || fromstr == tostr) 
+		return wxString(_T("0.00 ")+opt->distance);
 
 	wxString sLat, sLon, sLatto, sLonto;
 	wxDouble fromlat,fromlon,tolat,tolon, sm;
@@ -968,7 +841,7 @@ wxString Logbook::calculateDistance(wxString fromstr, wxString tostr)
 sm = acos(cos(fromlat)*cos(fromlon)*cos(tolat)*cos(tolon) + 
 		  cos(fromlat)*sin(fromlon)*cos(tolat)*sin(tolon) + sin(fromlat)*sin(tolat)) * 3443.9;
 ////// code snippet from http://www2.nau.edu/~cvm/latlongdist.html#formats
-
+if(sm < 0) wxMessageBox(sLat+ sLon+ sLatto+ sLonto);
 	return wxString::Format(_T("%.2f %s"),sm,opt->distance.c_str());
 }
 
@@ -1248,7 +1121,6 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 							sep = _T(":");
 						}
 						if(t != true)
-//						if(((s[2] != _T('.') && s[2] != _T(',') && s[2] != _T(':'))&& s.Length() != 5))
 							{
 								wxMessageBox(_("Please enter like 1.30 or 1,30 or 1:30\nfor 1:30h"),_T(""),wxOK);
 								dialog->logGrids[grid]->SetCellValue(row,col,_T("00:00"));

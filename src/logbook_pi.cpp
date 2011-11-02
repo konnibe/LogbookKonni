@@ -505,8 +505,8 @@ void logbookkonni_pi::LoadConfig()
             pConf->SetPath ( _T( "/PlugIns/Logbook" ) );
             pConf->Read ( _T( "ShowLOGIcon" ),  &m_bLOGShowIcon, 1 );
 			pConf->Read ( _T( "FirstTime" ),  &opt->firstTime);
-			pConf->Read ( _T( "DlgWidth" ),  &opt->dlgWidth);
-			pConf->Read ( _T( "DlgHeight" ),  &opt->dlgHeight);
+			pConf->Read ( _T( "DlgWidth" ),  &opt->dlgWidth,1010);
+			pConf->Read ( _T( "DlgHeight" ),  &opt->dlgHeight,535);
 
 			pConf->Read ( _T ( "GuardChange" ), &opt->guardChange );
 			pConf->Read ( _T ( "GuardChangeText" ), &opt->guardChangeText );
@@ -805,7 +805,7 @@ void LogbookTimer::OnTimer(wxTimerEvent& ev)
 	{
 		plogbook_pi->m_plogbook_window->Show();
 	}
-	plogbook_pi->m_plogbook_window->logbook->appendRow();
+	plogbook_pi->m_plogbook_window->logbook->appendRow(false);
 }
 
 

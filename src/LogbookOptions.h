@@ -173,6 +173,7 @@ class LogbookOptions : public wxDialog
 		virtual void onTextEnterm_sMeterSec( wxCommandEvent& event );
 		virtual void onTextEnterm_sKmh( wxCommandEvent& event );
 		virtual void OnButtonOKClick( wxCommandEvent& event );
+		virtual void onCheckBoxGuardChanged( wxCommandEvent& event );
 	
 	public:
 		wxCheckBox* m_checkBoxShowAllLayouts;

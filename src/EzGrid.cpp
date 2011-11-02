@@ -35,14 +35,6 @@ EzGrid::EzGrid(wxWindow *parent,
 
 EzGrid::~EzGrid()
 {
-	// Save column widths
-	wxConfigBase *cfg = wxConfigBase::Get();
-	wxString strCol;
-	for (int nCol = 0; nCol < GetNumberCols(); nCol++)
-	{
-		strCol.Printf(_T("column%d"), nCol);
-		cfg->Write(strCol, (long)GetColSize(nCol));
-	}
 }
 
 #include <wx/window.h>
@@ -69,16 +61,6 @@ void EzGrid::OnCellLeftClick(wxGridEvent& ev)
 			EnableCellEditControl(true);
 #endif
 		}
-
-	// hack to prevent selection from being lost when click combobox
-
-//	if (ev.GetCol() == 0 )//&& IsInSelection(ev.GetRow(), ev.GetCol()))
-//	{
-//		m_selTemp = m_selection;
-//		m_selection = NULL;
-//	}
-	
-//	pEditor->DecRef();
 	}
 	ev.Skip();
 }
@@ -98,15 +80,6 @@ void EzGrid::OnMouseWheel( wxMouseEvent& event )
 
 void EzGrid::PreviousState()
 {
-	wxConfigBase *cfg = wxConfigBase::Get();
-	wxString strCol;
-	long nColWidth;
-	for (int nCol = 0; nCol < GetNumberCols(); nCol++)
-	{
-		strCol.Printf(_T("column%d"), nCol);
-		if (cfg->Read(strCol, &nColWidth))
-			SetColSize(nCol, nColWidth);
-	}
 }
 
 wxSize EzGrid::DoGetBestSize() const
@@ -129,7 +102,6 @@ void EzGrid::RecalcRowLabel()
 								&nWidth, &nHeight, NULL, NULL, &font);
 	if (nWidth < 12) nWidth = 12;
 	SetRowLabelSize(nWidth+6);
-//	SetRowLabelSize(0);
 }
 
 

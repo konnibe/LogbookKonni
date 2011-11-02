@@ -2578,7 +2578,7 @@ void LogbookDialog::logViewOnButtonClick( wxCommandEvent& ev )
 
 void LogbookDialog::m_button4OnButtonClick( wxCommandEvent& ev )
 {
-	logbook->appendRow();
+	logbook->appendRow(true);
 }
 
 void LogbookDialog::m_TimerOnMenuSelection( wxCommandEvent& ev )
@@ -2827,35 +2827,36 @@ void LogbookDialog::getIniValues()
 	for(int n = 0; n < m_gridEquipment->GetNumberCols(); n++)
 		m_gridEquipment->SetColumnWidth(n,opt->EquipColWidth[n]);
 
-	for(int n = 0; n < m_gridOverview->GetNumberCols(); n++)
+	if(opt->OverviewColWidth[0] != -1 )
 	{
-		if(opt->OverviewColWidth[0] != -1 )
+		for(int n = 0; n < m_gridOverview->GetNumberCols(); n++)
 			m_gridOverview->SetColumnWidth(n,opt->OverviewColWidth[n]);
-		else
-			m_gridOverview->SetColumnWidth(n,-1);
+//		else
+//			m_gridOverview->SetColumnWidth(n,-1);
 	}
 
-	for(int n = 0; n < m_gridMaintanence->GetNumberCols(); n++)
+	if(opt->ServiceColWidth[0] != -1 )
 	{
-		if(opt->ServiceColWidth[0] != -1 )
+		for(int n = 0; n < m_gridMaintanence->GetNumberCols(); n++)
 			m_gridMaintanence->SetColumnWidth(n,opt->ServiceColWidth[n]);
-		else
-			m_gridMaintanence->SetColumnWidth(n,-1);
+//		else
+//			m_gridMaintanence->SetColumnWidth(n,-1);
 	}
 
-	for(int n = 0; n < m_gridMaintanenceRepairs->GetNumberCols(); n++)
+	if(opt->RepairsColWidth[0] != -1 )
 	{
-		if(opt->RepairsColWidth[0] != -1 )
+		for(int n = 0; n < m_gridMaintanenceRepairs->GetNumberCols(); n++)
 			m_gridMaintanenceRepairs->SetColumnWidth(n,opt->RepairsColWidth[n]);
-		else
-			m_gridMaintanenceRepairs->SetColumnWidth(n,-1);
+//		else
+//			m_gridMaintanenceRepairs->SetColumnWidth(n,-1);
 	}
-	for(int n = 0; n < m_gridMaintenanceBuyParts->GetNumberCols(); n++)
+
+	if(opt->BuyPartsColWidth[0] != -1 )
 	{
-		if(opt->BuyPartsColWidth[0] != -1 )
+		for(int n = 0; n < m_gridMaintenanceBuyParts->GetNumberCols(); n++)
 			m_gridMaintenanceBuyParts->SetColumnWidth(n,opt->BuyPartsColWidth[n]);
-		else
-			m_gridMaintenanceBuyParts->SetColumnWidth(n,-1);
+//		else
+//			m_gridMaintenanceBuyParts->SetColumnWidth(n,-1);
 	}
 }
 
@@ -3494,10 +3495,6 @@ void LogbookDialog::onGridEditorHidden( wxGridEvent& ev )
 }
 void LogbookDialog::onGridEditorShow( wxGridEvent& ev )
 {
-/*	wxGridCellChoiceEditor *ed = (wxGridCellChoiceEditor *)this->m_gridMaintenanceBuyParts->GetCellEditor(ev.GetRow(),ev.GetCol());
-	ed->Combo()->AcceptsFocus();
-	wxMessageBox(_("Show"));
-	*/
 	ev.Skip();
 }
 

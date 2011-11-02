@@ -170,6 +170,19 @@ void CrewList::changeCrew(wxGrid* grid, int row, int col, int offset)
 
 	if(gridWake->GetCellValue(row,gridWake->GetNumberCols()-1) == _T(""))
 		gridWake->SetCellValue(row,gridWake->GetNumberCols()-1,_T(" "));
+
+	wxDateTime dt;
+	wxString s = gridWake->GetCellValue(row,col);
+	if(s.Len() != 4 || dt.ParseFormat(s,_T("%H%M")) == NULL)
+	{
+		wxMessageBox(_("Please enter 4 digits in 24h-Format like 1545 = 15:45:00"));
+		gridWake->SetCellValue(row,col,wxEmptyString);
+
+		return;
+	}
+
+	gridWake->SetCellValue(row,col,dt.FormatTime());
+
 }
 
 void CrewList::saveCSV(wxString path)

@@ -52,15 +52,15 @@ private:
 	bool				gpsStatus;
 	bool				bCOW;
 	double				dCOW;
-	double				dLastHeading;
-	double				dLastCourse;
-	long				dLastMinute;
+	double				dCOG;
 	bool				mode;
 	bool				courseChange;
 	bool				everySM;
 	bool				guardChange;
 
 	wxString			toSDMM ( int NEflag, double a, bool mode );
+	void				setPositionString(double lat,int north, double lon, int east);
+	void				setDateTimeString(wxDateTime s);
 	void				getModifiedCellValue(int grid, int row, int selcol, int col);
 	wxString			computeCell(int grid,int row, int col, wxString s, bool mode);
 	void				clearAllGrids();
@@ -82,6 +82,7 @@ public:
 	wxString		data_locn;
 	bool			modified;
 	wxDateTime		mCorrectedDateTime;
+	long			dLastMinute;
 
 public:
 	Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString layoutODT);
@@ -93,7 +94,7 @@ public:
 	void loadSelectedData(wxString path);
 	void loadDatanew();
 	void deleteRow(int row);
-	void appendRow();
+	void appendRow(bool mode);
 	void update();
 	void clearNMEAData();
 	void newLogbook();

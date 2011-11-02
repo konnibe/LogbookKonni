@@ -607,6 +607,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_sMeterSec->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::onTextEnterm_sMeterSec ), NULL, this );
 	m_sKmh->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::onTextEnterm_sKmh ), NULL, this );
 	m_sdbSizer1OK->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::OnButtonOKClick ), NULL, this );
+	m_checkBoxGuardChanged->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::onCheckBoxGuardChanged ), NULL, this );
 
 	setValues();
 	if(opt->timer)
@@ -640,6 +641,7 @@ LogbookOptions::~LogbookOptions()
 	m_sMeterSec->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::onTextEnterm_sMeterSec ), NULL, this );
 	m_sKmh->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::onTextEnterm_sKmh ), NULL, this );
 	m_sdbSizer1OK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::OnButtonOKClick ), NULL, this );
+	m_checkBoxGuardChanged->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::onCheckBoxGuardChanged ), NULL, this );
 }
 
 void LogbookOptions::OnButtonOKClick(wxCommandEvent &ev)
@@ -945,6 +947,13 @@ void LogbookOptions::OnTextEnterLayoutPrefix( wxCommandEvent& event )
 	opt->layoutPrefix = m_textCtrlLayoutPrefix->GetValue();
 	if(m_checkBoxShowOnlySelectedLayouts->GetValue())
 		updateChoiceBoxes();
+}
+
+void LogbookOptions::onCheckBoxGuardChanged(wxCommandEvent& ev)
+{
+	if(log_pi->m_plogbook_window)
+		log_pi->m_plogbook_window->logbook->dLastMinute = 
+			(long) log_pi->m_plogbook_window->logbook->mCorrectedDateTime.GetMinute()+1;
 }
 
 void LogbookOptions::updateChoiceBoxes()
