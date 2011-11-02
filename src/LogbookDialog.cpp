@@ -66,6 +66,9 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_panel2 = new wxPanel( m_logbook, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxFlexGridSizer* fgSizer6;
 	fgSizer6 = new wxFlexGridSizer( 2, 1, 0, 0 );
+	fgSizer6->AddGrowableRow( 2 );
+	fgSizer6->AddGrowableCol(0);
+
 	fgSizer6->SetFlexibleDirection( wxBOTH );
 	fgSizer6->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
@@ -328,6 +331,8 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_panel142 = new wxPanel( m_logbook, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxFlexGridSizer* fgSizer251;
 	fgSizer251 = new wxFlexGridSizer( 2, 1, 0, 0 );
+	fgSizer251->AddGrowableCol( 0 );
+	fgSizer251->AddGrowableRow( 2 );
 	fgSizer251->SetFlexibleDirection( wxBOTH );
 	fgSizer251->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
@@ -486,6 +491,9 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_panel21 = new wxPanel( m_logbook, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxFlexGridSizer* fgSizer7;
 	fgSizer7 = new wxFlexGridSizer( 3, 1, 0, 0 );
+	fgSizer7->AddGrowableCol( 0 );
+	fgSizer7->AddGrowableRow( 1 );
+	fgSizer7->AddGrowableRow( 2 );
 	fgSizer7->SetFlexibleDirection( wxBOTH );
 	fgSizer7->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
@@ -651,6 +659,8 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_panel3 = new wxPanel( m_logbook, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxFlexGridSizer* fgSizer1;
 	fgSizer1 = new wxFlexGridSizer( 1, 1, 0, 0 );
+	fgSizer1->AddGrowableCol( 0 );
+	fgSizer1->AddGrowableRow( 1 );
 	fgSizer1->SetFlexibleDirection( wxBOTH );
 	fgSizer1->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
@@ -1081,7 +1091,9 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_notebook6 = new wxNotebook( m_panel13, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 	m_panel14 = new wxPanel( m_notebook6, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxFlexGridSizer* fgSizer151;
-	fgSizer151 = new wxFlexGridSizer( 4, 1, 0, 0 );
+	fgSizer151 = new wxFlexGridSizer( 3, 1, 0, 0 );
+	fgSizer151->AddGrowableCol( 0 );
+	fgSizer151->AddGrowableRow( 2 );
 	fgSizer151->SetFlexibleDirection( wxBOTH );
 	fgSizer151->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
@@ -1202,7 +1214,9 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_notebook6->AddPage( m_panel14, _("Service"), true );
 	m_panel141 = new wxPanel( m_notebook6, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxFlexGridSizer* fgSizer1513;
-	fgSizer1513 = new wxFlexGridSizer( 4, 1, 0, 0 );
+	fgSizer1513 = new wxFlexGridSizer( 3, 1, 0, 0 );
+	fgSizer1513->AddGrowableCol( 0 );
+	fgSizer1513->AddGrowableRow( 2 );
 	fgSizer1513->SetFlexibleDirection( wxBOTH );
 	fgSizer1513->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
@@ -1314,7 +1328,9 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_notebook6->AddPage( m_panel141, _("Repairs"), false );
 	m_panel16 = new wxPanel( m_notebook6, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxFlexGridSizer* fgSizer1511;
-	fgSizer1511 = new wxFlexGridSizer( 4, 1, 0, 0 );
+	fgSizer1511 = new wxFlexGridSizer( 3, 1, 0, 0 );
+	fgSizer1511->AddGrowableCol( 0 );
+	fgSizer1511->AddGrowableRow( 2 );
 	fgSizer1511->SetFlexibleDirection( wxBOTH );
 	fgSizer1511->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	

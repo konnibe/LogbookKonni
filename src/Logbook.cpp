@@ -573,19 +573,20 @@ void Logbook::switchToActuellLogbook()
 void Logbook::appendRow(bool mode)
 {
 	wxString s;
-	int x,y,xMotor,yMotor,xWeather, yWeather;
+//	int x,y,xMotor,yMotor,xWeather, yWeather;
 
 	checkGPS();
 
 	if(noAppend) return;
 	modified = true;
 
-	if(!mode)
+/*	if(!mode)
 	{
 		dialog->m_gridGlobal->GetScrollHelper()->GetViewStart(&x, &y);
 		dialog->m_gridWeather->GetScrollHelper()->GetViewStart(&xWeather, &yWeather);
 		dialog->m_gridMotorSails->GetScrollHelper()->GetViewStart(&xMotor, &yMotor);
 	}
+	*/
 	wxFileName fn(logbookFile->GetName());
 	if(fn.GetName() != (_T("logbook")))
 	{
@@ -678,12 +679,13 @@ Please create a new logbook to minimize the loadingtime.\n\nIf you have a runnin
 		dialog->m_gridWeather->MakeCellVisible(lastRow,0);
 		dialog->m_gridMotorSails->MakeCellVisible(lastRow,0);
 	}
-	else
+/*	else
 	{
 		dialog->m_gridGlobal->GetScrollHelper()->Scroll(x,y);
 		dialog->m_gridWeather->GetScrollHelper()->Scroll(xWeather,yWeather);
 		dialog->m_gridMotorSails->GetScrollHelper()->Scroll(xMotor,yMotor);
 	}
+	*/
 }
 
 void Logbook::checkCourseChanged()
@@ -788,30 +790,50 @@ wxString Logbook::getWake()
 
 			dtstart.ParseTime(start);
 			dtend.ParseTime(end);
-
-			wxDateSpan sp(0,0,0,1);
-			if((dtstart.GetHour() > dtend.GetHour())) 
-					dtend.Add(sp);
-//			else	
-//					dtstart.Subtract(sp);
-
-/*			wxString nodate =now.FormatDate();
+/*
+			bool b = false;
+			wxString nodate =now.FormatDate();
 			wxString noetime = now.FormatTime();
 			wxString dtstartdate = dtstart.FormatDate();
 			wxString dstarttime = dtstart.FormatTime();
 			wxString dtenddate = dtend.FormatDate();
 			wxString dtendtie = dtend.FormatTime();
-wxMessageBox(_("now ")+nodate+_("  ")+noetime+_T("\n")+_T("start ")+dtstartdate+_("  ")+dstarttime+_T("\n")+_T("end ")+dtenddate+_("  ")+dtendtie);
 */
-			if(now >= dtstart && now <= dtend)
+			wxDateSpan sp(0,0,0,1);
+			if((dtstart.GetHour() > dtend.GetHour())) 
 			{			
+//					b = true;				
+//				wxMessageBox(_("now ")+nodate+_("  ")+noetime+_T("\n")+_T("start ")+dtstartdate+_("  ")+dstarttime+_T("\n")+_T("end ")+dtenddate+_("  ")+dtendtie+_T("\n")+((b)?_("TRUE"):_("FALSE")),_("Vergleich"));
+
+					dtend.Add(sp);
+/*			nodate =now.FormatDate();
+			noetime = now.FormatTime();
+			dtstartdate = dtstart.FormatDate();
+			dstarttime = dtstart.FormatTime();
+			dtenddate = dtend.FormatDate();
+			dtendtie = dtend.FormatTime();
+								wxMessageBox(_("now ")+nodate+_("  ")+noetime+_T("\n")+_T("start ")+dtstartdate+_("  ")+dstarttime+_T("\n")+_T("end ")+dtenddate+_("  ")+dtendtie+_T("\n")+((b)?_("TRUE"):_("FALSE")),_("nach Vergleich"));
+*/
+
+			}
+
+			if(now >= dtstart && now <= dtend)
+			{	
 				if(count != 0)
 					name += _T("\n");
 				name += dialog->m_gridCrewWake->GetCellValue(r,1)+ _T(" ") + dialog->m_gridCrewWake->GetCellValue(r,0);
 				count++;
-				dtstart = mCorrectedDateTime;
-				dtend = mCorrectedDateTime;
+/*
+			nodate =now.FormatDate();
+			noetime = now.FormatTime();
+			dtstartdate = dtstart.FormatDate();
+			dstarttime = dtstart.FormatTime();
+			dtenddate = dtend.FormatDate();
+			dtendtie = dtend.FormatTime();
+			wxMessageBox(_("now ")+nodate+_("  ")+noetime+_T("\n")+_T("start ")+dtstartdate+_("  ")+dstarttime+_T("\n")+_T("end ")+dtenddate+_("  ")+dtendtie+_T("\n")+((b)?_("TRUE"):_("FALSE   ")+name));
+*/
 			}
+			dtend = mCorrectedDateTime;
 		}
 	}
 	return name;
