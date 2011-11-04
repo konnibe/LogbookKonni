@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-31 02:51+0100\n"
-"PO-Revision-Date: 2011-10-31 03:01+0100\n"
+"POT-Creation-Date: 2011-11-04 06:24+0100\n"
+"PO-Revision-Date: 2011-11-04 06:25+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -15,11 +15,9 @@ msgstr ""
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SearchPath-0: .\n"
-
 #
 msgid "\n"
 msgstr ""
-
 #
 msgid ""
 "\n"
@@ -27,11 +25,12 @@ msgid ""
 msgstr ""
 "\n"
 "nicht gefunden im Layoutfile"
-
+#
+msgid "      Course- Message after Minutes"
+msgstr "     Kurs-Mitteilung nach Minuten"
 #
 msgid " - Timer on - Interval: "
 msgstr "- Timer ein - Interval:"
-
 #
 msgid ""
 "!\n"
@@ -41,63 +40,48 @@ msgstr ""
 "!\n"
 "\n"
 "Haben Sie diese Zeile im Layout vergessen  ?"
-
 #
 msgid "\""
 msgstr "\""
-
 #
 msgid "'"
 msgstr "'"
-
 #
 msgid "0"
 msgstr ""
-
 #
 msgid "Abbreviations"
 msgstr "Abkürzungen"
-
 #
 msgid "Active"
 msgstr "Aktiv"
-
 #
 msgid "Active Logbook"
 msgstr "Aktives Logbuch"
-
 #
 msgid "Actuell Logbook"
 msgstr "Aktuelles Logbuch"
-
 #
 msgid "Add Crew"
 msgstr "neues Crewmitglied"
-
 #
 msgid "Add Equipment"
 msgstr "Zubehör hinzufügen"
-
 #
 msgid "Add Line"
 msgstr "Neue Zeile"
-
 #
 msgid "All Logbooks"
 msgstr "Alle Logbücher"
-
 #
 msgid "Append Line every Nm"
 msgstr "Füge Zeile hinzu je Nm"
-
 #
 msgid "Are you sure ?"
 msgstr "Sind Sie sicher ?"
-
 #
 msgid "At"
 msgstr "bei"
-
 #
 msgid ""
 "Automatic Line by Timer\n"
@@ -107,7 +91,6 @@ msgstr ""
 "Automatischer Eintrag durch Timerr\n"
 "Sie können einen Timer ein- oder ausschalten\n"
 "oder diesen Text ändern unter Optionen"
-
 #
 msgid ""
 "Automatic line by timer\n"
@@ -123,284 +106,214 @@ msgstr ""
 "oder diesen Text ändern unter Toolbox/Plugins/Logbook\n"
 "\n"
 "Shift+Enter = Zeilenumbruch"
-
 #
 msgid "Barometer"
 msgstr ""
-
 #
 msgid "Beam"
 msgstr "Breite"
-
 #
 msgid "Behavior"
 msgstr "Verhalten"
-
 #
 msgid "Best Dist. p. Day"
 msgstr "Beste Dist. p. Tag"
-
 #
 msgid "Birthname"
 msgstr "Geburtsname"
-
 #
 msgid "Boat"
 msgstr "Boot"
-
 #
 msgid "Builder"
 msgstr "Hersteller"
-
 #
 msgid "Buy Parts"
 msgstr "Zubehör kaufen"
-
 #
 msgid "Buy parts for this repair"
 msgstr "kaufe Zubehör für diese Reparatur"
-
 #
 msgid "Buy parts for this service"
 msgstr "kaufe Zubehör für diesen Service"
-
 #
 msgid "C/Strength"
 msgstr "Stromstärke"
-
 #
 msgid "COG (T)"
 msgstr "KüG"
-
 #
 msgid "Callsign"
 msgstr "Rufzeichen"
-
 #
 msgid "Capacity"
 msgstr "Kapazität"
-
 #
 msgid "Category"
 msgstr "Kategaory"
-
 #
 msgid "Clouds"
 msgstr "Wolken"
-
 #
 msgid "Confirm"
 msgstr "Bestätige"
-
 #
 msgid "Construction"
 msgstr "Konstruktion"
-
 #
 msgid "Country"
 msgstr "Land"
-
 #
 msgid "CrewList"
 msgstr "Crewliste"
-
 #
 msgid "Crewlist"
 msgstr "Crewliste"
-
 #
 msgid "Current"
 msgstr "Strom"
-
 #
 msgid "Current Peak"
 msgstr "Strom max."
-
 #
 msgid "Current from"
 msgstr "Strom von"
-
 #
 msgid "Date"
 msgstr "Datum"
-
 #
 msgid "Date + Days"
 msgstr "Datum + Tage"
-
 #
 msgid "Date + Month"
 msgstr "Datum + Monate"
-
 #
 msgid "Date + Weeks"
 msgstr "Datum + Wochen"
-
 #
 msgid "Date Launched"
 msgstr "Stapellauf"
-
 #
 msgid "Date of Birth"
 msgstr "Geburtstag"
-
 #
 msgid "Date of Issue"
 msgstr "ausgegeben am"
-
 #
 msgid "Day(s)"
 msgstr "Tag(e)"
-
 #
 msgid "Degres"
 msgstr "Grad"
-
 #
 msgid "Delete Layout"
 msgstr "Lösche Layout"
-
 #
 msgid "Delete Row"
 msgstr "Lösche Zeile"
-
 #
 #, c-format
 msgid "Delete Row Nr. %i ?"
 msgstr "Lösche Zeile Nr. %i ?"
-
 #
 msgid "Depth"
 msgstr "Tiefe"
-
 #
 msgid "Description"
 msgstr "Beschreibung"
-
 #
 msgid "Designer"
 msgstr ""
-
 #
 msgid "Details"
 msgstr ""
-
 #
 msgid "Direction"
 msgstr "Richtung"
-
 #
 msgid "Displacement"
 msgstr "Verdrängung"
-
 #
 msgid "Distance"
 msgstr "Distanz"
-
 #
 msgid "Distance p. Day"
 msgstr "Distanz p. Tag"
-
 #
 msgid "DistanceTotal"
 msgstr "Distanz gesamt"
-
 #
 msgid "Draft"
 msgstr "Tiefgang"
-
 #
 msgid "E"
 msgstr "E"
-
 #
 msgid "Edit Layout"
 msgstr "Layout editieren"
-
 #
 msgid "End"
 msgstr "Ende"
-
 #
 msgid "End 1.Watch"
 msgstr "Ende 1. Wache"
-
 #
 msgid "End 2.Watch"
 msgstr "Ende 2. Wache"
-
 #
 msgid "End 3.Watch"
 msgstr "Ende 3. Wache"
-
 #
 msgid "Engine"
 msgstr "Maschine"
-
 #
 msgid "EngineTotal"
 msgstr "Maschine gesamt"
-
 #
 msgid "Equipment"
 msgstr "Zubehör"
-
 #
 msgid "Fathom"
 msgstr "Faden"
-
 #
 msgid "Feet"
 msgstr "Fuß"
-
 #
 msgid "Filter Layout by"
 msgstr "Filtere Layout nach"
-
 #
 msgid "Firstname"
 msgstr "Vorname"
-
 #
 msgid "Fix Date"
 msgstr "Fixes Datum"
-
 #
 msgid "Fuel"
 msgstr "Treibstoff"
-
 #
 msgid "Fuel/Water"
 msgstr "Treibstoff/Wasser"
-
 #
 msgid "FuelTotal"
 msgstr "Treibstoff gesamt"
-
 #
 msgid "GPS Auto (Ocean Crossing)"
 msgstr ""
-
 #
 msgid "GRT"
 msgstr ""
-
 #
 msgid "Goto Route"
 msgstr "Gehe zu Route"
-
 #
 msgid "Greatest Width of Hull"
 msgstr "Größte Breite des Rumpfes"
-
 #
 msgid "GrossTonnage"
 msgstr "BruttoTonnage"
-
 #
 msgid "HIN-Nr."
 msgstr ""
-
 #
 msgid ""
 "Have You forgotten to enclose the Header with [[ and ]]\n"
@@ -408,63 +321,48 @@ msgid ""
 msgstr ""
 "Haben Sie vergessen den Header mit [[ und ]]\n"
 "oder Daten mit {{ und }} einzuschließen ?"
-
 #
 msgid "Heading"
 msgstr "KdW"
-
 #
 msgid "Homeport"
 msgstr "Heimathafen"
-
 #
 msgid "Hull"
 msgstr "Rumpf"
-
 #
 msgid "Hull Identification No."
 msgstr "Rumpf Identifikations-Nr."
-
 #
 msgid "If"
 msgstr "Wenn"
-
 #
-msgid "If Course changes more then °"
+msgid "If Course changes more then "
 msgstr "Wenn Kursänderung mehr als °"
-
 #
 msgid "If Watch changed"
 msgstr "Wenn Wachwechsel"
-
 #
 msgid "Information"
 msgstr "Info"
-
 #
 msgid "Install OpenCPN_Languages.zip"
 msgstr "Installiere OpenCPN_Logbook_Layouts.zip"
-
 #
 msgid "Install OpenCPN_Logbook_Layouts.zip"
 msgstr "Installiere OpenCPN_Logbook_Layouts.zip"
-
 #
 msgid "Install single Layout"
 msgstr "Installiere ein Layout"
-
 #
 msgid "Insurance"
 msgstr "Versicherung"
-
 #
 msgid "Interval:"
 msgstr "Interval:"
-
 #
 msgid "Issued in"
 msgstr "ausgestellt in"
-
 #
 msgid ""
 "It's not allowed to append Data to a old Logbook\n"
@@ -475,63 +373,48 @@ msgstr ""
 "Daten hinzuzufügen\n"
 "\n"
 "Aktuelles Logbuch wird benutzt ! "
-
 #
 msgid "LOA"
 msgstr ""
-
 #
 msgid "LOD"
 msgstr ""
-
 #
 msgid "LWL"
 msgstr ""
-
 #
 msgid "Languages installed"
 msgstr "Sprachen installiert"
-
 #
 msgid "Last Logbook is\n"
 msgstr "das letzte Logbuch ist \n"
-
 #
 msgid "Last line from Logbook\n"
 msgstr "Letzte Zeile aus Logbuch\n"
-
 #
 msgid "Length in Waterline"
 msgstr "Länge in der Wasserlinie"
-
 #
 msgid "Length over Deck"
 msgstr "Länge über Deck"
-
 #
 msgid "Length over all"
 msgstr "Länge über alles"
-
 #
 msgid "Local = UTC"
 msgstr ""
-
 #
 msgid "Logbook"
 msgstr "Logbuch"
-
 #
 msgid "Logbook Konni"
 msgstr "Logbuch Konni"
-
 #
 msgid "Logbook Preferences"
 msgstr "Logbuch Optionen"
-
 #
 msgid "Logbook for OpenCPN"
 msgstr "Logbuch für OpenCPN"
-
 #
 msgid ""
 "Logbook for OpenCPN\n"
@@ -545,7 +428,8 @@ msgid ""
 "Thanks's to the community for their helpfull suggestions.\n"
 "\n"
 "If You find a bug post it on\n"
-"http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945.html\n"
+"http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945."
+"html\n"
 "Helpfull Videos are at Youtube, search for LogbookKonni."
 msgstr ""
 "Logbuch für OpenCPN\n"
@@ -559,94 +443,73 @@ msgstr ""
 "Dank an die Community für ihre Ünterstützung \n"
 "\n"
 "Wenn Sie einen Bug finden, bitte posten unter:\n"
-"http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945.html\n"
+"http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945."
+"html\n"
 "Hilfreiche Videos unter Youtube, suche  LogbookKonni."
-
 #
 #, c-format
 msgid "Logbook from %s to %s"
 msgstr "Logbuch von %s bis %s"
-
 #
 msgid "Logbook until "
 msgstr "Logbuch bis"
-
 #
 msgid "LogbookKonni"
 msgstr ""
-
 #
 msgid "MMSI"
 msgstr ""
-
 #
 msgid "Magnetic"
 msgstr "Magnet"
-
 #
 msgid "Maintenance"
 msgstr "Instandhaltung"
-
 #
 msgid "Meter"
 msgstr ""
-
 #
 msgid "Minutes"
 msgstr "Minuten"
-
 #
 msgid "Minutes greater than 59"
 msgstr "Minuten sind größer als 59"
-
 #
 msgid "Month"
 msgstr "Monat(e)"
-
 #
 msgid "Motor Hours"
 msgstr "Motor Stunden"
-
 #
 msgid "Motor/Sails"
 msgstr "Maschine/Segel"
-
 #
 msgid "NRT"
 msgstr ""
-
 #
 msgid "Name"
 msgstr ""
-
 #
 msgid "Name      "
 msgstr ""
-
 #
 msgid "Nationality"
 msgstr "Nationalität"
-
 #
 msgid "Navigation"
 msgstr ""
-
 #
 msgid "NetTonnage"
 msgstr "NettoTonnage"
-
 #
 msgid "New Logbook"
 msgstr "Neues Logbuch"
-
 #
 msgid "No"
 msgstr "Nein"
-
 #
 msgid "No GPS-Signal !"
 msgstr "kein GPS-Signal"
-
 #
 msgid ""
 "No Path set to HTML-Editor\n"
@@ -654,48 +517,41 @@ msgid ""
 msgstr ""
 "kein Pfad zum HTML-Editor\n"
 "in ToolBox/Plugins/LogbookKonni/Preferences gesetzt "
-
 #
 msgid "OK"
 msgstr ""
-
 #
 #, c-format
 msgid "Old Logbook until %s"
 msgstr "Altes Logbuch bis %si"
-
 #
 msgid "Only Layouts with prefix:"
 msgstr "nur Layouts mit Prefix:"
-
 #
-msgid "Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
-msgstr "Opendocument Tabellenkalkulation(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
-
+msgid ""
+"Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV "
+"Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
+msgstr ""
+"Opendocument Tabellenkalkulation(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|"
+"CSV Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
 #
 msgid "Overview"
 msgstr "Übersicht"
-
 #
 msgid "Owner"
 msgstr "Eigner"
-
 #
 msgid "Passport-Nr"
 msgstr "Pass-Nr."
-
 #
 msgid "Path"
 msgstr ""
-
 #
 msgid "Path to HTML-Editor (optional)"
 msgstr "Pfad zum HTML-Editor (optional)"
-
 #
 msgid "Place of Birth"
 msgstr "Geburtsort"
-
 #
 msgid ""
 "Please enter 0544512n0301205e for\n"
@@ -704,7 +560,9 @@ msgstr ""
 "Bitte geben Sie 0544512n0301205e für\n"
 "054° 45' 12\" N \n"
 "030°12' 05\" E ein"
-
+#
+msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45:00 PM"
+msgstr "Bitte 4 Zahlen im 24h-Format eingeben z.B. 1545 = 15:45:00"
 #
 msgid ""
 "Please enter like 1.30 or 1,30 or 1:30\n"
@@ -712,251 +570,189 @@ msgid ""
 msgstr ""
 "Bitte geben Sie 1.30 oder 1,30 oder 1:30\n"
 "für 1:30h ein."
-
 #
 msgid "Please fill in one character in Degrees, Minutes and Seconds"
 msgstr "Bitte ein Zeichen für Grad, Minuten, Sekunden einfügen"
-
 #
 msgid "Policy"
 msgstr "Police"
-
 #
 msgid "Position"
 msgstr ""
-
 #
 msgid "Priority"
 msgstr "Priorität"
-
 #
 msgid "R"
 msgstr "R"
-
 #
 msgid "Reef"
 msgstr "Reff"
-
 #
 msgid "Registration"
 msgstr "Register-Nr."
-
 #
 msgid "Relative"
 msgstr "Relativ"
-
 #
 msgid "Reload Layouts"
 msgstr "Layouts neu laden"
-
 #
 msgid "Remarks"
 msgstr "Noitzen"
-
 #
 msgid "Rename Layout"
 msgstr "Layout umbenennen"
-
 #
 msgid "Repair done"
 msgstr "Reparatur erledigt"
-
 #
 msgid "Repairs"
 msgstr "Reparaturen"
-
 #
 msgid "RepairsTODO"
 msgstr "Reparaturen zu erlegigen"
-
 #
 msgid "Reset all Values to zero ?"
 msgstr "alle Werte zurücksetzen ?"
-
 #
 msgid "Route"
 msgstr ""
-
 #
 msgid "SOG"
 msgstr "FüG"
-
 #
 msgid "STW"
 msgstr "FdW"
-
 #
 msgid "Sail-Nr."
 msgstr "Segel-Nr."
-
 #
 msgid "Sails"
 msgstr "Segel"
-
 #
 msgid "Save"
 msgstr "Speichern"
-
 #
 msgid "Save Boat File"
 msgstr "Boot Datei speichern"
-
 #
 msgid "Save CrewList File"
 msgstr "Crewliste speichern"
-
 #
 msgid "Save Logbook File"
 msgstr "Logbuchdatei speichern"
-
 #
 msgid "Seconds"
 msgstr "Sekunden"
-
 #
 msgid "Select Layout:"
 msgstr "Wähle Layout:"
-
 #
 msgid "Select Layout: "
 msgstr "Wähle Route"
-
 #
 msgid "Select Logbook"
 msgstr "Wähle Logbuch"
-
 #
 msgid "Select Route"
 msgstr "Wähle Route"
-
 #
 msgid "Select zipped Languages-Files"
 msgstr "Wähle gezippte Sprach-Dateien"
-
 #
 msgid "Select zipped Layout-Files"
 msgstr "Wähle gezippte Layout-Dateien"
-
 #
 msgid "Send Layout by email"
 msgstr "Sende Layout via Email"
-
 #
 msgid "Serial-Nr."
 msgstr "Serien-Nr."
-
 #
 msgid "Service"
 msgstr ""
-
 #
 msgid "Service TODO"
 msgstr "Service zu erledigen"
-
 #
 msgid "Service done"
 msgstr "Service erledigt"
-
 #
 msgid "Set Path to HTML-Editor"
 msgstr "Pfad zum HTML-Editor"
-
 #
 msgid "Show Depth in"
 msgstr "Tiefe in"
-
 #
 msgid "Show Logbook Icon"
 msgstr "Zeige Logbuch-Icon"
-
 #
 msgid "Show Maintence Rows coloured"
 msgstr "Zeige Instandhaltungs-Reihen farbig"
-
 #
 msgid "Show Wave/Swell in"
 msgstr "Welle/Swell in"
-
 #
 msgid "Show all Layouts"
 msgstr "zeige alle Layouts"
-
 #
 msgid "Sign"
 msgstr "Zeichen"
-
 #
 msgid "Sorry, 0 Hrs 0 Min 0 Sec are not possible"
 msgstr "Sorry, 0 Hrs 0 Min 0 Sec ist nicht möglich"
-
 #
 msgid "Sorry, Logbook has no lines"
 msgstr "Sorry, Logbuch hat keine Einträge"
-
 #
 msgid "Sorry, Your Logbook has no lines"
 msgstr "Sorry, Ihr Logbuch hat keine Zeilen"
-
 #
 msgid "Sorry, no Layout installed"
 msgstr "Sorry, kein Layout installiert"
-
 #
 msgid "Speed"
 msgstr "Geschwindigkeit"
-
 #
 msgid "Start"
 msgstr "Start"
-
 #
 msgid "Start 1.Watch"
 msgstr "Start 1.Wache"
-
 #
 msgid "Start 2.Watch"
 msgstr "Start 2.Wache"
-
 #
 msgid "Start 3.Watch"
 msgstr "Start 3.Wache"
-
 #
 msgid "Startvalue"
 msgstr "Startbetrag"
-
 #
 msgid "Street"
 msgstr "Strasse"
-
 #
 msgid "Swell"
 msgstr ""
-
 #
 msgid "Swell Peak"
 msgstr "Swell max."
-
 #
 msgid "Telephone"
 msgstr "Telefon"
-
 #
 msgid "Thames"
 msgstr ""
-
 #
 msgid "Time"
 msgstr "Zeit"
-
 #
 msgid "Timer"
 msgstr ""
-
 #
 msgid "Timer "
 msgstr "Timer an/aus"
-
 #
 msgid ""
 "Timer has 0 h 0 Min 0 sec.\n"
@@ -966,115 +762,87 @@ msgstr ""
 "Timer hat 0 h 0Min 0 sec.\n"
 "\n"
 "Bitte ändern Sie die Werte unter Optionen"
-
 #
 msgid "Timer on/off"
 msgstr "Timer an/aus"
-
 #
 msgid "Title"
 msgstr "Titel"
-
 #
 msgid "Town"
 msgstr "Stadt"
-
 #
 msgid "True"
 msgstr "Wahr"
-
 #
 msgid "Type"
 msgstr "Typ"
-
 #
 msgid "UTC"
 msgstr ""
-
 #
 msgid "Urgentvalue"
 msgstr "Dringendbetrag"
-
 #
 msgid "View"
 msgstr "Ansehen"
-
 #
 msgid "Visibility"
 msgstr "Sicht"
-
 #
 msgid "W/Strength"
 msgstr "Windstärke"
-
 #
 msgid "Warnvalue"
 msgstr "Warnbetrag"
-
 #
 msgid "Watch"
 msgstr "Wache"
-
 #
 msgid "Water"
 msgstr "Wasser"
-
 #
 msgid "WaterTotal"
 msgstr "Wasser gesamt"
-
 #
 msgid "Wave"
 msgstr "Wellenhöhe"
-
 #
 msgid "Wave Peak"
 msgstr "Wellen max."
-
 #
 msgid "Weather"
 msgstr "Wetter"
-
 #
 msgid "Week(s)"
 msgstr "Woche(n)"
-
 #
 msgid "Weeks(s)"
 msgstr "Woche(n)"
-
 #
 msgid "Wind"
 msgstr "Windstärke"
-
 #
 msgid "Wind Peak"
 msgstr "Wind max."
-
 #
 msgid "Wind from"
 msgstr "Wind von"
-
 #
 msgid "Windspeed"
 msgstr "Windstärke"
-
 #
 msgid "Windspeed (GPS off)"
 msgstr "Windstärke (GPS aus)"
-
 #
 msgid "Write warning \"No GPS\""
 msgstr "schreibe Warnung  \"No GPS\""
-
 #
 msgid "Yard-Nr."
 msgstr "Marina-Nr."
-
 #
 msgid "Yes"
 msgstr "Ja"
-
 #
 msgid ""
 "Your Logbook has 800 lines or more\n"
@@ -1088,15 +856,12 @@ msgstr ""
 "Bitte erstellen Sie ein neues Logbuch, um Ladezeiten zu verringern.\n"
 "\n"
 "Wenn Sie einen laufenden Timer haben, ist dieser jetzt gestoppt !!!"
-
 #
 msgid "Your Logbook has no lines ?"
 msgstr "Ihr Logbuch hat keine Zeilen ?"
-
 #
 msgid "Zip"
 msgstr "PLZ"
-
 #
 msgid ""
 "automatic line\n"
@@ -1104,7 +869,6 @@ msgid ""
 msgstr ""
 "automatische Zeile\n"
 "Distanz > "
-
 #
 msgid ""
 "automatic line\n"
@@ -1112,7 +876,6 @@ msgid ""
 msgstr ""
 "automatische Zeile\n"
 "Kursänderung > "
-
 #
 msgid ""
 "automatic line\n"
@@ -1120,15 +883,12 @@ msgid ""
 msgstr ""
 "automatische Zeile\n"
 "Wachwechsel"
-
 #
 msgid "day(s)"
 msgstr "Tag(e)"
-
 #
 msgid "default"
 msgstr ""
-
 #
 msgid ""
 "default = Relative to Boat\n"
@@ -1136,76 +896,57 @@ msgid ""
 msgstr ""
 "default = Relativ zum Schiff\n"
 "KdW = Aktuelle Windrichtung"
-
 #
 msgid "en_"
 msgstr "de_"
-
 #
 msgid "fm"
 msgstr ""
-
 #
 msgid "ft"
 msgstr ""
-
 #
 msgid "fth"
 msgstr ""
-
 #
 msgid "gal"
 msgstr ""
-
 #
 msgid "h"
 msgstr ""
-
 #
 msgid "km/h"
 msgstr ""
-
 #
 msgid "kts"
 msgstr ""
-
 #
 msgid "m"
 msgstr ""
-
 #
 msgid "m/s"
 msgstr ""
-
 #
 msgid "mb"
 msgstr ""
-
 #
 msgid "month"
 msgstr "Monat(e)"
-
 #
 msgid "none"
 msgstr "kein"
-
 #
 msgid "not implemented yet"
 msgstr "noch nicht implementiert"
-
 #
 msgid "s"
 msgstr ""
-
 #
 msgid "sm"
 msgstr ""
-
 #
 msgid "to"
 msgstr "nach"
-
 #
 msgid "week(s)"
 msgstr "Woche(n)"
-

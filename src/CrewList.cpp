@@ -175,7 +175,7 @@ void CrewList::changeCrew(wxGrid* grid, int row, int col, int offset)
 	wxString s = gridWake->GetCellValue(row,col);
 	if(s.Len() != 4 || dt.ParseFormat(s,_T("%H%M")) == NULL)
 	{
-		wxMessageBox(_("Please enter 4 digits in 24h-Format like 1545 = 15:45:00"));
+		wxMessageBox(_("Please enter 4 digits in 24h-Format like 1545 = 03:45:00 PM"));
 		gridWake->SetCellValue(row,col,wxEmptyString);
 
 		return;

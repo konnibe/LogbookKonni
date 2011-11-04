@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-31 02:51+0100\n"
+"POT-Creation-Date: 2011-11-04 06:24+0100\n"
 "PO-Revision-Date: 2011-10-14 18:22+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -25,6 +25,9 @@ msgid ""
 msgstr ""
 "\n"
 "no encontrado en fichero de Layout"
+#
+msgid "      Course- Message after Minutes"
+msgstr ""
 #
 msgid " - Timer on - Interval: "
 msgstr "- Temporizador activo - Intervalo:"
@@ -351,7 +354,7 @@ msgstr ""
 msgid "If"
 msgstr "Si"
 #
-msgid "If Course changes more then °"
+msgid "If Course changes more then "
 msgstr ""
 #
 msgid "If Watch changed"
@@ -578,6 +581,9 @@ msgid ""
 msgstr ""
 "Entre por favor 0544512n0301205e para\n"
 "054° 45' 12\" N  030°12' 05\" E"
+#
+msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45:00 PM"
+msgstr ""
 #
 msgid ""
 "Please enter like 1.30 or 1,30 or 1:30\n"
@@ -1025,8 +1031,16 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Logbook files (*.txt)|*.txt"
 #~ msgstr "Ficheros bitácora (*.txt)|*.txt"
+#
+#
+#
+#
 #
 #
 #
@@ -1073,6 +1087,10 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Swell "
 #~ msgstr "Mar de fondo"
 #
@@ -1097,8 +1115,16 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
+#
+#
+#
 #
 #
 #
@@ -1136,8 +1162,16 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Wave "
 #~ msgstr "Oleaje"
+#
+#
+#
+#
 #
 #
 #

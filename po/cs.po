@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-10-31 02:51+0100\n"
+"POT-Creation-Date: 2011-11-04 06:24+0100\n"
 "PO-Revision-Date: 2011-10-17 10:53+0100\n"
 "Last-Translator: Pavel Kalian <pavel@kalian.cz>\n"
 "Language-Team: Pavel Kalian <pavel@kalian.cz>\n"
@@ -27,6 +27,9 @@ msgid ""
 msgstr ""
 "\n"
 "nenalezeno v souboru rozvržení"
+#
+msgid "      Course- Message after Minutes"
+msgstr ""
 #
 msgid " - Timer on - Interval: "
 msgstr " - Časovač běží - Interval:"
@@ -355,7 +358,7 @@ msgstr ""
 msgid "If"
 msgstr "Pokud"
 #
-msgid "If Course changes more then °"
+msgid "If Course changes more then "
 msgstr ""
 #
 msgid "If Watch changed"
@@ -580,6 +583,9 @@ msgid ""
 msgstr ""
 "Prosím zadej 0544512n0301205e pro\n"
 "054Deg 45Min 12Sec N 030Deg 12Min 05Sec E"
+#
+msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45:00 PM"
+msgstr ""
 #
 msgid ""
 "Please enter like 1.30 or 1,30 or 1:30\n"
@@ -1010,8 +1016,16 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Best Etmal"
 #~ msgstr "Max NM/24h"
+#
+#
+#
+#
 #
 #
 #
@@ -1058,8 +1072,16 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Logbook files (*.txt)|*.txt"
 #~ msgstr "Soubory deníku (*.txt)|*.txt"
+#
+#
+#
+#
 #
 #
 #
@@ -1106,8 +1128,16 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Swell "
 #~ msgstr "Příboj"
+#
+#
+#
+#
 #
 #
 #
@@ -1144,8 +1174,16 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "View Route"
 #~ msgstr "Zobraz trasu"
+#
+#
+#
+#
 #
 #
 #
@@ -1189,8 +1227,16 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Work in Progress"
 #~ msgstr "Ve výrobě"
+#
+#
+#
+#
 #
 #
 #

@@ -723,6 +723,14 @@ void logbookkonni_pi::loadLayouts(wxWindow *parent)
 				path.append(_T("logbook"));
 			else if(name.Contains(sep + _T("crew")))
 				path.append(_T("crew"));
+			else if(name.Contains(sep + _T("overview")))
+				path.append(_T("overview"));
+			else if(name.Contains(sep + _T("service")))
+				path.append(_T("service"));
+			else if(name.Contains(sep + _T("repairs")))
+				path.append(_T("repairs"));
+			else if(name.Contains(sep + _T("buyparts")))
+				path.append(_T("buyparts"));
 
 			path.append(sep);
 			if(!wxFileName::DirExists(path))
