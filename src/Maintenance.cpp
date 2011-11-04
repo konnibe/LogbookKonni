@@ -405,6 +405,9 @@ void Maintenance::setRowBackground(int row, wxColour &c)
 #include "time.h"
 void Maintenance::checkService(int row)
 {
+
+	if(dialog->m_gridGlobal->GetNumberRows() == 0) return;
+
 	wxString date;
 	wxDateTime dtstart, dturgent, dtwarn;
 	wxDateSpan spanu,spanw;
@@ -796,6 +799,8 @@ void Maintenance::setRowBackgroundBuyParts(int row, wxColour &c)
 
 void Maintenance::cellCollChanged(int col, int row)
 {
+	if(dialog->m_gridGlobal->GetNumberRows() == 0) return;
+
 	if(col == IF)
 	{
 		wxString g = grid->GetCellValue(selectedRow,IF);

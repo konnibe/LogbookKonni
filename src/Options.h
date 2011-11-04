@@ -41,6 +41,7 @@ public:
 	bool		courseChange;
 	wxString	courseChangeDegrees;
 	double		dCourseChangeDegrees;
+	wxString	courseTextAfterMinutes;
 	wxString    courseChangeText;
 	bool		everySM;
 	wxString	everySMAmount;

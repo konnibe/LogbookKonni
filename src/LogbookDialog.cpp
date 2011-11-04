@@ -56,6 +56,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 {
 	logbookPlugIn = d;
 	timer = t;
+	GPSTimer = NULL;
 
 	this->SetSizeHints( wxSize( -1,-1 ), wxDefaultSize );
 	
@@ -4007,7 +4008,7 @@ SelectLogbook::SelectLogbook( wxWindow* parent, wxString path, wxWindowID id, co
 	fgSizer27->SetFlexibleDirection( wxBOTH );
 	fgSizer27->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
-	m_listCtrlSelectLogbook = new wxListCtrl( this, wxID_ANY, wxDefaultPosition, wxSize( 280,180 ), wxLC_LIST|wxLC_SINGLE_SEL );
+	m_listCtrlSelectLogbook = new wxListCtrl( this, wxID_ANY, wxDefaultPosition, wxSize( 280,180 ), wxLC_REPORT|wxLC_SINGLE_SEL|wxLC_SORT_ASCENDING|wxALWAYS_SHOW_SB );
 	fgSizer27->Add( m_listCtrlSelectLogbook, 0, wxALL, 5 );
 	
 	fgSizer26->Add( fgSizer27, 1, wxEXPAND, 5 );

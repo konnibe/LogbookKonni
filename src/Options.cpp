@@ -16,6 +16,7 @@ Options::Options(void)
 	courseChange = true;
 	courseChangeDegrees = _T("90");
 	courseChangeText = _("automatic line\nchange of course >");
+	courseTextAfterMinutes = _T("45");
 	everySM = true;
 	everySMAmount = _T("10");
 	everySMText = _("automatic line\nDistance > ");

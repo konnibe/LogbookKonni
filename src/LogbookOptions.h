@@ -45,14 +45,22 @@ class LogbookOptions : public wxDialog
 	public:
 		wxNotebook* m_notebook4;
 		wxPanel* m_panel15;
+		
 		wxCheckBox* m_checkBoxShowLogbook;
+		
 		
 		
 		wxCheckBox* m_checkBoxShowOnlySelectedLayouts;
 		
 		
+		
+		
+		wxStaticText* m_staticText74;
+		
+		
+		
+		
 		wxStaticLine* m_staticline25;
-		wxStaticText* m_staticText54;
 		wxStaticLine* m_staticline10;
 		
 		wxCheckBox* m_checkBoxTimer;
@@ -183,11 +191,13 @@ class LogbookOptions : public wxDialog
 		wxCheckBox* m_checkBoxCourseChanged;
 		wxTextCtrl* m_textCtrlCourseCahngedMoreThen;
 		wxTextCtrl* m_textCtrlChancedCourse;
+		wxTextCtrl* m_textCtrlCourseMessageAfter;
 		wxCheckBox* m_checkBoxGuardChanged;
 		wxTextCtrl* m_textCtrlGuradChanged;
 		wxCheckBox* m_checkBoxEverySM;
 		wxTextCtrl* m_textCtrlEverySM;
 		wxTextCtrl* m_textCtrlEverySMText;
+		wxStaticText* m_staticText54;
 		wxRadioButton* m_radioBtnLocal;
 		wxChoice* m_choiceTzIndicator;
 		wxChoice* m_choiceTzHours;

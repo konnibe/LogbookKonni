@@ -421,6 +421,7 @@ void logbookkonni_pi::SaveConfig()
 			pConf->Write ( _T ( "GuardChangeText" ), opt->guardChangeText );
 			pConf->Write ( _T ( "CourseChange" ), opt->courseChange );
 			pConf->Write ( _T ( "CouseChangeDegrees" ), opt->courseChangeDegrees );
+			pConf->Write ( _T ( "CouseChangeAfter" ), opt->courseTextAfterMinutes );
 			pConf->Write ( _T ( "CourseChangeText" ), opt->courseChangeText );
 			pConf->Write ( _T ( "EverySM" ), opt->everySM );
 			pConf->Write ( _T ( "EverySMAmount" ), opt->everySMAmount );
@@ -512,6 +513,7 @@ void logbookkonni_pi::LoadConfig()
 			pConf->Read ( _T ( "GuardChangeText" ), &opt->guardChangeText );
 			pConf->Read ( _T ( "CourseChange" ), &opt->courseChange );
 			pConf->Read ( _T ( "CouseChangeDegrees" ), &opt->courseChangeDegrees );
+			pConf->Read ( _T ( "CouseChangeAfter" ), &opt->courseTextAfterMinutes );
 			pConf->Read ( _T ( "CourseChangeText" ), &opt->courseChangeText );
 			pConf->Read ( _T ( "EverySM" ), &opt->everySM );
 			pConf->Read ( _T ( "EverySMAmount" ), &opt->everySMAmount );

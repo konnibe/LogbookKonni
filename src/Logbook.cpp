@@ -690,10 +690,13 @@ Please create a new logbook to minimize the loadingtime.\n\nIf you have a runnin
 
 void Logbook::checkCourseChanged()
 {
-	wxDouble cog, cow;
+	static wxDateTime dt;
+	static bool timer = true;
+
+	wxDouble cog;
 	wxGrid* grid = dialog->m_gridGlobal;
+	if(grid->GetNumberRows() == 0) return;
 	grid->GetCellValue(grid->GetNumberRows()-1,8).ToDouble(&cog);
-	grid->GetCellValue(grid->GetNumberRows()-1,9).ToDouble(&cow);
 
 	if(cog == dCOG) return;
 
@@ -701,9 +704,25 @@ void Logbook::checkCourseChanged()
 	if(result > 180) result -= 360;
 	if(abs(result) >= opt->dCourseChangeDegrees)
 		{
-			courseChange = true;
-			appendRow(false);
-			courseChange = false;
+			if(timer)
+			{
+				timer = false;
+				dt = mCorrectedDateTime;
+				long min;
+				opt->courseTextAfterMinutes.ToLong(&min);
+				wxTimeSpan t(0,(int)min);
+				dt.Add(t);
+//				wxMessageBox(this->mCorrectedDateTime.FormatTime()+_("  ")+dt.FormatTime());
+			}
+			
+
+			if(mCorrectedDateTime >= dt)
+			{
+				timer = true;
+				courseChange = true;
+				appendRow(false);
+				courseChange = false;
+			}
 		}
 }
 
