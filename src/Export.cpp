@@ -70,7 +70,7 @@ bool Export::cutInPartsODT(wxString odt, wxString* top, wxString* header,
 }
 
 bool Export::writeToHTML(wxTextFile* logFile, wxGrid* grid, wxString filenameOut,wxString filenameIn, 
-		wxString top,wxString header,wxString middle,wxString bottom, bool mode)
+		wxString top,wxString header,wxString middle,wxString bottom, int mode)
 {
 	wxFileInputStream input( filenameIn );
 	
@@ -134,24 +134,24 @@ bool Export::cutInPartsHTML(wxString html, wxString* top, wxString* header, wxSt
 	return true;
 }
 
-wxTextFile* Export::setFiles(wxString *path, bool mode)
+wxTextFile* Export::setFiles(wxString savePath, wxString *path, int mode)
 {
-	wxTextFile *logFile = new wxTextFile(*path);
 	if(mode == 0 )
 		(*path).Replace(wxT("txt"),wxT("odt"));
 	else if(mode == 1)
 		(*path).Replace(wxT("txt"),wxT("html"));
-//	else 
-///		path = savePath;
+	else 
+		(*path) = savePath;
 
 	if(::wxFileExists(*path))
 		::wxRemoveFile(*path);
 
+	wxTextFile *logFile = new wxTextFile(*path);
 	return logFile;
 }
 
 bool Export::writeToODT(wxTextFile* logFile,wxGrid* grid, wxString filenameOut,wxString filenameIn, wxString top,wxString header,
-				wxString middle,wxString bottom, bool mode)
+				wxString middle,wxString bottom, int mode)
 {
 	auto_ptr<wxFFileInputStream> in(new wxFFileInputStream(filenameIn));
     wxTempFileOutputStream out(filenameOut);
@@ -189,12 +189,16 @@ bool Export::writeToODT(wxTextFile* logFile,wxGrid* grid, wxString filenameOut,w
 	return true;
 }
 
-wxString Export::replaceNewLine(bool mode, wxString str)
+wxString Export::replaceNewLine(int mode, wxString str)
 {
-	if(mode == 0) // HTML
+	switch(mode)
+	{
+	case 0: // HTML
 		 str.Replace(wxT("\n"),wxT("<br>"));
-	else		  // ODT
+		 break;
+	case 1:		  // ODT
 		 str.Replace(wxT("\n"),wxT("<text:line-break/>"));
-
+		 break;
+	}
 	return str;
 }

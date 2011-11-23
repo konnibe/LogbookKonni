@@ -47,6 +47,9 @@ public:
 	wxString	everySMAmount;
 	double		dEverySM;
 	wxString    everySMText;
+
+	bool		traditional;
+	bool		modern;
 	// Timer 
 	bool		timer;
 	wxString	thour;
@@ -99,6 +102,7 @@ public:
 
 	bool		local;
 	bool		UTC;
+	bool		gpsAuto;
 	int			tzIndicator;
 	int			tzHour;
 

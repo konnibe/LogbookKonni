@@ -47,11 +47,14 @@ class LogbookOptions : public wxDialog
 		wxPanel* m_panel15;
 		
 		wxCheckBox* m_checkBoxShowLogbook;
-		
-		
+		wxStaticText* m_staticText76;
 		
 		wxCheckBox* m_checkBoxShowOnlySelectedLayouts;
 		
+		
+		
+		
+		wxStaticText* m_staticText741;
 		
 		
 		
@@ -143,12 +146,6 @@ class LogbookOptions : public wxDialog
 		wxTextCtrl* m_sKmh;
 		
 		
-		
-		wxStaticText* m_staticText51;
-		wxChoice* m_choiceWind;
-		wxStaticText* m_staticText45;
-		wxChoice* m_choiceDir;
-		wxStaticText* m_staticText711;
 		wxStaticText* m_staticText46;
 		wxStaticText* m_staticText47;
 		wxTextCtrl* m_sLiter;
@@ -160,16 +157,25 @@ class LogbookOptions : public wxDialog
 		wxStaticText* m_staticText712;
 		wxStaticText* m_staticText72;
 		wxStaticText* m_staticText73;
+		wxStaticLine* m_staticline251;
+		wxStaticText* m_staticText75;
+		wxStaticLine* m_staticline26;
+		wxStaticText* m_staticText51;
+		wxChoice* m_choiceWind;
+		wxStaticText* m_staticText45;
+		wxChoice* m_choiceDir;
 		wxStdDialogButtonSizer* m_sdbSizer1;
 		wxButton* m_sdbSizer1OK;
 		wxButton* m_sdbSizer1Cancel;
 		
 		// Virtual event handlers, overide them in your derived class
+		virtual void onChoicePositionFormat( wxCommandEvent& event );
 		virtual void onCeckBoxShowAllLayouts( wxCommandEvent& event );
 		virtual void onCheckBoxShowOnlySelectedLayouts( wxCommandEvent& event );
 		virtual void OnTextEnterLayoutPrefix( wxCommandEvent& event );
 		virtual void OnCheckBoxMaintenanceRowColoured( wxCommandEvent& event );
 		virtual void onCheckBoNoGPS( wxCommandEvent& event );
+		virtual void onCheckBoxGuardChanged( wxCommandEvent& event );
 		virtual void m_checkBoxTimerOnCheckBox( wxCommandEvent& event );
 		virtual void onRadioBtnUTC( wxCommandEvent& event );
 		virtual void onRadioBtnLocal( wxCommandEvent& event );
@@ -181,13 +187,13 @@ class LogbookOptions : public wxDialog
 		virtual void onTextEnterm_sMeterSec( wxCommandEvent& event );
 		virtual void onTextEnterm_sKmh( wxCommandEvent& event );
 		virtual void OnButtonOKClick( wxCommandEvent& event );
-		virtual void onCheckBoxGuardChanged( wxCommandEvent& event );
 	
 	public:
+		wxChoice* m_choicePositionFormat;
 		wxCheckBox* m_checkBoxShowAllLayouts;
 		wxTextCtrl* m_textCtrlLayoutPrefix;
-		wxCheckBox* m_checkBoxMaintenanceRowColoured;
 		wxCheckBox* m_checkBoxNoGPS;
+		wxChoice* m_choiceWindTo;
 		wxCheckBox* m_checkBoxCourseChanged;
 		wxTextCtrl* m_textCtrlCourseCahngedMoreThen;
 		wxTextCtrl* m_textCtrlChancedCourse;
@@ -207,7 +213,6 @@ class LogbookOptions : public wxDialog
 		wxChoice* m_choiceDepth;
 		wxChoice* m_choiceWaveSwell;
 		wxChoice* m_choiceHeading;
-		wxChoice* m_choiceWindTo;
 		wxTextCtrl* m_Days;
 		wxTextCtrl* m_Weeks;
 		wxTextCtrl* m_textMonth;

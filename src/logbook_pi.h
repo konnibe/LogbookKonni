@@ -36,7 +36,7 @@
 #endif //precompiled headers
 
 #define     PLUGIN_VERSION_MAJOR    0
-#define     PLUGIN_VERSION_MINOR    908
+#define     PLUGIN_VERSION_MINOR    909
 
 #define     MY_API_VERSION_MAJOR    1
 #define     MY_API_VERSION_MINOR    5
@@ -81,6 +81,8 @@ public:
 	  wxFileConfig		*m_pconfig;
 	  Options			*opt;
       wxTimer 		    *m_timer;
+	  wxColour			col,col1,gridline,uitext,udkrd,back_color,text_color;
+	  wxColour			mcol,mcol1,mgridline, muitext,mudkrd,mback_color,mtext_color;
 //    The required PlugIn Methods
       int Init(void);
       bool DeInit(void);
@@ -95,6 +97,8 @@ public:
       wxString GetLongDescription();
 	  void UpdateAuiStatus(void);
       void SetColorScheme(PI_ColorScheme cs);
+	  void GetOriginalColors();
+	  void SetOriginalColors();
 
 //    The optional method overrides
 
@@ -119,7 +123,8 @@ private:
 	  void OnTimer(wxTimerEvent& ev);
 	  void SaveConfig();
 	  void LoadConfig();
-	  void dialogDimmer(wxWindow* ctrl,wxColour col,wxColour back_color,wxColour text_color);
+	  void dialogDimmer(PI_ColorScheme cs,wxWindow* ctrl,wxColour col,wxColour col1, wxColour back_color,wxColour text_color,
+						wxColour uitext, wxColour udkrd);
 
 	  LogbookOptions    *optionsDialog;
       wxAuiManager     *m_pauimgr;

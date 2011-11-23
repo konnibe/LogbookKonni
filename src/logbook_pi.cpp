@@ -175,24 +175,60 @@ bool logbookkonni_pi::DeInit(void)
 	return true;
 }
 
-void logbookkonni_pi::SetColorScheme(PI_ColorScheme cs)
+void logbookkonni_pi::GetOriginalColors()
 {
+	mcol = wxSystemSettings::GetColour(wxSYS_COLOUR_BTNFACE);
+	mcol1 = wxSystemSettings::GetColour(wxSYS_COLOUR_ACTIVEBORDER  );
+	muitext = wxColour(0,0,0);
+	mgridline = m_plogbook_window->m_gridGlobal->GetGridLineColour();
+	mudkrd = m_plogbook_window->m_gridGlobal->GetCellTextColour(0,0);
+	mback_color = wxColour(255,255,255);
+	mtext_color = wxColour(0,0,0);
+}
+
+void logbookkonni_pi::SetOriginalColors()
+{
+	col = mcol;
+	col1 = mcol1;
+	gridline = mgridline;
+	uitext = muitext;
+	udkrd = mudkrd;
+	back_color = mback_color;
+	text_color = mtext_color;
+}
+
+void logbookkonni_pi::SetColorScheme(PI_ColorScheme cs)
+{  
 	if(NULL != m_plogbook_window)
 	  {
-			wxColour col,back_color,text_color;
+		  if(cs == PI_GLOBAL_COLOR_SCHEME_DAY || cs == PI_GLOBAL_COLOR_SCHEME_RGB )
+		  {
+			SetOriginalColors();
+		  }
+		  else
+		  {
+			GetGlobalColor(_T("DILG0"),&col);       // Dialog Background white
+			GetGlobalColor(_T("DILG1"),&col1);      // Dialog Background
+			GetGlobalColor(_T("DILG2"),&back_color);// Control Background
+			GetGlobalColor(_T("DILG3"),&text_color);// Text
+			GetGlobalColor(_T("UITX1"),&uitext);    // Menu Text, derived from UINFF
+			GetGlobalColor(_T("UDKRD"),&udkrd);
+			GetGlobalColor(_T("GREY2"),&gridline);          
+		  }
 
-			GetGlobalColor(_T("DILG0"),&col);
-			GetGlobalColor(_T("DILG2"),&back_color);
-			GetGlobalColor(_T("DILG3"),&text_color);
+		  if(cs == 0 || cs == 1)
+				m_plogbook_window->SetBackgroundColour(wxColour(255,255,255));
+		  else
+				m_plogbook_window->SetBackgroundColour(col);
 
-			dialogDimmer(m_plogbook_window,col,back_color,text_color);
-
-			m_plogbook_window->SetBackgroundColour(back_color);
-            m_plogbook_window->SetForegroundColour(text_color);
+            m_plogbook_window->SetForegroundColour(uitext);
+			dialogDimmer(cs,m_plogbook_window,col,col1,back_color,text_color,uitext,udkrd);
+			m_plogbook_window->Refresh();		  
 	 }
 }
 
-void logbookkonni_pi::dialogDimmer(wxWindow* ctrl,wxColour col,wxColour back_color,wxColour text_color)
+void logbookkonni_pi::dialogDimmer(PI_ColorScheme cs,wxWindow* ctrl,wxColour col, wxColour col1, wxColour back_color,wxColour text_color,
+								   wxColour uitext, wxColour udkrd)
 {
             wxWindowList kids = ctrl->GetChildren();
             for(unsigned int i = 0 ; i < kids.GetCount() ; i++)
@@ -201,53 +237,90 @@ void logbookkonni_pi::dialogDimmer(wxWindow* ctrl,wxColour col,wxColour back_col
                   wxWindow *win = node->GetData();
 
                   if(win->IsKindOf(CLASSINFO(wxListBox)))
-                        win->SetBackgroundColour(back_color);
+					if(cs == PI_GLOBAL_COLOR_SCHEME_DAY || cs == PI_GLOBAL_COLOR_SCHEME_RGB )
+						((wxListBox*)win)->SetBackgroundColour(wxNullColour);
+					else
+                        ((wxListBox*)win)->SetBackgroundColour(col1);
 
                   else if(win->IsKindOf(CLASSINFO(wxChoice)))
-                        win->SetBackgroundColour(back_color);
+					if(cs == PI_GLOBAL_COLOR_SCHEME_DAY || cs == PI_GLOBAL_COLOR_SCHEME_RGB )
+                        ((wxChoice*)win)->SetBackgroundColour(wxColour(255,255,255));
+					else
+						((wxChoice*)win)->SetBackgroundColour(col1);
+
+ //                 else if(win->IsKindOf(CLASSINFO(wxPanel)) && 
+//					  (cs == PI_GLOBAL_COLOR_SCHEME_DAY || cs == PI_GLOBAL_COLOR_SCHEME_RGB ))
+  //                    ((wxPanel*)win)->SetBackgroundColour(wxColour(255,255,255));
+
+                  else if(win->IsKindOf(CLASSINFO(wxRadioButton)))
+					  		if(cs == PI_GLOBAL_COLOR_SCHEME_DAY || cs == PI_GLOBAL_COLOR_SCHEME_RGB )
+								((wxRadioButton*)win)->SetForegroundColour(wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ));
+							else
+								((wxRadioButton*)win)->SetForegroundColour(col1);
 
                   else if(win->IsKindOf(CLASSINFO(wxNotebook)))
 				  {
-                        ((wxNotebook*)win)->SetBackgroundColour(back_color);
+						if(cs == PI_GLOBAL_COLOR_SCHEME_DAY || cs == PI_GLOBAL_COLOR_SCHEME_RGB )
+							((wxNotebook*)win)->SetBackgroundColour(wxColour(255,255,255));
+						else
+							((wxNotebook*)win)->SetBackgroundColour(col1);
 						((wxNotebook*)win)->SetForegroundColour(text_color);
 				  }
 
                   else if(win->IsKindOf(CLASSINFO(wxGrid)))
 				  {
-					  ((wxGrid*)win)->SetDefaultCellBackgroundColour(back_color);
-					  ((wxGrid*)win)->SetDefaultCellTextColour(text_color);
-					  ((wxGrid*)win)->SetLabelBackgroundColour(back_color);
-					  ((wxGrid*)win)->SetLabelTextColour(text_color);
+					  if(cs == PI_GLOBAL_COLOR_SCHEME_DAY || cs == PI_GLOBAL_COLOR_SCHEME_RGB )
+						((wxGrid*)win)->SetDefaultCellBackgroundColour(wxColour(255,255,255));
+					  else
+						((wxGrid*)win)->SetDefaultCellBackgroundColour(col1);
+					  ((wxGrid*)win)->SetDefaultCellTextColour(uitext);
+					  ((wxGrid*)win)->SetLabelBackgroundColour(col);
+					  ((wxGrid*)win)->SetLabelTextColour(uitext);
 					  ((wxGrid*)win)->SetDividerPen(wxPen(col));
-					  ((wxGrid*)win)->SetGridLineColour(col);
+					  ((wxGrid*)win)->SetGridLineColour(gridline);
+					  
 				  }
 
                   else if(win->IsKindOf(CLASSINFO(wxButton)))
 				  {
-						((wxButton*)win)->SetThemeEnabled(false);
-                        win->SetBackgroundColour(back_color);
+					  if(cs == PI_GLOBAL_COLOR_SCHEME_DAY || cs == PI_GLOBAL_COLOR_SCHEME_RGB )
+					  {
+						  ((wxButton*)win)->SetForegroundColour(wxNullColour);
+						   ((wxButton*)win)->SetBackgroundColour(wxNullColour);
+						//
+						//((wxButton*)win)->SetBackgroundColour(wxSystemSettings::GetColour(wxSystemColour::wxSYS_COLOUR_3DFACE ));
+						//((wxButton*)win)->SetLabel(((wxButton*)win)->GetLabel());
+					  }
+					  else
+					  {
+						((wxButton*)win)->SetBackgroundColour(col1);
+					  }
+					 // 
+					;	//((wxButton*)win)->SetThemeEnabled(false);
+                     //   ((wxButton*)win)->SetBackgroundColour(col1);
+					//	win->SetForegroundColour(uitext);
 				  }
 
-                  else if(win->IsKindOf(CLASSINFO(wxGrid)))
-                        win->SetBackgroundColour(back_color);
+ //                 else if(win->IsKindOf(CLASSINFO(wxGrid)))
+ //                       ((wxGrid*)win)->SetBackgroundColour(col1);
 
-                  else if(win->IsKindOf(CLASSINFO(wxTextCtrl)))
-                        win->SetBackgroundColour(back_color);
+  //                else if(win->IsKindOf(CLASSINFO(wxTextCtrl)))
+  //                      win->SetBackgroundColour(col1);
 
-                  else if(win->IsKindOf(CLASSINFO(wxComboBox)))  // note ComboBoxes don't change bg properly on gtk
-                        win->SetBackgroundColour(back_color);
+  //                else if(win->IsKindOf(CLASSINFO(wxComboBox)))  // note ComboBoxes don't change bg properly on gtk
+ //                       win->SetBackgroundColour(col1);
 
                   else
-				  {
-					  GetGlobalColor(_T("DILG0"),&col);
-                      win->SetBackgroundColour(back_color);      // msw looks better here
+				  {;
+					  //GetGlobalColor(_T("DILG0"),&col);
+                     // win->SetBackgroundColour(back_color);      // msw looks better here
 				  }
 
-                  win->SetForegroundColour(text_color);
+                 // win->SetForegroundColour(uitext);
 				  if(win->GetChildren().GetCount() > 0)
 				  {
 					  wxWindow * w = win;
-					  dialogDimmer(w,col,back_color,text_color);
+					  dialogDimmer(cs,w,col,col1,back_color,text_color,uitext,udkrd);
 				  }
             }
 }
@@ -405,10 +478,10 @@ void logbookkonni_pi::SaveConfig()
 
       if(pConf)
       {
-            pConf->SetPath ( _T ( "/Settings" ) );
-            pConf->Write ( _T ( "ShowLOGIcon" ), m_bLOGShowIcon );
-
+//            pConf->SetPath ( _T ( "/Settings" ) );
 			pConf->SetPath ( _T ( "/PlugIns/Logbook" ) );
+            pConf->Write ( _T ( "ShowLOGIcon" ), m_bLOGShowIcon );
+			pConf->Write ( _T( "Traditional" ),  opt->traditional );
 
 			pConf->Write ( _T ( "FirstTime" ),  opt->firstTime);
 			if(m_plogbook_window)
@@ -416,7 +489,6 @@ void logbookkonni_pi::SaveConfig()
 			  pConf->Write( _T( "DlgWidth" ),  m_plogbook_window->GetSize().GetX());
 			  pConf->Write ( _T( "DlgHeight" ), m_plogbook_window->GetSize().GetY());
 			}
-
 			pConf->Write ( _T ( "GuardChange" ), opt->guardChange );
 			pConf->Write ( _T ( "GuardChangeText" ), opt->guardChangeText );
 			pConf->Write ( _T ( "CourseChange" ), opt->courseChange );
@@ -429,6 +501,8 @@ void logbookkonni_pi::SaveConfig()
 
 			pConf->Write ( _T ( "Timer" ), opt->timer );
 			pConf->Write ( _T ( "Local" ), opt->local );
+			pConf->Write ( _T ( "UTC" ),   opt->UTC );
+			pConf->Write ( _T ( "GPSAuto" ), opt->gpsAuto );
 			pConf->Write ( _T ( "TzIndicator" ), opt->tzIndicator );
 			pConf->Write ( _T ( "TzHours" ), opt->tzHour );
 			pConf->Write ( _T ( "TimerHours" ), opt->thour );
@@ -505,6 +579,7 @@ void logbookkonni_pi::LoadConfig()
       {
             pConf->SetPath ( _T( "/PlugIns/Logbook" ) );
             pConf->Read ( _T( "ShowLOGIcon" ),  &m_bLOGShowIcon, 1 );
+			pConf->Read ( _T( "Traditional" ),  &opt->traditional, 1 );
 			pConf->Read ( _T( "FirstTime" ),  &opt->firstTime);
 			pConf->Read ( _T( "DlgWidth" ),  &opt->dlgWidth,1010);
 			pConf->Read ( _T( "DlgHeight" ),  &opt->dlgHeight,535);
@@ -523,6 +598,8 @@ void logbookkonni_pi::LoadConfig()
 
 			pConf->Read ( _T ( "Timer" ), &opt->timer );
 			pConf->Read ( _T ( "Local" ), &opt->local );
+			pConf->Read ( _T ( "UTC" ),	  &opt->UTC );
+			pConf->Read ( _T ( "GPSAuto" ), &opt->gpsAuto);
 			pConf->Read ( _T ( "TzIndicator" ), &opt->tzIndicator );
 			pConf->Read ( _T ( "TzHours" ), &opt->tzHour );
 			pConf->Read ( _T ( "TimerHours" ), &opt->thour );

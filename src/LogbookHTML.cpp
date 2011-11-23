@@ -114,8 +114,6 @@ wxString LogbookHTML::toHTML(wxString path, wxString layout, bool mode)
 		return _T("");
 	}
 
-	logbook->update();
-
 	wxString html = readLayoutFile(layout);
 
 	wxString topHTML;
@@ -148,9 +146,6 @@ wxString LogbookHTML::toHTML(wxString path, wxString layout, bool mode)
 
 	wxString filename = this->fileName;
 
-	wxFileInputStream input( filename );
-	wxTextInputStream* stream = new wxTextInputStream (input);
-
 	if(mode == false)
 	{
 		filename.Replace(wxT("txt"),wxT("html"));
@@ -166,6 +161,7 @@ wxString LogbookHTML::toHTML(wxString path, wxString layout, bool mode)
 
 	wxString newMiddleHTML;
 
+	topHTML.Replace(wxT("#LLOGBOOK#"),parent->m_logbook->GetPageText(0));
 	topHTML.Replace(wxT("#TYPE#"),parent->boatType->GetValue());
 	topHTML.Replace(wxT("#BOATNAME#"),parent->boatName->GetValue());
 	topHTML.Replace(wxT("#HOMEPORT#"),parent->homeport->GetValue());
@@ -174,13 +170,20 @@ wxString LogbookHTML::toHTML(wxString path, wxString layout, bool mode)
 	topHTML.Replace(wxT("#LOCATION#"),layout_locn + layout + _T(".html"));
 	htmlFile << topHTML;
 
-	while(wxString line = stream->ReadLine())
+	int rowsMax = parent->m_gridGlobal->GetNumberRows();
+	for(int row = 0; row < rowsMax; row++)
 	{
-		if(input.Eof()) break;
 		count++;
 		if(selection && arrayRows[0]+1 > count) continue;
 		if(selection && arrayRows[selCount-1]+1 < count) break;
-		newMiddleHTML = replacePlaceholder(middleHTML,headerHTML,line,count,0);
+
+		newMiddleHTML = middleHTML;
+		for(int grid = 0; grid < 3; grid++)
+		{
+			wxGrid* g = parent->logGrids[grid];
+			for(int col = 0; col < g->GetNumberCols(); col++)
+				newMiddleHTML = replacePlaceholder(newMiddleHTML,headerHTML,grid,row,col,0);
+		}
 		htmlFile << newMiddleHTML;
 	}
 	htmlFile << bottomHTML;
@@ -193,9 +196,159 @@ wxString LogbookHTML::toHTML(wxString path, wxString layout, bool mode)
 
 	output.Close();
 
-	replacePlaceholder(middleHTML,headerHTML,_T(""),0,0); // Reset Route if starts with same Route
-
 	return filename;
+}
+
+wxString LogbookHTML::replacePlaceholder(wxString html,wxString htmlHeader,int grid, int row, int col, bool mode)
+{
+		static wxString route;
+		wxString s;
+		wxGrid* g = parent->logGrids[grid];
+
+		if(row == 0 && col == 0 && grid == 0)  
+			route = _T(""); 
+
+			switch(grid)
+			{
+			case 0:
+					switch(col)
+					{
+						case ROUTE:	if(route != replaceNewLine(g->GetCellValue(row,col),mode))
+									{
+										htmlHeader.Replace(wxT("#ROUTE#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Prepend(htmlHeader);
+									}
+									html.Replace(wxT("#LROUTE#"),g->GetColLabelValue(col));
+									route = replaceNewLine(g->GetCellValue(row,col),mode);
+								break;
+						case RDATE:		html.Replace(wxT("#DATE#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LDATE#"),g->GetColLabelValue(col));
+										html.Replace(wxT("#NO.#"),wxString::Format(_T("%i"),row+1));
+								break;
+						case RTIME:		html.Replace(wxT("#TIME#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LTIME#"),g->GetColLabelValue(col));
+								break;
+						case SIGN:		html.Replace(wxT("#SIGN#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LSIGN#"),g->GetColLabelValue(col));
+								break;
+						case WAKE:		html.Replace(wxT("#WAKE#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LWAKE#"),g->GetColLabelValue(col));
+								break;
+						case DISTANCE:	html.Replace(wxT("#DISTANCE#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LDISTANCE#"),g->GetColLabelValue(col));
+								break;
+						case DTOTAL:	html.Replace(wxT("#DTOTAL#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LDTOTAL#"),g->GetColLabelValue(col));
+								break;
+						case POSITION:	html.Replace(wxT("#POSITION#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LPOSITION#"),g->GetColLabelValue(col));
+								break;
+						case COG:		html.Replace(wxT("#COG#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LCOG#"),g->GetColLabelValue(col));
+								break;
+						case COW:		html.Replace(wxT("#COW#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LCOW#"),g->GetColLabelValue(col));
+								break;
+						case SOG:		html.Replace(wxT("#SOG#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LSOG#"),g->GetColLabelValue(col));
+								break;
+						case SOW:		html.Replace(wxT("#SOW#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LSOW#"),g->GetColLabelValue(col));
+								break;
+						case DEPTH:		html.Replace(wxT("#DEPTH#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LDEPTH#"),g->GetColLabelValue(col));
+								break;
+						case REMARKS:	html.Replace(wxT("#REMARKS#"),replaceNewLine(replaceNewLine(g->GetCellValue(row,col),mode),mode));
+										html.Replace(wxT("#LREMARKS#"),g->GetColLabelValue(col));
+								break;
+					}
+					break;
+			case 1:
+					switch(col)
+					{
+						case BARO:		html.Replace(wxT("#BARO#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LBARO#"),g->GetColLabelValue(col));
+								break;
+						case WIND:		html.Replace(wxT("#WIND#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LWIND#"),g->GetColLabelValue(col));
+								break;
+						case WSPD:		html.Replace(wxT("#WSPD#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LWSPD#"),g->GetColLabelValue(col));
+								break;
+						case CURRENT:	html.Replace(wxT("#CUR#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LCUR#"),g->GetColLabelValue(col));
+								break;
+						case CSPD:		html.Replace(wxT("#CSPD#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LCSPD#"),g->GetColLabelValue(col));
+								break;
+						case WAVE:		html.Replace(wxT("#WAVE#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LWAVE#"),g->GetColLabelValue(col));	
+								break;
+						case SWELL:		html.Replace(wxT("#SWELL#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LSWELL#"),g->GetColLabelValue(col));
+								break;
+						case WEATHER:	html.Replace(wxT("#WEATHER#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LWEATHER#"),g->GetColLabelValue(col));
+								break;
+						case CLOUDS:	html.Replace(wxT("#CLOUDS#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LCLOUDS#"),g->GetColLabelValue(col));
+								break;
+						case VISIBILITY:html.Replace(wxT("#VISIBILITY#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LVISIBILITY#"),g->GetColLabelValue(col));
+								break;
+					}
+					break;
+			case 2:
+					switch(col)
+					{
+						case MOTOR:		html.Replace(wxT("#MOTOR#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LMOTOR#"),g->GetColLabelValue(col));
+								break;
+						case MOTORT:	html.Replace(wxT("#MOTORT#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LMOTORT#"),g->GetColLabelValue(col));
+								break;
+						case FUEL:		html.Replace(wxT("#FUEL#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LFUEL#"),g->GetColLabelValue(col));
+								break;
+						case FUELT:		html.Replace(wxT("#FUELT#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LFUELT#"),g->GetColLabelValue(col));
+								break;
+						case SAILS:		html.Replace(wxT("#SAILS#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LSAILS#"),g->GetColLabelValue(col));
+								break;
+						case REEF:		html.Replace(wxT("#REEF#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LREEF#"),g->GetColLabelValue(col));
+								break;
+						case WATER:		html.Replace(wxT("#WATER#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LWATER#"),g->GetColLabelValue(col));
+								break;
+						case WATERT:	html.Replace(wxT("#WATERT#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LWATERT#"),g->GetColLabelValue(col));
+								break;
+						case MREMARKS:	html.Replace(wxT("#MREMARKS#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LMREMARKS#"),g->GetColLabelValue(col));
+								break;
+					}
+					break;
+			}
+
+	if(mode == 0)
+		return html;
+	else 
+	{
+		wxString str(html, wxConvUTF8);
+		return str;
+	}
+}
+
+wxString LogbookHTML::replaceNewLine(wxString s, bool mode)
+{
+	if(mode == 0) // HTML
+		s.Replace(wxT("\n"),wxT("<br>"));
+	else // ODT
+		s.Replace(wxT("\n"),wxT("<text:line-break/>"));
+
+	return s;
 }
 
 bool LogbookHTML::checkLayoutError(int result, wxString html, wxString layout)
@@ -213,7 +366,7 @@ void LogbookHTML::setFileName(wxString s, wxString l)
 	fileName = s;
 	layout_locn = l;
 }
-
+/*
 wxString LogbookHTML::replacePlaceholder(wxString html,wxString htmlHeader,wxString st,int nr, bool mode)
 {
 		static wxString route;
@@ -322,7 +475,7 @@ wxString LogbookHTML::replacePlaceholder(wxString html,wxString htmlHeader,wxStr
 		return str;
 	}
 }
-
+*/
 wxString LogbookHTML::readLayoutFile(wxString layout)
 {
 	wxString html;
@@ -389,7 +542,7 @@ wxString LogbookHTML::toODT(wxString path,wxString layout, bool mode)
 		return _T("");
 	}
 
-	logbook->update();
+//	logbook->update();
 
 	wxString odt = readLayoutFileODT(layout);
 	if(!odt.Contains(_T("[[")) && !odt.Contains(_T("{{")))
@@ -410,6 +563,12 @@ wxString LogbookHTML::toODT(wxString path,wxString layout, bool mode)
 	wxString textbegin = _T("<text:p");
 	wxString textend = _T("</text:p");
 
+	odt.Replace(wxT("#LLOGBOOK#"),parent->m_logbook->GetPageText(0));
+	odt.Replace(wxT("#LFROM#"),_("from"));
+	odt.Replace(wxT("#LTO#"),_("to"));
+	odt.Replace(wxT("#SDATE#"),parent->m_gridGlobal->GetCellValue(0,1));
+	odt.Replace(wxT("#EDATE#"),parent->m_gridGlobal->GetCellValue(
+		parent->m_gridGlobal->GetNumberRows()-1,1));
 	odt.Replace(wxT("#TYPE#"),parent->boatType->GetValue());
 	odt.Replace(wxT("#BOATNAME#"),parent->boatName->GetValue());
 	odt.Replace(wxT("#HOMEPORT#"),parent->homeport->GetValue());
@@ -466,8 +625,8 @@ wxString LogbookHTML::toODT(wxString path,wxString layout, bool mode)
 
 	wxString filename = this->fileName;
 
-	wxFileInputStream input( filename );
-	wxTextInputStream* stream = new wxTextInputStream (input);
+//	wxFileInputStream input( filename );
+//	wxTextInputStream* stream = new wxTextInputStream (input);
 	if(mode == false)
 	{
 		filename.Replace(wxT("txt"),wxT("odt"));
@@ -498,22 +657,37 @@ wxString LogbookHTML::toODT(wxString path,wxString layout, bool mode)
 	outzip.PutNextEntry(_T("content.xml"));
 
 	odtFile << topODT;
+
 	wxString newMiddleODT;
-	while(wxString line = stream->ReadLine())
+	int rowsMax = parent->m_gridGlobal->GetNumberRows();
+	for(int row = 0; row < rowsMax; row++)
 	{
-		if(input.Eof()) break;
 		count++;
 		if(selection && arrayRows[0]+1 > count) continue;
 		if(selection && arrayRows[selCount-1]+1 < count) break;
-		newMiddleODT = replacePlaceholder(middleODT,headerODT,line,count,1);
-		odtFile << newMiddleODT;
+
+		newMiddleODT = middleODT;
+		for(int grid = 0; grid < 3; grid++)
+		{
+			wxGrid* g = parent->logGrids[grid];
+			for(int col = 0; col < g->GetNumberCols(); col++)
+			{
+//	while(wxString line = stream->ReadLine())
+//	{
+//		if(input.Eof()) break;
+
+//		newMiddleODT = replacePlaceholder(middleODT,headerODT,line,count,1);
+				newMiddleODT = replacePlaceholder(newMiddleODT,headerODT,grid,row,col,1);
 //wxMessageBox(newMiddleODT);
+			}
+		}
+		odtFile << newMiddleODT;
 	}
 //wxMessageBox(odt);
 	odtFile << odt;
 
     inzip.Eof() && outzip.Close() && out.Commit();
-	replacePlaceholder(middleODT,headerODT,_T(""),0,0); // Reset Route if starts with same Route
+	replacePlaceholder(middleODT,headerODT,0,0,0,0); // Reset Route if starts with same Route
 	return filename;
 	
 }
@@ -539,6 +713,13 @@ void LogbookHTML::toCSV(wxString path)
 	
 	wxFileOutputStream output( path );
 	wxTextOutputStream csvFile(output);
+
+	for(int n = 0; n < parent->numPages; n++)
+	{
+		for(int i = 0; i < parent->logGrids[n]->GetNumberCols(); i++)
+			csvFile << parent->logGrids[n]->GetColLabelValue(i)+_T(",");
+	}
+	csvFile << _T("\n");
 
 	while(wxString line = stream->ReadLine())
 	{
@@ -587,6 +768,20 @@ void LogbookHTML::toXML(wxString path)
 		::wxRemoveFile(path);
 
 	xmlFile << parent->xmlHead;
+
+	s = wxString::Format(_T("<Row>"));//,parent->m_gridGlobal->GetRowHeight(count++));
+	for(int n = 0; n < parent->numPages; n++)
+	{
+		for(int i = 0; i < parent->logGrids[n]->GetNumberCols(); i++)
+		{
+			s += _T("<Cell>\n");
+			s += _T("<Data ss:Type=\"String\">#DATA#</Data>\n");
+			s.Replace(_T("#DATA#"),parent->logGrids[n]->GetColLabelValue(i));
+			s += _T("</Cell>");
+		}
+	}
+	s += _T("</Row>>");
+	xmlFile << s;
 
 	while(wxString line = stream->ReadLine())
 	{
@@ -675,7 +870,7 @@ void LogbookHTML::toODS(wxString path)
 
 			txt << _T("<table:table-cell office:value-type=\"string\">");
 
-			wxStringTokenizer str(s, _T("\n"));
+			wxStringTokenizer str(s, _T("\t"));
 			while(str.HasMoreTokens())
 			{
 				wxString e = str.GetNextToken();

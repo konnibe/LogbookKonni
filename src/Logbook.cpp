@@ -31,6 +31,8 @@
 
 #include <math.h>
 
+//#define PBVE_DEBUG 1
+
 Logbook::Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString layoutODT)
 : LogbookHTML(this,parent,data,layout)
 {
@@ -73,7 +75,6 @@ Logbook::Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString
 	guardChange = false;
 	dLastMinute = -1;
 	oldPosition.latitude = 500;
-
 }
 
 Logbook::~Logbook(void)
@@ -103,6 +104,19 @@ void Logbook::SetSentence(wxString &sentence)
 {
 	wxDateTime dt;
 	m_NMEA0183 << sentence;
+
+#ifdef PBVE_DEBUG
+	static int pbve = 0;
+	if(sentence.Contains(_T("$PBVE")))
+	{
+		if(pvbe != NULL && pbve < 15)
+		{
+			pvbe->m_textCtrlPVBE->AppendText(sentence);
+			pvbe->SetFocus();
+			pbve++;
+		}
+	}
+#endif
 
 	if(m_NMEA0183.PreParse())
     {
@@ -173,11 +187,12 @@ void Logbook::SetSentence(wxString &sentence)
 
 					sSOG = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Rmc.SpeedOverGroundKnots,opt->speed.c_str());
 					sCOG = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue, opt->Deg.c_str());
-					
-					bCOW = true;
-					dCOG = m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue;
 
-					dt.ParseDate(m_NMEA0183.Rmc.Date);
+					long day,month,year;
+					m_NMEA0183.Rmc.Date.SubString(0,1).ToLong(&day);
+					m_NMEA0183.Rmc.Date.SubString(2,3).ToLong(&month);
+					m_NMEA0183.Rmc.Date.SubString(4,5).ToLong(&year);
+					dt.Set(((int)day),(wxDateTime::Month)(month-1),((int)year+2000));
 					dt.ParseTime(dt.ParseFormat(m_NMEA0183.Rmc.UTCTime,_T("%H%M%S")));
 
 					setDateTimeString(dt);
@@ -220,29 +235,32 @@ void Logbook::SetSentence(wxString &sentence)
 			}
             else if(m_NMEA0183.LastSentenceIDReceived == _T("DBT"))
             {			
-					  bool error;
-
 					  m_NMEA0183.Parse();
-					  if(m_NMEA0183.Dbt.ErrorMessage.Contains(_T("Invalid")))
-						  error = true;
+					  if(m_NMEA0183.Dbt.ErrorMessage.Contains(_T("Invalid")) ||
+						  (m_NMEA0183.Dbt.DepthMeters == m_NMEA0183.Dbt.DepthFathoms))
+					  {
+						 // wxMessageBox(sentence+wxString::Format(_T("\nMeter %f\nFeet %f\nFathoms %f"),m_NMEA0183.Dbt.DepthMeters,
+						//	  m_NMEA0183.Dbt.DepthFeet,m_NMEA0183.Dbt.DepthFathoms));
+						sDepth = _T("-----");
+					  }
 					  else
-						  error = false;
-
-					  switch(opt->showDepth)
-						{
-						case 0:
-							sDepth = wxString::Format(_T("%5.1f %s"), 
-								(error)?-1:m_NMEA0183.Dbt.DepthMeters, opt->meter.c_str());
-							break;
-						case 1:
-							sDepth = wxString::Format(_T("%5.1f %s"), 
-								(error)?-1:m_NMEA0183.Dbt.DepthFeet, opt->feet.c_str());
-							break;
-						case 2:
-							sDepth = wxString::Format(_T("%5.1f %s"), 
-								(error)?-1:m_NMEA0183.Dbt.DepthFathoms, opt->fathom.c_str());
+					  {
+						switch(opt->showDepth)
+							{
+							case 0:
+								sDepth = wxString::Format(_T("%5.1f %s"), 
+									m_NMEA0183.Dbt.DepthMeters, opt->meter.c_str());
+								break;
+							case 1:
+								sDepth = wxString::Format(_T("%5.1f %s"), 
+									m_NMEA0183.Dbt.DepthFeet, opt->feet.c_str());
+								break;
+							case 2:
+								sDepth = wxString::Format(_T("%5.1f %s"), 
+									m_NMEA0183.Dbt.DepthFathoms, opt->fathom.c_str());
 							break;
 						}
+					  }
 			}
 	}
 	m_NMEA0183.Dbt.ErrorMessage = _T("");
@@ -252,8 +270,21 @@ void Logbook::SetSentence(wxString &sentence)
 void Logbook::setDateTimeString(wxDateTime dt)
 {
 	mUTCDateTime = dt;
+	bool goLocal = false;
 
-	if(opt->local)
+	if(opt->gpsAuto)
+	{
+		if(newPosition.WEflag == 'E')
+			opt->tzIndicator = 1;
+		else
+			opt->tzIndicator = 0;
+
+		int tz = ((int)newPosition.longitude) % 15;
+		if(!tz)
+			opt->tzHour = ((int)newPosition.longitude) / 15;
+		goLocal = true;
+	}
+	if(opt->local || goLocal)
 	{
 		wxTimeSpan span(opt->tzHour, 0, 0, 0);
 		if(opt->tzIndicator == 0)
@@ -261,7 +292,7 @@ void Logbook::setDateTimeString(wxDateTime dt)
 		else
 			mCorrectedDateTime = mUTCDateTime - span;
 	}
-	else
+	if(opt->UTC)
 		mCorrectedDateTime = mUTCDateTime;
 
 	sDate = mCorrectedDateTime.FormatDate();
@@ -280,7 +311,10 @@ void Logbook::setPositionString(double dLat, int iNorth, double dLon, int iEast)
     lat = lat_deg + (lat_min/60.);
     if(iNorth== South)
            lat = -lat;
-	sLat = this->toSDMM(1,lat, true);
+	if(opt->traditional)
+		sLat = this->toSDMM(1,lat, true);
+	else
+		sLat = this->toSDMMOpenCPN(1,lat, true);
 
 	float lln = dLon;
     int lon_deg_int = (int)(lln / 100);
@@ -289,7 +323,10 @@ void Logbook::setPositionString(double dLat, int iNorth, double dLon, int iEast)
     lon = lon_deg + (lon_min/60.);
     if(iEast == West)
           lon = -lon;
-	sLon = this->toSDMM(2,lon, false);
+	if(opt->traditional)
+		sLon = this->toSDMM(2,lon, false);
+	else
+		sLon = this->toSDMMOpenCPN(2,lon, true);
 
 	gpsStatus = true;
 	dialog->GPSTimer->Start(5000);
@@ -429,9 +466,9 @@ void Logbook::clearAllGrids()
 {
 	if(dialog->m_gridGlobal->GetNumberRows() > 0)
 	{
-		dialog->m_gridGlobal->DeleteRows(0,dialog->m_gridGlobal->GetNumberRows());
-		dialog->m_gridWeather->DeleteRows(0,dialog->m_gridWeather->GetNumberRows());
-		dialog->m_gridMotorSails->DeleteRows(0,dialog->m_gridMotorSails->GetNumberRows());
+		dialog->m_gridGlobal->DeleteRows(0,dialog->m_gridGlobal->GetNumberRows(),false);
+		dialog->m_gridWeather->DeleteRows(0,dialog->m_gridWeather->GetNumberRows(),false);
+		dialog->m_gridMotorSails->DeleteRows(0,dialog->m_gridMotorSails->GetNumberRows(),false);
 	}
 }
 
@@ -441,10 +478,6 @@ void Logbook::loadData()
 
 	dialog->selGridCol = dialog->selGridRow = 0;
 	title = _("Active Logbook");
-
-	dialog->m_gridGlobal->GetGridWindow()->Freeze();
-	dialog->m_gridWeather->GetGridWindow()->Freeze();
-	dialog->m_gridMotorSails->GetGridWindow()->Freeze();
 
 	clearAllGrids();
 
@@ -553,9 +586,7 @@ void Logbook::loadData()
 		row = dialog->logGrids[i]->GetNumberRows()-1;
 		dialog->logGrids[i]->MakeCellVisible(row,0);
 	}
-	dialog->m_gridGlobal->GetGridWindow()->Thaw();
-	dialog->m_gridWeather->GetGridWindow()->Thaw();
-	dialog->m_gridMotorSails->GetGridWindow()->Thaw();
+
 	dialog->selGridRow = 0; dialog->selGridCol = 0;
 }
 
@@ -573,20 +604,12 @@ void Logbook::switchToActuellLogbook()
 void Logbook::appendRow(bool mode)
 {
 	wxString s;
-//	int x,y,xMotor,yMotor,xWeather, yWeather;
 
 	checkGPS();
 
 	if(noAppend) return;
 	modified = true;
 
-/*	if(!mode)
-	{
-		dialog->m_gridGlobal->GetScrollHelper()->GetViewStart(&x, &y);
-		dialog->m_gridWeather->GetScrollHelper()->GetViewStart(&xWeather, &yWeather);
-		dialog->m_gridMotorSails->GetScrollHelper()->GetViewStart(&xMotor, &yMotor);
-	}
-	*/
 	wxFileName fn(logbookFile->GetName());
 	if(fn.GetName() != (_T("logbook")))
 	{
@@ -621,8 +644,6 @@ Please create a new logbook to minimize the loadingtime.\n\nIf you have a runnin
 	{
 			dialog->logGrids[i]->AppendRows();
 	}
-
-	dialog->setCellAlign(lastRow);
 
 	if(lastRow > 0)
 		{
@@ -666,6 +687,7 @@ Please create a new logbook to minimize the loadingtime.\n\nIf you have a runnin
 	dialog->logGrids[0]->SetCellValue(lastRow,13,sLogText);
 
 	changeCellValue(lastRow, 0,1);
+	dialog->setCellAlign(lastRow);
 	dialog->setEqualRowHeight(lastRow);
 
 	dialog->m_gridGlobal->SetReadOnly(lastRow,6); 
@@ -679,13 +701,6 @@ Please create a new logbook to minimize the loadingtime.\n\nIf you have a runnin
 		dialog->m_gridWeather->MakeCellVisible(lastRow,0);
 		dialog->m_gridMotorSails->MakeCellVisible(lastRow,0);
 	}
-/*	else
-	{
-		dialog->m_gridGlobal->GetScrollHelper()->Scroll(x,y);
-		dialog->m_gridWeather->GetScrollHelper()->Scroll(xWeather,yWeather);
-		dialog->m_gridMotorSails->GetScrollHelper()->Scroll(xMotor,yMotor);
-	}
-	*/
 }
 
 void Logbook::checkCourseChanged()
@@ -712,7 +727,6 @@ void Logbook::checkCourseChanged()
 				opt->courseTextAfterMinutes.ToLong(&min);
 				wxTimeSpan t(0,(int)min);
 				dt.Add(t);
-//				wxMessageBox(this->mCorrectedDateTime.FormatTime()+_("  ")+dt.FormatTime());
 			}
 			
 
@@ -782,10 +796,10 @@ void Logbook::checkDistance()
 
 	if(sm >= opt->dEverySM)
 	{
-		oldPosition = newPosition;
 		everySM = true;	
 		appendRow(false);
 		everySM = false;
+		oldPosition = newPosition;
 	}
 }
 
@@ -809,32 +823,10 @@ wxString Logbook::getWake()
 
 			dtstart.ParseTime(start);
 			dtend.ParseTime(end);
-/*
-			bool b = false;
-			wxString nodate =now.FormatDate();
-			wxString noetime = now.FormatTime();
-			wxString dtstartdate = dtstart.FormatDate();
-			wxString dstarttime = dtstart.FormatTime();
-			wxString dtenddate = dtend.FormatDate();
-			wxString dtendtie = dtend.FormatTime();
-*/
+
 			wxDateSpan sp(0,0,0,1);
 			if((dtstart.GetHour() > dtend.GetHour())) 
-			{			
-//					b = true;				
-//				wxMessageBox(_("now ")+nodate+_("  ")+noetime+_T("\n")+_T("start ")+dtstartdate+_("  ")+dstarttime+_T("\n")+_T("end ")+dtenddate+_("  ")+dtendtie+_T("\n")+((b)?_("TRUE"):_("FALSE")),_("Vergleich"));
-
 					dtend.Add(sp);
-/*			nodate =now.FormatDate();
-			noetime = now.FormatTime();
-			dtstartdate = dtstart.FormatDate();
-			dstarttime = dtstart.FormatTime();
-			dtenddate = dtend.FormatDate();
-			dtendtie = dtend.FormatTime();
-								wxMessageBox(_("now ")+nodate+_("  ")+noetime+_T("\n")+_T("start ")+dtstartdate+_("  ")+dstarttime+_T("\n")+_T("end ")+dtenddate+_("  ")+dtendtie+_T("\n")+((b)?_("TRUE"):_("FALSE")),_("nach Vergleich"));
-*/
-
-			}
 
 			if(now >= dtstart && now <= dtend)
 			{	
@@ -842,15 +834,6 @@ wxString Logbook::getWake()
 					name += _T("\n");
 				name += dialog->m_gridCrewWake->GetCellValue(r,1)+ _T(" ") + dialog->m_gridCrewWake->GetCellValue(r,0);
 				count++;
-/*
-			nodate =now.FormatDate();
-			noetime = now.FormatTime();
-			dtstartdate = dtstart.FormatDate();
-			dstarttime = dtstart.FormatTime();
-			dtenddate = dtend.FormatDate();
-			dtendtie = dtend.FormatTime();
-			wxMessageBox(_("now ")+nodate+_("  ")+noetime+_T("\n")+_T("start ")+dtstartdate+_("  ")+dstarttime+_T("\n")+_T("end ")+dtenddate+_("  ")+dtendtie+_T("\n")+((b)?_("TRUE"):_("FALSE   ")+name));
-*/
 			}
 			dtend = mCorrectedDateTime;
 		}
@@ -872,17 +855,27 @@ wxString Logbook::calculateDistance(wxString fromstr, wxString tostr)
 	wxStringTokenizer tkzto(tostr, _T("\n"));
 	sLatto = tkzto.GetNextToken();
 	sLonto = tkzto.GetNextToken();
-	
-	fromlat = positionStringToDezimal(sLat) * (PI/180);
-	fromlon = positionStringToDezimal(sLon)* (PI/180);
-	tolat = positionStringToDezimal(sLatto)* (PI/180);
-	tolon = positionStringToDezimal(sLonto)* (PI/180);
+
+	if(opt->traditional)
+	{
+		fromlat = positionStringToDezimal(sLat)* (PI/180);
+		fromlon = positionStringToDezimal(sLon)* (PI/180);
+		tolat = positionStringToDezimal(sLatto)* (PI/180);
+		tolon = positionStringToDezimal(sLonto)* (PI/180);
+	}
+	else
+	{
+		fromlat = positionStringToDezimalModern(sLat)* (PI/180);
+		fromlon = positionStringToDezimalModern(sLon)* (PI/180);
+		tolat = positionStringToDezimalModern(sLatto)* (PI/180);
+		tolon = positionStringToDezimalModern(sLonto)* (PI/180);
+	}
 
 ///////
 sm = acos(cos(fromlat)*cos(fromlon)*cos(tolat)*cos(tolon) + 
 		  cos(fromlat)*sin(fromlon)*cos(tolat)*sin(tolon) + sin(fromlat)*sin(tolat)) * 3443.9;
 ////// code snippet from http://www2.nau.edu/~cvm/latlongdist.html#formats
-if(sm < 0) wxMessageBox(sLat+ sLon+ sLatto+ sLonto);
+
 	return wxString::Format(_T("%.2f %s"),sm,opt->distance.c_str());
 }
 
@@ -903,6 +896,22 @@ wxDouble Logbook::positionStringToDezimal(wxString pos)
 	resmin = (resmin/60 + ressec/3600);
 
 	return resdeg + resmin;
+}
+
+wxDouble Logbook::positionStringToDezimalModern(wxString pos)
+{
+	wxDouble resdeg, resmin;
+	wxString temp = pos;
+
+	wxStringTokenizer tkz(pos, _T(" "));
+	temp = tkz.GetNextToken();
+	temp.ToDouble(&resdeg);
+	if(pos.Contains(_T("S"))) resdeg = -resdeg;
+	if(pos.Contains(_T("W"))) resdeg = -resdeg;
+	temp = tkz.GetNextToken();
+	temp.ToDouble(&resmin);
+
+	return resdeg + (resmin/60);
 }
 
 void Logbook::deleteRow(int row)
@@ -929,6 +938,7 @@ void Logbook::changeCellValue(int row, int col, int mode)
 void Logbook::update()
 {
 	if(!modified) return;
+	modified = false;
 
 	wxString s = _T(""), temp;
 
@@ -966,7 +976,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 
 	s = dialog->logGrids[grid]->GetCellValue(row,col);
 
-	if((grid == 0 && (col == 0 || col == 2 || col == 4 || col == 13)) ||
+	if((grid == 0 && (col == 0 || col == 4 || col == 13)) ||
 		(grid == 1 && (col == 7 || col == 8 || col == 9)) ||
 		(grid == 2 && (col == 4 || col == 5 || col == 8)))
 	{
@@ -974,10 +984,42 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 	}
 
 	if(grid == 0 && col == 1 )
-						if(row == dialog->m_gridGlobal->GetNumberRows()-1)
-							dialog->maintenance->checkService(row);
+					{
+						wxDateTime dt;
 
-	if(grid == 0 && col == 5)
+						if(!dt.ParseDate(s))
+						{
+							wxMessageBox(_("Please enter the Date in the format:\n   11/18/2011"));
+							dialog->logGrids[grid]->SetCellValue(row,col,_T(""));
+						}
+						else
+						{
+							dialog->logGrids[grid]->SetCellValue(row,col,dt.FormatDate());
+							if(row == dialog->m_gridGlobal->GetNumberRows()-1)
+								dialog->maintenance->checkService(row);
+						}
+					}
+	else if(grid == 0 && col == 2)
+					{
+						wxDateTime dt;
+						const wxChar* c;
+
+						s = s.Upper();
+						c = dt.ParseTime(s);
+
+						if(!c)
+						{
+							wxMessageBox(_("Please enter the Time in the format:\n   12:30:00PM"));
+							dialog->logGrids[grid]->SetCellValue(row,col,_T(""));
+						}
+						else
+						{
+							dialog->logGrids[grid]->SetCellValue(row,col,dt.FormatTime());
+							if(row == dialog->m_gridGlobal->GetNumberRows()-1)
+								dialog->maintenance->checkService(row);
+						}
+					}
+	else if(grid == 0 && col == 5)
 					{
 						s.Replace(_T(","),_T("."));
 
@@ -995,33 +1037,60 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 							dialog->maintenance->checkService(row);
 					}
 	else if(grid == 0 && col== 7)
-					{
+					{ 
 						if(s != _T("") && !s.Contains(opt->Deg)
 							&& !s.Contains(opt->Min)
 							&& !s.Contains(opt->Sec))
 						{
-							if(s.length() != 16)
+							if(opt->traditional && s.length() != 22)
 							{
-								wxMessageBox(_("Please enter 0544512n0301205e for\n054Deg 45Min 12Sec N 030Deg 12Min 05Sec E"),_("Information"),wxOK);
+								wxMessageBox(_("Please enter 0544512.15n0301205.15e for\n054Deg 45Min 12.15Sec N 030Deg 12Min 05.15Sec E"),_("Information"),wxOK);
 								s = _T("");
+							}
+							else if(!opt->traditional && s.length() != 22)
+							{
+								wxMessageBox(_("Please enter 05445.1234n03012.0504e for\n054Deg 45.1234Min N 030Deg 12.0504Min E"),_("Information"),wxOK);
+								s = _T("");
+							}
+							if(s == _T("")) return;
+
+							if(s.Contains(_T(",")))
+								s.Replace(_T(","),_T("."));
+
+							if(opt->traditional)
+							{
+								wxString temp = s.SubString(0,2)+opt->Deg+_T(" ");
+								temp += s.SubString(3,4) + opt->Min+_T(" ");
+								temp += s.SubString(5,9) + opt->Sec+_T(" ");
+								temp += s.SubString(10,10).Upper() + _T("\n");
+								temp += s.SubString(11,13) + opt->Deg+_T(" ");
+								temp += s.SubString(14,15) + opt->Min+_T(" ");
+								temp += s.SubString(16,20) + opt->Sec+_T(" ");
+								temp += s.SubString(21,21).Upper();
+								s = temp;
 							}
 							else
 							{
 								wxString temp = s.SubString(0,2)+opt->Deg+_T(" ");
-								temp += s.SubString(3,4) + opt->Min+_T(" ");
-								temp += s.SubString(5,6) + opt->Sec+_T(" ");
-								temp += s.SubString(7,7).Upper() + _T("\n");
-								temp += s.SubString(8,10) + opt->Deg+_T(" ");
-								temp += s.SubString(11,12) + opt->Min+_T(" ");
-								temp += s.SubString(13,14) + opt->Sec+_T(" ");
-								temp += s.SubString(15,15).Upper();
+								temp += s.SubString(3,9) + opt->Min+_T(" ");
+								temp += s.SubString(10,10).Upper() + _T("\n");
+								temp += s.SubString(11,13) + opt->Deg+_T(" ");
+								temp += s.SubString(14,20) + opt->Min+_T(" ");
+								temp += s.SubString(21,22).Upper();
 								s = temp;
 							}
 						}
-						if(row != 0)
-							dialog->logGrids[grid]->SetCellValue(row,5,
-							calculateDistance(dialog->logGrids[grid]->GetCellValue(row-1,col),s));
 						dialog->logGrids[grid]->SetCellValue(row,col,s);
+						if(row != 0)
+						{
+							double distTotal,dist ;
+							dialog->logGrids[grid]->SetCellValue(row,5,
+								calculateDistance(dialog->logGrids[grid]->GetCellValue(row-1,col),s));
+							dialog->logGrids[grid]->GetCellValue(row-1,6).ToDouble(&distTotal);
+							dialog->logGrids[grid]->GetCellValue(row,5).ToDouble(&dist);
+							dialog->logGrids[grid]->SetCellValue(row,6,wxString::Format(_T("%9.2f %s"),distTotal+dist,opt->distance.c_str()));
+								
+						}
 					}
 	else if(grid == 0 && col == 8)
 					{
@@ -1061,10 +1130,11 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 								case 2: depth = opt->fathom; break;
 							}
 							s.Replace(_T(","),_T("."));
-							if(s.Contains(opt->meter) || s.Contains(opt->feet) || s.Contains(opt->fathom.c_str()))
+							if(s.Contains(opt->meter) || 
+								s.Contains(opt->feet) || 
+								s.Contains(opt->fathom.c_str()) ||
+								s.Contains(_T("--")))
 							{
-								if(s.Contains(_T("-1")))
-									s.Replace(_T("-1.0"),_T("-----"));
 								dialog->logGrids[grid]->SetCellValue(row,col,s);
 							}
 							else
@@ -1285,7 +1355,7 @@ wxString Logbook::toSDMM ( int NEflag, double a, bool mode )
       short neg = 0;
       int d;
       long m;
-	  long sec;
+	  wxDouble sec;
 
       if ( a < 0.0 )
       {
@@ -1320,8 +1390,7 @@ wxString Logbook::toSDMM ( int NEflag, double a, bool mode )
 					newPosition.latmin   = m / 1000.0;
 					newPosition.WEflag = c;
 
-				  s.Printf ( _T("%03d%02ld%02ld%c"), d, 
-					  m / 1000, sec /*( m % 1000 )*/, c );
+				  s.Printf ( _T("%03d%02ld%05.2f%c"), d, m / 1000, sec , c );
             }
             else if ( NEflag == 2 )
             {
@@ -1336,33 +1405,152 @@ wxString Logbook::toSDMM ( int NEflag, double a, bool mode )
 					newPosition.longitude = d;
 					newPosition.lonmin   = m / 1000.0;
 					newPosition.NSflag = c;
-                  s.Printf ( _T("%03d%02ld%02ld%c"), d,
-					  m / 1000,sec/*( m % 1000 )*/, c );
+					s.Printf ( _T("%03d%02ld%05.2f%c"), d, m / 1000, sec, c );
             }
+      }
+      return s;
+}
+
+wxString Logbook::toSDMMOpenCPN ( int NEflag, double a, bool hi_precision )
+{
+      wxString s;
+      double mpy;
+      short neg = 0;
+      int d;
+      long m;
+      double ang = a;
+      char c = 'N';
+	  int g_iSDMMFormat = 0;
+
+      if ( a < 0.0 )
+      {
+            a = -a;
+            neg = 1;
+      }
+      d = ( int ) a;
+      if ( neg )
+            d = -d;
+      if(NEflag)
+      {
+            if ( NEflag == 1 )
+            {
+                  c = 'N';
+
+                  if ( neg )
+                  {
+                        d = -d;
+                        c = 'S';
+                  }
+            }
+            else if ( NEflag == 2 )
+            {
+                  c = 'E';
+
+                  if ( neg )
+                  {
+                        d = -d;
+                        c = 'W';
+                  }
+            }
+      }
+
+	  switch (g_iSDMMFormat)
+      {
+      case 0:
+            mpy = 600.0;
+            if(hi_precision)
+                  mpy = mpy * 1000;
+
+            m = ( long ) wxRound( ( a - ( double ) d ) * mpy );
+
+            if ( !NEflag || NEflag < 1 || NEflag > 2) //Does it EVER happen?
+            {
+                  if(hi_precision)
+                        s.Printf ( _T ( "%d %02ld.%04ld'" ), d, m / 10000, m % 10000 );
+                  else
+                        s.Printf ( _T ( "%d %02ld.%01ld'" ), d, m / 10,   m % 10 );
+            }
+            else
+            {
+				if(NEflag == 1)
+				{
+					newPosition.posLat = a;
+					newPosition.latitude = d;
+					newPosition.latmin   = m / 1000.0;
+					newPosition.WEflag = c;
+				}
+				else
+				{
+					newPosition.posLon = a;
+					newPosition.longitude = d;
+					newPosition.lonmin   = m / 1000.0;
+					newPosition.NSflag = c;
+				}
+                  if(hi_precision)
+                        s.Printf ( _T ( "%03d%02ld.%04ld%c" ), d, m / 10000, ( m % 10000 ), c );
+                   else
+                        s.Printf ( _T ( "%03d%02ld.%01ld%c" ), d, m / 10,   ( m % 10 ), c );
+            }
+            break;
+      case 1:
+            if (hi_precision)
+                  s.Printf (_T ( "%03.6f" ), ang); //cca 11 cm - the GPX precision is higher, but as we use hi_precision almost everywhere it would be a little too much....
+            else
+                  s.Printf (_T ( "%03.4f" ), ang); //cca 11m
+            break;
+      case 2:
+            m = ( long ) ( ( a - ( double ) d ) * 60 );
+            mpy = 10.0;
+            if (hi_precision)
+                  mpy = mpy * 100;
+            long sec = (long) (( a - ( double ) d - ( ( ( double ) m ) / 60 ) ) * 3600 * mpy);
+
+            if ( !NEflag || NEflag < 1 || NEflag > 2) //Does it EVER happen?
+            {
+                  if(hi_precision)
+                        s.Printf ( _T ( "%d %ld'%ld.%ld\"" ), d, m, sec / 1000, sec % 1000 );
+                  else
+                        s.Printf ( _T ( "%d %ld'%ld.%ld\"" ), d, m, sec / 10, sec % 10 );
+            }
+            else
+            {
+                  if(hi_precision)
+                        s.Printf ( _T ( "%03d %02ld %02ld.%03ld %c" ), d, m, sec / 1000, sec % 1000, c );
+                   else
+                        s.Printf ( _T ( "%03d %02ld %02ld.%ld %c" ), d, m, sec / 10, sec % 10, c );
+            }
+            break;
       }
       return s;
 }
 
 bool Logbook::checkGPS()
 {
+	sLogText = _T("");
+
 	if(gpsStatus)
 	{
+		if(opt->showWindHeading == 1 && !bCOW)
+		{
+			sLogText = _("Wind is set to Heading,\nbut GPS sends no Heading Data.\nWind is set now to Realative to boat\n\n"); 
+			opt->showWindHeading = 0;
+		}
 		if(courseChange)
-			sLogText = opt->courseChangeText+opt->courseChangeDegrees+opt->Deg;
+			sLogText += opt->courseChangeText+opt->courseChangeDegrees+opt->Deg;
 		else if(guardChange)
-			sLogText = opt->guardChangeText;
+			sLogText += opt->guardChangeText;
 		else if(everySM)
-			sLogText = opt->everySMText+opt->everySMAmount+opt->distance;
+			sLogText += opt->everySMText+opt->everySMAmount+opt->distance;
 		else if(dialog->timer->IsRunning())
-			sLogText = opt->ttext;
-		else 
-			sLogText = _T("");
+			sLogText += opt->ttext;
+			
 		return true;
 	}
 	else
 	{
 		sLat = sLon = sDate = sTime = _T("");
 		sCOG = sCOW = sSOG = sSOW = sDepth = sWind = sWindSpeed = _T("");
+		bCOW = false;
 		if(opt->noGPS)
 			sLogText = _("No GPS-Signal !");
 		else
@@ -1405,3 +1593,38 @@ NoAppendDialog::~NoAppendDialog()
 {
 }
 
+////////////////////////////
+// PVBE-DIALOG
+////////////////////////////
+PBVEDialog::PBVEDialog( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxFrame( parent, id, title, pos, size, style )
+{
+	dialog = (LogbookDialog*)parent;
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	
+	wxBoxSizer* bSizer21;
+	bSizer21 = new wxBoxSizer( wxVERTICAL );
+	
+	m_textCtrlPVBE = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE );
+	bSizer21->Add( m_textCtrlPVBE, 1, wxALL|wxEXPAND, 5 );
+	
+	this->SetSizer( bSizer21 );
+	this->Layout();
+	
+	this->Centre( wxBOTH );
+	m_textCtrlPVBE->AppendText(_T("this is a test if you have received PBVE-Sentences\nthey are manufacturer-specific\nit's use is for engine-hours and fuel-consumption\n"));
+}
+
+PBVEDialog::~PBVEDialog()
+{
+	dialog->logbook->pvbe = NULL;
+}
+
+void PBVEDialog::PBVEDialogOnClose(wxCloseEvent &event)
+{
+	dialog->logbook->pvbe = NULL;
+}
+
+void PBVEDialog::OnCloseWindow(wxCloseEvent& ev)
+{
+	dialog->logbook->pvbe = NULL;
+}

@@ -515,6 +515,7 @@ void Maintenance::checkService(int row)
 				date = grid->GetCellValue(r,WARN);
 				dtwarn.ParseDate(date);
 				dtstart.ParseDate(dtstart.Now().FormatDate());
+
 				if(dtstart >= dturgent)
 				{
 					border = 2;
@@ -546,8 +547,9 @@ void Maintenance::checkService(int row)
 				dturgent += spanu;
 				dtwarn = dtstart;
 				dtwarn += spanw;
-				dtstart.ParseDate(dialog->m_gridGlobal->GetCellValue(row,1));
-		//		wxMessageBox(dtstart.FormatDate()+dturgent.FormatDate());
+				dtstart.ParseDate(dtstart.Now().FormatDate());
+//				dtstart.ParseDate(dialog->m_gridGlobal->GetCellValue(row,1));
+
 				if(dtstart >= dturgent )
 				{
 					border = 2;
@@ -579,8 +581,9 @@ void Maintenance::checkService(int row)
 				dturgent += spanu;
 				dtwarn = dtstart;
 				dtwarn += spanw;
-				dtstart.ParseDate(dialog->m_gridGlobal->GetCellValue(row,1));
-		//		wxMessageBox(dtstart.FormatDate()+dturgent.FormatDate());
+				dtstart.ParseDate(dtstart.Now().FormatDate());
+//				dtstart.ParseDate(dialog->m_gridGlobal->GetCellValue(row,1));
+
 				if(dtstart >= dturgent )
 				{
 					border = 2;
@@ -612,8 +615,8 @@ void Maintenance::checkService(int row)
 				dturgent += spanu;
 				dtwarn = dtstart;
 				dtwarn += spanw;
-				dtstart.ParseDate(dialog->m_gridGlobal->GetCellValue(row,1));
-		//		wxMessageBox(dtstart.FormatDate()+dturgent.FormatDate());
+				dtstart.ParseDate(dtstart.Now().FormatDate());
+
 				if(dtstart >= dturgent )
 				{
 					border = 2;
@@ -783,6 +786,7 @@ void Maintenance::setRepairDone(int row)
 {
 	repairs->SetCellValue(row,RPRIORITY,_("0"));
 	setRowBackgroundRepairs(row, white);
+	checkBuyParts();
 }
 
 void Maintenance::setRowBackgroundRepairs(int row, wxColour &c)
@@ -880,6 +884,7 @@ void Maintenance::cellCollChanged(int col, int row)
 			grid->SetCellValue(row,PRIORITY,_T("5"));
 
 		setBuyPartsPriority(grid ,row, PRIORITY, TEXT);
+		//checkService(dialog->m_gridGlobal->GetNumberRows()-1);
 	}
 }
 
@@ -974,7 +979,7 @@ void Maintenance::updateBuyParts()
 	output.Close();
 }
 
-void Maintenance::viewODT(int tab,wxString path,wxString layout,bool mode)
+void Maintenance::viewODT(int tab,wxString path,wxString layout,int mode)
 {
 	wxString locn, fn;
 
@@ -1003,7 +1008,7 @@ void Maintenance::viewODT(int tab,wxString path,wxString layout,bool mode)
 	}
 }
 
-void Maintenance::viewHTML(int tab,wxString path,wxString layout,bool mode)
+void Maintenance::viewHTML(int tab,wxString path,wxString layout,int mode)
 {
 	wxString locn, fn;
 
@@ -1032,7 +1037,7 @@ void Maintenance::viewHTML(int tab,wxString path,wxString layout,bool mode)
 	}
 }
 
-wxString Maintenance::toHTML(int tab,wxString path,wxString layout,bool mode)
+wxString Maintenance::toHTML(int tab,wxString path,wxString layout,int mode)
 {
 	wxString top;
 	wxString header;
@@ -1041,6 +1046,8 @@ wxString Maintenance::toHTML(int tab,wxString path,wxString layout,bool mode)
 
 	wxString layout_loc;
 	wxGrid * grid = NULL;
+
+	wxString savePath = path;
 
 	if(tab == dialog->SERVICE)
 	{
@@ -1065,128 +1072,52 @@ wxString Maintenance::toHTML(int tab,wxString path,wxString layout,bool mode)
 	wxString tempPath = path;
 
 	wxString html = readLayoutHTML(layout_loc,layout);
+	html = replaceLabels(html,grid);
+
 	if(!cutInPartsHTML( html, &top, &header, &middle, &bottom))
 		return _T("");
 
-	wxTextFile* text = setFiles(&tempPath, 1);
-//(wxTextFile* logFile, wxGrid* grid, wxString filenameOut,wxString filenameIn, 
-//		wxString top,wxString header,wxString middle,wxString bottom, bool mode)
+	wxTextFile* text = setFiles(savePath, &tempPath, mode);
+
 	writeToHTML(text,grid,tempPath,layout_loc+layout+_T(".html"), top,header,middle,bottom,mode);
 
 	return tempPath;
-
-/*
-
-	wxArrayInt arrayRows;
-	int selCount = 0;
-	bool selection = false;
-
-	selCount = dialog->m_gridGlobal->GetSelectedRows().Count() ;
-
-	if(selCount > 0)
-	{
-		selection = true;
-		arrayRows = dialog->m_gridGlobal->GetSelectedRows();
-	}
-
-	if(layout == _T(""))
-	{
-		wxMessageBox(_("Sorry, no Layout installed"),_("Information"),wxOK);
-		return _T("");
-	}
-
-	update();
-
-	wxString html = readLayoutHTML(path,layout);
-
-	wxString topHTML;
-	wxString bottomHTML;
-	wxString middleHTML;
-
-	wxString seperatorTop = _T("<!-- Repeat -->");
-	wxString seperatorBottom = _T("<!-- Repeat End -->");
-
-	int indexTop = html.Find(seperatorTop);
-	indexTop += seperatorTop.Len();
-	int indexBottom = html.Find(seperatorBottom);
-	indexBottom += seperatorBottom.Len();
-
-	topHTML = html.substr(0,indexTop);
-	bottomHTML = html.substr(indexBottom);
-	middleHTML = html.substr(indexTop,(indexBottom-indexTop)-seperatorBottom.Len());
-
-	wxString layout_loc;
-	wxGrid * grid = NULL;
-	if(tab == dialog->SERVICE)
-	{
-		path = data_locn;
-		layout_loc = layout_locnService;
-		grid = this->grid;
-	}
-	else if(tab == dialog->REPAIRS)
-	{
-
-		path = data_locnRepairs;
-		layout_loc = layout_locnRepairs;
-		grid = repairs;
-	}
-	else if(tab == dialog->BUYPARTS)
-	{
-		path = this->data_locnBuyParts;
-		layout_loc = layout_locnBuyParts;
-		grid = buyparts;
-	}
-
-	wxString filename = path;
-
-//	wxTextFile *logFile = new wxTextFile(path);
-	if(mode == 0)
-		path.Replace(wxT("txt"),wxT("html"));
-//	else 
-///		path = savePath;
-
-	if(::wxFileExists(path))
-		::wxRemoveFile(path);
-
-	wxFileInputStream input( path );
-//	wxTextInputStream* stream = new wxTextInputStream (input);
-	
-	wxFileOutputStream output( path );
-	wxTextOutputStream htmlFile(output);
-
-	topHTML.Replace(wxT("#TYPE#"),dialog->boatType->GetValue());
-	topHTML.Replace(wxT("#BOATNAME#"),dialog->boatName->GetValue());
-	topHTML.Replace(wxT("#HOMEPORT#"),dialog->homeport->GetValue());
-	topHTML.Replace(wxT("#CALLSIGN#"),dialog->callsign->GetValue());
-	topHTML.Replace(wxT("#REGISTRATION#"),dialog->registration->GetValue());
-	topHTML.Replace(wxT("#LOCATION#"),layout_locn + layout + _T(".html"));
-
-	htmlFile << topHTML;
-
-	wxString newMiddleHTML;
-	if(html.Contains(seperatorTop))
-	{
-		for(int row = 0; row < grid->GetNumberRows(); row++)
-		{
-		  if(tab == dialog->SERVICE)
-		      newMiddleHTML = setPlaceHoldersService(mode, grid, row, middleHTML);
-		  else if(tab == dialog->REPAIRS)
-		      newMiddleHTML = setPlaceHoldersRepairs(mode, repairs, row, middleHTML);
-		  else if(tab == dialog->BUYPARTS)		  
-		      newMiddleHTML = setPlaceHoldersBuyParts(mode, buyparts, row, middleHTML);
-			
-		  htmlFile << newMiddleHTML;
-		  newMiddleHTML.Replace(wxT("\n"),wxT("<br/>"));
-		}
-	}
-	htmlFile << bottomHTML;
-
-	output.Close();
-	return path;
-*/
 }
 
-wxString Maintenance::toODT(int tab,wxString path,wxString layout,bool mode)
+wxString Maintenance::replaceLabels(wxString s, wxGrid *grid)
+{
+	if(grid == this->grid)
+	{
+		s.Replace(_T("#LSERVICE#"),		dialog->m_notebook6->GetPageText(0));
+		s.Replace(_T("#LPRIORITY#"),	grid->GetColLabelValue(0));
+		s.Replace(_T("#LTEXT#"),		grid->GetColLabelValue(1));
+		s.Replace(_T("#LIF#"),			grid->GetColLabelValue(2));
+		s.Replace(_T("#LWARN#"),		grid->GetColLabelValue(3));
+		s.Replace(_T("#LURGENT#"),		grid->GetColLabelValue(4));
+		s.Replace(_T("#LSTART#"),		grid->GetColLabelValue(5));
+		s.Replace(_T("#LACTIVE#"),		grid->GetColLabelValue(6));
+	}
+	else if(grid == repairs)
+	{
+		s.Replace(_T("#LREPAIRS#"),		dialog->m_notebook6->GetPageText(1));
+		s.Replace(_T("#LPRIORITY#"),	grid->GetColLabelValue(0));
+		s.Replace(_T("#LTEXT#"),		grid->GetColLabelValue(1));
+	}
+	else if(grid == buyparts)
+	{
+		s.Replace(_T("#LBUYPARTS#"),	dialog->m_notebook6->GetPageText(2));
+		s.Replace(_T("#LPRIORITY#"),	grid->GetColLabelValue(0));
+		s.Replace(_T("#LCATEGORY#"),	grid->GetColLabelValue(1));
+		s.Replace(_T("#LTITLE#"),		grid->GetColLabelValue(2));
+		s.Replace(_T("#LBUYPARTS#"),	grid->GetColLabelValue(3));
+		s.Replace(_T("#LDATE#"),		grid->GetColLabelValue(4));
+		s.Replace(_T("#LAT#"),			grid->GetColLabelValue(5));
+	}
+
+	return s;
+}
+
+wxString Maintenance::toODT(int tab,wxString path,wxString layout,int mode)
 {
 	wxString top;
 	wxString header;
@@ -1195,6 +1126,8 @@ wxString Maintenance::toODT(int tab,wxString path,wxString layout,bool mode)
 
 	wxString layout_loc;
 	wxGrid * grid = NULL;
+
+	wxString savePath = path;
 
 	if(tab == dialog->SERVICE)
 	{
@@ -1219,132 +1152,18 @@ wxString Maintenance::toODT(int tab,wxString path,wxString layout,bool mode)
 	wxString tempPath = path;
 
 	wxString odt = readLayoutODT(layout_loc,layout);
+	odt = replaceLabels(odt,grid);
+
 	if(!cutInPartsODT( odt, &top, &header,	&middle, &bottom))
 		return _T("");
 
-	wxTextFile* text = setFiles(&tempPath, mode);
+	wxTextFile* text = setFiles(savePath, &tempPath, mode);
 	writeToODT(text,grid,tempPath,layout_loc+layout+_T(".odt"), top,header,middle,bottom,mode);
 
 	return tempPath;
-	/*
-	wxString s, odt;
-
-	if(layout == _T(""))
-	{
-		wxMessageBox(_("Sorry, no Layout installed"),_("Information"),wxOK);
-		return _T("");
-	}
-
-	update();
-
-	odt = readLayoutODT(path,layout);
-
-	int indexTop;
-	int indexBottom;
-	wxString topODT;
-	wxString bottomODT;
-	wxString middleODT;
-
-	wxString middleData = _T("");
-
-	wxString seperatorTop        = wxT("[[");
-	wxString seperatorBottom     = wxT("]]");
-
-	if(odt.Contains(seperatorTop))
-	{
-		indexTop    = odt.Find(seperatorTop);
-		indexBottom = odt.Find(seperatorBottom);
-		topODT				= odt.substr(0,indexTop);
-		topODT				= topODT.substr(0,topODT.find_last_of('<'));
-		bottomODT			= odt.substr(indexBottom+1);
-		bottomODT			= bottomODT.substr(bottomODT.find_first_of('>')+1);
-		middleODT			= odt.substr(indexTop+11);
-		middleODT			= middleODT.substr(0,middleODT.Find(seperatorBottom));
-		middleODT			= middleODT.substr(0,middleODT.find_last_of('<'));
-	}
-	else
-		return _("");
-
-	wxString layout_loc;
-	wxGrid * grid = NULL;
-	if(tab == dialog->SERVICE)
-	{
-		path = data_locn;
-		layout_loc = layout_locnService;
-		grid = this->grid;
-	}
-	else if(tab == dialog->REPAIRS)
-	{
-
-		path = data_locnRepairs;
-		layout_loc = layout_locnRepairs;
-		grid = repairs;
-	}
-	else if(tab == dialog->BUYPARTS)
-	{
-		path = this->data_locnBuyParts;
-		layout_loc = layout_locnBuyParts;
-		grid = buyparts;
-	}
-
-	wxTextFile *logFile = new wxTextFile(path);
-	if(mode == 0)
-		path.Replace(wxT("txt"),wxT("odt"));
-//	else 
-///		path = savePath;
-
-	if(::wxFileExists(path))
-		::wxRemoveFile(path);
-
-	auto_ptr<wxFFileInputStream> in(new wxFFileInputStream(layout_loc + layout + _T(".odt")));
-    wxTempFileOutputStream out(path);
-
-    wxZipInputStream inzip(*in);
-    wxZipOutputStream outzip(out);
-    wxTextOutputStream odtFile(outzip);
-    auto_ptr<wxZipEntry> entry;
-
-    outzip.CopyArchiveMetaData(inzip);
-
-    while (entry.reset(inzip.GetNextEntry()), entry.get() != NULL)
-        if (!entry->GetName().Matches(_T("content.xml")))
-            if (!outzip.CopyEntry(entry.release(), inzip))
-                break;
-
-    in.reset();
-
-    outzip.PutNextEntry(_T("content.xml"));
-
-    odtFile << topODT;
-
-	wxString newMiddleODT;
-	if(odt.Contains(seperatorTop))
-	{
-		for(int row = 0; row < grid->GetNumberRows(); row++)
-		{
-		  if(tab == dialog->SERVICE)
-		      newMiddleODT = setPlaceHoldersService(mode,grid, row, middleODT);
-		  else if(tab == dialog->REPAIRS)
-		      newMiddleODT = setPlaceHoldersRepairs(mode,repairs, row, middleODT);
-		  else if(tab == dialog->BUYPARTS)		  
-		      newMiddleODT = setPlaceHoldersBuyParts(mode,buyparts, row, middleODT);
-		
-		  newMiddleODT.Replace(wxT("\n"),wxT("<text:line-break/>"));
-		
-		  odtFile << newMiddleODT;
-		}
-	}
-
-	odtFile << bottomODT;
-
-	inzip.Eof() && outzip.Close() && out.Commit();
-	logFile->Close();
-
-	return path;
-*/
 }
 
-wxString Maintenance::setPlaceHolders(bool mode, wxGrid *grid, int row, wxString middleODT)
+wxString Maintenance::setPlaceHolders(int mode, wxGrid *grid, int row, wxString middleODT)
 {
 	wxString s;
 
@@ -1358,7 +1177,7 @@ wxString Maintenance::setPlaceHolders(bool mode, wxGrid *grid, int row, wxString
 	return s;
 }
 
-wxString Maintenance::setPlaceHoldersService(bool mode, wxGrid *grid, int row, wxString middleODT)
+wxString Maintenance::setPlaceHoldersService(int mode, wxGrid *grid, int row, wxString middleODT)
 {
 	wxString newMiddleODT;
 
@@ -1374,7 +1193,7 @@ wxString Maintenance::setPlaceHoldersService(bool mode, wxGrid *grid, int row, w
 	return newMiddleODT;
 }
 
-wxString Maintenance::setPlaceHoldersRepairs(bool mode, wxGrid *grid, int row, wxString middleODT)
+wxString Maintenance::setPlaceHoldersRepairs(int mode, wxGrid *grid, int row, wxString middleODT)
 {
 	wxString newMiddleODT;
 
@@ -1385,7 +1204,7 @@ wxString Maintenance::setPlaceHoldersRepairs(bool mode, wxGrid *grid, int row, w
 	return newMiddleODT;
 }
 
-wxString Maintenance::setPlaceHoldersBuyParts(bool mode, wxGrid *grid, int row, wxString middleODT)
+wxString Maintenance::setPlaceHoldersBuyParts(int mode, wxGrid *grid, int row, wxString middleODT)
 {
 	wxString newMiddleODT;
 	newMiddleODT = middleODT;
@@ -1400,12 +1219,18 @@ wxString Maintenance::setPlaceHoldersBuyParts(bool mode, wxGrid *grid, int row, 
 	return newMiddleODT;
 }
 
-wxString Maintenance::replaceNewLine(bool mode, wxString str)
+wxString Maintenance::replaceNewLine(int mode, wxString str)
 {
-	if(mode == 0) // HTML
+	switch(mode)
+	{
+	case 0:
+		 // HTML
 		 str.Replace(wxT("\n"),wxT("<br>"));
-	else // ODT
+		 break;
+	case 1: // ODT
 		 str.Replace(wxT("\n"),wxT("<text:line-break/>"));
+		 break;
+	}
 
 	return str;
 }

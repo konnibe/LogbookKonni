@@ -26,6 +26,8 @@ using namespace std;
 class OverView : public Export
 {
 public:
+	enum gridfields{FLOG, FROUTE, FSTART, FEND, FJOURNEY, FDISTANCE, FETMAL, FBESTETMAL, FSPEED, FBSPEED, FENGINE, FFUEL, FWATER, FWINDDIR, FWIND, FWINDPEAK, 
+					FCURRENTDIR, FCURRENT, FCURRENTPEAK, FWAVE, FWAVEPEAK, FSWELL, FSWELLPEAK, FSAILS, FPATH };
 	OverView(LogbookDialog* d, wxString data, wxString lay, wxString layoutODT);
 	~OverView(void);
 
@@ -36,10 +38,10 @@ public:
 	void setSelectedRow(int row);
 	void gotoRoute();
 	void setLayoutLocation();
-	void viewODT(wxString path,wxString layout,bool mode);
-	void viewHTML(wxString path,wxString layout,bool mode);
-	wxString toODT(wxString path,wxString layout,bool mode);
-	wxString toHTML(wxString path,wxString layout,bool mode);
+	void viewODT(wxString path,wxString layout,int mode);
+	void viewHTML(wxString path,wxString layout,int mode);
+	wxString toODT(wxString path,wxString layout,int mode);
+	wxString toHTML(wxString path,wxString layout,int mode);
 
 	wxString			layout_locn;
 
@@ -47,15 +49,13 @@ private:
 	enum logfields{ROUTE,DATE, TIME, SIGN,WATCH, DISTANCE, DISTANCETOTAL, POSITION, COG, HEADING, SOG, STW, DEPTH,
 					REMARKS, BAROMETER, WIND, WINDFORCE, CURRENT, CURRENTFORCE, WAVE, SWELL, WEATHER,
 					CLOUDS, VISIBILITY, ENGINE, ENGINETOTAL, FUEL, FUELTOTAL, SAILS, REEF,WATER, WATERTOTAL, MREMARKS};
-	enum gridfields{FLOG, FROUTE, FSTART, FEND, FDISTANCE, FETMAL, FBESTETMAL, FENGINE, FFUEL, FWATER, FWINDDIR, FWIND, FWINDPEAK, 
-					FCURRENTDIR, FCURRENT, FCURRENTPEAK, FWAVE, FWAVEPEAK, FSWELL, FSWELLPEAK, FSAILS, FPATH };
 
 	void loadLogbookData(wxString filename, bool colour);
 	void loadAllLogbooks();
 	void writeSumColumn(int row, wxString logbook, wxString path, bool colour);
 	void resetValues();
 	void clearGrid();
-	wxString setPlaceHolders(bool mode, wxGrid *grid, int row, wxString middle);
+	wxString setPlaceHolders(int mode, wxGrid *grid, int row, wxString middle);
 
 	LogbookDialog*		parent;
 	wxGrid*				grid;
@@ -75,12 +75,16 @@ private:
 
 	wxString			startdate;
 	wxString			enddate;
+	wxString			starttime;
+	wxString			endtime;
 	wxString			date;
 	wxString			etmaldate;
 	double				distance;
 	double				etmal;
 	double				bestetmal;
 	double				bestetmaltemp;
+	double				speed;
+	double				speedpeak;
 	int					enginehours;
 	int					enginemin;
 	double				fuel;
@@ -101,6 +105,7 @@ private:
 	int					wavecount;
 	int					swellcount;
 	int					etmalcount;
+	int					speedcount;
 
 	typedef std::map<wxString, int> collection;
 	typedef std::pair<wxString, int> pair;

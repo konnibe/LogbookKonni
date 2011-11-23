@@ -11,7 +11,7 @@
 
 class Options;
 class LogbookDialog;
-
+class PBVEDialog;
 
 class Logbook : public LogbookHTML
 {
@@ -30,7 +30,6 @@ private:
 		double lonmin;
 		char   WEflag;
 				}oldPosition,newPosition;
-
 
 	NMEA0183       		m_NMEA0183;
 	wxString			sLat;
@@ -59,6 +58,7 @@ private:
 	bool				guardChange;
 
 	wxString			toSDMM ( int NEflag, double a, bool mode );
+	wxString			toSDMMOpenCPN ( int NEflag, double a, bool hi_precision );
 	void				setPositionString(double lat,int north, double lon, int east);
 	void				setDateTimeString(wxDateTime s);
 	void				getModifiedCellValue(int grid, int row, int selcol, int col);
@@ -66,6 +66,7 @@ private:
 	void				clearAllGrids();
 	wxString			calculateDistance(wxString fromstr, wxString tostr);
 	wxDouble			positionStringToDezimal(wxString pos);
+	wxDouble			positionStringToDezimalModern(wxString pos);
 	wxString			getWake();
 	void				checkCourseChanged();
 	void				checkGuardChanged();
@@ -83,6 +84,7 @@ public:
 	bool			modified;
 	wxDateTime		mCorrectedDateTime;
 	long			dLastMinute;
+	PBVEDialog*		pvbe;
 
 public:
 	Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString layoutODT);
@@ -144,6 +146,24 @@ class NoAppendDialog : public wxDialog
 		
 		NoAppendDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Information"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 255,130 ), long style = wxDEFAULT_DIALOG_STYLE );
 		~NoAppendDialog();
+	
+};
+////////////////////////////
+// PVBE Dialog
+///////////////////////////
+class PBVEDialog : public wxFrame 
+{
+	private:
+		LogbookDialog* dialog;
+	protected:
+
+	
+	public:
+		virtual void PBVEDialogOnClose( wxCloseEvent& event );
+		void OnCloseWindow(wxCloseEvent& ev);
+		wxTextCtrl* m_textCtrlPVBE;		
+		PBVEDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
+		~PBVEDialog();
 	
 };
 #endif
