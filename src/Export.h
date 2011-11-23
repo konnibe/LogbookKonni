@@ -25,13 +25,13 @@ public:
 	bool cutInPartsHTML(wxString html, wxString* top, wxString* header, wxString* middle, wxString* bottom);
 
 	bool writeToODT(wxTextFile* logFile, wxGrid* grid, wxString filenameOut,wxString filenameIn, 
-		wxString top,wxString header,wxString middle,wxString bottom, bool mode);
+		wxString top,wxString header,wxString middle,wxString bottom, int mode);
 	bool writeToHTML(wxTextFile* logFile, wxGrid* grid, wxString filenameOut,wxString filenameIn, 
-		wxString top,wxString header,wxString middle,wxString bottom, bool mode);
+		wxString top,wxString header,wxString middle,wxString bottom, int mode);
 
-	wxTextFile* setFiles(wxString* path, bool mode);
-	virtual wxString setPlaceHolders(bool mode, wxGrid *grid, int row, wxString middle){ return _T("");}
-	wxString replaceNewLine(bool mode, wxString str);
+	wxTextFile* setFiles(wxString savePath, wxString* path, int mode);
+	virtual wxString setPlaceHolders(int mode, wxGrid *grid, int row, wxString middle){ return _T("");}
+	wxString replaceNewLine(int mode, wxString str);
 
 private:
 	LogbookDialog* dialog;

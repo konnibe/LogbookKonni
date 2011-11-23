@@ -3,6 +3,8 @@
 Options::Options(void)
 {
 	// Global Options
+	traditional = true;
+	modern = false;
 	firstTime = true;
 	dlgWidth = 1010;
 	dlgHeight = 535;
@@ -11,13 +13,13 @@ Options::Options(void)
 	showAllLayouts = true;
 	noGPS = true;
 	colouredMaintenance = true;
-	guardChange = true;
+	guardChange = false;
 	guardChangeText = _("automatic line\nchange of guards");
-	courseChange = true;
+	courseChange = false;
 	courseChangeDegrees = _T("90");
 	courseChangeText = _("automatic line\nchange of course >");
-	courseTextAfterMinutes = _T("45");
-	everySM = true;
+	courseTextAfterMinutes = _T("5");
+	everySM = false;
 	everySMAmount = _T("10");
 	everySMText = _("automatic line\nDistance > ");
 	dCourseChangeDegrees = -1;
@@ -27,6 +29,7 @@ Options::Options(void)
 	timer = false;
 	local = true;
 	UTC = false;
+	gpsAuto = false;
 	tzIndicator = 0;
 	tzHour = 0;
 	thour = _T("0");

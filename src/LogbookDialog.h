@@ -45,11 +45,19 @@
 ///////////////////////////////////////////////////////////////////////////
 
 #define LOGGRIDS 3
-#define DELETE_ROW   500
-#define SELECT_ROUTE 501
-#define MENUSAILS 502
-#define GPSTIMEOUT 5000
 
+#define DELETE_ROW		500
+#define SELECT_ROUTE	501
+#define MENUSAILS		502
+#define SHOWHIDDENCOL   503
+#define HIDDENCOLSEP	504
+#define HIDECOLUMN		506
+#define	MENUTIMER		505
+#define ID_LOGTIMER		510
+#define ID_GPSTIMER		510
+
+#define GPSTIMEOUT 5000
+#define LOGSAVETIME 600000
 ///////////////////////////////////////////////////////////////////////////////
 /// Class LogbookDialog
 ///////////////////////////////////////////////////////////////////////////////
@@ -78,6 +86,8 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		CrewList*		crewList;
 		Maintenance*	maintenance;
 
+		wxImageList *imageList;
+
 		wxNotebook* m_logbook;
 		wxPanel* m_panel2;
 		wxButton* m_button4;
@@ -92,7 +102,6 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		wxStaticLine* m_staticline1;
 		wxNotebook* m_notebook8;
 		wxPanel* m_panel6;
-		wxGrid* m_gridGlobal;
 		wxMenu* m_menu1;
 		wxPanel* m_panel7;
 		wxGrid* m_gridWeather;
@@ -234,6 +243,8 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		wxStaticLine* m_staticline1412;
 		wxStaticText* m_staticText6012;
 		wxCalendarCtrl* m_calendar1;
+		wxStaticBoxSizer* sbSizer6;
+	    wxStaticBoxSizer* sbSizer12;
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void LogbookDialogOnClose( wxCloseEvent& event ) ;
@@ -251,6 +262,8 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		virtual void m_gridGlobalOnGridCellRightClick( wxGridEvent& event ) ;
 		virtual void m_gridGlobalOnGridCmdCellChange( wxGridEvent& event ) ;
 		virtual void m_gridGlobalOnGridSelectCell( wxGridEvent& event ) ;
+		virtual void OnMenuSelectionHideColumn( wxCommandEvent& event );
+		virtual void OnMenuSelectionHideColumnOverView( wxCommandEvent& event );
 		virtual void m_gridGlobalOnKeyDown( wxKeyEvent& event ) ;
 		virtual void m_TimerOnMenuSelection( wxCommandEvent& event ) ;
 		virtual void m_menuItem1OnMenuSelection( wxCommandEvent& event ) ;
@@ -264,7 +277,6 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		virtual void m_gridMotorSailsOnKeyDown( wxKeyEvent& event ) ;
 		virtual void crewAddOnButtonClick( wxCommandEvent& event ) ;
 		virtual void crewSaveOnButtonClick( wxCommandEvent& event ) ;
-//		virtual void test( wxCommandEvent& event ) ;
 		virtual void onButtonClickReloadLayoutsCrew( wxCommandEvent& event ) ;
 		virtual void onButtonClickEditLayoutCrew( wxCommandEvent& event ) ;
 		virtual void onRadioButtonHTMLCrew( wxCommandEvent& event ) ;
@@ -285,6 +297,7 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		virtual void m_gridEquipmentOnGridCellChange( wxGridEvent& event ) ;
 		virtual void m_gridEquipmentOnGridCellRightClick( wxGridEvent& event ) ;
 		virtual void m_menuItem3OnMenuSelection( wxCommandEvent& event ) ;
+		virtual void OnMenuSelectionShowHiddenCols( wxCommandEvent& event );
 		virtual void onButtobClickAddLineService( wxCommandEvent& event ) ;
 		virtual void onButtobClickSaveService( wxCommandEvent& event ) ;
 		virtual void onButtonClickReloadLayoutsServiceHTML( wxCommandEvent& event ) ;
@@ -336,12 +349,15 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		virtual void OnGridCellRightClickOverview( wxGridEvent& event );
 		virtual void OnGridLabelLeftClickOverview( wxGridEvent& event );
 		virtual void OnMenuSelectionGotoRoute( wxCommandEvent& event );
+		virtual void OnMenuSelectionShowHiddenColsOverview( wxCommandEvent& event );
 //		virtual void OnMenuSelectionViewRoute( wxCommandEvent& event );
 		virtual void onButtonClickSelectLogbook( wxCommandEvent& event );
 		virtual void OnRadioButtonActuellLogbook( wxCommandEvent& event );
 		virtual void OnRadioButtonAllLogbooks( wxCommandEvent& event );
 		virtual void onGridCellLeftClickService( wxGridEvent& event );
 		virtual void onGridCellLeftClickBuyParts( wxGridEvent& event );
+
+		virtual void m_menu1Highlighted(wxMenuEvent& event);
 
 /*		virtual void onButtobClickAddLineMaintenance( wxCommandEvent& event ) ;
 		virtual void onButtobClickSaveMaintenance( wxCommandEvent& event ) ;
@@ -364,6 +380,7 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 enum maintenanceTab {SERVICE,REPAIRS,BUYPARTS};
 enum FORMAT {HTML,ODT};
 
+		wxGrid* m_gridGlobal;
 		wxButton* m_buttonReloadLayout;
 		wxButton* m_buttonEditLayout;
 		wxRadioButton* m_radioBtnHTML;
@@ -446,7 +463,6 @@ enum FORMAT {HTML,ODT};
 			m_splitter1->Disconnect( wxEVT_IDLE, wxIdleEventHandler( LogbookDialog::m_splitter1OnIdle ), NULL, this );
 		}
 
-		void writeToLogbook();
 		void setTitleExt();
 		wxString replaceDangerChar(wxString s);
 		wxString restoreDangerChar(wxString s);
@@ -457,6 +473,7 @@ enum FORMAT {HTML,ODT};
 		void setEqualRowHeight(int row);
 		void init();
 		void OnTimerGPS(wxTimerEvent& ev);
+		void OnLogTimer(wxTimerEvent& ev);
 		int  showLayoutDialog(wxChoice *choice, wxString location, int format);
 		void filterLayout(wxChoice *choice, wxString location, int format);
 		bool isInArrayString(wxArrayString ar, wxString s);
@@ -472,6 +489,7 @@ enum FORMAT {HTML,ODT};
 		wxString			layoutODT;
 		wxTimer*			timer;
 		wxTimer*			GPSTimer;
+		wxTimer*			logbookTimer;
 
 		wxColour			defaultBackground;
 		int					gridGlobalCol;
@@ -499,32 +517,6 @@ enum FORMAT {HTML,ODT};
 
 		wxString			titleExt;
 };
-/*
-class LogGridTable : public wxGridTableBase
-{
-public:
-	LogGridTable(long sizeGridRows, long sizeGridCols) { m_sizeGridRows = sizeGridRows;  m_sizeGridCols = sizeGridCols;}
-//	~LogGridTable();
-
-	bool AppendRows(size_t numRows = 1 ){ return true;}
-    int GetNumberRows() { return m_sizeGridRows; }
-    int GetNumberCols() { return m_sizeGridCols; }
-    wxString GetValue( int row, int col )
-    {
-        return wxString::Format(wxT("(%d, %d)"), row, col);
-    }
-
-    void SetValue( int row, int col, const wxString& s  ) {  ignore  }
-    bool IsEmptyCell( int , int  ) { return false; }
-
-private:
-    long m_sizeGridRows;
-	long m_sizeGridCols;
-
-};
-
-*/
-
 
 ///////////////////////////////////////////////////////////////////////////
 

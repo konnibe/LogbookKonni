@@ -18,6 +18,7 @@ public:
 
 	void addCrew(wxGrid* grid, wxGrid* wake);
 	void changeCrew(wxGrid* grid, int row, int col, int offset);
+	void changeCrewWake(wxGrid* grid, int row, int col, int offset);
 	void saveCSV(wxString path);
 	void saveHTML(wxString path,wxString layout, bool mode);
 	void saveODT(wxString path,wxString layout, bool mode);
@@ -38,7 +39,7 @@ private:
 	void loadData();
 	wxString readLayout(wxString layoutFileName);
 	wxString readLayoutODT(wxString layoutFileName);
-	wxString replacePlaceholder(wxString html, wxString s);
+	wxString replacePlaceholder(wxString html, wxString s, bool ngrid, int row, int col, bool mode);
 
 	bool modified;
 
@@ -55,6 +56,6 @@ private:
 	wxString		ODT_locn;
 
 	enum fields{NAME,BIRTHNAME,FIRSTNAME,TITLE,BIRTHDATE,BIRTHPLACE,NATIONALITY,
-				PASSPORT,EST_IN,EST_ON,ZIP,COUNTRY,TOWN,STREET,
-				WAKESTART1,WAKEEND1,WAKESTART2,WAKEEND2,WAKESTART3,WAKEEND3};
+				PASSPORT,EST_IN,EST_ON,ZIP,COUNTRY,TOWN,STREET};
+	enum fieldsWake{LWNAME,LWFIRSTNAME,WAKESTART1,WAKEEND1,WAKESTART2,WAKEEND2,WAKESTART3,WAKEEND3};
 };

@@ -33,9 +33,10 @@ OverView::OverView(LogbookDialog* d, wxString data, wxString lay, wxString layou
 	collection t_coll;
 	setLayoutLocation();
 	loadAllLogbooks();
-
+/*
 #ifdef __WXMSW__
 	grid->SetColLabelValue( FETMAL, grid->GetColLabelValue(FETMAL)+_T(" Ø") );
+	grid->SetColLabelValue( FSPEED, grid->GetColLabelValue(FSPEED)+_T(" Ø") );
 	grid->SetColLabelValue( FWINDDIR, grid->GetColLabelValue(FWINDDIR)+_T(" Ø") );
 	grid->SetColLabelValue( FWIND, grid->GetColLabelValue(FWIND)+_T(" Ø") );
 	grid->SetColLabelValue( FCURRENTDIR, grid->GetColLabelValue(FCURRENTDIR)+_T(" Ø") );
@@ -43,6 +44,7 @@ OverView::OverView(LogbookDialog* d, wxString data, wxString lay, wxString layou
 	grid->SetColLabelValue( FWAVE, grid->GetColLabelValue(FWAVE)+_T(" Ø") );
 	grid->SetColLabelValue( FSWELL, grid->GetColLabelValue(FSWELL)+_T(" Ø") );
 #endif
+*/
 }
 
 OverView::~OverView(void)
@@ -63,7 +65,7 @@ void OverView::refresh()
 				loadLogbookData(selectedLogbook,false);
 }
 
-void OverView::viewODT(wxString path,wxString layout,bool mode)
+void OverView::viewODT(wxString path,wxString layout,int mode)
 {
 	wxString fn;// = data_locn;
 
@@ -76,7 +78,7 @@ void OverView::viewODT(wxString path,wxString layout,bool mode)
 	}
 }
 
-void OverView::viewHTML(wxString path,wxString layout,bool mode)
+void OverView::viewHTML(wxString path,wxString layout,int mode)
 {
 	wxString fn;// = data_locn;
 
@@ -89,7 +91,7 @@ void OverView::viewHTML(wxString path,wxString layout,bool mode)
 	}
 }
 
-wxString OverView::toODT(wxString path,wxString layout,bool mode)
+wxString OverView::toODT(wxString path,wxString layout,int mode)
 {
 	wxString top;
 	wxString header;
@@ -101,13 +103,13 @@ wxString OverView::toODT(wxString path,wxString layout,bool mode)
 	if(!cutInPartsODT( odt, &top, &header,	&middle, &bottom))
 		return _T("");
 
-	wxTextFile* text = setFiles(&tempPath, mode);
+	wxTextFile* text = setFiles(path, &tempPath, mode);
 	writeToODT(text,parent->m_gridOverview,data_file,layout_locn+layout+_T(".odt"), top,header,middle,bottom,mode);
 
 	return data_file;
 }
 
-wxString OverView::toHTML(wxString path,wxString layout,bool mode)
+wxString OverView::toHTML(wxString path,wxString layout,int mode)
 {
 	wxString top;
 	wxString header;
@@ -119,8 +121,8 @@ wxString OverView::toHTML(wxString path,wxString layout,bool mode)
 	if(!cutInPartsHTML( html, &top, &header, &middle, &bottom))
 		return _T("");
 
-	wxTextFile* text = setFiles(&tempPath, mode);
-	writeToHTML(text,parent->m_gridOverview,data_file,layout_locn+layout+_T(".html"), top,header,middle,bottom,mode);
+	wxTextFile* text = setFiles(path, &tempPath, mode);
+	writeToHTML(text,parent->m_gridOverview,tempPath,layout_locn+layout+_T(".html"), top,header,middle,bottom,mode);
 
 	return data_file;
 }
@@ -242,25 +244,32 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 										write = false;
 
 				break;
-			case DATE:				if(test)
-									{
-										startdate = s;
-										enddate = s;
-									}
-									else
-										enddate = s;
+			case DATE:			if(test)
+								{
+									startdate = s;
+									enddate = s;
+								}
+								else
+									enddate = s;
 
-									if(etmaldate != s)
-									{
-										etmaldate = s;
-										etmalcount++;
-										bestetmaltemp = 0;
-									}
+								if(etmaldate != s)
+								{
+									etmaldate = s;
+									etmalcount++;
+									bestetmaltemp = 0;
+								}
 
 									date = s;
 
 				break;
-			case TIME:				
+			case TIME:			if(test)
+								{
+									starttime = s;
+									endtime = s;
+								}
+								else
+									endtime = s;
+				break;
 			case SIGN:				
 			case WATCH:	
 				break;
@@ -278,8 +287,13 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 			case DISTANCETOTAL:		
 			case POSITION:			
 			case COG:				
-			case HEADING:			
-			case SOG:				
+			case HEADING:	
+				break;
+			case SOG:				s.ToDouble(&x);
+									speed += x;
+									speedcount++;
+									if(x> speedpeak) speedpeak = x;
+				break;
 			case STW:				
 			case DEPTH:				
 			case REMARKS:			
@@ -378,6 +392,8 @@ void OverView::resetValues()
 {
 	startdate =_T("");
 	enddate = _T("");
+	starttime =_T("");
+	endtime = _T("");
 	etmaldate = _T("");
 	etmal = 0;
 	bestetmal = 0;
@@ -385,6 +401,8 @@ void OverView::resetValues()
 	enginehours = 0;
 	enginemin = 0;
 	distance = 0;
+	speed = 0;
+	speedpeak = 0;
 	water = 0;
 	fuel = 0;
 	wind = 0;
@@ -403,6 +421,7 @@ void OverView::resetValues()
 	swellcount = 0;
 	currentcount = 0;
 	etmalcount = 0;
+	speedcount = 0;
 	t_coll.clear();
 }
 
@@ -440,8 +459,34 @@ void OverView::writeSumColumn(int row, wxString logbook, wxString path, bool col
 	grid->SetCellValue(row,FCURRENT,wxString::Format(_T("%6.2f %s"),current/currentcount,d.c_str()));
 	grid->SetCellValue(row,FCURRENTPEAK,wxString::Format(_T("%6.2f %s"),currentpeak,d.c_str()));
 	grid->SetCellValue(row,FENGINE,wxString::Format(_T("%0002i:%02i %s"),enginehours,enginemin,opt->motorh.c_str()));
-	grid->SetColumnWidth(FPATH,0);
+	grid->SetCellValue(row,FSPEED,wxString::Format(_T("%4.2f %s"),speed/speedcount,opt->speed.c_str()));
+	grid->SetCellValue(row,FBSPEED,wxString::Format(_T("%4.2f %s"),speedpeak,opt->speed.c_str()));
 	grid->SetCellValue(row,FPATH,path);
+	wxDateTime startdt, enddt;
+
+	startdt.ParseDate(startdate);
+	startdt.ParseTime(starttime);
+	enddt.ParseDate(enddate);
+	enddt.ParseTime(endtime);
+/*	if(startdate.Contains(_T(".")))
+	{
+		startdt.ParseFormat(startdate+_T(" ")+starttime,_T("%d.%m.%Y %H:%M:%S"));
+		enddt.ParseFormat(enddate+_T(" ")+endtime,_T("%d.%m.%Y %H:%M:%S"));
+	}
+	else
+	{
+		startdt.ParseFormat(startdate+_T(" ")+starttime,_T("%m/%d/%Y %H:%M:%S"));
+		startdt.ParseTime(starttime);
+		enddt.ParseFormat(enddate+_T(" ")+endtime,_T("%m/%d/%Y %H:%M:%S"));
+		enddt.ParseTime(endtime);
+	}
+*/
+//	wxMessageBox(startdt.FormatDate()+_T(" ")+startdt.FormatTime()+_T(" / ")+enddt.FormatDate()+_T(" ")+enddt.FormatTime());
+
+	wxTimeSpan journey = enddt.Subtract(startdt);
+	grid->SetCellValue(row,FJOURNEY,journey.Format(_T("%D Days %H:%M "))+opt->motorh);
+
+//	wxMessageBox(wxString::Format(_T("%i Days %iH:%iM"),journey.GetDays(),journey.GetHours(),journey.GetMinutes()));
 
 	int max = 0;wxString result;
 	collection::iterator it;
@@ -506,24 +551,30 @@ void OverView::gotoRoute()
 
 }
 
-wxString OverView::setPlaceHolders(bool mode, wxGrid *grid, int row, wxString middle)
+wxString OverView::setPlaceHolders(int mode, wxGrid *grid, int row, wxString middle)
 {
 	wxString newMiddleODT = middle;
 
 	newMiddleODT.Replace(wxT("#FLOG#"),replaceNewLine(mode,grid->GetCellValue(row,FLOG)));
-	newMiddleODT.Replace(wxT("#FLOG#"),grid->GetTable()->GetColLabelValue(FLOG));
+	newMiddleODT.Replace(wxT("#LLOG#"),grid->GetTable()->GetColLabelValue(FLOG));
 	newMiddleODT.Replace(wxT("#FROUTE#"),replaceNewLine(mode,grid->GetCellValue(row,FROUTE)));
 	newMiddleODT.Replace(wxT("#LROUTE#"),grid->GetTable()->GetColLabelValue(FROUTE));
 	newMiddleODT.Replace(wxT("#FSTART#"),replaceNewLine(mode,grid->GetCellValue(row,FSTART)));
 	newMiddleODT.Replace(wxT("#LSTART#"),grid->GetTable()->GetColLabelValue(FSTART));
 	newMiddleODT.Replace(wxT("#FEND#"),replaceNewLine(mode,grid->GetCellValue(row,FEND)));
 	newMiddleODT.Replace(wxT("#LEND#"),grid->GetTable()->GetColLabelValue(FEND));
+	newMiddleODT.Replace(wxT("#FJOURNEY#"),replaceNewLine(mode,grid->GetCellValue(row,FJOURNEY)));
+	newMiddleODT.Replace(wxT("#LJOURNEY#"),grid->GetTable()->GetColLabelValue(FJOURNEY));
 	newMiddleODT.Replace(wxT("#FDISTANCE#"),replaceNewLine(mode,grid->GetCellValue(row,FDISTANCE)));
 	newMiddleODT.Replace(wxT("#LDISTANCE#"),grid->GetTable()->GetColLabelValue(FDISTANCE));
 	newMiddleODT.Replace(wxT("#FETMAL#"),replaceNewLine(mode,grid->GetCellValue(row,FETMAL)));
 	newMiddleODT.Replace(wxT("#LETMAL#"),grid->GetTable()->GetColLabelValue(FETMAL));
 	newMiddleODT.Replace(wxT("#FBESTETMAL#"),replaceNewLine(mode,grid->GetCellValue(row,FBESTETMAL)));
 	newMiddleODT.Replace(wxT("#LBESTETMAL#"),grid->GetTable()->GetColLabelValue(FBESTETMAL));
+	newMiddleODT.Replace(wxT("#FSPEED#"),replaceNewLine(mode,grid->GetCellValue(row,FSPEED)));
+	newMiddleODT.Replace(wxT("#LSPEED#"),grid->GetTable()->GetColLabelValue(FSPEED));
+	newMiddleODT.Replace(wxT("#FBSPEED#"),replaceNewLine(mode,grid->GetCellValue(row,FBSPEED)));
+	newMiddleODT.Replace(wxT("#LBSPEED#"),grid->GetTable()->GetColLabelValue(FBSPEED));
 
 	newMiddleODT.Replace(wxT("#FENGINE#"),replaceNewLine(mode,grid->GetCellValue(row,FENGINE)));
 	newMiddleODT.Replace(wxT("#LENGINE#"),grid->GetTable()->GetColLabelValue(FENGINE));

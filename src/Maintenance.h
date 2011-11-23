@@ -47,14 +47,14 @@ public:
 	void updateBuyParts();
 	void buyParts(int i);
 	void setLayoutLocation();
-	wxString toODT(int tab,wxString path,wxString layout,bool mode);
-	void viewODT(int tab,wxString path,wxString layout,bool mode);
-	wxString toODTRepairs(wxString path,wxString layout,bool mode);
-	void viewODTRepairs(wxString path,wxString layout,bool mode);
-	wxString toODTBuyParts(wxString path,wxString layout,bool mode);
-	void viewODTBuyParts(wxString path,wxString layout,bool mode);
-	void viewHTML(int tab,wxString path,wxString layout,bool mode);
-	wxString toHTML(int tab,wxString path,wxString layout,bool mode);
+	wxString toODT(int tab,wxString path,wxString layout,int mode);
+	void viewODT(int tab,wxString path,wxString layout,int mode);
+	wxString toODTRepairs(wxString path,wxString layout,int mode);
+	void viewODTRepairs(wxString path,wxString layout,int mode);
+	wxString toODTBuyParts(wxString path,wxString layout,int mode);
+	void viewODTBuyParts(wxString path,wxString layout,int mode);
+	void viewHTML(int tab,wxString path,wxString layout,int mode);
+	wxString toHTML(int tab,wxString path,wxString layout,int mode);
 	void showDateDialog( int row, int col, wxGrid* grid);
 
 	wxGrid*		grid;
@@ -89,11 +89,12 @@ private:
 	void setAlignmentBuyParts();
 	void setBuyPartsPriority(wxGrid *grid ,int row, int col, int text);
 	wxString readLayoutHTML(wxString path,wxString layout);
-	wxString setPlaceHolders(bool mode, wxGrid *grid, int row, wxString middleODT);
-	wxString setPlaceHoldersService(bool mode, wxGrid *grid, int row, wxString middleODT);
-	wxString setPlaceHoldersRepairs(bool mode, wxGrid *grid, int row, wxString middleODT);
-	wxString setPlaceHoldersBuyParts(bool mode, wxGrid *grid, int row, wxString middleODT);
-	wxString replaceNewLine(bool mode, wxString str);
+	wxString setPlaceHolders(int mode, wxGrid *grid, int row, wxString middleODT);
+	wxString setPlaceHoldersService(int mode, wxGrid *grid, int row, wxString middleODT);
+	wxString setPlaceHoldersRepairs(int mode, wxGrid *grid, int row, wxString middleODT);
+	wxString setPlaceHoldersBuyParts(int mode, wxGrid *grid, int row, wxString middleODT);
+	wxString replaceLabels(wxString s, wxGrid* grid);
+	wxString replaceNewLine(int mode, wxString str);
 
 	wxColour green;
 	wxColour red;
