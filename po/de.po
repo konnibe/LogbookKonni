@@ -2,1794 +2,46 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-23 02:07+0100\n"
-"PO-Revision-Date: 2011-11-23 02:44+0100\n"
+"POT-Creation-Date: 2011-11-25 01:45+0100\n"
+"PO-Revision-Date: 2011-11-25 01:37+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
-"X-Poedit-Basepath: C:\\Dokumente und Einstellungen\\Konni.MICKY-6B710455C\\Eigene Dateien\\Visual Studio 2008\\Projects\\opencpn\\plugins\\LogbookKonni_pi\\src\n"
+"X-Poedit-Basepath: C:\\Dokumente und Einstellungen\\Konni.MICKY-6B710455C"
+"\\Eigene Dateien\\Visual Studio 2008\\Projects\\opencpn\\plugins"
+"\\LogbookKonni_pi\\src\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-Language: German\n"
 "X-Poedit-Country: GERMANY\n"
 "X-Poedit-SearchPath-0: .\n"
-
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/boat.cpp:246
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/boat.cpp:500
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/CrewList.cpp:238
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/CrewList.cpp:523
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:113
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:541
-msgid "Sorry, no Layout installed"
-msgstr "Sorry, kein Layout installiert"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/boat.cpp:246
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/boat.cpp:500
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/CrewList.cpp:238
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/CrewList.cpp:523
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/CrewList.cpp:795
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:630
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:1047
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:1052
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:113
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:193
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:358
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:541
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:707
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:760
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:893
-msgid "Information"
-msgstr "Info"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/boat.cpp:765
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/CrewList.cpp:754
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:919
-#, c-format
-msgid "Delete Row Nr. %i ?"
-msgstr "Lösche Zeile Nr. %i ?"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/boat.cpp:765
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/CrewList.cpp:754
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:919
-msgid "Confirm"
-msgstr "Bestätige"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/CrewList.cpp:180
-msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45:00 PM"
-msgstr "Bitte 4 Zahlen im 24h-Format eingeben z.B. 1545 = 15:45:00"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/CrewList.cpp:277
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/CrewList.cpp:293
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/CrewList.cpp:585
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/CrewList.cpp:622
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:567
-msgid "from"
-msgstr "vom"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/CrewList.cpp:278
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/CrewList.cpp:294
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/CrewList.cpp:586
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/CrewList.cpp:623
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:568
-msgid "to"
-msgstr "bis"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/CrewList.cpp:476
-msgid "Adress"
-msgstr "Adresse"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/CrewList.cpp:795
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:193
-msgid "Sorry, Logbook has no lines"
-msgstr "Sorry, Logbuch hat keine Einträge"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:345
-msgid "Are you sure ?"
-msgstr "Sind Sie sicher ?"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:345
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:356
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:127
-msgid "New Logbook"
-msgstr "Neues Logbuch"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:349
-msgid "Reset all Values to zero ?"
-msgstr "alle Werte zurücksetzen ?"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:356
-msgid "Your Logbook has no lines ?"
-msgstr "Ihr Logbuch hat keine Zeilen ?"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:404
-msgid "Last line from Logbook\n"
-msgstr "Letzte Zeile aus Logbuch\n"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:412
-msgid "Last Logbook is\n"
-msgstr "letzte Logbuch-Datei ist\n"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:454
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:480
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:599
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:907
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/logbook_pi.cpp:139
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/logbook_pi.cpp:466
-msgid "Active Logbook"
-msgstr "Aktives Logbuch"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:458
-#, c-format
-msgid "Old Logbook until %s"
-msgstr "Altes Logbuch bis %s"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:629
-msgid ""
-"Your Logbook has 800 lines or more\n"
-"\n"
-"Please create a new logbook to minimize the loadingtime.\n"
-"\n"
-"If you have a running timer, it's stopped now !!!"
-msgstr ""
-"Ihr Logbuch hat 800 zeilen oder mehr\n"
-"\n"
-"Bitte erstellen Sie ein neues Logbuch, um Ladezeiten zu verringern.\n"
-"\n"
-"Wenn Sie einen laufenden Timer haben, ist dieser jetzt gestoppt !!!"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:992
-msgid ""
-"Please enter the Date in the format:\n"
-"   11/18/2011"
-msgstr ""
-"Bitte geben Sie das Datum im Format:\n"
-"   11/18/2011 ein."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:1012
-msgid ""
-"Please enter the Time in the format:\n"
-"   12:30:00PM"
-msgstr ""
-"Bitte geben Sie die Zeit im Format:\n"
-"   12:30:00 ein."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:1047
-msgid ""
-"Please enter 0544512.15n0301205.15e for\n"
-"054Deg 45Min 12.15Sec N 030Deg 12Min 05.15Sec E"
-msgstr ""
-"Bitte geben Sie 0544512.15n0301205.15e für\n"
-"054° 45' 12.15\" N \n"
-"030°12' 05.15\" E ein"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:1052
-msgid ""
-"Please enter 05445.1234n03012.0504e for\n"
-"054Deg 45.1234Min N 030Deg 12.0504Min E"
-msgstr ""
-"Bitte geben Sie 05445.1234n03012.0504e für\n"
-"054° 45,1234' N \n"
-"030°12,0504' E ein"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:1236
-msgid ""
-"Please enter like 1.30 or 1,30 or 1:30\n"
-"for 1:30h"
-msgstr ""
-"Bitte geben Sie 1.30 oder 1,30 oder 1:30\n"
-"für 1:30h ein."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:1245
-msgid "Minutes greater than 59"
-msgstr "Minuten sind größer als 59"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:1535
-msgid ""
-"Wind is set to Heading,\n"
-"but GPS sends no Heading Data.\n"
-"Wind is set now to Realative to boat\n"
-"\n"
-msgstr ""
-"Windrichtung wurde auf \"KdW\" gesetzt,\n"
-"erhalte aber keine Daten.\n"
-"Windrichtung wurde auf \"default\" zurückgesetzt\n"
-"\n"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:1555
-msgid "No GPS-Signal !"
-msgstr "kein GPS-Signal"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Logbook.cpp:1575
-msgid ""
-"It's not allowed to append Data to a old Logbook\n"
-"\n"
-"OpenCPN switchs to actuell logbook"
-msgstr ""
-"Es ist nicht gestattet einem alten Logbuch\n"
-"Daten hinzuzufügen\n"
-"\n"
-"Aktuelles Logbuch wird benutzt ! "
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:84
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1128
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1250
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1363
-msgid "Add Line"
-msgstr "Neue Zeile"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:87
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:360
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:535
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:702
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1131
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1253
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1366
-msgid "Save"
-msgstr "Speichern"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:93
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:367
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:541
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:708
-msgid "Select Layout: "
-msgstr "Wähle Route"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:102
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:377
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:550
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:717
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1147
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1269
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1382
-msgid "R"
-msgstr "R"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:103
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:378
-msgid "Reload Layouts"
-msgstr "Layouts neu laden"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:108
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:383
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:553
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:720
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1150
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1272
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1385
-msgid "E"
-msgstr "E"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:109
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:384
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4140
-msgid "Edit Layout"
-msgstr "Layout editieren"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:121
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:396
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:563
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:730
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1160
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1282
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1395
-msgid "View"
-msgstr "Ansehen"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:130
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:413
-msgid "Select Logbook"
-msgstr "Wähle Logbuch"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:177
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:458
-msgid "Route"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:178
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1433
-msgid "Date"
-msgstr "Datum"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:179
-msgid "Time"
-msgstr "Zeit"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:180
-msgid "Sign"
-msgstr "Zeichen"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:181
-msgid "Watch"
-msgstr "Wache"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:182
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:462
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:372
-msgid "Distance"
-msgstr "Distanz"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:183
-msgid "DistanceTotal"
-msgstr "Distanz gesamt"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:184
-msgid "Position"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:185
-msgid "COG (T)"
-msgstr "KüG"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:186
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:98
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:447
-msgid "Heading"
-msgstr "KdW"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:187
-msgid "SOG"
-msgstr "FüG"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:188
-msgid "STW"
-msgstr "FdW"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:189
-msgid "Depth"
-msgstr "Tiefe"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:190
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:320
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1080
-msgid "Remarks"
-msgstr "Noitzen"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:205
-msgid "Timer "
-msgstr "Timer an/aus"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:210
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:631
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1094
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1227
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1340
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1450
-msgid "Delete Row"
-msgstr "Lösche Zeile"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:217
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:504
-msgid "Show hidden columns"
-msgstr "Zeige versteckte Spalten"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:221
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:508
-msgid "Hide column"
-msgstr "Spalte ausblenden"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:231
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:342
-msgid "Navigation"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:259
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:476
-msgid "Barometer"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:260
-msgid "Wind"
-msgstr "Windstärke"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:261
-msgid "W/Strength"
-msgstr "Windstärke"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:262
-msgid "Current"
-msgstr "Strom"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:263
-msgid "C/Strength"
-msgstr "Stromstärke"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:264
-msgid "Wave"
-msgstr "Wellenhöhe"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:265
-msgid "Swell"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:266
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:285
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:470
-msgid "Weather"
-msgstr "Wetter"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:267
-msgid "Clouds"
-msgstr "Wolken"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:268
-msgid "Visibility"
-msgstr "Sicht"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:312
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:467
-msgid "Engine"
-msgstr "Maschine"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:313
-msgid "EngineTotal"
-msgstr "Maschine gesamt"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:314
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:468
-msgid "Fuel"
-msgstr "Treibstoff"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:315
-msgid "FuelTotal"
-msgstr "Treibstoff gesamt"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:316
-msgid "Sails"
-msgstr "Segel"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:317
-msgid "Reef"
-msgstr "Reff"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:318
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:469
-msgid "Water"
-msgstr "Wasser"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:319
-msgid "WaterTotal"
-msgstr "Wasser gesamt"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:337
-msgid "Motor/Sails"
-msgstr "Maschine/Segel"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:344
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:457
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2685
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4291
-msgid "Logbook"
-msgstr "Logbuch"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:403
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4303
-msgid "Actuell Logbook"
-msgstr "Aktuelles Logbuch"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:407
-msgid "All Logbooks"
-msgstr "Alle Logbücher"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:459
-msgid "Start"
-msgstr "Start"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:460
-msgid "End"
-msgstr "Ende"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:461
-msgid "Total Time"
-msgstr "Reisezeit"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:463
-msgid "Distance p. Day"
-msgstr "Distanz p. Tag"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:464
-msgid "Best Dist. p. Day"
-msgstr "Beste Dist. p. Tag"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:465
-msgid "Speed Avg."
-msgstr "Fahrt durchsch."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:466
-msgid "Speed Max."
-msgstr "Fahrt max."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:470
-msgid "Wind from"
-msgstr "Wind von"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:471
-msgid "Wind Avg."
-msgstr "Windstärke durchschn."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:472
-msgid "Wind Max."
-msgstr "Wind max."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:473
-msgid "Current from"
-msgstr "Strom von"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:474
-msgid "Current Avg."
-msgstr "Strom durchsch."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:475
-msgid "Current Max."
-msgstr "Strom max."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:476
-msgid "Wave Avg."
-msgstr "Wellenhöhe durchschn."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:477
-msgid "Wave Max."
-msgstr "Wellen max."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:478
-msgid "Swell Avg."
-msgstr "Swell durchsch."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:479
-msgid "Swell Max."
-msgstr "Swell max."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:480
-msgid "Sails used mostly"
-msgstr "Segel meistens"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:497
-msgid "Goto Route"
-msgstr "Gehe zu Route"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:516
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3755
-msgid "Overview"
-msgstr "Übersicht"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:532
-msgid "Add Crew"
-msgstr "neues Crewmitglied"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:604
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:658
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:758
-msgid "Name"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:605
-msgid "Birthname"
-msgstr "Geburtsname"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:606
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:659
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:846
-msgid "Firstname"
-msgstr "Vorname"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:607
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1431
-msgid "Title"
-msgstr "Titel"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:608
-msgid "Date of Birth"
-msgstr "Geburtstag"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:609
-msgid "Place of Birth"
-msgstr "Geburtsort"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:610
-msgid "Nationality"
-msgstr "Nationalität"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:611
-msgid "Passport-Nr"
-msgstr "Pass-Nr."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:612
-msgid "Issued in"
-msgstr "ausgestellt in"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:613
-msgid "Date of Issue"
-msgstr "ausgegeben am"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:614
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:879
-msgid "Zip"
-msgstr "PLZ"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:615
-msgid "Country"
-msgstr "Land"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:616
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:886
-msgid "Town"
-msgstr "Stadt"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:617
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:872
-msgid "Street"
-msgstr "Strasse"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:660
-msgid "Start 1.Watch"
-msgstr "Start 1.Wache"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:661
-msgid "End 1.Watch"
-msgstr "Ende 1. Wache"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:662
-msgid "Start 2.Watch"
-msgstr "Start 2.Wache"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:663
-msgid "End 2.Watch"
-msgstr "Ende 2. Wache"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:664
-msgid "Start 3.Watch"
-msgstr "Start 3.Wache"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:665
-msgid "End 3.Watch"
-msgstr "Ende 3. Wache"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:684
-msgid "Crewlist"
-msgstr "Crewliste"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:699
-msgid "Add Equipment"
-msgstr "Zubehör hinzufügen"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:751
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1111
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3124
-msgid "Boat"
-msgstr "Boot"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:765
-msgid "Homeport"
-msgstr "Heimathafen"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:772
-msgid "Callsign"
-msgstr "Rufzeichen"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:779
-msgid "HIN-Nr."
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:784
-msgid "Hull Identification No."
-msgstr "Rumpf Identifikations-Nr."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:787
-msgid "Sail-Nr."
-msgstr "Segel-Nr."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:800
-msgid "Insurance"
-msgstr "Versicherung"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:807
-msgid "Registration"
-msgstr "Register-Nr."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:814
-msgid "Policy"
-msgstr "Police"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:821
-msgid "MMSI"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:832
-msgid "Owner"
-msgstr "Eigner"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:839
-msgid "Name      "
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:853
-msgid "Telephone"
-msgstr "Telefon"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:898
-msgid "Details"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:905
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1077
-msgid "Type"
-msgstr "Typ"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:912
-msgid "Builder"
-msgstr "Hersteller"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:919
-msgid "Hull"
-msgstr "Rumpf"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:926
-msgid "Date Launched"
-msgstr "Stapellauf"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:933
-msgid "Yard-Nr."
-msgstr "Marina-Nr."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:940
-msgid "Designer"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:947
-msgid "Construction"
-msgstr "Konstruktion"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:972
-msgid "LOA"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:977
-msgid "Length over all"
-msgstr "Länge über alles"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:981
-msgid "LOD"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:986
-msgid "Length over Deck"
-msgstr "Länge über Deck"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:990
-msgid "LWL"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:995
-msgid "Length in Waterline"
-msgstr "Länge in der Wasserlinie"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:999
-msgid "Beam"
-msgstr "Breite"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1004
-msgid "Greatest Width of Hull"
-msgstr "Größte Breite des Rumpfes"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1008
-msgid "Draft"
-msgstr "Tiefgang"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1015
-msgid "GRT"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1020
-msgid "GrossTonnage"
-msgstr "BruttoTonnage"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1024
-msgid "NRT"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1029
-msgid "NetTonnage"
-msgstr "NettoTonnage"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1033
-msgid "Thames"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1040
-msgid "Displacement"
-msgstr "Verdrängung"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1056
-msgid "Equipment"
-msgstr "Zubehör"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1078
-msgid "Description"
-msgstr "Beschreibung"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1079
-msgid "Serial-Nr."
-msgstr "Serien-Nr."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1138
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1260
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1373
-msgid "Select Layout:"
-msgstr "Wähle Layout:"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1194
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1312
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1429
-msgid "Priority"
-msgstr "Priorität"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1195
-msgid "Service TODO"
-msgstr "Service zu erledigen"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1196
-msgid "If"
-msgstr "Wenn"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1197
-msgid "Warnvalue"
-msgstr "Warnbetrag"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1198
-msgid "Urgentvalue"
-msgstr "Dringendbetrag"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1199
-msgid "Startvalue"
-msgstr "Startbetrag"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1200
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1435
-msgid "Active"
-msgstr "Aktiv"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1216
-msgid "Service done"
-msgstr "Service erledigt"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1220
-msgid "Buy parts for this service"
-msgstr "kaufe Zubehör für diesen Service"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1238
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3253
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Maintenance.cpp:366
-msgid "Service"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1313
-msgid "RepairsTODO"
-msgstr "Reparaturen zu erlegigen"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1329
-msgid "Repair done"
-msgstr "Reparatur erledigt"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1333
-msgid "Buy parts for this repair"
-msgstr "kaufe Zubehör für diese Reparatur"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1351
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3429
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Maintenance.cpp:373
-msgid "Repairs"
-msgstr "Reparaturen"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1430
-msgid "Category"
-msgstr "Kategaory"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1432
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1461
-msgid "Buy Parts"
-msgstr "Zubehör kaufen"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1434
-msgid "At"
-msgstr "bei"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1611
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:564
-msgid "Maintenance"
-msgstr "Instandhaltung"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2082
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2112
-msgid "none"
-msgstr "kein"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2256
-msgid " - Timer on - Interval: "
-msgstr "- Timer ein - Interval:"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2281
-msgid "Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
-msgstr "Opendocument Tabellenkalkulation(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2580
-msgid "Select Route"
-msgstr "Wähle Route"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2595
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/OverView.cpp:357
 msgid "\n"
 msgstr ""
-
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2685
-msgid "Save Logbook File"
-msgstr "Logbuchdatei speichern"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2730
-msgid ""
-"Timer has 0 h 0 Min 0 sec.\n"
-"\n"
-"Please change settings in Options"
-msgstr ""
-"Timer hat 0 h 0Min 0 sec.\n"
-"\n"
-"Bitte ändern Sie die Werte unter Optionen"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2868
-msgid ""
-"No Path set to HTML-Editor\n"
-"in ToolBox/Plugins/LogbookKonni/Preferences"
-msgstr ""
-"kein Pfad zum HTML-Editor\n"
-"in ToolBox/Plugins/LogbookKonni/Preferences gesetzt "
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3020
-msgid "Save CrewList File"
-msgstr "Crewliste speichern"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3020
-msgid "CrewList"
-msgstr "Crewliste"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3124
-msgid "Save Boat File"
-msgstr "Boot Datei speichern"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3253
-msgid "Save Service File"
-msgstr "Service-Datei speichern"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3429
-msgid "Save Repairs File"
-msgstr "Raparaturen-Datei speichern"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3591
-msgid "Save BuyParts File"
-msgstr "Kaufe-Zubehör-Datei speichern"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3591
-msgid "BuyParts"
-msgstr "Zubehör kaufen"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3755
-msgid "Save Overview File"
-msgstr "Übersicht-Datei speichern"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4150
-msgid "Filter Layout by"
-msgstr "Filtere Layout nach"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4161
-msgid "Rename Layout"
-msgstr "Layout umbenennen"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4170
-msgid "Delete Layout"
-msgstr "Lösche Layout"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4179
-msgid "Send Layout by email"
-msgstr "Sende Layout via Email"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4188
-msgid "Install single Layout"
-msgstr "Installiere ein Layout"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4314
-#, c-format
-msgid "Logbook from %s to %s"
-msgstr "Logbuch vom %s bis %s"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:358
 msgid ""
 "\n"
 "not found in layoutfile "
 msgstr ""
 "\n"
 "nicht gefunden im Layoutfile"
-
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:358
+#
+msgid "      Course- Message after Minutes"
+msgstr "     Kurs-Mitteilung nach Minuten"
+#
+msgid "     Winddirection set to:"
+msgstr "     Windrichtung bezogen auf:"
+#
+msgid " - Timer on - Interval: "
+msgstr "- Timer ein - Interval:"
+#
+#
+msgid " Direction "
+msgstr "Richtung"
+#
 msgid ""
 "!\n"
 "\n"
@@ -1798,236 +50,52 @@ msgstr ""
 "!\n"
 "\n"
 "Haben Sie diese Zeile im Layout vergessen  ?"
-
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:550
-msgid ""
-"Have You forgotten to enclose the Header with [[ and ]]\n"
-" or Data with {{ and }} ?"
-msgstr ""
-"Haben Sie vergessen den Header mit [[ und ]]\n"
-"oder Daten mit {{ und }} einzuschließen ?"
-
+msgid "\""
+msgstr "\""
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:707
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:760
-msgid "Sorry, Your Logbook has no lines"
-msgstr "Sorry, Ihr Logbuch hat keine Zeilen"
-
+msgid "'"
+msgstr "'"
 #
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:52
-msgid "Show Logbook Icon"
-msgstr "Zeige Logbuch-Icon"
-
+msgid "Abbreviations"
+msgstr "Abkürzungen"
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:55
-msgid "Show Position Fomat"
-msgstr "Zeige Position im Format"
-
+msgid "Active"
+msgstr "Aktiv"
 #
+msgid "Active Logbook"
+msgstr "Aktives Logbuch"
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:68
-msgid "Show all Layouts"
-msgstr "zeige alle Layouts"
-
+msgid "Actuell Logbook"
+msgstr "Aktuelles Logbuch"
 #
+msgid "Add Crew"
+msgstr "neues Crewmitglied"
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:72
-msgid "Only Layouts with prefix:"
-msgstr "nur Layouts mit Prefix:"
-
+msgid "Add Equipment"
+msgstr "Zubehör hinzufügen"
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:75
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:11
-msgid "en_"
-msgstr "de_"
-
+msgid "Add Line"
+msgstr "Neue Zeile"
+#
+msgid "Adress"
+msgstr "Adresse"
+#
+msgid "All Logbooks"
+msgstr "Alle Logbücher"
 #
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:81
-msgid "Write warning \"No GPS\""
-msgstr "schreibe Warnung  \"No GPS\""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:94
-msgid "     Winddirection set to:"
-msgstr "     Windrichtung bezogen auf:"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:98
-msgid "default"
-msgstr ""
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:102
-msgid ""
-"default = Relative to Boat\n"
-"Heading = Actual wind direction"
-msgstr ""
-"default = Relativ zum Schiff\n"
-"KdW = Aktuelle Windrichtung"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:112
-msgid "If Course changes more then "
-msgstr "Wenn Kursänderung mehr als °"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:118
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:20
-msgid ""
-"automatic line\n"
-"change of course >"
-msgstr ""
-"automatische Zeile\n"
-"Kursänderung > "
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:124
-msgid "      Course- Message after Minutes"
-msgstr "     Kurs-Mitteilung nach Minuten"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:139
-msgid "If Watch changed"
-msgstr "Wenn Wachwechsel"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:145
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:17
-msgid ""
-"automatic line\n"
-"change of guards"
-msgstr ""
-"automatische Zeile\n"
-"Wachwechsel"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:151
 msgid "Append Line every Nm"
 msgstr "Füge Zeile hinzu je Nm"
-
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:157
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:24
-msgid ""
-"automatic line\n"
-"Distance > "
-msgstr ""
-"automatische Zeile\n"
-"Distanz > "
-
+msgid "Are you sure ?"
+msgstr "Sind Sie sicher ?"
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:172
-msgid "Timer"
-msgstr "Timer an/aus"
-
+msgid "At"
+msgstr "bei"
 #
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:189
-msgid "Timer on/off"
-msgstr "Timer an/aus"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:195
-msgid "Interval:"
-msgstr "Interval:"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:203
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:255
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:555
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:63
-msgid "h"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:219
-msgid "s"
-msgstr ""
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:223
 msgid ""
 "Automatic Line by Timer\n"
 "you can set/unset a timer\n"
@@ -2036,591 +104,7 @@ msgstr ""
 "Automatischer Eintrag durch Timerr\n"
 "Sie können einen Timer ein- oder ausschalten\n"
 "oder diesen Text ändern unter Optionen"
-
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:236
-msgid "UTC"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:239
-msgid "Local = UTC"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:259
-msgid "GPS Auto"
-msgstr ""
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:260
-msgid "every 15 Degrees +/- 1 hour"
-msgstr "je 15 Grad +/- 1 Stunde"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:261
-msgid "not implemented yet"
-msgstr "noch nicht implementiert"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:278
-msgid "Install OpenCPN_Logbook_Layouts.zip"
-msgstr "Installiere OpenCPN_Logbook_Layouts.zip"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:281
-msgid "Install OpenCPN_Logbook_Languages.zip"
-msgstr "Installiere OpenCPN_Logbook_Languages.zip"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:291
-msgid "Path to HTML-Editor (optional)"
-msgstr "Pfad zum HTML-Editor (optional)"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:309
-msgid "Behavior"
-msgstr "Verhalten"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:348
-msgid "Degres"
-msgstr "Grad"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:355
-msgid "Minutes"
-msgstr "Minuten"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:359
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:45
-msgid "'"
-msgstr "'"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:362
-msgid "Seconds"
-msgstr "Sekunden"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:366
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:46
-msgid "\""
-msgstr "\""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:376
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:48
-msgid "sm"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:379
-msgid "Speed"
-msgstr "Fahrt"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:383
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:487
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:612
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:49
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:57
-msgid "kts"
-msgstr ""
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:395
-msgid "Show Depth in"
-msgstr "Tiefe in"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:399
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:405
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:425
-msgid "Meter"
-msgstr "Meter"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:399
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:425
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:431
-msgid "Feet"
-msgstr "Fuß"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:399
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:425
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:457
-msgid "Fathom"
-msgstr "Faden"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:409
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:51
-msgid "m"
-msgstr ""
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:421
-msgid "Show Wave/Swell in"
-msgstr "Welle/Swell in"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:435
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:52
-msgid "ft"
-msgstr ""
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:451
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:622
-msgid "True"
-msgstr "Wahr"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:451
-msgid "Magnetic"
-msgstr "Magnet"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:461
-msgid "fm"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:480
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:56
-msgid "mb"
-msgstr ""
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:483
-msgid "Windspeed"
-msgstr "Windstärke"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:508
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:612
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:58
-msgid "m/s"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:529
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:612
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:59
-msgid "km/h"
-msgstr ""
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:538
-msgid "Fuel/Water"
-msgstr "Treibstoff/Wasser"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:544
-msgid "Capacity"
-msgstr "Kapazität"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:548
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:62
-msgid "gal"
-msgstr ""
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:551
-msgid "Motor Hours"
-msgstr "Motor Stunden"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:570
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:574
-msgid "Day(s)"
-msgstr "Tag(e)"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:577
-msgid "Week(s)"
-msgstr "Woche(n)"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:581
-msgid "Weeks(s)"
-msgstr "Woche(n)"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:584
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:588
-msgid "Month"
-msgstr "Monat(e)"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:596
-msgid "If GPS off use for manual entry"
-msgstr "Wenn GPS nicht eingeschaltet ist benutze"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:608
-msgid "Windspeed "
-msgstr "Windstärke"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:618
-msgid " Direction "
-msgstr "Richtung"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:622
-msgid "Relative"
-msgstr "Relativ"
-
-#
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:633
-msgid "Abbreviations"
-msgstr "Abkürzungen"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:706
-msgid "Please fill in one character in Degrees, Minutes and Seconds"
-msgstr "Bitte ein Zeichen für Grad, Minuten, Sekunden einfügen"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:893
-msgid "Sorry, 0 Hrs 0 Min 0 Sec are not possible"
-msgstr "Sorry, 0 Hrs 0 Min 0 Sec ist nicht möglich"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:988
-msgid "Set Path to HTML-Editor"
-msgstr "Pfad zum HTML-Editor"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/logbook_pi.cpp:123
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/logbook_pi.cpp:405
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/logbook_pi.cpp:452
-msgid "Logbook Konni"
-msgstr "Logbuch Konni"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/logbook_pi.cpp:354
-msgid "LogbookKonni"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/logbook_pi.cpp:359
-msgid "Logbook for OpenCPN"
-msgstr "Logbuch für OpenCPN"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/logbook_pi.cpp:364
-msgid ""
-"Logbook for OpenCPN\n"
-"\n"
-"\t- automatic (NMEA) or manual input\n"
-"\t- Timer for automatic line insert\n"
-"\t- Fileexport to ods,html,xml(Windows only),csv\n"
-"\t- Multiple layouts\n"
-"\t- Costumizable layout\n"
-"\n"
-"Thanks's to the community for their helpfull suggestions.\n"
-"\n"
-"If You find a bug post it on\n"
-"http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945.html\n"
-"Helpfull Videos are at Youtube, search for LogbookKonni."
-msgstr ""
-"Logbuch für OpenCPN\n"
-"\n"
-"\t- automatische (NMEA) oder manuelle Eingabe\n"
-"\t- Timer für automatischen Logbucheintrag\n"
-"\t- Fileexport nach ods,html,xml(Windows only),csv\n"
-"\t- mehrere Layouts\n"
-"\t- Layouts editierbar\n"
-"\n"
-"Dank an die Community für ihre Ünterstützung \n"
-"\n"
-"Wenn Sie einen Bug finden, bitte posten unter:\n"
-"http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945.html\n"
-"Hilfreiche Videos unter Youtube, suche  LogbookKonni."
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/logbook_pi.cpp:434
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/logbook_pi.cpp:437
-msgid "Logbook Preferences"
-msgstr "Logbuch Optionen"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/logbook_pi.cpp:777
-msgid "Select zipped Layout-Files"
-msgstr "Wähle gezippte Layout-Dateien"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/logbook_pi.cpp:832
-msgid "OK"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/logbook_pi.cpp:859
-msgid "Select zipped Languages-Files"
-msgstr "Wähle gezippte Sprach-Dateien"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/logbook_pi.cpp:880
-msgid "Languages installed"
-msgstr "Sprachen installiert"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Maintenance.cpp:100
-msgid "Fix Date"
-msgstr "fixes Datum"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Maintenance.cpp:101
-msgid "Date + Days"
-msgstr "Datum + Tage"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Maintenance.cpp:102
-msgid "Date + Weeks"
-msgstr "Datum + Woche(n)"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Maintenance.cpp:103
-msgid "Date + Month"
-msgstr "Datum + Monat(e)"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Maintenance.cpp:105
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Maintenance.cpp:200
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Maintenance.cpp:778
-msgid "Yes"
-msgstr "Ja"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Maintenance.cpp:106
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Maintenance.cpp:455
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Maintenance.cpp:764
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Maintenance.cpp:768
-msgid "No"
-msgstr "Nein"
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio
-#: 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Maintenance.cpp:787
-msgid "0"
-msgstr ""
-
-#
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:38
 msgid ""
 "Automatic line by timer\n"
 "\n"
@@ -2635,39 +119,954 @@ msgstr ""
 "oder diesen Text ändern unter Toolbox/Plugins/Logbook\n"
 "\n"
 "Shift+Enter = Zeilenumbruch"
-
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:53
-msgid "fth"
+msgid "Barometer"
 msgstr ""
-
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:66
+msgid "Beam"
+msgstr "Breite"
+#
+#
+msgid "Behavior"
+msgstr "Verhalten"
+#
+msgid "Best Dist. p. Day"
+msgstr "Beste Dist. p. Tag"
+#
+msgid "Birthname"
+msgstr "Geburtsname"
+#
+msgid "Boat"
+msgstr "Boot"
+#
+msgid "Builder"
+msgstr "Hersteller"
+#
+msgid "Buy Parts"
+msgstr "Zubehör kaufen"
+#
+msgid "Buy parts for this repair"
+msgstr "kaufe Zubehör für diese Reparatur"
+#
+msgid "Buy parts for this service"
+msgstr "kaufe Zubehör für diesen Service"
+#
+msgid "BuyParts"
+msgstr "Zubehör kaufen"
+#
+msgid "C/Strength"
+msgstr "Stromstärke"
+#
+msgid "COG (T)"
+msgstr "KüG"
+#
+msgid "Callsign"
+msgstr "Rufzeichen"
+#
+#
+msgid "Capacity"
+msgstr "Kapazität"
+#
+msgid "Category"
+msgstr "Kategaory"
+#
+msgid "Clouds"
+msgstr "Wolken"
+#
+msgid "Confirm"
+msgstr "Bestätige"
+#
+msgid "Construction"
+msgstr "Konstruktion"
+#
+msgid "Country"
+msgstr "Land"
+#
+msgid "CrewList"
+msgstr "Crewliste"
+#
+msgid "Crewlist"
+msgstr "Crewliste"
+#
+msgid "Current"
+msgstr "Strom"
+#
+msgid "Current Avg."
+msgstr "Strom durchsch."
+#
+msgid "Current Max."
+msgstr "Strom max."
+#
+msgid "Current from"
+msgstr "Strom von"
+#
+msgid "Date"
+msgstr "Datum"
+#
+msgid "Date Launched"
+msgstr "Stapellauf"
+#
+msgid "Date of Birth"
+msgstr "Geburtstag"
+#
+msgid "Date of Issue"
+msgstr "ausgegeben am"
+#
+#
+msgid "Day(s)"
+msgstr "Tag(e)"
+#
+#
+msgid "Degres"
+msgstr "Grad"
+#
+msgid "Delete Layout"
+msgstr "Lösche Layout"
+#
+msgid "Delete Row"
+msgstr "Lösche Zeile"
+#
+#, c-format
+msgid "Delete Row Nr. %i ?"
+msgstr "Lösche Zeile Nr. %i ?"
+#
+msgid "Depth"
+msgstr "Tiefe"
+#
+msgid "Description"
+msgstr "Beschreibung"
+#
+msgid "Designer"
+msgstr ""
+#
+msgid "Details"
+msgstr ""
+#
+msgid "Displacement"
+msgstr "Verdrängung"
+#
+msgid "Distance"
+msgstr "Distanz"
+#
+msgid "Distance p. Day"
+msgstr "Distanz p. Tag"
+#
+msgid "DistanceTotal"
+msgstr "Distanz gesamt"
+#
+msgid "Draft"
+msgstr "Tiefgang"
+#
+msgid "E"
+msgstr "E"
+#
+msgid "Edit Layout"
+msgstr "Layout editieren"
+#
+msgid "End"
+msgstr "Ende"
+#
+msgid "End 1.Watch"
+msgstr "Ende 1. Wache"
+#
+msgid "End 2.Watch"
+msgstr "Ende 2. Wache"
+#
+msgid "End 3.Watch"
+msgstr "Ende 3. Wache"
+#
+msgid "Engine"
+msgstr "Maschine"
+#
+msgid "EngineTotal"
+msgstr "Maschine gesamt"
+#
+msgid "Equipment"
+msgstr "Zubehör"
+#
+#
+msgid "Fathom"
+msgstr "Faden"
+#
+#
+msgid "Feet"
+msgstr "Fuß"
+#
+msgid "Filter Layout by"
+msgstr "Filtere Layout nach"
+#
+msgid "Firstname"
+msgstr "Vorname"
+#
+msgid "Fuel"
+msgstr "Treibstoff"
+#
+#
+msgid "Fuel/Water"
+msgstr "Treibstoff/Wasser"
+#
+msgid "FuelTotal"
+msgstr "Treibstoff gesamt"
+#
+msgid "GPS Auto"
+msgstr ""
+#
+msgid "Goto Route"
+msgstr "Gehe zu Route"
+#
+msgid "Greatest Width of Hull"
+msgstr "Größte Breite des Rumpfes"
+#
+msgid "HIN-Nr."
+msgstr ""
+#
+msgid ""
+"Have You forgotten to enclose the Header with [[ and ]]\n"
+" or Data with {{ and }} ?"
+msgstr ""
+"Haben Sie vergessen den Header mit [[ und ]]\n"
+"oder Daten mit {{ und }} einzuschließen ?"
+#
+msgid "Heading"
+msgstr "KdW"
+#
+msgid "Hide column"
+msgstr "Spalte ausblenden"
+#
+msgid "Homeport"
+msgstr "Heimathafen"
+#
+msgid "Hull"
+msgstr "Rumpf"
+#
+msgid "Hull Identification No."
+msgstr "Rumpf Identifikations-Nr."
+#
+msgid "If"
+msgstr "Wenn"
+#
+#
+msgid "If Course changes more then "
+msgstr "Wenn Kursänderung mehr als °"
+#
+msgid "If GPS off use for manual entry"
+msgstr "Wenn GPS nicht eingeschaltet ist benutze"
+#
+#
+msgid "If Watch changed"
+msgstr "Wenn Wachwechsel"
+#
+msgid "Information"
+msgstr "Info"
+#
+#
+msgid "Install OpenCPN_Logbook_Languages.zip"
+msgstr "Installiere OpenCPN_Logbook_Languages.zip"
+#
+#
+msgid "Install OpenCPN_Logbook_Layouts.zip"
+msgstr "Installiere OpenCPN_Logbook_Layouts.zip"
+#
+msgid "Install single Layout"
+msgstr "Installiere ein Layout"
+#
+msgid "Insurance"
+msgstr "Versicherung"
+#
+#
+msgid "Interval:"
+msgstr "Interval:"
+#
+msgid "Issued in"
+msgstr "ausgestellt in"
+#
+msgid ""
+"It's not allowed to append Data to a old Logbook\n"
+"\n"
+"OpenCPN switchs to actuell logbook"
+msgstr ""
+"Es ist nicht gestattet einem alten Logbuch\n"
+"Daten hinzuzufügen\n"
+"\n"
+"Aktuelles Logbuch wird benutzt ! "
+#
+msgid "LOA"
+msgstr ""
+#
+msgid "LOD"
+msgstr ""
+#
+msgid "LWL"
+msgstr ""
+#
+msgid "Languages installed"
+msgstr "Sprachen installiert"
+#
+msgid "Last Logbook is\n"
+msgstr "letzte Logbuch-Datei ist\n"
+#
+msgid "Last line from Logbook\n"
+msgstr "Letzte Zeile aus Logbuch\n"
+#
+msgid "Length in Waterline"
+msgstr "Länge in der Wasserlinie"
+#
+msgid "Length over Deck"
+msgstr "Länge über Deck"
+#
+msgid "Length over all"
+msgstr "Länge über alles"
+#
+msgid "Local = UTC"
+msgstr ""
+#
+msgid "Logbook"
+msgstr "Logbuch"
+#
+msgid "Logbook Konni"
+msgstr "Logbuch Konni"
+#
+msgid "Logbook Preferences"
+msgstr "Logbuch Optionen"
+#
+msgid "Logbook for OpenCPN"
+msgstr "Logbuch für OpenCPN"
+#
+msgid ""
+"Logbook for OpenCPN\n"
+"\n"
+"\t- automatic (NMEA) or manual input\n"
+"\t- Timer for automatic line insert\n"
+"\t- Fileexport to ods,html,xml(Windows only),csv\n"
+"\t- Multiple layouts\n"
+"\t- Costumizable layout\n"
+"\n"
+"Thanks's to the community for their helpfull suggestions.\n"
+"\n"
+"If You find a bug post it on\n"
+"http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945."
+"html\n"
+"Helpfull Videos are at Youtube, search for LogbookKonni."
+msgstr ""
+"Logbuch für OpenCPN\n"
+"\n"
+"\t- automatische (NMEA) oder manuelle Eingabe\n"
+"\t- Timer für automatischen Logbucheintrag\n"
+"\t- Fileexport nach ods,html,xml(Windows only),csv\n"
+"\t- mehrere Layouts\n"
+"\t- Layouts editierbar\n"
+"\n"
+"Dank an die Community für ihre Ünterstützung \n"
+"\n"
+"Wenn Sie einen Bug finden, bitte posten unter:\n"
+"http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945."
+"html\n"
+"Hilfreiche Videos unter Youtube, suche  LogbookKonni."
+#
+#, c-format
+msgid "Logbook from %s to %s"
+msgstr "Logbuch vom %s bis %s"
+#
+msgid "LogbookKonni"
+msgstr ""
+#
+msgid "MMSI"
+msgstr ""
+#
+#
+msgid "Magnetic"
+msgstr "Magnet"
+#
+msgid "Maintenance"
+msgstr "Instandhaltung"
+#
+msgid "Meter"
+msgstr "Meter"
+#
+#
+msgid "Minutes"
+msgstr "Minuten"
+#
+msgid "Minutes greater than 59"
+msgstr "Minuten sind größer als 59"
+#
+#
+msgid "Month"
+msgstr "Monat(e)"
+#
+#
+msgid "Motor Hours"
+msgstr "Motor Stunden"
+#
+msgid "Motor/Sails"
+msgstr "Maschine/Segel"
+#
+msgid "Name"
+msgstr ""
+#
+msgid "Name      "
+msgstr ""
+#
+msgid "Nationality"
+msgstr "Nationalität"
+#
+msgid "Navigation"
+msgstr ""
+#
+msgid "New Logbook"
+msgstr "Neues Logbuch"
+#
+msgid "No GPS-Signal !"
+msgstr "kein GPS-Signal"
+#
+msgid ""
+"No Path set to HTML-Editor\n"
+"in ToolBox/Plugins/LogbookKonni/Preferences"
+msgstr ""
+"kein Pfad zum HTML-Editor\n"
+"in ToolBox/Plugins/LogbookKonni/Preferences gesetzt "
+#
+msgid "OK"
+msgstr ""
+#
+#, c-format
+msgid "Old Logbook until %s"
+msgstr "Altes Logbuch bis %s"
+#
+#
+msgid "Only Layouts with prefix:"
+msgstr "nur Layouts mit Prefix:"
+#
+msgid ""
+"Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV "
+"Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
+msgstr ""
+"Opendocument Tabellenkalkulation(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|"
+"CSV Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
+#
+msgid "Overview"
+msgstr "Übersicht"
+#
+msgid "Owner"
+msgstr "Eigner"
+#
+msgid "Passport-Nr"
+msgstr "Pass-Nr."
+#
+#
+msgid "Path to HTML-Editor (optional)"
+msgstr "Pfad zum HTML-Editor (optional)"
+#
+msgid "Place of Birth"
+msgstr "Geburtsort"
+#
+msgid ""
+"Please enter 05445.1234n03012.0504e for\n"
+"054Deg 45.1234Min N 030Deg 12.0504Min E"
+msgstr ""
+"Bitte geben Sie 05445.1234n03012.0504e für\n"
+"054° 45,1234' N \n"
+"030°12,0504' E ein"
+#
+msgid ""
+"Please enter 0544512.15n0301205.15e for\n"
+"054Deg 45Min 12.15Sec N 030Deg 12Min 05.15Sec E"
+msgstr ""
+"Bitte geben Sie 0544512.15n0301205.15e für\n"
+"054° 45' 12.15\" N \n"
+"030°12' 05.15\" E ein"
+#
+msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45:00 PM"
+msgstr "Bitte 4 Zahlen im 24h-Format eingeben z.B. 1545 = 15:45:00"
+#
+msgid ""
+"Please enter like 1.30 or 1,30 or 1:30\n"
+"for 1:30h"
+msgstr ""
+"Bitte geben Sie 1.30 oder 1,30 oder 1:30\n"
+"für 1:30h ein."
+#
+msgid ""
+"Please enter the Date in the format:\n"
+"   11/18/2011"
+msgstr ""
+"Bitte geben Sie das Datum im Format:\n"
+"   11/18/2011 ein."
+#
+msgid ""
+"Please enter the Time in the format:\n"
+"   12:30:00PM"
+msgstr ""
+"Bitte geben Sie die Zeit im Format:\n"
+"   12:30:00 ein."
+#
+msgid "Please fill in one character in Degrees, Minutes and Seconds"
+msgstr "Bitte ein Zeichen für Grad, Minuten, Sekunden einfügen"
+#
+msgid "Policy"
+msgstr "Police"
+#
+msgid "Position"
+msgstr ""
+#
+msgid "Priority"
+msgstr "Priorität"
+#
+msgid "R"
+msgstr "R"
+#
+msgid "Reef"
+msgstr "Reff"
+#
+msgid "Registration"
+msgstr "Register-Nr."
+#
+#
+msgid "Relative"
+msgstr "Relativ"
+#
+msgid "Reload Layouts"
+msgstr "Layouts neu laden"
+#
+msgid "Remarks"
+msgstr "Noitzen"
+#
+msgid "Rename Layout"
+msgstr "Layout umbenennen"
+#
+msgid "Repair done"
+msgstr "Reparatur erledigt"
+#
+msgid "Repairs"
+msgstr "Reparaturen"
+#
+msgid "RepairsTODO"
+msgstr "Reparaturen zu erlegigen"
+#
+msgid "Reset all Values to zero ?"
+msgstr "alle Werte zurücksetzen ?"
+#
+msgid "Route"
+msgstr ""
+#
+msgid "SOG"
+msgstr "FüG"
+#
+msgid "STW"
+msgstr "FdW"
+#
+msgid "Sail-Nr."
+msgstr "Segel-Nr."
+#
+msgid "Sails"
+msgstr "Segel"
+#
+msgid "Sails used mostly"
+msgstr "Segel meistens"
+#
+msgid "Save"
+msgstr "Speichern"
+#
+msgid "Save Boat File"
+msgstr "Boot Datei speichern"
+#
+msgid "Save BuyParts File"
+msgstr "Kaufe-Zubehör-Datei speichern"
+#
+msgid "Save CrewList File"
+msgstr "Crewliste speichern"
+#
+msgid "Save Logbook File"
+msgstr "Logbuchdatei speichern"
+#
+msgid "Save Overview File"
+msgstr "Übersicht-Datei speichern"
+#
+msgid "Save Repairs File"
+msgstr "Raparaturen-Datei speichern"
+#
+msgid "Save Service File"
+msgstr "Service-Datei speichern"
+#
+#
+msgid "Seconds"
+msgstr "Sekunden"
+#
+msgid "Select Layout:"
+msgstr "Wähle Layout:"
+#
+msgid "Select Layout: "
+msgstr "Wähle Route"
+#
+msgid "Select Logbook"
+msgstr "Wähle Logbuch"
+#
+msgid "Select Route"
+msgstr "Wähle Route"
+#
+msgid "Select zipped Languages-Files"
+msgstr "Wähle gezippte Sprach-Dateien"
+#
+msgid "Select zipped Layout-Files"
+msgstr "Wähle gezippte Layout-Dateien"
+#
+msgid "Send Layout by email"
+msgstr "Sende Layout via Email"
+#
+msgid "Serial-Nr."
+msgstr "Serien-Nr."
+#
+msgid "Service"
+msgstr ""
+#
+msgid "Service TODO"
+msgstr "Service zu erledigen"
+#
+msgid "Service done"
+msgstr "Service erledigt"
+#
+msgid "Set Path to HTML-Editor"
+msgstr "Pfad zum HTML-Editor"
+#
+#
+msgid "Show Depth in"
+msgstr "Tiefe in"
+#
+#
+msgid "Show Logbook Icon"
+msgstr "Zeige Logbuch-Icon"
+#
+msgid "Show Position Fomat"
+msgstr "Zeige Position im Format"
+#
+#
+msgid "Show Wave/Swell in"
+msgstr "Welle/Swell in"
+#
+#
+msgid "Show all Layouts"
+msgstr "zeige alle Layouts"
+#
+msgid "Show hidden columns"
+msgstr "Zeige versteckte Spalten"
+#
+msgid "Sign"
+msgstr "Zeichen"
+#
+msgid "Sorry, 0 Hrs 0 Min 0 Sec are not possible"
+msgstr "Sorry, 0 Hrs 0 Min 0 Sec ist nicht möglich"
+#
+msgid "Sorry, Logbook has no lines"
+msgstr "Sorry, Logbuch hat keine Einträge"
+#
+msgid "Sorry, Your Logbook has no lines"
+msgstr "Sorry, Ihr Logbuch hat keine Zeilen"
+#
+msgid "Sorry, no Layout installed"
+msgstr "Sorry, kein Layout installiert"
+#
+msgid "Speed"
+msgstr "Fahrt"
+#
+msgid "Speed Avg."
+msgstr "Fahrt durchsch."
+#
+msgid "Speed Max."
+msgstr "Fahrt max."
+#
+msgid "Start"
+msgstr "Start"
+#
+msgid "Start 1.Watch"
+msgstr "Start 1.Wache"
+#
+msgid "Start 2.Watch"
+msgstr "Start 2.Wache"
+#
+msgid "Start 3.Watch"
+msgstr "Start 3.Wache"
+#
+msgid "Startvalue"
+msgstr "Startbetrag"
+#
+msgid "Street"
+msgstr "Strasse"
+#
+msgid "Swell"
+msgstr ""
+#
+msgid "Swell Avg."
+msgstr "Swell durchsch."
+#
+msgid "Swell Max."
+msgstr "Swell max."
+#
+msgid "Telephone"
+msgstr "Telefon"
+#
+msgid "Time"
+msgstr "Zeit"
+#
+msgid "Timer"
+msgstr "Timer an/aus"
+#
+msgid "Timer "
+msgstr "Timer an/aus"
+#
+msgid ""
+"Timer has 0 h 0 Min 0 sec.\n"
+"\n"
+"Please change settings in Options"
+msgstr ""
+"Timer hat 0 h 0Min 0 sec.\n"
+"\n"
+"Bitte ändern Sie die Werte unter Optionen"
+#
+#
+msgid "Timer on/off"
+msgstr "Timer an/aus"
+#
+msgid "Title"
+msgstr "Titel"
+#
+msgid "Total Time"
+msgstr "Reisezeit"
+#
+msgid "Town"
+msgstr "Stadt"
+#
+#
+msgid "True"
+msgstr "Wahr"
+#
+msgid "Type"
+msgstr "Typ"
+#
+msgid "UTC"
+msgstr ""
+#
+msgid "Urgentvalue"
+msgstr "Dringendbetrag"
+#
+msgid "View"
+msgstr "Ansehen"
+#
+msgid "Visibility"
+msgstr "Sicht"
+#
+msgid "W/Strength"
+msgstr "Windstärke"
+#
+msgid "Warnvalue"
+msgstr "Warnbetrag"
+#
+msgid "Watch"
+msgstr "Wache"
+#
+msgid "Water"
+msgstr "Wasser"
+#
+msgid "WaterTotal"
+msgstr "Wasser gesamt"
+#
+msgid "Wave"
+msgstr "Wellenhöhe"
+#
+msgid "Wave Avg."
+msgstr "Wellenhöhe durchschn."
+#
+msgid "Wave Max."
+msgstr "Wellen max."
+#
+msgid "Weather"
+msgstr "Wetter"
+#
+#
+msgid "Week(s)"
+msgstr "Woche(n)"
+#
+#
+msgid "Weeks(s)"
+msgstr "Woche(n)"
+#
+msgid "Wind"
+msgstr "Windstärke"
+#
+msgid "Wind Avg."
+msgstr "Windstärke durchschn."
+#
+msgid "Wind Max."
+msgstr "Wind max."
+#
+msgid "Wind from"
+msgstr "Wind von"
+#
+msgid ""
+"Wind is set to Heading,\n"
+"but GPS sends no Heading Data.\n"
+"Wind is set now to Realative to boat\n"
+"\n"
+msgstr ""
+"Windrichtung wurde auf \"KdW\" gesetzt,\n"
+"erhalte aber keine Daten.\n"
+"Windrichtung wurde auf \"default\" zurückgesetzt\n"
+"\n"
+#
+#
+msgid "Windspeed"
+msgstr "Windstärke"
+#
+#
+msgid "Windspeed "
+msgstr "Windstärke"
+#
+#
+msgid "Write warning \"No GPS\""
+msgstr "schreibe Warnung  \"No GPS\""
+#
+msgid "Yard-Nr."
+msgstr "Marina-Nr."
+#
+msgid ""
+"Your Logbook has 800 lines or more\n"
+"\n"
+"Please create a new logbook to minimize the loadingtime.\n"
+"\n"
+"If you have a running timer, it's stopped now !!!"
+msgstr ""
+"Ihr Logbuch hat 800 zeilen oder mehr\n"
+"\n"
+"Bitte erstellen Sie ein neues Logbuch, um Ladezeiten zu verringern.\n"
+"\n"
+"Wenn Sie einen laufenden Timer haben, ist dieser jetzt gestoppt !!!"
+#
+msgid "Your Logbook has no lines ?"
+msgstr "Ihr Logbuch hat keine Zeilen ?"
+#
+msgid "Zip"
+msgstr "PLZ"
+#
+msgid ""
+"automatic line\n"
+"Distance > "
+msgstr ""
+"automatische Zeile\n"
+"Distanz > "
+#
+msgid ""
+"automatic line\n"
+"change of course >"
+msgstr ""
+"automatische Zeile\n"
+"Kursänderung > "
+#
+msgid ""
+"automatic line\n"
+"change of guards"
+msgstr ""
+"automatische Zeile\n"
+"Wachwechsel"
+#
 msgid "day(s)"
 msgstr "Tag(e)"
-
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:67
-msgid "week(s)"
-msgstr "Woche(n)"
-
+msgid "default"
+msgstr ""
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/Options.cpp:68
+#
+msgid ""
+"default = Relative to Boat\n"
+"Heading = Actual wind direction"
+msgstr ""
+"default = Relativ zum Schiff\n"
+"KdW = Aktuelle Windrichtung"
+#
+msgid "en_"
+msgstr "de_"
+#
+#
+msgid "every 15 Degrees +/- 1 hour"
+msgstr "je 15 Grad +/- 1 Stunde"
+#
+msgid "fm"
+msgstr ""
+#
+msgid "from"
+msgstr "vom"
+#
+msgid "ft"
+msgstr ""
+#
+msgid "fth"
+msgstr ""
+#
+msgid "gal"
+msgstr ""
+#
+msgid "h"
+msgstr ""
+#
+msgid "km/h"
+msgstr ""
+#
+msgid "kts"
+msgstr ""
+#
+msgid "m"
+msgstr ""
+#
+msgid "m/s"
+msgstr ""
+#
+msgid "mb"
+msgstr ""
+#
 msgid "month"
 msgstr "Monat(e)"
-
 #
-#: C:\Dokumente
-#: und Einstellungen\Konni.MICKY-6B710455C\Eigene Dateien\Visual
-#: Studio 2008\Projects\opencpn\plugins\LogbookKonni_pi\src/OverView.cpp:213
-msgid "Logbook until "
-msgstr "Altes Logbuch bis "
-
+msgid "none"
+msgstr "kein"
+#
+#
+msgid "not implemented yet"
+msgstr "noch nicht implementiert"
+#
+msgid "s"
+msgstr ""
+#
+msgid "sm"
+msgstr ""
+#
+msgid "to"
+msgstr "bis"
+#
+msgid "week(s)"
+msgstr "Woche(n)"
+#
+#
+#~ msgid "Date + Days"
+#~ msgstr "Datum + Tage"
+#
+#
+#~ msgid "Date + Month"
+#~ msgstr "Datum + Monat(e)"
+#
+#
+#~ msgid "Date + Weeks"
+#~ msgstr "Datum + Woche(n)"
+#
+#
+#~ msgid "Fix Date"
+#~ msgstr "fixes Datum"
+#
+#
+#~ msgid "Logbook until "
+#~ msgstr "Altes Logbuch bis "
+#
+#
+#~ msgid "No"
+#~ msgstr "Nein"
+#
+#
+#~ msgid "Yes"
+#~ msgstr "Ja"

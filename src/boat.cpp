@@ -368,18 +368,24 @@ wxString Boat::toODT(wxString path,wxString layout,bool mode)
 				odt.Replace(wxT("#LDRAFT#"),parent->m_staticText110->GetLabel());
 				break;
 			case 27: 
-				odt.Replace(wxT("#GRT#"),te->GetValue());
-				odt.Replace(wxT("#LGRT#"),parent->m_staticText111->GetLabel());
+				odt.Replace(wxT("#LUSER1#"),parent->UserLabel1->GetValue());
 				break;
-			case 28: 
-				odt.Replace(wxT("#NRT#"),te->GetValue());
-				odt.Replace(wxT("#LNRT#"),parent->m_staticText113->GetLabel());
+			case 28:
+				odt.Replace(wxT("#USER1#"),te->GetValue());
 				break;
 			case 29: 
-				odt.Replace(wxT("#THAMES#"),te->GetValue());
-				odt.Replace(wxT("#LTHAMES#"),parent->m_staticText121->GetLabel());
+				odt.Replace(wxT("#LUSER2#"),parent->UserLabel2->GetValue());
 				break;
-			case 30: 
+			case 30:
+				odt.Replace(wxT("#USER2#"),te->GetValue());
+				break;
+			case 31: 
+				odt.Replace(wxT("#LUSER3#"),parent->UserLabel3->GetValue());
+				break;
+			case 32:
+				odt.Replace(wxT("#USER3#"),te->GetValue());
+				break;
+			case 33: 
 				odt.Replace(wxT("#DISPL#"),te->GetValue());	
 				odt.Replace(wxT("#LDISPL#"),parent->m_staticText122->GetLabel());
 				break;
@@ -634,18 +640,24 @@ void Boat::toHTML(wxString path, wxString layout, bool mode)
 				html.Replace(wxT("#LDRAFT#"),parent->m_staticText110->GetLabel());
 				break;
 			case 27: 
-				html.Replace(wxT("#GRT#"),te->GetValue());				
-				html.Replace(wxT("#LGRT#"),parent->m_staticText111->GetLabel());
+				html.Replace(wxT("#LUSER1#"),parent->UserLabel1->GetValue());
 				break;
-			case 28: 
-				html.Replace(wxT("#NRT#"),te->GetValue());				
-				html.Replace(wxT("#LNRT#"),parent->m_staticText113->GetLabel());
+			case 28:
+				html.Replace(wxT("#USER1#"),te->GetValue());
 				break;
 			case 29: 
-				html.Replace(wxT("#THAMES#"),te->GetValue());
-				html.Replace(wxT("#LTHAMES#"),parent->m_staticText121->GetLabel());
+				html.Replace(wxT("#LUSER2#"),parent->UserLabel2->GetValue());
 				break;
-			case 30: 
+			case 30:
+				html.Replace(wxT("#USER2#"),te->GetValue());
+				break;
+			case 31: 
+				html.Replace(wxT("#LUSER3#"),parent->UserLabel3->GetValue());
+				break;
+			case 32:
+				html.Replace(wxT("#USER3#"),te->GetValue());
+				break;
+			case 33: 
 				html.Replace(wxT("#DISPL#"),te->GetValue());				
 				html.Replace(wxT("#LDISPL#"),parent->m_staticText122->GetLabel());
 				break; 
@@ -796,6 +808,7 @@ void Boat::toCSV(wxString savePath)
 void Boat::saveCSV(wxTextFile* file, bool mode)
 {
 	wxString line, s;
+	int col = 0;
 
 	saveData();
 
@@ -805,10 +818,22 @@ void Boat::saveCSV(wxTextFile* file, bool mode)
 	{
 		line = ((mode)?boatFile:equipFile)->GetLine(i);
 		wxStringTokenizer tkz(line, _T("\t"),wxTOKEN_RET_EMPTY );
+		col = 0;
 
 		while ( tkz.HasMoreTokens() )
 		{
-			s += wxT("\"")+parent->restoreDangerChar(tkz.GetNextToken().RemoveLast())+_T("\",");
+			if(mode == true)
+			{
+				if( col != 27 && col != 29 && col != 31) 
+				{
+					s += wxT("\"")+parent->restoreDangerChar(tkz.GetNextToken().RemoveLast())+_T("\",");
+				}
+				else
+					tkz.GetNextToken();
+			}
+			else
+				s += wxT("\"")+parent->restoreDangerChar(tkz.GetNextToken().RemoveLast())+_T("\",");
+			col++;
 		}
 		s.RemoveLast();
 		file->AddLine(s);
@@ -863,23 +888,29 @@ void Boat::saveXML(wxTextFile* xmlFile, bool mode)
 
 	for(unsigned int i = 0; i < file->GetLineCount(); i++)
 	{
+		int col = 0;
 		line = file->GetLine(i);
 		wxStringTokenizer tkz(line, _T("\t"),wxTOKEN_RET_EMPTY );
 		s = wxString::Format(_T("<Row ss:Height=\"%u\">"),parent->m_gridGlobal->GetRowHeight(i));
 
 		while ( tkz.HasMoreTokens() )
 		{ 
-			s += _T("<Cell>");
-			s += _T("<Data ss:Type=\"String\">#DATA#</Data>");
-			temp = parent->restoreDangerChar(tkz.GetNextToken().RemoveLast());
-			temp.Replace(_T("\n"),_T("&#10;"));
-			temp.Replace(_T("&"),_T("&amp;"));
-			temp.Replace(_T("\""),_T("&quot;"));
-			temp.Replace(_T("<"),_T("&lt;"));
-			temp.Replace(_T(">"),_T("&gt;"));
-			temp.Replace(_T("'"),_T("&apos;"));
-			s.Replace(_T("#DATA#"),temp);
-			s += _T("</Cell>");
+			if(col != 27 && col != 29 && col != 31)
+			{
+				s += _T("<Cell>");
+				s += _T("<Data ss:Type=\"String\">#DATA#</Data>");
+				temp = parent->restoreDangerChar(tkz.GetNextToken().RemoveLast());
+				temp.Replace(_T("\n"),_T("&#10;"));
+				temp.Replace(_T("&"),_T("&amp;"));
+				temp.Replace(_T("\""),_T("&quot;"));
+				temp.Replace(_T("<"),_T("&lt;"));
+				temp.Replace(_T(">"),_T("&gt;"));
+				temp.Replace(_T("'"),_T("&apos;"));
+				s.Replace(_T("#DATA#"),temp);
+				s += _T("</Cell>");
+			}
+			else tkz.GetNextToken();
+			col++;
 		}
 		s += _T("</Row>");
 		xmlFile->AddLine(s);
@@ -962,8 +993,34 @@ void Boat::saveODS( wxString path, bool mode )
 		txt << _T("<text:p>");
 		if(!mode)
 		{
-			wxStaticText* t = wxDynamicCast(ctrlStaticText[i], wxStaticText);
-			txt << t->GetLabel();
+			if(i == 27)
+			{
+				txt << parent->UserLabel1->GetValue();
+				txt << _T("</text:p>");
+				txt << _T("</table:table-cell>");
+
+				txt << _T("<table:table-cell office:value-type=\"string\">");
+				txt << _T("<text:p>");
+				txt << parent->UserLabel2->GetValue();
+				txt << _T("</text:p>");
+				txt << _T("</table:table-cell>");
+
+				txt << _T("<table:table-cell office:value-type=\"string\">");
+				txt << _T("<text:p>");
+				txt << parent->UserLabel3->GetValue();
+				txt << _T("</text:p>");
+				txt << _T("</table:table-cell>");
+
+				txt << _T("<table:table-cell office:value-type=\"string\">");
+				txt << _T("<text:p>");
+				wxStaticText* t = wxDynamicCast(ctrlStaticText[i], wxStaticText);
+				txt << t->GetLabel();
+			}
+			else
+			{
+				wxStaticText* t = wxDynamicCast(ctrlStaticText[i], wxStaticText);
+				txt << t->GetLabel();
+			}
 		}
 		else
 			txt << parent->m_gridEquipment->GetColLabelValue(i);
@@ -974,8 +1031,10 @@ void Boat::saveODS( wxString path, bool mode )
 
 	bool empty = false;
 	long emptyCol = 0;
+
 	while(wxString line = stream->ReadLine())
 	{
+		int col = 0;
 		if(input.Eof()) break;
 		txt << _T("<table:table-row table:style-name=\"ro2\">");
 		wxStringTokenizer tkz(line, _T("\t"),wxTOKEN_RET_EMPTY );
@@ -988,10 +1047,17 @@ void Boat::saveODS( wxString path, bool mode )
 				txt <<  _T("<table:table-cell />");
 				empty = true;
 				emptyCol++;
+				col++;
 				continue;
 			}
 
-			txt << _T("<table:table-cell office:value-type=\"string\">");
+			if(col != 27 && col != 29 && col != 31 )
+				txt << _T("<table:table-cell office:value-type=\"string\">");
+			else
+			{ 
+			  col++; 
+			  continue; 
+			}
 
 			wxStringTokenizer str(s, _T("\n"));
 			while(str.HasMoreTokens())
@@ -1007,6 +1073,7 @@ void Boat::saveODS( wxString path, bool mode )
 				txt << _T("</text:p>");
 			}
 			txt << _T("</table:table-cell>");
+			col++;
 		}
 		txt << _T("</table:table-row>");;
 
@@ -1018,8 +1085,6 @@ void Boat::saveODS( wxString path, bool mode )
 
 	zip.PutNextEntry(wxT("styles.xml"));
 	txt << parent->styles;
-//	zip.PutNextEntry(wxT("settings.xml"));
-//	txt << settings;
 
 	zip.PutNextEntry(wxT("meta.xml"));
 	txt << parent->meta;

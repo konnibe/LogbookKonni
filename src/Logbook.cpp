@@ -239,8 +239,6 @@ void Logbook::SetSentence(wxString &sentence)
 					  if(m_NMEA0183.Dbt.ErrorMessage.Contains(_T("Invalid")) ||
 						  (m_NMEA0183.Dbt.DepthMeters == m_NMEA0183.Dbt.DepthFathoms))
 					  {
-						 // wxMessageBox(sentence+wxString::Format(_T("\nMeter %f\nFeet %f\nFathoms %f"),m_NMEA0183.Dbt.DepthMeters,
-						//	  m_NMEA0183.Dbt.DepthFeet,m_NMEA0183.Dbt.DepthFathoms));
 						sDepth = _T("-----");
 					  }
 					  else

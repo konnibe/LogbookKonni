@@ -61,7 +61,6 @@ private:
 	void saveODS( wxString path, bool mode );
 	wxString repeatArea(wxString html);
 	wxString repeatAreaODT(wxString odt);
-//	void boatOnTextEnter( wxCommandEvent& ev );
 
  //   DECLARE_EVENT_TABLE()
 

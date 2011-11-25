@@ -208,7 +208,7 @@ void CrewList::saveCSV(wxString path)
 		{
 			wxString line = crewListFile->GetLine(i);
 			wxStringTokenizer tkz(line, _T("\t"),wxTOKEN_RET_EMPTY);
-//			int c = 0;
+
 			while ( tkz.HasMoreTokens() )
 			{
 				wxString s;
@@ -301,7 +301,6 @@ void CrewList::saveHTML(wxString savePath, wxString layout, bool mode)
 	else 
 		path = savePath;
 
-//	wxTextFile *htmlFile = new wxTextFile(path);
 	wxFileOutputStream output( path );
 	wxTextOutputStream htmlFile(output);
 
@@ -309,8 +308,6 @@ void CrewList::saveHTML(wxString savePath, wxString layout, bool mode)
 		::wxRemoveFile(path);
 
 	logFile->Open();
-
-//	int count = logFile->GetLineCount();
 
 	wxString newMiddleHTML;
 	wxString newWakeHTML;
@@ -358,19 +355,9 @@ void CrewList::saveHTML(wxString savePath, wxString layout, bool mode)
 				newMiddleHTML = replacePlaceholder(newMiddleHTML,headerHTML,1,row,col,0);
 			htmlFile << newMiddleHTML;
 		}
-/*
-		for(int i = 0; i < count; i++)
-		{
-			wxString line = logFile->GetLine(i);
-			newWakeHTML = replacePlaceholder(middleWakeHTML,line,1,0,0,0);
-			htmlFile << newWakeHTML;
-		}
-*/
 		htmlFile << bottomWakeHTML;
 	}
 	
-//	htmlFile->Write();
-
 	logFile->Close();
 	output.Close();
 }
@@ -379,20 +366,7 @@ wxString CrewList::replacePlaceholder(wxString html,wxString s, bool nGrid, int 
 {
 		wxGrid* grid = dialog->m_gridCrew;	
 		wxGrid* wake = dialog->m_gridCrewWake;
-//		wxStringTokenizer tkz(s, _T("\t"),wxTOKEN_RET_EMPTY );
-//		int c = 0;
-//		while ( tkz.HasMoreTokens() )
-//		{
-//			wxString s;
-/*
-			s = tkz.GetNextToken().RemoveLast();
-			s.Replace(wxT("\\n"),wxT("<br>"));
-			s.Replace(_T("&"),_T("&amp;"));
-			s.Replace(_T("\""),_T("&quot;"));
-			s.Replace(_T("<"),_T("&lt;"));
-			s.Replace(_T(">"),_T("&gt;"));
-			s.Replace(_T("'"),_T("&apos;"));
-*/
+
 			switch(nGrid)
 			{
 			case 0:
@@ -650,8 +624,6 @@ void CrewList::saveODT(wxString savePath,wxString layout, bool mode)
 
 	logFile->Open();
 
-//	int count = logFile->GetLineCount();
-
 	wxString newMiddleODT;
 	wxString newWakeODT;
 
@@ -675,7 +647,7 @@ void CrewList::saveODT(wxString savePath,wxString layout, bool mode)
 	outzip.PutNextEntry(_T("content.xml"));
 
 	odtFile << topODT;
-//wxMessageBox(topODT,_("topODT"));
+
 	if(odt.Contains(seperatorTop))
 	{
 		int rowsMax = dialog->m_gridCrew->GetNumberRows();
@@ -686,27 +658,14 @@ void CrewList::saveODT(wxString savePath,wxString layout, bool mode)
 			for(int col = 0; col < colsMax; col++)
 				newMiddleODT = replacePlaceholder(newMiddleODT,headerODT,0,row,col,0);
 			odtFile << newMiddleODT;
-			//wxMessageBox(newMiddleODT,_("middleODT"));
 		}
-		//topODT = _T("");
-/*		for(int i = 0; i < count; i++)
-		{
-			wxString line = logFile->GetLine(i);
-			newMiddleODT = replacePlaceholder(middleODT,line,0,row,col,0);
-			odtFile << newMiddleODT;
-			//wxMessageBox(newMiddleODT,_("middleODT"));
-		}
-*/
 	}
 
 	if(!middleData.IsEmpty())
 		odtFile << middleData;
-//wxMessageBox(middleData,_("middleData"));
 
 	if(odt.Contains(seperatorWakeTop))
 	{
-		//odtFile << topODT;
-
 		int rowsMax = dialog->m_gridCrewWake->GetNumberRows();
 		int colsMax = dialog->m_gridCrewWake->GetNumberCols();
 		for(int row = 0; row < rowsMax; row++)
@@ -716,15 +675,6 @@ void CrewList::saveODT(wxString savePath,wxString layout, bool mode)
 				newWakeODT = replacePlaceholder(newWakeODT,headerODT,1,row,col,0);
 			odtFile << newWakeODT;
 		}
-/*
-		for(int i = 0; i < count; i++)
-		{
-			wxString line = logFile->GetLine(i);
-			newWakeODT = replacePlaceholder(middleWakeODT,line,1,0,0,0);
-			odtFile << newWakeODT;
-			//wxMessageBox(newWakeODT,_("middleWakeODT"));
-		}
-*/
 	}
 	odtFile << bottomODT;
 	inzip.Eof() && outzip.Close() && out.Commit();
@@ -769,15 +719,6 @@ void CrewList::saveXML(wxString path)
 	wxString s = _T("");
 	wxString line;
 	wxString temp;
-//	bool timerStopped = true;
-
-//	if(dialog->timer->IsRunning())
-//	{
-//		dialog->timer->Stop();
-//		timerStopped = true;
-//	}
-
-	saveData();
 
 	wxTextFile* xmlFile = new wxTextFile(path);
 
@@ -824,9 +765,6 @@ void CrewList::saveXML(wxString path)
 	xmlFile->Write();
 	crewListFile->Close();
 	xmlFile->Close();
-
-//	if(timerStopped)
-//		dialog->timer->Start();
 }
 
 void CrewList::backup(wxString path)
@@ -839,18 +777,9 @@ void CrewList::saveODS(wxString path)
 	wxString s = _T("");
 	wxString line;
 	wxString temp;
-//	bool timerStopped = false;
-
-	saveData();
 
 	wxFileInputStream input( data_locn );
 	wxTextInputStream* stream = new wxTextInputStream (input);
-
-//	if(parent->timer->IsRunning())
-//	{
-//		parent->timer->Stop();
-//		timerStopped = true;
-//	}
 
 	wxFFileOutputStream out(path);
 	wxZipOutputStream zip(out);
@@ -922,8 +851,6 @@ void CrewList::saveODS(wxString path)
 
 	zip.PutNextEntry(wxT("styles.xml"));
 	txt << dialog->styles;
-//	zip.PutNextEntry(wxT("settings.xml"));
-//	txt << settings;
 
 	zip.PutNextEntry(wxT("meta.xml"));
 	txt << dialog->meta;
@@ -943,7 +870,4 @@ void CrewList::saveODS(wxString path)
 
 	zip.Close();
 	out.Close();
-
-//	if(timerStopped)
-//		parent->timer->Start();
 }

@@ -49,10 +49,6 @@ public:
 	void setLayoutLocation();
 	wxString toODT(int tab,wxString path,wxString layout,int mode);
 	void viewODT(int tab,wxString path,wxString layout,int mode);
-	wxString toODTRepairs(wxString path,wxString layout,int mode);
-	void viewODTRepairs(wxString path,wxString layout,int mode);
-	wxString toODTBuyParts(wxString path,wxString layout,int mode);
-	void viewODTBuyParts(wxString path,wxString layout,int mode);
 	void viewHTML(int tab,wxString path,wxString layout,int mode);
 	wxString toHTML(int tab,wxString path,wxString layout,int mode);
 	void showDateDialog( int row, int col, wxGrid* grid);
@@ -77,7 +73,6 @@ public:
 	wxString		m_choices[7];
 
 private:
-//enum fields{ REEF,MREMARKS};	
 	LogbookDialog*	dialog;
 	Options*		opt;
 

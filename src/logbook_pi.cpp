@@ -248,10 +248,6 @@ void logbookkonni_pi::dialogDimmer(PI_ColorScheme cs,wxWindow* ctrl,wxColour col
 					else
 						((wxChoice*)win)->SetBackgroundColour(col1);
 
- //                 else if(win->IsKindOf(CLASSINFO(wxPanel)) && 
-//					  (cs == PI_GLOBAL_COLOR_SCHEME_DAY || cs == PI_GLOBAL_COLOR_SCHEME_RGB ))
-  //                    ((wxPanel*)win)->SetBackgroundColour(wxColour(255,255,255));
-
                   else if(win->IsKindOf(CLASSINFO(wxRadioButton)))
 					  		if(cs == PI_GLOBAL_COLOR_SCHEME_DAY || cs == PI_GLOBAL_COLOR_SCHEME_RGB )
 								((wxRadioButton*)win)->SetForegroundColour(wxSystemSettings::GetColour( wxSYS_COLOUR_BTNFACE ));
@@ -287,36 +283,18 @@ void logbookkonni_pi::dialogDimmer(PI_ColorScheme cs,wxWindow* ctrl,wxColour col
 					  {
 						  ((wxButton*)win)->SetForegroundColour(wxNullColour);
 						   ((wxButton*)win)->SetBackgroundColour(wxNullColour);
-						//
-						//((wxButton*)win)->SetBackgroundColour(wxSystemSettings::GetColour(wxSystemColour::wxSYS_COLOUR_3DFACE ));
-						//((wxButton*)win)->SetLabel(((wxButton*)win)->GetLabel());
 					  }
 					  else
 					  {
 						((wxButton*)win)->SetBackgroundColour(col1);
 					  }
-					 // 
-					;	//((wxButton*)win)->SetThemeEnabled(false);
-                     //   ((wxButton*)win)->SetBackgroundColour(col1);
-					//	win->SetForegroundColour(uitext);
+
 				  }
 
- //                 else if(win->IsKindOf(CLASSINFO(wxGrid)))
- //                       ((wxGrid*)win)->SetBackgroundColour(col1);
-
-  //                else if(win->IsKindOf(CLASSINFO(wxTextCtrl)))
-  //                      win->SetBackgroundColour(col1);
-
-  //                else if(win->IsKindOf(CLASSINFO(wxComboBox)))  // note ComboBoxes don't change bg properly on gtk
- //                       win->SetBackgroundColour(col1);
-
-                  else
+                 else
 				  {;
-					  //GetGlobalColor(_T("DILG0"),&col);
-                     // win->SetBackgroundColour(back_color);      // msw looks better here
 				  }
 
-                 // win->SetForegroundColour(uitext);
 				  if(win->GetChildren().GetCount() > 0)
 				  {
 					  wxWindow * w = win;
@@ -478,7 +456,6 @@ void logbookkonni_pi::SaveConfig()
 
       if(pConf)
       {
-//            pConf->SetPath ( _T ( "/Settings" ) );
 			pConf->SetPath ( _T ( "/PlugIns/Logbook" ) );
             pConf->Write ( _T ( "ShowLOGIcon" ), m_bLOGShowIcon );
 			pConf->Write ( _T( "Traditional" ),  opt->traditional );

@@ -1,3 +1,7 @@
+#ifndef  WX_PRECOMP
+#include "wx/wx.h"
+#endif //precompiled headers
+
 #include "Options.h"
 #include <wx/msgdlg.h> 
 Options::Options(void)
@@ -5,7 +9,11 @@ Options::Options(void)
 	// Global Options
 	traditional = true;
 	modern = false;
+#ifdef __WXMSW__
+	firstTime = false;
+#else
 	firstTime = true;
+#endif
 	dlgWidth = 1010;
 	dlgHeight = 535;
 	layoutPrefix = _("en_");

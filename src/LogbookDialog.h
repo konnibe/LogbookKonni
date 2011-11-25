@@ -122,7 +122,6 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		wxStaticLine* m_staticline5;
 		wxStaticText* m_staticText321;
 		wxChoice* crewChoice;
-		wxComboBox* m_comboBox1;
 		wxButton* crewView;
 		wxStaticLine* m_staticline2;
 		wxGrid* m_gridCrew;
@@ -204,12 +203,9 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		wxTextCtrl* beam;
 		wxStaticText* m_staticText110;
 		wxTextCtrl* draft;
-		wxStaticText* m_staticText111;
-		wxTextCtrl* GRT;
-		wxStaticText* m_staticText113;
-		wxTextCtrl* NRT;
-		wxStaticText* m_staticText121;
-		wxTextCtrl* thames;
+		wxTextCtrl* UserLabel1;
+		wxTextCtrl* Userfield2;
+		wxTextCtrl* Userfield3;
 		wxStaticText* m_staticText122;
 		wxTextCtrl* displacement;
 		wxPanel* m_panel8;
@@ -220,21 +216,18 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		wxStaticText* m_staticText621;
 		
 		wxStaticLine* m_staticline141;
-		wxStaticText* m_staticText601;
 		wxMenu* m_menu7;
 		wxPanel* m_panel141;
 		wxStaticLine* m_staticline1513;
 		wxStaticText* m_staticText6213;
 		
 		wxStaticLine* m_staticline1413;
-		wxStaticText* m_staticText6013;
 		wxMenu* m_menu71;
 		wxPanel* m_panel16;
 		wxStaticLine* m_staticline1511;
 		wxStaticText* m_staticText6211;
 		
 		wxStaticLine* m_staticline1411;
-		wxStaticText* m_staticText6011;
 		wxMenu* m_menu711;
 		wxPanel* m_panel15;
 		wxStaticLine* m_staticline1512;
@@ -243,8 +236,6 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		wxStaticLine* m_staticline1412;
 		wxStaticText* m_staticText6012;
 		wxCalendarCtrl* m_calendar1;
-		wxStaticBoxSizer* sbSizer6;
-	    wxStaticBoxSizer* sbSizer12;
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void LogbookDialogOnClose( wxCloseEvent& event ) ;
@@ -350,7 +341,6 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		virtual void OnGridLabelLeftClickOverview( wxGridEvent& event );
 		virtual void OnMenuSelectionGotoRoute( wxCommandEvent& event );
 		virtual void OnMenuSelectionShowHiddenColsOverview( wxCommandEvent& event );
-//		virtual void OnMenuSelectionViewRoute( wxCommandEvent& event );
 		virtual void onButtonClickSelectLogbook( wxCommandEvent& event );
 		virtual void OnRadioButtonActuellLogbook( wxCommandEvent& event );
 		virtual void OnRadioButtonAllLogbooks( wxCommandEvent& event );
@@ -359,13 +349,6 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 
 		virtual void m_menu1Highlighted(wxMenuEvent& event);
 
-/*		virtual void onButtobClickAddLineMaintenance( wxCommandEvent& event ) ;
-		virtual void onButtobClickSaveMaintenance( wxCommandEvent& event ) ;
-		virtual void onButtonClickReloadLayoutsMaintenanceHTML( wxCommandEvent& event ) ;
-		virtual void onButtonClickEditLayoutODTMaintenance( wxCommandEvent& event ) ;
-		virtual void onRadioButtonHTMLMaintenance( wxCommandEvent& event ) ;
-		virtual void onButtonClickViewMaintenance( wxCommandEvent& event ) ;
-*/
 		virtual void gridGlobalScrolled( wxScrollWinEvent& event );
 		virtual void gridWeatherScrolled( wxScrollWinEvent& event );
 		virtual void gridMotorSailsScrolled( wxScrollWinEvent& event );
@@ -380,11 +363,11 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 enum maintenanceTab {SERVICE,REPAIRS,BUYPARTS};
 enum FORMAT {HTML,ODT};
 
-		wxGrid* m_gridGlobal;
 		wxButton* m_buttonReloadLayout;
 		wxButton* m_buttonEditLayout;
 		wxRadioButton* m_radioBtnHTML;
 		wxRadioButton* m_radioBtnODT;
+		wxGrid* m_gridGlobal;
 		wxChoice* overviewChoice;
 		wxButton* m_buttonReloadLayoutOview;
 		wxButton* m_buttonEditLayoutOview;
@@ -392,6 +375,7 @@ enum FORMAT {HTML,ODT};
 		wxRadioButton* m_radioBtnODTOverview;
 		wxRadioButton* m_radioBtnActuellLogbook;
 		wxRadioButton* m_radioBtnAllLogbooks;
+		wxRadioButton* m_radioBtnSelectLogbook;
 		wxButton* m_buttonSelectLogbook;
 		wxButton* m_buttonReloadCrew;
 		wxButton* m_buttonEditLayoutCrew;
@@ -401,6 +385,11 @@ enum FORMAT {HTML,ODT};
 		wxButton* m_buttonEditLayoutBoat;
 		wxRadioButton* m_radioBtnHTMLBoat;
 		wxRadioButton* m_radioBtnODTBoat;
+		wxStaticBoxSizer* sbSizer6;
+		wxTextCtrl* Userfield1;
+		wxTextCtrl* UserLabel2;
+		wxTextCtrl* UserLabel3;
+		wxStaticBoxSizer* sbSizer12;
 		wxPanel* m_panel13;
 		wxNotebook* m_notebook6;
 		wxButton* m_buttonAddLineService;
@@ -411,7 +400,7 @@ enum FORMAT {HTML,ODT};
 		wxRadioButton* m_radioBtnHTMLService;
 		wxRadioButton* m_radioBtnODTService;
 		wxButton* m_buttonViewService;
-		EzGrid* m_gridMaintanence;
+		wxGrid* m_gridMaintanence;
 		wxButton* m_buttonAddLineRepairs;
 		wxButton* m_buttonSaveRepairs;
 		wxChoice* m_choiceSelectLayoutRepairs;
@@ -442,7 +431,6 @@ enum FORMAT {HTML,ODT};
 		wxToggleButton* m_toggleScheduleWeek;
 		wxToggleButton* m_toggleScheduleMonth;
 		wxGrid* m_gridSchedule;
-		wxRadioButton* m_radioBtnSelectLogbook;
 
 		LogbookDialog( logbookkonni_pi* d, wxTimer* t, wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Active Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 1010,535 ), long style = wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER);
 		~LogbookDialog();

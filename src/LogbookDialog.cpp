@@ -1012,30 +1012,30 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	draft = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	fgSizer33->Add( draft, 0, wxALL, 5 );
 	
-	m_staticText111 = new wxStaticText( m_panel72, wxID_ANY, _("GRT"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText111->Wrap( -1 );
-	fgSizer33->Add( m_staticText111, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	UserLabel1 = new wxTextCtrl( m_panel72, wxID_ANY, wxT("UserLabel"), wxDefaultPosition, wxSize( 40,-1 ), wxTE_PROCESS_ENTER );
+	UserLabel1->SetToolTip( wxT("write your own label") );
 	
-	GRT = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), wxTE_PROCESS_ENTER );
-	GRT->SetToolTip( _("GrossTonnage") );
+	fgSizer33->Add( UserLabel1, 0, wxALL, 5 );
 	
-	fgSizer33->Add( GRT, 0, wxALL, 5 );
+	Userfield1 = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	fgSizer33->Add( Userfield1, 0, wxALL, 5 );
 	
-	m_staticText113 = new wxStaticText( m_panel72, wxID_ANY, _("NRT"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText113->Wrap( -1 );
-	fgSizer33->Add( m_staticText113, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	UserLabel2 = new wxTextCtrl( m_panel72, wxID_ANY, wxT("UserLabel"), wxDefaultPosition, wxSize( 60,-1 ), wxTE_PROCESS_ENTER );
+	UserLabel2->SetToolTip( wxT("write your own label") );
 	
-	NRT = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), wxTE_PROCESS_ENTER );
-	NRT->SetToolTip( _("NetTonnage") );
+	fgSizer33->Add( UserLabel2, 0, wxALL, 5 );
 	
-	fgSizer33->Add( NRT, 0, wxALL, 5 );
+	Userfield2 = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	fgSizer33->Add( Userfield2, 0, wxALL, 5 );
 	
-	m_staticText121 = new wxStaticText( m_panel72, wxID_ANY, _("Thames"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText121->Wrap( -1 );
-	fgSizer33->Add( m_staticText121, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	UserLabel3 = new wxTextCtrl( m_panel72, wxID_ANY, wxT("UserLabel"), wxDefaultPosition, wxSize( 60,-1 ), wxTE_PROCESS_ENTER );
+	UserLabel3->SetToolTip( wxT("write your own label") );
+	UserLabel3->SetMaxSize( wxSize( 30,-1 ) );
 	
-	thames = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), wxTE_PROCESS_ENTER );
-	fgSizer33->Add( thames, 0, wxALL, 5 );
+	fgSizer33->Add( UserLabel3, 0, wxALL, 5 );
+	
+	Userfield3 = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), wxTE_PROCESS_ENTER );
+	fgSizer33->Add( Userfield3, 0, wxALL, 5 );
 	
 	m_staticText122 = new wxStaticText( m_panel72, wxID_ANY, _("Displacement"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText122->Wrap( -1 );
@@ -1459,150 +1459,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_panel16->Layout();
 	fgSizer1511->Fit( m_panel16 );
 	m_notebook6->AddPage( m_panel16, _("Buy Parts"), false );
-/*	m_panel15 = new wxPanel( m_notebook6, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
-	m_panel15->Enable( false );
-	m_panel15->Hide();
 	
-	wxFlexGridSizer* fgSizer1512;
-	fgSizer1512 = new wxFlexGridSizer( 4, 1, 0, 0 );
-	fgSizer1512->SetFlexibleDirection( wxBOTH );
-	fgSizer1512->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
-	
-	wxBoxSizer* bSizer10112;
-	bSizer10112 = new wxBoxSizer( wxHORIZONTAL );
-	
-	m_buttonAddLineMaintenance1 = new wxButton( m_panel15, wxID_ANY, _("Add Line"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_buttonAddLineMaintenance1->Enable( false );
-	
-	bSizer10112->Add( m_buttonAddLineMaintenance1, 0, wxALL, 5 );
-	
-	m_buttonSaveMaintenance2 = new wxButton( m_panel15, wxID_ANY, _("Save"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_buttonSaveMaintenance2->Enable( false );
-	
-	bSizer10112->Add( m_buttonSaveMaintenance2, 0, wxALL, 5 );
-	
-	m_staticline1512 = new wxStaticLine( m_panel15, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL|wxLI_VERTICAL );
-	bSizer10112->Add( m_staticline1512, 0, wxEXPAND | wxALL, 5 );
-	
-	m_staticText6212 = new wxStaticText( m_panel15, wxID_ANY, _("Select Layout:"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText6212->Wrap( -1 );
-	bSizer10112->Add( m_staticText6212, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	wxArrayString m_choiceSelectLayoutMaintenance12Choices;
-	m_choiceSelectLayoutMaintenance12 = new wxChoice( m_panel15, wxID_ANY, wxDefaultPosition, wxSize( 180,-1 ), m_choiceSelectLayoutMaintenance12Choices, 0 );
-	m_choiceSelectLayoutMaintenance12->SetSelection( 0 );
-	m_choiceSelectLayoutMaintenance12->Enable( false );
-	
-	bSizer10112->Add( m_choiceSelectLayoutMaintenance12, 0, wxALL, 5 );
-	
-	m_buttonReloadLayoutsMaintenanceHTML2 = new wxButton( m_panel15, wxID_ANY, _("R"), wxDefaultPosition, wxSize( 15,-1 ), 0 );
-	m_buttonReloadLayoutsMaintenanceHTML2->Enable( false );
-	
-	bSizer10112->Add( m_buttonReloadLayoutsMaintenanceHTML2, 0, wxALL, 5 );
-	
-	m_buttonEditLayoutODTMaintenance12 = new wxButton( m_panel15, wxID_ANY, _("E"), wxDefaultPosition, wxSize( 15,-1 ), 0 );
-	m_buttonEditLayoutODTMaintenance12->Enable( false );
-	
-	bSizer10112->Add( m_buttonEditLayoutODTMaintenance12, 0, wxALL, 5 );
-	
-	m_radioBtnHTMLMaintenance2 = new wxRadioButton( m_panel15, wxID_ANY, wxT("HTML"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_radioBtnHTMLMaintenance2->Enable( false );
-	
-	bSizer10112->Add( m_radioBtnHTMLMaintenance2, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	m_radioBtnODTMaintenance2 = new wxRadioButton( m_panel15, wxID_ANY, wxT("ODT"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_radioBtnODTMaintenance2->Enable( false );
-	
-	bSizer10112->Add( m_radioBtnODTMaintenance2, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	m_buttonViewMaintenance2 = new wxButton( m_panel15, wxID_ANY, _("View"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_buttonViewMaintenance2->Enable( false );
-	
-	bSizer10112->Add( m_buttonViewMaintenance2, 0, wxALL, 5 );
-	
-	
-	bSizer10112->Add( 300, 0, 1, wxEXPAND, 5 );
-	
-	fgSizer1512->Add( bSizer10112, 1, wxEXPAND, 5 );
-	
-	m_staticline1412 = new wxStaticLine( m_panel15, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
-	fgSizer1512->Add( m_staticline1412, 0, wxEXPAND | wxALL, 5 );
-	
-	m_staticText6012 = new wxStaticText( m_panel15, wxID_ANY, _("Work in Progress"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText6012->Wrap( -1 );
-	m_staticText6012->SetFont( wxFont( 8, 74, 90, 92, false, wxT("Tahoma") ) );
-	
-	fgSizer1512->Add( m_staticText6012, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
-	
-	wxFlexGridSizer* fgSizer24;
-	fgSizer24 = new wxFlexGridSizer( 1, 2, 0, 0 );
-	fgSizer24->SetFlexibleDirection( wxBOTH );
-	fgSizer24->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
-	
-	wxFlexGridSizer* fgSizer25;
-	fgSizer25 = new wxFlexGridSizer( 2, 1, 0, 0 );
-	fgSizer25->SetFlexibleDirection( wxBOTH );
-	fgSizer25->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
-	
-	m_calendar1 = new wxCalendarCtrl( m_panel15, wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxCAL_SHOW_HOLIDAYS );
-	fgSizer25->Add( m_calendar1, 0, wxALL, 5 );
-	
-	m_toggleScheduleToday = new wxToggleButton( m_panel15, wxID_ANY, _("Today"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_toggleScheduleToday->Enable( false );
-	
-	fgSizer25->Add( m_toggleScheduleToday, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	m_toggleScheduleWeek = new wxToggleButton( m_panel15, wxID_ANY, _("Week"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_toggleScheduleWeek->Enable( false );
-	
-	fgSizer25->Add( m_toggleScheduleWeek, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
-	
-	m_toggleScheduleMonth = new wxToggleButton( m_panel15, wxID_ANY, _("Month"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_toggleScheduleMonth->Enable( false );
-	
-	fgSizer25->Add( m_toggleScheduleMonth, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
-	
-	fgSizer24->Add( fgSizer25, 1, wxEXPAND, 5 );
-	
-	m_gridSchedule = new wxGrid( m_panel15, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxALWAYS_SHOW_SB );
-	
-	// Grid
-	m_gridSchedule->CreateGrid( 3, 3 );
-	m_gridSchedule->EnableEditing( true );
-	m_gridSchedule->EnableGridLines( true );
-	m_gridSchedule->EnableDragGridSize( false );
-	m_gridSchedule->SetMargins( 0, 0 );
-	
-	// Columns
-	m_gridSchedule->SetColSize( 0, 250 );
-	m_gridSchedule->SetColSize( 1, 250 );
-	m_gridSchedule->SetColSize( 2, 250 );
-	m_gridSchedule->EnableDragColMove( false );
-	m_gridSchedule->EnableDragColSize( true );
-	m_gridSchedule->SetColLabelSize( 0 );
-	m_gridSchedule->SetColLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
-	
-	// Rows
-	m_gridSchedule->SetRowSize( 0, 200 );
-	m_gridSchedule->SetRowSize( 1, 200 );
-	m_gridSchedule->SetRowSize( 2, 200 );
-	m_gridSchedule->EnableDragRowSize( true );
-	m_gridSchedule->SetRowLabelSize( 0 );
-	m_gridSchedule->SetRowLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
-	
-	// Label Appearance
-	
-	// Cell Defaults
-	m_gridSchedule->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
-	fgSizer24->Add( m_gridSchedule, 0, wxALL, 5 );
-	
-	fgSizer1512->Add( fgSizer24, 1, wxEXPAND, 5 );
-	
-	m_panel15->SetSizer( fgSizer1512 );
-	m_panel15->Layout();
-	fgSizer1512->Fit( m_panel15 );
-	m_notebook6->AddPage( m_panel15, _("Schedule"), false );
-*/	
 	bSizer13->Add( m_notebook6, 1, wxEXPAND | wxALL, 5 );
 	
 	m_panel13->SetSizer( bSizer13 );
@@ -1681,7 +1538,6 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridOverview->Connect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::OnGridCellRightClickOverview ), NULL, this );
 	m_gridOverview->Connect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftClickOverview ), NULL, this );
 	this->Connect( m_menuItemOverviewRoute->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionGotoRoute ) );
-//	this->Connect( m_menuItemOverviewView->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionViewRoute ) );
 	logSaveOverview->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnButtonClickOverviewSave ), NULL, this );
 	m_buttonReloadLayoutOview->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::onButtonReloadLayoutOverView ), NULL, this );
 	m_buttonEditLayoutOview->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::onButtonClickEditLayoutOverview ), NULL, this );
@@ -1848,14 +1704,12 @@ LogbookDialog::~LogbookDialog()
 	m_gridOverview->Disconnect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::OnGridCellRightClickOverview ), NULL, this );
 	m_gridOverview->Disconnect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftClickOverview ), NULL, this );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionGotoRoute ) );
-//	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionViewRoute ) );
 	logSaveOverview->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnButtonClickOverviewSave ), NULL, this );
 	m_buttonReloadLayoutOview->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::onButtonReloadLayoutOverView ), NULL, this );
 	m_buttonEditLayoutOview->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::onButtonClickEditLayoutOverview ), NULL, this );
 	m_radioBtnHTMLOverview->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookDialog::onRadioButtonHTMLOverview ), NULL, this );
 	m_radioBtnODTOverview->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookDialog::onRadioButtonODTOverView ), NULL, this );
 	logViewOverview->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnButtonClickOverView ), NULL, this );
-//	m_gridOverview->Disconnect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::OnGridCellRightClickOverview ), NULL, this );
 	m_radioBtnHTMLOverview->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookDialog::onRadioButtonHTMLOverview ), NULL, this );
 	m_radioBtnAllLogbooks->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookDialog::OnRadioButtonAllLogbooks ), NULL, this );
 	m_gridMaintanence->Disconnect( wxEVT_GRID_CELL_CHANGE, wxGridEventHandler( LogbookDialog::onGridCellServiceChange ), NULL, this );
@@ -2157,7 +2011,7 @@ int LogbookDialog::showLayoutDialog(wxChoice *choice, wxString location, int for
 	}
 
 	delete dlg;
-	return -1;				   //(format)?_T".odt"):_T("html");
+	return -1;	
 }
 
 bool LogbookDialog::isInArrayString(wxArrayString ar, wxString s)
@@ -2173,8 +2027,6 @@ void LogbookDialog::m_gridGlobalOnGridSelectCell( wxGridEvent& ev )
 {
 	for(int i = 0; i < LOGGRIDS; i++)
 		logGrids[i]->ClearSelection();
-
-//	m_gridGlobal->GetGridWindow()->Freeze();
 
 	if(selGridRow != ev.GetRow())
 		setEqualRowHeight(selGridRow);
@@ -2195,7 +2047,6 @@ void LogbookDialog::m_gridGlobalOnGridSelectCell( wxGridEvent& ev )
 		logGrids[i]->MakeCellVisible(selGridRow,selGridCol);
 	}
 
-//	m_gridGlobal->GetGridWindow()->Thaw();
 	ev.Skip();
 }
 
@@ -2203,8 +2054,6 @@ void LogbookDialog::m_gridMotorSailsOnGridSelectCell( wxGridEvent& ev )
 {
 	for(int i = 0; i < LOGGRIDS; i++)
 		logGrids[i]->ClearSelection();
-
-//	m_gridMotorSails->GetGridWindow()->Freeze();
 
 	if(selGridRow != ev.GetRow())
 		setEqualRowHeight(selGridRow);
@@ -2222,7 +2071,6 @@ void LogbookDialog::m_gridMotorSailsOnGridSelectCell( wxGridEvent& ev )
 		logGrids[i]->Refresh();
 		logGrids[i]->MakeCellVisible(selGridRow,selGridCol);
 	}
-//	m_gridMotorSails->GetGridWindow()->Thaw();
 	ev.Skip();
 }
 
@@ -2230,8 +2078,6 @@ void LogbookDialog::m_gridWeatherOnGridSelectCell( wxGridEvent& ev )
 {
 	for(int i = 0; i < LOGGRIDS; i++)
 		logGrids[i]->ClearSelection();
-
-//	m_gridWeather->GetGridWindow()->Freeze();
 
 	selGridCol = ev.GetCol();
 	selGridRow = ev.GetRow();
@@ -2242,13 +2088,12 @@ void LogbookDialog::m_gridWeatherOnGridSelectCell( wxGridEvent& ev )
 		logGrids[i]->MakeCellVisible(selGridRow,selGridCol);
 	}
 
-//	m_gridWeather->GetGridWindow()->Thaw();
 	ev.Skip();
 }
 
 void LogbookDialog::LogbookDialogOnInitDialog( wxInitDialogEvent& ev )
 {
-	//init();
+
 }
 
 void LogbookDialog::setTitleExt()
@@ -2478,7 +2323,6 @@ void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )
 					temp = temp.AfterFirst('>');
 					g = temp.BeforeFirst('<');
 					dlg->m_listCtrlRoute->InsertItem(n++,g);
-//					dlg->m_listCtrlRoute->SetItem(n++,0,g);
 				}
 			}
 		}
@@ -2831,7 +2675,6 @@ void LogbookDialog::startBrowser(wxString filename)
 {
   if(wxGetOsVersion() & wxOS_WINDOWS)
   {
-//	wxMimeTypesManager mime_manager;
 	filename.Replace(wxT("/"),wxT("\\"));
 
 	wxFileType *filetype = wxTheMimeTypesManager->GetFileTypeFromExtension(_T("html"));
@@ -2966,32 +2809,24 @@ void LogbookDialog::getIniValues()
 	{
 		for(int n = 0; n < m_gridOverview->GetNumberCols(); n++)
 			m_gridOverview->SetColumnWidth(n,opt->OverviewColWidth[n]);
-//		else
-//			m_gridOverview->SetColumnWidth(n,-1);
 	}
 
 	if(opt->ServiceColWidth[0] != -1 )
 	{
 		for(int n = 0; n < m_gridMaintanence->GetNumberCols(); n++)
 			m_gridMaintanence->SetColumnWidth(n,opt->ServiceColWidth[n]);
-//		else
-//			m_gridMaintanence->SetColumnWidth(n,-1);
 	}
 
 	if(opt->RepairsColWidth[0] != -1 )
 	{
 		for(int n = 0; n < m_gridMaintanenceRepairs->GetNumberCols(); n++)
 			m_gridMaintanenceRepairs->SetColumnWidth(n,opt->RepairsColWidth[n]);
-//		else
-//			m_gridMaintanenceRepairs->SetColumnWidth(n,-1);
 	}
 
 	if(opt->BuyPartsColWidth[0] != -1 )
 	{
 		for(int n = 0; n < m_gridMaintenanceBuyParts->GetNumberCols(); n++)
 			m_gridMaintenanceBuyParts->SetColumnWidth(n,opt->BuyPartsColWidth[n]);
-//		else
-//			m_gridMaintenanceBuyParts->SetColumnWidth(n,-1);
 	}
 }
 
@@ -4120,8 +3955,6 @@ RouteDialog::~RouteDialog()
 #include "folder.xpm"
 LayoutDialog::LayoutDialog( wxWindow* parent, wxString location, wxChoice* choice, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
-//	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
-	
 	wxFlexGridSizer* fgSizer25;
 	fgSizer25 = new wxFlexGridSizer( 2, 1, 0, 0 );
 	fgSizer25->SetFlexibleDirection( wxBOTH );

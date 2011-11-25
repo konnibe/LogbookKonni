@@ -33,18 +33,6 @@ OverView::OverView(LogbookDialog* d, wxString data, wxString lay, wxString layou
 	collection t_coll;
 	setLayoutLocation();
 	loadAllLogbooks();
-/*
-#ifdef __WXMSW__
-	grid->SetColLabelValue( FETMAL, grid->GetColLabelValue(FETMAL)+_T(" Ø") );
-	grid->SetColLabelValue( FSPEED, grid->GetColLabelValue(FSPEED)+_T(" Ø") );
-	grid->SetColLabelValue( FWINDDIR, grid->GetColLabelValue(FWINDDIR)+_T(" Ø") );
-	grid->SetColLabelValue( FWIND, grid->GetColLabelValue(FWIND)+_T(" Ø") );
-	grid->SetColLabelValue( FCURRENTDIR, grid->GetColLabelValue(FCURRENTDIR)+_T(" Ø") );
-	grid->SetColLabelValue( FCURRENT, grid->GetColLabelValue(FCURRENT)+_T(" Ø") );
-	grid->SetColLabelValue( FWAVE, grid->GetColLabelValue(FWAVE)+_T(" Ø") );
-	grid->SetColLabelValue( FSWELL, grid->GetColLabelValue(FSWELL)+_T(" Ø") );
-#endif
-*/
 }
 
 OverView::~OverView(void)
@@ -468,25 +456,9 @@ void OverView::writeSumColumn(int row, wxString logbook, wxString path, bool col
 	startdt.ParseTime(starttime);
 	enddt.ParseDate(enddate);
 	enddt.ParseTime(endtime);
-/*	if(startdate.Contains(_T(".")))
-	{
-		startdt.ParseFormat(startdate+_T(" ")+starttime,_T("%d.%m.%Y %H:%M:%S"));
-		enddt.ParseFormat(enddate+_T(" ")+endtime,_T("%d.%m.%Y %H:%M:%S"));
-	}
-	else
-	{
-		startdt.ParseFormat(startdate+_T(" ")+starttime,_T("%m/%d/%Y %H:%M:%S"));
-		startdt.ParseTime(starttime);
-		enddt.ParseFormat(enddate+_T(" ")+endtime,_T("%m/%d/%Y %H:%M:%S"));
-		enddt.ParseTime(endtime);
-	}
-*/
-//	wxMessageBox(startdt.FormatDate()+_T(" ")+startdt.FormatTime()+_T(" / ")+enddt.FormatDate()+_T(" ")+enddt.FormatTime());
 
 	wxTimeSpan journey = enddt.Subtract(startdt);
 	grid->SetCellValue(row,FJOURNEY,journey.Format(_T("%D Days %H:%M "))+opt->motorh);
-
-//	wxMessageBox(wxString::Format(_T("%i Days %iH:%iM"),journey.GetDays(),journey.GetHours(),journey.GetMinutes()));
 
 	int max = 0;wxString result;
 	collection::iterator it;

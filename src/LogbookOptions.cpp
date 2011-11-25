@@ -909,8 +909,6 @@ void LogbookOptions::m_checkBoxTimerOnCheckBox( wxCommandEvent& ev )
 		else
 		{
 			log_pi->m_plogbook_window->setTitleExt();
-			//titleExt = _(" - Timer on - Interval: ")+wxString::Format(_T("%s h %s m %s s"),
-			//	this->m_textCtrTimerH->GetValue().c_str(),this->m_textCtrlTimerM->GetValue().c_str(),this->m_textCtrlTimerS->GetValue().c_str());
 			log_pi->m_plogbook_window->SetTitle(log_pi->m_plogbook_window->GetTitle()+ log_pi->m_plogbook_window->titleExt);
 		}
 

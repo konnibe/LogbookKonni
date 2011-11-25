@@ -88,12 +88,7 @@ Maintenance::Maintenance(LogbookDialog* d, wxString data, wxString layout, wxStr
 	data_locnRepairs = repairsData;
 
 	setLayoutLocation();
-/*
-	m_choices = wxArrayString();
-	m_choices.Add(dialog->m_gridGlobal->GetColLabelValue(6)+_T(" +")); // Distance/T
-	m_choices.Add(dialog->m_gridMotorSails->GetColLabelValue(1)+_T(" +")); // Motor/h
-	m_choices.Add(dialog->m_gridGlobal->GetColLabelValue(3)); // Sign
-*/
+
 	m_choices[0] = dialog->m_gridGlobal->GetColLabelValue(6)+_T(" +"); // Distance/T
 	m_choices[1] = dialog->m_gridMotorSails->GetColLabelValue(1)+_T(" +"); // Motor/h
 	m_choices[2] = dialog->m_gridGlobal->GetColLabelValue(3); // Sign
@@ -194,7 +189,6 @@ void Maintenance::addLine()
 	cellCollChanged(IF, lastRow);
 	cellCollChanged(WARN, lastRow);
 	checkService(dialog->m_gridGlobal->GetNumberRows()-1);
-//	setRowBackground(lastRow,white);
 	grid->SetCellBackgroundColour(lastRow,START,wxColour( 240, 240, 240 ));
 
 	grid->SetCellValue(lastRow,ACTIVE,_("Yes"));
@@ -402,7 +396,7 @@ void Maintenance::setRowBackground(int row, wxColour &c)
 	else if(c == wxColour(255,255,255))
 		grid->SetCellValue(row,PRIORITY,_T("0"));
 }
-#include "time.h"
+
 void Maintenance::checkService(int row)
 {
 
@@ -417,6 +411,7 @@ void Maintenance::checkService(int row)
 	double distanceTotal, motorTotal;
 	wxString sign, cell;
 	int border = 0;
+	wxColour rowBack;
 
 	for(int r = 0; r < grid->GetNumberRows(); r++)
 	{
@@ -460,54 +455,45 @@ void Maintenance::checkService(int row)
 				if(distanceTotal >= startValue+urgentValue)
 				{
 					border = 2;
-					dialog->SetBackgroundColour(red);
-					setRowBackground(r,red);
+					rowBack = red;
 					break;
 				}
 				else if(distanceTotal >= startValue+warnValue)
 				{
-					border = 1;
-					dialog->SetBackgroundColour(yellow);
-					setRowBackground(r,yellow);
+					if(border != 2)
+						border = 1;
+					rowBack = yellow;
 					break;
 				}
 				else
-				{
-					setRowBackground(r,green);
-				}
+					rowBack = green;
 				break;
 			case 1:
 				if(motorTotal >= startValue+urgentValue)
 				{
 					border = 2;
-					dialog->SetBackgroundColour(red);
-					setRowBackground(r,red);
+					rowBack = red;
 					break;
 				}
 				else if(motorTotal >= startValue+warnValue)
 				{
-					border = 1;
-					dialog->SetBackgroundColour(yellow);
-					setRowBackground(r,yellow);
+					if(border != 2)
+						border = 1;
+					rowBack = yellow;
 					break;
 				}
 				else
-				{
-					setRowBackground(r,green);
-				}
+					rowBack = green;
 				break;
 			case 2:
 				if(grid->GetCellValue(r,URGENT) == dialog->m_gridGlobal->GetCellValue(row,3))
 				{
 					border = 2;
-					dialog->SetBackgroundColour(red);
-					setRowBackground(r,red);
+					rowBack = red;
 					break;
 				}
 				else
-				{
-					setRowBackground(r,green);
-				}
+					rowBack = green;
 				break;
 			case 3:	
 				date = grid->GetCellValue(r,URGENT);
@@ -519,21 +505,18 @@ void Maintenance::checkService(int row)
 				if(dtstart >= dturgent)
 				{
 					border = 2;
-					dialog->SetBackgroundColour(red);
-					setRowBackground(r,red);
+					rowBack = red;
 					break;
 				}
 				else if(dtstart >= dtwarn)
 				{
-					border = 1;
-					dialog->SetBackgroundColour(yellow);
-					setRowBackground(r,yellow);
+					if(border != 2)
+						border = 1;
+					rowBack = yellow;
 					break;
 				}
 				else
-				{
-					setRowBackground(r,green);
-				}
+					rowBack = green;
 				break;
 			case 4:
 				date = dialog->m_gridMaintanence->GetCellValue(r,START);
@@ -548,26 +531,22 @@ void Maintenance::checkService(int row)
 				dtwarn = dtstart;
 				dtwarn += spanw;
 				dtstart.ParseDate(dtstart.Now().FormatDate());
-//				dtstart.ParseDate(dialog->m_gridGlobal->GetCellValue(row,1));
 
 				if(dtstart >= dturgent )
 				{
 					border = 2;
-					dialog->SetBackgroundColour(red);
-					setRowBackground(r,red);
+					rowBack = red;
 					break;
 				}
-				else if(dtstart >= dtwarn)
+				else if(dtstart >= dtwarn )
 				{
-					border = 1;
-					dialog->SetBackgroundColour(yellow);
-					setRowBackground(r,yellow);
+					if(border != 2)
+						border = 1;
+					rowBack = yellow;
 					break;
 				}
 				else
-				{
-					setRowBackground(r,green);
-				}
+					rowBack = green;
 				break;
 			case 5:
 				date = dialog->m_gridMaintanence->GetCellValue(r,START);
@@ -582,26 +561,22 @@ void Maintenance::checkService(int row)
 				dtwarn = dtstart;
 				dtwarn += spanw;
 				dtstart.ParseDate(dtstart.Now().FormatDate());
-//				dtstart.ParseDate(dialog->m_gridGlobal->GetCellValue(row,1));
 
 				if(dtstart >= dturgent )
 				{
 					border = 2;
-					dialog->SetBackgroundColour(red);
-					setRowBackground(r,red);
+					rowBack = red;
 					break;
 				}
 				else if(dtstart >= dtwarn)
 				{
-					border = 1;
-					dialog->SetBackgroundColour(yellow);
-					setRowBackground(r,yellow);
+					if(border != 2)
+						border = 1;
+					rowBack = yellow;
 					break;
 				}
 				else
-				{
-					setRowBackground(r,green);
-				}
+					rowBack = green;
 				break;
 			case 6:
 				date = dialog->m_gridMaintanence->GetCellValue(r,START);
@@ -620,37 +595,41 @@ void Maintenance::checkService(int row)
 				if(dtstart >= dturgent )
 				{
 					border = 2;
-					dialog->SetBackgroundColour(red);
-					setRowBackground(r,red);
+					rowBack = red;
 					break;
 				}
 				else if(dtstart >= dtwarn)
 				{
-					border = 1;
-					dialog->SetBackgroundColour(yellow);
-					setRowBackground(r,yellow);
+					if(border != 2)
+						border = 1;
+					rowBack = yellow;
 					break;
 				}
 				else
-				{
-					setRowBackground(r,green);
-				}
+					rowBack = green;
 			}
 		}
 		else
 			setRowBackground(r,white);
 
+		setRowBackground(r,rowBack);
 		setBuyPartsPriority(grid,r,PRIORITY,TEXT);
 	}
 
 	checkBuyParts();
 
-	if(border != 0)
-		;
-//wxMessageBox(wxString::Format(_("startValue = %5.2f\nwarnValue = %5.2f\n gesamt = %5.2f\nmotorTotal = %5.2f"),
-						//startValue,warnValue,startValue+warnValue,motorTotal));
-	else
-		dialog->SetBackgroundColour(dialog->defaultBackground);
+	switch(border)
+	{
+		case 0:
+			dialog->SetBackgroundColour(dialog->defaultBackground);
+			break;
+		case 1:
+			dialog->SetBackgroundColour(yellow);
+			break;
+		case 2:
+			dialog->SetBackgroundColour(red);
+			break;
+	}
 	dialog->Refresh();
 }
 
@@ -810,13 +789,21 @@ void Maintenance::cellCollChanged(int col, int row)
 		wxString g = grid->GetCellValue(selectedRow,IF);
 
 		if(g == m_choices[0])
+		{
 					grid->SetCellValue(selectedRow,START,
 							dialog->m_gridGlobal->GetCellValue(
 							dialog->m_gridGlobal->GetNumberRows()-1,6));
+						grid->SetCellValue(selectedRow,WARN,_T("1"));
+						grid->SetCellValue(selectedRow,URGENT,_T("2"));
+		}
 		else if (g == m_choices[1])
+		{
 						grid->SetCellValue(selectedRow,START,
 							dialog->m_gridMotorSails->GetCellValue(
 							dialog->m_gridMotorSails->GetNumberRows()-1,1));
+						grid->SetCellValue(selectedRow,WARN,_T("1"));
+						grid->SetCellValue(selectedRow,URGENT,_T("2"));
+		}
 		else if (g == m_choices[2])
 						grid->SetCellValue(selectedRow,WARN,
 							dialog->m_gridGlobal->GetCellValue(
@@ -884,7 +871,6 @@ void Maintenance::cellCollChanged(int col, int row)
 			grid->SetCellValue(row,PRIORITY,_T("5"));
 
 		setBuyPartsPriority(grid ,row, PRIORITY, TEXT);
-		//checkService(dialog->m_gridGlobal->GetNumberRows()-1);
 	}
 }
 
@@ -1234,44 +1220,7 @@ wxString Maintenance::replaceNewLine(int mode, wxString str)
 
 	return str;
 }
-/*
-void Maintenance::viewODTRepairs(wxString path,wxString layout,bool mode)
-{
-	toODTRepairs(path, layout, mode);
-	if(layout != _T(""))
-	{
-	    wxString fn = data_locn;
-	    fn.Replace(_T("txt"),_T("odt"));
-		dialog->startApplication(fn,_T(".odt"));
-	}
-}
-*/
-/*
-wxString Maintenance::toODTRepairs(wxString path,wxString layout,bool mode)
-{
 
-return _("");
-}
-*/
-/*
-wxString Maintenance::readLayoutODT(wxString path,wxString layout)
-{
-	wxString odt = _T("");
-
-
-	wxString filename = path + layout + _T(".odt");
-
-	if(wxFileExists(filename))
-	{
-		static const wxString fn = _T("content.xml");
-		wxZipInputStream zip(filename,fn);
-		wxTextInputStream txt(zip);
-		while(!zip.Eof())
-			odt += txt.ReadLine();
-	}
-	return odt;
-}
-*/
 wxString Maintenance::readLayoutHTML(wxString path1,wxString layoutFileName)
 {
 	wxString html, path;

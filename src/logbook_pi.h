@@ -71,7 +71,6 @@ class Options;
 class logbookkonni_pi : public opencpn_plugin
 {
 public:
-	//logbook_pi(void *ppimgr):opencpn_plugin(ppimgr){} 
 	logbookkonni_pi(void *ppimgr);
 	~logbookkonni_pi();
 

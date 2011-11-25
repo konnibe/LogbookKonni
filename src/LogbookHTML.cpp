@@ -366,116 +366,7 @@ void LogbookHTML::setFileName(wxString s, wxString l)
 	fileName = s;
 	layout_locn = l;
 }
-/*
-wxString LogbookHTML::replacePlaceholder(wxString html,wxString htmlHeader,wxString st,int nr, bool mode)
-{
-		static wxString route;
-		wxString s;
 
-		if(st == _T("")) { route = _T(""); return _T(""); }
-
-		wxStringTokenizer tkz(st, _T("\t"));
-		int c = 0;
-		while ( tkz.HasMoreTokens() )
-		{
-			s = tkz.GetNextToken();
-			s.RemoveLast();
-			if(mode == 0) // HTML
-				s.Replace(wxT("\\n"),wxT("<br>"));
-			else // ODT
-				s.Replace(wxT("\\n"),wxT("<text:line-break/>"));
-
-				switch(c)
-				{
-				case ROUTE:		if(route != s)
-								{
-									htmlHeader.Replace(wxT("#ROUTE#"),s);
-									html.Prepend(htmlHeader);
-								}
-								route = s;
-								break;
-				case RDATE:		html.Replace(wxT("#DATE#"),s);
-								html.Replace(wxT("#NO.#"),wxString::Format(_T("%i"),nr));
-								break;
-				case RTIME:		html.Replace(wxT("#TIME#"),s);
-								break;
-				case SIGN:		html.Replace(wxT("#SIGN#"),s);
-								break;
-				case WAKE:		html.Replace(wxT("#WAKE#"),s);
-								break;
-				case DISTANCE:	html.Replace(wxT("#DISTANCE#"),s);
-								break;
-				case DTOTAL:	html.Replace(wxT("#DTOTAL#"),s);
-								break;
-				case POSITION:	html.Replace(wxT("#POSITION#"),s);
-								break;
-				case COG:		html.Replace(wxT("#COG#"),s);
-								break;
-				case COW:		html.Replace(wxT("#COW#"),s);
-								break;
-				case SOG:		html.Replace(wxT("#SOG#"),s);
-								break;
-				case SOW:		html.Replace(wxT("#SOW#"),s);
-								break;
-				case DEPTH:		html.Replace(wxT("#DEPTH#"),s);
-								break;
-				case REMARKS:	html.Replace(wxT("#REMARKS#"),s);
-								break;
-				case BARO:		html.Replace(wxT("#BARO#"),s);
-								break;
-				case WIND:		html.Replace(wxT("#WIND#"),s);
-								break;
-				case WSPD:		html.Replace(wxT("#WSPD#"),s);
-								break;
-				case CURRENT:	html.Replace(wxT("#CUR#"),s);
-								break;
-				case CSPD:		html.Replace(wxT("#CSPD#"),s);
-								break;
-				case WAVE:		html.Replace(wxT("#WAVE#"),s);
-								break;
-				case SWELL:		html.Replace(wxT("#SWELL#"),s);
-								break;
-				case WEATHER:	html.Replace(wxT("#WEATHER#"),s);
-								break;
-				case CLOUDS:	html.Replace(wxT("#CLOUDS#"),s);
-								break;
-				case VISIBILITY:html.Replace(wxT("#VISIBILITY#"),s);
-								break;
-				case MOTOR:		html.Replace(wxT("#MOTOR#"),s);
-								break;
-				case MOTORT:	html.Replace(wxT("#MOTORT#"),s);
-								break;
-				case FUEL:		html.Replace(wxT("#FUEL#"),s);
-								break;
-				case FUELT:		html.Replace(wxT("#FUELT#"),s);
-								break;
-				case SAILS:		html.Replace(wxT("#SAILS#"),s);
-								break;
-				case REEF:		html.Replace(wxT("#REEF#"),s);
-								break;
-				case WATER:		html.Replace(wxT("#WATER#"),s);
-								break;
-				case WATERT:	html.Replace(wxT("#WATERT#"),s);
-								break;
-				case MREMARKS:	html.Replace(wxT("#MREMARKS#"),s);
-								break;
-				}
-				c++;
-	}
-	//html.Replace(wxT("°"),wxT("&#176;"));
-	//html.Replace(wxT("°"),wxT("Â&#176;"));
-	if(mode == 0)
-	{
-//		wxString str(html, wxConvUTF8);
-		return html;
-	}
-	else 
-	{
-		wxString str(html, wxConvUTF8);
-		return str;
-	}
-}
-*/
 wxString LogbookHTML::readLayoutFile(wxString layout)
 {
 	wxString html;
@@ -542,15 +433,13 @@ wxString LogbookHTML::toODT(wxString path,wxString layout, bool mode)
 		return _T("");
 	}
 
-//	logbook->update();
-
 	wxString odt = readLayoutFileODT(layout);
 	if(!odt.Contains(_T("[[")) && !odt.Contains(_T("{{")))
 	{
 		wxMessageBox(_("Have You forgotten to enclose the Header with [[ and ]]\n or Data with {{ and }} ?"));
 		return _T("");
 	}
-//wxMessageBox(odt);
+
 	wxString topODT;
 	wxString bottomODT;
 	wxString headerODT;
@@ -583,12 +472,9 @@ wxString LogbookHTML::toODT(wxString path,wxString layout, bool mode)
 	topODT = topODT.substr(0,indexTopODT);
 	odt = odt.substr(top);
 
-//wxMessageBox(odt);
 	int headerStart = odt.find_first_of('>')+1;
 	odt = odt.substr(headerStart);
 
-//wxMessageBox(topODT);
-//wxMessageBox(odt);
 	int indexBottomODT = odt.Find(seperatorHeaderBottom);
 	headerODT = odt.substr(0,indexBottomODT);
 	odt = odt.substr(indexBottomODT);
@@ -598,35 +484,24 @@ wxString LogbookHTML::toODT(wxString path,wxString layout, bool mode)
 	headerODT = headerODT.substr(indexBottomODT);
 	headerODT = headerODT.substr(0,headerODT.find_last_of('<'));
 
-//wxMessageBox(odt);
-//wxMessageBox(headerODT);
-
 	indexBottomODT = odt.Find(seperatorTop);
 	middleODT = odt.substr(indexBottomODT);
 	odt = odt.substr(indexBottomODT);
-//wxMessageBox(odt);
-//wxMessageBox(middleODT);
+
 	int middleStart = middleODT.find_first_of('>')+1;
 	middleODT = middleODT.substr(middleStart);
 	odt = odt.substr(odt.find_first_of('>')+1);
-//wxMessageBox(odt);
-//wxMessageBox(middleODT);
 
 	indexBottomODT = odt.Find(seperatorBottom);
 	middleODT = odt.substr(0,indexBottomODT);
 	odt = odt.substr(indexBottomODT);
-//wxMessageBox(middleODT);
-//wxMessageBox(odt);
+
 	int middleEnd = odt.find_first_of('>')+1;
 	odt = odt.substr(middleEnd);
 	middleODT = middleODT.substr(0,middleODT.find_last_of('<'));
-//wxMessageBox(odt);
-//wxMessageBox(middleODT);
 
 	wxString filename = this->fileName;
 
-//	wxFileInputStream input( filename );
-//	wxTextInputStream* stream = new wxTextInputStream (input);
 	if(mode == false)
 	{
 		filename.Replace(wxT("txt"),wxT("odt"));
@@ -671,23 +546,15 @@ wxString LogbookHTML::toODT(wxString path,wxString layout, bool mode)
 		{
 			wxGrid* g = parent->logGrids[grid];
 			for(int col = 0; col < g->GetNumberCols(); col++)
-			{
-//	while(wxString line = stream->ReadLine())
-//	{
-//		if(input.Eof()) break;
-
-//		newMiddleODT = replacePlaceholder(middleODT,headerODT,line,count,1);
 				newMiddleODT = replacePlaceholder(newMiddleODT,headerODT,grid,row,col,1);
-//wxMessageBox(newMiddleODT);
-			}
 		}
 		odtFile << newMiddleODT;
 	}
-//wxMessageBox(odt);
+
 	odtFile << odt;
 
     inzip.Eof() && outzip.Close() && out.Commit();
-	replacePlaceholder(middleODT,headerODT,0,0,0,0); // Reset Route if starts with same Route
+//	replacePlaceholder(middleODT,headerODT,0,0,0,0); // Reset Route if starts with same Route
 	return filename;
 	
 }
@@ -895,8 +762,6 @@ void LogbookHTML::toODS(wxString path)
 
 	zip.PutNextEntry(wxT("styles.xml"));
 	txt << parent->styles;
-//	zip.PutNextEntry(wxT("settings.xml"));
-//	txt << settings;
 
 	zip.PutNextEntry(wxT("meta.xml"));
 	txt << parent->meta;
@@ -917,9 +782,6 @@ void LogbookHTML::toODS(wxString path)
 
 	zip.Close();
 	out.Close();
-
-//	if(timerStopped)
-//		parent->timer->Start();
 }
 
 void LogbookHTML::backup(wxString path)
