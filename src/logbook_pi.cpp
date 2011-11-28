@@ -107,7 +107,7 @@ logbookkonni_pi::~logbookkonni_pi()
 
 int logbookkonni_pi::Init(void)
 {
-    AddLocaleCatalog( _T("opencpn-logbookkonni_pi") );
+ //   AddLocaleCatalog( _T("opencpn-logbookkonni_pi") );
 	m_plogbook_window = NULL;
 
 	opt = new Options();
@@ -138,6 +138,7 @@ int logbookkonni_pi::Init(void)
 	{
 		m_plogbook_window = new LogbookDialog(this, m_timer, m_parent_window, wxID_ANY,_("Active Logbook"), wxDefaultPosition, wxSize( opt->dlgWidth,opt->dlgHeight ), wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER);
 		m_plogbook_window->init();
+		m_plogbook_window->SetPosition(wxPoint(-1,this->m_parent_window->GetParent()->GetPosition().y+80));
 
 		m_timer->Start(opt->timerSec);
 	}
@@ -167,6 +168,7 @@ bool logbookkonni_pi::DeInit(void)
 
 	if(m_plogbook_window)
 	{
+	    if(m_plogbook_window->IsIconized()) m_plogbook_window->Iconize(false);
 		m_plogbook_window->setIniValues();
 		SaveConfig();
 		m_plogbook_window->Close();
@@ -334,6 +336,7 @@ wxString logbookkonni_pi::GetCommonName()
 
 wxString logbookkonni_pi::GetShortDescription()
 {
+    AddLocaleCatalog( _T("opencpn-logbookkonni_pi") );
 	return _("Logbook for OpenCPN");
 }
 
@@ -443,11 +446,17 @@ void logbookkonni_pi::OnToolbarToolCallback(int id)
 	{
         m_plogbook_window = new LogbookDialog(this, m_timer, m_parent_window, wxID_ANY,_("Active Logbook"), wxDefaultPosition, wxSize( opt->dlgWidth,opt->dlgHeight ), wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER);
 		m_plogbook_window->init();
+		m_plogbook_window->SetPosition(wxPoint(-1,this->m_parent_window->GetParent()->GetPosition().y+80));
 	}
 	else
-		m_plogbook_window->Centre();
+	//	m_plogbook_window->Centre();
+	{
+		if(m_plogbook_window->IsIconized()) m_plogbook_window->Iconize(false);
+		m_plogbook_window->SetPosition(wxPoint(-1,this->m_parent_window->GetParent()->GetPosition().y+80));
+	}
 	
 	m_plogbook_window->Show(); 
+	m_plogbook_window->SetFocus();
 }
 
 void logbookkonni_pi::SaveConfig()

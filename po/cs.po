@@ -1257,8 +1257,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Best Etmal"
 #~ msgstr "Max NM/24h"
+#
 #
 #
 #
@@ -1276,6 +1278,7 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Date + Month"
 #~ msgstr "Datum narození"
@@ -1284,9 +1287,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Date + Weeks"
 #~ msgstr "Vzdálenost"
+#
 #
 #
 #
@@ -1345,9 +1350,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Fix Date"
 #~ msgstr "Datum"
+#
 #
 #
 #
@@ -1373,8 +1380,10 @@ msgstr ""
 #~ msgstr "GPS Auto (přejezd oceánu)"
 #
 #
+#
 #~ msgid "GrossTonnage"
 #~ msgstr "Celková registrovaná prostornost"
+#
 #
 #
 #
@@ -1445,8 +1454,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Logbook files (*.txt)|*.txt"
 #~ msgstr "Soubory deníku (*.txt)|*.txt"
+#
 #
 #
 #
@@ -1461,8 +1472,10 @@ msgstr ""
 #~ msgstr "Otevřít starý soubor deníku"
 #
 #
+#
 #~ msgid "NetTonnage"
 #~ msgstr "Čistá registrovaná prostornost"
+#
 #
 #
 #
@@ -1534,6 +1547,7 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Schedule"
 #~ msgstr "Rozvrh"
 #
@@ -1556,8 +1570,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Show Maintence Rows coloured"
 #~ msgstr "Zobraz řádky údržby v barvě"
+#
 #
 #
 #
@@ -1630,8 +1646,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Today"
 #~ msgstr "Dnes"
+#
 #
 #
 #
@@ -1642,6 +1660,7 @@ msgstr ""
 #, fuzzy
 #~ msgid "Traditional-Style"
 #~ msgstr "Národnost"
+#
 #
 #
 #

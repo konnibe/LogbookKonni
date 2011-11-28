@@ -1044,28 +1044,35 @@ msgid "week(s)"
 msgstr "Woche(n)"
 #
 #
+#
 #~ msgid "Date + Days"
 #~ msgstr "Datum + Tage"
+#
 #
 #
 #~ msgid "Date + Month"
 #~ msgstr "Datum + Monat(e)"
 #
 #
+#
 #~ msgid "Date + Weeks"
 #~ msgstr "Datum + Woche(n)"
+#
 #
 #
 #~ msgid "Fix Date"
 #~ msgstr "fixes Datum"
 #
 #
+#
 #~ msgid "Logbook until "
 #~ msgstr "Altes Logbuch bis "
 #
 #
+#
 #~ msgid "No"
 #~ msgstr "Nein"
+#
 #
 #
 #~ msgid "Yes"

@@ -1197,9 +1197,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Date + Days"
 #~ msgstr "DistanciaEtmal"
+#
 #
 #
 #
@@ -1217,9 +1219,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Date + Weeks"
 #~ msgstr "DistanciaEtmal"
+#
 #
 #
 #
@@ -1234,8 +1238,10 @@ msgstr ""
 #~ msgstr "Fecha"
 #
 #
+#
 #~ msgid "GRT"
 #~ msgstr "BRT"
+#
 #
 #
 #
@@ -1306,8 +1312,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Logbook files (*.txt)|*.txt"
 #~ msgstr "Ficheros bitácora (*.txt)|*.txt"
+#
 #
 #
 #
@@ -1320,6 +1328,7 @@ msgstr ""
 #, fuzzy
 #~ msgid "Logbook until "
 #~ msgstr "Abrir fichero de bitácora antiguo"
+#
 #
 #
 #
@@ -1391,8 +1400,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Schedule"
 #~ msgstr "Calendário"
+#
 #
 #
 #
@@ -1466,8 +1477,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
 #
 #
 #
@@ -1515,9 +1528,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "View Route"
 #~ msgstr "Ruta"
+#
 #
 #
 #
@@ -1548,9 +1563,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Wave Peak"
 #~ msgstr "Oleaje"
+#
 #
 #
 #

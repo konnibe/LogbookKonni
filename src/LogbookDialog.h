@@ -558,7 +558,7 @@ class LayoutDialog : public wxDialog
 		wxString layoutPath;
 		wxString layoutFileName;
 		LogbookDialog *dialog;
-#ifdef _WXMSW__		
+#ifdef __WXMSW__		
 		LayoutDialog( wxWindow* parent, wxString location, wxChoice* choice,wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 307,205 ), long style = wxDEFAULT_DIALOG_STYLE );
 #else
 		LayoutDialog( wxWindow* parent, wxString location, wxChoice* choice,wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 307,230 ), long style = wxDEFAULT_DIALOG_STYLE );
@@ -576,22 +576,23 @@ class SelectLogbook : public wxDialog
 	private:
 		wxString path;
 		LogbookDialog* parent;
-		wxDateTime getDateTo(wxString filename);
-	
+		wxDateTime getDateTo(wxString filename);	
 	protected:
 		wxStdDialogButtonSizer* m_sdbSizer4;
 		wxButton* m_sdbSizer4OK;
 		wxButton* m_sdbSizer4Cancel;
+		
+		virtual void OnInit( wxInitDialogEvent& event );
+		
 	
 	public:
 		wxListCtrl* m_listCtrlSelectLogbook;
 		wxArrayString files;
 
-		virtual void OnInit( wxInitDialogEvent& event );
 #ifdef __WXMSW__		
-		SelectLogbook( wxWindow* parent, wxString path, wxWindowID id = wxID_ANY, const wxString& title = _("Select Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 297,252), long style = wxDEFAULT_DIALOG_STYLE );
+		SelectLogbook( wxWindow* parent, wxString path, wxWindowID id = wxID_ANY, const wxString& title = _("Select Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 297,252), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
 #else
-		SelectLogbook( wxWindow* parent, wxString path, wxWindowID id = wxID_ANY, const wxString& title = wxT("Select Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 297,260), long style = wxDEFAULT_DIALOG_STYLE );		
+		SelectLogbook( wxWindow* parent, wxString path, wxWindowID id = wxID_ANY, const wxString& title = wxT("Select Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 297,260), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER  );		
 #endif
 		~SelectLogbook();
 	

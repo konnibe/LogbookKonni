@@ -21,9 +21,9 @@
         <property name="skip_python_events">1</property>
         <property name="use_enum">0</property>
         <property name="use_microsoft_bom">0</property>
-        <object class="Dialog" expanded="0">
+        <object class="Dialog" expanded="1">
             <property name="bg"></property>
-            <property name="center">wxBOTH</property>
+            <property name="center">wxHORIZONTAL</property>
             <property name="context_help"></property>
             <property name="context_menu">0</property>
             <property name="enabled">1</property>
@@ -36,7 +36,7 @@
             <property name="maximum_size"></property>
             <property name="minimum_size">-1,-1</property>
             <property name="name">LogbookDialog</property>
-            <property name="pos"></property>
+            <property name="pos">-1,300</property>
             <property name="size">1010,535</property>
             <property name="style">wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER</property>
             <property name="subclass"></property>
@@ -79,16 +79,16 @@
             <event name="OnSetFocus"></event>
             <event name="OnSize"></event>
             <event name="OnUpdateUI"></event>
-            <object class="wxBoxSizer" expanded="0">
+            <object class="wxBoxSizer" expanded="1">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer2</property>
                 <property name="orient">wxVERTICAL</property>
                 <property name="permission">none</property>
-                <object class="sizeritem" expanded="0">
+                <object class="sizeritem" expanded="1">
                     <property name="border">5</property>
                     <property name="flag">wxEXPAND | wxALL</property>
                     <property name="proportion">1</property>
-                    <object class="wxNotebook" expanded="0">
+                    <object class="wxNotebook" expanded="1">
                         <property name="bg"></property>
                         <property name="bitmapsize"></property>
                         <property name="context_help"></property>
@@ -502,7 +502,7 @@
                                                     </object>
                                                     <object class="sizeritem" expanded="0">
                                                         <property name="border">5</property>
-                                                        <property name="flag">wxALL</property>
+                                                        <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                         <property name="proportion">0</property>
                                                         <object class="wxButton" expanded="0">
                                                             <property name="bg"></property>
@@ -515,13 +515,13 @@
                                                             <property name="hidden">0</property>
                                                             <property name="id">wxID_ANY</property>
                                                             <property name="label">R</property>
-                                                            <property name="maximum_size">-1,-1</property>
-                                                            <property name="minimum_size">15,-1</property>
+                                                            <property name="maximum_size">15,25</property>
+                                                            <property name="minimum_size">15,25</property>
                                                             <property name="name">m_buttonReloadLayout</property>
                                                             <property name="permission">public</property>
                                                             <property name="pos">-1,-1</property>
-                                                            <property name="size"></property>
-                                                            <property name="style"></property>
+                                                            <property name="size">15,25</property>
+                                                            <property name="style">wxBU_EXACTFIT</property>
                                                             <property name="subclass"></property>
                                                             <property name="tooltip">Reload Layouts</property>
                                                             <property name="validator_data_type"></property>
@@ -559,7 +559,7 @@
                                                     </object>
                                                     <object class="sizeritem" expanded="0">
                                                         <property name="border">5</property>
-                                                        <property name="flag">wxALL</property>
+                                                        <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                         <property name="proportion">0</property>
                                                         <object class="wxButton" expanded="0">
                                                             <property name="bg"></property>
@@ -572,13 +572,13 @@
                                                             <property name="hidden">0</property>
                                                             <property name="id">wxID_ANY</property>
                                                             <property name="label">E</property>
-                                                            <property name="maximum_size"></property>
-                                                            <property name="minimum_size">15,-1</property>
+                                                            <property name="maximum_size">15,25</property>
+                                                            <property name="minimum_size">15,25</property>
                                                             <property name="name">m_buttonEditLayout</property>
                                                             <property name="permission">public</property>
                                                             <property name="pos"></property>
-                                                            <property name="size"></property>
-                                                            <property name="style"></property>
+                                                            <property name="size">15,25</property>
+                                                            <property name="style">wxBU_EXACTFIT</property>
                                                             <property name="subclass"></property>
                                                             <property name="tooltip">Edit Layout</property>
                                                             <property name="validator_data_type"></property>
@@ -730,7 +730,7 @@
                                                     </object>
                                                     <object class="sizeritem" expanded="0">
                                                         <property name="border">5</property>
-                                                        <property name="flag">wxALL</property>
+                                                        <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                         <property name="proportion">0</property>
                                                         <object class="wxButton" expanded="0">
                                                             <property name="bg"></property>
@@ -1978,7 +1978,7 @@
                                                     </object>
                                                     <object class="sizeritem" expanded="0">
                                                         <property name="border">5</property>
-                                                        <property name="flag">wxALL</property>
+                                                        <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                         <property name="proportion">0</property>
                                                         <object class="wxButton" expanded="0">
                                                             <property name="bg"></property>
@@ -1991,13 +1991,13 @@
                                                             <property name="hidden">0</property>
                                                             <property name="id">wxID_ANY</property>
                                                             <property name="label">R</property>
-                                                            <property name="maximum_size">-1,-1</property>
-                                                            <property name="minimum_size">15,-1</property>
+                                                            <property name="maximum_size">15,25</property>
+                                                            <property name="minimum_size">15,25</property>
                                                             <property name="name">m_buttonReloadLayoutOview</property>
                                                             <property name="permission">public</property>
                                                             <property name="pos">-1,-1</property>
-                                                            <property name="size"></property>
-                                                            <property name="style"></property>
+                                                            <property name="size">15,25</property>
+                                                            <property name="style">wxBU_EXACTFIT</property>
                                                             <property name="subclass"></property>
                                                             <property name="tooltip">Reload Layouts</property>
                                                             <property name="validator_data_type"></property>
@@ -2035,7 +2035,7 @@
                                                     </object>
                                                     <object class="sizeritem" expanded="0">
                                                         <property name="border">5</property>
-                                                        <property name="flag">wxALL</property>
+                                                        <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                         <property name="proportion">0</property>
                                                         <object class="wxButton" expanded="0">
                                                             <property name="bg"></property>
@@ -2048,13 +2048,13 @@
                                                             <property name="hidden">0</property>
                                                             <property name="id">wxID_ANY</property>
                                                             <property name="label">E</property>
-                                                            <property name="maximum_size"></property>
-                                                            <property name="minimum_size">15,-1</property>
+                                                            <property name="maximum_size">15,25</property>
+                                                            <property name="minimum_size">15,25</property>
                                                             <property name="name">m_buttonEditLayoutOview</property>
                                                             <property name="permission">public</property>
                                                             <property name="pos"></property>
-                                                            <property name="size"></property>
-                                                            <property name="style"></property>
+                                                            <property name="size">15,25</property>
+                                                            <property name="style">wxBU_EXACTFIT</property>
                                                             <property name="subclass"></property>
                                                             <property name="tooltip">Edit Layout</property>
                                                             <property name="validator_data_type"></property>
@@ -2206,7 +2206,7 @@
                                                     </object>
                                                     <object class="sizeritem" expanded="0">
                                                         <property name="border">5</property>
-                                                        <property name="flag">wxALL</property>
+                                                        <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                         <property name="proportion">0</property>
                                                         <object class="wxButton" expanded="0">
                                                             <property name="bg"></property>
@@ -3072,7 +3072,7 @@
                                             </object>
                                             <object class="sizeritem" expanded="0">
                                                 <property name="border">5</property>
-                                                <property name="flag">wxALL</property>
+                                                <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                 <property name="proportion">0</property>
                                                 <object class="wxChoice" expanded="0">
                                                     <property name="bg"></property>
@@ -3128,7 +3128,7 @@
                                             </object>
                                             <object class="sizeritem" expanded="0">
                                                 <property name="border">5</property>
-                                                <property name="flag">wxALL</property>
+                                                <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                 <property name="proportion">0</property>
                                                 <object class="wxButton" expanded="0">
                                                     <property name="bg"></property>
@@ -3141,12 +3141,12 @@
                                                     <property name="hidden">0</property>
                                                     <property name="id">wxID_ANY</property>
                                                     <property name="label">R</property>
-                                                    <property name="maximum_size"></property>
-                                                    <property name="minimum_size"></property>
+                                                    <property name="maximum_size">15,25</property>
+                                                    <property name="minimum_size">15,25</property>
                                                     <property name="name">m_buttonReloadCrew</property>
                                                     <property name="permission">public</property>
                                                     <property name="pos"></property>
-                                                    <property name="size">15,-1</property>
+                                                    <property name="size">15,25</property>
                                                     <property name="style"></property>
                                                     <property name="subclass"></property>
                                                     <property name="tooltip"></property>
@@ -3185,7 +3185,7 @@
                                             </object>
                                             <object class="sizeritem" expanded="0">
                                                 <property name="border">5</property>
-                                                <property name="flag">wxALL</property>
+                                                <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                 <property name="proportion">0</property>
                                                 <object class="wxButton" expanded="0">
                                                     <property name="bg"></property>
@@ -3198,12 +3198,12 @@
                                                     <property name="hidden">0</property>
                                                     <property name="id">wxID_ANY</property>
                                                     <property name="label">E</property>
-                                                    <property name="maximum_size"></property>
-                                                    <property name="minimum_size"></property>
+                                                    <property name="maximum_size">15,25</property>
+                                                    <property name="minimum_size">15,25</property>
                                                     <property name="name">m_buttonEditLayoutCrew</property>
                                                     <property name="permission">public</property>
                                                     <property name="pos"></property>
-                                                    <property name="size">15,-1</property>
+                                                    <property name="size">15,25</property>
                                                     <property name="style"></property>
                                                     <property name="subclass"></property>
                                                     <property name="tooltip"></property>
@@ -3356,7 +3356,7 @@
                                             </object>
                                             <object class="sizeritem" expanded="0">
                                                 <property name="border">5</property>
-                                                <property name="flag">wxALL</property>
+                                                <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                 <property name="proportion">0</property>
                                                 <object class="wxButton" expanded="0">
                                                     <property name="bg"></property>
@@ -3736,11 +3736,11 @@
                                 </object>
                             </object>
                         </object>
-                        <object class="notebookpage" expanded="0">
+                        <object class="notebookpage" expanded="1">
                             <property name="bitmap"></property>
                             <property name="label">Boat</property>
                             <property name="select">1</property>
-                            <object class="wxPanel" expanded="0">
+                            <object class="wxPanel" expanded="1">
                                 <property name="bg"></property>
                                 <property name="context_help"></property>
                                 <property name="context_menu">1</property>
@@ -3787,7 +3787,7 @@
                                 <event name="OnSetFocus"></event>
                                 <event name="OnSize"></event>
                                 <event name="OnUpdateUI"></event>
-                                <object class="wxFlexGridSizer" expanded="0">
+                                <object class="wxFlexGridSizer" expanded="1">
                                     <property name="cols">1</property>
                                     <property name="flexible_direction">wxBOTH</property>
                                     <property name="growablecols">0</property>
@@ -4043,7 +4043,7 @@
                                                     </object>
                                                     <object class="sizeritem" expanded="0">
                                                         <property name="border">5</property>
-                                                        <property name="flag">wxALL</property>
+                                                        <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                         <property name="proportion">0</property>
                                                         <object class="wxChoice" expanded="0">
                                                             <property name="bg"></property>
@@ -4099,7 +4099,7 @@
                                                     </object>
                                                     <object class="sizeritem" expanded="0">
                                                         <property name="border">5</property>
-                                                        <property name="flag">wxALL</property>
+                                                        <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                         <property name="proportion">0</property>
                                                         <object class="wxButton" expanded="0">
                                                             <property name="bg"></property>
@@ -4112,12 +4112,12 @@
                                                             <property name="hidden">0</property>
                                                             <property name="id">wxID_ANY</property>
                                                             <property name="label">R</property>
-                                                            <property name="maximum_size"></property>
-                                                            <property name="minimum_size"></property>
+                                                            <property name="maximum_size">15,25</property>
+                                                            <property name="minimum_size">15,25</property>
                                                             <property name="name">m_buttonReloadLayoutsBoat</property>
                                                             <property name="permission">public</property>
                                                             <property name="pos"></property>
-                                                            <property name="size">15,-1</property>
+                                                            <property name="size">15,25</property>
                                                             <property name="style"></property>
                                                             <property name="subclass"></property>
                                                             <property name="tooltip"></property>
@@ -4156,7 +4156,7 @@
                                                     </object>
                                                     <object class="sizeritem" expanded="0">
                                                         <property name="border">5</property>
-                                                        <property name="flag">wxALL</property>
+                                                        <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                         <property name="proportion">0</property>
                                                         <object class="wxButton" expanded="0">
                                                             <property name="bg"></property>
@@ -4169,12 +4169,12 @@
                                                             <property name="hidden">0</property>
                                                             <property name="id">wxID_ANY</property>
                                                             <property name="label">E</property>
-                                                            <property name="maximum_size"></property>
-                                                            <property name="minimum_size"></property>
+                                                            <property name="maximum_size">15,25</property>
+                                                            <property name="minimum_size">15,25</property>
                                                             <property name="name">m_buttonEditLayoutBoat</property>
                                                             <property name="permission">public</property>
                                                             <property name="pos"></property>
-                                                            <property name="size">15,-1</property>
+                                                            <property name="size">15,25</property>
                                                             <property name="style"></property>
                                                             <property name="subclass"></property>
                                                             <property name="tooltip"></property>
@@ -4327,7 +4327,7 @@
                                                     </object>
                                                     <object class="sizeritem" expanded="0">
                                                         <property name="border">5</property>
-                                                        <property name="flag">wxALL</property>
+                                                        <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                         <property name="proportion">0</property>
                                                         <object class="wxButton" expanded="0">
                                                             <property name="bg"></property>
@@ -4440,11 +4440,11 @@
                                             </object>
                                         </object>
                                     </object>
-                                    <object class="sizeritem" expanded="0">
+                                    <object class="sizeritem" expanded="1">
                                         <property name="border">5</property>
                                         <property name="flag">wxEXPAND</property>
                                         <property name="proportion">1</property>
-                                        <object class="wxSplitterWindow" expanded="0">
+                                        <object class="wxSplitterWindow" expanded="1">
                                             <property name="bg"></property>
                                             <property name="context_help"></property>
                                             <property name="context_menu">1</property>
@@ -4460,7 +4460,7 @@
                                             <property name="permission">protected</property>
                                             <property name="pos"></property>
                                             <property name="sashgravity">0.0</property>
-                                            <property name="sashpos">302</property>
+                                            <property name="sashpos">300</property>
                                             <property name="sashsize">4</property>
                                             <property name="size"></property>
                                             <property name="splitmode">wxSPLIT_HORIZONTAL</property>
@@ -4501,7 +4501,7 @@
                                             <event name="OnSplitterSashPosChanging"></event>
                                             <event name="OnSplitterUnsplit"></event>
                                             <event name="OnUpdateUI"></event>
-                                            <object class="splitteritem" expanded="0">
+                                            <object class="splitteritem" expanded="1">
                                                 <object class="wxPanel" expanded="0">
                                                     <property name="bg"></property>
                                                     <property name="context_help"></property>
@@ -7965,11 +7965,11 @@
                                                                                 <event name="OnUpdateUI"></event>
                                                                             </object>
                                                                         </object>
-                                                                        <object class="sizeritem" expanded="1">
+                                                                        <object class="sizeritem" expanded="0">
                                                                             <property name="border">5</property>
                                                                             <property name="flag">wxALL</property>
                                                                             <property name="proportion">0</property>
-                                                                            <object class="wxTextCtrl" expanded="1">
+                                                                            <object class="wxTextCtrl" expanded="0">
                                                                                 <property name="bg"></property>
                                                                                 <property name="context_help"></property>
                                                                                 <property name="context_menu">1</property>
@@ -8085,11 +8085,11 @@
                                                                                 <event name="OnUpdateUI"></event>
                                                                             </object>
                                                                         </object>
-                                                                        <object class="sizeritem" expanded="1">
+                                                                        <object class="sizeritem" expanded="0">
                                                                             <property name="border">5</property>
                                                                             <property name="flag">wxALL</property>
                                                                             <property name="proportion">0</property>
-                                                                            <object class="wxTextCtrl" expanded="1">
+                                                                            <object class="wxTextCtrl" expanded="0">
                                                                                 <property name="bg"></property>
                                                                                 <property name="context_help"></property>
                                                                                 <property name="context_menu">1</property>
@@ -8145,11 +8145,11 @@
                                                                                 <event name="OnUpdateUI"></event>
                                                                             </object>
                                                                         </object>
-                                                                        <object class="sizeritem" expanded="1">
+                                                                        <object class="sizeritem" expanded="0">
                                                                             <property name="border">5</property>
                                                                             <property name="flag">wxALL</property>
                                                                             <property name="proportion">0</property>
-                                                                            <object class="wxTextCtrl" expanded="1">
+                                                                            <object class="wxTextCtrl" expanded="0">
                                                                                 <property name="bg"></property>
                                                                                 <property name="context_help"></property>
                                                                                 <property name="context_menu">1</property>
@@ -8388,8 +8388,8 @@
                                                     </object>
                                                 </object>
                                             </object>
-                                            <object class="splitteritem" expanded="0">
-                                                <object class="wxPanel" expanded="0">
+                                            <object class="splitteritem" expanded="1">
+                                                <object class="wxPanel" expanded="1">
                                                     <property name="bg"></property>
                                                     <property name="context_help"></property>
                                                     <property name="context_menu">1</property>
@@ -8702,7 +8702,7 @@
                                             <object class="notebookpage" expanded="0">
                                                 <property name="bitmap"></property>
                                                 <property name="label">Service</property>
-                                                <property name="select">1</property>
+                                                <property name="select">0</property>
                                                 <object class="wxPanel" expanded="0">
                                                     <property name="bg"></property>
                                                     <property name="context_help"></property>
@@ -8997,7 +8997,7 @@
                                                                 </object>
                                                                 <object class="sizeritem" expanded="0">
                                                                     <property name="border">5</property>
-                                                                    <property name="flag">wxALL</property>
+                                                                    <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                                     <property name="proportion">0</property>
                                                                     <object class="wxChoice" expanded="0">
                                                                         <property name="bg"></property>
@@ -9053,7 +9053,7 @@
                                                                 </object>
                                                                 <object class="sizeritem" expanded="0">
                                                                     <property name="border">5</property>
-                                                                    <property name="flag">wxALL</property>
+                                                                    <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                                     <property name="proportion">0</property>
                                                                     <object class="wxButton" expanded="0">
                                                                         <property name="bg"></property>
@@ -9066,12 +9066,12 @@
                                                                         <property name="hidden">0</property>
                                                                         <property name="id">wxID_ANY</property>
                                                                         <property name="label">R</property>
-                                                                        <property name="maximum_size"></property>
-                                                                        <property name="minimum_size"></property>
+                                                                        <property name="maximum_size">15,25</property>
+                                                                        <property name="minimum_size">15,25</property>
                                                                         <property name="name">m_buttonReloadLayoutsServiceHTML</property>
                                                                         <property name="permission">public</property>
                                                                         <property name="pos"></property>
-                                                                        <property name="size">15,-1</property>
+                                                                        <property name="size">15,25</property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
                                                                         <property name="tooltip"></property>
@@ -9110,7 +9110,7 @@
                                                                 </object>
                                                                 <object class="sizeritem" expanded="0">
                                                                     <property name="border">5</property>
-                                                                    <property name="flag">wxALL</property>
+                                                                    <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                                     <property name="proportion">0</property>
                                                                     <object class="wxButton" expanded="0">
                                                                         <property name="bg"></property>
@@ -9123,12 +9123,12 @@
                                                                         <property name="hidden">0</property>
                                                                         <property name="id">wxID_ANY</property>
                                                                         <property name="label">E</property>
-                                                                        <property name="maximum_size"></property>
-                                                                        <property name="minimum_size"></property>
+                                                                        <property name="maximum_size">15,25</property>
+                                                                        <property name="minimum_size">15,25</property>
                                                                         <property name="name">m_buttonEditLayoutODTService</property>
                                                                         <property name="permission">public</property>
                                                                         <property name="pos"></property>
-                                                                        <property name="size">15,-1</property>
+                                                                        <property name="size">15,25</property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
                                                                         <property name="tooltip"></property>
@@ -9281,7 +9281,7 @@
                                                                 </object>
                                                                 <object class="sizeritem" expanded="0">
                                                                     <property name="border">5</property>
-                                                                    <property name="flag">wxALL</property>
+                                                                    <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                                     <property name="proportion">0</property>
                                                                     <object class="wxButton" expanded="0">
                                                                         <property name="bg"></property>
@@ -9884,7 +9884,7 @@
                                                                 </object>
                                                                 <object class="sizeritem" expanded="0">
                                                                     <property name="border">5</property>
-                                                                    <property name="flag">wxALL</property>
+                                                                    <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                                     <property name="proportion">0</property>
                                                                     <object class="wxChoice" expanded="0">
                                                                         <property name="bg"></property>
@@ -9940,7 +9940,7 @@
                                                                 </object>
                                                                 <object class="sizeritem" expanded="0">
                                                                     <property name="border">5</property>
-                                                                    <property name="flag">wxALL</property>
+                                                                    <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                                     <property name="proportion">0</property>
                                                                     <object class="wxButton" expanded="0">
                                                                         <property name="bg"></property>
@@ -9953,12 +9953,12 @@
                                                                         <property name="hidden">0</property>
                                                                         <property name="id">wxID_ANY</property>
                                                                         <property name="label">R</property>
-                                                                        <property name="maximum_size"></property>
-                                                                        <property name="minimum_size"></property>
+                                                                        <property name="maximum_size">15,25</property>
+                                                                        <property name="minimum_size">15,25</property>
                                                                         <property name="name">m_buttonReloadLayoutsRepairsHTML</property>
                                                                         <property name="permission">public</property>
                                                                         <property name="pos"></property>
-                                                                        <property name="size">15,-1</property>
+                                                                        <property name="size">15,25</property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
                                                                         <property name="tooltip"></property>
@@ -9997,7 +9997,7 @@
                                                                 </object>
                                                                 <object class="sizeritem" expanded="0">
                                                                     <property name="border">5</property>
-                                                                    <property name="flag">wxALL</property>
+                                                                    <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                                     <property name="proportion">0</property>
                                                                     <object class="wxButton" expanded="0">
                                                                         <property name="bg"></property>
@@ -10010,12 +10010,12 @@
                                                                         <property name="hidden">0</property>
                                                                         <property name="id">wxID_ANY</property>
                                                                         <property name="label">E</property>
-                                                                        <property name="maximum_size"></property>
-                                                                        <property name="minimum_size"></property>
+                                                                        <property name="maximum_size">15,25</property>
+                                                                        <property name="minimum_size">15,25</property>
                                                                         <property name="name">m_buttonEditLayoutODTRepairs</property>
                                                                         <property name="permission">public</property>
                                                                         <property name="pos"></property>
-                                                                        <property name="size">15,-1</property>
+                                                                        <property name="size">15,25</property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
                                                                         <property name="tooltip"></property>
@@ -10168,7 +10168,7 @@
                                                                 </object>
                                                                 <object class="sizeritem" expanded="0">
                                                                     <property name="border">5</property>
-                                                                    <property name="flag">wxALL</property>
+                                                                    <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                                     <property name="proportion">0</property>
                                                                     <object class="wxButton" expanded="0">
                                                                         <property name="bg"></property>
@@ -10476,7 +10476,7 @@
                                             <object class="notebookpage" expanded="0">
                                                 <property name="bitmap"></property>
                                                 <property name="label">Buy Parts</property>
-                                                <property name="select">0</property>
+                                                <property name="select">1</property>
                                                 <object class="wxPanel" expanded="0">
                                                     <property name="bg"></property>
                                                     <property name="context_help"></property>
@@ -10771,7 +10771,7 @@
                                                                 </object>
                                                                 <object class="sizeritem" expanded="0">
                                                                     <property name="border">5</property>
-                                                                    <property name="flag">wxALL</property>
+                                                                    <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                                     <property name="proportion">0</property>
                                                                     <object class="wxChoice" expanded="0">
                                                                         <property name="bg"></property>
@@ -10827,7 +10827,7 @@
                                                                 </object>
                                                                 <object class="sizeritem" expanded="0">
                                                                     <property name="border">5</property>
-                                                                    <property name="flag">wxALL</property>
+                                                                    <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                                     <property name="proportion">0</property>
                                                                     <object class="wxButton" expanded="0">
                                                                         <property name="bg"></property>
@@ -10840,12 +10840,12 @@
                                                                         <property name="hidden">0</property>
                                                                         <property name="id">wxID_ANY</property>
                                                                         <property name="label">R</property>
-                                                                        <property name="maximum_size"></property>
-                                                                        <property name="minimum_size"></property>
+                                                                        <property name="maximum_size">15,25</property>
+                                                                        <property name="minimum_size">15,25</property>
                                                                         <property name="name">m_buttonReloadLayoutsBuyPartsHTML</property>
                                                                         <property name="permission">public</property>
                                                                         <property name="pos"></property>
-                                                                        <property name="size">15,-1</property>
+                                                                        <property name="size">15,25</property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
                                                                         <property name="tooltip"></property>
@@ -10884,7 +10884,7 @@
                                                                 </object>
                                                                 <object class="sizeritem" expanded="0">
                                                                     <property name="border">5</property>
-                                                                    <property name="flag">wxALL</property>
+                                                                    <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                                     <property name="proportion">0</property>
                                                                     <object class="wxButton" expanded="0">
                                                                         <property name="bg"></property>
@@ -10897,12 +10897,12 @@
                                                                         <property name="hidden">0</property>
                                                                         <property name="id">wxID_ANY</property>
                                                                         <property name="label">E</property>
-                                                                        <property name="maximum_size"></property>
-                                                                        <property name="minimum_size"></property>
+                                                                        <property name="maximum_size">15,25</property>
+                                                                        <property name="minimum_size">15,25</property>
                                                                         <property name="name">m_buttonEditLayoutODTBuyParts</property>
                                                                         <property name="permission">public</property>
                                                                         <property name="pos"></property>
-                                                                        <property name="size">15,-1</property>
+                                                                        <property name="size">15,25</property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
                                                                         <property name="tooltip"></property>
@@ -11055,7 +11055,7 @@
                                                                 </object>
                                                                 <object class="sizeritem" expanded="0">
                                                                     <property name="border">5</property>
-                                                                    <property name="flag">wxALL</property>
+                                                                    <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                                     <property name="proportion">0</property>
                                                                     <object class="wxButton" expanded="0">
                                                                         <property name="bg"></property>
@@ -13319,7 +13319,7 @@
                                                     <property name="name">m_textCtrlLayoutPrefix</property>
                                                     <property name="permission">public</property>
                                                     <property name="pos"></property>
-                                                    <property name="size">30,-1</property>
+                                                    <property name="size">90,-1</property>
                                                     <property name="style">wxTE_PROCESS_ENTER</property>
                                                     <property name="subclass"></property>
                                                     <property name="tooltip"></property>
@@ -19943,7 +19943,7 @@
             <property name="name">SelectLogbook</property>
             <property name="pos"></property>
             <property name="size">297,252</property>
-            <property name="style">wxDEFAULT_DIALOG_STYLE</property>
+            <property name="style">wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER</property>
             <property name="subclass"></property>
             <property name="title">Select Logbook</property>
             <property name="tooltip"></property>
@@ -19984,108 +19984,83 @@
             <event name="OnSetFocus"></event>
             <event name="OnSize"></event>
             <event name="OnUpdateUI"></event>
-            <object class="wxFlexGridSizer" expanded="0">
-                <property name="cols">1</property>
-                <property name="flexible_direction">wxBOTH</property>
-                <property name="growablecols"></property>
-                <property name="growablerows"></property>
-                <property name="hgap">0</property>
+            <object class="wxBoxSizer" expanded="0">
                 <property name="minimum_size"></property>
-                <property name="name">fgSizer26</property>
-                <property name="non_flexible_grow_mode">wxFLEX_GROWMODE_SPECIFIED</property>
+                <property name="name">bSizer23</property>
+                <property name="orient">wxVERTICAL</property>
                 <property name="permission">none</property>
-                <property name="rows">2</property>
-                <property name="vgap">0</property>
                 <object class="sizeritem" expanded="0">
                     <property name="border">5</property>
-                    <property name="flag">wxEXPAND</property>
+                    <property name="flag">wxALL|wxEXPAND</property>
                     <property name="proportion">1</property>
-                    <object class="wxFlexGridSizer" expanded="0">
-                        <property name="cols">2</property>
-                        <property name="flexible_direction">wxBOTH</property>
-                        <property name="growablecols"></property>
-                        <property name="growablerows"></property>
-                        <property name="hgap">0</property>
+                    <object class="wxListCtrl" expanded="0">
+                        <property name="bg"></property>
+                        <property name="context_help"></property>
+                        <property name="context_menu">1</property>
+                        <property name="enabled">1</property>
+                        <property name="fg"></property>
+                        <property name="font"></property>
+                        <property name="hidden">0</property>
+                        <property name="id">wxID_ANY</property>
+                        <property name="maximum_size"></property>
                         <property name="minimum_size"></property>
-                        <property name="name">fgSizer27</property>
-                        <property name="non_flexible_grow_mode">wxFLEX_GROWMODE_SPECIFIED</property>
-                        <property name="permission">none</property>
-                        <property name="rows">2</property>
-                        <property name="vgap">0</property>
-                        <object class="sizeritem" expanded="0">
-                            <property name="border">5</property>
-                            <property name="flag">wxALL</property>
-                            <property name="proportion">0</property>
-                            <object class="wxListCtrl" expanded="0">
-                                <property name="bg"></property>
-                                <property name="context_help"></property>
-                                <property name="context_menu">1</property>
-                                <property name="enabled">1</property>
-                                <property name="fg"></property>
-                                <property name="font"></property>
-                                <property name="hidden">0</property>
-                                <property name="id">wxID_ANY</property>
-                                <property name="maximum_size"></property>
-                                <property name="minimum_size"></property>
-                                <property name="name">m_listCtrlSelectLogbook</property>
-                                <property name="permission">public</property>
-                                <property name="pos"></property>
-                                <property name="size">280,180</property>
-                                <property name="style">wxLC_REPORT|wxLC_SINGLE_SEL|wxLC_SORT_ASCENDING</property>
-                                <property name="subclass"></property>
-                                <property name="tooltip"></property>
-                                <property name="validator_data_type"></property>
-                                <property name="validator_style">wxFILTER_NONE</property>
-                                <property name="validator_type">wxDefaultValidator</property>
-                                <property name="validator_variable"></property>
-                                <property name="window_extra_style"></property>
-                                <property name="window_name"></property>
-                                <property name="window_style">wxALWAYS_SHOW_SB</property>
-                                <event name="OnChar"></event>
-                                <event name="OnEnterWindow"></event>
-                                <event name="OnEraseBackground"></event>
-                                <event name="OnKeyDown"></event>
-                                <event name="OnKeyUp"></event>
-                                <event name="OnKillFocus"></event>
-                                <event name="OnLeaveWindow"></event>
-                                <event name="OnLeftDClick"></event>
-                                <event name="OnLeftDown"></event>
-                                <event name="OnLeftUp"></event>
-                                <event name="OnListBeginDrag"></event>
-                                <event name="OnListBeginLabelEdit"></event>
-                                <event name="OnListBeginRDrag"></event>
-                                <event name="OnListCacheHint"></event>
-                                <event name="OnListColBeginDrag"></event>
-                                <event name="OnListColClick"></event>
-                                <event name="OnListColDragging"></event>
-                                <event name="OnListColEndDrag"></event>
-                                <event name="OnListColRightClick"></event>
-                                <event name="OnListDeleteAllItems"></event>
-                                <event name="OnListDeleteItem"></event>
-                                <event name="OnListEndLabelEdit"></event>
-                                <event name="OnListInsertItem"></event>
-                                <event name="OnListItemActivated"></event>
-                                <event name="OnListItemDeselected"></event>
-                                <event name="OnListItemFocused"></event>
-                                <event name="OnListItemMiddleClick"></event>
-                                <event name="OnListItemRightClick"></event>
-                                <event name="OnListItemSelected"></event>
-                                <event name="OnListKeyDown"></event>
-                                <event name="OnMiddleDClick"></event>
-                                <event name="OnMiddleDown"></event>
-                                <event name="OnMiddleUp"></event>
-                                <event name="OnMotion"></event>
-                                <event name="OnMouseEvents"></event>
-                                <event name="OnMouseWheel"></event>
-                                <event name="OnPaint"></event>
-                                <event name="OnRightDClick"></event>
-                                <event name="OnRightDown"></event>
-                                <event name="OnRightUp"></event>
-                                <event name="OnSetFocus"></event>
-                                <event name="OnSize"></event>
-                                <event name="OnUpdateUI"></event>
-                            </object>
-                        </object>
+                        <property name="name">m_listCtrlSelectLogbook</property>
+                        <property name="permission">public</property>
+                        <property name="pos"></property>
+                        <property name="size">-1,-1</property>
+                        <property name="style">wxLC_REPORT|wxLC_SINGLE_SEL|wxLC_SORT_ASCENDING</property>
+                        <property name="subclass"></property>
+                        <property name="tooltip"></property>
+                        <property name="validator_data_type"></property>
+                        <property name="validator_style">wxFILTER_NONE</property>
+                        <property name="validator_type">wxDefaultValidator</property>
+                        <property name="validator_variable"></property>
+                        <property name="window_extra_style"></property>
+                        <property name="window_name"></property>
+                        <property name="window_style">wxALWAYS_SHOW_SB</property>
+                        <event name="OnChar"></event>
+                        <event name="OnEnterWindow"></event>
+                        <event name="OnEraseBackground"></event>
+                        <event name="OnKeyDown"></event>
+                        <event name="OnKeyUp"></event>
+                        <event name="OnKillFocus"></event>
+                        <event name="OnLeaveWindow"></event>
+                        <event name="OnLeftDClick"></event>
+                        <event name="OnLeftDown"></event>
+                        <event name="OnLeftUp"></event>
+                        <event name="OnListBeginDrag"></event>
+                        <event name="OnListBeginLabelEdit"></event>
+                        <event name="OnListBeginRDrag"></event>
+                        <event name="OnListCacheHint"></event>
+                        <event name="OnListColBeginDrag"></event>
+                        <event name="OnListColClick"></event>
+                        <event name="OnListColDragging"></event>
+                        <event name="OnListColEndDrag"></event>
+                        <event name="OnListColRightClick"></event>
+                        <event name="OnListDeleteAllItems"></event>
+                        <event name="OnListDeleteItem"></event>
+                        <event name="OnListEndLabelEdit"></event>
+                        <event name="OnListInsertItem"></event>
+                        <event name="OnListItemActivated"></event>
+                        <event name="OnListItemDeselected"></event>
+                        <event name="OnListItemFocused"></event>
+                        <event name="OnListItemMiddleClick"></event>
+                        <event name="OnListItemRightClick"></event>
+                        <event name="OnListItemSelected"></event>
+                        <event name="OnListKeyDown"></event>
+                        <event name="OnMiddleDClick"></event>
+                        <event name="OnMiddleDown"></event>
+                        <event name="OnMiddleUp"></event>
+                        <event name="OnMotion"></event>
+                        <event name="OnMouseEvents"></event>
+                        <event name="OnMouseWheel"></event>
+                        <event name="OnPaint"></event>
+                        <event name="OnRightDClick"></event>
+                        <event name="OnRightDown"></event>
+                        <event name="OnRightUp"></event>
+                        <event name="OnSetFocus"></event>
+                        <event name="OnSize"></event>
+                        <event name="OnUpdateUI"></event>
                     </object>
                 </object>
                 <object class="sizeritem" expanded="0">

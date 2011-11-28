@@ -72,7 +72,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_checkBoxShowOnlySelectedLayouts = new wxCheckBox( m_panel15, wxID_ANY, _("Only Layouts with prefix:"), wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer29->Add( m_checkBoxShowOnlySelectedLayouts, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	
-	m_textCtrlLayoutPrefix = new wxTextCtrl( m_panel15, wxID_ANY, _("en_"), wxDefaultPosition, wxSize( 30,-1 ), wxTE_PROCESS_ENTER );
+	m_textCtrlLayoutPrefix = new wxTextCtrl( m_panel15, wxID_ANY, _("en_"), wxDefaultPosition, wxSize( 90,-1 ), wxTE_PROCESS_ENTER );
 	fgSizer29->Add( m_textCtrlLayoutPrefix, 0, wxALL, 0 );
 	
 	
@@ -699,6 +699,9 @@ LogbookOptions::~LogbookOptions()
 
 void LogbookOptions::OnButtonOKClick(wxCommandEvent &ev)
 {
+	getValues();
+	updateChoiceBoxes();
+
 	if((m_sDeg->IsEmpty() || m_sDeg->GetValue().Len() != 1) || 
 		(m_sMin->IsEmpty() || m_sMin->GetValue().Len()!= 1) ||
 		(m_sSec->IsEmpty()) || m_sSec->GetValue().Len() != 1)
@@ -1060,6 +1063,7 @@ void LogbookOptions::updateChoiceBoxes()
 	if(dialog != NULL)
 	{
 		dialog->loadLayoutChoice(dialog->logbook->layout_locn, dialog->logbookChoice);
+		dialog->loadLayoutChoice(dialog->overview->layout_locn, dialog->overviewChoice);
 		dialog->loadLayoutChoice(dialog->crewList->layout_locn, dialog->crewChoice);
 		dialog->loadLayoutChoice(dialog->boat->layout_locn, dialog->boatChoice);
 		dialog->loadLayoutChoice(dialog->maintenance->layout_locnService, dialog->m_choiceSelectLayoutService);

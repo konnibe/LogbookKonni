@@ -3,8 +3,8 @@ msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-11-25 01:45+0100\n"
-"PO-Revision-Date: 2011-11-25 01:38+0100\n"
-"Last-Translator: \n"
+"PO-Revision-Date: 2011-11-26 23:30+0100\n"
+"Last-Translator: Gilletarom <gilletarom@netpratique.fr>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -28,12 +28,11 @@ msgid "      Course- Message after Minutes"
 msgstr "      Course- Message after Minutes"
 #
 msgid "     Winddirection set to:"
-msgstr ""
+msgstr "     Direction du vent fixée à :"
 #
 msgid " - Timer on - Interval: "
 msgstr "- Minuterie active  - Délai :"
 #
-#, fuzzy
 msgid " Direction "
 msgstr "Direction"
 #
@@ -59,19 +58,25 @@ msgid "Active"
 msgstr "Actif"
 #
 msgid "Active Logbook"
-msgstr "Lvre de bord actif"
+msgstr "Livre de bord actif"
 #
 msgid "Actuell Logbook"
 msgstr "Livre de bord actuel"
 #
 msgid "Add Crew"
-msgstr "Ajouter un membre d'équipage"
+msgstr ""
+"Ajouter un\n"
+"membre d'équipage"
 #
 msgid "Add Equipment"
-msgstr "Ajouter un équipement"
+msgstr ""
+"Ajouter un\n"
+"équipement"
 #
 msgid "Add Line"
-msgstr "Ajouter une ligne"
+msgstr ""
+"Ajouter\n"
+"une ligne"
 #
 msgid "Adress"
 msgstr ""
@@ -117,16 +122,22 @@ msgid "Barometer"
 msgstr "Baromètre"
 #
 msgid "Beam"
-msgstr "Largeur de coque"
+msgstr ""
+"Largeur\n"
+"de coque"
 #
 msgid "Behavior"
 msgstr "Comportement"
 #
 msgid "Best Dist. p. Day"
-msgstr "Meilleure distance quotidienne"
+msgstr ""
+"Meilleure distance\n"
+"quotidienne"
 #
 msgid "Birthname"
-msgstr "Nom de jeune fille"
+msgstr ""
+"Nom de\n"
+"jeune fille"
 #
 msgid "Boat"
 msgstr "Bateau"
@@ -135,7 +146,7 @@ msgid "Builder"
 msgstr "Constructeur"
 #
 msgid "Buy Parts"
-msgstr "Acheter des pièces"
+msgstr "Liste des pièces"
 #
 msgid "Buy parts for this repair"
 msgstr "Acheter des pièces pour cette réparation"
@@ -143,9 +154,8 @@ msgstr "Acheter des pièces pour cette réparation"
 msgid "Buy parts for this service"
 msgstr "Acheter des pièces pour cette action"
 #
-#, fuzzy
 msgid "BuyParts"
-msgstr "Acheter des pièces"
+msgstr "Acheter des pièces détachées"
 #
 msgid "C/Strength"
 msgstr "C/Force"
@@ -154,7 +164,9 @@ msgid "COG (T)"
 msgstr "COG (Vrai)"
 #
 msgid "Callsign"
-msgstr "Indicatif d'appel"
+msgstr ""
+"Indicatif\n"
+"d'appel"
 #
 msgid "Capacity"
 msgstr "Capacité"
@@ -178,36 +190,43 @@ msgid "CrewList"
 msgstr "Liste d'équipage"
 #
 msgid "Crewlist"
-msgstr "Liste d'équipage"
+msgstr "Equipage"
 #
 msgid "Current"
 msgstr "Courant"
 #
-#, fuzzy
 msgid "Current Avg."
-msgstr "Courant"
+msgstr ""
+"Courant\n"
+"moyen"
 #
-#
-#
-#
-#, fuzzy
 msgid "Current Max."
-msgstr "Courant maximal"
+msgstr ""
+"Courant\n"
+"maximal"
 #
 msgid "Current from"
-msgstr "Courant de"
+msgstr ""
+"Origine\n"
+"du courant"
 #
 msgid "Date"
 msgstr "Date"
 #
 msgid "Date Launched"
-msgstr "Date de fabrication"
+msgstr ""
+"Date de\n"
+"fabrication"
 #
 msgid "Date of Birth"
-msgstr "Date de naissance"
+msgstr ""
+"Date de\n"
+"naissance"
 #
 msgid "Date of Issue"
-msgstr "Date d'émission"
+msgstr ""
+"Date\n"
+"d'émission"
 #
 msgid "Day(s)"
 msgstr "Jour(s)"
@@ -244,16 +263,24 @@ msgid "Distance"
 msgstr "Distance"
 #
 msgid "Distance p. Day"
-msgstr "Distance quotidienne"
+msgstr ""
+"Distance\n"
+"quotidienne"
 #
 msgid "DistanceTotal"
-msgstr "Distance totale"
+msgstr ""
+"Distance\n"
+"totale"
 #
 msgid "Draft"
-msgstr "Tirant d'eau"
+msgstr ""
+"Tirant\n"
+"d'eau"
 #
 msgid "E"
-msgstr "E"
+msgstr ""
+"E\n"
+" "
 #
 msgid "Edit Layout"
 msgstr "Editer la mise en page"
@@ -265,13 +292,19 @@ msgid "End"
 msgstr "Fin"
 #
 msgid "End 1.Watch"
-msgstr "Quart 1 : Fin"
+msgstr ""
+"Quart 1 :\n"
+"Fin"
 #
 msgid "End 2.Watch"
-msgstr "Quart 2 : Fin"
+msgstr ""
+"Quart 2 :\n"
+"Fin"
 #
 msgid "End 3.Watch"
-msgstr "Quart 3 : Fin"
+msgstr ""
+"Quart 3 :\n"
+"Fin"
 #
 msgid "Engine"
 msgstr "Moteur"
@@ -301,19 +334,25 @@ msgid "Fuel/Water"
 msgstr "Carburant/Eau"
 #
 msgid "FuelTotal"
-msgstr "Carburant total"
+msgstr ""
+"Carburant\n"
+"total"
 #
 msgid "GPS Auto"
-msgstr ""
+msgstr "GPS automatique"
 #
 msgid "Goto Route"
 msgstr "Faire route"
 #
 msgid "Greatest Width of Hull"
-msgstr "Largeur maximale"
+msgstr ""
+"Maitrer\n"
+"bau"
 #
 msgid "HIN-Nr."
-msgstr "N° coque"
+msgstr ""
+"N° de\n"
+"coque"
 #
 msgid ""
 "Have You forgotten to enclose the Header with [[ and ]]\n"
@@ -326,16 +365,20 @@ msgid "Heading"
 msgstr "Cap"
 #
 msgid "Hide column"
-msgstr ""
+msgstr "Cacher la colonne"
 #
 msgid "Homeport"
-msgstr "Port d'attache"
+msgstr ""
+"Port\n"
+"d'attache"
 #
 msgid "Hull"
 msgstr "Coque"
 #
 msgid "Hull Identification No."
-msgstr "N° identification de la coque"
+msgstr ""
+"N° identification\n"
+"de la coque"
 #
 msgid "If"
 msgstr "Si"
@@ -344,7 +387,7 @@ msgid "If Course changes more then "
 msgstr "Si le cap change plus que de"
 #
 msgid "If GPS off use for manual entry"
-msgstr ""
+msgstr "Si le GPS est hors service, entrez les données manuellement"
 #
 msgid "If Watch changed"
 msgstr "Si la montre a changé"
@@ -352,7 +395,6 @@ msgstr "Si la montre a changé"
 msgid "Information"
 msgstr "Information"
 #
-#, fuzzy
 msgid "Install OpenCPN_Logbook_Languages.zip"
 msgstr "Installer les mises en page possibles (OpenCPN_Logbook_Layouts.zip)"
 #
@@ -381,13 +423,19 @@ msgstr ""
 "OpenCPN passe au livre de bord actuel."
 #
 msgid "LOA"
-msgstr "Long. hors tout"
+msgstr ""
+"Longueur\n"
+"hors tout"
 #
 msgid "LOD"
-msgstr "Long. coque"
+msgstr ""
+"Longueur\n"
+"de coque"
 #
 msgid "LWL"
-msgstr "Long flotaison"
+msgstr ""
+"Longueur\n"
+"de flottaison"
 #
 msgid "Languages installed"
 msgstr "Langue installée"
@@ -503,7 +551,9 @@ msgid "Navigation"
 msgstr "Navigation"
 #
 msgid "New Logbook"
-msgstr "Nouveau livre de bord"
+msgstr ""
+"Nouveau\n"
+"livre de bord"
 #
 msgid "No GPS-Signal !"
 msgstr "Pas de signal GPS"
@@ -533,7 +583,7 @@ msgstr ""
 "OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
 #
 msgid "Overview"
-msgstr "Apperçu"
+msgstr "Aperçu"
 #
 msgid "Owner"
 msgstr "Propriétaire"
@@ -545,23 +595,23 @@ msgid "Path to HTML-Editor (optional)"
 msgstr "Chemin vers l'éditeur HTML (Optionnel)"
 #
 msgid "Place of Birth"
-msgstr "Lieu de naissance"
+msgstr ""
+"Lieu de\n"
+"naissance"
 #
-#, fuzzy
 msgid ""
 "Please enter 05445.1234n03012.0504e for\n"
 "054Deg 45.1234Min N 030Deg 12.0504Min E"
 msgstr ""
-"Veuillez entrer 0544512n0301205e pour\n"
-"054Deg 45Min 12Sec N 030Deg 12Min 05Sec E"
+"Veuillez entrer 05445.1234n03012.0504e pour\n"
+"054Deg 45.1234Min N 030Deg 12.0504Min E"
 #
-#, fuzzy
 msgid ""
 "Please enter 0544512.15n0301205.15e for\n"
 "054Deg 45Min 12.15Sec N 030Deg 12Min 05.15Sec E"
 msgstr ""
-"Veuillez entrer 0544512n0301205e pour\n"
-"054Deg 45Min 12Sec N 030Deg 12Min 05Sec E"
+"Veuillez entrer 0544512.15n0301205.15e pour\n"
+"054Deg 45Min 12.15Sec N 030Deg 12Min 05.15Sec E"
 #
 msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45:00 PM"
 msgstr "Veuillez entrer 4 chiffres au format 24h ex : 1545 = 15:45:00"
@@ -577,18 +627,23 @@ msgid ""
 "Please enter the Date in the format:\n"
 "   11/18/2011"
 msgstr ""
+"Veuillez entrer la date au format :\n"
+"    11/18/2011"
 #
-#, fuzzy
 msgid ""
 "Please enter the Time in the format:\n"
 "   12:30:00PM"
-msgstr "Veuillez entrer 4 chiffres au format 24h ex : 1545 = 15:45:00"
+msgstr ""
+"Veuillez entrer le temps au format :\n"
+"    12:30:00PM"
 #
 msgid "Please fill in one character in Degrees, Minutes and Seconds"
 msgstr "Veuillez remplir en degrés, minutes, secondes"
 #
 msgid "Policy"
-msgstr "N° police d'assurance"
+msgstr ""
+"N° police\n"
+"d'assurance"
 #
 msgid "Position"
 msgstr "Position"
@@ -597,7 +652,9 @@ msgid "Priority"
 msgstr "Priorité"
 #
 msgid "R"
-msgstr "R"
+msgstr ""
+"R\n"
+" "
 #
 msgid "Reef"
 msgstr "Récifs"
@@ -639,23 +696,28 @@ msgid "STW"
 msgstr "STW"
 #
 msgid "Sail-Nr."
-msgstr "N° de voile"
+msgstr ""
+"N°\n"
+"de voile"
 #
 msgid "Sails"
 msgstr "Voiles"
 #
 msgid "Sails used mostly"
 msgstr ""
+"Voile utilisée\n"
+"principalement"
 #
 msgid "Save"
-msgstr "Sauver"
+msgstr ""
+"Enregistrer le\n"
+"livre de bord"
 #
 msgid "Save Boat File"
 msgstr "Sauver le fichier du bateau"
 #
-#, fuzzy
 msgid "Save BuyParts File"
-msgstr "Sauver le fichier du bateau"
+msgstr "Sauver le fichier des achats de pièces détachées"
 #
 msgid "Save CrewList File"
 msgstr "Sauver la liste d'équipage"
@@ -663,17 +725,14 @@ msgstr "Sauver la liste d'équipage"
 msgid "Save Logbook File"
 msgstr "Sauvegarder le livre de bord"
 #
-#, fuzzy
 msgid "Save Overview File"
-msgstr "Sauver la liste d'équipage"
+msgstr "Sauver le fichier aperçu"
 #
-#, fuzzy
 msgid "Save Repairs File"
-msgstr "Sauver la liste d'équipage"
+msgstr "Sauver le fichier des réparations"
 #
-#, fuzzy
 msgid "Save Service File"
-msgstr "Sauver la liste d'équipage"
+msgstr "Sauver le fichier de service"
 #
 msgid "Seconds"
 msgstr "Seconde"
@@ -682,10 +741,14 @@ msgid "Select Layout:"
 msgstr "Sélectionner une mise en page :"
 #
 msgid "Select Layout: "
-msgstr "Sélectionner une mise en page :"
+msgstr ""
+"Sélectionner la\n"
+"mise en page :"
 #
 msgid "Select Logbook"
-msgstr "Sélectionner le livre de bord"
+msgstr ""
+"Sélectionner\n"
+"le livre de bord"
 #
 msgid "Select Route"
 msgstr "Sélectionner la route"
@@ -730,7 +793,7 @@ msgid "Show all Layouts"
 msgstr "Montrer les mises en page"
 #
 msgid "Show hidden columns"
-msgstr ""
+msgstr "Montrer les colonnes cachées"
 #
 msgid "Sign"
 msgstr "Signe"
@@ -750,28 +813,36 @@ msgstr "Désolé, aucune mise en page installée"
 msgid "Speed"
 msgstr "Vitesse"
 #
-#, fuzzy
 msgid "Speed Avg."
-msgstr "Vitesse"
+msgstr ""
+"Vitesse\n"
+"moyenne"
 #
-#, fuzzy
 msgid "Speed Max."
-msgstr "Vitesse"
+msgstr ""
+"Vitesse\n"
+"maximale"
 #
 msgid "Start"
 msgstr "Début"
 #
 msgid "Start 1.Watch"
-msgstr "Quart 1 : Début"
+msgstr ""
+"Quart 1 :\n"
+"Début"
 #
 msgid "Start 2.Watch"
-msgstr "Quart 2 : Début"
+msgstr ""
+"Quart 2 :\n"
+"Début"
 #
 msgid "Start 3.Watch"
-msgstr "Quart 3 : Début"
+msgstr ""
+"Quart 3 :\n"
+"Début"
 #
 msgid "Startvalue"
-msgstr "Durée du quart"
+msgstr "Valeur initiale"
 #
 msgid "Street"
 msgstr "Rue"
@@ -779,16 +850,15 @@ msgstr "Rue"
 msgid "Swell"
 msgstr "Houle"
 #
-#, fuzzy
 msgid "Swell Avg."
-msgstr "Houle"
+msgstr ""
+"Houle\n"
+"moyenne"
 #
-#
-#
-#
-#, fuzzy
 msgid "Swell Max."
-msgstr "Houle la plus haute"
+msgstr ""
+"Houle\n"
+"la plus haute"
 #
 msgid "Telephone"
 msgstr "Téléphone"
@@ -819,6 +889,8 @@ msgstr "Titre"
 #
 msgid "Total Time"
 msgstr ""
+"Durée\n"
+"totale"
 #
 msgid "Town"
 msgstr "Ville"
@@ -854,21 +926,22 @@ msgid "Water"
 msgstr "Eau"
 #
 msgid "WaterTotal"
-msgstr "Total eau"
+msgstr ""
+"Total\n"
+"eau"
 #
 msgid "Wave"
 msgstr "Vague"
 #
-#, fuzzy
 msgid "Wave Avg."
-msgstr "Vague"
+msgstr ""
+"Vague\n"
+"moyenne"
 #
-#
-#
-#
-#, fuzzy
 msgid "Wave Max."
-msgstr "Vague la plus haute"
+msgstr ""
+"Vague la\n"
+"plus haute"
 #
 msgid "Weather"
 msgstr "Temps"
@@ -882,16 +955,15 @@ msgstr "Semaine(s)"
 msgid "Wind"
 msgstr "Vent"
 #
-#, fuzzy
 msgid "Wind Avg."
-msgstr "Vent"
+msgstr ""
+"Vent\n"
+"moyen"
 #
-#
-#
-#
-#, fuzzy
 msgid "Wind Max."
-msgstr "Vent maximal"
+msgstr ""
+"Vent\n"
+"maximal"
 #
 msgid "Wind from"
 msgstr "Vent de"
@@ -902,11 +974,14 @@ msgid ""
 "Wind is set now to Realative to boat\n"
 "\n"
 msgstr ""
+"Le vent était fixé à \"Vent vrai\",\n"
+"mais le GPS ne renvoie aucune information.\n"
+"Le vent est maintenant le \"vent apparent\" \n"
+"\n"
 #
 msgid "Windspeed"
 msgstr "Vitesse du vent"
 #
-#, fuzzy
 msgid "Windspeed "
 msgstr "Vitesse du vent"
 #
@@ -914,7 +989,9 @@ msgid "Write warning \"No GPS\""
 msgstr "Afficher une alerte \"Pas de GPS\""
 #
 msgid "Yard-Nr."
-msgstr "Place de port"
+msgstr ""
+"Place\n"
+"de port"
 #
 msgid ""
 "Your Logbook has 800 lines or more\n"
@@ -933,7 +1010,9 @@ msgid "Your Logbook has no lines ?"
 msgstr "Votre livre de bord ne contient aucune ligne"
 #
 msgid "Zip"
-msgstr "Code postal"
+msgstr ""
+"Code\n"
+"postal"
 #
 msgid ""
 "automatic line\n"
@@ -973,7 +1052,7 @@ msgid "en_"
 msgstr "fr_"
 #
 msgid "every 15 Degrees +/- 1 hour"
-msgstr ""
+msgstr "Chaque 15 degrés +/- 1 heure"
 #
 msgid "fm"
 msgstr "fm"
@@ -1045,41 +1124,41 @@ msgstr "semaine(s)"
 #~ msgid "0"
 #~ msgstr "0"
 #
-#
 #~ msgid "Date + Days"
 #~ msgstr "Date + Jours"
-#
 #
 #~ msgid "Date + Month"
 #~ msgstr "Date + mois"
 #
-#
 #~ msgid "Date + Weeks"
 #~ msgstr "Date + Semaines"
-#
 #
 #~ msgid "Fix Date"
 #~ msgstr "Fixer une date"
 #
+#~ msgid "GPS-Style"
+#~ msgstr "Mode GPS"
 #
 #~ msgid "GRT"
-#~ msgstr "Déplacement brut"
-#
+#~ msgstr ""
+#~ "Déplacement\n"
+#~ "brut"
 #
 #~ msgid "GrossTonnage"
 #~ msgstr "Déplacement"
 #
-#
 #~ msgid "Logbook until "
 #~ msgstr "Livre de bord depuis "
 #
-#
 #~ msgid "NRT"
-#~ msgstr "Déplacement net"
-#
+#~ msgstr ""
+#~ "Déplacement\n"
+#~ "net"
 #
 #~ msgid "NetTonnage"
-#~ msgstr "Volume intérieur disponible"
+#~ msgstr ""
+#~ "Volume intérieur\n"
+#~ "disponible"
 #
 #
 #
@@ -1096,25 +1175,11 @@ msgstr "semaine(s)"
 #~ msgid "No"
 #~ msgstr "Non"
 #
-#
 #~ msgid "Thames"
-#~ msgstr "Thèmes"
+#~ msgstr "Thames"
 #
-#
-#
-#
-#
-#
-#, fuzzy
 #~ msgid "Traditional-Style"
-#~ msgstr "Nationnalité"
-#
-#
-#
-#
-#, fuzzy
-#~ msgid "Watchlist"
-#~ msgstr "Regarder"
+#~ msgstr "Mode traditionnel"
 #
 #
 #
