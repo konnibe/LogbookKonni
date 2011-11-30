@@ -129,6 +129,8 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		wxGrid* m_gridCrewWake;
 		wxPanel* m_panel3;
 		wxButton* addEquipmentButton;
+		wxToggleButton* m_toggleBtnShowEquipment;
+		wxStaticLine* m_staticline27;
 		wxButton* boatSave;
 		wxStaticLine* m_staticline4;
 		wxStaticText* m_staticText322;
@@ -346,6 +348,7 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		virtual void OnRadioButtonAllLogbooks( wxCommandEvent& event );
 		virtual void onGridCellLeftClickService( wxGridEvent& event );
 		virtual void onGridCellLeftClickBuyParts( wxGridEvent& event );
+		virtual void OnToggleButtonShowEquip( wxCommandEvent& event );
 
 		virtual void m_menu1Highlighted(wxMenuEvent& event);
 
@@ -478,6 +481,7 @@ enum FORMAT {HTML,ODT};
 		wxTimer*			timer;
 		wxTimer*			GPSTimer;
 		wxTimer*			logbookTimer;
+		int					sashPos; 
 
 		wxColour			defaultBackground;
 		int					gridGlobalCol;

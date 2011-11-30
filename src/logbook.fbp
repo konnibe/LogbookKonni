@@ -142,7 +142,7 @@
                         <object class="notebookpage" expanded="0">
                             <property name="bitmap"></property>
                             <property name="label">Logbook</property>
-                            <property name="select">0</property>
+                            <property name="select">1</property>
                             <object class="wxPanel" expanded="0">
                                 <property name="bg"></property>
                                 <property name="context_help"></property>
@@ -243,7 +243,7 @@
                                                             <property name="size"></property>
                                                             <property name="style"></property>
                                                             <property name="subclass"></property>
-                                                            <property name="tooltip"></property>
+                                                            <property name="tooltip">add a line to the end of your logbook</property>
                                                             <property name="validator_data_type"></property>
                                                             <property name="validator_style">wxFILTER_NONE</property>
                                                             <property name="validator_type">wxDefaultValidator</property>
@@ -291,7 +291,7 @@
                                                             <property name="font"></property>
                                                             <property name="hidden">0</property>
                                                             <property name="id">wxID_ANY</property>
-                                                            <property name="label">Save</property>
+                                                            <property name="label">Export</property>
                                                             <property name="maximum_size"></property>
                                                             <property name="minimum_size"></property>
                                                             <property name="name">logSave</property>
@@ -300,7 +300,7 @@
                                                             <property name="size"></property>
                                                             <property name="style"></property>
                                                             <property name="subclass"></property>
-                                                            <property name="tooltip"></property>
+                                                            <property name="tooltip">export your logbook-data as:&#x0A;HTML, ODT,  ODS, XML, CSV</property>
                                                             <property name="validator_data_type"></property>
                                                             <property name="validator_style">wxFILTER_NONE</property>
                                                             <property name="validator_type">wxDefaultValidator</property>
@@ -466,7 +466,7 @@
                                                             <property name="selection">0</property>
                                                             <property name="size">180,-1</property>
                                                             <property name="subclass"></property>
-                                                            <property name="tooltip"></property>
+                                                            <property name="tooltip">Select a layout which is displayed&#x0A;with button &quot;View&quot;</property>
                                                             <property name="validator_data_type"></property>
                                                             <property name="validator_style">wxFILTER_NONE</property>
                                                             <property name="validator_type">wxDefaultValidator</property>
@@ -751,7 +751,7 @@
                                                             <property name="size"></property>
                                                             <property name="style"></property>
                                                             <property name="subclass"></property>
-                                                            <property name="tooltip"></property>
+                                                            <property name="tooltip">View data in browser (HTML) or Openoffice/LibreOffice (ODT)</property>
                                                             <property name="validator_data_type"></property>
                                                             <property name="validator_style">wxFILTER_NONE</property>
                                                             <property name="validator_type">wxDefaultValidator</property>
@@ -862,7 +862,7 @@
                                                             <property name="size"></property>
                                                             <property name="style"></property>
                                                             <property name="subclass"></property>
-                                                            <property name="tooltip"></property>
+                                                            <property name="tooltip">Create a new logbook&#x0A;the active logbook is saved with today&apos;s date&#x0A;and can be viewed with Button &quot;Select Logbook&quot;</property>
                                                             <property name="validator_data_type"></property>
                                                             <property name="validator_style">wxFILTER_NONE</property>
                                                             <property name="validator_type">wxDefaultValidator</property>
@@ -919,7 +919,7 @@
                                                             <property name="size"></property>
                                                             <property name="style"></property>
                                                             <property name="subclass"></property>
-                                                            <property name="tooltip"></property>
+                                                            <property name="tooltip">Select a old logbook&#x0A;Everytime a new logbook is created, you&apos;ll &#x0A;find the active logbook as old logbook here</property>
                                                             <property name="validator_data_type"></property>
                                                             <property name="validator_style">wxFILTER_NONE</property>
                                                             <property name="validator_type">wxDefaultValidator</property>
@@ -1767,7 +1767,7 @@
                                                             <property name="font"></property>
                                                             <property name="hidden">0</property>
                                                             <property name="id">wxID_ANY</property>
-                                                            <property name="label">Save</property>
+                                                            <property name="label">Export</property>
                                                             <property name="maximum_size"></property>
                                                             <property name="minimum_size"></property>
                                                             <property name="name">logSaveOverview</property>
@@ -1776,7 +1776,7 @@
                                                             <property name="size"></property>
                                                             <property name="style"></property>
                                                             <property name="subclass"></property>
-                                                            <property name="tooltip"></property>
+                                                            <property name="tooltip">export your Overview-data as HTML or ODT</property>
                                                             <property name="validator_data_type"></property>
                                                             <property name="validator_style">wxFILTER_NONE</property>
                                                             <property name="validator_type">wxDefaultValidator</property>
@@ -1942,7 +1942,7 @@
                                                             <property name="selection">0</property>
                                                             <property name="size">180,-1</property>
                                                             <property name="subclass"></property>
-                                                            <property name="tooltip"></property>
+                                                            <property name="tooltip">Select a layout which is displayed&#x0A;with button &quot;View&quot;</property>
                                                             <property name="validator_data_type"></property>
                                                             <property name="validator_style">wxFILTER_NONE</property>
                                                             <property name="validator_type">wxDefaultValidator</property>
@@ -2227,7 +2227,7 @@
                                                             <property name="size"></property>
                                                             <property name="style"></property>
                                                             <property name="subclass"></property>
-                                                            <property name="tooltip"></property>
+                                                            <property name="tooltip">View data in browser (HTML) or Openoffice/LibreOffice (ODT)</property>
                                                             <property name="validator_data_type"></property>
                                                             <property name="validator_style">wxFILTER_NONE</property>
                                                             <property name="validator_type">wxDefaultValidator</property>
@@ -2509,7 +2509,7 @@
                                                             <property name="size"></property>
                                                             <property name="style"></property>
                                                             <property name="subclass"></property>
-                                                            <property name="tooltip"></property>
+                                                            <property name="tooltip">Select one of the old logbooks</property>
                                                             <property name="validator_data_type"></property>
                                                             <property name="validator_style">wxFILTER_NONE</property>
                                                             <property name="validator_type">wxDefaultValidator</property>
@@ -2869,7 +2869,7 @@
                                                     <property name="size"></property>
                                                     <property name="style"></property>
                                                     <property name="subclass"></property>
-                                                    <property name="tooltip"></property>
+                                                    <property name="tooltip">Add a new Crewmember</property>
                                                     <property name="validator_data_type"></property>
                                                     <property name="validator_style">wxFILTER_NONE</property>
                                                     <property name="validator_type">wxDefaultValidator</property>
@@ -2917,7 +2917,7 @@
                                                     <property name="font"></property>
                                                     <property name="hidden">0</property>
                                                     <property name="id">wxID_ANY</property>
-                                                    <property name="label">Save</property>
+                                                    <property name="label">Export</property>
                                                     <property name="maximum_size"></property>
                                                     <property name="minimum_size"></property>
                                                     <property name="name">crewSave</property>
@@ -2926,7 +2926,7 @@
                                                     <property name="size"></property>
                                                     <property name="style"></property>
                                                     <property name="subclass"></property>
-                                                    <property name="tooltip"></property>
+                                                    <property name="tooltip">export your crew-data as:&#x0A;HTML, ODT,  ODS, XML, CSV</property>
                                                     <property name="validator_data_type"></property>
                                                     <property name="validator_style">wxFILTER_NONE</property>
                                                     <property name="validator_type">wxDefaultValidator</property>
@@ -3092,7 +3092,7 @@
                                                     <property name="selection">0</property>
                                                     <property name="size">180,-1</property>
                                                     <property name="subclass"></property>
-                                                    <property name="tooltip"></property>
+                                                    <property name="tooltip">Select a layout which is displayed&#x0A;with button &quot;View&quot;</property>
                                                     <property name="validator_data_type"></property>
                                                     <property name="validator_style">wxFILTER_NONE</property>
                                                     <property name="validator_type">wxDefaultValidator</property>
@@ -3149,7 +3149,7 @@
                                                     <property name="size">15,25</property>
                                                     <property name="style"></property>
                                                     <property name="subclass"></property>
-                                                    <property name="tooltip"></property>
+                                                    <property name="tooltip">Reload Layouts</property>
                                                     <property name="validator_data_type"></property>
                                                     <property name="validator_style">wxFILTER_NONE</property>
                                                     <property name="validator_type">wxDefaultValidator</property>
@@ -3206,7 +3206,7 @@
                                                     <property name="size">15,25</property>
                                                     <property name="style"></property>
                                                     <property name="subclass"></property>
-                                                    <property name="tooltip"></property>
+                                                    <property name="tooltip">Edit Layout</property>
                                                     <property name="validator_data_type"></property>
                                                     <property name="validator_style">wxFILTER_NONE</property>
                                                     <property name="validator_type">wxDefaultValidator</property>
@@ -3377,7 +3377,7 @@
                                                     <property name="size"></property>
                                                     <property name="style"></property>
                                                     <property name="subclass"></property>
-                                                    <property name="tooltip"></property>
+                                                    <property name="tooltip">View data in browser (HTML) or Openoffice/LibreOffice (ODT)</property>
                                                     <property name="validator_data_type"></property>
                                                     <property name="validator_style">wxFILTER_NONE</property>
                                                     <property name="validator_type">wxDefaultValidator</property>
@@ -3739,7 +3739,7 @@
                         <object class="notebookpage" expanded="1">
                             <property name="bitmap"></property>
                             <property name="label">Boat</property>
-                            <property name="select">1</property>
+                            <property name="select">0</property>
                             <object class="wxPanel" expanded="1">
                                 <property name="bg"></property>
                                 <property name="context_help"></property>
@@ -3840,7 +3840,7 @@
                                                             <property name="size"></property>
                                                             <property name="style"></property>
                                                             <property name="subclass"></property>
-                                                            <property name="tooltip"></property>
+                                                            <property name="tooltip">add the equipment of your boat</property>
                                                             <property name="validator_data_type"></property>
                                                             <property name="validator_style">wxFILTER_NONE</property>
                                                             <property name="validator_type">wxDefaultValidator</property>
@@ -3849,6 +3849,116 @@
                                                             <property name="window_name"></property>
                                                             <property name="window_style"></property>
                                                             <event name="OnButtonClick">boataddEquipmentButtonOnButtonClick</event>
+                                                            <event name="OnChar"></event>
+                                                            <event name="OnEnterWindow"></event>
+                                                            <event name="OnEraseBackground"></event>
+                                                            <event name="OnKeyDown"></event>
+                                                            <event name="OnKeyUp"></event>
+                                                            <event name="OnKillFocus"></event>
+                                                            <event name="OnLeaveWindow"></event>
+                                                            <event name="OnLeftDClick"></event>
+                                                            <event name="OnLeftDown"></event>
+                                                            <event name="OnLeftUp"></event>
+                                                            <event name="OnMiddleDClick"></event>
+                                                            <event name="OnMiddleDown"></event>
+                                                            <event name="OnMiddleUp"></event>
+                                                            <event name="OnMotion"></event>
+                                                            <event name="OnMouseEvents"></event>
+                                                            <event name="OnMouseWheel"></event>
+                                                            <event name="OnPaint"></event>
+                                                            <event name="OnRightDClick"></event>
+                                                            <event name="OnRightDown"></event>
+                                                            <event name="OnRightUp"></event>
+                                                            <event name="OnSetFocus"></event>
+                                                            <event name="OnSize"></event>
+                                                            <event name="OnUpdateUI"></event>
+                                                        </object>
+                                                    </object>
+                                                    <object class="sizeritem" expanded="0">
+                                                        <property name="border">5</property>
+                                                        <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
+                                                        <property name="proportion">0</property>
+                                                        <object class="wxToggleButton" expanded="0">
+                                                            <property name="bg"></property>
+                                                            <property name="context_help"></property>
+                                                            <property name="context_menu">1</property>
+                                                            <property name="enabled">1</property>
+                                                            <property name="fg"></property>
+                                                            <property name="font"></property>
+                                                            <property name="hidden">0</property>
+                                                            <property name="id">wxID_ANY</property>
+                                                            <property name="label">Show Equipment</property>
+                                                            <property name="maximum_size"></property>
+                                                            <property name="minimum_size"></property>
+                                                            <property name="name">m_toggleBtnShowEquipment</property>
+                                                            <property name="permission">protected</property>
+                                                            <property name="pos"></property>
+                                                            <property name="size">120,-1</property>
+                                                            <property name="subclass"></property>
+                                                            <property name="tooltip">Show/Hide Equipmentgrid</property>
+                                                            <property name="validator_data_type"></property>
+                                                            <property name="validator_style">wxFILTER_NONE</property>
+                                                            <property name="validator_type">wxDefaultValidator</property>
+                                                            <property name="validator_variable"></property>
+                                                            <property name="value">0</property>
+                                                            <property name="window_extra_style"></property>
+                                                            <property name="window_name"></property>
+                                                            <property name="window_style"></property>
+                                                            <event name="OnChar"></event>
+                                                            <event name="OnEnterWindow"></event>
+                                                            <event name="OnEraseBackground"></event>
+                                                            <event name="OnKeyDown"></event>
+                                                            <event name="OnKeyUp"></event>
+                                                            <event name="OnKillFocus"></event>
+                                                            <event name="OnLeaveWindow"></event>
+                                                            <event name="OnLeftDClick"></event>
+                                                            <event name="OnLeftDown"></event>
+                                                            <event name="OnLeftUp"></event>
+                                                            <event name="OnMiddleDClick"></event>
+                                                            <event name="OnMiddleDown"></event>
+                                                            <event name="OnMiddleUp"></event>
+                                                            <event name="OnMotion"></event>
+                                                            <event name="OnMouseEvents"></event>
+                                                            <event name="OnMouseWheel"></event>
+                                                            <event name="OnPaint"></event>
+                                                            <event name="OnRightDClick"></event>
+                                                            <event name="OnRightDown"></event>
+                                                            <event name="OnRightUp"></event>
+                                                            <event name="OnSetFocus"></event>
+                                                            <event name="OnSize"></event>
+                                                            <event name="OnToggleButton">OnToggleButtonShowEquip</event>
+                                                            <event name="OnUpdateUI"></event>
+                                                        </object>
+                                                    </object>
+                                                    <object class="sizeritem" expanded="0">
+                                                        <property name="border">5</property>
+                                                        <property name="flag">wxEXPAND | wxALL</property>
+                                                        <property name="proportion">0</property>
+                                                        <object class="wxStaticLine" expanded="0">
+                                                            <property name="bg"></property>
+                                                            <property name="context_help"></property>
+                                                            <property name="context_menu">1</property>
+                                                            <property name="enabled">1</property>
+                                                            <property name="fg"></property>
+                                                            <property name="font"></property>
+                                                            <property name="hidden">0</property>
+                                                            <property name="id">wxID_ANY</property>
+                                                            <property name="maximum_size"></property>
+                                                            <property name="minimum_size"></property>
+                                                            <property name="name">m_staticline27</property>
+                                                            <property name="permission">protected</property>
+                                                            <property name="pos"></property>
+                                                            <property name="size"></property>
+                                                            <property name="style">wxLI_VERTICAL</property>
+                                                            <property name="subclass"></property>
+                                                            <property name="tooltip"></property>
+                                                            <property name="validator_data_type"></property>
+                                                            <property name="validator_style">wxFILTER_NONE</property>
+                                                            <property name="validator_type">wxDefaultValidator</property>
+                                                            <property name="validator_variable"></property>
+                                                            <property name="window_extra_style"></property>
+                                                            <property name="window_name"></property>
+                                                            <property name="window_style"></property>
                                                             <event name="OnChar"></event>
                                                             <event name="OnEnterWindow"></event>
                                                             <event name="OnEraseBackground"></event>
@@ -3888,7 +3998,7 @@
                                                             <property name="font"></property>
                                                             <property name="hidden">0</property>
                                                             <property name="id">wxID_ANY</property>
-                                                            <property name="label">Save</property>
+                                                            <property name="label">Export</property>
                                                             <property name="maximum_size"></property>
                                                             <property name="minimum_size"></property>
                                                             <property name="name">boatSave</property>
@@ -3897,7 +4007,7 @@
                                                             <property name="size"></property>
                                                             <property name="style"></property>
                                                             <property name="subclass"></property>
-                                                            <property name="tooltip"></property>
+                                                            <property name="tooltip">export your boat/equipment-data as:&#x0A;HTML, ODT,  ODS, XML, CSV</property>
                                                             <property name="validator_data_type"></property>
                                                             <property name="validator_style">wxFILTER_NONE</property>
                                                             <property name="validator_type">wxDefaultValidator</property>
@@ -4063,7 +4173,7 @@
                                                             <property name="selection">0</property>
                                                             <property name="size">180,-1</property>
                                                             <property name="subclass"></property>
-                                                            <property name="tooltip"></property>
+                                                            <property name="tooltip">Select a layout which is displayed&#x0A;with button &quot;View&quot;</property>
                                                             <property name="validator_data_type"></property>
                                                             <property name="validator_style">wxFILTER_NONE</property>
                                                             <property name="validator_type">wxDefaultValidator</property>
@@ -4118,9 +4228,9 @@
                                                             <property name="permission">public</property>
                                                             <property name="pos"></property>
                                                             <property name="size">15,25</property>
-                                                            <property name="style"></property>
+                                                            <property name="style">wxBU_EXACTFIT</property>
                                                             <property name="subclass"></property>
-                                                            <property name="tooltip"></property>
+                                                            <property name="tooltip">Reload Layouts</property>
                                                             <property name="validator_data_type"></property>
                                                             <property name="validator_style">wxFILTER_NONE</property>
                                                             <property name="validator_type">wxDefaultValidator</property>
@@ -4175,9 +4285,9 @@
                                                             <property name="permission">public</property>
                                                             <property name="pos"></property>
                                                             <property name="size">15,25</property>
-                                                            <property name="style"></property>
+                                                            <property name="style">wxBU_EXACTFIT</property>
                                                             <property name="subclass"></property>
-                                                            <property name="tooltip"></property>
+                                                            <property name="tooltip">Edit Layouts</property>
                                                             <property name="validator_data_type"></property>
                                                             <property name="validator_style">wxFILTER_NONE</property>
                                                             <property name="validator_type">wxDefaultValidator</property>
@@ -4348,7 +4458,7 @@
                                                             <property name="size"></property>
                                                             <property name="style"></property>
                                                             <property name="subclass"></property>
-                                                            <property name="tooltip"></property>
+                                                            <property name="tooltip">View data in browser (HTML) or Openoffice/LibreOffice (ODT)</property>
                                                             <property name="validator_data_type"></property>
                                                             <property name="validator_style">wxFILTER_NONE</property>
                                                             <property name="validator_type">wxDefaultValidator</property>
@@ -4460,7 +4570,7 @@
                                             <property name="permission">protected</property>
                                             <property name="pos"></property>
                                             <property name="sashgravity">0.0</property>
-                                            <property name="sashpos">300</property>
+                                            <property name="sashpos">315</property>
                                             <property name="sashsize">4</property>
                                             <property name="size"></property>
                                             <property name="splitmode">wxSPLIT_HORIZONTAL</property>
@@ -4502,7 +4612,7 @@
                                             <event name="OnSplitterUnsplit"></event>
                                             <event name="OnUpdateUI"></event>
                                             <object class="splitteritem" expanded="1">
-                                                <object class="wxPanel" expanded="0">
+                                                <object class="wxPanel" expanded="1">
                                                     <property name="bg"></property>
                                                     <property name="context_help"></property>
                                                     <property name="context_menu">1</property>
@@ -4549,7 +4659,7 @@
                                                     <event name="OnSetFocus"></event>
                                                     <event name="OnSize"></event>
                                                     <event name="OnUpdateUI"></event>
-                                                    <object class="wxFlexGridSizer" expanded="0">
+                                                    <object class="wxFlexGridSizer" expanded="1">
                                                         <property name="cols">1</property>
                                                         <property name="flexible_direction">wxBOTH</property>
                                                         <property name="growablecols"></property>
@@ -5615,7 +5725,7 @@
                                                                                 <property name="size"></property>
                                                                                 <property name="style">wxTE_PROCESS_ENTER</property>
                                                                                 <property name="subclass"></property>
-                                                                                <property name="tooltip"></property>
+                                                                                <property name="tooltip">Maritime Mobile Service Identity</property>
                                                                                 <property name="validator_data_type"></property>
                                                                                 <property name="validator_style">wxFILTER_NONE</property>
                                                                                 <property name="validator_type">wxDefaultValidator</property>
@@ -8388,8 +8498,8 @@
                                                     </object>
                                                 </object>
                                             </object>
-                                            <object class="splitteritem" expanded="1">
-                                                <object class="wxPanel" expanded="1">
+                                            <object class="splitteritem" expanded="0">
+                                                <object class="wxPanel" expanded="0">
                                                     <property name="bg"></property>
                                                     <property name="context_help"></property>
                                                     <property name="context_menu">1</property>
@@ -8439,7 +8549,7 @@
                                                     <object class="wxStaticBoxSizer" expanded="0">
                                                         <property name="id">wxID_ANY</property>
                                                         <property name="label">Equipment</property>
-                                                        <property name="minimum_size">-1,100</property>
+                                                        <property name="minimum_size">-1,-1</property>
                                                         <property name="name">sbSizer12</property>
                                                         <property name="orient">wxVERTICAL</property>
                                                         <property name="permission">public</property>
@@ -8794,7 +8904,7 @@
                                                                         <property name="size"></property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">Add a new line</property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
@@ -8842,7 +8952,7 @@
                                                                         <property name="font"></property>
                                                                         <property name="hidden">0</property>
                                                                         <property name="id">wxID_ANY</property>
-                                                                        <property name="label">Save</property>
+                                                                        <property name="label">Export</property>
                                                                         <property name="maximum_size"></property>
                                                                         <property name="minimum_size"></property>
                                                                         <property name="name">m_buttonSaveService</property>
@@ -8851,7 +8961,7 @@
                                                                         <property name="size"></property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">export your Service-data as HTML or ODT</property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
@@ -9017,7 +9127,7 @@
                                                                         <property name="selection">0</property>
                                                                         <property name="size">180,-1</property>
                                                                         <property name="subclass"></property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">Select a layout which is displayed&#x0A;with button &quot;View&quot;</property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
@@ -9074,7 +9184,7 @@
                                                                         <property name="size">15,25</property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">Reload Layouts</property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
@@ -9131,7 +9241,7 @@
                                                                         <property name="size">15,25</property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">Edit Layout</property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
@@ -9302,7 +9412,7 @@
                                                                         <property name="size"></property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">View data in browser (HTML) or Openoffice/LibreOffice (ODT)</property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
@@ -9589,7 +9699,7 @@
                                             <object class="notebookpage" expanded="0">
                                                 <property name="bitmap"></property>
                                                 <property name="label">Repairs</property>
-                                                <property name="select">0</property>
+                                                <property name="select">1</property>
                                                 <object class="wxPanel" expanded="0">
                                                     <property name="bg"></property>
                                                     <property name="context_help"></property>
@@ -9681,7 +9791,7 @@
                                                                         <property name="size"></property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">Add a new line</property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
@@ -9729,7 +9839,7 @@
                                                                         <property name="font"></property>
                                                                         <property name="hidden">0</property>
                                                                         <property name="id">wxID_ANY</property>
-                                                                        <property name="label">Save</property>
+                                                                        <property name="label">Export</property>
                                                                         <property name="maximum_size"></property>
                                                                         <property name="minimum_size"></property>
                                                                         <property name="name">m_buttonSaveRepairs</property>
@@ -9738,7 +9848,7 @@
                                                                         <property name="size"></property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">export your Repairs-data as HTML or ODT</property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
@@ -9904,7 +10014,7 @@
                                                                         <property name="selection">0</property>
                                                                         <property name="size">180,-1</property>
                                                                         <property name="subclass"></property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">Select a layout which is displayed&#x0A;with button &quot;View&quot;</property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
@@ -9961,7 +10071,7 @@
                                                                         <property name="size">15,25</property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">Reload Layouts</property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
@@ -10018,7 +10128,7 @@
                                                                         <property name="size">15,25</property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">Edit Layout</property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
@@ -10189,7 +10299,7 @@
                                                                         <property name="size"></property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">View data in browser (HTML) or Openoffice/LibreOffice (ODT)</property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
@@ -10476,7 +10586,7 @@
                                             <object class="notebookpage" expanded="0">
                                                 <property name="bitmap"></property>
                                                 <property name="label">Buy Parts</property>
-                                                <property name="select">1</property>
+                                                <property name="select">0</property>
                                                 <object class="wxPanel" expanded="0">
                                                     <property name="bg"></property>
                                                     <property name="context_help"></property>
@@ -10568,7 +10678,7 @@
                                                                         <property name="size"></property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">Add a new line</property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
@@ -10616,7 +10726,7 @@
                                                                         <property name="font"></property>
                                                                         <property name="hidden">0</property>
                                                                         <property name="id">wxID_ANY</property>
-                                                                        <property name="label">Save</property>
+                                                                        <property name="label">Export</property>
                                                                         <property name="maximum_size"></property>
                                                                         <property name="minimum_size"></property>
                                                                         <property name="name">m_buttonSaveBuyParts</property>
@@ -10625,7 +10735,7 @@
                                                                         <property name="size"></property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">export your BuyParts-data as HTML or ODT</property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
@@ -10791,7 +10901,7 @@
                                                                         <property name="selection">0</property>
                                                                         <property name="size">180,-1</property>
                                                                         <property name="subclass"></property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">Select a layout which is displayed&#x0A;with button &quot;View&quot;</property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
@@ -10848,7 +10958,7 @@
                                                                         <property name="size">15,25</property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">Reload Layouts</property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
@@ -10905,7 +11015,7 @@
                                                                         <property name="size">15,25</property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">Edit Layout</property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
@@ -11076,7 +11186,7 @@
                                                                         <property name="size"></property>
                                                                         <property name="style"></property>
                                                                         <property name="subclass"></property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">View data in browser (HTML) or Openoffice/LibreOffice (ODT)</property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
@@ -12816,7 +12926,7 @@
             <property name="minimum_size"></property>
             <property name="name">LogbookOptions</property>
             <property name="pos"></property>
-            <property name="size">613,512</property>
+            <property name="size">613,541</property>
             <property name="style">wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER</property>
             <property name="subclass"></property>
             <property name="title"></property>
@@ -13064,11 +13174,11 @@
                                                     <event name="OnUpdateUI"></event>
                                                 </object>
                                             </object>
-                                            <object class="sizeritem" expanded="1">
+                                            <object class="sizeritem" expanded="0">
                                                 <property name="border">0</property>
                                                 <property name="flag">wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL</property>
                                                 <property name="proportion">0</property>
-                                                <object class="wxStaticText" expanded="1">
+                                                <object class="wxStaticText" expanded="0">
                                                     <property name="bg"></property>
                                                     <property name="context_help"></property>
                                                     <property name="context_menu">1</property>
@@ -13120,11 +13230,11 @@
                                                     <event name="OnUpdateUI"></event>
                                                 </object>
                                             </object>
-                                            <object class="sizeritem" expanded="1">
+                                            <object class="sizeritem" expanded="0">
                                                 <property name="border">0</property>
                                                 <property name="flag">wxALL|wxALIGN_CENTER_VERTICAL</property>
                                                 <property name="proportion">0</property>
-                                                <object class="wxChoice" expanded="1">
+                                                <object class="wxChoice" expanded="0">
                                                     <property name="bg"></property>
                                                     <property name="choices">&quot;054° 12.1234&apos;&quot; &quot;054° 12&apos; 12.34\&quot;&quot;</property>
                                                     <property name="context_help"></property>
@@ -15392,7 +15502,7 @@
                                     </object>
                                     <object class="sizeritem" expanded="0">
                                         <property name="border">5</property>
-                                        <property name="flag">wxALIGN_CENTER_VERTICAL</property>
+                                        <property name="flag">wxALIGN_CENTER_VERTICAL|wxALIGN_CENTER_HORIZONTAL</property>
                                         <property name="proportion">0</property>
                                         <object class="wxFlexGridSizer" expanded="0">
                                             <property name="cols">3</property>
@@ -15404,21 +15514,179 @@
                                             <property name="name">fgSizer28</property>
                                             <property name="non_flexible_grow_mode">wxFLEX_GROWMODE_SPECIFIED</property>
                                             <property name="permission">none</property>
-                                            <property name="rows">1</property>
+                                            <property name="rows">4</property>
                                             <property name="vgap">0</property>
                                             <object class="sizeritem" expanded="0">
                                                 <property name="border">5</property>
-                                                <property name="flag">wxEXPAND</property>
-                                                <property name="proportion">1</property>
-                                                <object class="spacer" expanded="0">
-                                                    <property name="height">0</property>
+                                                <property name="flag">wxALL</property>
+                                                <property name="proportion">0</property>
+                                                <object class="wxStaticText" expanded="0">
+                                                    <property name="bg"></property>
+                                                    <property name="context_help"></property>
+                                                    <property name="context_menu">1</property>
+                                                    <property name="enabled">1</property>
+                                                    <property name="fg"></property>
+                                                    <property name="font"></property>
+                                                    <property name="hidden">0</property>
+                                                    <property name="id">wxID_ANY</property>
+                                                    <property name="label">Install Layouts</property>
+                                                    <property name="maximum_size"></property>
+                                                    <property name="minimum_size"></property>
+                                                    <property name="name">m_staticText731</property>
                                                     <property name="permission">protected</property>
-                                                    <property name="width">60</property>
+                                                    <property name="pos"></property>
+                                                    <property name="size"></property>
+                                                    <property name="style"></property>
+                                                    <property name="subclass"></property>
+                                                    <property name="tooltip"></property>
+                                                    <property name="validator_data_type"></property>
+                                                    <property name="validator_style">wxFILTER_NONE</property>
+                                                    <property name="validator_type">wxDefaultValidator</property>
+                                                    <property name="validator_variable"></property>
+                                                    <property name="window_extra_style"></property>
+                                                    <property name="window_name"></property>
+                                                    <property name="window_style"></property>
+                                                    <property name="wrap">-1</property>
+                                                    <event name="OnChar"></event>
+                                                    <event name="OnEnterWindow"></event>
+                                                    <event name="OnEraseBackground"></event>
+                                                    <event name="OnKeyDown"></event>
+                                                    <event name="OnKeyUp"></event>
+                                                    <event name="OnKillFocus"></event>
+                                                    <event name="OnLeaveWindow"></event>
+                                                    <event name="OnLeftDClick"></event>
+                                                    <event name="OnLeftDown"></event>
+                                                    <event name="OnLeftUp"></event>
+                                                    <event name="OnMiddleDClick"></event>
+                                                    <event name="OnMiddleDown"></event>
+                                                    <event name="OnMiddleUp"></event>
+                                                    <event name="OnMotion"></event>
+                                                    <event name="OnMouseEvents"></event>
+                                                    <event name="OnMouseWheel"></event>
+                                                    <event name="OnPaint"></event>
+                                                    <event name="OnRightDClick"></event>
+                                                    <event name="OnRightDown"></event>
+                                                    <event name="OnRightUp"></event>
+                                                    <event name="OnSetFocus"></event>
+                                                    <event name="OnSize"></event>
+                                                    <event name="OnUpdateUI"></event>
                                                 </object>
                                             </object>
                                             <object class="sizeritem" expanded="0">
                                                 <property name="border">5</property>
-                                                <property name="flag">wxALL|wxEXPAND</property>
+                                                <property name="flag">wxALL</property>
+                                                <property name="proportion">0</property>
+                                                <object class="wxStaticText" expanded="0">
+                                                    <property name="bg"></property>
+                                                    <property name="context_help"></property>
+                                                    <property name="context_menu">1</property>
+                                                    <property name="enabled">1</property>
+                                                    <property name="fg"></property>
+                                                    <property name="font"></property>
+                                                    <property name="hidden">0</property>
+                                                    <property name="id">wxID_ANY</property>
+                                                    <property name="label">Install Languages</property>
+                                                    <property name="maximum_size"></property>
+                                                    <property name="minimum_size"></property>
+                                                    <property name="name">m_staticText742</property>
+                                                    <property name="permission">protected</property>
+                                                    <property name="pos"></property>
+                                                    <property name="size"></property>
+                                                    <property name="style"></property>
+                                                    <property name="subclass"></property>
+                                                    <property name="tooltip"></property>
+                                                    <property name="validator_data_type"></property>
+                                                    <property name="validator_style">wxFILTER_NONE</property>
+                                                    <property name="validator_type">wxDefaultValidator</property>
+                                                    <property name="validator_variable"></property>
+                                                    <property name="window_extra_style"></property>
+                                                    <property name="window_name"></property>
+                                                    <property name="window_style"></property>
+                                                    <property name="wrap">-1</property>
+                                                    <event name="OnChar"></event>
+                                                    <event name="OnEnterWindow"></event>
+                                                    <event name="OnEraseBackground"></event>
+                                                    <event name="OnKeyDown"></event>
+                                                    <event name="OnKeyUp"></event>
+                                                    <event name="OnKillFocus"></event>
+                                                    <event name="OnLeaveWindow"></event>
+                                                    <event name="OnLeftDClick"></event>
+                                                    <event name="OnLeftDown"></event>
+                                                    <event name="OnLeftUp"></event>
+                                                    <event name="OnMiddleDClick"></event>
+                                                    <event name="OnMiddleDown"></event>
+                                                    <event name="OnMiddleUp"></event>
+                                                    <event name="OnMotion"></event>
+                                                    <event name="OnMouseEvents"></event>
+                                                    <event name="OnMouseWheel"></event>
+                                                    <event name="OnPaint"></event>
+                                                    <event name="OnRightDClick"></event>
+                                                    <event name="OnRightDown"></event>
+                                                    <event name="OnRightUp"></event>
+                                                    <event name="OnSetFocus"></event>
+                                                    <event name="OnSize"></event>
+                                                    <event name="OnUpdateUI"></event>
+                                                </object>
+                                            </object>
+                                            <object class="sizeritem" expanded="0">
+                                                <property name="border">5</property>
+                                                <property name="flag">wxALL</property>
+                                                <property name="proportion">0</property>
+                                                <object class="wxStaticText" expanded="0">
+                                                    <property name="bg"></property>
+                                                    <property name="context_help"></property>
+                                                    <property name="context_menu">1</property>
+                                                    <property name="enabled">1</property>
+                                                    <property name="fg"></property>
+                                                    <property name="font"></property>
+                                                    <property name="hidden">0</property>
+                                                    <property name="id">wxID_ANY</property>
+                                                    <property name="label">Uninstall Logbook</property>
+                                                    <property name="maximum_size"></property>
+                                                    <property name="minimum_size"></property>
+                                                    <property name="name">m_staticText751</property>
+                                                    <property name="permission">protected</property>
+                                                    <property name="pos"></property>
+                                                    <property name="size"></property>
+                                                    <property name="style"></property>
+                                                    <property name="subclass"></property>
+                                                    <property name="tooltip"></property>
+                                                    <property name="validator_data_type"></property>
+                                                    <property name="validator_style">wxFILTER_NONE</property>
+                                                    <property name="validator_type">wxDefaultValidator</property>
+                                                    <property name="validator_variable"></property>
+                                                    <property name="window_extra_style"></property>
+                                                    <property name="window_name"></property>
+                                                    <property name="window_style"></property>
+                                                    <property name="wrap">-1</property>
+                                                    <event name="OnChar"></event>
+                                                    <event name="OnEnterWindow"></event>
+                                                    <event name="OnEraseBackground"></event>
+                                                    <event name="OnKeyDown"></event>
+                                                    <event name="OnKeyUp"></event>
+                                                    <event name="OnKillFocus"></event>
+                                                    <event name="OnLeaveWindow"></event>
+                                                    <event name="OnLeftDClick"></event>
+                                                    <event name="OnLeftDown"></event>
+                                                    <event name="OnLeftUp"></event>
+                                                    <event name="OnMiddleDClick"></event>
+                                                    <event name="OnMiddleDown"></event>
+                                                    <event name="OnMiddleUp"></event>
+                                                    <event name="OnMotion"></event>
+                                                    <event name="OnMouseEvents"></event>
+                                                    <event name="OnMouseWheel"></event>
+                                                    <event name="OnPaint"></event>
+                                                    <event name="OnRightDClick"></event>
+                                                    <event name="OnRightDown"></event>
+                                                    <event name="OnRightUp"></event>
+                                                    <event name="OnSetFocus"></event>
+                                                    <event name="OnSize"></event>
+                                                    <event name="OnUpdateUI"></event>
+                                                </object>
+                                            </object>
+                                            <object class="sizeritem" expanded="0">
+                                                <property name="border">5</property>
+                                                <property name="flag">wxALL|wxALIGN_CENTER_HORIZONTAL</property>
                                                 <property name="proportion">0</property>
                                                 <object class="wxButton" expanded="0">
                                                     <property name="bg"></property>
@@ -15430,7 +15698,7 @@
                                                     <property name="font"></property>
                                                     <property name="hidden">0</property>
                                                     <property name="id">wxID_ANY</property>
-                                                    <property name="label">Install OpenCPN_Logbook_Layouts.zip</property>
+                                                    <property name="label">Install</property>
                                                     <property name="maximum_size"></property>
                                                     <property name="minimum_size"></property>
                                                     <property name="name">m_buttonInstallHTMLFiles</property>
@@ -15439,7 +15707,7 @@
                                                     <property name="size"></property>
                                                     <property name="style"></property>
                                                     <property name="subclass"></property>
-                                                    <property name="tooltip"></property>
+                                                    <property name="tooltip">Install OpenCPN_Logbook_Layouts.zip</property>
                                                     <property name="validator_data_type"></property>
                                                     <property name="validator_style">wxFILTER_NONE</property>
                                                     <property name="validator_type">wxDefaultValidator</property>
@@ -15475,7 +15743,7 @@
                                             </object>
                                             <object class="sizeritem" expanded="0">
                                                 <property name="border">5</property>
-                                                <property name="flag">wxALL</property>
+                                                <property name="flag">wxALL|wxALIGN_CENTER_HORIZONTAL</property>
                                                 <property name="proportion">1</property>
                                                 <object class="wxButton" expanded="0">
                                                     <property name="bg"></property>
@@ -15487,7 +15755,7 @@
                                                     <property name="font"></property>
                                                     <property name="hidden">0</property>
                                                     <property name="id">wxID_ANY</property>
-                                                    <property name="label">Install OpenCPN_Logbook_Languages.zip</property>
+                                                    <property name="label">Install</property>
                                                     <property name="maximum_size"></property>
                                                     <property name="minimum_size"></property>
                                                     <property name="name">m_buttonInstallLanguages</property>
@@ -15496,7 +15764,7 @@
                                                     <property name="size"></property>
                                                     <property name="style"></property>
                                                     <property name="subclass"></property>
-                                                    <property name="tooltip"></property>
+                                                    <property name="tooltip">Install OpenCPN_Logbook_Languages.zip</property>
                                                     <property name="validator_data_type"></property>
                                                     <property name="validator_style">wxFILTER_NONE</property>
                                                     <property name="validator_type">wxDefaultValidator</property>
@@ -15530,6 +15798,135 @@
                                                     <event name="OnUpdateUI"></event>
                                                 </object>
                                             </object>
+                                            <object class="sizeritem" expanded="0">
+                                                <property name="border">5</property>
+                                                <property name="flag">wxALL|wxALIGN_CENTER_HORIZONTAL</property>
+                                                <property name="proportion">0</property>
+                                                <object class="wxButton" expanded="0">
+                                                    <property name="bg"></property>
+                                                    <property name="context_help"></property>
+                                                    <property name="context_menu">1</property>
+                                                    <property name="default">0</property>
+                                                    <property name="enabled">1</property>
+                                                    <property name="fg"></property>
+                                                    <property name="font"></property>
+                                                    <property name="hidden">0</property>
+                                                    <property name="id">wxID_ANY</property>
+                                                    <property name="label">Uninstall</property>
+                                                    <property name="maximum_size"></property>
+                                                    <property name="minimum_size"></property>
+                                                    <property name="name">m_buttonUninstall</property>
+                                                    <property name="permission">protected</property>
+                                                    <property name="pos"></property>
+                                                    <property name="size"></property>
+                                                    <property name="style"></property>
+                                                    <property name="subclass"></property>
+                                                    <property name="tooltip">Uninstalls&#x0A;Logbook-Plugin,&#x0A;all Logbook-Data,&#x0A;all Logbook-Layouts,&#x0A;all Logbook-Languages&#x0A;and cleans the OpenCPN.ini</property>
+                                                    <property name="validator_data_type"></property>
+                                                    <property name="validator_style">wxFILTER_NONE</property>
+                                                    <property name="validator_type">wxDefaultValidator</property>
+                                                    <property name="validator_variable"></property>
+                                                    <property name="window_extra_style"></property>
+                                                    <property name="window_name"></property>
+                                                    <property name="window_style"></property>
+                                                    <event name="OnButtonClick">OnButtonClickUninstall</event>
+                                                    <event name="OnChar"></event>
+                                                    <event name="OnEnterWindow"></event>
+                                                    <event name="OnEraseBackground"></event>
+                                                    <event name="OnKeyDown"></event>
+                                                    <event name="OnKeyUp"></event>
+                                                    <event name="OnKillFocus"></event>
+                                                    <event name="OnLeaveWindow"></event>
+                                                    <event name="OnLeftDClick"></event>
+                                                    <event name="OnLeftDown"></event>
+                                                    <event name="OnLeftUp"></event>
+                                                    <event name="OnMiddleDClick"></event>
+                                                    <event name="OnMiddleDown"></event>
+                                                    <event name="OnMiddleUp"></event>
+                                                    <event name="OnMotion"></event>
+                                                    <event name="OnMouseEvents"></event>
+                                                    <event name="OnMouseWheel"></event>
+                                                    <event name="OnPaint"></event>
+                                                    <event name="OnRightDClick"></event>
+                                                    <event name="OnRightDown"></event>
+                                                    <event name="OnRightUp"></event>
+                                                    <event name="OnSetFocus"></event>
+                                                    <event name="OnSize"></event>
+                                                    <event name="OnUpdateUI"></event>
+                                                </object>
+                                            </object>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem" expanded="0">
+                                        <property name="border">5</property>
+                                        <property name="flag">wxALIGN_CENTER_HORIZONTAL</property>
+                                        <property name="proportion">0</property>
+                                        <object class="wxFlexGridSizer" expanded="0">
+                                            <property name="cols">1</property>
+                                            <property name="flexible_direction">wxBOTH</property>
+                                            <property name="growablecols"></property>
+                                            <property name="growablerows"></property>
+                                            <property name="hgap">0</property>
+                                            <property name="minimum_size"></property>
+                                            <property name="name">fgSizer301</property>
+                                            <property name="non_flexible_grow_mode">wxFLEX_GROWMODE_SPECIFIED</property>
+                                            <property name="permission">none</property>
+                                            <property name="rows">2</property>
+                                            <property name="vgap">0</property>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem" expanded="0">
+                                        <property name="border">5</property>
+                                        <property name="flag">wxEXPAND | wxALL</property>
+                                        <property name="proportion">0</property>
+                                        <object class="wxStaticLine" expanded="0">
+                                            <property name="bg"></property>
+                                            <property name="context_help"></property>
+                                            <property name="context_menu">1</property>
+                                            <property name="enabled">1</property>
+                                            <property name="fg"></property>
+                                            <property name="font"></property>
+                                            <property name="hidden">0</property>
+                                            <property name="id">wxID_ANY</property>
+                                            <property name="maximum_size"></property>
+                                            <property name="minimum_size"></property>
+                                            <property name="name">m_staticline261</property>
+                                            <property name="permission">protected</property>
+                                            <property name="pos"></property>
+                                            <property name="size"></property>
+                                            <property name="style">wxLI_HORIZONTAL</property>
+                                            <property name="subclass"></property>
+                                            <property name="tooltip"></property>
+                                            <property name="validator_data_type"></property>
+                                            <property name="validator_style">wxFILTER_NONE</property>
+                                            <property name="validator_type">wxDefaultValidator</property>
+                                            <property name="validator_variable"></property>
+                                            <property name="window_extra_style"></property>
+                                            <property name="window_name"></property>
+                                            <property name="window_style"></property>
+                                            <event name="OnChar"></event>
+                                            <event name="OnEnterWindow"></event>
+                                            <event name="OnEraseBackground"></event>
+                                            <event name="OnKeyDown"></event>
+                                            <event name="OnKeyUp"></event>
+                                            <event name="OnKillFocus"></event>
+                                            <event name="OnLeaveWindow"></event>
+                                            <event name="OnLeftDClick"></event>
+                                            <event name="OnLeftDown"></event>
+                                            <event name="OnLeftUp"></event>
+                                            <event name="OnMiddleDClick"></event>
+                                            <event name="OnMiddleDown"></event>
+                                            <event name="OnMiddleUp"></event>
+                                            <event name="OnMotion"></event>
+                                            <event name="OnMouseEvents"></event>
+                                            <event name="OnMouseWheel"></event>
+                                            <event name="OnPaint"></event>
+                                            <event name="OnRightDClick"></event>
+                                            <event name="OnRightDown"></event>
+                                            <event name="OnRightUp"></event>
+                                            <event name="OnSetFocus"></event>
+                                            <event name="OnSize"></event>
+                                            <event name="OnUpdateUI"></event>
                                         </object>
                                     </object>
                                     <object class="sizeritem" expanded="0">
@@ -15780,6 +16177,24 @@
                                             <event name="OnSetFocus"></event>
                                             <event name="OnSize"></event>
                                             <event name="OnUpdateUI"></event>
+                                        </object>
+                                    </object>
+                                    <object class="sizeritem" expanded="0">
+                                        <property name="border">5</property>
+                                        <property name="flag">wxEXPAND</property>
+                                        <property name="proportion">1</property>
+                                        <object class="wxFlexGridSizer" expanded="0">
+                                            <property name="cols">2</property>
+                                            <property name="flexible_direction">wxBOTH</property>
+                                            <property name="growablecols"></property>
+                                            <property name="growablerows"></property>
+                                            <property name="hgap">0</property>
+                                            <property name="minimum_size"></property>
+                                            <property name="name">fgSizer291</property>
+                                            <property name="non_flexible_grow_mode">wxFLEX_GROWMODE_SPECIFIED</property>
+                                            <property name="permission">none</property>
+                                            <property name="rows">2</property>
+                                            <property name="vgap">0</property>
                                         </object>
                                     </object>
                                 </object>

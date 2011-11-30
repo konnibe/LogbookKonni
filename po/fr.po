@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-25 01:45+0100\n"
-"PO-Revision-Date: 2011-11-26 23:30+0100\n"
-"Last-Translator: Gilletarom <gilletarom@netpratique.fr>\n"
+"POT-Creation-Date: 2011-11-30 08:19+0100\n"
+"PO-Revision-Date: 2011-11-30 09:14+0100\n"
+"Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -51,6 +51,20 @@ msgstr "\""
 msgid "'"
 msgstr "'"
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+msgid "0"
+msgstr "0"
+#
 msgid "Abbreviations"
 msgstr "Abréviations"
 #
@@ -64,22 +78,29 @@ msgid "Actuell Logbook"
 msgstr "Livre de bord actuel"
 #
 msgid "Add Crew"
-msgstr ""
-"Ajouter un\n"
-"membre d'équipage"
+msgstr "Ajouter"
 #
 msgid "Add Equipment"
-msgstr ""
-"Ajouter un\n"
-"équipement"
+msgstr "Ajouter"
 #
 msgid "Add Line"
+msgstr "Ajouter une ligne"
+#
+msgid "Add a line to the end of your logbook"
+msgstr "Ajouter une ligne"
+#
+msgid "Add a new Crewmember"
+msgstr "Ajouter un membre d'équipage"
+#
+#, fuzzy
+msgid "Add a new line"
 msgstr ""
 "Ajouter\n"
 "une ligne"
 #
+# used in ODT-Layout
 msgid "Adress"
-msgstr ""
+msgstr "Adresse"
 #
 msgid "All Logbooks"
 msgstr "Tous les livres de bord"
@@ -186,6 +207,12 @@ msgstr "Fabrication"
 msgid "Country"
 msgstr "Pays"
 #
+msgid ""
+"Create a new logbook\n"
+"the active logbook is saved with today's date\n"
+"and can be viewed with Button \"Select Logbook\""
+msgstr ""
+#
 msgid "CrewList"
 msgstr "Liste d'équipage"
 #
@@ -212,6 +239,15 @@ msgstr ""
 #
 msgid "Date"
 msgstr "Date"
+#
+msgid "Date + Days"
+msgstr "Date + Jours"
+#
+msgid "Date + Month"
+msgstr "Date + mois"
+#
+msgid "Date + Weeks"
+msgstr "Date + Semaines"
 #
 msgid "Date Launched"
 msgstr ""
@@ -278,11 +314,13 @@ msgstr ""
 "d'eau"
 #
 msgid "E"
-msgstr ""
-"E\n"
-" "
+msgstr "E"
 #
 msgid "Edit Layout"
+msgstr "Editer la mise en page"
+#
+#, fuzzy
+msgid "Edit Layouts"
 msgstr "Editer la mise en page"
 #
 #
@@ -315,6 +353,9 @@ msgstr "Total moteur"
 msgid "Equipment"
 msgstr "Equipement"
 #
+msgid "Export"
+msgstr "Enregistrer"
+#
 msgid "Fathom"
 msgstr "Brasse"
 #
@@ -326,6 +367,9 @@ msgstr "Trier les mises en page par "
 #
 msgid "Firstname"
 msgstr "Prénom"
+#
+msgid "Fix Date"
+msgstr "Fixer une date"
 #
 msgid "Fuel"
 msgstr "Carburant"
@@ -364,6 +408,9 @@ msgstr ""
 msgid "Heading"
 msgstr "Cap"
 #
+msgid "Hide Equipment"
+msgstr "caractéristiques"
+#
 msgid "Hide column"
 msgstr "Cacher la colonne"
 #
@@ -394,6 +441,15 @@ msgstr "Si la montre a changé"
 #
 msgid "Information"
 msgstr "Information"
+#
+msgid "Install"
+msgstr "Installer"
+#
+msgid "Install Languages"
+msgstr "Installer les langues"
+#
+msgid "Install Layouts"
+msgstr "Installer les mises en page"
 #
 msgid "Install OpenCPN_Logbook_Languages.zip"
 msgstr "Installer les mises en page possibles (OpenCPN_Logbook_Layouts.zip)"
@@ -436,6 +492,9 @@ msgid "LWL"
 msgstr ""
 "Longueur\n"
 "de flottaison"
+#
+msgid "Label_"
+msgstr "Label_"
 #
 msgid "Languages installed"
 msgstr "Langue installée"
@@ -505,6 +564,9 @@ msgstr ""
 msgid "Logbook from %s to %s"
 msgstr "Logbook de %s à %s"
 #
+msgid "Logbook until "
+msgstr "Livre de bord depuis "
+#
 msgid "LogbookKonni"
 msgstr "LogBookKonni"
 #
@@ -551,9 +613,21 @@ msgid "Navigation"
 msgstr "Navigation"
 #
 msgid "New Logbook"
-msgstr ""
-"Nouveau\n"
-"livre de bord"
+msgstr "Nouveau livre de bord"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+msgid "No"
+msgstr "Non"
 #
 msgid "No GPS-Signal !"
 msgstr "Pas de signal GPS"
@@ -652,9 +726,7 @@ msgid "Priority"
 msgstr "Priorité"
 #
 msgid "R"
-msgstr ""
-"R\n"
-" "
+msgstr "R"
 #
 msgid "Reef"
 msgstr "Récifs"
@@ -741,17 +813,29 @@ msgid "Select Layout:"
 msgstr "Sélectionner une mise en page :"
 #
 msgid "Select Layout: "
-msgstr ""
-"Sélectionner la\n"
-"mise en page :"
+msgstr "Sélectionner:"
 #
 msgid "Select Logbook"
-msgstr ""
-"Sélectionner\n"
-"le livre de bord"
+msgstr "Sélectionner le livre de bord"
 #
 msgid "Select Route"
 msgstr "Sélectionner la route"
+#
+msgid ""
+"Select a layout which is displayed\n"
+"with button \"View\""
+msgstr ""
+"Sélectionner la\n"
+"mise en page "
+#
+msgid ""
+"Select a old logbook\n"
+"Everytime a new logbook is created, you'll \n"
+"find the active logbook as old logbook here"
+msgstr ""
+#
+msgid "Select one of the old logbooks"
+msgstr ""
 #
 msgid "Select zipped Languages-Files"
 msgstr "Sélectionner la langue du fichier zip"
@@ -780,11 +864,15 @@ msgstr "Indiquer le chemin de l'éditeur HTML"
 msgid "Show Depth in"
 msgstr "Profondeur en"
 #
+msgid "Show Equipment"
+msgstr "l'équipement"
+#
 msgid "Show Logbook Icon"
 msgstr "Montrer l'icône de LogBook"
 #
+# Used in Options
 msgid "Show Position Fomat"
-msgstr ""
+msgstr "Montrer position format"
 #
 msgid "Show Wave/Swell in"
 msgstr "Vague/houle en"
@@ -794,6 +882,9 @@ msgstr "Montrer les mises en page"
 #
 msgid "Show hidden columns"
 msgstr "Montrer les colonnes cachées"
+#
+msgid "Show/Hide Equipmentgrid"
+msgstr "Montrer l'équipement / Montrer les caractéristiques"
 #
 msgid "Sign"
 msgstr "Signe"
@@ -904,11 +995,33 @@ msgstr "Type"
 msgid "UTC"
 msgstr "UTC"
 #
+msgid "Uninstall"
+msgstr "Désinstaller"
+#
+msgid "Uninstall Logbook"
+msgstr "Désinstaller le plug-in logbook"
+#
+msgid ""
+"Uninstalls\n"
+"Logbook-Plugin,\n"
+"all Logbook-Data,\n"
+"all Logbook-Layouts,\n"
+"all Logbook-Languages\n"
+"and cleans the OpenCPN.ini"
+msgstr ""
+#
 msgid "Urgentvalue"
 msgstr "Valeur urgente"
 #
+# Textfield for userlabel in boat
+msgid "UserLabel"
+msgstr "Info personnelle"
+#
 msgid "View"
 msgstr "Voir"
+#
+msgid "View data in browser (HTML) or Openoffice/LibreOffice (ODT)"
+msgstr ""
 #
 msgid "Visibility"
 msgstr "Visibilité"
@@ -993,6 +1106,20 @@ msgstr ""
 "Place\n"
 "de port"
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+msgid "Yes"
+msgstr "Oui"
+#
 msgid ""
 "Your Logbook has 800 lines or more\n"
 "\n"
@@ -1013,6 +1140,9 @@ msgid "Zip"
 msgstr ""
 "Code\n"
 "postal"
+#
+msgid "add the equipment of your boat"
+msgstr "Ajouter un équipement"
 #
 msgid ""
 "automatic line\n"
@@ -1054,12 +1184,38 @@ msgstr "fr_"
 msgid "every 15 Degrees +/- 1 hour"
 msgstr "Chaque 15 degrés +/- 1 heure"
 #
+msgid "export your BuyParts-data as HTML or ODT"
+msgstr ""
+#
+msgid "export your Overview-data as HTML or ODT"
+msgstr ""
+#
+msgid "export your Repairs-data as HTML or ODT"
+msgstr ""
+#
+msgid "export your Service-data as HTML or ODT"
+msgstr ""
+#
+msgid ""
+"export your boat/equipment-data as:\n"
+"      HTML, ODT,  ODS, XML, CSV"
+msgstr ""
+#
+msgid ""
+"export your crew-data as:\n"
+"HTML, ODT,  ODS, XML, CSV"
+msgstr ""
+#
+msgid ""
+"export your logbook-data as:\n"
+"HTML, ODT,  ODS, XML, CSV"
+msgstr ""
+#
 msgid "fm"
 msgstr "fm"
 #
-#, fuzzy
 msgid "from"
-msgstr "fm"
+msgstr "de"
 #
 msgid "ft"
 msgstr "ft"
@@ -1103,95 +1259,13 @@ msgstr "s"
 msgid "sm"
 msgstr "sm"
 #
+# means
+# Logbook from date to date
 msgid "to"
-msgstr ""
+msgstr "à"
 #
 msgid "week(s)"
 msgstr "semaine(s)"
 #
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#~ msgid "0"
-#~ msgstr "0"
-#
-#~ msgid "Date + Days"
-#~ msgstr "Date + Jours"
-#
-#~ msgid "Date + Month"
-#~ msgstr "Date + mois"
-#
-#~ msgid "Date + Weeks"
-#~ msgstr "Date + Semaines"
-#
-#~ msgid "Fix Date"
-#~ msgstr "Fixer une date"
-#
-#~ msgid "GPS-Style"
-#~ msgstr "Mode GPS"
-#
-#~ msgid "GRT"
-#~ msgstr ""
-#~ "Déplacement\n"
-#~ "brut"
-#
-#~ msgid "GrossTonnage"
-#~ msgstr "Déplacement"
-#
-#~ msgid "Logbook until "
-#~ msgstr "Livre de bord depuis "
-#
-#~ msgid "NRT"
-#~ msgstr ""
-#~ "Déplacement\n"
-#~ "net"
-#
-#~ msgid "NetTonnage"
-#~ msgstr ""
-#~ "Volume intérieur\n"
-#~ "disponible"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#~ msgid "No"
-#~ msgstr "Non"
-#
-#~ msgid "Thames"
-#~ msgstr "Thames"
-#
-#~ msgid "Traditional-Style"
-#~ msgstr "Mode traditionnel"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#~ msgid "Yes"
-#~ msgstr "Oui"
+msgid "write your own label"
+msgstr "Ecrire votre  propre \"étiquette\" "

@@ -750,6 +750,7 @@ void Boat::addEquip()
 	parent->m_gridEquipment->AppendRows();
 	parent->m_gridEquipment->SetCellValue(parent->m_gridEquipment->GetNumberRows()-1,
 										  parent->m_gridEquipment->GetNumberCols()-1,_T(" "));
+	parent->m_gridEquipment->MakeCellVisible(parent->m_gridEquipment->GetNumberRows()-1,0);
 	
 	equipFile->Open();
 

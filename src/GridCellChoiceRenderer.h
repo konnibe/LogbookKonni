@@ -9,6 +9,7 @@ class wxGridCellChoiceRenderer : public wxGridCellStringRenderer
 public:
 	wxGridCellChoiceRenderer(wxLayoutAlignment border = wxLAYOUT_NONE) : 
 		m_border(border) {}
+		~wxGridCellChoiceRenderer(void){}
 	virtual void Draw(wxGrid& grid,
 		wxGridCellAttr& attr,
 		wxDC& dc,

@@ -80,9 +80,13 @@ class LogbookOptions : public wxDialog
 		wxRadioButton* m_radioBtnUTC;
 		wxStaticText* m_staticText71;
 		wxStaticLine* m_staticline22;
-		
+		wxStaticText* m_staticText731;
+		wxStaticText* m_staticText742;
 		wxButton* m_buttonInstallHTMLFiles;
 		wxButton* m_buttonInstallLanguages;
+		wxStaticText* m_staticText751;
+		wxButton* m_buttonUninstall;
+		wxStaticLine* m_staticline261;
 		wxStaticText* m_staticText62;
 		wxStaticLine* m_staticline13;
 		wxPanel* m_panel16;
@@ -187,6 +191,7 @@ class LogbookOptions : public wxDialog
 		virtual void onTextEnterm_sMeterSec( wxCommandEvent& event );
 		virtual void onTextEnterm_sKmh( wxCommandEvent& event );
 		virtual void OnButtonOKClick( wxCommandEvent& event );
+		virtual void OnButtonClickUninstall( wxCommandEvent& event );
 	
 	public:
 		wxChoice* m_choicePositionFormat;
@@ -217,7 +222,7 @@ class LogbookOptions : public wxDialog
 		wxTextCtrl* m_Weeks;
 		wxTextCtrl* m_textMonth;
 
-		LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi* log_pi, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 585,687  ), long style = wxDEFAULT_DIALOG_STYLE );
+		LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi* log_pi, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 613,586  ), long style = wxDEFAULT_DIALOG_STYLE );
 		~LogbookOptions();
 
 		void getValues();

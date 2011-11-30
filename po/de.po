@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-25 01:45+0100\n"
+"POT-Creation-Date: 2011-11-30 08:19+0100\n"
 "PO-Revision-Date: 2011-11-25 01:37+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -57,6 +57,9 @@ msgstr "\""
 msgid "'"
 msgstr "'"
 #
+msgid "0"
+msgstr ""
+#
 #
 msgid "Abbreviations"
 msgstr "Abkürzungen"
@@ -77,6 +80,16 @@ msgid "Add Equipment"
 msgstr "Zubehör hinzufügen"
 #
 msgid "Add Line"
+msgstr "Neue Zeile"
+#
+msgid "Add a line to the end of your logbook"
+msgstr ""
+#
+msgid "Add a new Crewmember"
+msgstr ""
+#
+#, fuzzy
+msgid "Add a new line"
 msgstr "Neue Zeile"
 #
 msgid "Adress"
@@ -182,6 +195,12 @@ msgstr "Konstruktion"
 msgid "Country"
 msgstr "Land"
 #
+msgid ""
+"Create a new logbook\n"
+"the active logbook is saved with today's date\n"
+"and can be viewed with Button \"Select Logbook\""
+msgstr ""
+#
 msgid "CrewList"
 msgstr "Crewliste"
 #
@@ -202,6 +221,24 @@ msgstr "Strom von"
 #
 msgid "Date"
 msgstr "Datum"
+#
+#
+#
+#
+msgid "Date + Days"
+msgstr "Datum + Tage"
+#
+#
+#
+#
+msgid "Date + Month"
+msgstr "Datum + Monat(e)"
+#
+#
+#
+#
+msgid "Date + Weeks"
+msgstr "Datum + Woche(n)"
 #
 msgid "Date Launched"
 msgstr "Stapellauf"
@@ -263,6 +300,25 @@ msgstr "E"
 msgid "Edit Layout"
 msgstr "Layout editieren"
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Edit Layouts"
+msgstr "Layout editieren"
+#
 msgid "End"
 msgstr "Ende"
 #
@@ -284,6 +340,9 @@ msgstr "Maschine gesamt"
 msgid "Equipment"
 msgstr "Zubehör"
 #
+msgid "Export"
+msgstr ""
+#
 #
 msgid "Fathom"
 msgstr "Faden"
@@ -297,6 +356,12 @@ msgstr "Filtere Layout nach"
 #
 msgid "Firstname"
 msgstr "Vorname"
+#
+#
+#
+#
+msgid "Fix Date"
+msgstr "fixes Datum"
 #
 msgid "Fuel"
 msgstr "Treibstoff"
@@ -330,6 +395,10 @@ msgstr ""
 msgid "Heading"
 msgstr "KdW"
 #
+#, fuzzy
+msgid "Hide Equipment"
+msgstr "Zubehör hinzufügen"
+#
 msgid "Hide column"
 msgstr "Spalte ausblenden"
 #
@@ -358,6 +427,20 @@ msgstr "Wenn Wachwechsel"
 #
 msgid "Information"
 msgstr "Info"
+#
+#
+#, fuzzy
+msgid "Install"
+msgstr "Interval:"
+#
+#
+#, fuzzy
+msgid "Install Languages"
+msgstr "Installiere OpenCPN_Logbook_Languages.zip"
+#
+#, fuzzy
+msgid "Install Layouts"
+msgstr "Installiere ein Layout"
 #
 #
 msgid "Install OpenCPN_Logbook_Languages.zip"
@@ -397,6 +480,9 @@ msgid "LOD"
 msgstr ""
 #
 msgid "LWL"
+msgstr ""
+#
+msgid "Label_"
 msgstr ""
 #
 msgid "Languages installed"
@@ -467,6 +553,12 @@ msgstr ""
 msgid "Logbook from %s to %s"
 msgstr "Logbuch vom %s bis %s"
 #
+#
+#
+#
+msgid "Logbook until "
+msgstr "Altes Logbuch bis "
+#
 msgid "LogbookKonni"
 msgstr ""
 #
@@ -515,6 +607,12 @@ msgstr ""
 #
 msgid "New Logbook"
 msgstr "Neues Logbuch"
+#
+#
+#
+#
+msgid "No"
+msgstr "Nein"
 #
 msgid "No GPS-Signal !"
 msgstr "kein GPS-Signal"
@@ -704,6 +802,20 @@ msgstr "Wähle Logbuch"
 msgid "Select Route"
 msgstr "Wähle Route"
 #
+msgid ""
+"Select a layout which is displayed\n"
+"with button \"View\""
+msgstr ""
+#
+msgid ""
+"Select a old logbook\n"
+"Everytime a new logbook is created, you'll \n"
+"find the active logbook as old logbook here"
+msgstr ""
+#
+msgid "Select one of the old logbooks"
+msgstr ""
+#
 msgid "Select zipped Languages-Files"
 msgstr "Wähle gezippte Sprach-Dateien"
 #
@@ -732,6 +844,10 @@ msgstr "Pfad zum HTML-Editor"
 msgid "Show Depth in"
 msgstr "Tiefe in"
 #
+#, fuzzy
+msgid "Show Equipment"
+msgstr "Zubehör"
+#
 #
 msgid "Show Logbook Icon"
 msgstr "Zeige Logbuch-Icon"
@@ -749,6 +865,10 @@ msgstr "zeige alle Layouts"
 #
 msgid "Show hidden columns"
 msgstr "Zeige versteckte Spalten"
+#
+#, fuzzy
+msgid "Show/Hide Equipmentgrid"
+msgstr "Zubehör hinzufügen"
 #
 msgid "Sign"
 msgstr "Zeichen"
@@ -845,11 +965,35 @@ msgstr "Typ"
 msgid "UTC"
 msgstr ""
 #
+#, fuzzy
+msgid "Uninstall"
+msgstr "Maschine gesamt"
+#
+#, fuzzy
+msgid "Uninstall Logbook"
+msgstr "Alle Logbücher"
+#
+msgid ""
+"Uninstalls\n"
+"Logbook-Plugin,\n"
+"all Logbook-Data,\n"
+"all Logbook-Layouts,\n"
+"all Logbook-Languages\n"
+"and cleans the OpenCPN.ini"
+msgstr ""
+#
 msgid "Urgentvalue"
 msgstr "Dringendbetrag"
 #
+# Textfield for userlabel in boat
+msgid "UserLabel"
+msgstr ""
+#
 msgid "View"
 msgstr "Ansehen"
+#
+msgid "View data in browser (HTML) or Openoffice/LibreOffice (ODT)"
+msgstr ""
 #
 msgid "Visibility"
 msgstr "Sicht"
@@ -927,6 +1071,12 @@ msgstr "schreibe Warnung  \"No GPS\""
 msgid "Yard-Nr."
 msgstr "Marina-Nr."
 #
+#
+#
+#
+msgid "Yes"
+msgstr "Ja"
+#
 msgid ""
 "Your Logbook has 800 lines or more\n"
 "\n"
@@ -945,6 +1095,9 @@ msgstr "Ihr Logbuch hat keine Zeilen ?"
 #
 msgid "Zip"
 msgstr "PLZ"
+#
+msgid "add the equipment of your boat"
+msgstr ""
 #
 msgid ""
 "automatic line\n"
@@ -987,6 +1140,33 @@ msgstr "de_"
 #
 msgid "every 15 Degrees +/- 1 hour"
 msgstr "je 15 Grad +/- 1 Stunde"
+#
+msgid "export your BuyParts-data as HTML or ODT"
+msgstr ""
+#
+msgid "export your Overview-data as HTML or ODT"
+msgstr ""
+#
+msgid "export your Repairs-data as HTML or ODT"
+msgstr ""
+#
+msgid "export your Service-data as HTML or ODT"
+msgstr ""
+#
+msgid ""
+"export your boat/equipment-data as:\n"
+"      HTML, ODT,  ODS, XML, CSV"
+msgstr ""
+#
+msgid ""
+"export your crew-data as:\n"
+"HTML, ODT,  ODS, XML, CSV"
+msgstr ""
+#
+msgid ""
+"export your logbook-data as:\n"
+"HTML, ODT,  ODS, XML, CSV"
+msgstr ""
 #
 msgid "fm"
 msgstr ""
@@ -1043,37 +1223,29 @@ msgstr "bis"
 msgid "week(s)"
 msgstr "Woche(n)"
 #
-#
-#
-#~ msgid "Date + Days"
-#~ msgstr "Datum + Tage"
-#
-#
-#
-#~ msgid "Date + Month"
-#~ msgstr "Datum + Monat(e)"
+msgid "write your own label"
+msgstr ""
 #
 #
 #
-#~ msgid "Date + Weeks"
-#~ msgstr "Datum + Woche(n)"
 #
 #
 #
-#~ msgid "Fix Date"
-#~ msgstr "fixes Datum"
 #
 #
 #
-#~ msgid "Logbook until "
-#~ msgstr "Altes Logbuch bis "
 #
 #
 #
-#~ msgid "No"
-#~ msgstr "Nein"
 #
 #
 #
-#~ msgid "Yes"
-#~ msgstr "Ja"
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Select boat-layout to view"
+#~ msgstr "Wähle Route"

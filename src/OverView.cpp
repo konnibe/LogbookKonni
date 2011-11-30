@@ -434,8 +434,13 @@ void OverView::writeSumColumn(int row, wxString logbook, wxString path, bool col
 	grid->SetCellValue(row,FETMAL,wxString::Format(_T("%6.2f %s"),etmal,opt->distance.c_str()));
 	grid->SetCellValue(row,FBESTETMAL,wxString::Format(_T("%6.2f %s"),bestetmal,opt->distance.c_str()));
 
+#ifdef __WXMAC__
+	grid->SetCellValue(row,FFUEL,wxString::Format(_T("%6.2f %s"),labs(fuel),opt->vol.c_str()));
+	grid->SetCellValue(row,FWATER,wxString::Format(_T("%6.2f %s"),labs(water),opt->vol.c_str()));
+#else
 	grid->SetCellValue(row,FFUEL,wxString::Format(_T("%6.2f %s"),abs(fuel),opt->vol.c_str()));
 	grid->SetCellValue(row,FWATER,wxString::Format(_T("%6.2f %s"),abs(water),opt->vol.c_str()));
+#endif
 	grid->SetCellValue(row,FWIND,wxString::Format(_T("%6.2f %s"),wind/windcount,_T("kts")));
 	grid->SetCellValue(row,FWINDDIR,wxString::Format(_T("%6.2f %s"),winddir/windcount,opt->Deg.c_str()));
 	grid->SetCellValue(row,FWINDPEAK,wxString::Format(_T("%6.2f %s"),windpeak,_T("kts")));

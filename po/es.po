@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-25 01:45+0100\n"
+"POT-Creation-Date: 2011-11-30 08:19+0100\n"
 "PO-Revision-Date: 2011-11-25 01:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -55,6 +55,9 @@ msgstr "\""
 msgid "'"
 msgstr "'"
 #
+msgid "0"
+msgstr ""
+#
 #
 msgid "Abbreviations"
 msgstr "Abreviaciones"
@@ -77,6 +80,16 @@ msgid "Add Equipment"
 msgstr "Añadir equipamiento"
 #
 msgid "Add Line"
+msgstr "Añadir línea"
+#
+msgid "Add a line to the end of your logbook"
+msgstr ""
+#
+msgid "Add a new Crewmember"
+msgstr ""
+#
+#, fuzzy
+msgid "Add a new line"
 msgstr "Añadir línea"
 #
 msgid "Adress"
@@ -182,6 +195,12 @@ msgstr "Construcción"
 msgid "Country"
 msgstr "País"
 #
+msgid ""
+"Create a new logbook\n"
+"the active logbook is saved with today's date\n"
+"and can be viewed with Button \"Select Logbook\""
+msgstr ""
+#
 msgid "CrewList"
 msgstr "Listado de tripulación"
 #
@@ -211,6 +230,40 @@ msgstr "Corriente"
 #
 msgid "Date"
 msgstr "Fecha"
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Date + Days"
+msgstr "DistanciaEtmal"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Date + Month"
+msgstr "Fecha de nacimiento"
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Date + Weeks"
+msgstr "DistanciaEtmal"
 #
 msgid "Date Launched"
 msgstr "Fecha botadura"
@@ -273,6 +326,25 @@ msgstr "E"
 msgid "Edit Layout"
 msgstr "Editar Layout"
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Edit Layouts"
+msgstr "Editar Layout"
+#
 msgid "End"
 msgstr ""
 #
@@ -294,6 +366,9 @@ msgstr "Máquina total"
 msgid "Equipment"
 msgstr "Equipamiento"
 #
+msgid "Export"
+msgstr ""
+#
 #
 msgid "Fathom"
 msgstr "Brazas"
@@ -308,6 +383,20 @@ msgstr "Editar Layout"
 #
 msgid "Firstname"
 msgstr "Nombre"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Fix Date"
+msgstr "Fecha"
 #
 msgid "Fuel"
 msgstr "Combustible"
@@ -342,6 +431,10 @@ msgstr ""
 msgid "Heading"
 msgstr "Rumbo"
 #
+#, fuzzy
+msgid "Hide Equipment"
+msgstr "Añadir equipamiento"
+#
 msgid "Hide column"
 msgstr ""
 #
@@ -368,6 +461,53 @@ msgstr ""
 #
 msgid "Information"
 msgstr "Información"
+#
+#
+#, fuzzy
+msgid "Install"
+msgstr "Intervalo:"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Install Languages"
+msgstr "Instalar OpenCPN_Logbook_Layouts.zip"
+#
+#
+#, fuzzy
+msgid "Install Layouts"
+msgstr "Leer Layouts de nuevo"
 #
 #
 #, fuzzy
@@ -407,6 +547,9 @@ msgid "LOD"
 msgstr ""
 #
 msgid "LWL"
+msgstr ""
+#
+msgid "Label_"
 msgstr ""
 #
 msgid "Languages installed"
@@ -478,6 +621,20 @@ msgstr ""
 msgid "Logbook from %s to %s"
 msgstr ""
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Logbook until "
+msgstr "Abrir fichero de bitácora antiguo"
+#
 msgid "LogbookKonni"
 msgstr ""
 #
@@ -530,6 +687,9 @@ msgstr "Navigación"
 #
 msgid "New Logbook"
 msgstr "Bitácora nueva"
+#
+msgid "No"
+msgstr ""
 #
 msgid "No GPS-Signal !"
 msgstr ""
@@ -718,6 +878,20 @@ msgstr "Seleccione bitácora"
 msgid "Select Route"
 msgstr "Seleccione ruta"
 #
+msgid ""
+"Select a layout which is displayed\n"
+"with button \"View\""
+msgstr ""
+#
+msgid ""
+"Select a old logbook\n"
+"Everytime a new logbook is created, you'll \n"
+"find the active logbook as old logbook here"
+msgstr ""
+#
+msgid "Select one of the old logbooks"
+msgstr ""
+#
 msgid "Select zipped Languages-Files"
 msgstr "Seleccione fichero .zip de idioma"
 #
@@ -746,6 +920,10 @@ msgstr "Ruta al editor HTML"
 msgid "Show Depth in"
 msgstr "Ver sonda en"
 #
+#, fuzzy
+msgid "Show Equipment"
+msgstr "Equipamiento"
+#
 #
 msgid "Show Logbook Icon"
 msgstr "Ver ícono bitácora"
@@ -764,6 +942,10 @@ msgstr "Leer Layouts de nuevo"
 #
 msgid "Show hidden columns"
 msgstr ""
+#
+#, fuzzy
+msgid "Show/Hide Equipmentgrid"
+msgstr "Añadir equipamiento"
 #
 msgid "Sign"
 msgstr "Signo"
@@ -927,11 +1109,35 @@ msgstr "Tipo"
 msgid "UTC"
 msgstr ""
 #
+#, fuzzy
+msgid "Uninstall"
+msgstr "Máquina total"
+#
+#, fuzzy
+msgid "Uninstall Logbook"
+msgstr "Bitácora nueva"
+#
+msgid ""
+"Uninstalls\n"
+"Logbook-Plugin,\n"
+"all Logbook-Data,\n"
+"all Logbook-Layouts,\n"
+"all Logbook-Languages\n"
+"and cleans the OpenCPN.ini"
+msgstr ""
+#
 msgid "Urgentvalue"
 msgstr "ValorAlerta"
 #
+# Textfield for userlabel in boat
+msgid "UserLabel"
+msgstr ""
+#
 msgid "View"
 msgstr "Ver"
+#
+msgid "View data in browser (HTML) or Openoffice/LibreOffice (ODT)"
+msgstr ""
 #
 msgid "Visibility"
 msgstr "Visibilidad"
@@ -1078,6 +1284,30 @@ msgstr ""
 msgid "Yard-Nr."
 msgstr "Nº amarre"
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+msgid "Yes"
+msgstr "Si"
+#
 msgid ""
 "Your Logbook has 800 lines or more\n"
 "\n"
@@ -1096,6 +1326,9 @@ msgstr "La bitácora está sin entradas ?"
 #
 msgid "Zip"
 msgstr "CP"
+#
+msgid "add the equipment of your boat"
+msgstr ""
 #
 msgid ""
 "automatic line\n"
@@ -1127,6 +1360,33 @@ msgid "en_"
 msgstr "es_"
 #
 msgid "every 15 Degrees +/- 1 hour"
+msgstr ""
+#
+msgid "export your BuyParts-data as HTML or ODT"
+msgstr ""
+#
+msgid "export your Overview-data as HTML or ODT"
+msgstr ""
+#
+msgid "export your Repairs-data as HTML or ODT"
+msgstr ""
+#
+msgid "export your Service-data as HTML or ODT"
+msgstr ""
+#
+msgid ""
+"export your boat/equipment-data as:\n"
+"      HTML, ODT,  ODS, XML, CSV"
+msgstr ""
+#
+msgid ""
+"export your crew-data as:\n"
+"HTML, ODT,  ODS, XML, CSV"
+msgstr ""
+#
+msgid ""
+"export your logbook-data as:\n"
+"HTML, ODT,  ODS, XML, CSV"
 msgstr ""
 #
 msgid "fm"
@@ -1193,14 +1453,8 @@ msgstr ""
 msgid "week(s)"
 msgstr ""
 #
-#
-#
-#
-#
-#
-#, fuzzy
-#~ msgid "Date + Days"
-#~ msgstr "DistanciaEtmal"
+msgid "write your own label"
+msgstr ""
 #
 #
 #
@@ -1211,18 +1465,6 @@ msgstr ""
 #
 #
 #
-#, fuzzy
-#~ msgid "Date + Month"
-#~ msgstr "Fecha de nacimiento"
-#
-#
-#
-#
-#
-#
-#, fuzzy
-#~ msgid "Date + Weeks"
-#~ msgstr "DistanciaEtmal"
 #
 #
 #
@@ -1233,9 +1475,13 @@ msgstr ""
 #
 #
 #
-#, fuzzy
-#~ msgid "Fix Date"
-#~ msgstr "Fecha"
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1262,9 +1508,12 @@ msgstr ""
 #
 #
 #
-#, fuzzy
-#~ msgid "Install OpenCPN_Languages.zip"
-#~ msgstr "Instalar OpenCPN_Logbook_Layouts.zip"
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1325,9 +1574,23 @@ msgstr ""
 #
 #
 #
-#, fuzzy
-#~ msgid "Logbook until "
-#~ msgstr "Abrir fichero de bitácora antiguo"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1401,8 +1664,86 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Schedule"
 #~ msgstr "Calendário"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Select boat-layout to view"
+#~ msgstr "Seleccione Layout"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1478,8 +1819,62 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1529,9 +1924,63 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "View Route"
 #~ msgstr "Ruta"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1564,29 +2013,33 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Wave Peak"
 #~ msgstr "Oleaje"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#~ msgid "Yes"
-#~ msgstr "Si"

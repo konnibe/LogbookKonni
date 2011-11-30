@@ -401,6 +401,9 @@ int logbookkonni_pi::GetToolbarToolCount(void)
 
 void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 {
+#ifdef __WXMAC__
+;
+#else
 	if(opt->firstTime)
 	{
 		loadLayouts(parent);
@@ -410,12 +413,13 @@ void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 		LoadConfig();
 		opt->firstTime = false;
 	}
+#endif
 
 #ifdef __WXMSW__
-	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 620,512  ),
+	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 613,541  ),
 		wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
 #else
-	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 620,652 ),
+	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 613,681 ),
 		wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );	
 #endif
 	optionsDialog->m_checkBoxShowLogbook->SetValue(m_bLOGShowIcon);

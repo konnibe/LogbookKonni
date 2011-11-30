@@ -82,9 +82,11 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	bSizer6 = new wxBoxSizer( wxHORIZONTAL );
 	
 	m_button4 = new wxButton( m_panel2, wxID_ANY, _("Add Line"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_button4->SetToolTip( _("Add a line to the end of your logbook") );
 	bSizer6->Add( m_button4, 0, wxALL, 5 );
 	
-	logSave = new wxButton( m_panel2, wxID_ANY, _("Save"), wxDefaultPosition, wxDefaultSize, 0 );
+	logSave = new wxButton( m_panel2, wxID_ANY, _("Export"), wxDefaultPosition, wxDefaultSize, 0 );
+	logSave->SetToolTip( _("export your logbook-data as:\nHTML, ODT,  ODS, XML, CSV") );
 	bSizer6->Add( logSave, 0, wxALL, 5 );
 	
 	m_staticline8 = new wxStaticLine( m_panel2, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL|wxLI_VERTICAL );
@@ -96,20 +98,21 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	
 	wxArrayString logbookChoiceChoices;
 	logbookChoice = new wxChoice( m_panel2, wxID_ANY, wxDefaultPosition, wxSize( 180,-1 ), logbookChoiceChoices, 0 );
+	logbookChoice->SetToolTip( _("Select a layout which is displayed\nwith button \"View\"") );
 	logbookChoice->SetSelection( 0 );
 	bSizer6->Add( logbookChoice, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonReloadLayout = new wxButton( m_panel2, wxID_ANY, wxT("R"), wxPoint( -1,-1 ), wxSize( 15,25 ), wxBU_EXACTFIT );
-	m_buttonReloadLayout->SetToolTip( wxT("Reload Layouts") );
-	m_buttonReloadLayout->SetMinSize( wxSize( 15,25 ) );
-	m_buttonReloadLayout->SetMaxSize( wxSize( 15,25 ) );
+	m_buttonReloadLayout = new wxButton( m_panel2, wxID_ANY, _("R"), wxDefaultPosition, wxSize( 15,25 ), wxBU_EXACTFIT );
+	m_buttonReloadLayout->SetToolTip( _("Reload Layouts") );
+//	m_buttonReloadLayout->SetMinSize( wxSize( 15,25 ) );
+//	m_buttonReloadLayout->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer6->Add( m_buttonReloadLayout, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonEditLayout = new wxButton( m_panel2, wxID_ANY, wxT("E"), wxDefaultPosition, wxSize( 15,25 ), wxBU_EXACTFIT );
-	m_buttonEditLayout->SetToolTip( wxT("Edit Layout") );
-	m_buttonEditLayout->SetMinSize( wxSize( 15,25 ) );
-	m_buttonEditLayout->SetMaxSize( wxSize( 15,25 ) );
+	m_buttonEditLayout = new wxButton( m_panel2, wxID_ANY, _("E"), wxDefaultPosition, wxSize( 15,25 ), wxBU_EXACTFIT );
+	m_buttonEditLayout->SetToolTip( _("Edit Layout") );
+//	m_buttonEditLayout->SetMinSize( wxSize( 15,25 ) );
+//	m_buttonEditLayout->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer6->Add( m_buttonEditLayout, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -121,16 +124,20 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	bSizer6->Add( m_radioBtnODT, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	logView = new wxButton( m_panel2, wxID_ANY, _("View"), wxDefaultPosition, wxDefaultSize, 0 );
-//	bSizer6->Add( logView, 0, wxALL, 5 );
+	logView->SetToolTip( _("View data in browser (HTML) or Openoffice/LibreOffice (ODT)") );
 	bSizer6->Add( logView, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	m_staticline7 = new wxStaticLine( m_panel2, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
 	bSizer6->Add( m_staticline7, 0, wxEXPAND | wxALL, 5 );
 	
 	newLogbook = new wxButton( m_panel2, wxID_ANY, _("New Logbook"), wxDefaultPosition, wxDefaultSize, 0 );
+	newLogbook->SetToolTip( _("Create a new logbook\nthe active logbook is saved with today's date\nand can be viewed with Button \"Select Logbook\"") );
+
 	bSizer6->Add( newLogbook, 0, wxALL, 5 );
 	
 	selLogbook = new wxButton( m_panel2, wxID_ANY, _("Select Logbook"), wxDefaultPosition, wxDefaultSize, 0 );
+	selLogbook->SetToolTip( _("Select a old logbook\nEverytime a new logbook is created, you'll \nfind the active logbook as old logbook here") );
+
 	bSizer6->Add( selLogbook, 0, wxALL, 5 );
 	
 	bSizer5->Add( bSizer6, 1, wxEXPAND, 5 );
@@ -360,8 +367,8 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	wxBoxSizer* bSizer61;
 	bSizer61 = new wxBoxSizer( wxHORIZONTAL );
 	
-	logSaveOverview = new wxButton( m_panel142, wxID_ANY, _("Save"), wxDefaultPosition, wxDefaultSize, 0 );
-	
+	logSaveOverview = new wxButton( m_panel142, wxID_ANY, _("Export"), wxDefaultPosition, wxDefaultSize, 0 );
+	logSaveOverview->SetToolTip( _("export your Overview-data as HTML or ODT") );
 	bSizer61->Add( logSaveOverview, 0, wxALL, 5 );
 	
 	m_staticline81 = new wxStaticLine( m_panel142, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL|wxLI_VERTICAL );
@@ -373,19 +380,20 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	
 	wxArrayString overviewChoiceChoices;
 	overviewChoice = new wxChoice( m_panel142, wxID_ANY, wxDefaultPosition, wxSize( 180,-1 ), overviewChoiceChoices, 0 );
+	overviewChoice->SetToolTip( _("Select a layout which is displayed\nwith button \"View\"") );
 	overviewChoice->SetSelection( 0 );
 	
 	bSizer61->Add( overviewChoice, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonReloadLayoutOview = new wxButton( m_panel142, wxID_ANY, wxT("R"), wxPoint( -1,-1 ), wxSize( 15,25 ), wxBU_EXACTFIT );
-	m_buttonReloadLayoutOview->SetToolTip( wxT("Reload Layouts") );
+	m_buttonReloadLayoutOview = new wxButton( m_panel142, wxID_ANY, _("R"), wxPoint( -1,-1 ), wxSize( 15,25 ), wxBU_EXACTFIT );
+	m_buttonReloadLayoutOview->SetToolTip( _("Reload Layouts") );
 	m_buttonReloadLayoutOview->SetMinSize( wxSize( 15,25 ) );
 	m_buttonReloadLayoutOview->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer61->Add( m_buttonReloadLayoutOview, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonEditLayoutOview = new wxButton( m_panel142, wxID_ANY, wxT("E"), wxDefaultPosition, wxSize( 15,25 ), wxBU_EXACTFIT );
-	m_buttonEditLayoutOview->SetToolTip( wxT("Edit Layout") );
+	m_buttonEditLayoutOview = new wxButton( m_panel142, wxID_ANY, _("E"), wxDefaultPosition, wxSize( 15,25 ), wxBU_EXACTFIT );
+	m_buttonEditLayoutOview->SetToolTip( _("Edit Layout") );
 	m_buttonEditLayoutOview->SetMinSize( wxSize( 15,25 ) );
 	m_buttonEditLayoutOview->SetMaxSize( wxSize( 15,25 ) );
 	
@@ -398,7 +406,9 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_radioBtnODTOverview = new wxRadioButton( m_panel142, wxID_ANY, wxT("ODT"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer61->Add( m_radioBtnODTOverview, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	logViewOverview = new wxButton( m_panel142, wxID_ANY, wxT("View"), wxDefaultPosition, wxDefaultSize, 0 );
+	logViewOverview = new wxButton( m_panel142, wxID_ANY, _("View"), wxDefaultPosition, wxDefaultSize, 0 );
+	logViewOverview->SetToolTip( _("View data in browser (HTML) or Openoffice/LibreOffice (ODT)") );
+
 	bSizer61->Add( logViewOverview, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	m_staticline71 = new wxStaticLine( m_panel142, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
@@ -415,6 +425,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	bSizer61->Add( m_radioBtnSelectLogbook, 0, wxALL|wxEXPAND, 5 );
 
 	m_buttonSelectLogbook = new wxButton( m_panel142, wxID_ANY, _("Select Logbook"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_buttonSelectLogbook->SetToolTip( _("Select one of the old logbooks") );
 	bSizer61->Add( m_buttonSelectLogbook, 0, wxALL, 5 );
 	
 	bSizer51->Add( bSizer61, 1, wxEXPAND, 5 );
@@ -534,9 +545,11 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	bSizer3 = new wxBoxSizer( wxHORIZONTAL );
 	
 	crewAdd = new wxButton( m_panel21, wxID_ANY, _("Add Crew"), wxDefaultPosition, wxDefaultSize, 0 );
+	crewAdd->SetToolTip( _("Add a new Crewmember") );
 	bSizer3->Add( crewAdd, 0, wxALL, 5 );
 	
-	crewSave = new wxButton( m_panel21, wxID_ANY, _("Save"), wxDefaultPosition, wxDefaultSize, 0 );
+	crewSave = new wxButton( m_panel21, wxID_ANY, _("Export"), wxDefaultPosition, wxDefaultSize, 0 );
+	crewSave->SetToolTip( _("export your crew-data as:\nHTML, ODT,  ODS, XML, CSV") );
 	bSizer3->Add( crewSave, 0, wxALL, 5 );
 	
 	m_staticline5 = new wxStaticLine( m_panel21, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL|wxLI_VERTICAL );
@@ -548,16 +561,19 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	
 	wxArrayString crewChoiceChoices;
 	crewChoice = new wxChoice( m_panel21, wxID_ANY, wxDefaultPosition, wxSize( 180,-1 ), crewChoiceChoices, 0 );
+	crewChoice->SetToolTip( _("Select a layout which is displayed\nwith button \"View\"") );
 	crewChoice->SetSelection( 0 );
 	bSizer3->Add( crewChoice, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_buttonReloadCrew = new wxButton( m_panel21, wxID_ANY, wxT("R"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonReloadCrew = new wxButton( m_panel21, wxID_ANY, _("R"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonReloadCrew->SetToolTip( _("Reload Layouts") );
 	m_buttonReloadCrew->SetMinSize( wxSize( 15,25 ) );
 	m_buttonReloadCrew->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer3->Add( m_buttonReloadCrew, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonEditLayoutCrew = new wxButton( m_panel21, wxID_ANY, wxT("E"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonEditLayoutCrew = new wxButton( m_panel21, wxID_ANY, _("E"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonEditLayoutCrew->SetToolTip( _("Edit Layout") );
 	m_buttonEditLayoutCrew->SetMinSize( wxSize( 15,25 ) );
 	m_buttonEditLayoutCrew->SetMaxSize( wxSize( 15,25 ) );
 	
@@ -570,7 +586,9 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_radioBtnODTCrew = new wxRadioButton( m_panel21, wxID_ANY, wxT("ODT"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer3->Add( m_radioBtnODTCrew, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	crewView = new wxButton( m_panel21, wxID_ANY, wxT("View"), wxDefaultPosition, wxDefaultSize, 0 );
+	crewView = new wxButton( m_panel21, wxID_ANY, _("View"), wxDefaultPosition, wxDefaultSize, 0 );
+	crewView->SetToolTip( _("View data in browser (HTML) or Openoffice/LibreOffice (ODT)") );
+
 	bSizer3->Add( crewView, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	bSizer7->Add( bSizer3, 1, wxEXPAND, 5 );
@@ -707,9 +725,19 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	bSizer10 = new wxBoxSizer( wxHORIZONTAL );
 	
 	addEquipmentButton = new wxButton( m_panel3, wxID_ANY, _("Add Equipment"), wxDefaultPosition, wxDefaultSize, 0 );
+	addEquipmentButton->SetToolTip( _("add the equipment of your boat") );
 	bSizer10->Add( addEquipmentButton, 0, wxALL, 5 );
+
+	m_toggleBtnShowEquipment = new wxToggleButton( m_panel3, wxID_ANY, _("Show Equipment"), wxDefaultPosition, wxSize( 120,-1 ), 0 );
+	m_toggleBtnShowEquipment->SetToolTip( _("Show/Hide Equipmentgrid") );
+	bSizer10->Add( m_toggleBtnShowEquipment, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	boatSave = new wxButton( m_panel3, wxID_ANY, _("Save"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticline27 = new wxStaticLine( m_panel3, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_VERTICAL );
+	bSizer10->Add( m_staticline27, 0, wxEXPAND | wxALL, 5 );
+	
+	boatSave = new wxButton( m_panel3, wxID_ANY, _("Export"), wxDefaultPosition, wxDefaultSize, 0 );
+	boatSave->SetToolTip( _("export your boat/equipment-data as:\n      HTML, ODT,  ODS, XML, CSV") );
+
 	bSizer10->Add( boatSave, 0, wxALL, 5 );
 	
 	m_staticline4 = new wxStaticLine( m_panel3, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL|wxLI_VERTICAL );
@@ -721,16 +749,19 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	
 	wxArrayString boatChoiceChoices;
 	boatChoice = new wxChoice( m_panel3, wxID_ANY, wxDefaultPosition, wxSize( 180,-1 ), boatChoiceChoices, 0 );
+	boatChoice->SetToolTip( _("Select a layout which is displayed\nwith button \"View\"") );
 	boatChoice->SetSelection( 0 );
 	bSizer10->Add( boatChoice, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonReloadLayoutsBoat = new wxButton( m_panel3, wxID_ANY, wxT("R"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonReloadLayoutsBoat = new wxButton( m_panel3, wxID_ANY, _("R"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonReloadLayoutsBoat->SetToolTip( _("Reload Layouts") );
 	m_buttonReloadLayoutsBoat->SetMinSize( wxSize( 15,25 ) );
 	m_buttonReloadLayoutsBoat->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer10->Add( m_buttonReloadLayoutsBoat, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonEditLayoutBoat = new wxButton( m_panel3, wxID_ANY, wxT("E"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonEditLayoutBoat = new wxButton( m_panel3, wxID_ANY, _("E"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonEditLayoutBoat->SetToolTip( _("Edit Layouts") );
 	m_buttonEditLayoutBoat->SetMinSize( wxSize( 15,25 ) );
 	m_buttonEditLayoutBoat->SetMaxSize( wxSize( 15,25 ) );
 	
@@ -743,7 +774,9 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_radioBtnODTBoat = new wxRadioButton( m_panel3, wxID_ANY, wxT("ODT"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer10->Add( m_radioBtnODTBoat, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	boatView = new wxButton( m_panel3, wxID_ANY, wxT("View"), wxDefaultPosition, wxDefaultSize, 0 );
+	boatView = new wxButton( m_panel3, wxID_ANY, _("View"), wxDefaultPosition, wxDefaultSize, 0 );
+	boatView->SetToolTip( _("View data in browser (HTML) or Openoffice/LibreOffice (ODT)") );
+
 	bSizer10->Add( boatView, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	bSizer9->Add( bSizer10, 1, wxEXPAND, 5 );
@@ -1028,24 +1061,24 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	draft = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	fgSizer33->Add( draft, 0, wxALL, 5 );
 	
-	UserLabel1 = new wxTextCtrl( m_panel72, wxID_ANY, wxT("UserLabel"), wxDefaultPosition, wxSize( 40,-1 ), wxTE_PROCESS_ENTER );
-	UserLabel1->SetToolTip( wxT("write your own label") );
+	UserLabel1 = new wxTextCtrl( m_panel72, wxID_ANY, _("UserLabel"), wxDefaultPosition, wxSize( 40,-1 ), wxTE_PROCESS_ENTER );
+	UserLabel1->SetToolTip( _("write your own label") );
 	
 	fgSizer33->Add( UserLabel1, 0, wxALL, 5 );
 	
 	Userfield1 = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
 	fgSizer33->Add( Userfield1, 0, wxALL, 5 );
 	
-	UserLabel2 = new wxTextCtrl( m_panel72, wxID_ANY, wxT("UserLabel"), wxDefaultPosition, wxSize( 60,-1 ), wxTE_PROCESS_ENTER );
-	UserLabel2->SetToolTip( wxT("write your own label") );
+	UserLabel2 = new wxTextCtrl( m_panel72, wxID_ANY, _("UserLabel"), wxDefaultPosition, wxSize( 60,-1 ), wxTE_PROCESS_ENTER );
+	UserLabel2->SetToolTip( _("write your own label") );
 	
 	fgSizer33->Add( UserLabel2, 0, wxALL, 5 );
 	
 	Userfield2 = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
 	fgSizer33->Add( Userfield2, 0, wxALL, 5 );
 	
-	UserLabel3 = new wxTextCtrl( m_panel72, wxID_ANY, wxT("UserLabel"), wxDefaultPosition, wxSize( 60,-1 ), wxTE_PROCESS_ENTER );
-	UserLabel3->SetToolTip( wxT("write your own label") );
+	UserLabel3 = new wxTextCtrl( m_panel72, wxID_ANY, _("UserLabel"), wxDefaultPosition, wxSize( 60,-1 ), wxTE_PROCESS_ENTER );
+	UserLabel3->SetToolTip( _("write your own label") );
 	UserLabel3->SetMaxSize( wxSize( 30,-1 ) );
 	
 	fgSizer33->Add( UserLabel3, 0, wxALL, 5 );
@@ -1071,7 +1104,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 
 	sbSizer12 = new wxStaticBoxSizer( new wxStaticBox( m_panel8, wxID_ANY, _("Equipment") ), wxVERTICAL );
 
-	sbSizer12->SetMinSize( wxSize( -1,100 ) ); 
+	sbSizer12->SetMinSize( wxSize( -1,-1 ) ); 
 
 	m_gridEquipment = new wxGrid( m_panel8, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 	
@@ -1117,7 +1150,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_panel8->Layout();
 	sbSizer12->Fit( m_panel8 );
 	
-	m_splitter1->SplitHorizontally( m_panel72, m_panel8, 314 );
+	m_splitter1->SplitHorizontally( m_panel72, m_panel8, 315 );
 
 	fgSizer1->Add( m_splitter1, 1, wxEXPAND, 5 );
 	
@@ -1142,10 +1175,11 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	bSizer1011 = new wxBoxSizer( wxHORIZONTAL );
 	
 	m_buttonAddLineService = new wxButton( m_panel14, wxID_ANY, _("Add Line"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_buttonAddLineService->SetToolTip( _("Add a new line") );
 	bSizer1011->Add( m_buttonAddLineService, 0, wxALL, 5 );
 	
-	m_buttonSaveService = new wxButton( m_panel14, wxID_ANY, _("Save"), wxDefaultPosition, wxDefaultSize, 0 );
-	
+	m_buttonSaveService = new wxButton( m_panel14, wxID_ANY, _("Export"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_buttonSaveService->SetToolTip( _("export your Service-data as HTML or ODT") );	
 	bSizer1011->Add( m_buttonSaveService, 0, wxALL, 5 );
 	
 	m_staticline151 = new wxStaticLine( m_panel14, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL|wxLI_VERTICAL );
@@ -1157,16 +1191,19 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	
 	wxArrayString m_choiceSelectLayoutServiceChoices;
 	m_choiceSelectLayoutService = new wxChoice( m_panel14, wxID_ANY, wxDefaultPosition, wxSize( 180,-1 ), m_choiceSelectLayoutServiceChoices, 0 );
+	m_choiceSelectLayoutService->SetToolTip( _("Select a layout which is displayed\nwith button \"View\"") );
 	m_choiceSelectLayoutService->SetSelection( 0 );
 	bSizer1011->Add( m_choiceSelectLayoutService, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonReloadLayoutsServiceHTML = new wxButton( m_panel14, wxID_ANY, wxT("R"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonReloadLayoutsServiceHTML = new wxButton( m_panel14, wxID_ANY, _("R"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonReloadLayoutsServiceHTML->SetToolTip( _("Reload Layouts") );
 	m_buttonReloadLayoutsServiceHTML->SetMinSize( wxSize( 15,25 ) );
 	m_buttonReloadLayoutsServiceHTML->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer1011->Add( m_buttonReloadLayoutsServiceHTML, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonEditLayoutODTService = new wxButton( m_panel14, wxID_ANY, wxT("E"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonEditLayoutODTService = new wxButton( m_panel14, wxID_ANY, _("E"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonEditLayoutODTService->SetToolTip( _("Edit Layout") );
 	m_buttonEditLayoutODTService->SetMinSize( wxSize( 15,25 ) );
 	m_buttonEditLayoutODTService->SetMaxSize( wxSize( 15,25 ) );
 	
@@ -1179,7 +1216,8 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_radioBtnODTService = new wxRadioButton( m_panel14, wxID_ANY, wxT("ODT"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer1011->Add( m_radioBtnODTService, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonViewService = new wxButton( m_panel14, wxID_ANY, wxT("View"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_buttonViewService = new wxButton( m_panel14, wxID_ANY, _("View"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_buttonViewService->SetToolTip( _("View data in browser (HTML) or Openoffice/LibreOffice (ODT)") );
 	bSizer1011->Add( m_buttonViewService, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	
@@ -1270,10 +1308,11 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	bSizer10113 = new wxBoxSizer( wxHORIZONTAL );
 	
 	m_buttonAddLineRepairs = new wxButton( m_panel141, wxID_ANY, _("Add Line"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_buttonAddLineRepairs->SetToolTip( _("Add a new line") );
 	bSizer10113->Add( m_buttonAddLineRepairs, 0, wxALL, 5 );
 	
-	m_buttonSaveRepairs = new wxButton( m_panel141, wxID_ANY, _("Save"), wxDefaultPosition, wxDefaultSize, 0 );
-	
+	m_buttonSaveRepairs = new wxButton( m_panel141, wxID_ANY, _("Export"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_buttonSaveRepairs->SetToolTip( _("export your Repairs-data as HTML or ODT") );	
 	bSizer10113->Add( m_buttonSaveRepairs, 0, wxALL, 5 );
 	
 	m_staticline1513 = new wxStaticLine( m_panel141, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL|wxLI_VERTICAL );
@@ -1285,16 +1324,19 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	
 	wxArrayString m_choiceSelectLayoutRepairsChoices;
 	m_choiceSelectLayoutRepairs = new wxChoice( m_panel141, wxID_ANY, wxDefaultPosition, wxSize( 180,-1 ), m_choiceSelectLayoutRepairsChoices, 0 );
+	m_choiceSelectLayoutRepairs->SetToolTip( _("Select a layout which is displayed\nwith button \"View\"") );
 	m_choiceSelectLayoutRepairs->SetSelection( 0 );
 	bSizer10113->Add( m_choiceSelectLayoutRepairs, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonReloadLayoutsRepairsHTML = new wxButton( m_panel141, wxID_ANY, wxT("R"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonReloadLayoutsRepairsHTML = new wxButton( m_panel141, wxID_ANY, _("R"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonReloadLayoutsRepairsHTML->SetToolTip( _("Reload Layouts") );
 	m_buttonReloadLayoutsRepairsHTML->SetMinSize( wxSize( 15,25 ) );
 	m_buttonReloadLayoutsRepairsHTML->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer10113->Add( m_buttonReloadLayoutsRepairsHTML, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonEditLayoutODTRepairs = new wxButton( m_panel141, wxID_ANY, wxT("E"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonEditLayoutODTRepairs = new wxButton( m_panel141, wxID_ANY, _("E"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonEditLayoutODTRepairs->SetToolTip( _("Edit Layout") );
 	m_buttonEditLayoutODTRepairs->SetMinSize( wxSize( 15,25 ) );
 	m_buttonEditLayoutODTRepairs->SetMaxSize( wxSize( 15,25 ) );
 	
@@ -1307,7 +1349,8 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_radioBtnODTRepairs = new wxRadioButton( m_panel141, wxID_ANY, wxT("ODT"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer10113->Add( m_radioBtnODTRepairs, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonViewRepairs = new wxButton( m_panel141, wxID_ANY, wxT("View"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_buttonViewRepairs = new wxButton( m_panel141, wxID_ANY, _("View"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_buttonViewRepairs->SetToolTip( _("View data in browser (HTML) or Openoffice/LibreOffice (ODT)") );
 	bSizer10113->Add( m_buttonViewRepairs, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	
@@ -1389,10 +1432,11 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	bSizer10111 = new wxBoxSizer( wxHORIZONTAL );
 	
 	m_buttonAddLineBuyParts = new wxButton( m_panel16, wxID_ANY, _("Add Line"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_buttonAddLineBuyParts->SetToolTip( _("Add a new line") );
 	bSizer10111->Add( m_buttonAddLineBuyParts, 0, wxALL, 5 );
 	
-	m_buttonSaveBuyParts = new wxButton( m_panel16, wxID_ANY, _("Save"), wxDefaultPosition, wxDefaultSize, 0 );
-	
+	m_buttonSaveBuyParts = new wxButton( m_panel16, wxID_ANY, _("Export"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_buttonSaveBuyParts->SetToolTip( _("export your BuyParts-data as HTML or ODT") );	
 	bSizer10111->Add( m_buttonSaveBuyParts, 0, wxALL, 5 );
 	
 	m_staticline1511 = new wxStaticLine( m_panel16, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL|wxLI_VERTICAL );
@@ -1404,16 +1448,19 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	
 	wxArrayString m_choiceSelectLayoutBuyPartsChoices;
 	m_choiceSelectLayoutBuyParts = new wxChoice( m_panel16, wxID_ANY, wxDefaultPosition, wxSize( 180,-1 ), m_choiceSelectLayoutBuyPartsChoices, 0 );
+	m_choiceSelectLayoutBuyParts->SetToolTip( _("Select a layout which is displayed\nwith button \"View\"") );
 	m_choiceSelectLayoutBuyParts->SetSelection( 0 );
 	bSizer10111->Add( m_choiceSelectLayoutBuyParts, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonReloadLayoutsBuyPartsHTML = new wxButton( m_panel16, wxID_ANY, wxT("R"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonReloadLayoutsBuyPartsHTML = new wxButton( m_panel16, wxID_ANY, _("R"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonReloadLayoutsBuyPartsHTML->SetToolTip( _("Reload Layouts") );
 	m_buttonReloadLayoutsBuyPartsHTML->SetMinSize( wxSize( 15,25 ) );
 	m_buttonReloadLayoutsBuyPartsHTML->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer10111->Add( m_buttonReloadLayoutsBuyPartsHTML, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonEditLayoutODTBuyParts = new wxButton( m_panel16, wxID_ANY, wxT("E"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonEditLayoutODTBuyParts = new wxButton( m_panel16, wxID_ANY, _("E"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonEditLayoutODTBuyParts->SetToolTip( _("Edit Layout") );
 	m_buttonEditLayoutODTBuyParts->SetMinSize( wxSize( 15,25 ) );
 	m_buttonEditLayoutODTBuyParts->SetMaxSize( wxSize( 15,25 ) );
 	
@@ -1426,7 +1473,8 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_radioBtnODTBuyParts = new wxRadioButton( m_panel16, wxID_ANY, wxT("ODT"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer10111->Add( m_radioBtnODTBuyParts, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonViewBuyParts = new wxButton( m_panel16, wxID_ANY, wxT("View"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_buttonViewBuyParts = new wxButton( m_panel16, wxID_ANY, _("View"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_buttonViewBuyParts->SetToolTip( _("View data in browser (HTML) or Openoffice/LibreOffice (ODT)") );
 	bSizer10111->Add( m_buttonViewBuyParts, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	
@@ -1581,6 +1629,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_radioBtnHTMLOverview->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookDialog::onRadioButtonHTMLOverview ), NULL, this );
 	m_radioBtnAllLogbooks->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookDialog::OnRadioButtonAllLogbooks ), NULL, this );
 	m_radioBtnActuellLogbook->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookDialog::OnRadioButtonActuellLogbook ), NULL, this );
+	m_toggleBtnShowEquipment->Connect( wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnToggleButtonShowEquip ), NULL, this );
 
 	m_gridMaintanence->Connect( wxEVT_GRID_CELL_CHANGE, wxGridEventHandler( LogbookDialog::onGridCellServiceChange ), NULL, this );
 	m_gridMaintanence->Connect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( LogbookDialog::onGridCellServiceSelected ), NULL, this );
@@ -1750,6 +1799,7 @@ LogbookDialog::~LogbookDialog()
 	m_gridMaintanence->Disconnect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( LogbookDialog::onGridCellServiceSelected ), NULL, this );
 	m_gridMaintenanceBuyParts->Disconnect( wxEVT_GRID_CELL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::onGridCellLeftClickBuyParts ), NULL, this );
 	m_buttonSaveBuyParts->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::onButtobClickSaveBuyParts ), NULL, this );
+	m_toggleBtnShowEquipment->Disconnect( wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnToggleButtonShowEquip ), NULL, this );
 
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceOK ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceBuyParts ) );
@@ -2138,6 +2188,8 @@ void LogbookDialog::setTitleExt()
 
 void LogbookDialog::init()
 {	
+	sashPos = -1;
+
 	clouds[0] = wxT("Cirrus");
 	clouds[1] = wxT("Cirrocumulus");
 	clouds[2] = wxT("Cirrostratus");
@@ -2419,6 +2471,15 @@ void LogbookDialog::OnNoteBookPageChangedLogbook(wxNotebookEvent & ev)
 	{      // OverView
 		logbook->update();
 		overview->refresh();
+	}
+	
+	if(ev.GetSelection() == 3)
+	{
+		if(sashPos == -1)
+		{
+			this->m_panel72->Fit();
+			m_splitter1->SetSashPosition(m_panel72->GetSize().GetY());
+		}
 	}
 	ev.Skip();
 }
@@ -2975,8 +3036,27 @@ void LogbookDialog::m_menuItem2OnMenuSelection( wxCommandEvent& ev )
 
 void LogbookDialog::boataddEquipmentButtonOnButtonClick( wxCommandEvent& ev )
 {
-	this->m_splitter1->SetSashPosition(100);
+	this->m_toggleBtnShowEquipment->SetValue(true);
+    OnToggleButtonShowEquip(ev);
 	boat->addEquip();
+}
+
+void LogbookDialog::OnToggleButtonShowEquip(wxCommandEvent& ev)
+{
+	if(m_toggleBtnShowEquipment->GetValue())
+	{
+		m_toggleBtnShowEquipment->SetLabel(_("Hide Equipment"));
+		m_toggleBtnShowEquipment->Refresh();
+		if(m_splitter1->GetSashPosition() != 100)
+			sashPos = m_panel72->GetSize().GetY();
+		m_splitter1->SetSashPosition(100);
+	}
+	else
+	{
+		m_toggleBtnShowEquipment->SetLabel(_("Show Equipment"));
+		m_toggleBtnShowEquipment->Refresh();
+	    m_splitter1->SetSashPosition(sashPos);
+	}
 }
 
 void LogbookDialog::boatSaveOnButtonClick( wxCommandEvent& ev )

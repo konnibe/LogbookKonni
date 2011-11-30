@@ -10,6 +10,7 @@ class wxFastComboEditor : public wxGridCellEditor
 public:
 	wxFastComboEditor(size_t count = 0,
 		const wxString choices[] = NULL,	bool allowOthers = FALSE);
+	~wxFastComboEditor(void){}
 	virtual void Create(wxWindow* parent,
 							wxWindowID id,
 							wxEvtHandler* evtHandler);

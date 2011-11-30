@@ -16,6 +16,7 @@
 #include <wx/filefn.h>
 #include <wx/msgdlg.h>
 #include <wx/filedlg.h>
+#include <wx/tooltip.h>
 
 #include <memory>
 #include "folder.xpm"
@@ -56,7 +57,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_staticText76->Wrap( -1 );
 	fgSizer29->Add( m_staticText76, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0 );
 	
-	wxString m_choicePositionFormatChoices[] = { wxT("054\xB0 12.1234'"), wxT("054\xB0 12' 12.34\"") };
+	wxString m_choicePositionFormatChoices[] = { wxT("054° 12.1234'"), wxT("054° 12' 12.34\"") };
 	int m_choicePositionFormatNChoices = sizeof( m_choicePositionFormatChoices ) / sizeof( wxString );
 	m_choicePositionFormat = new wxChoice( m_panel15, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choicePositionFormatNChoices, m_choicePositionFormatChoices, 0 );
 	m_choicePositionFormat->SetSelection( 0 );
@@ -72,7 +73,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_checkBoxShowOnlySelectedLayouts = new wxCheckBox( m_panel15, wxID_ANY, _("Only Layouts with prefix:"), wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer29->Add( m_checkBoxShowOnlySelectedLayouts, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	
-	m_textCtrlLayoutPrefix = new wxTextCtrl( m_panel15, wxID_ANY, _("en_"), wxDefaultPosition, wxSize( 90,-1 ), wxTE_PROCESS_ENTER );
+	m_textCtrlLayoutPrefix = new wxTextCtrl( m_panel15, wxID_ANY, _("Label_"), wxDefaultPosition, wxSize( 90,-1 ), wxTE_PROCESS_ENTER );
 	fgSizer29->Add( m_textCtrlLayoutPrefix, 0, wxALL, 0 );
 	
 	
@@ -208,7 +209,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_textCtrlTimerM->SetMaxLength( 4 ); 
 	fgSizer14->Add( m_textCtrlTimerM, 0, wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_staticText581 = new wxStaticText( m_panel15, wxID_ANY, wxT("m"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText581 = new wxStaticText( m_panel15, wxID_ANY, _("m"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText581->Wrap( -1 );
 	fgSizer14->Add( m_staticText581, 0, wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -268,20 +269,41 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	fgSizer10->Add( m_staticline22, 0, wxEXPAND | wxALL, 5 );
 	
 	wxFlexGridSizer* fgSizer28;
-	fgSizer28 = new wxFlexGridSizer( 1, 3, 0, 0 );
+	fgSizer28 = new wxFlexGridSizer( 4, 3, 0, 0 );
 	fgSizer28->SetFlexibleDirection( wxBOTH );
 	fgSizer28->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
+	m_staticText731 = new wxStaticText( m_panel15, wxID_ANY, _("Install Layouts"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText731->Wrap( -1 );
+	fgSizer28->Add( m_staticText731, 0, wxALL, 5 );
 	
-	fgSizer28->Add( 60, 0, 1, wxEXPAND, 5 );
+	m_staticText742 = new wxStaticText( m_panel15, wxID_ANY, _("Install Languages"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText742->Wrap( -1 );
+	fgSizer28->Add( m_staticText742, 0, wxALL, 5 );
 	
-	m_buttonInstallHTMLFiles = new wxButton( m_panel15, wxID_ANY, _("Install OpenCPN_Logbook_Layouts.zip"), wxDefaultPosition, wxDefaultSize, 0 );
-	fgSizer28->Add( m_buttonInstallHTMLFiles, 0, wxALL|wxEXPAND, 5 );
+	m_staticText751 = new wxStaticText( m_panel15, wxID_ANY, _("Uninstall Logbook"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText751->Wrap( -1 );
+	fgSizer28->Add( m_staticText751, 0, wxALL, 5 );
 	
-	m_buttonInstallLanguages = new wxButton( m_panel15, wxID_ANY, _("Install OpenCPN_Logbook_Languages.zip"), wxDefaultPosition, wxDefaultSize, 0 );
-	fgSizer28->Add( m_buttonInstallLanguages, 1, wxALL, 5 );
+	m_buttonInstallHTMLFiles = new wxButton( m_panel15, wxID_ANY, _("Install"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_buttonInstallHTMLFiles->SetToolTip( _("Install OpenCPN_Logbook_Layouts.zip") );
 	
-	fgSizer10->Add( fgSizer28, 0, wxALIGN_CENTER_VERTICAL, 5 );
+	fgSizer28->Add( m_buttonInstallHTMLFiles, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	
+	m_buttonInstallLanguages = new wxButton( m_panel15, wxID_ANY, _("Install"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_buttonInstallLanguages->SetToolTip( _("Install OpenCPN_Logbook_Languages.zip") );
+	
+	fgSizer28->Add( m_buttonInstallLanguages, 1, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	
+	m_buttonUninstall = new wxButton( m_panel15, wxID_ANY, _("Uninstall"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_buttonUninstall->SetToolTip( _("Uninstalls\nLogbook-Plugin,\nall Logbook-Data,\nall Logbook-Layouts,\nall Logbook-Languages\nand cleans the OpenCPN.ini") );
+	
+	fgSizer28->Add( m_buttonUninstall, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	
+	fgSizer10->Add( fgSizer28, 0, wxALIGN_CENTER_VERTICAL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	
+	m_staticline261 = new wxStaticLine( m_panel15, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
+	fgSizer10->Add( m_staticline261, 0, wxEXPAND | wxALL, 5 );
 	
 	wxFlexGridSizer* fgSizer16;
 	fgSizer16 = new wxFlexGridSizer( 1, 3, 0, 0 );
@@ -302,6 +324,13 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	m_staticline13 = new wxStaticLine( m_panel15, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
 	fgSizer10->Add( m_staticline13, 0, wxEXPAND | wxALL, 5 );
+	
+	wxFlexGridSizer* fgSizer291;
+	fgSizer291 = new wxFlexGridSizer( 2, 2, 0, 0 );
+	fgSizer291->SetFlexibleDirection( wxBOTH );
+	fgSizer291->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+	
+	fgSizer10->Add( fgSizer291, 1, wxEXPAND, 5 );
 	
 	m_panel15->SetSizer( fgSizer10 );
 	m_panel15->Layout();
@@ -349,7 +378,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_staticText31->Wrap( -1 );
 	fgSizer91->Add( m_staticText31, 0, wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_sDeg = new wxTextCtrl( m_panel16, wxID_ANY, wxT("\xB0"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
+	m_sDeg = new wxTextCtrl( m_panel16, wxID_ANY, wxT("°"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
 	fgSizer91->Add( m_sDeg, 0, 0, 5 );
 	
 	m_staticText35 = new wxStaticText( m_panel16, wxID_ANY, _("Minutes"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -665,8 +694,10 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_sKmh->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::onTextEnterm_sKmh ), NULL, this );
 	m_sdbSizer1OK->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::OnButtonOKClick ), NULL, this );
 	m_checkBoxGuardChanged->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::onCheckBoxGuardChanged ), NULL, this );
+	m_buttonUninstall->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::OnButtonClickUninstall ), NULL, this );
 
 	setValues();
+//	this->GetToolTip()->Enable(false);
 	if(opt->timer)
 	{
 		this->m_textCtrTimerH->Enable(false);
@@ -695,6 +726,16 @@ LogbookOptions::~LogbookOptions()
 	m_sKmh->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::onTextEnterm_sKmh ), NULL, this );
 	m_sdbSizer1OK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::OnButtonOKClick ), NULL, this );
 	m_checkBoxGuardChanged->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::onCheckBoxGuardChanged ), NULL, this );
+	m_buttonUninstall->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::OnButtonClickUninstall ), NULL, this );
+
+}
+
+void LogbookOptions::OnButtonClickUninstall(wxCommandEvent& ev)
+{
+	wxStandardPaths stdpath;
+	wxString s = stdpath.GetPluginsDir();
+	wxString command = s+_T("\\plugins\\uninst_logbookkonni_pi.exe");
+	wxExecute(command);	
 }
 
 void LogbookOptions::OnButtonOKClick(wxCommandEvent &ev)
