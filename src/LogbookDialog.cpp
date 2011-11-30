@@ -2793,7 +2793,7 @@ void LogbookDialog::startApplication(wxString filename, wxString ext)
 		wxString command = filetype1->GetOpenCommand(filename);
 #else
 		wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromMimeType(_T("application/vnd.oasis.opendocument.text-template"));
-		wxString command = filetype1->GetOpenCommand(_T("\"")+filename+_T("\""));
+		wxString command = filetype1->GetOpenCommand(wxFileName::GetPathSeparator()+filename+wxFileName::GetPathSeparator(););
 #endif
 	
 		wxExecute(command);

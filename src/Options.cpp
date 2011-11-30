@@ -11,7 +11,7 @@ Options::Options(void)
 	modern = false;
 #ifdef __WXMSW__
 	firstTime = false;
-#elif __WXMAC__ 
+#elif __WXOSX__ 
 	firstTime = false;
 #else
 	firstTime = true;

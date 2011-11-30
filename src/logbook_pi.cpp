@@ -401,7 +401,7 @@ int logbookkonni_pi::GetToolbarToolCount(void)
 
 void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 {
-#ifdef __WXMAC__
+#ifdef __WXOSX__
 ;
 #else
 	if(opt->firstTime)

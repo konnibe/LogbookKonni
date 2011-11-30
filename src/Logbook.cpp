@@ -713,7 +713,7 @@ void Logbook::checkCourseChanged()
 
 	if(cog == dCOG) return;
 
-#ifdef __WXMAC__
+#ifdef __WXOSX__
 	wxDouble result = labs(cog-dCOG); 
 #else
 	wxDouble result = abs(cog-dCOG); 
@@ -721,7 +721,7 @@ void Logbook::checkCourseChanged()
 
 	if(result > 180) result -= 360;
 
-#ifdef __WXMAC__
+#ifdef __WXOSX__
 	if(labs(result) >= opt->dCourseChangeDegrees)
 #else
 	if(abs(result) >= opt->dCourseChangeDegrees)
