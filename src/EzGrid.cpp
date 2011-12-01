@@ -26,11 +26,11 @@ EzGrid::EzGrid(wxWindow *parent,
 	int nHeight = 18;
 	GetTextExtent(_T("W"), &nWidth, &nHeight, NULL, NULL, &font);
 	SetColLabelSize(nHeight+6);
-	#ifdef __WXGTK__
+#ifdef __WXPOSIX__
 	SetDefaultRowSize(nHeight+8, TRUE);
-	#else
+#else
 	SetDefaultRowSize(nHeight+4, TRUE);
-	#endif
+#endif
 }
 
 EzGrid::~EzGrid()

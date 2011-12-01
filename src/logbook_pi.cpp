@@ -726,8 +726,12 @@ void logbookkonni_pi::loadLayouts(wxWindow *parent)
 	wxStandardPathsBase& std_path = wxStandardPathsBase::Get();
 #ifdef __WXMSW__
 	wxString stdPath  = std_path.GetConfigDir();
-#else
+#endif
+#ifdef __POSIX__
 	wxString stdPath  = std_path.GetUserDataDir();	
+#endif
+#ifdef __WXOSX__
+	wxString stdPath  = std_path.GetConfigDir();
 #endif
 
 	wxString *pHome_Locn = new wxString();
@@ -839,9 +843,14 @@ void logbookkonni_pi::loadLanguages(wxWindow *parent)
 #ifdef __WXMSW__
 	languagePath = sp.GetExecutablePath();
 	languagePath = languagePath.Remove(languagePath.find_last_of(sep));	
-#else
+#endif
+#ifdef __POSIX__
 	languagePath = sp.GetInstallPrefix();	
-#endif	
+#endif
+#ifdef __WXOSX__
+	languagePath = sp.GetExecutablePath();
+	languagePath = languagePath.Remove(languagePath.find_last_of(sep));
+#endif
 
 	languagePath.append(sep + _T("share") + sep + _T("locale") + sep);
 

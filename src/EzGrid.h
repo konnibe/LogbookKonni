@@ -28,7 +28,7 @@ public:
 		}
 	}
 protected:
-	virtual wxSize DoGetBestSize() const;
+	wxSize DoGetBestSize() const;
 	DECLARE_EVENT_TABLE()
 	void OnCellLeftClick(wxGridEvent& event);
 #ifdef __WXGTK__

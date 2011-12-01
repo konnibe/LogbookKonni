@@ -1485,6 +1485,7 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "GRT"
 #~ msgstr "BRT"
 #
@@ -1562,8 +1563,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Logbook files (*.txt)|*.txt"
 #~ msgstr "Ficheros bitácora (*.txt)|*.txt"
+#
 #
 #
 #
@@ -1691,8 +1694,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Schedule"
 #~ msgstr "Calendário"
+#
 #
 #
 #
@@ -1717,6 +1722,7 @@ msgstr ""
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Seleccione Layout"
+#
 #
 #
 #
@@ -1846,8 +1852,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
 #
 #
 #
@@ -1951,6 +1959,7 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "View Route"
 #~ msgstr "Ruta"
@@ -1986,9 +1995,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Watchlist"
 #~ msgstr "Guardia"
+#
 #
 #
 #

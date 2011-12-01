@@ -102,17 +102,13 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	logbookChoice->SetSelection( 0 );
 	bSizer6->Add( logbookChoice, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonReloadLayout = new wxButton( m_panel2, wxID_ANY, _("R"), wxDefaultPosition, wxSize( 15,25 ), wxBU_EXACTFIT );
+	m_buttonReloadLayout = new wxButton( m_panel2, wxID_ANY, _("R"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	m_buttonReloadLayout->SetToolTip( _("Reload Layouts") );
-//	m_buttonReloadLayout->SetMinSize( wxSize( 15,25 ) );
-//	m_buttonReloadLayout->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer6->Add( m_buttonReloadLayout, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonEditLayout = new wxButton( m_panel2, wxID_ANY, _("E"), wxDefaultPosition, wxSize( 15,25 ), wxBU_EXACTFIT );
+	m_buttonEditLayout = new wxButton( m_panel2, wxID_ANY, _("E"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	m_buttonEditLayout->SetToolTip( _("Edit Layout") );
-//	m_buttonEditLayout->SetMinSize( wxSize( 15,25 ) );
-//	m_buttonEditLayout->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer6->Add( m_buttonEditLayout, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -385,17 +381,13 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	
 	bSizer61->Add( overviewChoice, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonReloadLayoutOview = new wxButton( m_panel142, wxID_ANY, _("R"), wxPoint( -1,-1 ), wxSize( 15,25 ), wxBU_EXACTFIT );
+	m_buttonReloadLayoutOview = new wxButton( m_panel142, wxID_ANY, _("R"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	m_buttonReloadLayoutOview->SetToolTip( _("Reload Layouts") );
-	m_buttonReloadLayoutOview->SetMinSize( wxSize( 15,25 ) );
-	m_buttonReloadLayoutOview->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer61->Add( m_buttonReloadLayoutOview, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonEditLayoutOview = new wxButton( m_panel142, wxID_ANY, _("E"), wxDefaultPosition, wxSize( 15,25 ), wxBU_EXACTFIT );
+	m_buttonEditLayoutOview = new wxButton( m_panel142, wxID_ANY, _("E"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	m_buttonEditLayoutOview->SetToolTip( _("Edit Layout") );
-	m_buttonEditLayoutOview->SetMinSize( wxSize( 15,25 ) );
-	m_buttonEditLayoutOview->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer61->Add( m_buttonEditLayoutOview, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -565,17 +557,13 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	crewChoice->SetSelection( 0 );
 	bSizer3->Add( crewChoice, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 
-	m_buttonReloadCrew = new wxButton( m_panel21, wxID_ANY, _("R"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonReloadCrew = new wxButton( m_panel21, wxID_ANY, _("R"),wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	m_buttonReloadCrew->SetToolTip( _("Reload Layouts") );
-	m_buttonReloadCrew->SetMinSize( wxSize( 15,25 ) );
-	m_buttonReloadCrew->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer3->Add( m_buttonReloadCrew, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonEditLayoutCrew = new wxButton( m_panel21, wxID_ANY, _("E"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonEditLayoutCrew = new wxButton( m_panel21, wxID_ANY, _("E"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	m_buttonEditLayoutCrew->SetToolTip( _("Edit Layout") );
-	m_buttonEditLayoutCrew->SetMinSize( wxSize( 15,25 ) );
-	m_buttonEditLayoutCrew->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer3->Add( m_buttonEditLayoutCrew, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -753,17 +741,13 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	boatChoice->SetSelection( 0 );
 	bSizer10->Add( boatChoice, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonReloadLayoutsBoat = new wxButton( m_panel3, wxID_ANY, _("R"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonReloadLayoutsBoat = new wxButton( m_panel3, wxID_ANY, _("R"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	m_buttonReloadLayoutsBoat->SetToolTip( _("Reload Layouts") );
-	m_buttonReloadLayoutsBoat->SetMinSize( wxSize( 15,25 ) );
-	m_buttonReloadLayoutsBoat->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer10->Add( m_buttonReloadLayoutsBoat, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonEditLayoutBoat = new wxButton( m_panel3, wxID_ANY, _("E"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonEditLayoutBoat = new wxButton( m_panel3, wxID_ANY, _("E"), wxDefaultPosition, wxDefaultSize,wxBU_EXACTFIT );
 	m_buttonEditLayoutBoat->SetToolTip( _("Edit Layouts") );
-	m_buttonEditLayoutBoat->SetMinSize( wxSize( 15,25 ) );
-	m_buttonEditLayoutBoat->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer10->Add( m_buttonEditLayoutBoat, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -1195,17 +1179,13 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_choiceSelectLayoutService->SetSelection( 0 );
 	bSizer1011->Add( m_choiceSelectLayoutService, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonReloadLayoutsServiceHTML = new wxButton( m_panel14, wxID_ANY, _("R"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonReloadLayoutsServiceHTML = new wxButton( m_panel14, wxID_ANY, _("R"),wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	m_buttonReloadLayoutsServiceHTML->SetToolTip( _("Reload Layouts") );
-	m_buttonReloadLayoutsServiceHTML->SetMinSize( wxSize( 15,25 ) );
-	m_buttonReloadLayoutsServiceHTML->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer1011->Add( m_buttonReloadLayoutsServiceHTML, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonEditLayoutODTService = new wxButton( m_panel14, wxID_ANY, _("E"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonEditLayoutODTService = new wxButton( m_panel14, wxID_ANY, _("E"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	m_buttonEditLayoutODTService->SetToolTip( _("Edit Layout") );
-	m_buttonEditLayoutODTService->SetMinSize( wxSize( 15,25 ) );
-	m_buttonEditLayoutODTService->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer1011->Add( m_buttonEditLayoutODTService, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -1328,17 +1308,13 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_choiceSelectLayoutRepairs->SetSelection( 0 );
 	bSizer10113->Add( m_choiceSelectLayoutRepairs, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonReloadLayoutsRepairsHTML = new wxButton( m_panel141, wxID_ANY, _("R"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonReloadLayoutsRepairsHTML = new wxButton( m_panel141, wxID_ANY, _("R"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	m_buttonReloadLayoutsRepairsHTML->SetToolTip( _("Reload Layouts") );
-	m_buttonReloadLayoutsRepairsHTML->SetMinSize( wxSize( 15,25 ) );
-	m_buttonReloadLayoutsRepairsHTML->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer10113->Add( m_buttonReloadLayoutsRepairsHTML, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonEditLayoutODTRepairs = new wxButton( m_panel141, wxID_ANY, _("E"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonEditLayoutODTRepairs = new wxButton( m_panel141, wxID_ANY, _("E"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	m_buttonEditLayoutODTRepairs->SetToolTip( _("Edit Layout") );
-	m_buttonEditLayoutODTRepairs->SetMinSize( wxSize( 15,25 ) );
-	m_buttonEditLayoutODTRepairs->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer10113->Add( m_buttonEditLayoutODTRepairs, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -1452,17 +1428,13 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_choiceSelectLayoutBuyParts->SetSelection( 0 );
 	bSizer10111->Add( m_choiceSelectLayoutBuyParts, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonReloadLayoutsBuyPartsHTML = new wxButton( m_panel16, wxID_ANY, _("R"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonReloadLayoutsBuyPartsHTML = new wxButton( m_panel16, wxID_ANY, _("R"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	m_buttonReloadLayoutsBuyPartsHTML->SetToolTip( _("Reload Layouts") );
-	m_buttonReloadLayoutsBuyPartsHTML->SetMinSize( wxSize( 15,25 ) );
-	m_buttonReloadLayoutsBuyPartsHTML->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer10111->Add( m_buttonReloadLayoutsBuyPartsHTML, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_buttonEditLayoutODTBuyParts = new wxButton( m_panel16, wxID_ANY, _("E"), wxDefaultPosition, wxSize( 15,25 ), 0 );
+	m_buttonEditLayoutODTBuyParts = new wxButton( m_panel16, wxID_ANY, _("E"), wxDefaultPosition, wxDefaultSize, wxBU_EXACTFIT );
 	m_buttonEditLayoutODTBuyParts->SetToolTip( _("Edit Layout") );
-	m_buttonEditLayoutODTBuyParts->SetMinSize( wxSize( 15,25 ) );
-	m_buttonEditLayoutODTBuyParts->SetMaxSize( wxSize( 15,25 ) );
 	
 	bSizer10111->Add( m_buttonEditLayoutODTBuyParts, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -2078,9 +2050,13 @@ int LogbookDialog::showLayoutDialog(wxChoice *choice, wxString location, int for
 #ifdef __WXMSW__		
 		wxExecute(command + _T(" /mailurl:mailto:konnibe@hotmail.de?subject=LogbookKonni-Layout&body=Drag and Drop file here"));			
 		wxExecute(_T("explorer.exe /select,")+layout);
-#else
+#endif
+#ifdef __POSIX__
 		wxExecute(command + _T(" mailto:///konnibe@hotmail.de?subject=LogbookKonni-Layout&body=Drag and Drop file here"));		
 		wxExecute(_T("dolphin --select ")+layout);		
+#endif
+#ifdef __WXOSX__
+// don't now in Mac-OS
 #endif
 		return 4;
 	}
@@ -2247,8 +2223,12 @@ Backup Logbook(*.txt)|*.txt");
 	wxStandardPathsBase& std_path = wxStandardPathsBase::Get();
 #ifdef __WXMSW__
 	wxString stdPath  = std_path.GetConfigDir();
-#else
-	wxString stdPath  = std_path.GetUserDataDir();	
+#endif
+#ifdef __POSIX__
+	wxString stdPath  = std_path.GetUserDataDir();
+#endif
+#ifdef __WXOSX__
+	wxString stdPath  = std_path.GetConfigDir();	
 #endif
 
 
@@ -2389,9 +2369,13 @@ void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )
 		wxStandardPathsBase& std_path = wxStandardPathsBase::Get();
 #ifdef __WXMSW__
 	wxString stdPath  = std_path.GetConfigDir();
-#else
+#endif
+#ifdef __POSIX__
 	wxString stdPath  = std_path.GetUserDataDir();	
-#endif		
+#endif
+#ifdef __WXMAX__
+	wxString stdPath  = std_path.GetConfigDir();
+#endif
 		wxString path = stdPath + wxFileName::GetPathSeparator() + _T("navobj.xml");
 
 		wxString g,temp;
@@ -2791,9 +2775,14 @@ void LogbookDialog::startApplication(wxString filename, wxString ext)
 #ifdef __WXMSW__
 		wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(ext);
 		wxString command = filetype1->GetOpenCommand(filename);
-#else
+#endif
+#ifdef __POSIX__
 		wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromMimeType(_T("application/vnd.oasis.opendocument.text-template"));
 		wxString command = filetype1->GetOpenCommand(wxFileName::GetPathSeparator()+filename+wxFileName::GetPathSeparator(););
+#endif
+#ifdef __WXOSX__
+		wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(ext);
+		wxString command = filetype1->GetOpenCommand(filename);
 #endif
 	
 		wxExecute(command);

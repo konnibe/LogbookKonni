@@ -10,13 +10,13 @@ public:
 	wxGridCellChoiceRenderer(wxLayoutAlignment border = wxLAYOUT_NONE) : 
 		m_border(border) {}
 		~wxGridCellChoiceRenderer(void){}
-	virtual void Draw(wxGrid& grid,
+	void Draw(wxGrid& grid,
 		wxGridCellAttr& attr,
 		wxDC& dc,
 		const wxRect& rect,
 		int row, int col,
 		bool isSelected);
-	virtual wxGridCellRenderer *Clone() const
+	wxGridCellRenderer *Clone() const
 		{ return new wxGridCellChoiceRenderer; }
 private:
 	wxLayoutAlignment m_border;

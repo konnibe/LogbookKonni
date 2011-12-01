@@ -718,7 +718,6 @@ void Logbook::checkCourseChanged()
 #else
 	wxDouble result = abs(cog-dCOG); 
 #endif
-
 	if(result > 180) result -= 360;
 
 #ifdef __WXOSX__

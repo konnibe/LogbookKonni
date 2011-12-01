@@ -367,7 +367,7 @@ wxString CrewList::replacePlaceholder(wxString html,wxString s, bool nGrid, int 
 		wxGrid* grid = dialog->m_gridCrew;	
 		wxGrid* wake = dialog->m_gridCrewWake;
 
-			switch(nGrid)
+			switch((int)nGrid) // Apple needs int
 			{
 			case 0:
 				switch(col)

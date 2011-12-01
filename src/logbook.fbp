@@ -515,12 +515,12 @@
                                                             <property name="hidden">0</property>
                                                             <property name="id">wxID_ANY</property>
                                                             <property name="label">R</property>
-                                                            <property name="maximum_size">15,25</property>
-                                                            <property name="minimum_size">15,25</property>
+                                                            <property name="maximum_size">-1,-1</property>
+                                                            <property name="minimum_size">-1,-1</property>
                                                             <property name="name">m_buttonReloadLayout</property>
                                                             <property name="permission">public</property>
                                                             <property name="pos">-1,-1</property>
-                                                            <property name="size">15,25</property>
+                                                            <property name="size">-1,-1</property>
                                                             <property name="style">wxBU_EXACTFIT</property>
                                                             <property name="subclass"></property>
                                                             <property name="tooltip">Reload Layouts</property>
@@ -572,12 +572,12 @@
                                                             <property name="hidden">0</property>
                                                             <property name="id">wxID_ANY</property>
                                                             <property name="label">E</property>
-                                                            <property name="maximum_size">15,25</property>
-                                                            <property name="minimum_size">15,25</property>
+                                                            <property name="maximum_size">-1,-1</property>
+                                                            <property name="minimum_size">-1,-1</property>
                                                             <property name="name">m_buttonEditLayout</property>
                                                             <property name="permission">public</property>
                                                             <property name="pos"></property>
-                                                            <property name="size">15,25</property>
+                                                            <property name="size">-1,-1</property>
                                                             <property name="style">wxBU_EXACTFIT</property>
                                                             <property name="subclass"></property>
                                                             <property name="tooltip">Edit Layout</property>
@@ -1991,12 +1991,12 @@
                                                             <property name="hidden">0</property>
                                                             <property name="id">wxID_ANY</property>
                                                             <property name="label">R</property>
-                                                            <property name="maximum_size">15,25</property>
-                                                            <property name="minimum_size">15,25</property>
+                                                            <property name="maximum_size">-1,-1</property>
+                                                            <property name="minimum_size">-1,-1</property>
                                                             <property name="name">m_buttonReloadLayoutOview</property>
                                                             <property name="permission">public</property>
                                                             <property name="pos">-1,-1</property>
-                                                            <property name="size">15,25</property>
+                                                            <property name="size">-1,-1</property>
                                                             <property name="style">wxBU_EXACTFIT</property>
                                                             <property name="subclass"></property>
                                                             <property name="tooltip">Reload Layouts</property>
@@ -2048,12 +2048,12 @@
                                                             <property name="hidden">0</property>
                                                             <property name="id">wxID_ANY</property>
                                                             <property name="label">E</property>
-                                                            <property name="maximum_size">15,25</property>
-                                                            <property name="minimum_size">15,25</property>
+                                                            <property name="maximum_size">-1,-1</property>
+                                                            <property name="minimum_size">-1,-1</property>
                                                             <property name="name">m_buttonEditLayoutOview</property>
                                                             <property name="permission">public</property>
                                                             <property name="pos"></property>
-                                                            <property name="size">15,25</property>
+                                                            <property name="size">-1,-1</property>
                                                             <property name="style">wxBU_EXACTFIT</property>
                                                             <property name="subclass"></property>
                                                             <property name="tooltip">Edit Layout</property>
@@ -3141,13 +3141,13 @@
                                                     <property name="hidden">0</property>
                                                     <property name="id">wxID_ANY</property>
                                                     <property name="label">R</property>
-                                                    <property name="maximum_size">15,25</property>
-                                                    <property name="minimum_size">15,25</property>
+                                                    <property name="maximum_size">-1,-1</property>
+                                                    <property name="minimum_size">-1,-1</property>
                                                     <property name="name">m_buttonReloadCrew</property>
                                                     <property name="permission">public</property>
                                                     <property name="pos"></property>
-                                                    <property name="size">15,25</property>
-                                                    <property name="style"></property>
+                                                    <property name="size">-1,-1</property>
+                                                    <property name="style">wxBU_EXACTFIT</property>
                                                     <property name="subclass"></property>
                                                     <property name="tooltip">Reload Layouts</property>
                                                     <property name="validator_data_type"></property>
@@ -3198,13 +3198,13 @@
                                                     <property name="hidden">0</property>
                                                     <property name="id">wxID_ANY</property>
                                                     <property name="label">E</property>
-                                                    <property name="maximum_size">15,25</property>
-                                                    <property name="minimum_size">15,25</property>
+                                                    <property name="maximum_size">-1,-1</property>
+                                                    <property name="minimum_size">-1,-1</property>
                                                     <property name="name">m_buttonEditLayoutCrew</property>
                                                     <property name="permission">public</property>
                                                     <property name="pos"></property>
-                                                    <property name="size">15,25</property>
-                                                    <property name="style"></property>
+                                                    <property name="size">-1,-1</property>
+                                                    <property name="style">wxBU_EXACTFIT</property>
                                                     <property name="subclass"></property>
                                                     <property name="tooltip">Edit Layout</property>
                                                     <property name="validator_data_type"></property>
@@ -3740,7 +3740,7 @@
                             <property name="bitmap"></property>
                             <property name="label">Boat</property>
                             <property name="select">0</property>
-                            <object class="wxPanel" expanded="1">
+                            <object class="wxPanel" expanded="0">
                                 <property name="bg"></property>
                                 <property name="context_help"></property>
                                 <property name="context_menu">1</property>
@@ -3787,7 +3787,7 @@
                                 <event name="OnSetFocus"></event>
                                 <event name="OnSize"></event>
                                 <event name="OnUpdateUI"></event>
-                                <object class="wxFlexGridSizer" expanded="1">
+                                <object class="wxFlexGridSizer" expanded="0">
                                     <property name="cols">1</property>
                                     <property name="flexible_direction">wxBOTH</property>
                                     <property name="growablecols">0</property>
@@ -4222,12 +4222,12 @@
                                                             <property name="hidden">0</property>
                                                             <property name="id">wxID_ANY</property>
                                                             <property name="label">R</property>
-                                                            <property name="maximum_size">15,25</property>
-                                                            <property name="minimum_size">15,25</property>
+                                                            <property name="maximum_size">-1,-1</property>
+                                                            <property name="minimum_size">-1,-1</property>
                                                             <property name="name">m_buttonReloadLayoutsBoat</property>
                                                             <property name="permission">public</property>
                                                             <property name="pos"></property>
-                                                            <property name="size">15,25</property>
+                                                            <property name="size">-1,-1</property>
                                                             <property name="style">wxBU_EXACTFIT</property>
                                                             <property name="subclass"></property>
                                                             <property name="tooltip">Reload Layouts</property>
@@ -4279,12 +4279,12 @@
                                                             <property name="hidden">0</property>
                                                             <property name="id">wxID_ANY</property>
                                                             <property name="label">E</property>
-                                                            <property name="maximum_size">15,25</property>
-                                                            <property name="minimum_size">15,25</property>
+                                                            <property name="maximum_size">-1,-1</property>
+                                                            <property name="minimum_size">-1,-1</property>
                                                             <property name="name">m_buttonEditLayoutBoat</property>
                                                             <property name="permission">public</property>
                                                             <property name="pos"></property>
-                                                            <property name="size">15,25</property>
+                                                            <property name="size">-1,-1</property>
                                                             <property name="style">wxBU_EXACTFIT</property>
                                                             <property name="subclass"></property>
                                                             <property name="tooltip">Edit Layouts</property>
@@ -4550,11 +4550,11 @@
                                             </object>
                                         </object>
                                     </object>
-                                    <object class="sizeritem" expanded="1">
+                                    <object class="sizeritem" expanded="0">
                                         <property name="border">5</property>
                                         <property name="flag">wxEXPAND</property>
                                         <property name="proportion">1</property>
-                                        <object class="wxSplitterWindow" expanded="1">
+                                        <object class="wxSplitterWindow" expanded="0">
                                             <property name="bg"></property>
                                             <property name="context_help"></property>
                                             <property name="context_menu">1</property>
@@ -4611,8 +4611,8 @@
                                             <event name="OnSplitterSashPosChanging"></event>
                                             <event name="OnSplitterUnsplit"></event>
                                             <event name="OnUpdateUI"></event>
-                                            <object class="splitteritem" expanded="1">
-                                                <object class="wxPanel" expanded="1">
+                                            <object class="splitteritem" expanded="0">
+                                                <object class="wxPanel" expanded="0">
                                                     <property name="bg"></property>
                                                     <property name="context_help"></property>
                                                     <property name="context_menu">1</property>
@@ -4659,7 +4659,7 @@
                                                     <event name="OnSetFocus"></event>
                                                     <event name="OnSize"></event>
                                                     <event name="OnUpdateUI"></event>
-                                                    <object class="wxFlexGridSizer" expanded="1">
+                                                    <object class="wxFlexGridSizer" expanded="0">
                                                         <property name="cols">1</property>
                                                         <property name="flexible_direction">wxBOTH</property>
                                                         <property name="growablecols"></property>
@@ -8812,7 +8812,7 @@
                                             <object class="notebookpage" expanded="0">
                                                 <property name="bitmap"></property>
                                                 <property name="label">Service</property>
-                                                <property name="select">0</property>
+                                                <property name="select">1</property>
                                                 <object class="wxPanel" expanded="0">
                                                     <property name="bg"></property>
                                                     <property name="context_help"></property>
@@ -9176,13 +9176,13 @@
                                                                         <property name="hidden">0</property>
                                                                         <property name="id">wxID_ANY</property>
                                                                         <property name="label">R</property>
-                                                                        <property name="maximum_size">15,25</property>
-                                                                        <property name="minimum_size">15,25</property>
+                                                                        <property name="maximum_size">-1,-1</property>
+                                                                        <property name="minimum_size">-1,-1</property>
                                                                         <property name="name">m_buttonReloadLayoutsServiceHTML</property>
                                                                         <property name="permission">public</property>
                                                                         <property name="pos"></property>
-                                                                        <property name="size">15,25</property>
-                                                                        <property name="style"></property>
+                                                                        <property name="size">-1,-1</property>
+                                                                        <property name="style">wxBU_EXACTFIT</property>
                                                                         <property name="subclass"></property>
                                                                         <property name="tooltip">Reload Layouts</property>
                                                                         <property name="validator_data_type"></property>
@@ -9233,13 +9233,13 @@
                                                                         <property name="hidden">0</property>
                                                                         <property name="id">wxID_ANY</property>
                                                                         <property name="label">E</property>
-                                                                        <property name="maximum_size">15,25</property>
-                                                                        <property name="minimum_size">15,25</property>
+                                                                        <property name="maximum_size">-1,-1</property>
+                                                                        <property name="minimum_size">-1,-1</property>
                                                                         <property name="name">m_buttonEditLayoutODTService</property>
                                                                         <property name="permission">public</property>
                                                                         <property name="pos"></property>
-                                                                        <property name="size">15,25</property>
-                                                                        <property name="style"></property>
+                                                                        <property name="size">-1,-1</property>
+                                                                        <property name="style">wxBU_EXACTFIT</property>
                                                                         <property name="subclass"></property>
                                                                         <property name="tooltip">Edit Layout</property>
                                                                         <property name="validator_data_type"></property>
@@ -9699,7 +9699,7 @@
                                             <object class="notebookpage" expanded="0">
                                                 <property name="bitmap"></property>
                                                 <property name="label">Repairs</property>
-                                                <property name="select">1</property>
+                                                <property name="select">0</property>
                                                 <object class="wxPanel" expanded="0">
                                                     <property name="bg"></property>
                                                     <property name="context_help"></property>
@@ -10063,13 +10063,13 @@
                                                                         <property name="hidden">0</property>
                                                                         <property name="id">wxID_ANY</property>
                                                                         <property name="label">R</property>
-                                                                        <property name="maximum_size">15,25</property>
-                                                                        <property name="minimum_size">15,25</property>
+                                                                        <property name="maximum_size">-1,-1</property>
+                                                                        <property name="minimum_size">-1,-1</property>
                                                                         <property name="name">m_buttonReloadLayoutsRepairsHTML</property>
                                                                         <property name="permission">public</property>
                                                                         <property name="pos"></property>
-                                                                        <property name="size">15,25</property>
-                                                                        <property name="style"></property>
+                                                                        <property name="size">-1,-1</property>
+                                                                        <property name="style">wxBU_EXACTFIT</property>
                                                                         <property name="subclass"></property>
                                                                         <property name="tooltip">Reload Layouts</property>
                                                                         <property name="validator_data_type"></property>
@@ -10120,13 +10120,13 @@
                                                                         <property name="hidden">0</property>
                                                                         <property name="id">wxID_ANY</property>
                                                                         <property name="label">E</property>
-                                                                        <property name="maximum_size">15,25</property>
-                                                                        <property name="minimum_size">15,25</property>
+                                                                        <property name="maximum_size">-1,-1</property>
+                                                                        <property name="minimum_size">-1,-1</property>
                                                                         <property name="name">m_buttonEditLayoutODTRepairs</property>
                                                                         <property name="permission">public</property>
                                                                         <property name="pos"></property>
-                                                                        <property name="size">15,25</property>
-                                                                        <property name="style"></property>
+                                                                        <property name="size">-1,-1</property>
+                                                                        <property name="style">wxBU_EXACTFIT</property>
                                                                         <property name="subclass"></property>
                                                                         <property name="tooltip">Edit Layout</property>
                                                                         <property name="validator_data_type"></property>
@@ -10950,13 +10950,13 @@
                                                                         <property name="hidden">0</property>
                                                                         <property name="id">wxID_ANY</property>
                                                                         <property name="label">R</property>
-                                                                        <property name="maximum_size">15,25</property>
-                                                                        <property name="minimum_size">15,25</property>
+                                                                        <property name="maximum_size">-1,-1</property>
+                                                                        <property name="minimum_size">-1,-1</property>
                                                                         <property name="name">m_buttonReloadLayoutsBuyPartsHTML</property>
                                                                         <property name="permission">public</property>
                                                                         <property name="pos"></property>
-                                                                        <property name="size">15,25</property>
-                                                                        <property name="style"></property>
+                                                                        <property name="size">-1,-1</property>
+                                                                        <property name="style">wxBU_EXACTFIT</property>
                                                                         <property name="subclass"></property>
                                                                         <property name="tooltip">Reload Layouts</property>
                                                                         <property name="validator_data_type"></property>
@@ -11007,13 +11007,13 @@
                                                                         <property name="hidden">0</property>
                                                                         <property name="id">wxID_ANY</property>
                                                                         <property name="label">E</property>
-                                                                        <property name="maximum_size">15,25</property>
-                                                                        <property name="minimum_size">15,25</property>
+                                                                        <property name="maximum_size">-1,-1</property>
+                                                                        <property name="minimum_size">-1,-1</property>
                                                                         <property name="name">m_buttonEditLayoutODTBuyParts</property>
                                                                         <property name="permission">public</property>
                                                                         <property name="pos"></property>
-                                                                        <property name="size">15,25</property>
-                                                                        <property name="style"></property>
+                                                                        <property name="size">-1,-1</property>
+                                                                        <property name="style">wxBU_EXACTFIT</property>
                                                                         <property name="subclass"></property>
                                                                         <property name="tooltip">Edit Layout</property>
                                                                         <property name="validator_data_type"></property>

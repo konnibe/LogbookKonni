@@ -11,9 +11,11 @@ Options::Options(void)
 	modern = false;
 #ifdef __WXMSW__
 	firstTime = false;
-#elif __WXOSX__ 
+#endif
+#ifdef __WXOSX__ 
 	firstTime = false;
-#else
+#endif
+#ifdef __POSIX__
 	firstTime = true;
 #endif
 	dlgWidth = 1010;

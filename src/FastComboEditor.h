@@ -11,21 +11,21 @@ public:
 	wxFastComboEditor(size_t count = 0,
 		const wxString choices[] = NULL,	bool allowOthers = FALSE);
 	~wxFastComboEditor(void){}
-	virtual void Create(wxWindow* parent,
+	void Create(wxWindow* parent,
 							wxWindowID id,
 							wxEvtHandler* evtHandler);
-	virtual void PaintBackground(const wxRect& rectCell, wxGridCellAttr *attr);
+	void PaintBackground(const wxRect& rectCell, wxGridCellAttr *attr);
 
-	virtual void BeginEdit(int row, int col, wxGrid* grid);
-	virtual bool EndEdit(int row, int col, wxGrid* grid);
+	void BeginEdit(int row, int col, wxGrid* grid);
+	bool EndEdit(int row, int col, wxGrid* grid);
 
-	virtual void Reset();
+	void Reset();
 
 	// parameters string format is "item1[,item2[...,itemN]]"
-	virtual void SetParameters(const wxString& params);
+	void SetParameters(const wxString& params);
 	void SetParameters(size_t count, const wxString choices[]);
-	virtual wxGridCellEditor *Clone() const;
-	virtual wxString GetValue() const;
+	wxGridCellEditor *Clone() const;
+	wxString GetValue() const;
 	wxSComboBox *Combo() const { return (wxSComboBox*)m_control; }	
 	
 protected:
