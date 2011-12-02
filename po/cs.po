@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-30 08:19+0100\n"
+"POT-Creation-Date: 2011-12-02 07:14+0100\n"
 "PO-Revision-Date: 2011-11-25 01:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: Pavel Kalian <pavel@kalian.cz>\n"
@@ -240,6 +240,10 @@ msgstr "Datum"
 #
 #
 #
+#
+#
+#
+#
 #, fuzzy
 msgid "Date + Days"
 msgstr "Vzdálenost"
@@ -254,9 +258,17 @@ msgstr "Vzdálenost"
 #
 #
 #
+#
+#
+#
+#
 #, fuzzy
 msgid "Date + Month"
 msgstr "Datum narození"
+#
+#
+#
+#
 #
 #
 #
@@ -400,6 +412,10 @@ msgstr "Jméno"
 #
 #
 #
+#
+#
+#
+#
 #, fuzzy
 msgid "Fix Date"
 msgstr "Datum"
@@ -462,6 +478,17 @@ msgid "If GPS off use for manual entry"
 msgstr ""
 #
 msgid "If Watch changed"
+msgstr ""
+#
+msgid ""
+"If You have created Your own Layouts\n"
+"prepend them with e.g. My_ \n"
+"The _ is important"
+msgstr ""
+#
+msgid ""
+"If You have created Your own layouts\n"
+"with prefix e.g. My_"
 msgstr ""
 #
 msgid "Information"
@@ -554,9 +581,6 @@ msgstr ""
 msgid "LWL"
 msgstr ""
 #
-msgid "Label_"
-msgstr ""
-#
 msgid "Languages installed"
 msgstr "Jazyky instalovány"
 #
@@ -625,6 +649,10 @@ msgstr ""
 #, c-format
 msgid "Logbook from %s to %s"
 msgstr ""
+#
+#
+#
+#
 #
 #
 #
@@ -731,9 +759,88 @@ msgstr "Majitel"
 msgid "Passport-Nr"
 msgstr "Číslo pasu"
 #
+msgid "Path to Datamanager"
+msgstr ""
+#
+#
+#, fuzzy
+msgid ""
+"Path to HTML-Editor\n"
+"(optional)"
+msgstr "Cesta k editoru HTML (volitelné)"
+#
 #
 msgid "Path to HTML-Editor (optional)"
 msgstr "Cesta k editoru HTML (volitelné)"
+#
+msgid "Path to MailClient"
+msgstr ""
+#
+#, fuzzy
+msgid "Path to ODT-Editor"
+msgstr "Nastavit cestu k editoru HTML"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Paths"
+msgstr "Hlídka"
 #
 msgid "Place of Birth"
 msgstr "Místo narození"
@@ -839,9 +946,6 @@ msgstr "Plachty"
 msgid "Sails used mostly"
 msgstr ""
 #
-msgid "Save"
-msgstr "Uložit"
-#
 msgid "Save Boat File"
 msgstr "Ulož soubor lodi"
 #
@@ -918,7 +1022,19 @@ msgstr "Co servisovat"
 msgid "Service done"
 msgstr "Servis proveden"
 #
+#, fuzzy
+msgid "Set Path to DataManager"
+msgstr "Nastavit cestu k editoru HTML"
+#
 msgid "Set Path to HTML-Editor"
+msgstr "Nastavit cestu k editoru HTML"
+#
+#, fuzzy
+msgid "Set Path to MailClient"
+msgstr "Nastavit cestu k editoru HTML"
+#
+#, fuzzy
+msgid "Set Path to ODT-Editor"
 msgstr "Nastavit cestu k editoru HTML"
 #
 #
@@ -934,6 +1050,9 @@ msgid "Show Logbook Icon"
 msgstr "Zobraz ikonu deníku"
 #
 msgid "Show Position Fomat"
+msgstr ""
+#
+msgid "Show ToolTips"
 msgstr ""
 #
 #
@@ -1110,6 +1229,12 @@ msgid "Type"
 msgstr "Typ"
 #
 msgid "UTC"
+msgstr ""
+#
+msgid ""
+"Uncheck if You have no GPS\n"
+"If GPS is out of order, uncheck to\n"
+"prevent that the message repeats."
 msgstr ""
 #
 #, fuzzy
@@ -1339,6 +1464,9 @@ msgid ""
 "Heading = Actual wind direction"
 msgstr ""
 #
+msgid "delay to find the right course to the wind"
+msgstr ""
+#
 msgid "en_"
 msgstr ""
 #
@@ -1419,10 +1547,6 @@ msgstr "Měsíc"
 msgid "none"
 msgstr "nic"
 #
-#
-msgid "not implemented yet"
-msgstr "zatím neimplementováno"
-#
 #, fuzzy
 msgid "s"
 msgstr "NM"
@@ -1452,6 +1576,16 @@ msgstr ""
 #
 msgid "write your own label"
 msgstr ""
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1606,6 +1740,16 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Etmal "
 #~ msgstr "NM/24h"
 #
@@ -1658,8 +1802,28 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "GPS Auto (Ocean Crossing)"
 #~ msgstr "GPS Auto (přejezd oceánu)"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1769,8 +1933,28 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Logbook files (*.txt)|*.txt"
 #~ msgstr "Soubory deníku (*.txt)|*.txt"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1810,6 +1994,8 @@ msgstr ""
 #
 #
 #
+#~ msgid "Save"
+#~ msgstr "Uložit"
 #
 #
 #
@@ -1820,43 +2006,6 @@ msgstr ""
 #
 #
 #
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
-#~ msgid "Path"
-#~ msgstr "Hlídka"
 #
 #
 #
@@ -1957,6 +2106,16 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Vybrat rozvržení:"
@@ -2009,8 +2168,28 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Show Maintence Rows coloured"
 #~ msgstr "Zobraz řádky údržby v barvě"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2141,8 +2320,28 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Dnes"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2215,6 +2414,21 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Watchlist"
 #~ msgstr "Hlídka"
+#
+#
+#
+#~ msgid "not implemented yet"
+#~ msgstr "zatím neimplementováno"

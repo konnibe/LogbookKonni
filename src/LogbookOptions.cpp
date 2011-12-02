@@ -48,9 +48,22 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	fgSizer29->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
 	
-	fgSizer29->Add( 10, 30, 1, wxEXPAND, 5 );
+	fgSizer29->Add( 10, 15, 1, wxEXPAND, 5 );
+	
+	
+	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	
+	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	
+	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	
+	fgSizer29->Add( 10, 0, 1, wxEXPAND, 5 );
 	
 	m_checkBoxShowLogbook = new wxCheckBox( m_panel15, wxID_ANY, _("Show Logbook Icon"), wxDefaultPosition, wxSize( -1,-1 ), wxCHK_2STATE );
+	m_checkBoxShowLogbook->SetValue(true); 
 	fgSizer29->Add( m_checkBoxShowLogbook, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	
 	m_staticText76 = new wxStaticText( m_panel15, wxID_ANY, _("Show Position Fomat"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -66,14 +79,31 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 	
+	m_checkBoxToolTips = new wxCheckBox( m_panel15, wxID_ANY, _("Show ToolTips"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_checkBoxToolTips->SetValue(true); 
+	fgSizer29->Add( m_checkBoxToolTips, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
+	
+	
+	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	
+	fgSizer29->Add( 250, 0, 1, wxEXPAND, 5 );
+	
+	
+	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
+	
 	m_checkBoxShowAllLayouts = new wxCheckBox( m_panel15, wxID_ANY, _("Show all Layouts"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_checkBoxShowAllLayouts->SetValue(true); 
 	fgSizer29->Add( m_checkBoxShowAllLayouts, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	
 	m_checkBoxShowOnlySelectedLayouts = new wxCheckBox( m_panel15, wxID_ANY, _("Only Layouts with prefix:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_checkBoxShowOnlySelectedLayouts->SetToolTip( _("If You have created Your own layouts\nwith prefix e.g. My_") );
+	
 	fgSizer29->Add( m_checkBoxShowOnlySelectedLayouts, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	
-	m_textCtrlLayoutPrefix = new wxTextCtrl( m_panel15, wxID_ANY, _("Label_"), wxDefaultPosition, wxSize( 90,-1 ), wxTE_PROCESS_ENTER );
+	m_textCtrlLayoutPrefix = new wxTextCtrl( m_panel15, wxID_ANY, wxT("Label_"), wxDefaultPosition, wxSize( 90,-1 ), wxTE_PROCESS_ENTER );
+	m_textCtrlLayoutPrefix->SetToolTip( _("If You have created Your own Layouts\nprepend them with e.g. My_ \nThe _ is important") );
+	
 	fgSizer29->Add( m_textCtrlLayoutPrefix, 0, wxALL, 0 );
 	
 	
@@ -81,6 +111,8 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	m_checkBoxNoGPS = new wxCheckBox( m_panel15, wxID_ANY, _("Write warning \"No GPS\""), wxDefaultPosition, wxDefaultSize, 0 );
 	m_checkBoxNoGPS->SetValue(true); 
+	m_checkBoxNoGPS->SetToolTip( _("Uncheck if You have no GPS\nIf GPS is out of order, uncheck to\nprevent that the message repeats.") );
+	
 	fgSizer29->Add( m_checkBoxNoGPS, 0, wxALL, 0 );
 	
 	
@@ -103,33 +135,6 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_choiceWindTo->SetToolTip( _("default = Relative to Boat\nHeading = Actual wind direction") );
 	
 	fgSizer29->Add( m_choiceWindTo, 0, wxALL, 0 );
-	
-	
-	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
-	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	m_checkBoxCourseChanged = new wxCheckBox( m_panel15, wxID_ANY, _("If Course changes more then "), wxDefaultPosition, wxDefaultSize, 0 );
-	fgSizer29->Add( m_checkBoxCourseChanged, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
-	
-	m_textCtrlCourseCahngedMoreThen = new wxTextCtrl( m_panel15, wxID_ANY, wxT("45"), wxDefaultPosition, wxSize( 30,-1 ), wxTE_CENTRE );
-	fgSizer29->Add( m_textCtrlCourseCahngedMoreThen, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
-	
-	m_textCtrlChancedCourse = new wxTextCtrl( m_panel15, wxID_ANY, _("automatic line\nchange of course >"), wxDefaultPosition, wxSize( 200,-1 ), wxTE_MULTILINE );
-	fgSizer29->Add( m_textCtrlChancedCourse, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
-	
-	
-	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	m_staticText74 = new wxStaticText( m_panel15, wxID_ANY, _("      Course- Message after Minutes"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText74->Wrap( -1 );
-	fgSizer29->Add( m_staticText74, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
-	
-	m_textCtrlCourseMessageAfter = new wxTextCtrl( m_panel15, wxID_ANY, wxT("5"), wxDefaultPosition, wxDefaultSize, wxTE_CENTRE );
-	m_textCtrlCourseMessageAfter->SetMinSize( wxSize( 30,-1 ) );
-	
-	fgSizer29->Add( m_textCtrlCourseMessageAfter, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	
 	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
@@ -160,12 +165,44 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	fgSizer10->Add( fgSizer29, 1, 0, 5 );
 	
-	wxFlexGridSizer* fgSizer13;
-	fgSizer13 = new wxFlexGridSizer( 2, 2, 0, 0 );
-	fgSizer13->SetFlexibleDirection( wxBOTH );
-	fgSizer13->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+	wxFlexGridSizer* fgSizer35;
+	fgSizer35 = new wxFlexGridSizer( 2, 4, 0, 0 );
+	fgSizer35->SetFlexibleDirection( wxBOTH );
+	fgSizer35->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
-	fgSizer10->Add( fgSizer13, 1, wxEXPAND, 5 );
+	
+	fgSizer35->Add( 10, 0, 1, wxEXPAND, 5 );
+	
+	wxFlexGridSizer* fgSizer36;
+	fgSizer36 = new wxFlexGridSizer( 2, 2, 0, 0 );
+	fgSizer36->SetFlexibleDirection( wxBOTH );
+	fgSizer36->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+	
+	m_checkBoxCourseChanged = new wxCheckBox( m_panel15, wxID_ANY, _("If Course changes more then "), wxDefaultPosition, wxDefaultSize, 0 );
+	fgSizer36->Add( m_checkBoxCourseChanged, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
+	
+	m_textCtrlCourseCahngedMoreThen = new wxTextCtrl( m_panel15, wxID_ANY, wxT("45"), wxDefaultPosition, wxSize( 30,-1 ), wxTE_CENTRE );
+	fgSizer36->Add( m_textCtrlCourseCahngedMoreThen, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
+	
+	m_staticText74 = new wxStaticText( m_panel15, wxID_ANY, _("      Course- Message after Minutes"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText74->Wrap( -1 );
+	fgSizer36->Add( m_staticText74, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
+	
+	m_textCtrlCourseMessageAfter = new wxTextCtrl( m_panel15, wxID_ANY, wxT("5"), wxDefaultPosition, wxDefaultSize, wxTE_CENTRE );
+	m_textCtrlCourseMessageAfter->SetToolTip( _("delay to find the right course to the wind") );
+	m_textCtrlCourseMessageAfter->SetMinSize( wxSize( 30,-1 ) );
+	
+	fgSizer36->Add( m_textCtrlCourseMessageAfter, 0, wxALL, 0 );
+	
+	fgSizer35->Add( fgSizer36, 1, wxEXPAND, 5 );
+	
+	
+	fgSizer35->Add( 74, 0, 1, wxEXPAND, 5 );
+	
+	m_textCtrlChancedCourse = new wxTextCtrl( m_panel15, wxID_ANY, _("automatic line\nchange of course >"), wxDefaultPosition, wxSize( 250,-1 ), wxTE_MULTILINE );
+	fgSizer35->Add( m_textCtrlChancedCourse, 0, wxALL|wxEXPAND, 0 );
+	
+	fgSizer10->Add( fgSizer35, 0, 0, 5 );
 	
 	m_staticline25 = new wxStaticLine( m_panel15, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
 	fgSizer10->Add( m_staticline25, 0, wxEXPAND | wxALL, 5 );
@@ -259,7 +296,6 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	m_radioBtnGPSAuto = new wxRadioButton( m_panel15, wxID_ANY, _("GPS Auto"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_radioBtnGPSAuto->SetToolTip( _("every 15 Degrees +/- 1 hour") );
-	m_radioBtnGPSAuto->SetHelpText( _("not implemented yet") );
 	
 	fgSizer18->Add( m_radioBtnGPSAuto, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -302,6 +338,13 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	fgSizer10->Add( fgSizer28, 0, wxALIGN_CENTER_VERTICAL|wxALIGN_CENTER_HORIZONTAL, 5 );
 	
+	wxFlexGridSizer* fgSizer301;
+	fgSizer301 = new wxFlexGridSizer( 2, 1, 0, 0 );
+	fgSizer301->SetFlexibleDirection( wxBOTH );
+	fgSizer301->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+	
+	fgSizer10->Add( fgSizer301, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+	
 	m_staticline261 = new wxStaticLine( m_panel15, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
 	fgSizer10->Add( m_staticline261, 0, wxEXPAND | wxALL, 5 );
 	
@@ -314,23 +357,10 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_staticText62->Wrap( -1 );
 	fgSizer16->Add( m_staticText62, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_textCtrlHTMLEditorPath = new wxTextCtrl( m_panel15, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 350,-1 ), 0 );
-	fgSizer16->Add( m_textCtrlHTMLEditorPath, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	m_bpButtonHTMLEditor = new wxBitmapButton( m_panel15, wxID_ANY, wxBitmap( folder ), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
-	fgSizer16->Add( m_bpButtonHTMLEditor, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
-	
 	fgSizer10->Add( fgSizer16, 1, wxEXPAND, 5 );
 	
 	m_staticline13 = new wxStaticLine( m_panel15, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
 	fgSizer10->Add( m_staticline13, 0, wxEXPAND | wxALL, 5 );
-	
-	wxFlexGridSizer* fgSizer291;
-	fgSizer291 = new wxFlexGridSizer( 2, 2, 0, 0 );
-	fgSizer291->SetFlexibleDirection( wxBOTH );
-	fgSizer291->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
-	
-	fgSizer10->Add( fgSizer291, 1, wxEXPAND, 5 );
 	
 	m_panel15->SetSizer( fgSizer10 );
 	m_panel15->Layout();
@@ -348,7 +378,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	fgSizer91->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
 	
-	fgSizer91->Add( 100, 30, 1, wxEXPAND, 5 );
+	fgSizer91->Add( 140, 30, 1, wxEXPAND, 5 );
 	
 	
 	fgSizer91->Add( 100, 0, 1, wxEXPAND, 5 );
@@ -660,6 +690,65 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_panel16->Layout();
 	fgSizer30->Fit( m_panel16 );
 	m_notebook4->AddPage( m_panel16, _("Abbreviations"), false );
+	m_panel17 = new wxPanel( m_notebook4, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+	wxFlexGridSizer* fgSizer321;
+	fgSizer321 = new wxFlexGridSizer( 2, 3, 0, 0 );
+	fgSizer321->SetFlexibleDirection( wxBOTH );
+	fgSizer321->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+	
+	
+	fgSizer321->Add( 0, 40, 1, wxEXPAND, 5 );
+	
+	
+	fgSizer321->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	
+	fgSizer321->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	m_staticText761 = new wxStaticText( m_panel17, wxID_ANY, _("Path to ODT-Editor"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText761->Wrap( -1 );
+	fgSizer321->Add( m_staticText761, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_textCtrlODTEditor = new wxTextCtrl( m_panel17, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 420,-1 ), 0 );
+	fgSizer321->Add( m_textCtrlODTEditor, 0, wxALL|wxEXPAND, 5 );
+	
+	m_bpButtonODT = new wxBitmapButton( m_panel17, wxID_ANY, wxBitmap( folder ), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
+	fgSizer321->Add( m_bpButtonODT, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
+	
+	m_staticText77 = new wxStaticText( m_panel17, wxID_ANY, _("Path to Datamanager"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText77->Wrap( -1 );
+	fgSizer321->Add( m_staticText77, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_textCtrlDataManager = new wxTextCtrl( m_panel17, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+	fgSizer321->Add( m_textCtrlDataManager, 0, wxALL|wxEXPAND, 5 );
+	
+	m_bpButtonDatamanager = new wxBitmapButton( m_panel17, wxID_ANY, wxBitmap( folder ), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
+	fgSizer321->Add( m_bpButtonDatamanager, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
+	
+	m_staticText78 = new wxStaticText( m_panel17, wxID_ANY, _("Path to MailClient"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText78->Wrap( -1 );
+	fgSizer321->Add( m_staticText78, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_textCtrlMailClient = new wxTextCtrl( m_panel17, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+	fgSizer321->Add( m_textCtrlMailClient, 0, wxALL|wxEXPAND, 5 );
+	
+	m_bpButtonMail = new wxBitmapButton( m_panel17, wxID_ANY, wxBitmap( folder ), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
+	fgSizer321->Add( m_bpButtonMail, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
+	
+	m_staticText79 = new wxStaticText( m_panel17, wxID_ANY, _("Path to HTML-Editor\n(optional)"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText79->Wrap( -1 );
+	fgSizer321->Add( m_staticText79, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_textCtrlHTMLEditorPath = new wxTextCtrl( m_panel17, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 420,-1 ), 0 );
+	fgSizer321->Add( m_textCtrlHTMLEditorPath, 1, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_bpButtonHTMLEditor = new wxBitmapButton( m_panel17, wxID_ANY, wxBitmap( folder ), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
+	fgSizer321->Add( m_bpButtonHTMLEditor, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
+	
+	m_panel17->SetSizer( fgSizer321 );
+	m_panel17->Layout();
+	fgSizer321->Fit( m_panel17 );
+	m_notebook4->AddPage( m_panel17, _("Paths"), false );
 	
 	bSizer21->Add( m_notebook4, 1, wxEXPAND | wxALL, 5 );
 	
@@ -686,6 +775,9 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_radioBtnUTC->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookOptions::onRadioBtnUTC ), NULL, this );
 	m_radioBtnLocal->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookOptions::onRadioBtnLocal ), NULL, this );
 	m_radioBtnGPSAuto->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookOptions::onRadioBtnGPSAuto ), NULL, this );
+	m_bpButtonODT->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickODT ), NULL, this );
+	m_bpButtonDatamanager->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickDataManager ), NULL, this );
+	m_bpButtonMail->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickMail ), NULL, this );
 	m_buttonInstallHTMLFiles->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickInstallHTMLFiles ), NULL, this );
 	m_buttonInstallLanguages->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickInstallLanguages ), NULL, this );
 	m_bpButtonHTMLEditor->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonHTMLEditor ), NULL, this );
@@ -704,6 +796,8 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 		this->m_textCtrlTimerM->Enable(false);
 		this->m_textCtrlTimerS->Enable(false);
 	}
+
+
 }
 
 LogbookOptions::~LogbookOptions()
@@ -718,6 +812,9 @@ LogbookOptions::~LogbookOptions()
 	m_radioBtnUTC->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookOptions::onRadioBtnUTC ), NULL, this );
 	m_radioBtnLocal->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookOptions::onRadioBtnLocal ), NULL, this );
 	m_radioBtnGPSAuto->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookOptions::onRadioBtnGPSAuto ), NULL, this );
+	m_bpButtonODT->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickODT ), NULL, this );
+	m_bpButtonDatamanager->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickDataManager ), NULL, this );
+	m_bpButtonMail->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickMail ), NULL, this );
 	m_buttonInstallHTMLFiles->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickInstallHTMLFiles ), NULL, this );
 	m_buttonInstallLanguages->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonClickInstallLanguages ), NULL, this );
 	m_bpButtonHTMLEditor->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::onButtonHTMLEditor ), NULL, this );
@@ -822,6 +919,9 @@ void LogbookOptions::setValues()
 	m_choiceWindTo->SetSelection(opt->showWindHeading);
 
 	m_textCtrlHTMLEditorPath->SetValue(opt->htmlEditor);
+	m_textCtrlODTEditor->SetValue(opt->odtEditor);
+	m_textCtrlDataManager->SetValue(opt->dataManager);
+	m_textCtrlMailClient->SetValue(opt->mailClient);
 
 	if(opt->local == true)
 		m_radioBtnLocal->SetValue(true);
@@ -899,6 +999,11 @@ void LogbookOptions::getValues()
 	opt->showWindDir     = m_choiceDir->GetSelection();
 	opt->showHeading     = m_choiceHeading->GetSelection();
 	opt->showWindHeading = m_choiceWindTo->GetSelection();
+
+	opt->htmlEditor = m_textCtrlHTMLEditorPath->GetValue();
+	opt->odtEditor  = m_textCtrlODTEditor->GetValue();
+	opt->dataManager= m_textCtrlDataManager->GetValue();
+	opt->mailClient = m_textCtrlMailClient->GetValue();
 
 	if(m_radioBtnLocal->GetValue() == true)
 		opt->local = true;
@@ -1037,6 +1142,50 @@ void LogbookOptions::onButtonHTMLEditor(wxCommandEvent & ev)
 	m_textCtrlHTMLEditorPath->SetValue(openFileDialog->GetPath());
 	opt->htmlEditor = openFileDialog->GetPath();
 }
+
+void LogbookOptions::onButtonClickDataManager(wxCommandEvent& ev)
+{
+	wxFileDialog *openFileDialog = 
+			new wxFileDialog(this, _("Set Path to DataManager"), _T(""), _T(""),
+										   _T(""), 
+										   wxFD_OPEN);
+
+	if (openFileDialog->ShowModal() == wxID_CANCEL)
+            return;
+
+	m_textCtrlDataManager->SetValue(openFileDialog->GetPath());
+	opt->dataManager = openFileDialog->GetPath();
+}
+
+void LogbookOptions::onButtonClickMail(wxCommandEvent& ev)
+{
+	wxFileDialog *openFileDialog = 
+			new wxFileDialog(this, _("Set Path to MailClient"), _T(""), _T(""),
+										   _T(""), 
+										   wxFD_OPEN);
+
+	if (openFileDialog->ShowModal() == wxID_CANCEL)
+            return;
+
+	m_textCtrlMailClient->SetValue(openFileDialog->GetPath());
+	opt->mailClient = openFileDialog->GetPath();
+}
+
+void LogbookOptions::onButtonClickODT(wxCommandEvent& ev)
+{
+	wxFileDialog *openFileDialog = 
+			new wxFileDialog(this, _("Set Path to ODT-Editor"), _T(""), _T(""),
+										   _T(""), 
+										   wxFD_OPEN);
+
+	if (openFileDialog->ShowModal() == wxID_CANCEL)
+            return;
+
+	m_textCtrlODTEditor->SetValue(openFileDialog->GetPath());
+	opt->odtEditor = openFileDialog->GetPath();
+}
+
+
 
 void LogbookOptions::onTextEnterm_sKnots( wxCommandEvent& ev )
 {

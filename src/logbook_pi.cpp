@@ -533,6 +533,10 @@ void logbookkonni_pi::SaveConfig()
 			pConf->Write ( _T ( "BoatGridLayout" ), opt->boatGridLayoutChoice);
 
 			pConf->Write ( _T ( "HTMLEditor" ), opt->htmlEditor);
+			pConf->Write ( _T ( "ODTEditor" ), opt->odtEditor);
+			pConf->Write ( _T ( "DataManager" ), opt->dataManager);
+			pConf->Write ( _T ( "MailClient" ), opt->mailClient);
+
 			pConf->Write ( _T ( "GPSWarning" ), opt->noGPS);
 			pConf->Write ( _T ( "ShowAllLayouts" ), opt->showAllLayouts);
 			pConf->Write ( _T ( "ShowFilteredLayouts" ), opt->filterLayout);
@@ -634,6 +638,10 @@ void logbookkonni_pi::LoadConfig()
 			pConf->Read ( _T ( "BoatGridLayout" ), &opt->boatGridLayoutChoice);
 
 			pConf->Read ( _T ( "HTMLEditor" ), &opt->htmlEditor);
+			pConf->Read ( _T ( "ODTEditor" ), &opt->odtEditor);
+			pConf->Read ( _T ( "DataManager" ), &opt->dataManager);
+			pConf->Read ( _T ( "MailClient" ), &opt->mailClient);
+
 			pConf->Read ( _T ( "GPSWarning" ), &opt->noGPS);
 			pConf->Read ( _T ( "ShowAllLayouts" ), &opt->showAllLayouts);
 			pConf->Read ( _T ( "ShowFilteredLayouts" ), &opt->filterLayout);

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-30 08:19+0100\n"
+"POT-Creation-Date: 2011-12-02 07:14+0100\n"
 "PO-Revision-Date: 2011-11-25 01:37+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -225,14 +225,26 @@ msgstr "Datum"
 #
 #
 #
+#
+#
+#
+#
 msgid "Date + Days"
 msgstr "Datum + Tage"
 #
 #
 #
 #
+#
+#
+#
+#
 msgid "Date + Month"
 msgstr "Datum + Monat(e)"
+#
+#
+#
+#
 #
 #
 #
@@ -360,6 +372,10 @@ msgstr "Vorname"
 #
 #
 #
+#
+#
+#
+#
 msgid "Fix Date"
 msgstr "fixes Datum"
 #
@@ -425,6 +441,17 @@ msgstr "Wenn GPS nicht eingeschaltet ist benutze"
 msgid "If Watch changed"
 msgstr "Wenn Wachwechsel"
 #
+msgid ""
+"If You have created Your own Layouts\n"
+"prepend them with e.g. My_ \n"
+"The _ is important"
+msgstr ""
+#
+msgid ""
+"If You have created Your own layouts\n"
+"with prefix e.g. My_"
+msgstr ""
+#
 msgid "Information"
 msgstr "Info"
 #
@@ -480,9 +507,6 @@ msgid "LOD"
 msgstr ""
 #
 msgid "LWL"
-msgstr ""
-#
-msgid "Label_"
 msgstr ""
 #
 msgid "Languages installed"
@@ -556,6 +580,10 @@ msgstr "Logbuch vom %s bis %s"
 #
 #
 #
+#
+#
+#
+#
 msgid "Logbook until "
 msgstr "Altes Logbuch bis "
 #
@@ -611,6 +639,10 @@ msgstr "Neues Logbuch"
 #
 #
 #
+#
+#
+#
+#
 msgid "No"
 msgstr "Nein"
 #
@@ -651,9 +683,30 @@ msgstr "Eigner"
 msgid "Passport-Nr"
 msgstr "Pass-Nr."
 #
+msgid "Path to Datamanager"
+msgstr ""
+#
+#
+#, fuzzy
+msgid ""
+"Path to HTML-Editor\n"
+"(optional)"
+msgstr "Pfad zum HTML-Editor (optional)"
+#
 #
 msgid "Path to HTML-Editor (optional)"
 msgstr "Pfad zum HTML-Editor (optional)"
+#
+msgid "Path to MailClient"
+msgstr ""
+#
+#, fuzzy
+msgid "Path to ODT-Editor"
+msgstr "Pfad zum HTML-Editor"
+#
+#, fuzzy
+msgid "Paths"
+msgstr "Zubehör kaufen"
 #
 msgid "Place of Birth"
 msgstr "Geburtsort"
@@ -762,9 +815,6 @@ msgstr "Segel"
 msgid "Sails used mostly"
 msgstr "Segel meistens"
 #
-msgid "Save"
-msgstr "Speichern"
-#
 msgid "Save Boat File"
 msgstr "Boot Datei speichern"
 #
@@ -837,7 +887,19 @@ msgstr "Service zu erledigen"
 msgid "Service done"
 msgstr "Service erledigt"
 #
+#, fuzzy
+msgid "Set Path to DataManager"
+msgstr "Pfad zum HTML-Editor"
+#
 msgid "Set Path to HTML-Editor"
+msgstr "Pfad zum HTML-Editor"
+#
+#, fuzzy
+msgid "Set Path to MailClient"
+msgstr "Pfad zum HTML-Editor"
+#
+#, fuzzy
+msgid "Set Path to ODT-Editor"
 msgstr "Pfad zum HTML-Editor"
 #
 #
@@ -854,6 +916,9 @@ msgstr "Zeige Logbuch-Icon"
 #
 msgid "Show Position Fomat"
 msgstr "Zeige Position im Format"
+#
+msgid "Show ToolTips"
+msgstr ""
 #
 #
 msgid "Show Wave/Swell in"
@@ -965,6 +1030,12 @@ msgstr "Typ"
 msgid "UTC"
 msgstr ""
 #
+msgid ""
+"Uncheck if You have no GPS\n"
+"If GPS is out of order, uncheck to\n"
+"prevent that the message repeats."
+msgstr ""
+#
 #, fuzzy
 msgid "Uninstall"
 msgstr "Maschine gesamt"
@@ -1074,6 +1145,10 @@ msgstr "Marina-Nr."
 #
 #
 #
+#
+#
+#
+#
 msgid "Yes"
 msgstr "Ja"
 #
@@ -1133,6 +1208,9 @@ msgid ""
 msgstr ""
 "default = Relativ zum Schiff\n"
 "KdW = Aktuelle Windrichtung"
+#
+msgid "delay to find the right course to the wind"
+msgstr ""
 #
 msgid "en_"
 msgstr "de_"
@@ -1207,10 +1285,6 @@ msgstr "Monat(e)"
 msgid "none"
 msgstr "kein"
 #
-#
-msgid "not implemented yet"
-msgstr "noch nicht implementiert"
-#
 msgid "s"
 msgstr ""
 #
@@ -1225,6 +1299,24 @@ msgstr "Woche(n)"
 #
 msgid "write your own label"
 msgstr ""
+#
+#
+#
+#
+#
+#
+#~ msgid "Save"
+#~ msgstr "Speichern"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1250,3 +1342,8 @@ msgstr ""
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
+#
+#
+#
+#~ msgid "not implemented yet"
+#~ msgstr "noch nicht implementiert"

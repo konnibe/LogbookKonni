@@ -85,8 +85,11 @@ public:
 	wxString	weeks;
 	wxString	month;
 
-	//Path to HTML-Editor
+	//Paths 
 	wxString    htmlEditor;
+	wxString    odtEditor;
+	wxString    mailClient;
+	wxString    dataManager;
 
 	//wxChoice
 	int			showDepth;

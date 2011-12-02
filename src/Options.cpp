@@ -4,6 +4,8 @@
 
 #include "Options.h"
 #include <wx/msgdlg.h> 
+#include <wx/mimetype.h>
+
 Options::Options(void)
 {
 	// Global Options
@@ -92,8 +94,56 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 	crewGridLayoutChoice = 0;
 	boatGridLayoutChoice = 0;
 
-	// Path to HTML-Editor
-	htmlEditor = _T("");
+	// Paths
+	htmlEditor  = _T("");
+
+#ifdef __WXMSW__
+	wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(_T("odt"));
+	wxString command = filetype1->GetOpenCommand(_T("x"));
+	command = command.Remove(command.find_last_of(_T(" ")));
+	odtEditor   = command;
+#endif
+#ifdef __POSIX__
+	wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromMimeType(_T("application/vnd.oasis.opendocument.text-template"));
+	wxString command = filetype1->GetOpenCommand(wxFileName::GetPathSeparator()+_T("x"));
+	command = command.Remove(command.find_last_of(_T(" ")));
+	odtEditor = command;
+#endif
+#ifdef __WXOSX__
+	wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(_T("odt"));
+	wxString command = filetype1->GetOpenCommand(_T("x"));
+	command = command.Remove(command.find_last_of(_T(" ")));
+	odtEditor   = command;
+#endif
+
+#ifdef __WXMSW__
+	filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(_T("RSS"));
+	command=filetype1->GetOpenCommand(_T(" "));
+	command = command.Remove(command.find_first_of(_T('/'))-1);
+	mailClient = command;
+#endif
+#ifdef __POSIX__
+	filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(_T("RSS"));
+	command=filetype1->GetOpenCommand(_T(" "));
+	command = command.Remove(command.find_first_of(_T('/'))-1);
+	mailClient = command;
+#endif
+#ifdef __WXOSX__
+	filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(_T("RSS"));
+	command=filetype1->GetOpenCommand(_T(" "));
+	command = command.Remove(command.find_first_of(_T('/'))-1);
+	mailClient = command;
+#endif
+
+#ifdef __WXMSW__
+	dataManager = _T("explorer.exe /select,");
+#endif
+#ifdef __POSIX__
+	dataManager = _T("dolphin --select,");
+#endif
+#ifdef __WXOSW__
+	dataManager = _T("");
+#endif
 
 }
 

@@ -2041,18 +2041,18 @@ int LogbookDialog::showLayoutDialog(wxChoice *choice, wxString location, int for
 	}
 	else if(dlg->m_radioBtnEmail->GetValue())
 	{
-		wxMimeTypesManager manager;
-		wxFileType *filetype1=manager.GetFileTypeFromExtension(_T("RSS"));
-		wxString command=filetype1->GetOpenCommand(_T(" "));
+//		wxMimeTypesManager manager;
+//		wxFileType *filetype1=manager.GetFileTypeFromExtension(_T("RSS"));
+//		wxString command=filetype1->GetOpenCommand(_T(" "));
 
-		command = command.substr(0,command.find_first_of(_T('/'))-1);
-
+//		command = command.substr(0,command.find_first_of(_T('/'))-1);
+		wxString command = logbookPlugIn->opt->mailClient;
 #ifdef __WXMSW__		
-		wxExecute(command + _T(" /mailurl:mailto:konnibe@hotmail.de?subject=LogbookKonni-Layout&body=Drag and Drop file here"));			
+		wxExecute(command + _T(" /mailurl:mailto:myfriend@xy.xy?subject=LogbookKonni-Layout&body=Drag and Drop file here"));			
 		wxExecute(_T("explorer.exe /select,")+layout);
 #endif
 #ifdef __POSIX__
-		wxExecute(command + _T(" mailto:///konnibe@hotmail.de?subject=LogbookKonni-Layout&body=Drag and Drop file here"));		
+		wxExecute(command + _T(" mailto:///myfreind@xy.xy?subject=LogbookKonni-Layout&body=Drag and Drop file here"));		
 		wxExecute(_T("dolphin --select ")+layout);		
 #endif
 #ifdef __WXOSX__
@@ -2772,19 +2772,20 @@ void LogbookDialog::startApplication(wxString filename, wxString ext)
 {
 	if(ext == _T(".odt"))
 	{
+		wxString command = logbookPlugIn->opt->odtEditor + _T(" \"") + filename + _T("\"");
 #ifdef __WXMSW__
-		wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(ext);
-		wxString command = filetype1->GetOpenCommand(filename);
+		//wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(ext);
+		//wxString command = filetype1->GetOpenCommand(filename);
 #endif
 #ifdef __POSIX__
 		wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromMimeType(_T("application/vnd.oasis.opendocument.text-template"));
 		wxString command = filetype1->GetOpenCommand(wxFileName::GetPathSeparator()+filename+wxFileName::GetPathSeparator(););
 #endif
 #ifdef __WXOSX__
-		wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(ext);
-		wxString command = filetype1->GetOpenCommand(filename);
+		//wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(ext);
+		//wxString command = filetype1->GetOpenCommand(filename);
+		wxString command = _T("/bin/bash -c \"open \"")+filename;
 #endif
-	
 		wxExecute(command);
 	}
 	else

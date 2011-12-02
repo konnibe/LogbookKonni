@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-30 08:19+0100\n"
-"PO-Revision-Date: 2011-11-30 09:14+0100\n"
+"POT-Creation-Date: 2011-12-02 07:14+0100\n"
+"PO-Revision-Date: 2011-12-02 07:26+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -50,17 +50,6 @@ msgstr "\""
 #
 msgid "'"
 msgstr "'"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
 #
 msgid "0"
 msgstr "0"
@@ -439,6 +428,17 @@ msgstr "Si le GPS est hors service, entrez les données manuellement"
 msgid "If Watch changed"
 msgstr "Si la montre a changé"
 #
+msgid ""
+"If You have created Your own Layouts\n"
+"prepend them with e.g. My_ \n"
+"The _ is important"
+msgstr ""
+#
+msgid ""
+"If You have created Your own layouts\n"
+"with prefix e.g. My_"
+msgstr ""
+#
 msgid "Information"
 msgstr "Information"
 #
@@ -492,9 +492,6 @@ msgid "LWL"
 msgstr ""
 "Longueur\n"
 "de flottaison"
-#
-msgid "Label_"
-msgstr "Label_"
 #
 msgid "Languages installed"
 msgstr "Langue installée"
@@ -615,17 +612,6 @@ msgstr "Navigation"
 msgid "New Logbook"
 msgstr "Nouveau livre de bord"
 #
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
 msgid "No"
 msgstr "Non"
 #
@@ -665,8 +651,28 @@ msgstr "Propriétaire"
 msgid "Passport-Nr"
 msgstr "N° du passeport"
 #
+msgid "Path to Datamanager"
+msgstr ""
+#
+#, fuzzy
+msgid ""
+"Path to HTML-Editor\n"
+"(optional)"
+msgstr "Chemin vers l'éditeur HTML (Optionnel)"
+#
 msgid "Path to HTML-Editor (optional)"
 msgstr "Chemin vers l'éditeur HTML (Optionnel)"
+#
+msgid "Path to MailClient"
+msgstr ""
+#
+#, fuzzy
+msgid "Path to ODT-Editor"
+msgstr "Indiquer le chemin de l'éditeur HTML"
+#
+#, fuzzy
+msgid "Paths"
+msgstr "Acheter des pièces détachées"
 #
 msgid "Place of Birth"
 msgstr ""
@@ -780,11 +786,6 @@ msgstr ""
 "Voile utilisée\n"
 "principalement"
 #
-msgid "Save"
-msgstr ""
-"Enregistrer le\n"
-"livre de bord"
-#
 msgid "Save Boat File"
 msgstr "Sauver le fichier du bateau"
 #
@@ -858,8 +859,19 @@ msgstr "Service à faire"
 msgid "Service done"
 msgstr "Action effectuée"
 #
+#, fuzzy
+msgid "Set Path to DataManager"
+msgstr "Indiquer le chemin de l'éditeur HTML"
+#
 msgid "Set Path to HTML-Editor"
 msgstr "Indiquer le chemin de l'éditeur HTML"
+#
+#, fuzzy
+msgid "Set Path to MailClient"
+msgstr "Indiquer le chemin de l'éditeur HTML"
+#
+msgid "Set Path to ODT-Editor"
+msgstr "Indiquer le chemin de l'éditeur ODT"
 #
 msgid "Show Depth in"
 msgstr "Profondeur en"
@@ -873,6 +885,9 @@ msgstr "Montrer l'icône de LogBook"
 # Used in Options
 msgid "Show Position Fomat"
 msgstr "Montrer position format"
+#
+msgid "Show ToolTips"
+msgstr ""
 #
 msgid "Show Wave/Swell in"
 msgstr "Vague/houle en"
@@ -995,6 +1010,12 @@ msgstr "Type"
 msgid "UTC"
 msgstr "UTC"
 #
+msgid ""
+"Uncheck if You have no GPS\n"
+"If GPS is out of order, uncheck to\n"
+"prevent that the message repeats."
+msgstr ""
+#
 msgid "Uninstall"
 msgstr "Désinstaller"
 #
@@ -1106,17 +1127,6 @@ msgstr ""
 "Place\n"
 "de port"
 #
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
 msgid "Yes"
 msgstr "Oui"
 #
@@ -1177,6 +1187,9 @@ msgid ""
 msgstr ""
 "Par défaut = par rapport au bateau \n"
 "Cap = direction vent réel"
+#
+msgid "delay to find the right course to the wind"
+msgstr ""
 #
 msgid "en_"
 msgstr "fr_"
@@ -1249,9 +1262,6 @@ msgstr "mois"
 #
 msgid "none"
 msgstr "Rien"
-#
-msgid "not implemented yet"
-msgstr "Pas implémenté actuellement"
 #
 msgid "s"
 msgstr "s"

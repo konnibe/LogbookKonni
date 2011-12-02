@@ -46,8 +46,15 @@ class LogbookOptions : public wxDialog
 		wxNotebook* m_notebook4;
 		wxPanel* m_panel15;
 		
+		
+		
+		
+		
 		wxCheckBox* m_checkBoxShowLogbook;
 		wxStaticText* m_staticText76;
+		
+		
+		
 		
 		wxCheckBox* m_checkBoxShowOnlySelectedLayouts;
 		
@@ -58,10 +65,9 @@ class LogbookOptions : public wxDialog
 		
 		
 		
+		
+		
 		wxStaticText* m_staticText74;
-		
-		
-		
 		
 		wxStaticLine* m_staticline25;
 		wxStaticLine* m_staticline10;
@@ -82,9 +88,9 @@ class LogbookOptions : public wxDialog
 		wxStaticLine* m_staticline22;
 		wxStaticText* m_staticText731;
 		wxStaticText* m_staticText742;
+		wxStaticText* m_staticText751;
 		wxButton* m_buttonInstallHTMLFiles;
 		wxButton* m_buttonInstallLanguages;
-		wxStaticText* m_staticText751;
 		wxButton* m_buttonUninstall;
 		wxStaticLine* m_staticline261;
 		wxStaticText* m_staticText62;
@@ -168,6 +174,17 @@ class LogbookOptions : public wxDialog
 		wxChoice* m_choiceWind;
 		wxStaticText* m_staticText45;
 		wxChoice* m_choiceDir;
+		wxPanel* m_panel17;
+		
+		
+		
+		wxStaticText* m_staticText761;
+		wxBitmapButton* m_bpButtonODT;
+		wxStaticText* m_staticText77;
+		wxBitmapButton* m_bpButtonDatamanager;
+		wxStaticText* m_staticText78;
+		wxBitmapButton* m_bpButtonMail;
+		wxStaticText* m_staticText79;
 		wxStdDialogButtonSizer* m_sdbSizer1;
 		wxButton* m_sdbSizer1OK;
 		wxButton* m_sdbSizer1Cancel;
@@ -186,6 +203,9 @@ class LogbookOptions : public wxDialog
 		virtual void onRadioBtnGPSAuto( wxCommandEvent& event );
 		virtual void onButtonClickInstallHTMLFiles( wxCommandEvent& event );
 		virtual void onButtonClickInstallLanguages( wxCommandEvent& event );
+		virtual void onButtonClickODT( wxCommandEvent& event );
+		virtual void onButtonClickDataManager( wxCommandEvent& event );
+		virtual void onButtonClickMail( wxCommandEvent& event );
 		virtual void onButtonHTMLEditor( wxCommandEvent& event );
 		virtual void onTextEnterm_sKnots( wxCommandEvent& event );
 		virtual void onTextEnterm_sMeterSec( wxCommandEvent& event );
@@ -195,32 +215,36 @@ class LogbookOptions : public wxDialog
 	
 	public:
 		wxChoice* m_choicePositionFormat;
+		wxCheckBox* m_checkBoxToolTips;
 		wxCheckBox* m_checkBoxShowAllLayouts;
 		wxTextCtrl* m_textCtrlLayoutPrefix;
 		wxCheckBox* m_checkBoxNoGPS;
 		wxChoice* m_choiceWindTo;
-		wxCheckBox* m_checkBoxCourseChanged;
-		wxTextCtrl* m_textCtrlCourseCahngedMoreThen;
-		wxTextCtrl* m_textCtrlChancedCourse;
-		wxTextCtrl* m_textCtrlCourseMessageAfter;
 		wxCheckBox* m_checkBoxGuardChanged;
 		wxTextCtrl* m_textCtrlGuradChanged;
 		wxCheckBox* m_checkBoxEverySM;
 		wxTextCtrl* m_textCtrlEverySM;
 		wxTextCtrl* m_textCtrlEverySMText;
+		wxCheckBox* m_checkBoxCourseChanged;
+		wxTextCtrl* m_textCtrlCourseCahngedMoreThen;
+		wxTextCtrl* m_textCtrlCourseMessageAfter;
+		wxTextCtrl* m_textCtrlChancedCourse;
 		wxStaticText* m_staticText54;
 		wxRadioButton* m_radioBtnLocal;
 		wxChoice* m_choiceTzIndicator;
 		wxChoice* m_choiceTzHours;
 		wxRadioButton* m_radioBtnGPSAuto;
-		wxTextCtrl* m_textCtrlHTMLEditorPath;
-		wxBitmapButton* m_bpButtonHTMLEditor;
 		wxChoice* m_choiceDepth;
 		wxChoice* m_choiceWaveSwell;
 		wxChoice* m_choiceHeading;
 		wxTextCtrl* m_Days;
 		wxTextCtrl* m_Weeks;
 		wxTextCtrl* m_textMonth;
+		wxTextCtrl* m_textCtrlODTEditor;
+		wxTextCtrl* m_textCtrlDataManager;
+		wxTextCtrl* m_textCtrlMailClient;
+		wxTextCtrl* m_textCtrlHTMLEditorPath;
+		wxBitmapButton* m_bpButtonHTMLEditor;
 
 		LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi* log_pi, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 613,586  ), long style = wxDEFAULT_DIALOG_STYLE );
 		~LogbookOptions();

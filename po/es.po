@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-11-30 08:19+0100\n"
+"POT-Creation-Date: 2011-12-02 07:14+0100\n"
 "PO-Revision-Date: 2011-11-25 01:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -237,6 +237,10 @@ msgstr "Fecha"
 #
 #
 #
+#
+#
+#
+#
 #, fuzzy
 msgid "Date + Days"
 msgstr "DistanciaEtmal"
@@ -251,9 +255,17 @@ msgstr "DistanciaEtmal"
 #
 #
 #
+#
+#
+#
+#
 #, fuzzy
 msgid "Date + Month"
 msgstr "Fecha de nacimiento"
+#
+#
+#
+#
 #
 #
 #
@@ -394,6 +406,10 @@ msgstr "Nombre"
 #
 #
 #
+#
+#
+#
+#
 #, fuzzy
 msgid "Fix Date"
 msgstr "Fecha"
@@ -457,6 +473,17 @@ msgid "If GPS off use for manual entry"
 msgstr ""
 #
 msgid "If Watch changed"
+msgstr ""
+#
+msgid ""
+"If You have created Your own Layouts\n"
+"prepend them with e.g. My_ \n"
+"The _ is important"
+msgstr ""
+#
+msgid ""
+"If You have created Your own layouts\n"
+"with prefix e.g. My_"
 msgstr ""
 #
 msgid "Information"
@@ -549,9 +576,6 @@ msgstr ""
 msgid "LWL"
 msgstr ""
 #
-msgid "Label_"
-msgstr ""
-#
 msgid "Languages installed"
 msgstr "Idiomas instaladas"
 #
@@ -620,6 +644,10 @@ msgstr ""
 #, c-format
 msgid "Logbook from %s to %s"
 msgstr ""
+#
+#
+#
+#
 #
 #
 #
@@ -726,9 +754,88 @@ msgstr "Patrón"
 msgid "Passport-Nr"
 msgstr "Nº.Pasaporte"
 #
+msgid "Path to Datamanager"
+msgstr ""
+#
+#
+#, fuzzy
+msgid ""
+"Path to HTML-Editor\n"
+"(optional)"
+msgstr "Ruta al editor HTML (opcional)"
+#
 #
 msgid "Path to HTML-Editor (optional)"
 msgstr "Ruta al editor HTML (opcional)"
+#
+msgid "Path to MailClient"
+msgstr ""
+#
+#, fuzzy
+msgid "Path to ODT-Editor"
+msgstr "Ruta al editor HTML"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Paths"
+msgstr "Guardia"
 #
 msgid "Place of Birth"
 msgstr "Lugar de nacimiento"
@@ -834,9 +941,6 @@ msgstr "Velas"
 msgid "Sails used mostly"
 msgstr ""
 #
-msgid "Save"
-msgstr "Guardar"
-#
 msgid "Save Boat File"
 msgstr "Guardar fichero embarcación"
 #
@@ -913,7 +1017,19 @@ msgstr "Servicio pendiente"
 msgid "Service done"
 msgstr "Servicio acabado"
 #
+#, fuzzy
+msgid "Set Path to DataManager"
+msgstr "Ruta al editor HTML"
+#
 msgid "Set Path to HTML-Editor"
+msgstr "Ruta al editor HTML"
+#
+#, fuzzy
+msgid "Set Path to MailClient"
+msgstr "Ruta al editor HTML"
+#
+#, fuzzy
+msgid "Set Path to ODT-Editor"
 msgstr "Ruta al editor HTML"
 #
 #
@@ -929,6 +1045,9 @@ msgid "Show Logbook Icon"
 msgstr "Ver ícono bitácora"
 #
 msgid "Show Position Fomat"
+msgstr ""
+#
+msgid "Show ToolTips"
 msgstr ""
 #
 #
@@ -1107,6 +1226,12 @@ msgid "Type"
 msgstr "Tipo"
 #
 msgid "UTC"
+msgstr ""
+#
+msgid ""
+"Uncheck if You have no GPS\n"
+"If GPS is out of order, uncheck to\n"
+"prevent that the message repeats."
 msgstr ""
 #
 #, fuzzy
@@ -1305,6 +1430,10 @@ msgstr "Nº amarre"
 #
 #
 #
+#
+#
+#
+#
 msgid "Yes"
 msgstr "Si"
 #
@@ -1354,6 +1483,9 @@ msgstr ""
 msgid ""
 "default = Relative to Boat\n"
 "Heading = Actual wind direction"
+msgstr ""
+#
+msgid "delay to find the right course to the wind"
 msgstr ""
 #
 msgid "en_"
@@ -1437,10 +1569,6 @@ msgstr "Mes"
 msgid "none"
 msgstr "Máquina"
 #
-#
-msgid "not implemented yet"
-msgstr "no implementado aún"
-#
 msgid "s"
 msgstr ""
 #
@@ -1455,6 +1583,16 @@ msgstr ""
 #
 msgid "write your own label"
 msgstr ""
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1564,6 +1702,16 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Logbook files (*.txt)|*.txt"
 #~ msgstr "Ficheros bitácora (*.txt)|*.txt"
 #
@@ -1572,6 +1720,8 @@ msgstr ""
 #
 #
 #
+#~ msgid "Save"
+#~ msgstr "Guardar"
 #
 #
 #
@@ -1582,43 +1732,6 @@ msgstr ""
 #
 #
 #
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
-#~ msgid "Path"
-#~ msgstr "Guardia"
 #
 #
 #
@@ -1719,9 +1832,29 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Seleccione Layout"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1853,8 +1986,28 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1960,9 +2113,29 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "View Route"
 #~ msgstr "Ruta"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2051,6 +2224,21 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Wave Peak"
 #~ msgstr "Oleaje"
+#
+#
+#
+#~ msgid "not implemented yet"
+#~ msgstr "no implementado aún"
