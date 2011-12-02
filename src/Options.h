@@ -50,6 +50,7 @@ public:
 
 	bool		traditional;
 	bool		modern;
+	bool		showToolTips;
 	// Timer 
 	bool		timer;
 	wxString	thour;

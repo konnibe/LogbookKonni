@@ -602,4 +602,28 @@ class SelectLogbook : public wxDialog
 	
 };
 
+///////////// OSX MessageBox //////////////////
+class MessageBoxOSX : public wxDialog 
+{
+	private:
+	
+	protected:
+		wxStaticText* m_staticText1;
+		wxStdDialogButtonSizer* m_sdbSizer;
+		wxButton* m_sdbSizerOK;
+		wxButton* m_sdbSizerCancel;
+		
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnCloseDialog( wxCloseEvent& event ) { event.Skip(); }
+		virtual void OnCancelClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnOKClick( wxCommandEvent& event ) { event.Skip(); }
+		
+	
+	public:
+		
+		MessageBoxOSX( wxWindow* parent, wxString str,  const wxString& title = _(""), wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 286,108 ), long style = wxCLOSE_BOX|wxDEFAULT_DIALOG_STYLE );
+		~MessageBoxOSX();
+	
+};
+
 #endif //__logbook__

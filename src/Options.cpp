@@ -10,7 +10,9 @@ Options::Options(void)
 {
 	// Global Options
 	traditional = true;
-	modern = false;
+	modern      = false;
+	showToolTips= true;
+
 #ifdef __WXMSW__
 	firstTime = false;
 #endif

@@ -191,6 +191,7 @@ class LogbookOptions : public wxDialog
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void onChoicePositionFormat( wxCommandEvent& event );
+		virtual void onCheckBoxToolTips( wxCommandEvent& event );
 		virtual void onCeckBoxShowAllLayouts( wxCommandEvent& event );
 		virtual void onCheckBoxShowOnlySelectedLayouts( wxCommandEvent& event );
 		virtual void OnTextEnterLayoutPrefix( wxCommandEvent& event );

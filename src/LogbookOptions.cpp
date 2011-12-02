@@ -768,6 +768,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	// Connect Events
 	m_choicePositionFormat->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( LogbookOptions::onChoicePositionFormat ), NULL, this );
 	m_checkBoxShowAllLayouts->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::onCeckBoxShowAllLayouts ), NULL, this );
+	m_checkBoxToolTips->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::onCheckBoxToolTips ), NULL, this );
 	m_checkBoxShowOnlySelectedLayouts->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::onCheckBoxShowOnlySelectedLayouts ), NULL, this );
 	m_textCtrlLayoutPrefix->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::OnTextEnterLayoutPrefix ), NULL, this );
 	m_checkBoxNoGPS->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::onCheckBoNoGPS ), NULL, this );
@@ -789,7 +790,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_buttonUninstall->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::OnButtonClickUninstall ), NULL, this );
 
 	setValues();
-//	this->GetToolTip()->Enable(false);
+
 	if(opt->timer)
 	{
 		this->m_textCtrTimerH->Enable(false);
@@ -805,6 +806,7 @@ LogbookOptions::~LogbookOptions()
 	// Disconnect Events
 	m_choicePositionFormat->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( LogbookOptions::onChoicePositionFormat ), NULL, this );
 	m_checkBoxShowAllLayouts->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::onCeckBoxShowAllLayouts ), NULL, this );
+	m_checkBoxToolTips->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::onCheckBoxToolTips ), NULL, this );
 	m_checkBoxShowOnlySelectedLayouts->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::onCheckBoxShowOnlySelectedLayouts ), NULL, this );
 	m_textCtrlLayoutPrefix->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::OnTextEnterLayoutPrefix ), NULL, this );
 	m_checkBoxNoGPS->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::onCheckBoNoGPS ), NULL, this );
@@ -833,6 +835,20 @@ void LogbookOptions::OnButtonClickUninstall(wxCommandEvent& ev)
 	wxString s = stdpath.GetPluginsDir();
 	wxString command = s+_T("\\plugins\\uninst_logbookkonni_pi.exe");
 	wxExecute(command);	
+}
+
+void LogbookOptions::onCheckBoxToolTips(wxCommandEvent& ev)
+{
+	if(ev.IsChecked())
+	{
+		this->GetToolTip()->Enable(true);
+		opt->showToolTips = true;
+	}
+	else
+	{
+		this->GetToolTip()->Enable(false);
+		opt->showToolTips = false;
+	}
 }
 
 void LogbookOptions::OnButtonOKClick(wxCommandEvent &ev)
@@ -935,6 +951,8 @@ void LogbookOptions::setValues()
 	else
 		m_choicePositionFormat->SetSelection(0);
 
+	m_checkBoxToolTips->SetValue(opt->showToolTips);
+
 	m_choiceTzIndicator->SetSelection(opt->tzIndicator);
 	m_choiceTzHours->SetSelection(opt->tzHour);
 
@@ -1019,6 +1037,8 @@ void LogbookOptions::getValues()
 		opt->traditional = true;
 	else
 		opt->traditional= false;
+
+	opt->showToolTips = m_checkBoxToolTips->GetValue();
 
 	opt->tzIndicator = m_choiceTzIndicator->GetSelection();
 	opt->tzHour = m_choiceTzHours->GetSelection();

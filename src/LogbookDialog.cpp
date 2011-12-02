@@ -2228,7 +2228,7 @@ Backup Logbook(*.txt)|*.txt");
 	wxString stdPath  = std_path.GetUserDataDir();
 #endif
 #ifdef __WXOSX__
-	wxString stdPath  = std_path.GetConfigDir();	
+	wxString stdPath  = std_path.GetUserConfigDir();   // should be ~/Library/Preferences	
 #endif
 
 
@@ -2605,7 +2605,7 @@ void LogbookDialog::logSaveOnButtonClick( wxCommandEvent& ev )
 		filter.Prepend(_T("Opendocument Text(*.odt)|*.odt|"));
 
 	wxFileDialog *saveFileDialog = 
-			new wxFileDialog(this, _("Save Logbook File"), _T(""), _("Logbook"),
+			new wxFileDialog(this, _("Save Logbook File"), _T(""), _T("Logbook"),
 										   filter, 
 										   wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
 
@@ -2773,6 +2773,7 @@ void LogbookDialog::startApplication(wxString filename, wxString ext)
 	if(ext == _T(".odt"))
 	{
 		wxString command = logbookPlugIn->opt->odtEditor + _T(" \"") + filename + _T("\"");
+
 #ifdef __WXMSW__
 		//wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(ext);
 		//wxString command = filetype1->GetOpenCommand(filename);
@@ -2785,6 +2786,9 @@ void LogbookDialog::startApplication(wxString filename, wxString ext)
 		//wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(ext);
 		//wxString command = filetype1->GetOpenCommand(filename);
 		wxString command = _T("/bin/bash -c \"open \"")+filename;
+		MessageBoxOSX x(this,command);
+		x.Fit();
+		x.ShowModal();
 #endif
 		wxExecute(command);
 	}
@@ -2935,7 +2939,7 @@ void LogbookDialog::crewSaveOnButtonClick( wxCommandEvent& ev )
 
 	filter.Replace(_T("Logbook"),_T("CrewList"));
 	wxFileDialog *saveFileDialog = 
-			new wxFileDialog(this, _("Save CrewList File"), _T(""), _("CrewList"),
+			new wxFileDialog(this, _("Save CrewList File"), _T(""), _T("CrewList"),
 										   filter, 
 										   wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
 
@@ -3058,7 +3062,7 @@ void LogbookDialog::boatSaveOnButtonClick( wxCommandEvent& ev )
 		filter.Prepend(_T("Opendocument Text(*.odt)|*.odt|"));
 	filter.Replace(_T("Logbook"),_T("Boat"));
 	wxFileDialog *saveFileDialog = 
-			new wxFileDialog(this, _("Save Boat File"), _T(""), _("Boat"),
+			new wxFileDialog(this, _("Save Boat File"), _T(""), _T("Boat"),
 										   filter, 
 										   wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
 
@@ -3187,7 +3191,7 @@ void LogbookDialog::onButtobClickSaveService(wxCommandEvent & ev)
 		filter = _T("Opendocument Text(*.odt)|*.odt");
 
 	wxFileDialog *saveFileDialog = 
-			new wxFileDialog(this, _("Save Service File"), _T(""), _("Service"),
+			new wxFileDialog(this, _("Save Service File"), _T(""), _T("Service"),
 										   filter, 
 										   wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
 
@@ -3363,7 +3367,7 @@ void LogbookDialog::onButtobClickSaveRepairs( wxCommandEvent& event )
 		filter = _T("Opendocument Text(*.odt)|*.odt");
 
 	wxFileDialog *saveFileDialog = 
-			new wxFileDialog(this, _("Save Repairs File"), _T(""), _("Repairs"),
+			new wxFileDialog(this, _("Save Repairs File"), _T(""), _T("Repairs"),
 										   filter, 
 										   wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
 
@@ -3525,7 +3529,7 @@ void LogbookDialog::onButtobClickSaveBuyParts( wxCommandEvent& event )
 		filter = _T("Opendocument Text(*.odt)|*.odt");
 
 	wxFileDialog *saveFileDialog = 
-			new wxFileDialog(this, _("Save BuyParts File"), _T(""), _("BuyParts"),
+			new wxFileDialog(this, _("Save BuyParts File"), _T(""), _T("BuyParts"),
 										   filter, 
 										   wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
 
@@ -3689,7 +3693,7 @@ void LogbookDialog::OnButtonClickOverviewSave( wxCommandEvent& ev )
 		filter = _T("Opendocument Text(*.odt)|*.odt");
 
 	wxFileDialog *saveFileDialog = 
-			new wxFileDialog(this, _("Save Overview File"), _T(""), _("Overview"),
+			new wxFileDialog(this, _("Save Overview File"), _T(""), _T("Overview"),
 										   filter, 
 										   wxFD_SAVE|wxFD_OVERWRITE_PROMPT);
 
@@ -4243,3 +4247,43 @@ void SelectLogbook::OnInit(wxInitDialogEvent& ev)
 	}
 }
 
+//////////////// OSX MessageBox //////////////
+
+MessageBoxOSX::MessageBoxOSX( wxWindow* parent, wxString str,  const wxString& title, wxWindowID id, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxSize( -1,-1 ), wxDefaultSize );
+	
+	wxBoxSizer* mainSizer;
+	mainSizer = new wxBoxSizer( wxVERTICAL );
+	
+	m_staticText1 = new wxStaticText( this, wxID_ANY, _T("\n")+str+_T("\n"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText1->Wrap( -1 );
+	mainSizer->Add( m_staticText1, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	
+	m_sdbSizer = new wxStdDialogButtonSizer();
+	m_sdbSizerOK = new wxButton( this, wxID_OK );
+	m_sdbSizer->AddButton( m_sdbSizerOK );
+	m_sdbSizerCancel = new wxButton( this, wxID_CANCEL );
+	m_sdbSizer->AddButton( m_sdbSizerCancel );
+	m_sdbSizer->Realize();
+	mainSizer->Add( m_sdbSizer, 0, wxBOTTOM|wxRIGHT|wxALIGN_CENTER_HORIZONTAL, 5 );
+	
+	this->SetSizer( mainSizer );
+	this->Layout();
+	
+	this->Centre( wxBOTH );
+	
+	// Connect Events
+	this->Connect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( MessageBoxOSX::OnCloseDialog ) );
+	m_sdbSizerCancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MessageBoxOSX::OnCancelClick ), NULL, this );
+	m_sdbSizerOK->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MessageBoxOSX::OnOKClick ), NULL, this );
+}
+
+MessageBoxOSX::~MessageBoxOSX()
+{
+	// Disconnect Events
+	this->Disconnect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( MessageBoxOSX::OnCloseDialog ) );
+	m_sdbSizerCancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MessageBoxOSX::OnCancelClick ), NULL, this );
+	m_sdbSizerOK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MessageBoxOSX::OnOKClick ), NULL, this );
+	
+}

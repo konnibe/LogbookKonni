@@ -470,8 +470,9 @@ void logbookkonni_pi::SaveConfig()
       if(pConf)
       {
 			pConf->SetPath ( _T ( "/PlugIns/Logbook" ) );
-            pConf->Write ( _T ( "ShowLOGIcon" ), m_bLOGShowIcon );
-			pConf->Write ( _T( "Traditional" ),  opt->traditional );
+            pConf->Write ( _T( "ShowLOGIcon" ), m_bLOGShowIcon );
+			pConf->Write ( _T( "Traditional" ), opt->traditional );
+			pConf->Write ( _T( "ToolTips" ),    opt->showToolTips );
 
 			pConf->Write ( _T ( "FirstTime" ),  opt->firstTime);
 			if(m_plogbook_window)
@@ -574,6 +575,7 @@ void logbookkonni_pi::LoadConfig()
             pConf->SetPath ( _T( "/PlugIns/Logbook" ) );
             pConf->Read ( _T( "ShowLOGIcon" ),  &m_bLOGShowIcon, 1 );
 			pConf->Read ( _T( "Traditional" ),  &opt->traditional, 1 );
+			pConf->Read ( _T( "ToolTips" ),  &opt->showToolTips );
 			pConf->Read ( _T( "FirstTime" ),  &opt->firstTime);
 			pConf->Read ( _T( "DlgWidth" ),  &opt->dlgWidth,1010);
 			pConf->Read ( _T( "DlgHeight" ),  &opt->dlgHeight,535);
