@@ -2785,7 +2785,7 @@ void LogbookDialog::startApplication(wxString filename, wxString ext)
 #ifdef __WXOSX__
 		//wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(ext);
 		//wxString command = filetype1->GetOpenCommand(filename);
-		wxString command = _T("/bin/bash -c \"open \"")+filename;
+		wxString command = _T("/bin/bash -c \"open \"")+filename+_T("\"");
 		MessageBoxOSX x(this,command,_T("Gerhard's special Edition - z.Zt. für Debugging-Zwecke"));
 		x.Fit();
 		x.ShowModal();
