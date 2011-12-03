@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-12-02 07:14+0100\n"
-"PO-Revision-Date: 2011-11-25 01:37+0100\n"
+"PO-Revision-Date: 2011-12-02 19:14+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -83,12 +83,11 @@ msgid "Add Line"
 msgstr "Neue Zeile"
 #
 msgid "Add a line to the end of your logbook"
-msgstr ""
+msgstr "Fügt eine Zeile am Ende des Logbuchs hinzu"
 #
 msgid "Add a new Crewmember"
-msgstr ""
+msgstr "Fügt ein neues Crewmitglied hinzu"
 #
-#, fuzzy
 msgid "Add a new line"
 msgstr "Neue Zeile"
 #
@@ -200,6 +199,9 @@ msgid ""
 "the active logbook is saved with today's date\n"
 "and can be viewed with Button \"Select Logbook\""
 msgstr ""
+"Erstellt ein neues Logbuch\n"
+"das active Logbuch wird mit dem heutigen Datum gespeichert\n"
+"und kann über den Button \"Wähle Logbuch\" angezeigt werden."
 #
 msgid "CrewList"
 msgstr "Crewliste"
@@ -327,7 +329,6 @@ msgstr "Layout editieren"
 #
 #
 #
-#, fuzzy
 msgid "Edit Layouts"
 msgstr "Layout editieren"
 #
@@ -411,9 +412,8 @@ msgstr ""
 msgid "Heading"
 msgstr "KdW"
 #
-#, fuzzy
 msgid "Hide Equipment"
-msgstr "Zubehör hinzufügen"
+msgstr "Verstecke Zubehör"
 #
 msgid "Hide column"
 msgstr "Spalte ausblenden"
@@ -446,26 +446,28 @@ msgid ""
 "prepend them with e.g. My_ \n"
 "The _ is important"
 msgstr ""
+"Wenn Sie ein eigenes Layout erstellt haben\n"
+"stellen Sie bitte z,b. Mein_ voran\n"
+"Der Unterstrich _ ist wichtig !"
 #
 msgid ""
 "If You have created Your own layouts\n"
 "with prefix e.g. My_"
 msgstr ""
+"Wen Sie ein Layout mit dem Prefix\n"
+"z.B. Mein_ erstellt haben"
 #
 msgid "Information"
 msgstr "Info"
 #
 #
-#, fuzzy
 msgid "Install"
-msgstr "Interval:"
+msgstr "Installiere"
 #
 #
-#, fuzzy
 msgid "Install Languages"
-msgstr "Installiere OpenCPN_Logbook_Languages.zip"
+msgstr "Installiere Sprach-Dateien"
 #
-#, fuzzy
 msgid "Install Layouts"
 msgstr "Installiere ein Layout"
 #
@@ -684,29 +686,28 @@ msgid "Passport-Nr"
 msgstr "Pass-Nr."
 #
 msgid "Path to Datamanager"
-msgstr ""
+msgstr "Pfad zum Dateimanager"
 #
 #
-#, fuzzy
 msgid ""
 "Path to HTML-Editor\n"
 "(optional)"
-msgstr "Pfad zum HTML-Editor (optional)"
+msgstr ""
+"Pfad zum HTML-Editor\n"
+"(optional)"
 #
 #
 msgid "Path to HTML-Editor (optional)"
 msgstr "Pfad zum HTML-Editor (optional)"
 #
 msgid "Path to MailClient"
-msgstr ""
+msgstr "Pfad zum Mail-Programm"
 #
-#, fuzzy
 msgid "Path to ODT-Editor"
-msgstr "Pfad zum HTML-Editor"
+msgstr "Pfad zum ODT-Editor"
 #
-#, fuzzy
 msgid "Paths"
-msgstr "Zubehör kaufen"
+msgstr "Pfade"
 #
 msgid "Place of Birth"
 msgstr "Geburtsort"
@@ -856,15 +857,20 @@ msgid ""
 "Select a layout which is displayed\n"
 "with button \"View\""
 msgstr ""
+"Wählt ein Layout, das angezeit wird \n"
+"mit dem Button \"Ansehen\""
 #
 msgid ""
 "Select a old logbook\n"
 "Everytime a new logbook is created, you'll \n"
 "find the active logbook as old logbook here"
 msgstr ""
+"Wählen Sie ein altes Logbuch aus.\n"
+"Immer wenn ein neues Logbuch erstellt wird,\n"
+"finden das aktive Logbuch als neues Logbuch hier "
 #
 msgid "Select one of the old logbooks"
-msgstr ""
+msgstr "Wählen Sie eines der alten Logbücher"
 #
 msgid "Select zipped Languages-Files"
 msgstr "Wähle gezippte Sprach-Dateien"
@@ -887,28 +893,24 @@ msgstr "Service zu erledigen"
 msgid "Service done"
 msgstr "Service erledigt"
 #
-#, fuzzy
 msgid "Set Path to DataManager"
-msgstr "Pfad zum HTML-Editor"
+msgstr "Pfad zum Dateimanager"
 #
 msgid "Set Path to HTML-Editor"
 msgstr "Pfad zum HTML-Editor"
 #
-#, fuzzy
 msgid "Set Path to MailClient"
-msgstr "Pfad zum HTML-Editor"
+msgstr "Pfad zum Mail-Program"
 #
-#, fuzzy
 msgid "Set Path to ODT-Editor"
-msgstr "Pfad zum HTML-Editor"
+msgstr "Pfad zum ODT-Editor"
 #
 #
 msgid "Show Depth in"
 msgstr "Tiefe in"
 #
-#, fuzzy
 msgid "Show Equipment"
-msgstr "Zubehör"
+msgstr "Zeige Zubehör"
 #
 #
 msgid "Show Logbook Icon"
@@ -918,7 +920,7 @@ msgid "Show Position Fomat"
 msgstr "Zeige Position im Format"
 #
 msgid "Show ToolTips"
-msgstr ""
+msgstr "Zeige Tooltips"
 #
 #
 msgid "Show Wave/Swell in"
@@ -931,9 +933,8 @@ msgstr "zeige alle Layouts"
 msgid "Show hidden columns"
 msgstr "Zeige versteckte Spalten"
 #
-#, fuzzy
 msgid "Show/Hide Equipmentgrid"
-msgstr "Zubehör hinzufügen"
+msgstr "Zeige/Verstecke Zubehör"
 #
 msgid "Sign"
 msgstr "Zeichen"
@@ -1035,14 +1036,15 @@ msgid ""
 "If GPS is out of order, uncheck to\n"
 "prevent that the message repeats."
 msgstr ""
+"kein Haken, wenn Sie kein GPS benutzen\n"
+"oder es defekt ist. Es verhindert, dass die\n"
+"Nachricht permanent wiederholt wird."
 #
-#, fuzzy
 msgid "Uninstall"
-msgstr "Maschine gesamt"
+msgstr "Deinstalliere"
 #
-#, fuzzy
 msgid "Uninstall Logbook"
-msgstr "Alle Logbücher"
+msgstr "Deinstalliere Logbuch"
 #
 msgid ""
 "Uninstalls\n"
@@ -1052,6 +1054,12 @@ msgid ""
 "all Logbook-Languages\n"
 "and cleans the OpenCPN.ini"
 msgstr ""
+"Deinstalliert\n"
+"Logbuch-Plugin\n"
+"alle Logbuchdaten\n"
+"alle Logbuchlayouts\n"
+"alle Logbuchsprachen\n"
+"und bereinigt OpenCPN.ini"
 #
 msgid "Urgentvalue"
 msgstr "Dringendbetrag"
@@ -1064,7 +1072,7 @@ msgid "View"
 msgstr "Ansehen"
 #
 msgid "View data in browser (HTML) or Openoffice/LibreOffice (ODT)"
-msgstr ""
+msgstr "Sehen Sie Ihre Daten im Browser(HTML) oder Open/Libreoffice (ODT) an"
 #
 msgid "Visibility"
 msgstr "Sicht"
@@ -1172,7 +1180,7 @@ msgid "Zip"
 msgstr "PLZ"
 #
 msgid "add the equipment of your boat"
-msgstr ""
+msgstr "fügen Sie die Ausrüstung Ihres Bootes hinzu"
 #
 msgid ""
 "automatic line\n"
@@ -1210,7 +1218,7 @@ msgstr ""
 "KdW = Aktuelle Windrichtung"
 #
 msgid "delay to find the right course to the wind"
-msgstr ""
+msgstr "Verzögerung bis der richtige Kurs zum Wind gefunden wurde"
 #
 msgid "en_"
 msgstr "de_"
@@ -1220,31 +1228,37 @@ msgid "every 15 Degrees +/- 1 hour"
 msgstr "je 15 Grad +/- 1 Stunde"
 #
 msgid "export your BuyParts-data as HTML or ODT"
-msgstr ""
+msgstr "Exportieren Sie Ihre \"Kaufe-Zubehör\"-Daten in HTML oder ODT"
 #
 msgid "export your Overview-data as HTML or ODT"
-msgstr ""
+msgstr "Exportieren Sie Ihre \"Übersichtr\"-Daten in HTML oder ODT"
 #
 msgid "export your Repairs-data as HTML or ODT"
-msgstr ""
+msgstr "Exportieren Sie Ihre \"Reparatur\"-Daten in HTML oder ODT"
 #
 msgid "export your Service-data as HTML or ODT"
-msgstr ""
+msgstr "Exportieren Sie Ihre \"Servicer\"-Daten in HTML oder ODT"
 #
 msgid ""
 "export your boat/equipment-data as:\n"
 "      HTML, ODT,  ODS, XML, CSV"
 msgstr ""
+"Exportieren Sie Ihre \"Boots/Ausrüstungs\"-Daten in:\n"
+"           HTML, ODT,  ODS, XML, CSV"
 #
 msgid ""
 "export your crew-data as:\n"
 "HTML, ODT,  ODS, XML, CSV"
 msgstr ""
+"Exportieren Sie Ihre \"Crew\"-Daten in:\n"
+"        HTML, ODT,  ODS, XML, CSV"
 #
 msgid ""
 "export your logbook-data as:\n"
 "HTML, ODT,  ODS, XML, CSV"
 msgstr ""
+"Exportieren Sie Ihre  \"Logbuch\"-Daten in:\n"
+"   HTML, ODT,  ODS, XML, CSV"
 #
 msgid "fm"
 msgstr ""
@@ -1298,7 +1312,8 @@ msgid "week(s)"
 msgstr "Woche(n)"
 #
 msgid "write your own label"
-msgstr ""
+msgstr "schreiben Sie Ihr eigenes Label"
+#
 #
 #
 #
@@ -1339,11 +1354,7 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
-#
-#
-#
-#~ msgid "not implemented yet"
-#~ msgstr "noch nicht implementiert"

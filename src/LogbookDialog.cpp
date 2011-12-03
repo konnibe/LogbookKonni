@@ -2783,12 +2783,8 @@ void LogbookDialog::startApplication(wxString filename, wxString ext)
 		wxString command = filetype1->GetOpenCommand(wxFileName::GetPathSeparator()+filename+wxFileName::GetPathSeparator(););
 #endif
 #ifdef __WXOSX__
-		//wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(ext);
-		//wxString command = filetype1->GetOpenCommand(filename);
 		wxString command = _T("/bin/bash -c \"open ")+filename+_T("\"");
 		MessageBoxOSX x(this,command,_T("Gerhard's special Edition - z.Zt. für Debugging-Zwecke"));
-		x.Fit();
-		x.ShowModal();
 #endif
 		wxExecute(command);
 	}
@@ -4277,6 +4273,8 @@ MessageBoxOSX::MessageBoxOSX( wxWindow* parent, wxString str,  const wxString& t
 	this->Connect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( MessageBoxOSX::OnCloseDialog ) );
 	m_sdbSizerCancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MessageBoxOSX::OnCancelClick ), NULL, this );
 	m_sdbSizerOK->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MessageBoxOSX::OnOKClick ), NULL, this );
+	Fit();
+	ShowModal();
 }
 
 MessageBoxOSX::~MessageBoxOSX()

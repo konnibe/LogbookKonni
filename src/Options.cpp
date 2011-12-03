@@ -101,21 +101,42 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 
 #ifdef __WXMSW__
 	wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(_T("odt"));
-	wxString command = filetype1->GetOpenCommand(_T("x"));
-	command = command.Remove(command.find_last_of(_T(" ")));
-	odtEditor   = command;
+	wxString command;
+
+	if(filetype1)
+	{
+		if((command = filetype1->GetOpenCommand(_T("x.odt"))) != wxEmptyString)
+		{
+			command = command.Remove(command.find_last_of(_T(" ")));
+			odtEditor   = command;
+		}
+	}
 #endif
 #ifdef __POSIX__
 	wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromMimeType(_T("application/vnd.oasis.opendocument.text-template"));
-	wxString command = filetype1->GetOpenCommand(wxFileName::GetPathSeparator()+_T("x"));
-	command = command.Remove(command.find_last_of(_T(" ")));
-	odtEditor = command;
+	wxString command;
+
+	if(filetype1)
+	{
+		if((command = filetype1->GetOpenCommand(wxFileName::GetPathSeparator()+_T("x.odt")))!= wxEmptyString)
+		{
+			command = command.Remove(command.find_last_of(_T(" ")));
+			odtEditor   = command;
+		}
+	}
 #endif
 #ifdef __WXOSX__
 	wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(_T("odt"));
-	wxString command = filetype1->GetOpenCommand(_T("x"));
-	command = command.Remove(command.find_last_of(_T(" ")));
-	odtEditor   = command;
+	wxString command;
+
+	if(filetype1)
+	{
+		if((command = filetype1->GetOpenCommand(_T("x.odt")))!= wxEmptyString)
+		{
+			command = command.Remove(command.find_last_of(_T(" ")));
+			odtEditor   = command;
+		}
+	}
 #endif
 
 #ifdef __WXMSW__
@@ -131,10 +152,10 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 	mailClient = command;
 #endif
 #ifdef __WXOSX__
-	filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(_T("RSS"));
-	command=filetype1->GetOpenCommand(_T(" "));
-	command = command.Remove(command.find_first_of(_T('/'))-1);
-	mailClient = command;
+//	filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(_T("RSS"));
+//	command=filetype1->GetOpenCommand(_T(" "));
+//	command = command.Remove(command.find_first_of(_T('/'))-1);
+//	mailClient = command;
 #endif
 
 #ifdef __WXMSW__
