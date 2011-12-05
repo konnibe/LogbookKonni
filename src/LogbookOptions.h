@@ -185,6 +185,7 @@ class LogbookOptions : public wxDialog
 		wxStaticText* m_staticText78;
 		wxBitmapButton* m_bpButtonMail;
 		wxStaticText* m_staticText79;
+		wxButton* m_buttonResetPath;
 		wxStdDialogButtonSizer* m_sdbSizer1;
 		wxButton* m_sdbSizer1OK;
 		wxButton* m_sdbSizer1Cancel;
@@ -213,6 +214,7 @@ class LogbookOptions : public wxDialog
 		virtual void onTextEnterm_sKmh( wxCommandEvent& event );
 		virtual void OnButtonOKClick( wxCommandEvent& event );
 		virtual void OnButtonClickUninstall( wxCommandEvent& event );
+		virtual void OnButtonResetPaths( wxCommandEvent& event );
 	
 	public:
 		wxChoice* m_choicePositionFormat;

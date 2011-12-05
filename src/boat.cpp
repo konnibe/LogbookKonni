@@ -17,7 +17,7 @@
 #include <wx/wfstream.h> 
 #include <wx/txtstrm.h> 
 #include <wx/zipstrm.h> 
-
+#include "MessageBoxOSX.h"
 #include <memory>
 using namespace std;
 

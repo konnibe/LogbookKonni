@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-02 07:14+0100\n"
+"POT-Creation-Date: 2011-12-04 03:00+0100\n"
 "PO-Revision-Date: 2011-12-02 19:14+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -163,9 +163,6 @@ msgstr "kaufe Zubehör für diese Reparatur"
 msgid "Buy parts for this service"
 msgstr "kaufe Zubehör für diesen Service"
 #
-msgid "BuyParts"
-msgstr "Zubehör kaufen"
-#
 msgid "C/Strength"
 msgstr "Stromstärke"
 #
@@ -202,9 +199,6 @@ msgstr ""
 "Erstellt ein neues Logbuch\n"
 "das active Logbuch wird mit dem heutigen Datum gespeichert\n"
 "und kann über den Button \"Wähle Logbuch\" angezeigt werden."
-#
-msgid "CrewList"
-msgstr "Crewliste"
 #
 msgid "Crewlist"
 msgstr "Crewliste"
@@ -695,10 +689,6 @@ msgid ""
 msgstr ""
 "Pfad zum HTML-Editor\n"
 "(optional)"
-#
-#
-msgid "Path to HTML-Editor (optional)"
-msgstr "Pfad zum HTML-Editor (optional)"
 #
 msgid "Path to MailClient"
 msgstr "Pfad zum Mail-Programm"
@@ -1315,6 +1305,20 @@ msgid "write your own label"
 msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
+#~ msgid "BuyParts"
+#~ msgstr "Zubehör kaufen"
+#
+#
+#~ msgid "CrewList"
+#~ msgstr "Crewliste"
+#
+#
+#
+#~ msgid "Path to HTML-Editor (optional)"
+#~ msgstr "Pfad zum HTML-Editor (optional)"
+#
+#
+#
 #
 #
 #
@@ -1322,6 +1326,7 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #~ msgid "Save"
 #~ msgstr "Speichern"
+#
 #
 #
 #

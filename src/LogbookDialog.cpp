@@ -12,6 +12,9 @@
 #include "logbook_pi.h"
 #include "Options.h"
 #include "EzGrid.h"
+//#ifdef __WXOSX__
+	#include "MessageBoxOSX.h"
+//#endif
 
 #include <wx/string.h>
 #include <wx/button.h>
@@ -2769,24 +2772,21 @@ void LogbookDialog::startBrowser(wxString filename)
 }
 
 void LogbookDialog::startApplication(wxString filename, wxString ext)
-{
+{		int i = MessageBoxOSX(this,_("Jetzt mit Rückgabewert"),_T("Information"),wxID_OK|wxID_CANCEL|wxID_NO);
 	if(ext == _T(".odt"))
 	{
-		wxString command = logbookPlugIn->opt->odtEditor + _T(" \"") + filename + _T("\"");
+		 wxString command = logbookPlugIn->opt->odtEditor + _T(" \"") + filename + _T("\"");
 
-#ifdef __WXMSW__
-		//wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(ext);
-		//wxString command = filetype1->GetOpenCommand(filename);
-#endif
 #ifdef __POSIX__
 		wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromMimeType(_T("application/vnd.oasis.opendocument.text-template"));
 		wxString command = filetype1->GetOpenCommand(wxFileName::GetPathSeparator()+filename+wxFileName::GetPathSeparator(););
 #endif
 #ifdef __WXOSX__
-		wxString command = _T("/bin/bash -c \"open ")+filename+_T("\"");
-		MessageBoxOSX x(this,command,_T("Gerhard's special Edition - z.Zt. für Debugging-Zwecke"));
+
+		command = _T("/bin/bash -c \"open ")+filename+_T("\"");
+		int i = MessageBoxOSX(this->dialog,_("Jetzt mit Rückgabewert"),_T("Information"),wxID_OK|wxID_CANCEL|wxID_NO);
 #endif
-		wxExecute(command);
+		wxExecute(command);		
 	}
 	else
 	{
@@ -4241,47 +4241,4 @@ void SelectLogbook::OnInit(wxInitDialogEvent& ev)
 		}
 		m_listCtrlSelectLogbook->InsertItem(i,filename);
 	}
-}
-
-//////////////// OSX MessageBox //////////////
-
-MessageBoxOSX::MessageBoxOSX( wxWindow* parent, wxString str,  const wxString& title, wxWindowID id, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
-{
-	this->SetSizeHints( wxSize( -1,-1 ), wxDefaultSize );
-	
-	wxBoxSizer* mainSizer;
-	mainSizer = new wxBoxSizer( wxVERTICAL );
-	
-	m_staticText1 = new wxStaticText( this, wxID_ANY, _T("\n")+str+_T("\n"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText1->Wrap( -1 );
-	mainSizer->Add( m_staticText1, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
-	
-	m_sdbSizer = new wxStdDialogButtonSizer();
-	m_sdbSizerOK = new wxButton( this, wxID_OK );
-	m_sdbSizer->AddButton( m_sdbSizerOK );
-	m_sdbSizerCancel = new wxButton( this, wxID_CANCEL );
-	m_sdbSizer->AddButton( m_sdbSizerCancel );
-	m_sdbSizer->Realize();
-	mainSizer->Add( m_sdbSizer, 0, wxBOTTOM|wxRIGHT|wxALIGN_CENTER_HORIZONTAL, 5 );
-	
-	this->SetSizer( mainSizer );
-	this->Layout();
-	
-	this->Centre( wxBOTH );
-	
-	// Connect Events
-	this->Connect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( MessageBoxOSX::OnCloseDialog ) );
-	m_sdbSizerCancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MessageBoxOSX::OnCancelClick ), NULL, this );
-	m_sdbSizerOK->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MessageBoxOSX::OnOKClick ), NULL, this );
-	Fit();
-	ShowModal();
-}
-
-MessageBoxOSX::~MessageBoxOSX()
-{
-	// Disconnect Events
-	this->Disconnect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( MessageBoxOSX::OnCloseDialog ) );
-	m_sdbSizerCancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MessageBoxOSX::OnCancelClick ), NULL, this );
-	m_sdbSizerOK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MessageBoxOSX::OnOKClick ), NULL, this );
-	
 }

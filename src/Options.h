@@ -92,6 +92,11 @@ public:
 	wxString    mailClient;
 	wxString    dataManager;
 
+	wxString    htmlEditorReset;
+	wxString    odtEditorReset;
+	wxString    mailClientReset;
+	wxString    dataManagerReset;
+
 	//wxChoice
 	int			showDepth;
 	int			showWaveSwell;

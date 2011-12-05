@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-02 07:14+0100\n"
+"POT-Creation-Date: 2011-12-04 03:00+0100\n"
 "PO-Revision-Date: 2011-11-25 01:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: Pavel Kalian <pavel@kalian.cz>\n"
@@ -166,10 +166,6 @@ msgstr "Koupit díly na tuto opravu"
 msgid "Buy parts for this service"
 msgstr "Koupit díly na tento servis"
 #
-#, fuzzy
-msgid "BuyParts"
-msgstr "Koupit díly"
-#
 msgid "C/Strength"
 msgstr "P/Síla"
 #
@@ -203,9 +199,6 @@ msgid ""
 "the active logbook is saved with today's date\n"
 "and can be viewed with Button \"Select Logbook\""
 msgstr ""
-#
-msgid "CrewList"
-msgstr "Seznam posádky"
 #
 msgid "Crewlist"
 msgstr ""
@@ -767,10 +760,6 @@ msgstr ""
 msgid ""
 "Path to HTML-Editor\n"
 "(optional)"
-msgstr "Cesta k editoru HTML (volitelné)"
-#
-#
-msgid "Path to HTML-Editor (optional)"
 msgstr "Cesta k editoru HTML (volitelné)"
 #
 msgid "Path to MailClient"
@@ -1665,8 +1654,19 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Best Etmal"
 #~ msgstr "Max NM/24h"
+#
+#
+#, fuzzy
+#~ msgid "BuyParts"
+#~ msgstr "Koupit díly"
+#
+#
+#~ msgid "CrewList"
+#~ msgstr "Seznam posádky"
+#
 #
 #
 #
@@ -1821,8 +1821,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "GPS Auto (Ocean Crossing)"
 #~ msgstr "GPS Auto (přejezd oceánu)"
+#
 #
 #
 #
@@ -1958,8 +1960,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Logbook files (*.txt)|*.txt"
 #~ msgstr "Soubory deníku (*.txt)|*.txt"
+#
 #
 #
 #
@@ -2009,6 +2013,12 @@ msgstr ""
 #
 #
 #
+#~ msgid "Path to HTML-Editor (optional)"
+#~ msgstr "Cesta k editoru HTML (volitelné)"
+#
+#
+#
+#
 #
 #
 #
@@ -2017,6 +2027,7 @@ msgstr ""
 #
 #~ msgid "Save"
 #~ msgstr "Uložit"
+#
 #
 #
 #
@@ -2143,6 +2154,7 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Vybrat rozvržení:"
@@ -2208,8 +2220,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Show Maintence Rows coloured"
 #~ msgstr "Zobraz řádky údržby v barvě"
+#
 #
 #
 #
@@ -2366,8 +2380,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Today"
 #~ msgstr "Dnes"
+#
 #
 #
 #
@@ -2466,9 +2482,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Watchlist"
 #~ msgstr "Hlídka"
+#
 #
 #
 #

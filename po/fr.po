@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-02 07:14+0100\n"
+"POT-Creation-Date: 2011-12-04 03:00+0100\n"
 "PO-Revision-Date: 2011-12-02 07:26+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -164,9 +164,6 @@ msgstr "Acheter des pièces pour cette réparation"
 msgid "Buy parts for this service"
 msgstr "Acheter des pièces pour cette action"
 #
-msgid "BuyParts"
-msgstr "Acheter des pièces détachées"
-#
 msgid "C/Strength"
 msgstr "C/Force"
 #
@@ -201,9 +198,6 @@ msgid ""
 "the active logbook is saved with today's date\n"
 "and can be viewed with Button \"Select Logbook\""
 msgstr ""
-#
-msgid "CrewList"
-msgstr "Liste d'équipage"
 #
 msgid "Crewlist"
 msgstr "Equipage"
@@ -658,9 +652,6 @@ msgstr ""
 msgid ""
 "Path to HTML-Editor\n"
 "(optional)"
-msgstr "Chemin vers l'éditeur HTML (Optionnel)"
-#
-msgid "Path to HTML-Editor (optional)"
 msgstr "Chemin vers l'éditeur HTML (Optionnel)"
 #
 msgid "Path to MailClient"
@@ -1279,3 +1270,15 @@ msgstr "semaine(s)"
 #
 msgid "write your own label"
 msgstr "Ecrire votre  propre \"étiquette\" "
+#
+#
+#~ msgid "BuyParts"
+#~ msgstr "Acheter des pièces détachées"
+#
+#
+#~ msgid "CrewList"
+#~ msgstr "Liste d'équipage"
+#
+#
+#~ msgid "Path to HTML-Editor (optional)"
+#~ msgstr "Chemin vers l'éditeur HTML (Optionnel)"

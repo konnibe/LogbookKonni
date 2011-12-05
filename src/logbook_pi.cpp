@@ -46,7 +46,6 @@
 #include <wx/stdpaths.h>
 #include <wx/filefn.h>
 #include <wx/msgdlg.h>
-
 #include <memory>
 using namespace std;
 
@@ -57,7 +56,6 @@ using namespace std;
   #define DECL_EXP
 #endif
 #endif
-
 
 // the class factories, used to create and destroy instances of the PlugIn
 

@@ -98,6 +98,7 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 
 	// Paths
 	htmlEditor  = _T("");
+	htmlEditorReset = htmlEditor;
 
 #ifdef __WXMSW__
 	wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(_T("odt"));
@@ -109,6 +110,7 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 		{
 			command = command.Remove(command.find_last_of(_T(" ")));
 			odtEditor   = command;
+			odtEditorReset = odtEditor;
 		}
 	}
 #endif
@@ -122,11 +124,14 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 		{
 			command = command.Remove(command.find_last_of(_T(" ")));
 			odtEditor   = command;
+			odtEditorReset = odtEditor;
 		}
 	}
 #endif
 #ifdef __WXOSX__
-	wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(_T("odt"));
+//	wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(_T("odt"));
+    wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromMimeType(_T("application/vnd.oasis.opendocument.text-template"));
+	
 	wxString command;
 
 	if(filetype1)
@@ -135,6 +140,7 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 		{
 			command = command.Remove(command.find_last_of(_T(" ")));
 			odtEditor   = command;
+			odtEditorReset = odtEditor;
 		}
 	}
 #endif
@@ -144,28 +150,31 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 	command=filetype1->GetOpenCommand(_T(" "));
 	command = command.Remove(command.find_first_of(_T('/'))-1);
 	mailClient = command;
+	mailClientReset = mailClient;
 #endif
 #ifdef __POSIX__
 	filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(_T("RSS"));
 	command=filetype1->GetOpenCommand(_T(" "));
 	command = command.Remove(command.find_first_of(_T('/'))-1);
 	mailClient = command;
+	mailClientReset = mailClient;
 #endif
 #ifdef __WXOSX__
-//	filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(_T("RSS"));
-//	command=filetype1->GetOpenCommand(_T(" "));
-//	command = command.Remove(command.find_first_of(_T('/'))-1);
-//	mailClient = command;
+	mailClient = _T("/Applications/Mail.app ");
+	mailClientReset = mailClient;
 #endif
 
 #ifdef __WXMSW__
 	dataManager = _T("explorer.exe /select,");
+	dataManagerReset = dataManager; 
 #endif
 #ifdef __POSIX__
 	dataManager = _T("dolphin --select,");
+	dataManagerReset = dataManagerReset; 
 #endif
 #ifdef __WXOSW__
 	dataManager = _T("");
+	dataManagerReset = dataManagerReset; 
 #endif
 
 }

@@ -82,7 +82,9 @@ SET(SRC_LOGBOOKKONNI
 		src/EzGrid.h
 		src/EzGrid.cpp
 		src/GridCellChoiceRenderer.h	
-		src/GridCellChoiceRenderer.cpp		
+		src/GridCellChoiceRenderer.cpp	
+		src/MessageBoxOSX.h
+		src/MessageBoxOSX.cpp	
  	)
 
 SET(SRC_NMEA0183
