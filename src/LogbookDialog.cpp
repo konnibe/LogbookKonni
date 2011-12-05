@@ -2772,7 +2772,7 @@ void LogbookDialog::startBrowser(wxString filename)
 }
 
 void LogbookDialog::startApplication(wxString filename, wxString ext)
-{		int i = MessageBoxOSX(this,_("Jetzt mit Rückgabewert"),_T("Information"),wxID_OK|wxID_CANCEL|wxID_NO);
+{
 	if(ext == _T(".odt"))
 	{
 		 wxString command = logbookPlugIn->opt->odtEditor + _T(" \"") + filename + _T("\"");
