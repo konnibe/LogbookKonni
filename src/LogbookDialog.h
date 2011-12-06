@@ -78,8 +78,10 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		int					lastRowSelectedService;
 		int					lastRowSelectedRepairs;
 		int					lastRowSelectedBuyParts;
+		int					previousColumn;
 
 		void				declareExportHeader();
+		bool				checkHiddenColumns(wxGrid* grid,int i,wxKeyEvent& ev);
 	
 	public:
 		Boat*			boat;
@@ -349,6 +351,7 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		virtual void onGridCellLeftClickService( wxGridEvent& event );
 		virtual void onGridCellLeftClickBuyParts( wxGridEvent& event );
 		virtual void OnToggleButtonShowEquip( wxCommandEvent& event );
+		virtual void OnKeyDownOverview( wxKeyEvent& event );
 
 		virtual void m_menu1Highlighted(wxMenuEvent& event);
 

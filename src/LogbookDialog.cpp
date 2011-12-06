@@ -1599,6 +1599,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_buttonReloadLayoutOview->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::onButtonReloadLayoutOverView ), NULL, this );
 	m_buttonEditLayoutOview->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::onButtonClickEditLayoutOverview ), NULL, this );
 	m_radioBtnHTMLOverview->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookDialog::onRadioButtonHTMLOverview ), NULL, this );
+	m_gridOverview->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( LogbookDialog::OnKeyDownOverview ), NULL, this );
 	m_radioBtnODTOverview->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookDialog::onRadioButtonODTOverView ), NULL, this );
 	logViewOverview->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnButtonClickOverView ), NULL, this );
 	m_radioBtnHTMLOverview->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookDialog::onRadioButtonHTMLOverview ), NULL, this );
@@ -1761,6 +1762,7 @@ LogbookDialog::~LogbookDialog()
 	m_buttonSelectLogbook->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::onButtonClickSelectLogbook ), NULL, this );	
 	m_gridOverview->Disconnect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::OnGridCellRightClickOverview ), NULL, this );
 	m_gridOverview->Disconnect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftClickOverview ), NULL, this );
+	m_gridOverview->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( LogbookDialog::OnKeyDownOverview ), NULL, this );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionGotoRoute ) );
 	logSaveOverview->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnButtonClickOverviewSave ), NULL, this );
 	m_buttonReloadLayoutOview->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::onButtonReloadLayoutOverView ), NULL, this );
@@ -1853,6 +1855,9 @@ void LogbookDialog::OnMenuSelectionHideColumn(wxCommandEvent& ev)
 	int selGrid = this->m_notebook8->GetSelection();
 
 	logGrids[selGrid]->SetColumnWidth(selGridCol,0);
+	if(previousColumn != selGridCol)
+		logGrids[selGrid]->SetGridCursor(selGridRow,previousColumn);
+	selGridCol = previousColumn;
 	logGrids[selGrid]->Refresh();	
 }
 
@@ -1878,6 +1883,7 @@ void LogbookDialog::m_gridGlobalOnKeyDown( wxKeyEvent& ev )
 
 	if ((ev.ShiftDown() && ev.GetKeyCode() == WXK_TAB) || (ev.GetKeyCode() == WXK_LEFT))
 	{	
+		selGridCol  = logGrids[m_notebook8->GetSelection()]->GetGridCursorCol();
 		if(selGridCol == 0)
 		{
 			if(m_notebook8->GetSelection() == 0)
@@ -1888,14 +1894,22 @@ void LogbookDialog::m_gridGlobalOnKeyDown( wxKeyEvent& ev )
 			logGrids[m_notebook8->GetSelection()]->SetFocus();
 			logGrids[m_notebook8->GetSelection()]->SetGridCursor(selGridRow,selGridCol);
 			logGrids[m_notebook8->GetSelection()]->MakeCellVisible(selGridRow,selGridCol);
+
+			selGridCol++;
+			if(checkHiddenColumns(logGrids[m_notebook8->GetSelection()],-1,ev))
+				ev.Skip();
 		}
 		else
-			ev.Skip();
+		{
+			if(checkHiddenColumns(logGrids[m_notebook8->GetSelection()],-1,ev))
+				ev.Skip();
+		}
 		return;
 	}
-	
+
 	if (ev.GetKeyCode() == WXK_TAB || ev.GetKeyCode() == WXK_RIGHT)
 	{	
+		selGridCol  = logGrids[m_notebook8->GetSelection()]->GetGridCursorCol();
 		if(selGridCol == logGrids[m_notebook8->GetSelection()]->GetNumberCols()-1)
 		{
 			if(m_notebook8->GetSelection() == LOGGRIDS - 1)
@@ -1906,15 +1920,82 @@ void LogbookDialog::m_gridGlobalOnKeyDown( wxKeyEvent& ev )
 			logGrids[m_notebook8->GetSelection()]->SetFocus();
 			logGrids[m_notebook8->GetSelection()]->SetGridCursor(selGridRow,selGridCol);
 			logGrids[m_notebook8->GetSelection()]->MakeCellVisible(selGridRow,selGridCol);
+			//selGridCol = -1;
+			if(checkHiddenColumns(logGrids[m_notebook8->GetSelection()],1,ev))
+				ev.Skip();
 		}
 		else
-			ev.Skip();
+		{
+			if(checkHiddenColumns(logGrids[m_notebook8->GetSelection()],1,ev))
+				ev.Skip();
+		}
 		return;
 	}
     else 
 	{
         ev.Skip () ;
 	}
+}
+
+bool LogbookDialog::checkHiddenColumns(wxGrid* grid,int i, wxKeyEvent& ev)
+{
+	bool skip = true;
+	while((selGridCol+i <= grid->GetNumberCols()) && (selGridCol+i >= 0))
+	{
+		if(grid->GetColSize(selGridCol+i) == 0)
+		{
+			selGridCol += i;
+			if(selGridCol <= grid->GetNumberCols()-1) 
+				grid->SetGridCursor(selGridRow,selGridCol);
+
+			wxKeyEvent* e = (wxKeyEvent*)ev.Clone();
+			e->m_keyCode = ev.m_keyCode;
+			e->SetEventType(wxEVT_KEY_DOWN);
+			e->m_shiftDown = ev.m_shiftDown;
+			e->m_controlDown = false;
+			e->m_metaDown = false;
+		    e->m_altDown = false;
+			e->SetId(GetId());
+			e->m_uniChar = 0;
+			e->SetEventObject(this);
+
+			//grid->GetEventHandler()->ProcessEvent( *e );
+
+			grid = logGrids[m_notebook8->GetSelection()];
+		}
+		else
+			break;
+	}
+
+	if(selGridCol <= grid->GetNumberCols()-1) 
+		grid->SetGridCursor(selGridRow,selGridCol);
+//	wxKeyEvent event;
+//	event.SetEventType(wxEventType
+  //  event.SetEventObject( this );
+    // Give it some contents
+    //event.SetText( wxT("Hallo") );
+    // Send it
+
+
+/*
+	while((selGridCol+i < grid->GetNumberCols()) && (selGridCol+i >= 0))
+	{
+		if(grid->GetColSize(selGridCol+i) == 0)
+		{
+			selGridCol += i;
+			m_gridGlobalOnKeyDown( ev );
+			int ii = m_notebook8->GetSelection();
+			grid = logGrids[m_notebook8->GetSelection()];
+			if(selGridCol == 0 || selGridCol == grid->GetNumberCols()-1)
+				{  ev.Skip(); }
+		}
+		else
+			break;
+	}
+
+	grid->SetGridCursor(selGridRow,selGridCol);
+*/
+	return skip;
 }
 
 void LogbookDialog::gridGlobalScrolled( wxScrollWinEvent& ev )
@@ -2096,6 +2177,7 @@ void LogbookDialog::m_gridGlobalOnGridSelectCell( wxGridEvent& ev )
 
 	selGridCol = ev.GetCol();
 	selGridRow = ev.GetRow();
+	previousColumn = ev.GetCol();
 
 	int rowHeight = m_gridGlobal->GetRowHeight(selGridRow);
 
@@ -2123,6 +2205,7 @@ void LogbookDialog::m_gridMotorSailsOnGridSelectCell( wxGridEvent& ev )
 
 	selGridCol = ev.GetCol();
 	selGridRow = ev.GetRow();
+	previousColumn = ev.GetCol();
 
 	if(selGridCol == 8 && m_gridMotorSails->GetRowHeight(selGridRow) < 120)
 		m_gridMotorSails->SetRowHeight(selGridRow,120);
@@ -2144,6 +2227,7 @@ void LogbookDialog::m_gridWeatherOnGridSelectCell( wxGridEvent& ev )
 
 	selGridCol = ev.GetCol();
 	selGridRow = ev.GetRow();
+	previousColumn = ev.GetCol();
 
 	for(int i = 0; i < LOGGRIDS; i++)
 	{
@@ -2436,7 +2520,7 @@ void LogbookDialog::OnMenuSelectionShowHiddenCols(wxCommandEvent &ev)
 {
 	int selGrid = this->m_notebook8->GetSelection();
 
-	for(int i = 0; i < logGrids[selGrid]->GetNumberCols()-1; i++)
+	for(int i = 0; i < logGrids[selGrid]->GetNumberCols(); i++)
 		if(logGrids[selGrid]->GetColumnWidth(i) == 0)
 			logGrids[selGrid]->AutoSizeColumn(i,false);
 
@@ -2773,6 +2857,7 @@ void LogbookDialog::startBrowser(wxString filename)
 
 void LogbookDialog::startApplication(wxString filename, wxString ext)
 {
+
 	if(ext == _T(".odt"))
 	{
 		 wxString command = logbookPlugIn->opt->odtEditor + _T(" \"") + filename + _T("\"");
@@ -2784,7 +2869,7 @@ void LogbookDialog::startApplication(wxString filename, wxString ext)
 #ifdef __WXOSX__
 
 		command = _T("/bin/bash -c \"open ")+filename+_T("\"");
-		int i = MessageBoxOSX(this->dialog,_("Jetzt mit Rückgabewert"),_T("Information"),wxID_OK|wxID_CANCEL|wxID_NO);
+		int i = MessageBoxOSX(this,command,_T("Information"),wxID_OK|wxID_NO|wxID_CANCEL);
 #endif
 		wxExecute(command);		
 	}
@@ -3672,6 +3757,39 @@ void LogbookDialog::onGridEditorShow( wxGridEvent& ev )
 void LogbookDialog::onButtonClickSelectLogbook(wxCommandEvent & ec)
 {
 	overview->selectLogbook();		
+}
+
+void LogbookDialog::OnKeyDownOverview( wxKeyEvent& ev )
+{
+	int offset;
+	int col = m_gridOverview->GetGridCursorCol();
+	int row = m_gridOverview->GetGridCursorRow();
+
+	if((ev.GetKeyCode() != WXK_TAB) || (ev.ShiftDown() && ev.GetKeyCode() != WXK_TAB)) 
+		{ ev.Skip(); return; }
+
+	if ((ev.ShiftDown() && ev.GetKeyCode() == WXK_TAB) || 
+		(ev.GetKeyCode() == WXK_LEFT))
+			offset = -1; 
+
+	if ((!ev.ShiftDown() && ev.GetKeyCode() == WXK_TAB) || 
+		(ev.GetKeyCode() == WXK_RIGHT))
+			offset = 1; 
+
+	while((col+offset < m_gridOverview->GetNumberCols()-1) && (col+offset > 0))
+	{
+		if(m_gridOverview->GetColSize(col+offset) == 0)
+			col += offset;
+		else
+			break;
+	}
+
+	if(col+offset == 0 && m_gridOverview->GetColSize(0) == 0)
+		col = m_gridOverview->GetNumberCols()-1;
+	if((col+offset == m_gridOverview->GetNumberCols()-1) && (m_gridOverview->GetColSize(col+offset) == 0))
+		col = 0;
+	m_gridOverview->SetGridCursor(row,col);
+	ev.Skip();
 }
 
 void LogbookDialog::OnMenuSelectionHideColumnOverView(wxCommandEvent& ev)

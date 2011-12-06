@@ -26,6 +26,6 @@ class MessageBoxOSX_ : public wxDialog
 	public:
 		MessageBoxOSX_( wxWindow* parent, wxString str,  const wxString& title = _(""), int buttons = wxID_OK, wxWindowID id = wxID_ANY, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 286,108 ), long style = wxCLOSE_BOX|wxDEFAULT_DIALOG_STYLE);
 		~MessageBoxOSX_();
-		int ShowModal();
+		int ShowModal_();
 	
 };

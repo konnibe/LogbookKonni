@@ -38,6 +38,7 @@ MessageBoxOSX_::MessageBoxOSX_( wxWindow* parent, wxString str,  const wxString&
 		m_sdbSizer->AddButton( m_sdbSizerCancel );
 		m_sdbSizerCancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MessageBoxOSX_::OnCancelClick ), NULL, this );
 	}
+
 	m_sdbSizer->Realize();
 	mainSizer->Add( m_sdbSizer, 0, wxBOTTOM|wxRIGHT|wxALIGN_CENTER_HORIZONTAL, 0 );
 	
@@ -61,34 +62,38 @@ MessageBoxOSX_::~MessageBoxOSX_()
 		m_sdbSizerOK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MessageBoxOSX_::OnOKClick ), NULL, this );
 	if(m_sdbSizerNo)
 		m_sdbSizerNo->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( MessageBoxOSX_::OnNoClick ), NULL, this );
-	
+		
 }
 void MessageBoxOSX_::OnCloseDialog(wxCloseEvent& event)
 {
-	Destroy();
+	//this->Close();//this->Destroy();
+	event.Skip();
 }
 
 void MessageBoxOSX_::OnOKClick(wxCommandEvent& event)
 {
 	returnint = wxID_OK;
-	Destroy();
+	Close();//this->Destroy();
+	event.Skip();
 }
 
 void MessageBoxOSX_::OnCancelClick(wxCommandEvent& event)
 {
 	returnint = wxID_CANCEL;
-	Destroy();
+	Close();//this->Destroy();
+	event.Skip();
 }
 
 void MessageBoxOSX_::OnNoClick(wxCommandEvent& event)
 {
 	returnint = wxID_NO;
-	Destroy();
+	Close();//this->Destroy();
+	event.Skip();
 }
 
-int MessageBoxOSX_::ShowModal()
+int MessageBoxOSX_::ShowModal_()
 {
-	wxDialog::ShowModal();
+	this->ShowModal();
 	return returnint;
 }
 
@@ -96,6 +101,6 @@ int MessageBoxOSX_::ShowModal()
 int MessageBoxOSX(wxWindow* parent, wxString str, wxString title, int buttons)
 {
 	MessageBoxOSX_ x(parent,str,title,buttons);
-	int i = x.ShowModal();
+	int i = x.ShowModal_();
 	return i;
 }
