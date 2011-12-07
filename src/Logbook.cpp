@@ -187,6 +187,7 @@ void Logbook::SetSentence(wxString &sentence)
 
 					sSOG = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Rmc.SpeedOverGroundKnots,opt->speed.c_str());
 					sCOG = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue, opt->Deg.c_str());
+					dCOG = m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue;
 
 					long day,month,year;
 					m_NMEA0183.Rmc.Date.SubString(0,1).ToLong(&day);
@@ -877,6 +878,10 @@ wxString Logbook::calculateDistance(wxString fromstr, wxString tostr)
 		tolat = positionStringToDezimalModern(sLatto)* (PI/180);
 		tolon = positionStringToDezimalModern(sLonto)* (PI/180);
 	}
+	if(oldPosition.NSflag == 'S') fromlat = -fromlat;
+	if(oldPosition.WEflag == 'W') fromlon = -fromlon;
+	if(newPosition.NSflag == 'S') tolat = -fromlat;
+	if(newPosition.WEflag == 'W') tolon = -fromlon;
 
 ///////
 sm = acos(cos(fromlat)*cos(fromlon)*cos(tolat)*cos(tolon) + 
@@ -898,8 +903,12 @@ wxDouble Logbook::positionStringToDezimal(wxString pos)
 	if(pos.Contains(_T("W"))) resdeg = -resdeg;
 	temp = tkz.GetNextToken();
 	temp.ToDouble(&resmin);
+	if(pos.Contains(_T("S"))) resmin = -resmin;
+	if(pos.Contains(_T("W"))) resmin = -resmin;
 	temp = tkz.GetNextToken();
 	temp.ToDouble(&ressec);
+	if(pos.Contains(_T("S"))) ressec = -ressec;
+	if(pos.Contains(_T("W"))) ressec = -ressec;
 	resmin = (resmin/60 + ressec/3600);
 
 	return resdeg + resmin;
@@ -917,7 +926,9 @@ wxDouble Logbook::positionStringToDezimalModern(wxString pos)
 	if(pos.Contains(_T("W"))) resdeg = -resdeg;
 	temp = tkz.GetNextToken();
 	temp.ToDouble(&resmin);
-
+	if(pos.Contains(_T("S"))) resmin = -resmin;
+	if(pos.Contains(_T("W"))) resmin = -resmin;
+//	wxMessageBox(wxString::Format(_T("%f\n%f\n%f"),resdeg,resmin/60,resdeg+(resmin/60)));
 	return resdeg + (resmin/60);
 }
 
@@ -993,13 +1004,15 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 	if(grid == 0 && col == 1 )
 					{
 						wxDateTime dt;
-
-						if(!dt.ParseDate(s))
+					//	setlocale(LC_ALL,"");
+						//wxMessageBox(dt.ParseDate(s));
+						const wxChar *c = dt.ParseDate(s);
+					/*	if(dt.ParseDate(s))
 						{
 							wxMessageBox(_("Please enter the Date in the format:\n   11/18/2011"));
 							dialog->logGrids[grid]->SetCellValue(row,col,_T(""));
 						}
-						else
+						else*/
 						{
 							dialog->logGrids[grid]->SetCellValue(row,col,dt.FormatDate());
 							if(row == dialog->m_gridGlobal->GetNumberRows()-1)

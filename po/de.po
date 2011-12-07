@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-04 03:00+0100\n"
-"PO-Revision-Date: 2011-12-02 19:14+0100\n"
+"POT-Creation-Date: 2011-12-07 03:28+0100\n"
+"PO-Revision-Date: 2011-12-07 04:25+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -426,7 +426,7 @@ msgstr "Wenn"
 #
 #
 msgid "If Course changes more then "
-msgstr "Wenn Kursänderung mehr als °"
+msgstr "Wenn Kursänderung mehr als °  "
 #
 msgid "If GPS off use for manual entry"
 msgstr "Wenn GPS nicht eingeschaltet ist benutze"
@@ -690,6 +690,11 @@ msgstr ""
 "Pfad zum HTML-Editor\n"
 "(optional)"
 #
+#
+#
+msgid "Path to HTML-Editor (optional)"
+msgstr "Pfad zum HTML-Editor (optional)"
+#
 msgid "Path to MailClient"
 msgstr "Pfad zum Mail-Programm"
 #
@@ -771,7 +776,7 @@ msgid "Reload Layouts"
 msgstr "Layouts neu laden"
 #
 msgid "Remarks"
-msgstr "Noitzen"
+msgstr "Notizen"
 #
 msgid "Rename Layout"
 msgstr "Layout umbenennen"
@@ -784,6 +789,9 @@ msgstr "Reparaturen"
 #
 msgid "RepairsTODO"
 msgstr "Reparaturen zu erlegigen"
+#
+msgid "Reset Paths"
+msgstr "Pfade zurücksetzen"
 #
 msgid "Reset all Values to zero ?"
 msgstr "alle Werte zurücksetzen ?"
@@ -1103,7 +1111,7 @@ msgid "Weeks(s)"
 msgstr "Woche(n)"
 #
 msgid "Wind"
-msgstr "Windstärke"
+msgstr "Wind"
 #
 msgid "Wind Avg."
 msgstr "Windstärke durchschn."
@@ -1305,17 +1313,18 @@ msgid "write your own label"
 msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
+#
+#
 #~ msgid "BuyParts"
 #~ msgstr "Zubehör kaufen"
+#
+#
 #
 #
 #~ msgid "CrewList"
 #~ msgstr "Crewliste"
 #
 #
-#
-#~ msgid "Path to HTML-Editor (optional)"
-#~ msgstr "Pfad zum HTML-Editor (optional)"
 #
 #
 #
@@ -1326,6 +1335,8 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #~ msgid "Save"
 #~ msgstr "Speichern"
+#
+#
 #
 #
 #

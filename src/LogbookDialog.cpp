@@ -1895,13 +1895,11 @@ void LogbookDialog::m_gridGlobalOnKeyDown( wxKeyEvent& ev )
 			logGrids[m_notebook8->GetSelection()]->SetGridCursor(selGridRow,selGridCol);
 			logGrids[m_notebook8->GetSelection()]->MakeCellVisible(selGridRow,selGridCol);
 
-			selGridCol++;
-			if(checkHiddenColumns(logGrids[m_notebook8->GetSelection()],-1,ev))
-				ev.Skip();
+			checkHiddenColumns(logGrids[m_notebook8->GetSelection()],-1,true);
 		}
 		else
 		{
-			if(checkHiddenColumns(logGrids[m_notebook8->GetSelection()],-1,ev))
+			if(checkHiddenColumns(logGrids[m_notebook8->GetSelection()],-1,true))
 				ev.Skip();
 		}
 		return;
@@ -1920,13 +1918,12 @@ void LogbookDialog::m_gridGlobalOnKeyDown( wxKeyEvent& ev )
 			logGrids[m_notebook8->GetSelection()]->SetFocus();
 			logGrids[m_notebook8->GetSelection()]->SetGridCursor(selGridRow,selGridCol);
 			logGrids[m_notebook8->GetSelection()]->MakeCellVisible(selGridRow,selGridCol);
-			//selGridCol = -1;
-			if(checkHiddenColumns(logGrids[m_notebook8->GetSelection()],1,ev))
-				ev.Skip();
+
+			checkHiddenColumns(logGrids[m_notebook8->GetSelection()],1,true);
 		}
 		else
 		{
-			if(checkHiddenColumns(logGrids[m_notebook8->GetSelection()],1,ev))
+			if(checkHiddenColumns(logGrids[m_notebook8->GetSelection()],1,true))
 				ev.Skip();
 		}
 		return;
@@ -1937,64 +1934,60 @@ void LogbookDialog::m_gridGlobalOnKeyDown( wxKeyEvent& ev )
 	}
 }
 
-bool LogbookDialog::checkHiddenColumns(wxGrid* grid,int i, wxKeyEvent& ev)
+bool LogbookDialog::checkHiddenColumns(wxGrid* grid,int i, bool use)
 {
 	bool skip = true;
+
 	while((selGridCol+i <= grid->GetNumberCols()) && (selGridCol+i >= 0))
 	{
 		if(grid->GetColSize(selGridCol+i) == 0)
-		{
 			selGridCol += i;
-			if(selGridCol <= grid->GetNumberCols()-1) 
-				grid->SetGridCursor(selGridRow,selGridCol);
-
-			wxKeyEvent* e = (wxKeyEvent*)ev.Clone();
-			e->m_keyCode = ev.m_keyCode;
-			e->SetEventType(wxEVT_KEY_DOWN);
-			e->m_shiftDown = ev.m_shiftDown;
-			e->m_controlDown = false;
-			e->m_metaDown = false;
-		    e->m_altDown = false;
-			e->SetId(GetId());
-			e->m_uniChar = 0;
-			e->SetEventObject(this);
-
-			//grid->GetEventHandler()->ProcessEvent( *e );
-
-			grid = logGrids[m_notebook8->GetSelection()];
-		}
 		else
 			break;
-	}
-
-	if(selGridCol <= grid->GetNumberCols()-1) 
-		grid->SetGridCursor(selGridRow,selGridCol);
-//	wxKeyEvent event;
-//	event.SetEventType(wxEventType
-  //  event.SetEventObject( this );
-    // Give it some contents
-    //event.SetText( wxT("Hallo") );
-    // Send it
-
-
-/*
-	while((selGridCol+i < grid->GetNumberCols()) && (selGridCol+i >= 0))
-	{
-		if(grid->GetColSize(selGridCol+i) == 0)
+		
+		if((selGridCol == 0  && i == -1) && use)
 		{
-			selGridCol += i;
-			m_gridGlobalOnKeyDown( ev );
-			int ii = m_notebook8->GetSelection();
-			grid = logGrids[m_notebook8->GetSelection()];
-			if(selGridCol == 0 || selGridCol == grid->GetNumberCols()-1)
-				{  ev.Skip(); }
-		}
-		else
-			break;
-	}
+			  if(m_notebook8->GetSelection() == 0)
+				m_notebook8->SetSelection(2);
+			  else if(m_notebook8->GetSelection() == 1)
+				m_notebook8->SetSelection(0);
+			  else
+				m_notebook8->SetSelection(1);
 
+			  grid = logGrids[m_notebook8->GetSelection()];
+			  selGridCol = grid->GetNumberCols()-1;
+			  grid->SetFocus();
+			  grid->SetGridCursor(selGridRow,selGridCol);
+			  grid->MakeCellVisible(selGridRow,selGridCol);
+			  checkHiddenColumns(grid, i, false);
+			  return true;
+		}
+
+			if((selGridCol == grid->GetNumberCols()-1 && i == 1) && use)
+			{
+			  if(m_notebook8->GetSelection() == 0)
+				m_notebook8->SetSelection(1);
+			  else if(m_notebook8->GetSelection() == 1)
+				m_notebook8->SetSelection(2);
+			  else
+				m_notebook8->SetSelection(0);
+
+			  selGridCol = 0;
+			  grid = logGrids[m_notebook8->GetSelection()];
+			  grid->SetFocus();
+			  grid->SetGridCursor(selGridRow,selGridCol);
+			  grid->MakeCellVisible(selGridRow,selGridCol);
+			  if(m_notebook8->GetSelection() == 0)
+				 selGridCol--;
+			  checkHiddenColumns(grid, i, false);
+			  return true;
+			}
+
+			grid = logGrids[m_notebook8->GetSelection()];
+		
+
+	}
 	grid->SetGridCursor(selGridRow,selGridCol);
-*/
 	return skip;
 }
 

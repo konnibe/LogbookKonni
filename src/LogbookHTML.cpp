@@ -463,7 +463,7 @@ wxString LogbookHTML::toODT(wxString path,wxString layout, bool mode)
 	odt.Replace(wxT("#HOMEPORT#"),parent->homeport->GetValue());
 	odt.Replace(wxT("#CALLSIGN#"),parent->callsign->GetValue());
 	odt.Replace(wxT("#REGISTRATION#"),parent->registration->GetValue());
-	odt.Replace(wxT("#LOCATION#"),layout_locn + layout + _T(".odt"));
+
 
 	int indexTopODT = odt.Find(seperatorHeaderTop);
 	int top = indexTopODT;

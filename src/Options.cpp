@@ -24,7 +24,7 @@ Options::Options(void)
 #endif
 	dlgWidth = 1010;
 	dlgHeight = 535;
-	layoutPrefix = _("en_");
+	layoutPrefix = _T("Label_");
 	filterLayout = false;
 	showAllLayouts = true;
 	noGPS = true;

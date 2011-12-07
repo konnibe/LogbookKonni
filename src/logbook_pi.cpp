@@ -105,7 +105,8 @@ logbookkonni_pi::~logbookkonni_pi()
 
 int logbookkonni_pi::Init(void)
 {
- //   AddLocaleCatalog( _T("opencpn-logbookkonni_pi") );
+    AddLocaleCatalog( _T("opencpn-logbookkonni_pi") );
+	wxMessageBox(::getloGetLocale());
 	m_plogbook_window = NULL;
 
 	opt = new Options();
@@ -334,7 +335,7 @@ wxString logbookkonni_pi::GetCommonName()
 
 wxString logbookkonni_pi::GetShortDescription()
 {
-    AddLocaleCatalog( _T("opencpn-logbookkonni_pi") );
+//    AddLocaleCatalog( _T("opencpn-logbookkonni_pi") );
 	return _("Logbook for OpenCPN");
 }
 

@@ -81,7 +81,7 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		int					previousColumn;
 
 		void				declareExportHeader();
-		bool				checkHiddenColumns(wxGrid* grid,int i,wxKeyEvent& ev);
+		bool				checkHiddenColumns(wxGrid* grid,int i,bool use);
 	
 	public:
 		Boat*			boat;
@@ -531,7 +531,7 @@ class RouteDialog : public wxDialog
 		wxButton* m_sdbSizer6OK;
 		wxButton* m_sdbSizer6Cancel;
 		
-		RouteDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Select Route"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 269,318 ), long style = wxDEFAULT_DIALOG_STYLE );
+		RouteDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Select Route"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 269,318 ), long style = wxDEFAULT_DIALOG_STYLE );
 		~RouteDialog();
 	
 };

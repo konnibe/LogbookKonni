@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-04 03:00+0100\n"
+"POT-Creation-Date: 2011-12-07 03:28+0100\n"
 "PO-Revision-Date: 2011-11-25 01:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -757,6 +757,11 @@ msgid ""
 "(optional)"
 msgstr "Ruta al editor HTML (opcional)"
 #
+#
+#
+msgid "Path to HTML-Editor (optional)"
+msgstr "Ruta al editor HTML (opcional)"
+#
 msgid "Path to MailClient"
 msgstr ""
 #
@@ -908,6 +913,68 @@ msgstr "Reparaciones"
 #
 msgid "RepairsTODO"
 msgstr "Reparaciones pendientes"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Reset Paths"
+msgstr "Guardia"
 #
 msgid "Reset all Values to zero ?"
 msgstr ""
@@ -1574,13 +1641,25 @@ msgid "write your own label"
 msgstr ""
 #
 #
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "BuyParts"
 #~ msgstr "Comprar recambios"
 #
 #
+#
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Listado de tripulación"
+#
+#
+#
+#
 #
 #
 #
@@ -1718,13 +1797,16 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Logbook files (*.txt)|*.txt"
 #~ msgstr "Ficheros bitácora (*.txt)|*.txt"
 #
 #
 #
-#~ msgid "Path to HTML-Editor (optional)"
-#~ msgstr "Ruta al editor HTML (opcional)"
+#
 #
 #
 #
@@ -1737,6 +1819,10 @@ msgstr ""
 #
 #~ msgid "Save"
 #~ msgstr "Guardar"
+#
+#
+#
+#
 #
 #
 #
@@ -1865,9 +1951,17 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Seleccione Layout"
+#
+#
+#
+#
 #
 #
 #
@@ -2027,8 +2121,16 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
+#
+#
+#
 #
 #
 #
@@ -2162,9 +2264,17 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "View Route"
 #~ msgstr "Ruta"
+#
+#
+#
+#
 #
 #
 #
@@ -2281,9 +2391,17 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Wave Peak"
 #~ msgstr "Oleaje"
+#
+#
+#
+#
 #
 #
 #
