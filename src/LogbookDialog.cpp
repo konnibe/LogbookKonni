@@ -2245,6 +2245,7 @@ void LogbookDialog::setTitleExt()
 void LogbookDialog::init()
 {	
 	sashPos = -1;
+	setDatePattern();
 
 	clouds[0] = wxT("Cirrus");
 	clouds[1] = wxT("Cirrocumulus");
@@ -3890,12 +3891,82 @@ void LogbookDialog::OnMenuSelectionGotoRoute( wxCommandEvent& ev )
 {
 	overview->gotoRoute();
 }
-/*
-void LogbookDialog::OnMenuSelectionViewRoute( wxCommandEvent& ev )
-{
 
+bool LogbookDialog::myParseDate(wxString s, wxDateTime &dt)
+{
+	long day;
+	long month;
+	long year;
+
+	if((s.GetChar(2) != dateSeparator) && (s.GetChar(1) != dateSeparator)) 
+		return false;
+
+	wxString temp = s.substr(0,s.find_first_of(dateSeparator));
+	switch(datePattern.GetChar(0))
+		{
+		case 'd': temp.ToLong(&day);
+			break;
+		case 'm': temp.ToLong(&month);
+			break;
+		case 'y': temp.ToLong(&year);
+			break;
+		}
+	temp = s.substr(s.find_first_of(dateSeparator)+1,s.find_last_of(dateSeparator)-2);
+	switch(datePattern.GetChar(3))
+		{
+		case 'd': temp.ToLong(&day);
+			break;
+		case 'm': temp.ToLong(&month);
+			break;
+		case 'y': temp.ToLong(&year);
+			break;
+		}
+	temp = s.substr(s.find_last_of(dateSeparator)+1);
+	switch(datePattern.GetChar(6))
+		{
+		case 'd': temp.ToLong(&day);
+			break;
+		case 'm': temp.ToLong(&month);
+			break;
+		case 'y': temp.ToLong(&year);
+			break;
+		}
+
+	s = wxString::Format(_T("%i.%i.%i"),month,day,year);
+	if(dt.ParseDate(s))
+		return true;
+	else
+		return false;
 }
-*/
+
+void LogbookDialog::setDatePattern()
+{
+	wxDateTime dt;
+	dt.Set((wxDateTime::wxDateTime_t) 14, (wxDateTime::Month) 11, 2011);
+	wxString s = dt.FormatDate();
+	dateSeparator = s.GetChar(2);
+
+	if(s.SubString(0,1) == _T("14"))
+		datePattern = _T("dd") + wxString(dateSeparator);
+	if(s.SubString(0,1) == _T("12"))
+		datePattern = _T("mm") + wxString(dateSeparator);
+	if(s.SubString(0,1) == _T("2011"))
+		datePattern = _T("yyyy") + wxString(dateSeparator);
+
+	if(s.SubString(3,4) == _T("12"))
+		datePattern += _T("mm") + wxString(dateSeparator);
+	if(s.SubString(3,4) == _T("14"))
+		datePattern += _T("dd") + wxString(dateSeparator);
+    if(s.SubString(3,4) == _T("2011"))
+		datePattern += _T("yyyy") + wxString(dateSeparator);
+
+	if(s.SubString(6,9) == _T("12"))
+		datePattern += _T("mm");
+	if(s.SubString(6,9) == _T("14"))
+		datePattern += _T("dd");
+	if(s.SubString(6,9) == _T("2011"))
+		datePattern += _T("yyyy");
+}
 
 ////////////////////////////////////////////////////////////
 //   Headers for Export

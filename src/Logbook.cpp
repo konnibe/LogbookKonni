@@ -1004,17 +1004,17 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 	if(grid == 0 && col == 1 )
 					{
 						wxDateTime dt;
-					//	setlocale(LC_ALL,"");
-						//wxMessageBox(dt.ParseDate(s));
-						const wxChar *c = dt.ParseDate(s);
-					/*	if(dt.ParseDate(s))
+
+						if(!dialog->myParseDate(s,dt))
 						{
-							wxMessageBox(_("Please enter the Date in the format:\n   11/18/2011"));
+							dt = dt.Now();
+							wxMessageBox(wxString::Format(_("Please enter the Date in the format:\n      %s"),dt.FormatDate()));
 							dialog->logGrids[grid]->SetCellValue(row,col,_T(""));
 						}
-						else*/
+						else
 						{
 							dialog->logGrids[grid]->SetCellValue(row,col,dt.FormatDate());
+
 							if(row == dialog->m_gridGlobal->GetNumberRows()-1)
 								dialog->maintenance->checkService(row);
 						}

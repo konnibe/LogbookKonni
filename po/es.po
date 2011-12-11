@@ -1645,6 +1645,7 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "BuyParts"
 #~ msgstr "Comprar recambios"
@@ -1654,8 +1655,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "CrewList"
 #~ msgstr "Listado de tripulación"
+#
 #
 #
 #
@@ -1801,6 +1804,7 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Logbook files (*.txt)|*.txt"
 #~ msgstr "Ficheros bitácora (*.txt)|*.txt"
 #
@@ -1817,8 +1821,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Save"
 #~ msgstr "Guardar"
+#
 #
 #
 #
@@ -1955,9 +1961,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Seleccione Layout"
+#
 #
 #
 #
@@ -2125,8 +2133,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
 #
 #
 #
@@ -2268,9 +2278,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "View Route"
 #~ msgstr "Ruta"
+#
 #
 #
 #
@@ -2395,9 +2407,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Wave Peak"
 #~ msgstr "Oleaje"
+#
 #
 #
 #

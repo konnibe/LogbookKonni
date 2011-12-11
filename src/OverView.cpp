@@ -455,17 +455,19 @@ void OverView::writeSumColumn(int row, wxString logbook, wxString path, bool col
 	grid->SetCellValue(row,FSPEED,wxString::Format(_T("%4.2f %s"),speed/speedcount,opt->speed.c_str()));
 	grid->SetCellValue(row,FBSPEED,wxString::Format(_T("%4.2f %s"),speedpeak,opt->speed.c_str()));
 	grid->SetCellValue(row,FPATH,path);
+
 	wxDateTime startdt, enddt;
 
-	startdt.ParseDate(startdate);
+	parent->myParseDate(startdate,startdt);
 	startdt.ParseTime(starttime);
-	enddt.ParseDate(enddate);
+	parent->myParseDate(enddate,enddt);
 	enddt.ParseTime(endtime);
 
 	wxTimeSpan journey = enddt.Subtract(startdt);
 	grid->SetCellValue(row,FJOURNEY,journey.Format(_T("%D Days %H:%M "))+opt->motorh);
 
-	int max = 0;wxString result;
+	int max = 0; 
+	wxString result;
 	collection::iterator it;
 
 	for(it = t_coll.begin(); it != t_coll.end(); ++it)

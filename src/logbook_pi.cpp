@@ -106,7 +106,7 @@ logbookkonni_pi::~logbookkonni_pi()
 int logbookkonni_pi::Init(void)
 {
     AddLocaleCatalog( _T("opencpn-logbookkonni_pi") );
-	wxMessageBox(::getloGetLocale());
+
 	m_plogbook_window = NULL;
 
 	opt = new Options();

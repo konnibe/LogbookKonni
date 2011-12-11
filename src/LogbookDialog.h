@@ -457,6 +457,9 @@ enum FORMAT {HTML,ODT};
 			m_splitter1->Disconnect( wxEVT_IDLE, wxIdleEventHandler( LogbookDialog::m_splitter1OnIdle ), NULL, this );
 		}
 
+		bool myParseDate(wxString s,wxDateTime  &dt);
+		void setDatePattern();
+
 		void setTitleExt();
 		wxString replaceDangerChar(wxString s);
 		wxString restoreDangerChar(wxString s);
@@ -477,6 +480,9 @@ enum FORMAT {HTML,ODT};
 		wxString*			pHome_Locn;
 		Logbook*			logbook;
 		OverView*			overview;
+
+		wxString			datePattern;
+		wxChar				dateSeparator;
 
 		wxMenuItem*			menuItemTimer;
 		wxString			layoutHTML;
