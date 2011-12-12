@@ -83,6 +83,9 @@ public:
       wxTimer 		    *m_timer;
 	  wxColour			col,col1,gridline,uitext,udkrd,back_color,text_color;
 	  wxColour			mcol,mcol1,mgridline, muitext,mudkrd,mback_color,mtext_color;
+
+	  wxLocale*			local;
+
 //    The required PlugIn Methods
       int Init(void);
       bool DeInit(void);

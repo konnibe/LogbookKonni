@@ -37,6 +37,7 @@
 #include "LogbookDialog.h"
 #include "LogbookOptions.h"
 #include "Options.h"
+#include "MessageBoxOSX.h"
 
 #include "wx/stdpaths.h"
 #include <wx/timer.h> 
@@ -401,7 +402,8 @@ int logbookkonni_pi::GetToolbarToolCount(void)
 void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 {
 #ifdef __WXOSX__
-;
+// Not tested yet
+    	AddLocaleCatalog( _T("opencpn-logbookkonni_pi") );
 #else
 	if(opt->firstTime)
 	{
@@ -417,6 +419,8 @@ void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 #ifdef __WXMSW__
 	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 613,541  ),
 		wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
+#elif defined __WXOSX__
+    optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 650,681 ),wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
 #else
 	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 613,681 ),
 		wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );	
@@ -444,6 +448,7 @@ void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 
 void logbookkonni_pi::OnToolbarToolCallback(int id)
 {
+//	local = new wxLocale(wxLocale::GetSystemLanguage());
       // show the Logbook dialog
 	if(NULL == m_plogbook_window)
 	{
@@ -694,6 +699,34 @@ void logbookkonni_pi::LoadConfig()
 			}	
 			i = 0; 
 			while(true)
+#ifdef __WXOSX__
+            {
+				r = pConf->Read (wxString::Format(_T ( "OverviewGridColWidth/%i"),i++), &val);	
+				opt->OverviewColWidth.Add(val);
+				if(!r) break;
+			}
+          i = 0;
+          while(true)
+          {
+              r = pConf->Read (wxString::Format(_T ( "ServiceGridColWidth/%i"),i++), &val);	
+              opt->ServiceColWidth.Add(val);
+              if(!r) break;
+          }
+          i = 0;
+          while(true)
+          {
+              r = pConf->Read (wxString::Format(_T ( "RepairsGridColWidth/%i"),i++), &val);	
+              opt->RepairsColWidth.Add(val);
+              if(!r) break;
+          }
+          i = 0;
+          while(true)
+          {
+              r = pConf->Read (wxString::Format(_T ( "BuyPartsGridColWidth/%i"),i++), &val);	
+              opt->BuyPartsColWidth.Add(val);
+              if(!r) break;
+          }    
+#else
 			{
 				r = pConf->Read (wxString::Format(_T ( "OverviewGridColWidth/%i"),i++), &val, -1);	
 				opt->OverviewColWidth.Add(val);
@@ -720,6 +753,7 @@ void logbookkonni_pi::LoadConfig()
 				opt->BuyPartsColWidth.Add(val);
 				if(!r) break;
 			}
+#endif
 	  }
 }
 
@@ -735,12 +769,10 @@ void logbookkonni_pi::loadLayouts(wxWindow *parent)
 	wxStandardPathsBase& std_path = wxStandardPathsBase::Get();
 #ifdef __WXMSW__
 	wxString stdPath  = std_path.GetConfigDir();
-#endif
-#ifdef __POSIX__
+#elif defined __POSIX__
 	wxString stdPath  = std_path.GetUserDataDir();	
-#endif
-#ifdef __WXOSX__
-	wxString stdPath  = std_path.GetConfigDir();
+#elif defined __WXOSX__
+	wxString stdPath  = std_path.GetUserConfigDir();
 #endif
 
 	wxString *pHome_Locn = new wxString();
@@ -832,7 +864,11 @@ void logbookkonni_pi::loadLayouts(wxWindow *parent)
 		m_plogbook_window->loadLayoutChoice(
 			m_plogbook_window->boat->layout_locn,m_plogbook_window->boatChoice);
 		}
+#ifdef __WXOSX__
+        MessageBoxOSX(this->m_plogbook_window,_("Layouts installed"),_T("Information"),wxID_OK);
+#else
 		wxMessageBox(_("OK"));
+#endif
 	}
 	if(opt->firstTime)
 		loadLanguages(parent);
@@ -840,28 +876,34 @@ void logbookkonni_pi::loadLayouts(wxWindow *parent)
 
 void logbookkonni_pi::loadLanguages(wxWindow *parent)
 {	wxString path;
+#ifdef __WXOSX__
+;    
+#else
 	bool buildPath;
-
+#endif
 	std::auto_ptr<wxZipEntry> entry;
+#ifdef __WXOSX__
+    static const wxChar *FILETYPES = _T("OpenCPN_Mac_Logbook_Languages.zip");
+#else
 	static const wxChar *FILETYPES = _T(
 		"OpenCPN_Logbook_Languages.zip");
-
+#endif
 	wxString sep = wxFileName::GetPathSeparator(); 
 	wxString languagePath;
 	wxStandardPaths sp;
 #ifdef __WXMSW__
 	languagePath = sp.GetExecutablePath();
-	languagePath = languagePath.Remove(languagePath.find_last_of(sep));	
-#endif
-#ifdef __POSIX__
-	languagePath = sp.GetInstallPrefix();	
-#endif
-#ifdef __WXOSX__
+	languagePath = languagePath.Remove(languagePath.find_last_of(sep));
+    languagePath.append(sep + _T("share") + sep + _T("locale") + sep);
+#elif defined __POSIX__
+	languagePath = sp.GetInstallPrefix();
+	languagePath.append(sep + _T("share") + sep + _T("locale") + sep);
+#elif defined __WXOSX__
 	languagePath = sp.GetExecutablePath();
 	languagePath = languagePath.Remove(languagePath.find_last_of(sep));
+    languagePath = languagePath.Remove(languagePath.find_last_of(sep));
+    languagePath.append(sep + _T("Resources") + sep);
 #endif
-
-	languagePath.append(sep + _T("share") + sep + _T("locale") + sep);
 
 	wxFileDialog* openFileDialog =
 		new wxFileDialog( parent, _("Select zipped Languages-Files"), _T(""), FILETYPES, FILETYPES,
@@ -877,7 +919,11 @@ void logbookkonni_pi::loadLanguages(wxWindow *parent)
 				continue;
 			else
 				path = languagePath + entry->GetName();
+#ifdef __WXOSX__
+;            
+#else
 				buildPath = false;
+#endif
 
 			wxFileOutputStream out(path);
 
@@ -885,7 +931,11 @@ void logbookkonni_pi::loadLanguages(wxWindow *parent)
 			zip.Read(out);
 			out.Close();
 		}
+#ifdef __WXOSX__
+        MessageBoxOSX(this->m_plogbook_window,_("Languages installed"),_T("Information"),wxID_OK);
+#else
 		wxMessageBox(_("Languages installed"));
+#endif
 	}
 
 }

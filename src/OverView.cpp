@@ -204,7 +204,7 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 	int lastrow = 0;
 
 	wxString route = _T("xxx");
-	while( t = stream->ReadLine())
+	while( (t = stream->ReadLine()))
 	{
 		if(input.Eof()) break;
 
@@ -214,6 +214,7 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 		{
 			s = parent->restoreDangerChar(tkz.GetNextToken());
 			s.RemoveLast();
+			s.Replace(_T(","),_T("."));
 
 			switch(c)
 			{
@@ -430,30 +431,71 @@ void OverView::writeSumColumn(int row, wxString logbook, wxString path, bool col
 	grid->SetCellValue(row,FLOG,logbook);
 	grid->SetCellValue(row,FSTART,startdate);
 	grid->SetCellValue(row,FEND,enddate);
-	grid->SetCellValue(row,FDISTANCE,wxString::Format(_T("%6.2f %s"),distance,opt->distance.c_str()));
-	grid->SetCellValue(row,FETMAL,wxString::Format(_T("%6.2f %s"),etmal,opt->distance.c_str()));
-	grid->SetCellValue(row,FBESTETMAL,wxString::Format(_T("%6.2f %s"),bestetmal,opt->distance.c_str()));
+
+	wxString temp = wxString::Format(_T("%6.2f %s"),distance,opt->distance.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FDISTANCE,temp);
+	temp = wxString::Format(_T("%6.2f %s"),etmal,opt->distance.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FETMAL,temp);
+	temp = wxString::Format(_T("%6.2f %s"),bestetmal,opt->distance.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FBESTETMAL,temp);
 
 #ifdef __WXOSX__
-	grid->SetCellValue(row,FFUEL,wxString::Format(_T("%6.2f %s"),labs(fuel),opt->vol.c_str()));
-	grid->SetCellValue(row,FWATER,wxString::Format(_T("%6.2f %s"),labs(water),opt->vol.c_str()));
+	temp = wxString::Format(_T("%6.2f %s"),labs(fuel),opt->vol.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FFUEL,temp);
+	temp = wxString::Format(_T("%6.2f %s"),labs(water),opt->vol.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FWATER,temp);
 #else
-	grid->SetCellValue(row,FFUEL,wxString::Format(_T("%6.2f %s"),abs(fuel),opt->vol.c_str()));
-	grid->SetCellValue(row,FWATER,wxString::Format(_T("%6.2f %s"),abs(water),opt->vol.c_str()));
+	temp = wxString::Format(_T("%6.2f %s"),abs(fuel),opt->vol.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FFUEL,temp);
+	temp = wxString::Format(_T("%6.2f %s"),abs(water),opt->vol.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FWATER,temp);
 #endif
-	grid->SetCellValue(row,FWIND,wxString::Format(_T("%6.2f %s"),wind/windcount,_T("kts")));
-	grid->SetCellValue(row,FWINDDIR,wxString::Format(_T("%6.2f %s"),winddir/windcount,opt->Deg.c_str()));
-	grid->SetCellValue(row,FWINDPEAK,wxString::Format(_T("%6.2f %s"),windpeak,_T("kts")));
-	grid->SetCellValue(row,FWAVE,wxString::Format(_T("%6.2f %s"),wave/wavecount,d.c_str()));
-	grid->SetCellValue(row,FWAVEPEAK,wxString::Format(_T("%6.2f %s"),wavepeak,d.c_str()));
-	grid->SetCellValue(row,FSWELL,wxString::Format(_T("%6.2f %s"),swell/swellcount,d.c_str()));
-	grid->SetCellValue(row,FSWELLPEAK,wxString::Format(_T("%6.2f %s"),swellpeak,d.c_str()));
-	grid->SetCellValue(row,FCURRENTDIR,wxString::Format(_T("%6.2f %s"),currentdir/currentcount,opt->Deg.c_str()));
-	grid->SetCellValue(row,FCURRENT,wxString::Format(_T("%6.2f %s"),current/currentcount,d.c_str()));
-	grid->SetCellValue(row,FCURRENTPEAK,wxString::Format(_T("%6.2f %s"),currentpeak,d.c_str()));
-	grid->SetCellValue(row,FENGINE,wxString::Format(_T("%0002i:%02i %s"),enginehours,enginemin,opt->motorh.c_str()));
-	grid->SetCellValue(row,FSPEED,wxString::Format(_T("%4.2f %s"),speed/speedcount,opt->speed.c_str()));
-	grid->SetCellValue(row,FBSPEED,wxString::Format(_T("%4.2f %s"),speedpeak,opt->speed.c_str()));
+	temp = wxString::Format(_T("%6.2f %s"),wind/windcount,_T("kts"));
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FWIND,temp);
+	temp = wxString::Format(_T("%6.2f %s"),winddir/windcount,opt->Deg.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FWINDDIR,temp);
+	temp = wxString::Format(_T("%6.2f %s"),windpeak,_T("kts"));
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FWINDPEAK,temp);
+	temp = wxString::Format(_T("%6.2f %s"),wave/wavecount,d.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FWAVE,temp);
+	temp = wxString::Format(_T("%6.2f %s"),wavepeak,d.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FWAVEPEAK,temp);
+	temp = wxString::Format(_T("%6.2f %s"),swell/swellcount,d.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FSWELL,temp);
+	temp = wxString::Format(_T("%6.2f %s"),swellpeak,d.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FSWELLPEAK,temp);
+	wxString::Format(_T("%6.2f %s"),currentdir/currentcount,opt->Deg.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FCURRENTDIR,temp);
+	temp = wxString::Format(_T("%6.2f %s"),current/currentcount,d.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FCURRENT,temp);
+	temp = wxString::Format(_T("%6.2f %s"),currentpeak,d.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FCURRENTPEAK,temp);
+	temp = wxString::Format(_T("%0002i:%02i %s"),enginehours,enginemin,opt->motorh.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FENGINE,temp);
+	temp = wxString::Format(_T("%4.2f %s"),speed/speedcount,opt->speed.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FSPEED,temp);
+	temp = wxString::Format(_T("%4.2f %s"),speedpeak,opt->speed.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FBSPEED,temp);
 	grid->SetCellValue(row,FPATH,path);
 
 	wxDateTime startdt, enddt;

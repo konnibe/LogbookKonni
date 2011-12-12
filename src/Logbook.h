@@ -56,6 +56,7 @@ private:
 	bool				courseChange;
 	bool				everySM;
 	bool				guardChange;
+	bool				oldLogbook;
 
 	wxString			toSDMM ( int NEflag, double a, bool mode );
 	wxString			toSDMMOpenCPN ( int NEflag, double a, bool hi_precision );
@@ -105,7 +106,7 @@ public:
 	void changeCellValue(int row, int col, int offset);
 	void setLayoutLocation(wxString loc);
 	void SetGPSStatus(bool status);
-	bool checkGPS();
+	bool checkGPS(bool appendClick);
 
 
 	wxTextFile* logbookFile;

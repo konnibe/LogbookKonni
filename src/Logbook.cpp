@@ -9,6 +9,7 @@
 #include "LogbookHTML.h"
 #include "logbook_pi.h"
 #include "Options.h"
+#include "MessageBoxOSX.h"
 
 #include "nmea0183/nmea0183.h"
 
@@ -36,6 +37,8 @@
 Logbook::Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString layoutODT)
 : LogbookHTML(this,parent,data,layout)
 {
+	oldLogbook = false;
+
 	noSentence = true;
 	modified = false;
 	wxString logLay;
@@ -341,6 +344,17 @@ void Logbook::newLogbook()
 	if(data_locn != this->logbookData_actuell)
 		this->switchToActuellLogbook();
 
+#ifdef __WXOSX__
+    int i = MessageBoxOSX(this->dialog,_("Are you sure ?"),_("New Logbook"),wxID_NO|wxID_OK);
+    if(i == wxID_NO)
+        return;
+    
+    int ii = MessageBoxOSX(this->dialog,_("Reset all Values to zero ?"),_T("New Logbook"),wxID_OK|wxID_NO);
+    if(ii == wxID_OK)
+        zero = true;
+    else if(ii == wxID_NO)
+        return;
+#else
 	int i = wxMessageBox(_("Are you sure ?"),_("New Logbook"),wxYES_NO );
 	if(i == wxNO)
 		return;
@@ -348,12 +362,17 @@ void Logbook::newLogbook()
 	i = wxMessageBox(_("Reset all Values to zero ?"),_T(""),wxYES_NO );
 	if(i == wxYES)
 		zero = true;
-
+#endif
 
 	if(dialog->m_gridGlobal->GetNumberRows() <= 0)
 	{
+#ifdef __WXOSX__
+        MessageBoxOSX(this->dialog, _("Your Logbook has no lines ?"),_("New Logbook"),wxID_OK);
+        return;
+#else
 		wxMessageBox(_("Your Logbook has no lines ?"),_("New Logbook"),wxOK );
 		return;
+#endif
 	}
 
 	update();
@@ -450,11 +469,15 @@ void Logbook::loadSelectedData(wxString path)
 	wxFileName fn(path);
 	path = fn.GetName();
 	if(path == _T("logbook"))
+	{
 		path = _("Active Logbook");
+		oldLogbook = false;
+	}
 	else
 	{
 		wxDateTime dt = dialog->getDateTo(path);
 		path = wxString::Format(_("Old Logbook until %s"),dt.FormatDate().c_str()); 
+		oldLogbook = true;
 	}
 	title = path;
 	dialog->SetTitle(title);
@@ -484,7 +507,7 @@ void Logbook::loadData()
 	wxTextInputStream* stream = new wxTextInputStream (input);
 
 	int row = 0;
-	while( t = stream->ReadLine())
+	while( (t = stream->ReadLine()))
 	{
 		if(input.Eof()) break;
 		dialog->m_gridGlobal->AppendRows();
@@ -604,7 +627,7 @@ void Logbook::appendRow(bool mode)
 {
 	wxString s;
 
-	checkGPS();
+	checkGPS(mode);
 
 	if(noAppend) return;
 	modified = true;
@@ -619,14 +642,19 @@ void Logbook::appendRow(bool mode)
 		x->Show();
 
 		noAppend = false;
+		oldLogbook = false;
 	}
 
 	int lastRow = dialog->logGrids[0]->GetNumberRows();
 	if(lastRow > 800)
 	{
 		dialog->timer->Stop();
+#ifdef __WXOSX__
+        MessageBoxOSX(this->dialog, _("Your Logbook has 800 lines or more\n\nPlease create a new logbook to minimize the loadingtime.\n\nIf you have a running timer, it's stopped now !!!"),_("Information"),wxID_OK);
+#else
 		wxMessageBox(_("Your Logbook has 800 lines or more\n\n\
 Please create a new logbook to minimize the loadingtime.\n\nIf you have a running timer, it's stopped now !!!"),_("Information"));
+#endif
 
 		dialog->logbookPlugIn->opt->timer = false;
 		dialog->menuItemTimer->Check(false);
@@ -710,9 +738,11 @@ void Logbook::checkCourseChanged()
 	wxDouble cog;
 	wxGrid* grid = dialog->m_gridGlobal;
 	if(grid->GetNumberRows() == 0) return;
-	grid->GetCellValue(grid->GetNumberRows()-1,8).ToDouble(&cog);
+	wxString temp = grid->GetCellValue(grid->GetNumberRows()-1,8);
+	temp.Replace(_(","),_("."));
+	temp.ToDouble(&cog);
 
-	if(cog == dCOG) return;
+	if((cog == dCOG) || oldLogbook) return;
 
 #ifdef __WXOSX__
 	wxDouble result = labs(cog-dCOG); 
@@ -888,7 +918,9 @@ sm = acos(cos(fromlat)*cos(fromlon)*cos(tolat)*cos(tolon) +
 		  cos(fromlat)*sin(fromlon)*cos(tolat)*sin(tolon) + sin(fromlat)*sin(tolat)) * 3443.9;
 ////// code snippet from http://www2.nau.edu/~cvm/latlongdist.html#formats
 
-	return wxString::Format(_T("%.2f %s"),sm,opt->distance.c_str());
+	wxString ret = wxString::Format(_T("%.2f %s"),sm,opt->distance.c_str());
+	ret.Replace(_T("."),dialog->decimalPoint);
+	return ret;
 }
 
 wxDouble Logbook::positionStringToDezimal(wxString pos)
@@ -898,14 +930,17 @@ wxDouble Logbook::positionStringToDezimal(wxString pos)
 
 	wxStringTokenizer tkz(pos, _T(" "));
 	temp = tkz.GetNextToken();
+	temp.Replace(_T(","),_T("."));
 	temp.ToDouble(&resdeg);
 	if(pos.Contains(_T("S"))) resdeg = -resdeg;
 	if(pos.Contains(_T("W"))) resdeg = -resdeg;
 	temp = tkz.GetNextToken();
+	temp.Replace(_T(","),_T("."));
 	temp.ToDouble(&resmin);
 	if(pos.Contains(_T("S"))) resmin = -resmin;
 	if(pos.Contains(_T("W"))) resmin = -resmin;
 	temp = tkz.GetNextToken();
+	temp.Replace(_T(","),_T("."));
 	temp.ToDouble(&ressec);
 	if(pos.Contains(_T("S"))) ressec = -ressec;
 	if(pos.Contains(_T("W"))) ressec = -ressec;
@@ -921,10 +956,12 @@ wxDouble Logbook::positionStringToDezimalModern(wxString pos)
 
 	wxStringTokenizer tkz(pos, _T(" "));
 	temp = tkz.GetNextToken();
+	temp.Replace(_T(","),_T("."));
 	temp.ToDouble(&resdeg);
 	if(pos.Contains(_T("S"))) resdeg = -resdeg;
 	if(pos.Contains(_T("W"))) resdeg = -resdeg;
 	temp = tkz.GetNextToken();
+	temp.Replace(_T(","),_T("."));
 	temp.ToDouble(&resmin);
 	if(pos.Contains(_T("S"))) resmin = -resmin;
 	if(pos.Contains(_T("W"))) resmin = -resmin;
@@ -934,6 +971,14 @@ wxDouble Logbook::positionStringToDezimalModern(wxString pos)
 
 void Logbook::deleteRow(int row)
 {
+#ifdef __WXOSX__
+    int answer = MessageBoxOSX(this->dialog, (wxString::Format(_("Delete Row Nr. %i ?"),row+1)), _("Confirm"), wxID_OK | wxID_CANCEL| wxID_NO);
+    if (answer == wxID_OK)
+        {
+            for(int i =0; i < dialog->numPages; i++)
+                dialog->logGrids[i]->DeleteRows(row);
+        }
+#else
 	int answer = wxMessageBox(wxString::Format(_("Delete Row Nr. %i ?"),row+1), _("Confirm"),
                               wxYES_NO | wxCANCEL, dialog);
 	if (answer == wxYES)
@@ -941,6 +986,7 @@ void Logbook::deleteRow(int row)
 		for(int i =0; i < dialog->numPages; i++)
 			dialog->logGrids[i]->DeleteRows(row);
 	}
+#endif
 }
 
 void Logbook::changeCellValue(int row, int col, int mode)
@@ -1008,7 +1054,11 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						if(!dialog->myParseDate(s,dt))
 						{
 							dt = dt.Now();
+#ifdef __WXOSX__
+                            MessageBoxOSX(NULL, _("Please enter the Date in the format:\n   dd.mm.yyyy"),_("Information"),wxID_OK);                      
+#else
 							wxMessageBox(wxString::Format(_("Please enter the Date in the format:\n      %s"),dt.FormatDate()));
+#endif
 							dialog->logGrids[grid]->SetCellValue(row,col,_T(""));
 						}
 						else
@@ -1029,7 +1079,11 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 
 						if(!c)
 						{
+#ifdef __WXOSX__
+                            MessageBoxOSX(NULL, _("Please enter the Time in the format:\n   12:30:00PM"),_("Information"),wxID_OK);
+#else
 							wxMessageBox(_("Please enter the Time in the format:\n   12:30:00PM"));
+#endif
 							dialog->logGrids[grid]->SetCellValue(row,col,_T(""));
 						}
 						else
@@ -1042,8 +1096,8 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 	else if(grid == 0 && col == 5)
 					{
 						s.Replace(_T(","),_T("."));
-
 						s = wxString::Format(_T("%.2f %s"),wxAtof(s),opt->distance.c_str());
+						s.Replace(_T("."),dialog->decimalPoint);
 						dialog->logGrids[grid]->SetCellValue(row,col,s);
 
 						computeCell(grid, row, col, s, true);
@@ -1064,18 +1118,24 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						{
 							if(opt->traditional && s.length() != 22)
 							{
+#ifdef __WXOSX__
+                                MessageBoxOSX(NULL,_("Please enter 0544512.15n0301205.15e for\n054Deg 45Min 12.15Sec N 030Deg 12Min 05.15Sec E"),_("Information"),wxID_OK);
+#else
 								wxMessageBox(_("Please enter 0544512.15n0301205.15e for\n054Deg 45Min 12.15Sec N 030Deg 12Min 05.15Sec E"),_("Information"),wxOK);
+#endif
 								s = _T("");
 							}
 							else if(!opt->traditional && s.length() != 22)
 							{
+#ifdef __WXOSX__
+                                MessageBoxOSX(NULL,_("Please enter 05445.1234n03012.0504e for\n054Deg 45.1234Min N 030Deg 12.0504Min E"),_("Information"),wxID_OK);
+#else
 								wxMessageBox(_("Please enter 05445.1234n03012.0504e for\n054Deg 45.1234Min N 030Deg 12.0504Min E"),_("Information"),wxOK);
+#endif
 								s = _T("");
 							}
 							if(s == _T("")) return;
-
-							if(s.Contains(_T(",")))
-								s.Replace(_T(","),_T("."));
+							s.Replace(_T(","),_T("."));
 
 							if(opt->traditional)
 							{
@@ -1100,15 +1160,22 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 								s = temp;
 							}
 						}
+						s.Replace(_T("."),dialog->decimalPoint);
 						dialog->logGrids[grid]->SetCellValue(row,col,s);
 						if(row != 0)
 						{
 							double distTotal,dist ;
 							dialog->logGrids[grid]->SetCellValue(row,5,
 								calculateDistance(dialog->logGrids[grid]->GetCellValue(row-1,col),s));
-							dialog->logGrids[grid]->GetCellValue(row-1,6).ToDouble(&distTotal);
-							dialog->logGrids[grid]->GetCellValue(row,5).ToDouble(&dist);
-							dialog->logGrids[grid]->SetCellValue(row,6,wxString::Format(_T("%9.2f %s"),distTotal+dist,opt->distance.c_str()));
+							wxString temp = dialog->logGrids[grid]->GetCellValue(row-1,6);
+							temp.Replace(_T(","),_T("."));
+							temp.ToDouble(&distTotal);
+							temp = dialog->logGrids[grid]->GetCellValue(row,5);
+							temp.Replace(_T(","),_T("."));
+							temp.ToDouble(&dist);
+							s= wxString::Format(_T("%9.2f %s"),distTotal+dist,opt->distance.c_str());
+							s.Replace(_T("."),dialog->decimalPoint);
+							dialog->logGrids[grid]->SetCellValue(row,6,s);
 								
 						}
 					}
@@ -1118,6 +1185,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						{
 							s.Replace(_T(","),_T("."));
 							s = wxString::Format(_T("%3.2f%s"),wxAtof(s),opt->Deg.c_str());
+						    s.Replace(_T("."),dialog->decimalPoint);
 							dialog->logGrids[grid]->SetCellValue(row,col,s);
 						}
 					}
@@ -1127,6 +1195,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						{
 							s.Replace(_T(","),_T("."));
 							s = wxString::Format(_T("%3.2f%s %s"),wxAtof(s),opt->Deg.c_str(),(opt->showHeading)?_T("M"):_T("T"));
+							s.Replace(_T("."),dialog->decimalPoint);
 							dialog->logGrids[grid]->SetCellValue(row,col,s);
 						}
 					}
@@ -1136,6 +1205,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						{
 							s.Replace(_T(","),_T("."));
 							s = wxString::Format(_T("%2.2f %s"),wxAtof(s),+opt->speed.c_str());
+							s.Replace(_T("."),dialog->decimalPoint);
 							dialog->logGrids[grid]->SetCellValue(row,col,s);
 						}
 					}
@@ -1149,17 +1219,19 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 								case 1: depth = opt->feet; break;
 								case 2: depth = opt->fathom; break;
 							}
-							s.Replace(_T(","),_T("."));
 							if(s.Contains(opt->meter) || 
 								s.Contains(opt->feet) || 
 								s.Contains(opt->fathom.c_str()) ||
 								s.Contains(_T("--")))
 							{
+								s.Replace(_T("."),dialog->decimalPoint);
 								dialog->logGrids[grid]->SetCellValue(row,col,s);
 							}
 							else
 							{
-								s = wxString::Format(_T("%3.2f %s"),wxAtof(s.c_str()),depth.c_str());
+								s.Replace(_T(","),_T("."));
+								s = wxString::Format(_T("%3.1f %s"),wxAtof(s),depth.c_str());
+								s.Replace(_T("."),dialog->decimalPoint);
 								dialog->logGrids[grid]->SetCellValue(row,col,s);
 							}
 					
@@ -1170,6 +1242,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						if(s != _T(""))
 						{
 							s = wxString::Format(_T("%u %s"),wxAtoi(s),opt->baro.c_str());
+							s.Replace(_T("."),dialog->decimalPoint);
 							dialog->logGrids[grid]->SetCellValue(row,col,s);
 						}
 					}
@@ -1178,7 +1251,8 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 					{
 						if(s != _T("") && !s.Contains(opt->Deg))
 						{
-							s = wxString::Format(_T("%s%s %s"),s.c_str(), opt->Deg.c_str(),opt->showWindDir?_T("R"):_T("T"));
+							s = wxString::Format(_T("%3.0f%s %s"),wxAtof(s), opt->Deg.c_str(),opt->showWindDir?_T("R"):_T("T"));
+							s.Replace(_T("."),dialog->decimalPoint);
 							dialog->logGrids[grid]->SetCellValue(row,col,s);
 						}
 					}
@@ -1186,14 +1260,15 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 					{
 						if(s != _T(""))
 						{
-							s.Replace(_T(","),_T("."));
 							switch(opt->showWindSpeed)
 							{
 								case 0:	wind = opt->windkts; break;
 								case 1: wind = opt->windmeter; break;
 								case 2: wind = opt->windkmh; break;
 							}
-							s = wxString::Format(_T("%2.2f %s"),wxAtof(s),wind.c_str());
+							s.Replace(_T(","),_T("."));
+							s = wxString::Format(_T("%3.2f %s"),wxAtof(s),wind.c_str());
+							s.Replace(_T("."),dialog->decimalPoint);
 							dialog->logGrids[grid]->SetCellValue(row,col,s);
 						}
 					}
@@ -1201,7 +1276,9 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 					{
 						if(s != _T("") && !s.Contains(opt->Deg))
 						{
-							s = wxString::Format(_T("%s%s"),s.c_str(), opt->Deg.c_str());
+							s.Replace(_T(","),_T("."));
+							s = wxString::Format(_T("%3.0f%s"),wxAtof(s), opt->Deg.c_str());
+							s.Replace(_T("."),dialog->decimalPoint);
 							dialog->logGrids[grid]->SetCellValue(row,col,s);						
 						}
 					}				
@@ -1210,7 +1287,8 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						if(s != _T(""))
 						{
 							s.Replace(_T(","),_T("."));
-							s = wxString::Format(_T("%02.2f %s"),wxAtof(s),opt->speed.c_str());
+							s = wxString::Format(_T("%3.2f %s"),wxAtof(s),opt->speed.c_str());
+							s.Replace(_T("."),dialog->decimalPoint);
 							dialog->logGrids[grid]->SetCellValue(row,col,s);
 						}
 					}
@@ -1226,7 +1304,8 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						if(s != _T(""))
 						{
 							s.Replace(_T(","),_T("."));
-							s = wxString::Format(_T("%02.2f %s"),wxAtof(s),d.c_str());
+							s = wxString::Format(_T("%3.2f %s"),wxAtof(s),d.c_str());
+							s.Replace(_T("."),dialog->decimalPoint);
 							dialog->logGrids[grid]->SetCellValue(row,col,s);
 						}
 					}
@@ -1253,7 +1332,11 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						}
 						if(t != true)
 							{
+#ifdef __WXOSX__
+                                MessageBoxOSX(NULL,_("Please enter like 1.30 or 1,30 or 1:30\nfor 1:30h"),_T(""),wxID_OK);
+#else
 								wxMessageBox(_("Please enter like 1.30 or 1,30 or 1:30\nfor 1:30h"),_T(""),wxOK);
+#endif
 								dialog->logGrids[grid]->SetCellValue(row,col,_T("00:00"));
 							}
 
@@ -1262,7 +1345,11 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						wxString m = tkz.GetNextToken();
 						if(wxAtoi(m) > 59)
 							{
+#ifdef __WXOSX__
+                                MessageBoxOSX(NULL,_("Minutes greater than 59"),_T(""),wxID_OK);
+#else
 								wxMessageBox(_("Minutes greater than 59"),_T(""));
+#endif
 								dialog->logGrids[grid]->SetCellValue(row,col,_T("00:00"));
 								return;
 							}
@@ -1282,6 +1369,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 					{
 						s.Replace(_T(","),_T("."));
 						s = wxString::Format(_T("%.2f %s"),wxAtof(s),opt->vol.c_str());
+						s.Replace(_T("."),dialog->decimalPoint);
 						dialog->logGrids[grid]->SetCellValue(row,col,s);
 
 						computeCell(grid, row, col,s, false);
@@ -1298,6 +1386,8 @@ wxString Logbook::computeCell(int grid, int row, int col, wxString s, bool mode)
 	wxString cur;
 	wxString abrev;
 
+	s.Replace(_T(","),_T("."));
+
 	switch(col)
 	{
 	case 5: abrev = opt->distance; break;
@@ -1311,6 +1401,8 @@ wxString Logbook::computeCell(int grid, int row, int col, wxString s, bool mode)
 	for(int i = row; i < count; i++)
 	{
 		s = dialog->logGrids[grid]->GetCellValue(i,col);
+		s.Replace(_T(","),_T("."));
+
 		if(s == _T("0000")) s = _T("00:00");
 		if(grid == 2 && col == 0)
 		{
@@ -1324,6 +1416,7 @@ wxString Logbook::computeCell(int grid, int row, int col, wxString s, bool mode)
 		if(i > 0)
 		{
 			wxString temp = dialog->logGrids[grid]->GetCellValue(i-1,col+1);
+			temp.Replace(_T(","),_T("."));
 			if(grid == 2 && col == 0)
 			{
 				if(temp.Contains(_T(":")))
@@ -1352,12 +1445,13 @@ wxString Logbook::computeCell(int grid, int row, int col, wxString s, bool mode)
 		else
 			{
 				s = wxString::Format(_T("%10.2f %s"),last+current,abrev.c_str());
+				s.Replace(_T("."),dialog->decimalPoint);
 				dialog->logGrids[grid]->SetCellValue(i,col+1,s);
 			}	
 	}
 	return cur;
 }
-
+/*
 wxString Logbook::positionTraditional(int NEflag, double a, bool mode )
 {
 	wxString s;
@@ -1369,7 +1463,7 @@ wxString Logbook::positionGPSLike(int NEflag, double a, bool mode )
 	wxString s;
 	return s;
 }
-
+*/
 wxString Logbook::toSDMM ( int NEflag, double a, bool mode )
 {
       short neg = 0;
@@ -1486,9 +1580,9 @@ wxString Logbook::toSDMMOpenCPN ( int NEflag, double a, bool hi_precision )
             if ( !NEflag || NEflag < 1 || NEflag > 2) //Does it EVER happen?
             {
                   if(hi_precision)
-                        s.Printf ( _T ( "%d %02ld.%04ld'" ), d, m / 10000, m % 10000 );
+					  s.Printf ( _T ( "%d %02ld.%04ld'" ), d, m / 10000, m % 10000 );
                   else
-                        s.Printf ( _T ( "%d %02ld.%01ld'" ), d, m / 10,   m % 10 );
+					  s.Printf ( _T ( "%d %02ld.%01ld'" ), d, m / 10,   m % 10 );
             }
             else
             {
@@ -1507,9 +1601,9 @@ wxString Logbook::toSDMMOpenCPN ( int NEflag, double a, bool hi_precision )
 					newPosition.NSflag = c;
 				}
                   if(hi_precision)
-                        s.Printf ( _T ( "%03d%02ld.%04ld%c" ), d, m / 10000, ( m % 10000 ), c );
+					  s.Printf ( _T ( "%03d%02ld.%04ld%c" ), d, m / 10000,( m % 10000 ), c );
                    else
-                        s.Printf ( _T ( "%03d%02ld.%01ld%c" ), d, m / 10,   ( m % 10 ), c );
+					   s.Printf ( _T ( "%03d%02ld.%01ld%c" ), d, m / 10,   ( m % 10 ), c );
             }
             break;
       case 1:
@@ -1528,23 +1622,23 @@ wxString Logbook::toSDMMOpenCPN ( int NEflag, double a, bool hi_precision )
             if ( !NEflag || NEflag < 1 || NEflag > 2) //Does it EVER happen?
             {
                   if(hi_precision)
-                        s.Printf ( _T ( "%d %ld'%ld.%ld\"" ), d, m, sec / 1000, sec % 1000 );
+					  s.Printf ( _T ( "%d %ld'%ld.%ld\"" ), d, m, sec / 1000, sec % 1000 );
                   else
-                        s.Printf ( _T ( "%d %ld'%ld.%ld\"" ), d, m, sec / 10, sec % 10 );
+					  s.Printf ( _T ( "%d %ld'%ld.%ld\"" ), d, m, sec / 10, sec % 10 );
             }
             else
             {
                   if(hi_precision)
-                        s.Printf ( _T ( "%03d %02ld %02ld.%03ld %c" ), d, m, sec / 1000, sec % 1000, c );
+					  s.Printf ( _T ( "%03d %02ld %02ld.%03ld %c" ), d, m, sec / 1000, sec % 1000, c );
                    else
-                        s.Printf ( _T ( "%03d %02ld %02ld.%ld %c" ), d, m, sec / 10, sec % 10, c );
+					   s.Printf ( _T ( "%03d %02ld %02ld.%ld %c" ), d, m,sec / 10, sec % 10, c );
             }
             break;
       }
       return s;
 }
 
-bool Logbook::checkGPS()
+bool Logbook::checkGPS(bool appendClick)
 {
 	sLogText = _T("");
 
@@ -1555,13 +1649,13 @@ bool Logbook::checkGPS()
 			sLogText = _("Wind is set to Heading,\nbut GPS sends no Heading Data.\nWind is set now to Realative to boat\n\n"); 
 			opt->showWindHeading = 0;
 		}
-		if(courseChange)
+		if(courseChange && !appendClick)
 			sLogText += opt->courseChangeText+opt->courseChangeDegrees+opt->Deg;
 		else if(guardChange)
 			sLogText += opt->guardChangeText;
-		else if(everySM)
+		else if(everySM && !appendClick)
 			sLogText += opt->everySMText+opt->everySMAmount+opt->distance;
-		else if(dialog->timer->IsRunning())
+		else if(dialog->timer->IsRunning() && !appendClick)
 			sLogText += opt->ttext;
 			
 		return true;

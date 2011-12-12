@@ -1,5 +1,6 @@
 #include "CrewList.h"
 #include "LogbookDialog.h"
+#include "MessageBoxOSX.h"
 
 #ifndef WX_PRECOMP
      #include <wx/wx.h>
@@ -178,7 +179,14 @@ void CrewList::changeCrewWake(wxGrid* grid, int row, int col, int offset)
 	wxString s = gridWake->GetCellValue(row,col);
 	if(s.Len() != 4 || dt.ParseFormat(s,_T("%H%M")) == NULL)
 	{
+#ifdef __WXOSX__
+        
+        MessageBoxOSX(NULL,_("Please enter 4 digits in 24h-Format like 1545 = 03:45:00 PM"),_("Information"),wxID_OK);
+        
+#else
+
 		wxMessageBox(_("Please enter 4 digits in 24h-Format like 1545 = 03:45:00 PM"));
+#endif
 		gridWake->SetCellValue(row,col,wxEmptyString);
 
 		return;
@@ -234,7 +242,11 @@ void CrewList::saveHTML(wxString savePath, wxString layout, bool mode)
 
 	if(layout == _T(""))
 	{
+#ifdef __WXOSX__
+        MessageBoxOSX(NULL,_("Sorry, no Layout installed"),_("Information"),wxID_OK);
+#else        
 		wxMessageBox(_("Sorry, no Layout installed"),_("Information"),wxOK);
+#endif
 		return;
 	}
 
@@ -493,7 +505,11 @@ void CrewList::saveODT(wxString savePath,wxString layout, bool mode)
 
 	if(layout == _T(""))
 	{
+#ifdef __WXOSX__
+        MessageBoxOSX(NULL,_("Sorry, no Layout installed"),_("Information"),wxID_OK);
+#else
 		wxMessageBox(_("Sorry, no Layout installed"),_("Information"),wxOK);
+#endif
 		return;
 	}
 
@@ -700,6 +716,19 @@ wxString CrewList::readLayoutODT(wxString layout)
 
 void CrewList::deleteRow(int row)
 {
+#ifdef __WXOSX__
+    int answer = MessageBoxOSX(NULL,wxString::Format(_("Delete Row Nr. %i ?"),row+1), _("Confirm"), wxID_NO | wxID_CANCEL | wxID_OK);
+    	if (answer == wxID_OK)
+        {
+            gridCrew->DeleteRows(row);
+            gridWake->DeleteRows(row);
+            
+            crewListFile->Open();
+            crewListFile->RemoveLine(row);
+            crewListFile->Write();
+            crewListFile->Close();
+        }
+#else
 	int answer = wxMessageBox(wxString::Format(_("Delete Row Nr. %i ?"),row+1), _("Confirm"),
                               wxYES_NO | wxCANCEL, 0);
 	if (answer == wxYES)
@@ -712,6 +741,7 @@ void CrewList::deleteRow(int row)
 		crewListFile->Write();
 		crewListFile->Close();
 	}
+#endif
 }
 
 void CrewList::saveXML(wxString path)
@@ -732,7 +762,11 @@ void CrewList::saveXML(wxString path)
 
 	if(crewListFile->GetLineCount() <= 0)
 	{
+#ifdef __WXOSX__
+        MessageBoxOSX(NULL,_("Sorry, Logbook has no lines"),_("Information"),wxID_OK); 
+#else
 		wxMessageBox(_("Sorry, Logbook has no lines"),_("Information"),wxOK);
+#endif
 		return;
 	}
 

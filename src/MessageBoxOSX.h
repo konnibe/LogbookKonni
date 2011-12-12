@@ -3,7 +3,7 @@
   #include "wx/wx.h"
 #endif //precompiled headers
 
-int MessageBoxOSX(wxWindow* parent, wxString str,  wxString title = _(""), int buttons = wxID_OK);
+int MessageBoxOSX(wxWindow* parent, wxString str,  wxString title = _(""), int buttons = wxID_NO|wxID_CANCEL|wxID_OK);
 class MessageBoxOSX_ : public wxDialog 
 {
 	private:

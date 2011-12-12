@@ -483,6 +483,7 @@ enum FORMAT {HTML,ODT};
 
 		wxString			datePattern;
 		wxChar				dateSeparator;
+		wxString			decimalPoint;
 
 		wxMenuItem*			menuItemTimer;
 		wxString			layoutHTML;

@@ -251,7 +251,7 @@ void Maintenance::loadData()
 	wxTextInputStream* stream = new wxTextInputStream (input);
 
 	int row = 0;
-	while( t = stream->ReadLine())
+	while( (t = stream->ReadLine()))
 	{
 		if(input.Eof()) break;
 		addLine();
@@ -281,7 +281,7 @@ void Maintenance::loadData()
 	wxTextInputStream* stream1 = new wxTextInputStream (input1);
 
 	row = 0;
-	while( t = stream1->ReadLine())
+	while( (t = stream1->ReadLine()))
 	{
 		if(input1.Eof()) break;
 		addLineBuyParts();
@@ -318,7 +318,7 @@ void Maintenance::loadData()
 	wxTextInputStream* stream2 = new wxTextInputStream (input2);
 
 	row = 0;
-	while( t = stream2->ReadLine())
+	while( (t = stream2->ReadLine()))
 	{
 		if(input2.Eof()) break;
 		addLineRepairs();

@@ -3,7 +3,7 @@
 #include "LogbookDialog.h"
 #include "Logbook.h"
 #include "logbook_pi.h"
-
+#include "MessageBoxOSX.h"
 #ifndef WX_PRECOMP
       #include <wx/wx.h>
 #endif
@@ -110,7 +110,11 @@ wxString LogbookHTML::toHTML(wxString path, wxString layout, bool mode)
 
 	if(layout == _T(""))
 	{
+#ifdef __WXOSX__
+        MessageBoxOSX(NULL,_("Sorry, no Layout installed"),_T("Information"),wxID_OK);
+#else
 		wxMessageBox(_("Sorry, no Layout installed"),_("Information"),wxOK);
+#endif
 		return _T("");
 	}
 
@@ -190,7 +194,11 @@ wxString LogbookHTML::toHTML(wxString path, wxString layout, bool mode)
 
 	if(count <= 0)
 	{
+#ifdef __WXOSX__
+        MessageBoxOSX(NULL,_("Sorry, Logbook has no lines"),_T("Information"),wxID_OK);
+#else
 		wxMessageBox(_("Sorry, Logbook has no lines"),_("Information"),wxOK);
+#endif
 		return _T("");
 	}
 
@@ -355,8 +363,13 @@ bool LogbookHTML::checkLayoutError(int result, wxString html, wxString layout)
 {
 	if(result == wxNOT_FOUND)
 	{
+#ifdef __WXOSX__
+        MessageBoxOSX(NULL,html+_("\nnot found in layoutfile ")+layout+_("!\n\nDid you forget to add this line in your layout ?"),_("Information"),wxID_OK);
+        return false;
+#else
 		wxMessageBox(html+_("\nnot found in layoutfile ")+layout+_("!\n\nDid you forget to add this line in your layout ?"),_("Information"));
 		return false;
+#endif
 	}
 	return true;
 }
@@ -429,14 +442,22 @@ wxString LogbookHTML::toODT(wxString path,wxString layout, bool mode)
 
 	if(layout == _T(""))
 	{
+#ifdef __WXOSX__
+        MessageBoxOSX(NULL,_("Sorry, no Layout installed"),_T("Information"),wxID_OK);
+#else
 		wxMessageBox(_("Sorry, no Layout installed"),_("Information"),wxOK);
+#endif
 		return _T("");
 	}
 
 	wxString odt = readLayoutFileODT(layout);
 	if(!odt.Contains(_T("[[")) && !odt.Contains(_T("{{")))
 	{
+#ifdef __WXOSX__
+        MessageBoxOSX(NULL,_("Have You forgotten to enclose the Header with [[ and ]]\n or Data with {{ and }} ?"),_T("Information"),wxID_OK);
+#else
 		wxMessageBox(_("Have You forgotten to enclose the Header with [[ and ]]\n or Data with {{ and }} ?"));
+#endif
 		return _T("");
 	}
 
@@ -571,7 +592,11 @@ void LogbookHTML::toCSV(wxString path)
 
 	if(input.GetSize() == 0)
 	{
+#ifdef __WXOSX__
+        MessageBoxOSX(NULL,_("Sorry, Your Logbook has no lines"),_T("Information"),wxID_OK);
+#else
 		wxMessageBox(_("Sorry, Your Logbook has no lines"),_("Information"),wxOK);
+#endif
 		return;
 	}
 
@@ -624,7 +649,11 @@ void LogbookHTML::toXML(wxString path)
 	wxTextInputStream* stream = new wxTextInputStream (input);
 	if(input.GetSize() == 0)
 	{
+#ifdef __WXOSX__
+        MessageBoxOSX(NULL,_("Sorry, Your Logbook has no lines"),_T("Information"),wxID_OK);
+#else
 		wxMessageBox(_("Sorry, Your Logbook has no lines"),_("Information"),wxOK);
+#endif
 		return;
 	}
 

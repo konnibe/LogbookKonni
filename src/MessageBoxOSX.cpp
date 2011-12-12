@@ -66,28 +66,27 @@ MessageBoxOSX_::~MessageBoxOSX_()
 }
 void MessageBoxOSX_::OnCloseDialog(wxCloseEvent& event)
 {
-	//this->Close();//this->Destroy();
 	event.Skip();
 }
 
 void MessageBoxOSX_::OnOKClick(wxCommandEvent& event)
 {
 	returnint = wxID_OK;
-	Close();//this->Destroy();
+	Close();
 	event.Skip();
 }
 
 void MessageBoxOSX_::OnCancelClick(wxCommandEvent& event)
 {
 	returnint = wxID_CANCEL;
-	Close();//this->Destroy();
+	Close();
 	event.Skip();
 }
 
 void MessageBoxOSX_::OnNoClick(wxCommandEvent& event)
 {
 	returnint = wxID_NO;
-	Close();//this->Destroy();
+	Close();
 	event.Skip();
 }
 

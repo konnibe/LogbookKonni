@@ -280,13 +280,21 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	wxString m_choiceTzIndicatorChoices[] = { wxT("+"), wxT("-") };
 	int m_choiceTzIndicatorNChoices = sizeof( m_choiceTzIndicatorChoices ) / sizeof( wxString );
+#ifdef __WXOSX__
+    m_choiceTzIndicator = new wxChoice( m_panel15, wxID_ANY, wxDefaultPosition, wxSize( 50,-1 ), m_choiceTzIndicatorNChoices, m_choiceTzIndicatorChoices, 0 );
+#else
 	m_choiceTzIndicator = new wxChoice( m_panel15, wxID_ANY, wxDefaultPosition, wxSize( 40,-1 ), m_choiceTzIndicatorNChoices, m_choiceTzIndicatorChoices, 0 );
+#endif
 	m_choiceTzIndicator->SetSelection( 0 );
 	fgSizer18->Add( m_choiceTzIndicator, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	
 	wxString m_choiceTzHoursChoices[] = { wxT("0"), wxT("1"), wxT("2"), wxT("3"), wxT("4"), wxT("5"), wxT("6"), wxT("7"), wxT("8"), wxT("9"), wxT("10"), wxT("11"), wxT("12") };
 	int m_choiceTzHoursNChoices = sizeof( m_choiceTzHoursChoices ) / sizeof( wxString );
+#ifdef __WXOSX__
+    m_choiceTzHours = new wxChoice( m_panel15, wxID_ANY, wxDefaultPosition, wxSize( 50,-1 ), m_choiceTzHoursNChoices, m_choiceTzHoursChoices, 0 );
+#else
 	m_choiceTzHours = new wxChoice( m_panel15, wxID_ANY, wxDefaultPosition, wxSize( 40,-1 ), m_choiceTzHoursNChoices, m_choiceTzHoursChoices, 0 );
+#endif
 	m_choiceTzHours->SetSelection( 0 );
 	fgSizer18->Add( m_choiceTzHours, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -327,8 +335,11 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	fgSizer28->Add( m_buttonInstallHTMLFiles, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 	
 	m_buttonInstallLanguages = new wxButton( m_panel15, wxID_ANY, _("Install"), wxDefaultPosition, wxDefaultSize, 0 );
+#ifdef __WXOSX__
+    m_buttonInstallLanguages->SetToolTip( _("Install OpenCPN_Mac_Logbook_Languages.zip") );
+#else
 	m_buttonInstallLanguages->SetToolTip( _("Install OpenCPN_Logbook_Languages.zip") );
-	
+#endif
 	fgSizer28->Add( m_buttonInstallLanguages, 1, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 	
 	m_buttonUninstall = new wxButton( m_panel15, wxID_ANY, _("Uninstall"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -398,8 +409,11 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_staticText31 = new wxStaticText( m_panel16, wxID_ANY, _("Degres"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText31->Wrap( -1 );
 	fgSizer91->Add( m_staticText31, 0, wxALIGN_CENTER_VERTICAL, 5 );
-	
+#ifdef __WXOSX__
+    m_sDeg = new wxTextCtrl( m_panel16, wxID_ANY, _T("¡"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
+#else
 	m_sDeg = new wxTextCtrl( m_panel16, wxID_ANY, _T("°"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
+#endif
 	fgSizer91->Add( m_sDeg, 0, 0, 5 );
 	
 	m_staticText35 = new wxStaticText( m_panel16, wxID_ANY, _("Minutes"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -661,7 +675,11 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	wxString m_choiceWindChoices[] = { _("kts"), _("m/s"), _("km/h") };
 	int m_choiceWindNChoices = sizeof( m_choiceWindChoices ) / sizeof( wxString );
+#ifdef __WXOSX__
+    m_choiceWind = new wxChoice( m_panel16, wxID_ANY, wxDefaultPosition, wxSize( 80,-1 ), m_choiceWindNChoices, m_choiceWindChoices, 0 );
+#else
 	m_choiceWind = new wxChoice( m_panel16, wxID_ANY, wxDefaultPosition, wxSize( 50,-1 ), m_choiceWindNChoices, m_choiceWindChoices, 0 );
+#endif
 	m_choiceWind->SetSelection( 0 );
 	fgSizer32->Add( m_choiceWind, 0, wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -671,7 +689,11 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	wxString m_choiceDirChoices[] = { _("True"), _("Relative") };
 	int m_choiceDirNChoices = sizeof( m_choiceDirChoices ) / sizeof( wxString );
+#ifdef __WXOSX__
+    m_choiceDir = new wxChoice( m_panel16, wxID_ANY, wxPoint( -1,-1 ), wxSize( 80,-1 ), m_choiceDirNChoices, m_choiceDirChoices, 0 );
+#else
 	m_choiceDir = new wxChoice( m_panel16, wxID_ANY, wxPoint( -1,-1 ), wxSize( 65,-1 ), m_choiceDirNChoices, m_choiceDirChoices, 0 );
+#endif
 	m_choiceDir->SetSelection( 1 );
 	fgSizer32->Add( m_choiceDir, 0, wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -714,8 +736,12 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_staticText77 = new wxStaticText( m_panel17, wxID_ANY, _("Path to Datamanager"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText77->Wrap( -1 );
 	fgSizer321->Add( m_staticText77, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-	
+    
+#ifdef __WXOSX__
+    m_textCtrlDataManager = new wxTextCtrl( m_panel17, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 420,-1 ), 0 );
+#else
 	m_textCtrlDataManager = new wxTextCtrl( m_panel17, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+#endif
 	fgSizer321->Add( m_textCtrlDataManager, 0, wxALL|wxEXPAND, 5 );
 	
 	m_bpButtonDatamanager = new wxBitmapButton( m_panel17, wxID_ANY, wxBitmap( folder ), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
@@ -725,7 +751,11 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_staticText78->Wrap( -1 );
 	fgSizer321->Add( m_staticText78, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
+#ifdef __WXOSX__
+    m_textCtrlMailClient = new wxTextCtrl( m_panel17, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 420,-1 ), 0 );
+#else
 	m_textCtrlMailClient = new wxTextCtrl( m_panel17, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( -1,-1 ), 0 );
+#endif
 	fgSizer321->Add( m_textCtrlMailClient, 0, wxALL|wxEXPAND, 5 );
 	
 	m_bpButtonMail = new wxBitmapButton( m_panel17, wxID_ANY, wxBitmap( folder ), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
@@ -872,8 +902,13 @@ void LogbookOptions::OnButtonOKClick(wxCommandEvent &ev)
 		(m_sMin->IsEmpty() || m_sMin->GetValue().Len()!= 1) ||
 		(m_sSec->IsEmpty()) || m_sSec->GetValue().Len() != 1)
 	{
+#ifdef __WXOSX__
+        MessageBoxOSX(NULL,_("Please fill in one character in Degrees, Minuts and Seconds"),_T("Information"),wxID_OK);
+        return;
+#else
 		wxMessageBox(_("Please fill in one character in Degrees, Minutes and Seconds"));
 		return;
+#endif
 	}
 	else
 		ev.Skip();
@@ -1071,8 +1106,13 @@ void LogbookOptions::m_checkBoxTimerOnCheckBox( wxCommandEvent& ev )
 	if(sec == 0)
 	{
 		m_checkBoxTimer->SetValue(false);
+#ifdef __WXOSX__
+        MessageBoxOSX(NULL,_("Sorry, 0 Hrs 0 Min 0 Sec are not possible"),_T("Information"),wxID_OK);
+        return;
+#else
 		wxMessageBox(_("Sorry, 0 Hrs 0 Min 0 Sec are not possible"),_("Information"));
 		return;
+#endif
 	}
 
 	if(ev.IsChecked())

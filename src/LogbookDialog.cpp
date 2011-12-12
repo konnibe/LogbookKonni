@@ -488,7 +488,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridOverview->SetColLabelValue( 21, _("Swell Avg.") );
 	m_gridOverview->SetColLabelValue( 22, _("Swell Max.") );
 	m_gridOverview->SetColLabelValue( 23, _("Sails used mostly") );
-	m_gridOverview->SetColLabelValue( 24, _("") );
+	m_gridOverview->SetColLabelValue( 24, _T("") );  // Poedit doesn't like null strings here
 	m_gridOverview->SetColLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
 	
 	// Rows
@@ -1837,7 +1837,7 @@ LogbookDialog::~LogbookDialog()
 	delete m_menu71; 
 	delete m_menu711;
 
-	delete maintenance;
+	delete maintenance;  //still a warning with Mac OS C Xcode here: "Delete called on 'Maintenance' that has virtual functions but non-virtual destructor"
 	delete crewList;
 	delete boat;
 	delete logbook;
@@ -1847,7 +1847,11 @@ LogbookDialog::~LogbookDialog()
 
 void LogbookDialog::m_menu1Highlighted(wxMenuEvent& ev)
 {
+#ifdef __WXOSX__
+    MessageBoxOSX(NULL,m_menu1->GetLabel(ev.GetMenuId()));
+#else
 	wxMessageBox(m_menu1->GetLabel(ev.GetMenuId()));
+#endif
 }
 
 void LogbookDialog::OnMenuSelectionHideColumn(wxCommandEvent& ev)
@@ -2133,7 +2137,8 @@ int LogbookDialog::showLayoutDialog(wxChoice *choice, wxString location, int for
 		wxExecute(_T("dolphin --select ")+layout);		
 #endif
 #ifdef __WXOSX__
-// don't now in Mac-OS
+// worked in Mac-OS X
+        wxExecute(command + _T(" mailto:carcode@me.com?subject=LogbookKonni-Layout&body=Drag-And-Drop-File-Here"));
 #endif
 		return 4;
 	}
@@ -2245,6 +2250,10 @@ void LogbookDialog::setTitleExt()
 void LogbookDialog::init()
 {	
 	sashPos = -1;
+	decimalPoint = wxLocale::GetInfo(wxLOCALE_DECIMAL_POINT, wxLOCALE_CAT_NUMBER);
+//	wxMessageBox(decimalPoint);
+//	wxString pat = 	decimalPoint = logbookPlugIn->local->GetInfo(wxLOCALE_DECIMAL_POINT, wxLOCALE_CAT_DATE);
+//	wxMessageBox(pat);
 	setDatePattern();
 
 	clouds[0] = wxT("Cirrus");
@@ -2450,12 +2459,10 @@ void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )
 		wxStandardPathsBase& std_path = wxStandardPathsBase::Get();
 #ifdef __WXMSW__
 	wxString stdPath  = std_path.GetConfigDir();
-#endif
-#ifdef __POSIX__
+#elif defined __POSIX__
 	wxString stdPath  = std_path.GetUserDataDir();	
-#endif
-#ifdef __WXMAX__
-	wxString stdPath  = std_path.GetConfigDir();
+#elif defined __WXOSX__
+	wxString stdPath  = std_path.GetUserConfigDir();
 #endif
 		wxString path = stdPath + wxFileName::GetPathSeparator() + _T("navobj.xml");
 
@@ -2709,7 +2716,11 @@ void LogbookDialog::logSaveOnButtonClick( wxCommandEvent& ev )
 	case 2: logbook->toXML(path); break;
 	case 3: logbook->toCSV(path); break;
 	case 4: logbook->backup(path); break;
+#ifdef __WXOSX__
+    default: ::MessageBoxOSX(NULL,_("Not implemented yet"),_T("Information"),wxID_OK); break;        
+#else
 	default: ::wxMessageBox(_T("Not implemented yet"),_T("Information")); break;
+#endif
 	}
 }
 
@@ -2731,7 +2742,11 @@ void LogbookDialog::m_TimerOnMenuSelection( wxCommandEvent& ev )
 	long sec = logbookPlugIn->opt->timerSec;
 
 	if(sec <= 0) 
+#ifdef __WXOSX__
+        ::MessageBoxOSX(NULL,_("Timer has 0 h 0 Min 0 sec.\n\nPlease change settings in Options"),_T("Information"),wxID_OK);
+#else
 		::wxMessageBox(_("Timer has 0 h 0 Min 0 sec.\n\nPlease change settings in Options"),_T(""));
+#endif
 				
 	if(ev.IsChecked() && sec > 0)
 	{
@@ -2751,7 +2766,7 @@ void LogbookDialog::m_TimerOnMenuSelection( wxCommandEvent& ev )
 void LogbookDialog::OnTimerGPS(wxTimerEvent& ev)
 {
 	logbook->SetGPSStatus(false);
-	logbook->checkGPS();
+	logbook->checkGPS(true);
 }
 
 void LogbookDialog::onRadioButtonHTML(wxCommandEvent& ev)
@@ -2859,11 +2874,11 @@ void LogbookDialog::startApplication(wxString filename, wxString ext)
 #ifdef __POSIX__
 		wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromMimeType(_T("application/vnd.oasis.opendocument.text-template"));
 		wxString command = filetype1->GetOpenCommand(wxFileName::GetPathSeparator()+filename+wxFileName::GetPathSeparator(););
-#endif
-#ifdef __WXOSX__
+#elif defined __WXOSX__
 
 		command = _T("/bin/bash -c \"open ")+filename+_T("\"");
-		int i = MessageBoxOSX(this,command,_T("Information"),wxID_OK|wxID_NO|wxID_CANCEL);
+//		int i = MessageBoxOSX(this,command,_T("Information"),wxID_OK|wxID_NO|wxID_CANCEL);  // Returncode hier nicht benötigt. Kann auch ganz entfallen, da nur zu Testzwecken.
+        MessageBoxOSX(this,command,_T("Information"),wxID_OK|wxID_NO|wxID_CANCEL);
 #endif
 		wxExecute(command);		
 	}
@@ -2872,7 +2887,11 @@ void LogbookDialog::startApplication(wxString filename, wxString ext)
 		if(!logbookPlugIn->opt->htmlEditor.IsEmpty())
 			wxExecute(wxString::Format(wxT("%s %s "),logbookPlugIn->opt->htmlEditor.c_str(),filename.c_str()));
 		else
+#ifdef __WXOSX__
+            MessageBoxOSX(NULL,_("No Path set to HTML-Editor\nin Toolbox/Plugins/LogbookKonni/Preferences"),_T("Information"),wxID_OK);
+#else
 			wxMessageBox(_("No Path set to HTML-Editor\nin ToolBox/Plugins/LogbookKonni/Preferences"));
+#endif
 	}
 }
 
@@ -3037,7 +3056,11 @@ void LogbookDialog::crewSaveOnButtonClick( wxCommandEvent& ev )
 	case 2:	crewList->saveXML(path); break;
 	case 3: crewList->saveCSV(path); break;
 	case 4: crewList->backup(path); break;
+#ifdef __WXOSX__
+    default: ::MessageBoxOSX(NULL,_("Not implemented yet"),_T("Information"),wxID_OK); break;        
+#else
 	default: ::wxMessageBox(_T("Not implemented yet"),_T("Information")); break;
+#endif
 	}
 }
 
@@ -3160,7 +3183,11 @@ void LogbookDialog::boatSaveOnButtonClick( wxCommandEvent& ev )
 	case 2:	boat->toXML(path); break;
 	case 3: boat->toCSV(path); break;
 	case 4: boat->backup(path); break;
+#ifdef __WXOSX__
+    default: ::MessageBoxOSX(NULL,_("Not implemented yet"),_T("Information"),wxID_OK); break;        
+#else
 	default: ::wxMessageBox(_T("Not implemented yet"),_T("Information")); break;
+#endif
 	}
 }
 
@@ -3289,7 +3316,11 @@ void LogbookDialog::onButtobClickSaveService(wxCommandEvent & ev)
 //	case 2: overview->toXML(path); break;
 //	case 3: overview->toCSV(path); break;
 //	case 4: overview->backup(path); break;
+#ifdef __WXOSX__
+    default: ::MessageBoxOSX(NULL,_("Not implemented yet"),_T("Information"),wxID_OK); break;        
+#else
 	default: ::wxMessageBox(_T("Not implemented yet"),_T("Information")); break;
+#endif
 	}
 	delete saveFileDialog;
 }
@@ -3465,7 +3496,11 @@ void LogbookDialog::onButtobClickSaveRepairs( wxCommandEvent& event )
 //	case 2: maintenance->toXML(path); break;
 //	case 3: maintenance->toCSV(path); break;
 //	case 4: maintenance->backup(path); break;
+#ifdef __WXOSX__
+    default: ::MessageBoxOSX(NULL,_("Not implemented yet"),_T("Information"),wxID_OK); break;        
+#else
 	default: ::wxMessageBox(_T("Not implemented yet"),_T("Information")); break;
+#endif
 	}
 	delete saveFileDialog;
 }
@@ -3627,7 +3662,11 @@ void LogbookDialog::onButtobClickSaveBuyParts( wxCommandEvent& event )
 //	case 2: maintenance->toXML(path); break;
 //	case 3: maintenance->toCSV(path); break;
 //	case 4: maintenance->backup(path); break;
+#ifdef __WXOSX__
+    default: ::MessageBoxOSX(NULL,_("Not implemented yet"),_T("Information"),wxID_OK); break;        
+#else
 	default: ::wxMessageBox(_T("Not implemented yet"),_T("Information")); break;
+#endif
 	}
 	delete saveFileDialog;
 }
@@ -3824,7 +3863,11 @@ void LogbookDialog::OnButtonClickOverviewSave( wxCommandEvent& ev )
 //	case 2: overview->toXML(path); break;
 //	case 3: overview->toCSV(path); break;
 //	case 4: overview->backup(path); break;
+#ifdef __WXOSX__
+    default: ::MessageBoxOSX(NULL,_("Not implemented yet"),_T("Information"),wxID_OK); break;        
+#else
 	default: ::wxMessageBox(_T("Not implemented yet"),_T("Information")); break;
+#endif
 	}
 	delete saveFileDialog;
 }

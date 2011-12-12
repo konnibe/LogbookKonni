@@ -29,7 +29,7 @@ public:
 	enum fieldsService{PRIORITY,TEXT,IF,WARN,URGENT,START,ACTIVE};
 public:
 	Maintenance(LogbookDialog* d, wxString data, wxString lay, wxString layoutODT);
-	~Maintenance(void);
+	virtual ~Maintenance(void);
 
 	void addLine();
 	void addLineRepairs();
