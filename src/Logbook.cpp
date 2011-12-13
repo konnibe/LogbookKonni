@@ -739,7 +739,7 @@ void Logbook::checkCourseChanged()
 	wxGrid* grid = dialog->m_gridGlobal;
 	if(grid->GetNumberRows() == 0) return;
 	wxString temp = grid->GetCellValue(grid->GetNumberRows()-1,8);
-	temp.Replace(_(","),_("."));
+	temp.Replace(_T(","),_T("."));
 	temp.ToDouble(&cog);
 
 	if((cog == dCOG) || oldLogbook) return;
@@ -1055,9 +1055,9 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						{
 							dt = dt.Now();
 #ifdef __WXOSX__
-                            MessageBoxOSX(NULL, _("Please enter the Date in the format:\n   dd.mm.yyyy"),_("Information"),wxID_OK);                      
+                            MessageBoxOSX(NULL,(wxString::Format(_("Please enter the Date in the format:\n      %s"),dt.FormatDate(),_("Information"),wxID_OK);                      
 #else
-							wxMessageBox(wxString::Format(_("Please enter the Date in the format:\n      %s"),dt.FormatDate()));
+							wxMessageBox(wxString::Format(_("Please enter the Date in the format:\n      %s"),dt.FormatDate(),_("Information")));
 #endif
 							dialog->logGrids[grid]->SetCellValue(row,col,_T(""));
 						}
