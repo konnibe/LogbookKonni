@@ -180,7 +180,7 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 {
 	wxString t,s;
 	bool test = true;
-	bool write = true;
+//	bool write = true;
 	double x = 0;
 	wxStringTokenizer tkz1;
 	wxTimeSpan span;
@@ -220,7 +220,7 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 			{
 			case ROUTE:				if(route != s)
 									{
-										write = true;
+										//write = true;
 										resetValues();
 										grid->AppendRows();
 										route = s;
@@ -229,8 +229,8 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 										test = true;
 										grid->SetCellValue(row,FROUTE,s);
 									}
-									else 
-										write = false;
+									else ;
+										//write = false;
 
 				break;
 			case DATE:			if(test)

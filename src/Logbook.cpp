@@ -739,7 +739,7 @@ void Logbook::checkCourseChanged()
 	wxGrid* grid = dialog->m_gridGlobal;
 	if(grid->GetNumberRows() == 0) return;
 	wxString temp = grid->GetCellValue(grid->GetNumberRows()-1,8);
-	temp.Replace(_(","),_("."));
+	temp.Replace(_T(","),_T("."));
 	temp.ToDouble(&cog);
 
 	if((cog == dCOG) || oldLogbook) return;
@@ -1004,6 +1004,11 @@ void Logbook::update()
 	if(!modified) return;
 	modified = false;
 
+	dialog->logGrids[0]->Refresh();
+	
+	int count;
+	if((count  = dialog->logGrids[0]->GetNumberRows() )== 0) return;
+	
 	wxString s = _T(""), temp;
 
 	wxString newLocn = data_locn;
@@ -1013,7 +1018,6 @@ void Logbook::update()
 	wxFileOutputStream output( data_locn );
 	wxTextOutputStream* stream = new wxTextOutputStream (output);
 
-	int count = dialog->logGrids[0]->GetNumberRows();
 	for(int r = 0; r < count; r++)
 	{
 		for(int g = 0; g < LOGGRIDS; g++)
@@ -1055,9 +1059,9 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						{
 							dt = dt.Now();
 #ifdef __WXOSX__
-                            MessageBoxOSX(NULL, _("Please enter the Date in the format:\n   dd.mm.yyyy"),_("Information"),wxID_OK);                      
+                            MessageBoxOSX(NULL,(wxString::Format(_("Please enter the Date in the format:\n      %s"),dt.FormatDate(),_("Information"),wxID_OK);                      
 #else
-							wxMessageBox(wxString::Format(_("Please enter the Date in the format:\n      %s"),dt.FormatDate()));
+							wxMessageBox(wxString::Format(_("Please enter the Date in the format:\n      %s"),dt.FormatDate().c_str(),_("Information")));
 #endif
 							dialog->logGrids[grid]->SetCellValue(row,col,_T(""));
 						}

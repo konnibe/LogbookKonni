@@ -769,7 +769,7 @@ void logbookkonni_pi::loadLayouts(wxWindow *parent)
 	wxStandardPathsBase& std_path = wxStandardPathsBase::Get();
 #ifdef __WXMSW__
 	wxString stdPath  = std_path.GetConfigDir();
-#elif defined __POSIX__
+#elif defined __WXGTK__
 	wxString stdPath  = std_path.GetUserDataDir();	
 #elif defined __WXOSX__
 	wxString stdPath  = std_path.GetUserConfigDir();
@@ -867,7 +867,7 @@ void logbookkonni_pi::loadLayouts(wxWindow *parent)
 #ifdef __WXOSX__
         MessageBoxOSX(this->m_plogbook_window,_("Layouts installed"),_T("Information"),wxID_OK);
 #else
-		wxMessageBox(_("OK"));
+		wxMessageBox(_("Layouts installed"));
 #endif
 	}
 	if(opt->firstTime)
@@ -875,12 +875,8 @@ void logbookkonni_pi::loadLayouts(wxWindow *parent)
 }
 
 void logbookkonni_pi::loadLanguages(wxWindow *parent)
-{	wxString path;
-#ifdef __WXOSX__
-;    
-#else
-	bool buildPath;
-#endif
+{	
+	wxString path;
 	std::auto_ptr<wxZipEntry> entry;
 #ifdef __WXOSX__
     static const wxChar *FILETYPES = _T("OpenCPN_Mac_Logbook_Languages.zip");
@@ -922,7 +918,7 @@ void logbookkonni_pi::loadLanguages(wxWindow *parent)
 #ifdef __WXOSX__
 ;            
 #else
-				buildPath = false;
+//				bool buildPath = false;
 #endif
 
 			wxFileOutputStream out(path);

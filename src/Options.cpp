@@ -114,19 +114,9 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 		}
 	}
 #endif
-#ifdef __POSIX__
-	wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromMimeType(_T("application/vnd.oasis.opendocument.text-template"));
-	wxString command;
-
-	if(filetype1)
-	{
-		if((command = filetype1->GetOpenCommand(wxFileName::GetPathSeparator()+_T("x.odt")))!= wxEmptyString)
-		{
-			command = command.Remove(command.find_last_of(_T(" ")));
-			odtEditor   = command;
-			odtEditorReset = odtEditor;
-		}
-	}
+#ifdef __WXGTK__
+	odtEditor   = _T("libreoffice --writer");
+	odtEditorReset = odtEditor;
 #endif
 #ifdef __WXOSX__
 //	wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(_T("odt"));
@@ -152,12 +142,9 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 	mailClient = command;
 	mailClientReset = mailClient;
 #endif
-#ifdef __POSIX__
-	filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(_T("RSS"));
-	command=filetype1->GetOpenCommand(_T(" "));
-	command = command.Remove(command.find_first_of(_T('/'))-1);
-	mailClient = command;
-	mailClientReset = mailClient;
+#ifdef __WXGTK__
+	mailClient = _T("kmail --composer");
+	mailClientReset = mailClient;	
 #endif
 #ifdef __WXOSX__
 	mailClient = _T("/Applications/Mail.app ");
@@ -168,9 +155,12 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 	dataManager = _T("explorer.exe /select,");
 	dataManagerReset = dataManager; 
 #endif
-#ifdef __POSIX__
-	dataManager = _T("dolphin --select,");
-	dataManagerReset = dataManagerReset; 
+#ifdef __WXGTK__
+	dataManager = _T("dolphin --select");
+	dataManagerReset = dataManager; 
+	
+	htmlEditor = _T("libreoffice");
+	htmlEditorReset = htmlEditor;
 #endif
 #ifdef __WXOSW__
 	dataManager = _T("");

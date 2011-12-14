@@ -1044,7 +1044,7 @@ void Boat::saveODS( wxString path, bool mode )
 	}
 	txt << _T("</table:table-row>");
 
-	bool empty = false;
+//	bool empty = false;
 	long emptyCol = 0;
 
 	while(wxString line = stream->ReadLine())
@@ -1060,7 +1060,7 @@ void Boat::saveODS( wxString path, bool mode )
 			if(s == _T(""))
 			{
 				txt <<  _T("<table:table-cell />");
-				empty = true;
+				//empty = true;
 				emptyCol++;
 				col++;
 				continue;

@@ -70,7 +70,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_staticText76->Wrap( -1 );
 	fgSizer29->Add( m_staticText76, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 0 );
 	
-	wxString m_choicePositionFormatChoices[] = { wxT("054° 12.1234'"), wxT("054° 12' 12.34\"") };
+	wxString m_choicePositionFormatChoices[] = { wxT("054\xB0 12.1234'"), wxT("054\xB0 12' 12.34\"") };
 	int m_choicePositionFormatNChoices = sizeof( m_choicePositionFormatChoices ) / sizeof( wxString );
 	m_choicePositionFormat = new wxChoice( m_panel15, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choicePositionFormatNChoices, m_choicePositionFormatChoices, 0 );
 	m_choicePositionFormat->SetSelection( 0 );
@@ -412,7 +412,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 #ifdef __WXOSX__
     m_sDeg = new wxTextCtrl( m_panel16, wxID_ANY, _T("¡"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
 #else
-	m_sDeg = new wxTextCtrl( m_panel16, wxID_ANY, _T("°"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
+	m_sDeg = new wxTextCtrl( m_panel16, wxID_ANY, _T("\xB0"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
 #endif
 	fgSizer91->Add( m_sDeg, 0, 0, 5 );
 	

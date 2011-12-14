@@ -727,7 +727,7 @@ void LogbookHTML::toODS(wxString path)
 	zip.PutNextEntry(wxT("content.xml"));
 	txt << parent->content;
 
-	bool empty = false;
+//	bool empty = false;
 	long emptyCol = 0;
 
 	txt << _T("<table:table-row table:style-name=\"ro2\">");
@@ -759,7 +759,7 @@ void LogbookHTML::toODS(wxString path)
 			if(s == _T(""))
 			{
 				txt <<  _T("<table:table-cell />");
-				empty = true;
+				//empty = true;
 				emptyCol++;
 				continue;
 			}

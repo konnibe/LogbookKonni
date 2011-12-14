@@ -839,7 +839,7 @@ void CrewList::saveODS(wxString path)
 
 	txt << _T("</table:table-row>");
 
-	bool empty = false;
+//	bool empty = false;
 	long emptyCol = 0;
 	while(wxString line = stream->ReadLine())
 	{
@@ -853,7 +853,7 @@ void CrewList::saveODS(wxString path)
 			if(s == _T(""))
 			{
 				txt <<  _T("<table:table-cell />");
-				empty = true;
+				//empty = true;
 				emptyCol++;
 				continue;
 			}

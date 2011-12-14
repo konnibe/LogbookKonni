@@ -219,8 +219,8 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_menuItem1 = new wxMenuItem( m_menu1, 500, wxString( _("Delete Row") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menu1->Append( m_menuItem1 );
 
-	wxMenuItem* m_separator3;
-	m_separator3 = m_menu1->AppendSeparator();
+//	wxMenuItem* m_separator3;
+//	m_separator3 = m_menu1->AppendSeparator();
 	
 	wxMenuItem* m_menuItem132;
 	m_menuItem132 = new wxMenuItem( m_menu1, 503, wxString( _("Show hidden columns") ) , wxEmptyString, wxITEM_NORMAL );
@@ -507,8 +507,8 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_menuItemOverviewRoute = new wxMenuItem( m_menuOverView, wxID_ANY, wxString( _("Goto Route") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menuOverView->Append( m_menuItemOverviewRoute );
 
-	wxMenuItem* m_separator4;
-	m_separator4 = m_menuOverView->AppendSeparator();
+//	wxMenuItem* m_separator4;
+//	m_separator4 = m_menuOverView->AppendSeparator();
 	
 	wxMenuItem* m_menuItem14;
 	m_menuItem14 = new wxMenuItem( m_menuOverView, wxID_ANY, wxString( _("Show hidden columns") ) , wxEmptyString, wxITEM_NORMAL );
@@ -1263,8 +1263,8 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_menuItem92 = new wxMenuItem( m_menu7, wxID_ANY, wxString( _("Buy parts for this service") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menu7->Append( m_menuItem92 );
 	
-	wxMenuItem* m_separator1;
-	m_separator1 = m_menu7->AppendSeparator();
+//	wxMenuItem* m_separator1;
+//	m_separator1 = m_menu7->AppendSeparator();
 	
 	wxMenuItem* m_menuItem13;
 	m_menuItem13 = new wxMenuItem( m_menu7, wxID_ANY, wxString( _("Delete Row") ) , wxEmptyString, wxITEM_NORMAL );
@@ -1383,8 +1383,8 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_menuItem921 = new wxMenuItem( m_menu71, wxID_ANY, wxString( _("Buy parts for this repair") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menu71->Append( m_menuItem921 );
 	
-	wxMenuItem* m_separator11;
-	m_separator11 = m_menu71->AppendSeparator();
+//	wxMenuItem* m_separator11;
+//	m_separator11 = m_menu71->AppendSeparator();
 	
 	wxMenuItem* m_menuItem131;
 	m_menuItem131 = new wxMenuItem( m_menu71, wxID_ANY, wxString( _("Delete Row") ) , wxEmptyString, wxITEM_NORMAL );
@@ -2132,9 +2132,10 @@ int LogbookDialog::showLayoutDialog(wxChoice *choice, wxString location, int for
 		wxExecute(command + _T(" /mailurl:mailto:myfriend@xy.xy?subject=LogbookKonni-Layout&body=Drag and Drop file here"));			
 		wxExecute(_T("explorer.exe /select,")+layout);
 #endif
-#ifdef __POSIX__
-		wxExecute(command + _T(" mailto:///myfreind@xy.xy?subject=LogbookKonni-Layout&body=Drag and Drop file here"));		
-		wxExecute(_T("dolphin --select ")+layout);		
+#ifdef __WXGTK__
+		wxExecute(_T("/bin/bash -c \"") + logbookPlugIn->opt->mailClient) +
+		  _T(" \"mailto:myfriend@xy.xy?subject=LogbookKonni-Layout&body=Drag and Drop file here\"\"");		
+		wxExecute(logbookPlugIn->opt->dataManager+_T(" ")+layout);		
 #endif
 #ifdef __WXOSX__
 // worked in Mac-OS X
@@ -2314,7 +2315,7 @@ Backup Logbook(*.txt)|*.txt");
 #ifdef __WXMSW__
 	wxString stdPath  = std_path.GetConfigDir();
 #endif
-#ifdef __POSIX__
+#ifdef __WXGTK__
 	wxString stdPath  = std_path.GetUserDataDir();
 #endif
 #ifdef __WXOSX__
@@ -2459,7 +2460,7 @@ void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )
 		wxStandardPathsBase& std_path = wxStandardPathsBase::Get();
 #ifdef __WXMSW__
 	wxString stdPath  = std_path.GetConfigDir();
-#elif defined __POSIX__
+#elif defined __WXGTK__
 	wxString stdPath  = std_path.GetUserDataDir();	
 #elif defined __WXOSX__
 	wxString stdPath  = std_path.GetUserConfigDir();
@@ -2869,16 +2870,11 @@ void LogbookDialog::startApplication(wxString filename, wxString ext)
 
 	if(ext == _T(".odt"))
 	{
-		 wxString command = logbookPlugIn->opt->odtEditor + _T(" \"") + filename + _T("\"");
+		 wxString command = logbookPlugIn->opt->odtEditor +  _T(" ") +filename;
 
-#ifdef __POSIX__
-		wxFileType *filetype1=wxTheMimeTypesManager->GetFileTypeFromMimeType(_T("application/vnd.oasis.opendocument.text-template"));
-		wxString command = filetype1->GetOpenCommand(wxFileName::GetPathSeparator()+filename+wxFileName::GetPathSeparator(););
-#elif defined __WXOSX__
-
+#ifdef __WXOSX__
 		command = _T("/bin/bash -c \"open ")+filename+_T("\"");
-//		int i = MessageBoxOSX(this,command,_T("Information"),wxID_OK|wxID_NO|wxID_CANCEL);  // Returncode hier nicht benötigt. Kann auch ganz entfallen, da nur zu Testzwecken.
-        MessageBoxOSX(this,command,_T("Information"),wxID_OK|wxID_NO|wxID_CANCEL);
+		MessageBoxOSX(this,command,_T("Information"),wxID_OK|wxID_NO|wxID_CANCEL);
 #endif
 		wxExecute(command);		
 	}
