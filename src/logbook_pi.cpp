@@ -120,7 +120,7 @@ int logbookkonni_pi::Init(void)
 
 	if(m_bLOGShowIcon)
             m_leftclick_tool_id  = InsertPlugInTool(_T(""), _img_logbook, _img_logbook, wxITEM_NORMAL,
-                  _("Logbook Konni"), _T(""), NULL,
+                  _("Logbook"), _T(""), NULL,
                    LOGBOOK_TOOL_POSITION, 0, this);
 
 	// Create the Context Menu Items
@@ -331,7 +331,7 @@ int logbookkonni_pi::GetPlugInVersionMinor()
 
 wxString logbookkonni_pi::GetCommonName()
 {
-	return _("LogbookKonni");
+	return _("Logbook");
 }
 
 wxString logbookkonni_pi::GetShortDescription()
@@ -383,7 +383,7 @@ void logbookkonni_pi::SetDefaults(void)
             m_bLOGShowIcon = true;
 
             m_leftclick_tool_id  = InsertPlugInTool(_T(""), _img_logbook, _img_logbook, wxITEM_NORMAL,
-                  _("Logbook Konni"), _T(""), NULL,
+                  _("Logbook"), _T(""), NULL,
                    LOGBOOK_TOOL_POSITION, 0, this);
 				   
       }
@@ -437,7 +437,7 @@ void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 
                   if(m_bLOGShowIcon)
                         m_leftclick_tool_id  = InsertPlugInTool(_T(""), _img_logbook, _img_logbook, wxITEM_NORMAL,
-                              _("Logbook Konni"), _T(""), NULL, LOGBOOK_TOOL_POSITION,
+                              _("Logbook"), _T(""), NULL, LOGBOOK_TOOL_POSITION,
                               0, this);
                   else
                         RemovePlugInTool(m_leftclick_tool_id);
