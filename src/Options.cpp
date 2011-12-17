@@ -113,6 +113,11 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 			odtEditorReset = odtEditor;
 		}
 	}
+	else
+	{
+			odtEditor   = _T("");
+			odtEditorReset = _T("");
+	}
 #endif
 #ifdef __WXGTK__
 	odtEditor   = _T("libreoffice --writer");
@@ -136,11 +141,40 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 #endif
 
 #ifdef __WXMSW__
+#include <windows.h>
+
 	filetype1=wxTheMimeTypesManager->GetFileTypeFromExtension(_T("RSS"));
-	command=filetype1->GetOpenCommand(_T(" "));
-	command = command.Remove(command.find_first_of(_T('/'))-1);
-	mailClient = command;
-	mailClientReset = mailClient;
+
+	if(filetype1)
+	{
+		command=filetype1->GetOpenCommand(_T(" "));
+		command = command.Remove(command.find_first_of(_T('/'))-1);
+		mailClient = command;
+		mailClientReset = mailClient;
+	}
+	else
+	{
+    OSVERSIONINFO osvi;
+    BOOL bIsWindowsXPorLater;
+
+    ZeroMemory(&osvi, sizeof(OSVERSIONINFO));
+    osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);
+
+    GetVersionEx(&osvi);
+
+    if((osvi.dwMajorVersion > 5) ||
+       ( (osvi.dwMajorVersion == 5) && (osvi.dwMinorVersion >= 1) ))
+	{
+		mailClient = _T("C:\\Programme\\Outlook Express\\msimn.exe");
+		mailClientReset = mailClient;
+	}
+	else
+	{
+		mailClient = _T("");
+		mailClientReset = _T("");
+	}
+	}
+
 #endif
 #ifdef __WXGTK__
 	mailClient = _T("kmail --composer");

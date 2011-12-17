@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-07 03:28+0100\n"
+"POT-Creation-Date: 2011-12-15 16:48+0100\n"
 "PO-Revision-Date: 2011-11-25 01:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: Pavel Kalian <pavel@kalian.cz>\n"
@@ -55,9 +55,6 @@ msgid "\""
 msgstr ""
 #
 msgid "'"
-msgstr ""
-#
-msgid "0"
 msgstr ""
 #
 #
@@ -227,52 +224,6 @@ msgstr "Proud"
 msgid "Date"
 msgstr "Datum"
 #
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
-msgid "Date + Days"
-msgstr "Vzdálenost"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
-msgid "Date + Month"
-msgstr "Datum narození"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
-msgid "Date + Weeks"
-msgstr "Vzdálenost"
-#
 msgid "Date Launched"
 msgstr "Datum spuštění"
 #
@@ -394,24 +345,6 @@ msgstr "Editovat rozvržení"
 #
 msgid "Firstname"
 msgstr "Jméno"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
-msgid "Fix Date"
-msgstr "Datum"
 #
 msgid "Fuel"
 msgstr "Palivo"
@@ -543,6 +476,11 @@ msgstr "Nainstalovat OpenCPN_Logbook_Layouts.zip"
 msgid "Install OpenCPN_Logbook_Layouts.zip"
 msgstr "Nainstalovat OpenCPN_Logbook_Layouts.zip"
 #
+#
+#, fuzzy
+msgid "Install OpenCPN_Mac_Logbook_Languages.zip"
+msgstr "Nainstalovat OpenCPN_Logbook_Layouts.zip"
+#
 msgid "Install single Layout"
 msgstr ""
 #
@@ -583,6 +521,10 @@ msgstr "Poslední lodní deník je\n"
 msgid "Last line from Logbook\n"
 msgstr "Poslední řádka lodního deníku\n"
 #
+#, fuzzy
+msgid "Layouts installed"
+msgstr "Jazyky instalovány"
+#
 msgid "Length in Waterline"
 msgstr "Délka vodorysky"
 #
@@ -598,9 +540,6 @@ msgstr "Lokální = UTC"
 #
 msgid "Logbook"
 msgstr "Lodní deník"
-#
-msgid "Logbook Konni"
-msgstr "Konniho lodní deník"
 #
 msgid "Logbook Preferences"
 msgstr "Nastavení lodného deníku"
@@ -642,24 +581,6 @@ msgstr ""
 #, c-format
 msgid "Logbook from %s to %s"
 msgstr ""
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
-msgid "Logbook until "
-msgstr "Otevřít starý soubor deníku"
 #
 msgid "LogbookKonni"
 msgstr ""
@@ -714,9 +635,6 @@ msgstr "Navigace"
 msgid "New Logbook"
 msgstr "Nový lodní deník"
 #
-msgid "No"
-msgstr ""
-#
 msgid "No GPS-Signal !"
 msgstr "Není GPS signál"
 #
@@ -727,8 +645,28 @@ msgstr ""
 "Není nastavena cesta k editoru HTML\n"
 "v Nástroje/Zásuvné moduly/LogbookKonni/Nastavení"
 #
-msgid "OK"
+#, fuzzy
+msgid ""
+"No Path set to HTML-Editor\n"
+"in Toolbox/Plugins/LogbookKonni/Preferences"
 msgstr ""
+"Není nastavena cesta k editoru HTML\n"
+"v Nástroje/Zásuvné moduly/LogbookKonni/Nastavení"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Not implemented yet"
+msgstr "zatím neimplementováno"
 #
 #, fuzzy, c-format
 msgid "Old Logbook until %s"
@@ -760,11 +698,6 @@ msgstr ""
 msgid ""
 "Path to HTML-Editor\n"
 "(optional)"
-msgstr "Cesta k editoru HTML (volitelné)"
-#
-#
-#
-msgid "Path to HTML-Editor (optional)"
 msgstr "Cesta k editoru HTML (volitelné)"
 #
 msgid "Path to MailClient"
@@ -865,9 +798,10 @@ msgstr ""
 "Prosím zadej jako 1.30 nebo 1,30 nebo 1:30\n"
 "pro 1:30h"
 #
+#, c-format
 msgid ""
 "Please enter the Date in the format:\n"
-"   11/18/2011"
+"      %s"
 msgstr ""
 #
 msgid ""
@@ -876,6 +810,9 @@ msgid ""
 msgstr ""
 #
 msgid "Please fill in one character in Degrees, Minutes and Seconds"
+msgstr ""
+#
+msgid "Please fill in one character in Degrees, Minuts and Seconds"
 msgstr ""
 #
 msgid "Policy"
@@ -1469,9 +1406,6 @@ msgstr "Vypisuj varování \"Není GPS\""
 msgid "Yard-Nr."
 msgstr "Č. doku"
 #
-msgid "Yes"
-msgstr ""
-#
 msgid ""
 "Your Logbook has 800 lines or more\n"
 "\n"
@@ -1521,9 +1455,6 @@ msgid ""
 msgstr ""
 #
 msgid "delay to find the right course to the wind"
-msgstr ""
-#
-msgid "en_"
 msgstr ""
 #
 msgid "every 15 Degrees +/- 1 hour"
@@ -1727,8 +1658,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Best Etmal"
 #~ msgstr "Max NM/24h"
+#
+#
 #
 #
 #
@@ -1746,8 +1681,64 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Seznam posádky"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Date + Days"
+#~ msgstr "Vzdálenost"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Date + Month"
+#~ msgstr "Datum narození"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Date + Weeks"
+#~ msgstr "Vzdálenost"
+#
+#
 #
 #
 #
@@ -1845,6 +1836,28 @@ msgstr ""
 #
 #~ msgid "Etmal "
 #~ msgstr "NM/24h"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Fix Date"
+#~ msgstr "Datum"
+#
+#
 #
 #
 #
@@ -1966,8 +1979,16 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "GrossTonnage"
 #~ msgstr "Celková registrovaná prostornost"
+#
+#
+#~ msgid "Logbook Konni"
+#~ msgstr "Konniho lodní deník"
+#
+#
 #
 #
 #
@@ -2082,6 +2103,28 @@ msgstr ""
 #
 #
 #
+#, fuzzy
+#~ msgid "Logbook until "
+#~ msgstr "Otevřít starý soubor deníku"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2122,6 +2165,15 @@ msgstr ""
 #
 #
 #
+#~ msgid "Path to HTML-Editor (optional)"
+#~ msgstr "Cesta k editoru HTML (volitelné)"
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2134,6 +2186,8 @@ msgstr ""
 #
 #~ msgid "Save"
 #~ msgstr "Uložit"
+#
+#
 #
 #
 #
@@ -2272,6 +2326,8 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Vybrat rozvržení:"
@@ -2343,8 +2399,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Show Maintence Rows coloured"
 #~ msgstr "Zobraz řádky údržby v barvě"
+#
+#
 #
 #
 #
@@ -2513,8 +2573,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Today"
 #~ msgstr "Dnes"
+#
+#
 #
 #
 #
@@ -2625,20 +2689,8 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Watchlist"
 #~ msgstr "Hlídka"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#~ msgid "not implemented yet"
-#~ msgstr "zatím neimplementováno"

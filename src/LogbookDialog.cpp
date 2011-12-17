@@ -2133,8 +2133,8 @@ int LogbookDialog::showLayoutDialog(wxChoice *choice, wxString location, int for
 		wxExecute(_T("explorer.exe /select,")+layout);
 #endif
 #ifdef __WXGTK__
-		wxExecute(_T("/bin/bash -c \"") + logbookPlugIn->opt->mailClient) +
-		  _T(" \"mailto:myfriend@xy.xy?subject=LogbookKonni-Layout&body=Drag and Drop file here\"\"");		
+		wxExecute(_T("/bin/bash -c \"") + logbookPlugIn->opt->mailClient +  _T(" -s Logbook-Layout --attach ") +
+			  layout + _T("\"\""));		
 		wxExecute(logbookPlugIn->opt->dataManager+_T(" ")+layout);		
 #endif
 #ifdef __WXOSX__

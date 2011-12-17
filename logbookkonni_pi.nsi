@@ -6,8 +6,8 @@
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 XPStyle on
-
-RequestExecutionLevel user
+RequestExecutionLevel admin
+#RequestExecutionLevel user
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 OutFile "LogbookKonni-Setup.exe"
