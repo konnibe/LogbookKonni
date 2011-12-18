@@ -863,11 +863,13 @@ LogbookOptions::~LogbookOptions()
 
 void LogbookOptions::OnButtonClickUninstall(wxCommandEvent& ev)
 {
+#ifdef __WXMSW__
 	wxStandardPaths stdpath;
 	wxString s = stdpath.GetPluginsDir();
 	wxString command = s+_T("\\plugins\\uninst_logbookkonni_pi.exe");
 
 	wxExecute(_T("explorer.exe /select,")+command);	
+#endif
 }
 
 void LogbookOptions::OnButtonResetPaths( wxCommandEvent& event )

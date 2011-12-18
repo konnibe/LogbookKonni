@@ -122,7 +122,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_radioBtnODT = new wxRadioButton( m_panel2, wxID_ANY, wxT("ODT"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer6->Add( m_radioBtnODT, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	logView = new wxButton( m_panel2, wxID_ANY, _("View"), wxDefaultPosition, wxDefaultSize, 0 );
+	logView = new wxButton( m_panel2, wxID_ANY, _("View "), wxDefaultPosition, wxDefaultSize, 0 );
 	logView->SetToolTip( _("View data in browser (HTML) or Openoffice/LibreOffice (ODT)") );
 	bSizer6->Add( logView, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	

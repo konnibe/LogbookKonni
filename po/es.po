@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-15 16:48+0100\n"
+"POT-Creation-Date: 2011-12-18 01:49+0100\n"
 "PO-Revision-Date: 2011-11-25 01:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -54,6 +54,9 @@ msgstr "\""
 #
 msgid "'"
 msgstr "'"
+#
+msgid "0"
+msgstr ""
 #
 #
 msgid "Abbreviations"
@@ -221,6 +224,58 @@ msgstr "Corriente"
 msgid "Date"
 msgstr "Fecha"
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Date + Days"
+msgstr "DistanciaEtmal"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Date + Month"
+msgstr "Fecha de nacimiento"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Date + Weeks"
+msgstr "DistanciaEtmal"
+#
 msgid "Date Launched"
 msgstr "Fecha botadura"
 #
@@ -339,6 +394,26 @@ msgstr "Editar Layout"
 #
 msgid "Firstname"
 msgstr "Nombre"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Fix Date"
+msgstr "Fecha"
 #
 msgid "Fuel"
 msgstr "Combustible"
@@ -577,8 +652,25 @@ msgstr ""
 msgid "Logbook from %s to %s"
 msgstr ""
 #
-msgid "LogbookKonni"
-msgstr ""
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Logbook until "
+msgstr "Abrir fichero de bitácora antiguo"
 #
 msgid "MMSI"
 msgstr ""
@@ -629,6 +721,9 @@ msgstr "Navigación"
 #
 msgid "New Logbook"
 msgstr "Bitácora nueva"
+#
+msgid "No"
+msgstr ""
 #
 msgid "No GPS-Signal !"
 msgstr ""
@@ -1251,6 +1346,10 @@ msgstr ""
 msgid "View"
 msgstr "Ver"
 #
+#, fuzzy
+msgid "View "
+msgstr "Ver"
+#
 msgid "View data in browser (HTML) or Openoffice/LibreOffice (ODT)"
 msgstr ""
 #
@@ -1398,6 +1497,36 @@ msgstr ""
 #
 msgid "Yard-Nr."
 msgstr "Nº amarre"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+msgid "Yes"
+msgstr "Si"
 #
 msgid ""
 "Your Logbook has 800 lines or more\n"
@@ -1551,9 +1680,19 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "BuyParts"
 #~ msgstr "Comprar recambios"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1570,73 +1709,6 @@ msgstr ""
 #
 #
 #
-#
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
-#~ msgid "Date + Days"
-#~ msgstr "DistanciaEtmal"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
-#~ msgid "Date + Month"
-#~ msgstr "Fecha de nacimiento"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
-#~ msgid "Date + Weeks"
-#~ msgstr "DistanciaEtmal"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
-#~ msgid "Fix Date"
-#~ msgstr "Fecha"
 #
 #
 #
@@ -1694,8 +1766,18 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Bitácora Konni"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1805,21 +1887,6 @@ msgstr ""
 #
 #
 #
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
-#~ msgid "Logbook until "
-#~ msgstr "Abrir fichero de bitácora antiguo"
-#
-#
-#
-#
-#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Ruta al editor HTML (opcional)"
 #
@@ -1839,8 +1906,18 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Save"
 #~ msgstr "Guardar"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1983,9 +2060,19 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Seleccione Layout"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2159,8 +2246,18 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2308,9 +2405,19 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "View Route"
 #~ msgstr "Ruta"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2441,6 +2548,11 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Wave Peak"
 #~ msgstr "Oleaje"
@@ -2449,31 +2561,6 @@ msgstr ""
 #
 #
 #
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#~ msgid "Yes"
-#~ msgstr "Si"
 #
 #
 #

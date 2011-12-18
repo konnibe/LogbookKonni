@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-15 17:16+0100\n"
-"PO-Revision-Date: 2011-12-07 20:10+0100\n"
-"Last-Translator: Gilletarom <gilletarom@netpratique.fr>\n"
+"POT-Creation-Date: 2011-12-18 01:49+0100\n"
+"PO-Revision-Date: 2011-12-18 01:57+0100\n"
+"Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -50,6 +50,9 @@ msgstr "\""
 #
 msgid "'"
 msgstr "'"
+#
+msgid "0"
+msgstr ""
 #
 msgid "Abbreviations"
 msgstr "Abréviations"
@@ -228,6 +231,21 @@ msgstr ""
 msgid "Date"
 msgstr "Date"
 #
+#, fuzzy
+msgid "Date + Days"
+msgstr ""
+"Distance\n"
+"quotidienne"
+#
+#, fuzzy
+msgid "Date + Month"
+msgstr ""
+"Date de\n"
+"naissance"
+#
+msgid "Date + Weeks"
+msgstr ""
+#
 msgid "Date Launched"
 msgstr ""
 "Date de\n"
@@ -347,6 +365,10 @@ msgstr "Trier les mises en page par "
 #
 msgid "Firstname"
 msgstr "Prénom"
+#
+#, fuzzy
+msgid "Fix Date"
+msgstr "Date"
 #
 msgid "Fuel"
 msgstr "Carburant"
@@ -559,8 +581,9 @@ msgstr ""
 msgid "Logbook from %s to %s"
 msgstr "Logbook de %s à %s"
 #
-msgid "LogbookKonni"
-msgstr "LogBookKonni"
+#, fuzzy
+msgid "Logbook until "
+msgstr "Ancien livre de bord depuis %s"
 #
 msgid "MMSI"
 msgstr "MMSI"
@@ -608,6 +631,9 @@ msgid "New Logbook"
 msgstr ""
 "Nouveau\n"
 "livre de bord"
+#
+msgid "No"
+msgstr "Non"
 #
 msgid "No GPS-Signal !"
 msgstr "Pas de signal GPS"
@@ -701,13 +727,13 @@ msgstr ""
 "Veuillez entrer 1.30 or 1,30 or 1:30\n"
 "pour 1:30h"
 #
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "Please enter the Date in the format:\n"
 "      %s"
 msgstr ""
 "Veuillez entrer la date au format :\n"
-"    11/18/2011"
+"      %s"
 #
 msgid ""
 "Please enter the Time in the format:\n"
@@ -1068,6 +1094,9 @@ msgstr "Info personnelle"
 msgid "View"
 msgstr "Voir"
 #
+msgid "View "
+msgstr "Voir"
+#
 msgid "View data in browser (HTML) or Openoffice/LibreOffice (ODT)"
 msgstr ""
 "Voir les données dans le navigateur (Html) ou OpenOffice/LibreOffice (Odt)"
@@ -1156,6 +1185,9 @@ msgid "Yard-Nr."
 msgstr ""
 "Place\n"
 "de port"
+#
+msgid "Yes"
+msgstr "Qui"
 #
 msgid ""
 "Your Logbook has 800 lines or more\n"
@@ -1309,91 +1341,3 @@ msgstr "semaine(s)"
 #
 msgid "write your own label"
 msgstr "Ecrire votre  propre \"étiquette\" "
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#~ msgid "0"
-#~ msgstr "0"
-#
-#
-#~ msgid "Date + Days"
-#~ msgstr "Date + Jours"
-#
-#
-#~ msgid "Date + Month"
-#~ msgstr "Date + mois"
-#
-#
-#~ msgid "Date + Weeks"
-#~ msgstr "Date + Semaines"
-#
-#
-#~ msgid "Fix Date"
-#~ msgstr "Fixer une date"
-#
-#
-#~ msgid "Logbook Konni"
-#~ msgstr "Livre de bord selon Konni"
-#
-#
-#~ msgid "Logbook until "
-#~ msgstr "Livre de bord depuis "
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#~ msgid "No"
-#~ msgstr "Non"
-#
-#
-#
-#~ msgid "OK"
-#~ msgstr "Ok"
-#
-#
-#~ msgid "Save"
-#~ msgstr ""
-#~ "Enregistrer le\n"
-#~ "livre de bord"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#~ msgid "Yes"
-#~ msgstr "Oui"
-#
-#
-#
-#~ msgid "en_"
-#~ msgstr "fr_"
