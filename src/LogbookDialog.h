@@ -96,7 +96,6 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		wxButton* logSave;
 		wxStaticLine* m_staticline8;
 		wxStaticText* m_staticText32;
-		wxChoice* logbookChoice;
 		wxButton* logView;
 		wxStaticLine* m_staticline7;
 		wxButton* newLogbook;
@@ -118,7 +117,6 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		wxStaticLine* m_staticline11;
 		wxGrid* m_gridOverview;
 		wxMenu* m_menuOverView;
-		wxPanel* m_panel21;
 		wxButton* crewAdd;
 		wxButton* crewSave;
 		wxStaticLine* m_staticline5;
@@ -136,7 +134,6 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		wxButton* boatSave;
 		wxStaticLine* m_staticline4;
 		wxStaticText* m_staticText322;
-		wxChoice* boatChoice;
 		wxButton* boatView;
 		wxStaticLine* m_staticline3;
 		wxSplitterWindow* m_splitter1;
@@ -151,8 +148,6 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		wxTextCtrl* hin;
 		wxStaticText* m_staticText117;
 		wxTextCtrl* sailno;
-		
-		
 		wxStaticText* m_staticText119;
 		wxTextCtrl* insurance;
 		wxStaticText* m_staticText118;
@@ -167,10 +162,6 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		wxTextCtrl* ownerFirstname;
 		wxStaticText* m_staticText95;
 		wxTextCtrl* ownerPhone;
-		
-		
-		
-		
 		wxStaticText* m_staticText92;
 		wxTextCtrl* ownerStreet;
 		wxStaticText* m_staticText93;
@@ -191,12 +182,6 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		wxTextCtrl* designer;
 		wxStaticText* m_staticText129;
 		wxTextCtrl* construction;
-		
-		
-		
-		
-		
-		
 		wxStaticText* m_staticText106;
 		wxTextCtrl* LOA;
 		wxStaticText* m_staticText107;
@@ -218,25 +203,20 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		wxPanel* m_panel14;
 		wxStaticLine* m_staticline151;
 		wxStaticText* m_staticText621;
-		
 		wxStaticLine* m_staticline141;
 		wxMenu* m_menu7;
 		wxPanel* m_panel141;
 		wxStaticLine* m_staticline1513;
 		wxStaticText* m_staticText6213;
-		
 		wxStaticLine* m_staticline1413;
 		wxMenu* m_menu71;
-		wxPanel* m_panel16;
 		wxStaticLine* m_staticline1511;
 		wxStaticText* m_staticText6211;
-		
 		wxStaticLine* m_staticline1411;
 		wxMenu* m_menu711;
 		wxPanel* m_panel15;
 		wxStaticLine* m_staticline1512;
 		wxStaticText* m_staticText6212;
-		
 		wxStaticLine* m_staticline1412;
 		wxStaticText* m_staticText6012;
 		wxCalendarCtrl* m_calendar1;
@@ -369,6 +349,7 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 enum maintenanceTab {SERVICE,REPAIRS,BUYPARTS};
 enum FORMAT {HTML,ODT};
 
+		wxChoice* logbookChoice;
 		wxButton* m_buttonReloadLayout;
 		wxButton* m_buttonEditLayout;
 		wxRadioButton* m_radioBtnHTML;
@@ -383,10 +364,12 @@ enum FORMAT {HTML,ODT};
 		wxRadioButton* m_radioBtnAllLogbooks;
 		wxRadioButton* m_radioBtnSelectLogbook;
 		wxButton* m_buttonSelectLogbook;
+		wxPanel* m_panel21;
 		wxButton* m_buttonReloadCrew;
 		wxButton* m_buttonEditLayoutCrew;
 		wxRadioButton* m_radioBtnHTMLCrew;
 		wxRadioButton* m_radioBtnODTCrew;
+		wxChoice* boatChoice;
 		wxButton* m_buttonReloadLayoutsBoat;
 		wxButton* m_buttonEditLayoutBoat;
 		wxRadioButton* m_radioBtnHTMLBoat;
@@ -416,6 +399,7 @@ enum FORMAT {HTML,ODT};
 		wxRadioButton* m_radioBtnODTRepairs;
 		wxButton* m_buttonViewRepairs;
 		wxGrid* m_gridMaintanenceRepairs;
+		wxPanel* m_panel16;
 		wxButton* m_buttonAddLineBuyParts;
 		wxButton* m_buttonSaveBuyParts;
 		wxChoice* m_choiceSelectLayoutBuyParts;
