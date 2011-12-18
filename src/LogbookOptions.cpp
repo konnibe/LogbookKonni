@@ -830,6 +830,10 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 		this->m_textCtrlTimerS->Enable(false);
 	}
 
+#ifndef __WXMSW__
+	m_buttonUninstall->Enable(false);
+#endif
+
 
 }
 
