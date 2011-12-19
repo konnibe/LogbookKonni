@@ -92,10 +92,30 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 	showHeading = 0;
 
 
-	navGridLayoutChoice = -1;
+	navGridLayoutChoice = 0;
 	crewGridLayoutChoice = 0;
 	boatGridLayoutChoice = 0;
-
+	overviewGridLayoutChoice = 0;
+	serviceGridLayoutChoice = 0;
+	repairsGridLayoutChoice = 0;
+	buypartsGridLayoutChoice = 0;
+	
+	navGridLayoutChoiceODT = 0;
+	crewGridLayoutChoiceODT = 0;
+	boatGridLayoutChoiceODT = 0;
+	overviewGridLayoutChoiceODT = 0;
+	serviceGridLayoutChoiceODT = 0;
+	repairsGridLayoutChoiceODT = 0;
+	buypartsGridLayoutChoiceODT = 0;
+	
+	navHTML = true;
+	crewHTML = true;
+	boatHTML = true;
+	overviewHTML = true;
+	serviceHTML = true;
+	repairsHTML = true;
+	buypartsHTML = false;
+	
 	// Paths
 	htmlEditor  = _T("");
 	htmlEditorReset = htmlEditor;

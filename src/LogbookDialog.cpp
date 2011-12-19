@@ -2299,9 +2299,40 @@ Backup Logbook(*.txt)|*.txt");
 	logGrids[1] = m_gridWeather;
 	logGrids[2] = m_gridMotorSails;
 
-	logbookChoice->SetSelection(0);
-	crewChoice->SetSelection(0);
-	boatChoice->SetSelection(0);
+	if(logbookPlugIn->opt->navHTML)
+	  logbookChoice->SetSelection(logbookPlugIn->opt->navGridLayoutChoice);
+	else
+	  logbookChoice->SetSelection(logbookPlugIn->opt->navGridLayoutChoiceODT);
+	
+	if(logbookPlugIn->opt->crewHTML)
+	  crewChoice->SetSelection(logbookPlugIn->opt->crewGridLayoutChoice);
+	else
+	  crewChoice->SetSelection(logbookPlugIn->opt->crewGridLayoutChoiceODT);
+	
+	if(logbookPlugIn->opt->boatHTML)
+	  boatChoice->SetSelection(logbookPlugIn->opt->boatGridLayoutChoice);	
+	else
+	  boatChoice->SetSelection(logbookPlugIn->opt->boatGridLayoutChoice);
+	
+	if(logbookPlugIn->opt->overviewHTML)
+	  overviewChoice->SetSelection(logbookPlugIn->opt->overviewGridLayoutChoice);
+	else
+	  overviewChoice->SetSelection(logbookPlugIn->opt->overviewGridLayoutChoiceODT);	
+	
+	if(logbookPlugIn->opt->serviceHTML)
+	  m_choiceSelectLayoutService->SetSelection(logbookPlugIn->opt->serviceGridLayoutChoice);
+	else
+	  m_choiceSelectLayoutService->SetSelection(logbookPlugIn->opt->serviceGridLayoutChoiceODT);
+	
+	if(logbookPlugIn->opt->repairsHTML)
+	  m_choiceSelectLayoutRepairs->SetSelection(logbookPlugIn->opt->repairsGridLayoutChoice);
+	else
+	  m_choiceSelectLayoutRepairs->SetSelection(logbookPlugIn->opt->repairsGridLayoutChoiceODT);
+	
+	if(logbookPlugIn->opt->buypartsHTML)
+	  m_choiceSelectLayoutBuyParts->SetSelection(logbookPlugIn->opt->buypartsGridLayoutChoice);
+	else
+	  m_choiceSelectLayoutBuyParts->SetSelection(logbookPlugIn->opt->buypartsGridLayoutChoiceODT);	
 
 	numPages = m_notebook8->GetPageCount();
 
@@ -2773,11 +2804,13 @@ void LogbookDialog::OnTimerGPS(wxTimerEvent& ev)
 void LogbookDialog::onRadioButtonHTML(wxCommandEvent& ev)
 {
 	logbook->setLayoutLocation(layoutHTML);
+	logbookPlugIn->opt->navHTML = true;
 }
 
 void LogbookDialog::onRadioButtonODT(wxCommandEvent &ev)
 {
 	logbook->setLayoutLocation(layoutODT);
+	logbookPlugIn->opt->navHTML = false;	
 }
 
 void LogbookDialog::LogbookDialogOnClose( wxCloseEvent& ev )
