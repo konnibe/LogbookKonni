@@ -1685,9 +1685,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "BuyParts"
 #~ msgstr "Comprar recambios"
+#
+#
 #
 #
 #
@@ -1761,6 +1765,8 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "GRT"
 #~ msgstr "BRT"
 #
@@ -1771,8 +1777,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Bitácora Konni"
+#
+#
 #
 #
 #
@@ -1887,6 +1897,8 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Ruta al editor HTML (opcional)"
 #
@@ -1911,8 +1923,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Save"
 #~ msgstr "Guardar"
+#
+#
 #
 #
 #
@@ -2065,9 +2081,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Seleccione Layout"
+#
+#
 #
 #
 #
@@ -2251,8 +2271,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
+#
 #
 #
 #
@@ -2410,9 +2434,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "View Route"
 #~ msgstr "Ruta"
+#
+#
 #
 #
 #
@@ -2553,9 +2581,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Wave Peak"
 #~ msgstr "Oleaje"
+#
+#
 #
 #
 #

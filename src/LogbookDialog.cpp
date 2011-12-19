@@ -122,7 +122,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_radioBtnODT = new wxRadioButton( m_panel2, wxID_ANY, wxT("ODT"), wxDefaultPosition, wxDefaultSize, 0 );
 	bSizer6->Add( m_radioBtnODT, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	logView = new wxButton( m_panel2, wxID_ANY, _("View "), wxDefaultPosition, wxDefaultSize, 0 );
+	logView = new wxButton( m_panel2, wxID_ANY, _("View"), wxDefaultPosition, wxDefaultSize, 0 );
 	logView->SetToolTip( _("View data in browser (HTML) or Openoffice/LibreOffice (ODT)") );
 	bSizer6->Add( logView, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -2793,7 +2793,7 @@ void LogbookDialog::logSaveOnButtonClick( wxCommandEvent& ev )
 	case 3: logbook->toCSV(path); break;
 	case 4: logbook->backup(path); break;
 #ifdef __WXOSX__
-    default: ::MessageBoxOSX(NULL,_("Not implemented yet"),_T("Information"),wxID_OK); break;        
+    default: ::MessageBoxOSX(NULL,_T("Not implemented yet"),_T("Information"),wxID_OK); break;        
 #else
 	default: ::wxMessageBox(_T("Not implemented yet"),_T("Information")); break;
 #endif
@@ -3127,7 +3127,7 @@ void LogbookDialog::crewSaveOnButtonClick( wxCommandEvent& ev )
 	case 3: crewList->saveCSV(path); break;
 	case 4: crewList->backup(path); break;
 #ifdef __WXOSX__
-    default: ::MessageBoxOSX(NULL,_("Not implemented yet"),_T("Information"),wxID_OK); break;        
+    default: ::MessageBoxOSX(NULL,_T("Not implemented yet"),_T("Information"),wxID_OK); break;        
 #else
 	default: ::wxMessageBox(_T("Not implemented yet"),_T("Information")); break;
 #endif
@@ -3256,7 +3256,7 @@ void LogbookDialog::boatSaveOnButtonClick( wxCommandEvent& ev )
 	case 3: boat->toCSV(path); break;
 	case 4: boat->backup(path); break;
 #ifdef __WXOSX__
-    default: ::MessageBoxOSX(NULL,_("Not implemented yet"),_T("Information"),wxID_OK); break;        
+    default: ::MessageBoxOSX(NULL,_T("Not implemented yet"),_T("Information"),wxID_OK); break;        
 #else
 	default: ::wxMessageBox(_T("Not implemented yet"),_T("Information")); break;
 #endif
@@ -3391,7 +3391,7 @@ void LogbookDialog::onButtobClickSaveService(wxCommandEvent & ev)
 //	case 3: overview->toCSV(path); break;
 //	case 4: overview->backup(path); break;
 #ifdef __WXOSX__
-    default: ::MessageBoxOSX(NULL,_("Not implemented yet"),_T("Information"),wxID_OK); break;        
+    default: ::MessageBoxOSX(NULL,_T("Not implemented yet"),_T("Information"),wxID_OK); break;        
 #else
 	default: ::wxMessageBox(_T("Not implemented yet"),_T("Information")); break;
 #endif
@@ -3573,7 +3573,7 @@ void LogbookDialog::onButtobClickSaveRepairs( wxCommandEvent& event )
 //	case 3: maintenance->toCSV(path); break;
 //	case 4: maintenance->backup(path); break;
 #ifdef __WXOSX__
-    default: ::MessageBoxOSX(NULL,_("Not implemented yet"),_T("Information"),wxID_OK); break;        
+    default: ::MessageBoxOSX(NULL,_T("Not implemented yet"),_T("Information"),wxID_OK); break;        
 #else
 	default: ::wxMessageBox(_T("Not implemented yet"),_T("Information")); break;
 #endif
@@ -3741,7 +3741,7 @@ void LogbookDialog::onButtobClickSaveBuyParts( wxCommandEvent& event )
 //	case 3: maintenance->toCSV(path); break;
 //	case 4: maintenance->backup(path); break;
 #ifdef __WXOSX__
-    default: ::MessageBoxOSX(NULL,_("Not implemented yet"),_T("Information"),wxID_OK); break;        
+    default: ::MessageBoxOSX(NULL,_T("Not implemented yet"),_T("Information"),wxID_OK); break;        
 #else
 	default: ::wxMessageBox(_T("Not implemented yet"),_T("Information")); break;
 #endif
@@ -3945,7 +3945,7 @@ void LogbookDialog::OnButtonClickOverviewSave( wxCommandEvent& ev )
 //	case 3: overview->toCSV(path); break;
 //	case 4: overview->backup(path); break;
 #ifdef __WXOSX__
-    default: ::MessageBoxOSX(NULL,_("Not implemented yet"),_T("Information"),wxID_OK); break;        
+    default: ::MessageBoxOSX(NULL,_T("Not implemented yet"),_T("Information"),wxID_OK); break;        
 #else
 	default: ::wxMessageBox(_T("Not implemented yet"),_T("Information")); break;
 #endif

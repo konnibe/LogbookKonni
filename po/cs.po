@@ -1767,8 +1767,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Best Etmal"
 #~ msgstr "Max NM/24h"
+#
+#
 #
 #
 #
@@ -1800,8 +1804,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Seznam posádky"
+#
+#
 #
 #
 #
@@ -1982,8 +1990,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "GPS Auto (Ocean Crossing)"
 #~ msgstr "GPS Auto (přejezd oceánu)"
+#
+#
 #
 #
 #
@@ -2050,8 +2062,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Konniho lodní deník"
+#
+#
 #
 #
 #
@@ -2213,8 +2229,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "NetTonnage"
 #~ msgstr "Čistá registrovaná prostornost"
+#
+#
 #
 #
 #
@@ -2249,8 +2269,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Save"
 #~ msgstr "Uložit"
+#
+#
 #
 #
 #
@@ -2403,6 +2427,8 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Vybrat rozvržení:"
@@ -2481,8 +2507,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Show Maintence Rows coloured"
 #~ msgstr "Zobraz řádky údržby v barvě"
+#
+#
 #
 #
 #
@@ -2665,8 +2695,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Today"
 #~ msgstr "Dnes"
+#
+#
 #
 #
 #
@@ -2732,6 +2766,8 @@ msgstr ""
 #, fuzzy
 #~ msgid "Traditional-Style"
 #~ msgstr "Národnost"
+#
+#
 #
 #
 #
