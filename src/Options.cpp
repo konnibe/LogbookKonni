@@ -155,7 +155,6 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 	else
 	{
     OSVERSIONINFO osvi;
-    BOOL bIsWindowsXPorLater;
 
     ZeroMemory(&osvi, sizeof(OSVERSIONINFO));
     osvi.dwOSVersionInfoSize = sizeof(OSVERSIONINFO);

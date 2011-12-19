@@ -2252,9 +2252,6 @@ void LogbookDialog::init()
 {	
 	sashPos = -1;
 	decimalPoint = wxLocale::GetInfo(wxLOCALE_DECIMAL_POINT, wxLOCALE_CAT_NUMBER);
-//	wxMessageBox(decimalPoint);
-//	wxString pat = 	decimalPoint = logbookPlugIn->local->GetInfo(wxLOCALE_DECIMAL_POINT, wxLOCALE_CAT_DATE);
-//	wxMessageBox(pat);
 	setDatePattern();
 
 	clouds[0] = wxT("Cirrus");
