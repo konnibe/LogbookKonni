@@ -2296,9 +2296,87 @@ Backup Logbook(*.txt)|*.txt");
 	logGrids[1] = m_gridWeather;
 	logGrids[2] = m_gridMotorSails;
 
-	logbookChoice->SetSelection(0);
-	crewChoice->SetSelection(0);
-	boatChoice->SetSelection(0);
+	if(logbookPlugIn->opt->navHTML)
+	{
+	  logbookChoice->SetSelection(logbookPlugIn->opt->navGridLayoutChoice);
+	  m_radioBtnHTML->SetValue(true);
+	}
+	else
+	{
+	  logbookChoice->SetSelection(logbookPlugIn->opt->navGridLayoutChoiceODT);
+	  this->m_radioBtnODT->SetValue(true);
+	}
+
+	if(logbookPlugIn->opt->crewHTML)
+	{
+	  crewChoice->SetSelection(logbookPlugIn->opt->crewGridLayoutChoice);
+	  this->m_radioBtnHTMLCrew->SetValue(true);
+	}
+	else
+	{
+	  crewChoice->SetSelection(logbookPlugIn->opt->crewGridLayoutChoiceODT);
+	  this->m_radioBtnODTCrew->SetValue(true);
+	}
+
+	if(logbookPlugIn->opt->boatHTML)
+	{
+	  boatChoice->SetSelection(logbookPlugIn->opt->boatGridLayoutChoice);	
+	  this->m_radioBtnHTMLBoat->SetValue(true);
+	}
+	else
+	{
+	  boatChoice->SetSelection(logbookPlugIn->opt->boatGridLayoutChoice);
+	  this->m_radioBtnODTBoat->SetValue(true);
+	}
+
+	if(logbookPlugIn->opt->overviewHTML)
+	{
+	  overviewChoice->SetSelection(logbookPlugIn->opt->overviewGridLayoutChoice);
+	  this->m_radioBtnHTMLOverview->SetValue(true);
+	}
+	else
+	{
+	  overviewChoice->SetSelection(logbookPlugIn->opt->overviewGridLayoutChoiceODT);	
+	  this->m_radioBtnODTOverview->SetValue(true);
+	}
+	
+	if(logbookPlugIn->opt->serviceHTML)
+	{
+	  m_choiceSelectLayoutService->SetSelection(logbookPlugIn->opt->serviceGridLayoutChoice);
+	  this->m_radioBtnHTMLService->SetValue(true);
+	}
+	else
+	{
+	  m_choiceSelectLayoutService->SetSelection(logbookPlugIn->opt->serviceGridLayoutChoiceODT);
+	  this->m_radioBtnODTService->SetValue(true);
+	}
+
+	if(logbookPlugIn->opt->repairsHTML)
+	{
+	  m_choiceSelectLayoutRepairs->SetSelection(logbookPlugIn->opt->repairsGridLayoutChoice);
+	  this->m_radioBtnHTMLRepairs->SetValue(true);
+	}
+	else
+	{
+	  m_choiceSelectLayoutRepairs->SetSelection(logbookPlugIn->opt->repairsGridLayoutChoiceODT);
+	  this->m_radioBtnODTRepairs->SetValue(true);
+	}
+	
+	if(logbookPlugIn->opt->buypartsHTML)
+	{
+	  m_choiceSelectLayoutBuyParts->SetSelection(logbookPlugIn->opt->buypartsGridLayoutChoice);
+	  this->m_radioBtnHTMLBuyParts->SetValue(true);
+	}
+	else
+	{
+	  m_choiceSelectLayoutBuyParts->SetSelection(logbookPlugIn->opt->buypartsGridLayoutChoiceODT);	
+	  this->m_radioBtnODTBuyParts->SetValue(true);
+	}
+
+	if(!logbookPlugIn->opt->overviewAll)
+		this->m_radioBtnActuellLogbook->SetValue(true);
+	else
+		this->m_radioBtnAllLogbooks->SetValue(true);
 
 	numPages = m_notebook8->GetPageCount();
 
@@ -2770,11 +2848,13 @@ void LogbookDialog::OnTimerGPS(wxTimerEvent& ev)
 void LogbookDialog::onRadioButtonHTML(wxCommandEvent& ev)
 {
 	logbook->setLayoutLocation(layoutHTML);
+	logbookPlugIn->opt->navHTML = true;
 }
 
 void LogbookDialog::onRadioButtonODT(wxCommandEvent &ev)
 {
 	logbook->setLayoutLocation(layoutODT);
+	logbookPlugIn->opt->navHTML = false;	
 }
 
 void LogbookDialog::LogbookDialogOnClose( wxCloseEvent& ev )
@@ -3085,11 +3165,13 @@ void LogbookDialog::onButtonClickEditLayoutCrew(wxCommandEvent &ev)
 void LogbookDialog::onRadioButtonHTMLCrew(wxCommandEvent &ev)
 {
 	crewList->setLayoutLocation(layoutHTML);
+	logbookPlugIn->opt->crewHTML = true;
 }
 
 void LogbookDialog::onRadioButtonODTCrew(wxCommandEvent &ev)
 {
 	crewList->setLayoutLocation(layoutODT);
+	logbookPlugIn->opt->crewHTML = false;
 }
 
 void LogbookDialog::m_gridCrewOnGridCellChange( wxGridEvent& ev )
@@ -3212,11 +3294,13 @@ void LogbookDialog::onButtonClickEditLayoutBoat(wxCommandEvent &ev)
 void LogbookDialog::onRadioButtonHTMLBoat(wxCommandEvent &ev)
 {
 	boat->setLayoutLocation(layoutHTML);
+	logbookPlugIn->opt->boatHTML = true;
 }
 
 void LogbookDialog::onRadioButtonODTBoat(wxCommandEvent &ev)
 {
 	boat->setLayoutLocation(layoutODT);
+	logbookPlugIn->opt->boatHTML = false;
 }
 
 void LogbookDialog::m_gridEquipmentOnGridCellChange( wxGridEvent& ev )
@@ -3388,11 +3472,13 @@ void LogbookDialog::onGridCellRightClickService(wxGridEvent &ev)
 void LogbookDialog::onRadioButtonHTMLService(wxCommandEvent &ev)
 {
 	maintenance->setLayoutLocation();
+	logbookPlugIn->opt->serviceHTML = true;
 }
 
 void LogbookDialog::onRadioButtonODTService(wxCommandEvent &ev)
 {
 	maintenance->setLayoutLocation();	
+	logbookPlugIn->opt->serviceHTML = false;
 }
 
 void LogbookDialog::onButtonClickViewService(wxCommandEvent &ev)
@@ -3517,10 +3603,12 @@ void LogbookDialog::onButtonClickEditLayoutODTRepairs( wxCommandEvent& event )
 void LogbookDialog::onRadioButtonHTMLRepairs( wxCommandEvent& event )
 {
 	maintenance->setLayoutLocation();
+	logbookPlugIn->opt->repairsHTML = true;
 }
 void LogbookDialog::onRadioButtonODTRepairs( wxCommandEvent& event )
 {
 	maintenance->setLayoutLocation();
+	logbookPlugIn->opt->repairsHTML = false;
 }
 void LogbookDialog::onButtonClickViewRepairs( wxCommandEvent& event )
 {
@@ -3684,11 +3772,14 @@ void LogbookDialog::onButtonClickEditLayoutODTBuyParts( wxCommandEvent& event )
 void LogbookDialog::onRadioButtonHTMLBuyParts( wxCommandEvent& event )
 {
 	maintenance->setLayoutLocation();
+	logbookPlugIn->opt->buypartsHTML = true;
 }
 
 void LogbookDialog::onRadioButtonODTBuyParts( wxCommandEvent& event )
 {
-	maintenance->setLayoutLocation();}
+	maintenance->setLayoutLocation();
+	logbookPlugIn->opt->buypartsHTML = false;
+}
 
 void LogbookDialog::onButtonClickViewBuyParts( wxCommandEvent& event )
 {
@@ -3885,11 +3976,13 @@ void LogbookDialog::onButtonClickEditLayoutOverview( wxCommandEvent& ev )
 void LogbookDialog::onRadioButtonHTMLOverview( wxCommandEvent& ev )
 {
 	overview->setLayoutLocation();
+	logbookPlugIn->opt->overviewHTML = true;
 }
 
 void LogbookDialog::onRadioButtonODTOverView( wxCommandEvent& ev )
 {
 	overview->setLayoutLocation();
+    logbookPlugIn->opt->overviewHTML = false;
 }
 
 void LogbookDialog::OnButtonClickOverView( wxCommandEvent& ev )

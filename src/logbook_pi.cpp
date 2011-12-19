@@ -474,7 +474,7 @@ void logbookkonni_pi::SaveConfig()
       if(pConf)
       {
 			pConf->SetPath ( _T ( "/PlugIns/Logbook" ) );
-            pConf->Write ( _T( "ShowLOGIcon" ), m_bLOGShowIcon );
+			pConf->Write ( _T( "ShowLOGIcon" ), m_bLOGShowIcon );
 			pConf->Write ( _T( "Traditional" ), opt->traditional );
 			pConf->Write ( _T( "ToolTips" ),    opt->showToolTips );
 
@@ -532,11 +532,32 @@ void logbookkonni_pi::SaveConfig()
 			pConf->Write ( _T ( "ShowWindDir" ), opt->showWindDir);
 			pConf->Write ( _T ( "ShowHeading" ), opt->showHeading);
 			pConf->Write ( _T ( "ShowWindHeading" ), opt->showWindHeading);
+			
+			pConf->Write ( _T ( "NavHTML" ), opt->navHTML);
+			pConf->Write ( _T ( "CrewHTML" ), opt->crewHTML);
+			pConf->Write ( _T ( "BoatHTML" ), opt->boatHTML);
+			pConf->Write ( _T ( "overviewHTML" ), opt->overviewHTML);
+			pConf->Write ( _T ( "serviceHTML" ), opt->serviceHTML);
+			pConf->Write ( _T ( "repairsHTML" ), opt->repairsHTML);
+			pConf->Write ( _T ( "buypartsHTML" ), opt->buypartsHTML);	
+			pConf->Write ( _T ( "OverViewAll" ), opt->overviewAll);
 
 			pConf->Write ( _T ( "NavGridLayout" ), opt->navGridLayoutChoice);
 			pConf->Write ( _T ( "CrewGridLayout" ), opt->crewGridLayoutChoice);
 			pConf->Write ( _T ( "BoatGridLayout" ), opt->boatGridLayoutChoice);
+			pConf->Write ( _T ( "overviewGridLayout" ), opt->overviewGridLayoutChoice);
+			pConf->Write ( _T ( "serviceGridLayout" ), opt->serviceGridLayoutChoice);
+			pConf->Write ( _T ( "repairsGridLayout" ), opt->repairsGridLayoutChoice);
+			pConf->Write ( _T ( "buypartsGridLayout" ), opt->buypartsGridLayoutChoice);			
 
+			pConf->Write ( _T ( "NavGridLayoutODT" ), opt->navGridLayoutChoiceODT);
+			pConf->Write ( _T ( "CrewGridLayoutODT" ), opt->crewGridLayoutChoiceODT);
+			pConf->Write ( _T ( "BoatGridLayoutODT" ), opt->boatGridLayoutChoiceODT);
+			pConf->Write ( _T ( "overviewGridLayoutODT" ), opt->overviewGridLayoutChoiceODT);
+			pConf->Write ( _T ( "serviceGridLayoutODT" ), opt->serviceGridLayoutChoiceODT);
+			pConf->Write ( _T ( "repairsGridLayoutODT" ), opt->repairsGridLayoutChoiceODT);
+			pConf->Write ( _T ( "buypartsGridLayoutODT" ), opt->buypartsGridLayoutChoiceODT);
+			
 			pConf->Write ( _T ( "HTMLEditor" ), opt->htmlEditor);
 			pConf->Write ( _T ( "ODTEditor" ), opt->odtEditor);
 			pConf->Write ( _T ( "DataManager" ), opt->dataManager);
@@ -638,10 +659,31 @@ void logbookkonni_pi::LoadConfig()
 			pConf->Read ( _T ( "ShowWindDir" ), &opt->showWindDir);
 			pConf->Read ( _T ( "ShowHeading" ), &opt->showHeading);
 			pConf->Read ( _T ( "ShowWindHeading" ), &opt->showWindHeading);
+			
+			pConf->Read( _T ( "NavHTML" ), &opt->navHTML,1);
+			pConf->Read ( _T ( "CrewHTML" ), &opt->crewHTML,1);
+			pConf->Read ( _T ( "BoatHTML" ), &opt->boatHTML,1);
+			pConf->Read ( _T ( "overviewHTML" ), &opt->overviewHTML,1);
+			pConf->Read ( _T ( "serviceHTML" ), &opt->serviceHTML,1);
+			pConf->Read ( _T ( "repairsHTML" ), &opt->repairsHTML,1);
+			pConf->Read ( _T ( "buypartsHTML" ), &opt->buypartsHTML,1);		
+			pConf->Read ( _T ( "OverViewAll" ), &opt->overviewAll,0);
 
-			pConf->Read ( _T ( "NavGridLayout" ), &opt->navGridLayoutChoice);
-			pConf->Read ( _T ( "CrewGridLayout" ), &opt->crewGridLayoutChoice);
-			pConf->Read ( _T ( "BoatGridLayout" ), &opt->boatGridLayoutChoice);
+			pConf->Read ( _T ( "NavGridLayout" ), &opt->navGridLayoutChoice,-1);
+			pConf->Read ( _T ( "CrewGridLayout" ), &opt->crewGridLayoutChoice,0);
+			pConf->Read ( _T ( "BoatGridLayout" ), &opt->boatGridLayoutChoice,0);
+			pConf->Read ( _T ( "overviewGridLayout" ), &opt->overviewGridLayoutChoice,0);
+			pConf->Read ( _T ( "serviceGridLayout" ), &opt->serviceGridLayoutChoice,0);
+			pConf->Read ( _T ( "repairsGridLayout" ), &opt->repairsGridLayoutChoice,0);
+			pConf->Read ( _T ( "buypartsGridLayout" ), &opt->buypartsGridLayoutChoice,0);			
+
+			pConf->Read ( _T ( "NavGridLayoutODT" ), &opt->navGridLayoutChoiceODT,0);
+			pConf->Read ( _T ( "CrewGridLayoutODT" ), &opt->crewGridLayoutChoiceODT,0);
+			pConf->Read ( _T ( "BoatGridLayoutODT" ), &opt->boatGridLayoutChoiceODT,0);
+			pConf->Read ( _T ( "overviewGridLayoutODT" ), &opt->overviewGridLayoutChoiceODT,0);
+			pConf->Read ( _T ( "serviceGridLayoutODT" ), &opt->serviceGridLayoutChoiceODT,0);
+			pConf->Read ( _T ( "repairsGridLayoutODT" ), &opt->repairsGridLayoutChoiceODT,0);
+			pConf->Read ( _T ( "buypartsGridLayoutODT" ), &opt->buypartsGridLayoutChoiceODT,0);
 
 			pConf->Read ( _T ( "HTMLEditor" ), &opt->htmlEditor);
 			pConf->Read ( _T ( "ODTEditor" ), &opt->odtEditor);

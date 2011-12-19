@@ -340,8 +340,8 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		virtual void gridMotorSailsScrolled( wxScrollWinEvent& event );
 
 		 void appendOSDirSlash(wxString* pString);
-		 wxString setLogbookData(int rowHeight, int totalColumns, int numPages, int row);
-		 void changeCellValue(int row, int col, wxGrid* grid, int offset);
+//		 wxString setLogbookData(int rowHeight, int totalColumns, int numPages, int row);
+//		 void changeCellValue(int row, int col, wxGrid* grid, int offset);
 		 void getIniValues();
 		 void setIniValues();
 	
@@ -456,7 +456,7 @@ enum FORMAT {HTML,ODT};
 		void OnTimerGPS(wxTimerEvent& ev);
 		void OnLogTimer(wxTimerEvent& ev);
 		int  showLayoutDialog(wxChoice *choice, wxString location, int format);
-		void filterLayout(wxChoice *choice, wxString location, int format);
+//		void filterLayout(wxChoice *choice, wxString location, int format);
 		bool isInArrayString(wxArrayString ar, wxString s);
 		wxDateTime getDateTo(wxString filename);
 

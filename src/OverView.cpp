@@ -154,7 +154,13 @@ void OverView::selectLogbook()
 void OverView::actuellLogbook()
 {
 	clearGrid();
-	loadLogbookData(logbooks[0],false);
+	for(unsigned int i=0; i < logbooks.size(); i++)
+	  if(!logbooks[i].Contains(_T("until")))
+	  {
+	    loadLogbookData(logbooks[i],false);
+	    break;
+	  }
+    opt->overviewAll = false;
 }
 
 void OverView::allLogbooks()
@@ -167,6 +173,7 @@ void OverView::allLogbooks()
 		else
 			loadLogbookData(logbooks[i],false);
 	}
+	opt->overviewAll = true;
 }
 
 void OverView::clearGrid()
