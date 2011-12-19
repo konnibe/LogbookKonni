@@ -3036,10 +3036,7 @@ void LogbookDialog::getIniValues()
 {
 	Options * opt = logbookPlugIn->opt;
 
-	if(opt->navGridLayoutChoice == -1) return;
-	logbookChoice->SetSelection(opt->navGridLayoutChoice);
-	crewChoice->SetSelection(opt->crewGridLayoutChoice);
-	boatChoice->SetSelection(opt->boatGridLayoutChoice);
+	if((opt->navGridLayoutChoice == -1) || (opt->NavColWidth.GetCount() == 0)) return;
 
 	for(int i = 0; i < LOGGRIDS; i++)
 	{
