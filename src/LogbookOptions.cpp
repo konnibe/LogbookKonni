@@ -1014,7 +1014,7 @@ void LogbookOptions::setValues()
 	m_checkBoxShowAllLayouts->SetValue(opt->showAllLayouts);
 	m_checkBoxShowOnlySelectedLayouts->SetValue(opt->filterLayout);
 	m_textCtrlLayoutPrefix->SetValue(opt->layoutPrefix);
-
+	
 }
 
 void LogbookOptions::getValues()

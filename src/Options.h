@@ -28,8 +28,8 @@ public:
 
 	// Global Options
 	bool		firstTime;
-	int			dlgWidth;
-	int			dlgHeight;
+	int		dlgWidth;
+	int		dlgHeight;
 
 	wxString    layoutPrefix;
 	bool		filterLayout;
@@ -88,9 +88,9 @@ public:
 
 	//Paths 
 	wxString    htmlEditor;
-	wxString    odtEditor;
+	wxString   	odtEditor;
 	wxString    mailClient;
-	wxString    dataManager;
+	wxString   	dataManager;
 
 	wxString    htmlEditorReset;
 	wxString    odtEditorReset;
@@ -98,22 +98,43 @@ public:
 	wxString    dataManagerReset;
 
 	//wxChoice
-	int			showDepth;
-	int			showWaveSwell;
-	int			showWindSpeed;
-	int			showWindDir;
-	int			showWindHeading;
-	int			showHeading;
+	int		showDepth;
+	int		showWaveSwell;
+	int		showWindSpeed;
+	int		showWindDir;
+	int		showWindHeading;
+	int		showHeading;
+	
+	bool 		navHTML;
+	bool		crewHTML;
+	bool		boatHTML;
+	bool		overviewHTML;
+	bool		serviceHTML;
+	bool		repairsHTML;
+	bool		buypartsHTML;
+	bool        overviewAll;
 
-	int			navGridLayoutChoice;
-	int			crewGridLayoutChoice;
-	int			boatGridLayoutChoice;
+	int		navGridLayoutChoice;
+	int		crewGridLayoutChoice;
+	int		boatGridLayoutChoice;
+	int		overviewGridLayoutChoice;
+	int		serviceGridLayoutChoice;
+	int		repairsGridLayoutChoice;
+	int		buypartsGridLayoutChoice;
+	
+	int		navGridLayoutChoiceODT;
+	int		crewGridLayoutChoiceODT;
+	int		boatGridLayoutChoiceODT;
+	int		overviewGridLayoutChoiceODT;
+	int		serviceGridLayoutChoiceODT;
+	int		repairsGridLayoutChoiceODT;
+	int		buypartsGridLayoutChoiceODT;	
 
 	bool		local;
 	bool		UTC;
 	bool		gpsAuto;
-	int			tzIndicator;
-	int			tzHour;
+	int		tzIndicator;
+	int		tzHour;
 
 	ArrayOfNavGridColWidth		NavColWidth;
 	ArrayOfWeatherGridColWidth	WeatherColWidth;
