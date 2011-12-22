@@ -2947,18 +2947,18 @@ void LogbookDialog::startApplication(wxString filename, wxString ext)
 
 	if(ext == _T(".odt"))
 	{
-		 wxString command = logbookPlugIn->opt->odtEditor +  _T(" \"") +filename + _T("\"");
+		 wxString command = logbookPlugIn->opt->odtEditor +  _T(" ") +filename;
 
 #ifdef __WXOSX__
 		command = _T("/bin/bash -c \"open ")+filename+_T("\"");
-//		MessageBoxOSX(this,command,_T("Information"),wxID_OK|wxID_NO|wxID_CANCEL);
+		MessageBoxOSX(this,command,_T("Information"),wxID_OK|wxID_NO|wxID_CANCEL);
 #endif
 		wxExecute(command);		
 	}
 	else
 	{
 		if(!logbookPlugIn->opt->htmlEditor.IsEmpty())
-			wxExecute(wxString::Format(wxT("%s \"%s\" "),logbookPlugIn->opt->htmlEditor.c_str(),filename.c_str()));
+			wxExecute(wxString::Format(wxT("%s %s "),logbookPlugIn->opt->htmlEditor.c_str(),filename.c_str()));
 		else
 #ifdef __WXOSX__
             MessageBoxOSX(NULL,_("No Path set to HTML-Editor\nin Toolbox/Plugins/LogbookKonni/Preferences"),_T("Information"),wxID_OK);

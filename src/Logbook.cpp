@@ -42,7 +42,6 @@ Logbook::Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString
 	noSentence = true;
 	modified = false;
 	wxString logLay;
-	wxString lastWayPoint = _T("");
 
 	dialog = parent;
 	opt = dialog->logbookPlugIn->opt;
@@ -71,7 +70,6 @@ Logbook::Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString
 
 	noAppend = false;
 	gpsStatus = false;
-	waypointArrived = false;
 	bCOW = false;
 	dCOW = -1;
 	dCOG = -1;
@@ -80,7 +78,6 @@ Logbook::Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString
 	guardChange = false;
 	dLastMinute = -1;
 	oldPosition.latitude = 500;
-//	tempRMB = 0;
 }
 
 Logbook::~Logbook(void)
@@ -179,23 +176,6 @@ void Logbook::SetSentence(wxString &sentence)
 						sCOW = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Hdm.DegreesMagnetic,opt->Deg.c_str());
 					  dCOW = m_NMEA0183.Hdm.DegreesMagnetic;
 					  bCOW = true;
-				  }
-			}
-			else if(m_NMEA0183.LastSentenceIDReceived == _T("RMB"))
-            {
-				  if(opt->waypointArrived)
-				  {
-					if(m_NMEA0183.Parse())
-					{
-						  if(m_NMEA0183.Rmb.IsArrivalCircleEntered == NTrue)
-						{
-							  if(m_NMEA0183.Rmb.To != lastWayPoint)
-							{
-								lastWayPoint = m_NMEA0183.Rmb.To;
-								checkWayPoint(m_NMEA0183.Rmb);
-							}
-						}
-					}
 				  }
 			}
 			else if(m_NMEA0183.LastSentenceIDReceived == _T("RMC"))
@@ -796,14 +776,6 @@ void Logbook::checkCourseChanged()
 				courseChange = false;
 			}
 		}
-}
-
-void Logbook::checkWayPoint(RMB rmb)
-{
-	tempRMB = rmb;
-	waypointArrived = true;
-	appendRow(false);
-	waypointArrived = false;	
 }
 
 void Logbook::checkGuardChanged()
@@ -1685,16 +1657,6 @@ bool Logbook::checkGPS(bool appendClick)
 			sLogText += opt->courseChangeText+opt->courseChangeDegrees+opt->Deg;
 		else if(guardChange)
 			sLogText += opt->guardChangeText;
-		else if(waypointArrived)
-		{
-			wxString s = wxString::Format(_("\nName of Waypoint: %s\nTrue bearing to destination: %4.1f%s\nRange to destination: %4.2f%s"),
-																	tempRMB.To,
-																	tempRMB.BearingToDestinationDegreesTrue,opt->Deg,
-																	tempRMB.RangeToDestinationNauticalMiles,opt->distance);
-			s.Replace(_T("."),dialog->decimalPoint);
-			sLogText += opt->waypointText + s;
-			
-		}
 		else if(everySM && !appendClick)
 			sLogText += opt->everySMText+opt->everySMAmount+opt->distance;
 		else if(dialog->timer->IsRunning() && !appendClick)

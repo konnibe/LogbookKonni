@@ -29,8 +29,6 @@ Options::Options(void)
 	showAllLayouts = true;
 	noGPS = true;
 	colouredMaintenance = true;
-	waypointArrived = false;
-	waypointText = _("automatic line Waypoint arrived");
 	guardChange = false;
 	guardChangeText = _("automatic line\nchange of guards");
 	courseChange = false;

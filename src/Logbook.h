@@ -32,7 +32,6 @@ private:
 				}oldPosition,newPosition;
 
 	NMEA0183       		m_NMEA0183;
-	RMB					tempRMB;
 	wxString			sLat;
 	wxString			sLon;
 	wxDateTime			mUTCDateTime;
@@ -47,7 +46,6 @@ private:
 	wxString			sWindSpeed;
 	wxString			sDepth;
 	wxString			sLogText;
-	wxString			lastWayPoint;
 	Options				*opt;
 	bool				noSentence;
 	bool				gpsStatus;
@@ -58,7 +56,6 @@ private:
 	bool				courseChange;
 	bool				everySM;
 	bool				guardChange;
-	bool				waypointArrived;
 	bool				oldLogbook;
 
 	wxString			toSDMM ( int NEflag, double a, bool mode );
@@ -74,7 +71,6 @@ private:
 	wxString			getWake();
 	void				checkCourseChanged();
 	void				checkGuardChanged();
-	void				checkWayPoint(RMB rmb);
 	void				checkDistance();
 	wxString			positionTraditional(int NEflag, double a, bool mode );
 	wxString			positionGPSLike(int NEflag, double a, bool mode );
