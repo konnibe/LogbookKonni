@@ -38,6 +38,8 @@ public:
 	bool		colouredMaintenance;
 	bool		guardChange;
 	wxString	guardChangeText;
+	bool		waypointArrived;
+	wxString	waypointText;
 	bool		courseChange;
 	wxString	courseChangeDegrees;
 	double		dCourseChangeDegrees;

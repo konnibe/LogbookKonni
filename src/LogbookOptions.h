@@ -223,6 +223,8 @@ class LogbookOptions : public wxDialog
 		wxTextCtrl* m_textCtrlLayoutPrefix;
 		wxCheckBox* m_checkBoxNoGPS;
 		wxChoice* m_choiceWindTo;
+		wxCheckBox* m_checkBoxWayPoint;
+		wxTextCtrl* m_textCtrlWayPoint;
 		wxCheckBox* m_checkBoxGuardChanged;
 		wxTextCtrl* m_textCtrlGuradChanged;
 		wxCheckBox* m_checkBoxEverySM;
