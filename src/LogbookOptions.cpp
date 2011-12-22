@@ -141,6 +141,19 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
+
+	
+	m_checkBoxWayPoint = new wxCheckBox( m_panel15, wxID_ANY, wxT("If Waypoint arrived"), wxDefaultPosition, wxDefaultSize, 0 );
+	fgSizer29->Add( m_checkBoxWayPoint, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
+	
+	
+	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	m_textCtrlWayPoint = new wxTextCtrl( m_panel15, wxID_ANY, wxT("automatic line\nWaypoint arrived:"), wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE );
+	fgSizer29->Add( m_textCtrlWayPoint, 0, wxALL|wxEXPAND, 0 );
+	
+	
+	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 	m_checkBoxGuardChanged = new wxCheckBox( m_panel15, wxID_ANY, _("If Watch changed"), wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer29->Add( m_checkBoxGuardChanged, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
@@ -936,6 +949,8 @@ void LogbookOptions::setValues()
 {
 	m_checkBoxGuardChanged->SetValue(opt->guardChange);
 	m_textCtrlGuradChanged->SetValue(opt->guardChangeText);
+	m_checkBoxWayPoint->SetValue(opt->waypointArrived);
+	m_textCtrlWayPoint->SetValue(opt->waypointText);
 	m_checkBoxCourseChanged->SetValue(opt->courseChange);
 	m_textCtrlCourseMessageAfter->SetValue(opt->courseTextAfterMinutes);
 	m_textCtrlCourseCahngedMoreThen->SetValue(opt->courseChangeDegrees);
@@ -1021,6 +1036,8 @@ void LogbookOptions::getValues()
 {
 	opt->guardChange = m_checkBoxGuardChanged->GetValue();
 	opt->guardChangeText = m_textCtrlGuradChanged->GetValue();
+	opt->waypointArrived = m_checkBoxWayPoint->GetValue();
+	opt->waypointText = m_textCtrlWayPoint->GetValue();
 	opt->courseChange = m_checkBoxCourseChanged->GetValue();
 	opt->courseChangeDegrees = m_textCtrlCourseCahngedMoreThen->GetValue();
 	opt->courseTextAfterMinutes = m_textCtrlCourseMessageAfter->GetValue();

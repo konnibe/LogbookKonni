@@ -62,7 +62,7 @@ class RMB : public RESPONSE
       double           RangeToDestinationNauticalMiles;
       double           BearingToDestinationDegreesTrue;
       double           DestinationClosingVelocityKnots;
-      NMEA0183_BOOLEAN IsArrivalCircleEntered;
+	  NMEA0183_BOOLEAN IsArrivalCircleEntered;
 
       /*
       ** Methods
