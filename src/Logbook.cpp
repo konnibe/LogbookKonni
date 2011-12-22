@@ -1688,9 +1688,9 @@ bool Logbook::checkGPS(bool appendClick)
 		else if(waypointArrived)
 		{
 			wxString s = wxString::Format(_("\nName of Waypoint: %s\nTrue bearing to destination: %4.1f%s\nRange to destination: %4.2f%s"),
-																	tempRMB.To,
-																	tempRMB.BearingToDestinationDegreesTrue,opt->Deg,
-																	tempRMB.RangeToDestinationNauticalMiles,opt->distance);
+																	tempRMB.To.c_str(),
+																	tempRMB.BearingToDestinationDegreesTrue,opt->Deg.c_str(),
+																	tempRMB.RangeToDestinationNauticalMiles,opt->distance.c_str());
 			s.Replace(_T("."),dialog->decimalPoint);
 			sLogText += opt->waypointText + s;
 			
