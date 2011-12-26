@@ -32,11 +32,12 @@
 
 #include <math.h>
 
-//#define PBVE_DEBUG 1
-
 Logbook::Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString layoutODT)
 : LogbookHTML(this,parent,data,layout)
 {
+#ifdef PBVE_DEBUG
+	pbvecount = 0;
+#endif
 	oldLogbook = false;
 
 	noSentence = true;
@@ -99,7 +100,25 @@ void Logbook::setLayoutLocation(wxString loc)
 
 void Logbook::SetPosition(PlugIn_Position_Fix &pfix)
 {
+	if(opt->traditional)
+		sLat = this->toSDMM(1,pfix.Lat, true);
+	else
+		sLat = this->toSDMMOpenCPN(1,pfix.Lat, true);
+
+	if(opt->traditional)
+		sLon = this->toSDMM(2, pfix.Lon, true);
+	else
+		sLon = this->toSDMMOpenCPN(2, pfix.Lon, true);
+
+	if(pfix.Sog >= 0.0)
+		sSOG = wxString::Format(_T("%5.2f %s"), pfix.Sog,opt->speed.c_str());
+	if(pfix.Cog >= 0.0)
+		sCOG = wxString::Format(_T("%5.2f %s"),pfix.Cog, opt->Deg.c_str());
+
 	mUTCDateTime.Set(pfix.FixTime);
+
+	gpsStatus = true;
+	dialog->GPSTimer->Start(5000);
 }
 void Logbook::clearNMEAData()
 {
@@ -112,14 +131,13 @@ void Logbook::SetSentence(wxString &sentence)
 	m_NMEA0183 << sentence;
 
 #ifdef PBVE_DEBUG
-	static int pbve = 0;
 	if(sentence.Contains(_T("$PBVE")))
 	{
-		if(pvbe != NULL && pbve < 15)
+		if(pvbe != NULL && pbvecount < 15)
 		{
 			pvbe->m_textCtrlPVBE->AppendText(sentence);
 			pvbe->SetFocus();
-			pbve++;
+			pbvecount++;
 		}
 	}
 #endif
@@ -208,9 +226,12 @@ void Logbook::SetSentence(wxString &sentence)
 									m_NMEA0183.Rmc.Position.Longitude.Easting);
 
 
-					sSOG = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Rmc.SpeedOverGroundKnots,opt->speed.c_str());
-					sCOG = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue, opt->Deg.c_str());
-					dCOG = m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue;
+					if(m_NMEA0183.Rmc.SpeedOverGroundKnots != 999.0)
+						sSOG = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Rmc.SpeedOverGroundKnots,opt->speed.c_str());
+					if(m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue != 999.0)
+						sCOG = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue, opt->Deg.c_str());
+					if(m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue != 999.0)
+						dCOG = m_NMEA0183.Rmc.TrackMadeGoodDegreesTrue;
 
 					long day,month,year;
 					m_NMEA0183.Rmc.Date.SubString(0,1).ToLong(&day);
@@ -331,7 +352,7 @@ void Logbook::setPositionString(double dLat, int iNorth, double dLon, int iEast)
     float lat_deg = lat_deg_int;
     float lat_min = llt - (lat_deg * 100);
     lat = lat_deg + (lat_min/60.);
-    if(iNorth== South)
+    if(iNorth == South)
            lat = -lat;
 	if(opt->traditional)
 		sLat = this->toSDMM(1,lat, true);
@@ -1087,7 +1108,8 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						{
 							dt = dt.Now();
 #ifdef __WXOSX__
-                            MessageBoxOSX(NULL,(wxString::Format(_("Please enter the Date in the format:\n      %s"),dt.FormatDate(),_("Information"),wxID_OK);                      
+                            wxString s = dt.FormatDate().c_str();
+                            MessageBoxOSX(NULL,_("Please enter the Date in the format:\n   ") + s, _("Information"),wxID_OK);                     
 #else
 							wxMessageBox(wxString::Format(_("Please enter the Date in the format:\n      %s"),dt.FormatDate().c_str(),_("Information")));
 #endif
@@ -1688,9 +1710,9 @@ bool Logbook::checkGPS(bool appendClick)
 		else if(waypointArrived)
 		{
 			wxString s = wxString::Format(_("\nName of Waypoint: %s\nTrue bearing to destination: %4.1f%s\nRange to destination: %4.2f%s"),
-																	tempRMB.To,
-																	tempRMB.BearingToDestinationDegreesTrue,opt->Deg,
-																	tempRMB.RangeToDestinationNauticalMiles,opt->distance);
+																	tempRMB.To.c_str(),
+																	tempRMB.BearingToDestinationDegreesTrue,opt->Deg.c_str(),
+																	tempRMB.RangeToDestinationNauticalMiles,opt->distance.c_str());
 			s.Replace(_T("."),dialog->decimalPoint);
 			sLogText += opt->waypointText + s;
 			

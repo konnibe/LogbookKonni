@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-18 01:49+0100\n"
+"POT-Creation-Date: 2011-12-26 17:01+0100\n"
 "PO-Revision-Date: 2011-11-25 01:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: Pavel Kalian <pavel@kalian.cz>\n"
@@ -19,6 +19,14 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 #
 msgid "\n"
+msgstr ""
+#
+#, c-format
+msgid ""
+"\n"
+"Name of Waypoint: %s\n"
+"True bearing to destination: %4.1f%s\n"
+"Range to destination: %4.2f%s"
 msgstr ""
 #
 msgid ""
@@ -239,6 +247,14 @@ msgstr "Datum"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 msgid "Date + Days"
 msgstr "Vzdálenost"
@@ -259,9 +275,25 @@ msgstr "Vzdálenost"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 msgid "Date + Month"
 msgstr "Datum narození"
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -417,6 +449,14 @@ msgstr "Jméno"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 msgid "Fix Date"
 msgstr "Datum"
@@ -479,6 +519,9 @@ msgid "If GPS off use for manual entry"
 msgstr ""
 #
 msgid "If Watch changed"
+msgstr ""
+#
+msgid "If Waypoint arrived"
 msgstr ""
 #
 msgid ""
@@ -673,6 +716,14 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 msgid "Logbook until "
 msgstr "Otevřít starý soubor deníku"
@@ -747,21 +798,6 @@ msgid ""
 msgstr ""
 "Není nastavena cesta k editoru HTML\n"
 "v Nástroje/Zásuvné moduly/LogbookKonni/Nastavení"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
-msgid "Not implemented yet"
-msgstr "zatím neimplementováno"
 #
 #, fuzzy, c-format
 msgid "Old Logbook until %s"
@@ -892,6 +928,11 @@ msgid ""
 msgstr ""
 "Prosím zadej jako 1.30 nebo 1,30 nebo 1:30\n"
 "pro 1:30h"
+#
+msgid ""
+"Please enter the Date in the format:\n"
+"   "
+msgstr ""
 #
 #, c-format
 msgid ""
@@ -1352,10 +1393,6 @@ msgstr ""
 msgid "View"
 msgstr "Zobrazit"
 #
-#, fuzzy
-msgid "View "
-msgstr "Zobrazit"
-#
 msgid "View data in browser (HTML) or Openoffice/LibreOffice (ODT)"
 msgstr ""
 #
@@ -1543,6 +1580,9 @@ msgstr ""
 msgid ""
 "automatic line\n"
 "change of guards"
+msgstr ""
+#
+msgid "automatic line Waypoint arrived"
 msgstr ""
 #
 msgid "day(s)"
@@ -1769,8 +1809,34 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Best Etmal"
 #~ msgstr "Max NM/24h"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1806,8 +1872,34 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Seznam posádky"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1992,8 +2084,34 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "GPS Auto (Ocean Crossing)"
 #~ msgstr "GPS Auto (přejezd oceánu)"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2064,8 +2182,34 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Konniho lodní deník"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2231,8 +2375,62 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "NetTonnage"
 #~ msgstr "Čistá registrovaná prostornost"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Not implemented yet"
+#~ msgstr "zatím neimplementováno"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2271,8 +2469,34 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Save"
 #~ msgstr "Uložit"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2429,6 +2653,19 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Vybrat rozvržení:"
@@ -2509,8 +2746,34 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Show Maintence Rows coloured"
 #~ msgstr "Zobraz řádky údržby v barvě"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2697,8 +2960,34 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Dnes"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2766,6 +3055,36 @@ msgstr ""
 #, fuzzy
 #~ msgid "Traditional-Style"
 #~ msgstr "Národnost"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "View "
+#~ msgstr "Zobrazit"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #

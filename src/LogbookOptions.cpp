@@ -143,16 +143,18 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 
 	
-	m_checkBoxWayPoint = new wxCheckBox( m_panel15, wxID_ANY, wxT("If Waypoint arrived"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_checkBoxWayPoint = new wxCheckBox( m_panel15, wxID_ANY, _("If Waypoint arrived"), wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer29->Add( m_checkBoxWayPoint, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	
 	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-	
+#ifdef __WXOSX__
+    m_textCtrlWayPoint = new wxTextCtrl( m_panel15, wxID_ANY, wxT("automatic line\nWaypoint arrived:"), wxDefaultPosition, wxSize(250,40), wxTE_MULTILINE );
+#else
 	m_textCtrlWayPoint = new wxTextCtrl( m_panel15, wxID_ANY, wxT("automatic line\nWaypoint arrived:"), wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE );
+#endif	
 	fgSizer29->Add( m_textCtrlWayPoint, 0, wxALL|wxEXPAND, 0 );
-	
-	
+		
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 	m_checkBoxGuardChanged = new wxCheckBox( m_panel15, wxID_ANY, _("If Watch changed"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -161,7 +163,12 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 	
-	m_textCtrlGuradChanged = new wxTextCtrl( m_panel15, wxID_ANY, _("automatic line\nchange of guards"), wxDefaultPosition, wxSize( -1,-1 ), wxTE_MULTILINE );
+#ifdef __WXOSX__
+    m_textCtrlGuradChanged = new wxTextCtrl( m_panel15, wxID_ANY, _("automatic line\nchange of guards"), wxDefaultPosition, wxSize(250,40), wxTE_MULTILINE );
+#else
+	m_textCtrlGuradChanged = new wxTextCtrl( m_panel15, wxID_ANY, _("automatic line\nchange of guards"), wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE );
+#endif	
+//	m_textCtrlGuradChanged = new wxTextCtrl( m_panel15, wxID_ANY, _("automatic line\nchange of guards"), wxDefaultPosition, wxSize( -1,-1 ), wxTE_MULTILINE );
 	fgSizer29->Add( m_textCtrlGuradChanged, 0, wxALL|wxEXPAND, 0 );
 	
 	
@@ -173,7 +180,12 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_textCtrlEverySM = new wxTextCtrl( m_panel15, wxID_ANY, wxT("10"), wxDefaultPosition, wxSize( 50,-1 ), wxTE_CENTRE );
 	fgSizer29->Add( m_textCtrlEverySM, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	
+#ifdef __WXOSX__
+    m_textCtrlEverySMText = new wxTextCtrl( m_panel15, wxID_ANY, _("automatic line\nDistance > "), wxDefaultPosition, wxSize(250,40), wxTE_MULTILINE );
+#else
 	m_textCtrlEverySMText = new wxTextCtrl( m_panel15, wxID_ANY, _("automatic line\nDistance > "), wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE );
+#endif
+//	m_textCtrlEverySMText = new wxTextCtrl( m_panel15, wxID_ANY, _("automatic line\nDistance > "), wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE );
 	fgSizer29->Add( m_textCtrlEverySMText, 0, wxALL|wxEXPAND, 0 );
 	
 	fgSizer10->Add( fgSizer29, 1, 0, 5 );
@@ -211,8 +223,12 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	
 	fgSizer35->Add( 74, 0, 1, wxEXPAND, 5 );
-	
+#ifdef __WXOSX__
+    m_textCtrlChancedCourse = new wxTextCtrl( m_panel15, wxID_ANY, _("automatic line\nchange of course >"), wxDefaultPosition, wxSize(250,40), wxTE_MULTILINE );
+#else
 	m_textCtrlChancedCourse = new wxTextCtrl( m_panel15, wxID_ANY, _("automatic line\nchange of course >"), wxDefaultPosition, wxSize( 250,-1 ), wxTE_MULTILINE );
+#endif	
+//	m_textCtrlChancedCourse = new wxTextCtrl( m_panel15, wxID_ANY, _("automatic line\nchange of course >"), wxDefaultPosition, wxSize( 250,-1 ), wxTE_MULTILINE );
 	fgSizer35->Add( m_textCtrlChancedCourse, 0, wxALL|wxEXPAND, 0 );
 	
 	fgSizer10->Add( fgSizer35, 0, 0, 5 );
@@ -808,7 +824,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	this->Layout();
 	
 	this->Centre( wxBOTH );
-
+	this->Fit();
 	// Connect Events
 	m_choicePositionFormat->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( LogbookOptions::onChoicePositionFormat ), NULL, this );
 	m_checkBoxShowAllLayouts->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::onCeckBoxShowAllLayouts ), NULL, this );

@@ -62,7 +62,7 @@ using namespace std;
 
 extern "C" DECL_EXP opencpn_plugin* create_pi(void *ppimgr)
 {
-	return new logbookkonni_pi(ppimgr);
+	return (opencpn_plugin *)new logbookkonni_pi(ppimgr);
 }
 
 extern "C" DECL_EXP void destroy_pi(opencpn_plugin* p)
@@ -144,7 +144,7 @@ int logbookkonni_pi::Init(void)
 	}
 
 	return (
-		   WANTS_OVERLAY_CALLBACK |
+		 //  WANTS_OVERLAY_CALLBACK	 |
            WANTS_CURSOR_LATLON       |
            WANTS_TOOLBAR_CALLBACK    |
            INSTALLS_TOOLBAR_TOOL     |
@@ -376,7 +376,6 @@ void logbookkonni_pi::SetPositionFix(PlugIn_Position_Fix &pfix)
 
 void logbookkonni_pi::SetDefaults(void)
 {
-
       // If the config somehow says NOT to show the icon, override it so the user gets good feedback
       if(!m_bLOGShowIcon)
       {
@@ -448,7 +447,6 @@ void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 
 void logbookkonni_pi::OnToolbarToolCallback(int id)
 {
-//	local = new wxLocale(wxLocale::GetSystemLanguage());
       // show the Logbook dialog
 	if(NULL == m_plogbook_window)
 	{

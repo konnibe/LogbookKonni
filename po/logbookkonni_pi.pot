@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-18 01:49+0100\n"
-"PO-Revision-Date: 2011-12-18 01:50+0100\n"
+"POT-Creation-Date: 2011-12-26 17:01+0100\n"
+"PO-Revision-Date: 2011-12-26 17:03+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -48,15 +48,15 @@ msgstr ""
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/CrewList.cpp:511
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/CrewList.cpp:766
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/CrewList.cpp:768
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:653
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:656
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1062
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1064
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1087
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1126
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1128
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1135
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:694
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:697
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1112
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1114
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1137
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1176
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1178
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1185
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1187
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:116
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:200
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:367
@@ -64,7 +64,7 @@ msgstr ""
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:448
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:598
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookHTML.cpp:655
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:1114
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:1153
 msgid "Information"
 msgstr ""
 
@@ -74,8 +74,8 @@ msgstr ""
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/boat.cpp:791
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/CrewList.cpp:720
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/CrewList.cpp:732
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:975
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:982
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1024
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1031
 #, c-format
 msgid "Delete Row Nr. %i ?"
 msgstr ""
@@ -86,8 +86,8 @@ msgstr ""
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/boat.cpp:791
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/CrewList.cpp:720
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/CrewList.cpp:732
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:975
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:982
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1024
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1031
 msgid "Confirm"
 msgstr ""
 
@@ -135,69 +135,69 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:348
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:358
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:389
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:399
 msgid "Are you sure ?"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:348
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:358
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:370
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:373
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:389
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:399
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:411
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:414
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:132
 msgid "New Logbook"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:352
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:362
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:393
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:403
 msgid "Reset all Values to zero ?"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:370
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:373
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:411
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:414
 msgid "Your Logbook has no lines ?"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:422
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:463
 msgid "Last line from Logbook\n"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:430
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:471
 msgid "Last Logbook is\n"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:473
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:502
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:621
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:1129
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:514
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:543
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:662
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:1168
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:139
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:455
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:453
 msgid "Active Logbook"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:479
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:520
 #, c-format
 msgid "Old Logbook until %s"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:653
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:655
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:694
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:696
 msgid ""
 "Your Logbook has 800 lines or more\n"
 "\n"
@@ -208,8 +208,15 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1062
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1064
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1112
+msgid ""
+"Please enter the Date in the format:\n"
+"   "
+msgstr ""
+
+#: C:\Users\Konni\Documents\Visual
+#: Studio
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1114
 #, c-format
 msgid ""
 "Please enter the Date in the format:\n"
@@ -218,8 +225,8 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1087
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1089
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1137
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1139
 msgid ""
 "Please enter the Time in the format:\n"
 "   12:30:00PM"
@@ -227,8 +234,8 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1126
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1128
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1176
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1178
 msgid ""
 "Please enter 0544512.15n0301205.15e for\n"
 "054Deg 45Min 12.15Sec N 030Deg 12Min 05.15Sec E"
@@ -236,8 +243,8 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1135
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1137
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1185
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1187
 msgid ""
 "Please enter 05445.1234n03012.0504e for\n"
 "054Deg 45.1234Min N 030Deg 12.0504Min E"
@@ -245,8 +252,8 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1340
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1342
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1390
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1392
 msgid ""
 "Please enter like 1.30 or 1,30 or 1:30\n"
 "for 1:30h"
@@ -254,14 +261,14 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1353
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1355
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1403
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1405
 msgid "Minutes greater than 59"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1653
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1703
 msgid ""
 "Wind is set to Heading,\n"
 "but GPS sends no Heading Data.\n"
@@ -271,13 +278,24 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1673
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1712
+#, c-format
+msgid ""
+"\n"
+"Name of Waypoint: %s\n"
+"True bearing to destination: %4.1f%s\n"
+"Range to destination: %4.2f%s"
+msgstr ""
+
+#: C:\Users\Konni\Documents\Visual
+#: Studio
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1733
 msgid "No GPS-Signal !"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1693
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Logbook.cpp:1753
 msgid ""
 "It's not allowed to append Data to a old Logbook\n"
 "\n"
@@ -386,14 +404,20 @@ msgstr ""
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1191
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1320
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1440
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4296
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4383
 msgid "Edit Layout"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:125
-msgid "View "
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:404
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:580
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:764
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1202
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1331
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1451
+msgid "View"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
@@ -469,7 +493,7 @@ msgstr ""
 #: Studio
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:191
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:472
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:436
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:465
 msgid "Distance"
 msgstr ""
 
@@ -495,7 +519,7 @@ msgstr ""
 #: Studio
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:195
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:131
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:511
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:540
 msgid "Heading"
 msgstr ""
 
@@ -559,14 +583,14 @@ msgstr ""
 #: C:\Users\Konni\Documents\Visual
 #: Studio
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:240
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:403
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:432
 msgid "Navigation"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:268
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:540
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:569
 msgid "Barometer"
 msgstr ""
 
@@ -610,7 +634,7 @@ msgstr ""
 #: Studio
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:275
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:294
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:534
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:563
 msgid "Weather"
 msgstr ""
 
@@ -687,11 +711,11 @@ msgstr ""
 #: Studio
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:353
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:467
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4438
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4525
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:123
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:334
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:386
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:440
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:385
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:439
 msgid "Logbook"
 msgstr ""
 
@@ -703,19 +727,8 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:404
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:580
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:764
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1202
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1331
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1451
-msgid "View"
-msgstr ""
-
-#: C:\Users\Konni\Documents\Visual
-#: Studio
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:412
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4450
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4537
 msgid "Actuell Logbook"
 msgstr ""
 
@@ -1020,7 +1033,7 @@ msgstr ""
 #: C:\Users\Konni\Documents\Visual
 #: Studio
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:722
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3144
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3220
 msgid "Show Equipment"
 msgstr ""
 
@@ -1411,7 +1424,7 @@ msgstr ""
 #: C:\Users\Konni\Documents\Visual
 #: Studio
 #: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:1525
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:628
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:657
 msgid "Maintenance"
 msgstr ""
 
@@ -1430,45 +1443,33 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2279
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2276
 msgid "Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2592
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2667
 msgid "Select Route"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2607
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/OverView.cpp:346
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2682
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/OverView.cpp:353
 msgid "\n"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2697
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2772
 msgid "Save Logbook File"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2721
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3056
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3183
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3316
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3496
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3662
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3863
-msgid "Not implemented yet"
-msgstr ""
-
-#: C:\Users\Konni\Documents\Visual
-#: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2747
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2749
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2822
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2824
 msgid ""
 "Timer has 0 h 0 Min 0 sec.\n"
 "\n"
@@ -1477,7 +1478,7 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2887
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2964
 msgid ""
 "No Path set to HTML-Editor\n"
 "in Toolbox/Plugins/LogbookKonni/Preferences"
@@ -1485,7 +1486,7 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2889
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:2966
 msgid ""
 "No Path set to HTML-Editor\n"
 "in ToolBox/Plugins/LogbookKonni/Preferences"
@@ -1493,79 +1494,79 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3032
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3106
 msgid "Save CrewList File"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3136
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3212
 msgid "Hide Equipment"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3159
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3235
 msgid "Save Boat File"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3292
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3370
 msgid "Save Service File"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3472
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3552
 msgid "Save Repairs File"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3638
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3720
 msgid "Save BuyParts File"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3839
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:3924
 msgid "Save Overview File"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4306
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4393
 msgid "Filter Layout by"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4317
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4404
 msgid "Rename Layout"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4326
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4413
 msgid "Delete Layout"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4335
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4422
 msgid "Send Layout by email"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4344
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4431
 msgid "Install single Layout"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4461
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookDialog.cpp:4548
 #, c-format
 msgid "Logbook from %s to %s"
 msgstr ""
@@ -1691,14 +1692,21 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:145
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:146
+msgid "If Waypoint arrived"
+msgstr ""
+
+#: C:\Users\Konni\Documents\Visual
+#: Studio
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:160
 msgid "If Watch changed"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:151
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:33
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:167
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:169
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:35
 msgid ""
 "automatic line\n"
 "change of guards"
@@ -1706,14 +1714,15 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:157
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:177
 msgid "Append Line every Nm"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:163
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:40
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:184
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:186
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:42
 msgid ""
 "automatic line\n"
 "Distance > "
@@ -1721,26 +1730,27 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:181
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:206
 msgid "If Course changes more then "
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:187
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:212
 msgid "      Course- Message after Minutes"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:192
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:217
 msgid "delay to find the right course to the wind"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:202
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:36
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:227
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:229
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:38
 msgid ""
 "automatic line\n"
 "change of course >"
@@ -1748,48 +1758,48 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:210
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:239
 msgid "Timer"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:227
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:256
 msgid "Timer on/off"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:233
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:262
 msgid "Interval:"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:241
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:301
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:619
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:79
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:270
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:330
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:648
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:81
 msgid "h"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:249
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:473
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:67
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:278
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:502
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:69
 msgid "m"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:257
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:286
 msgid "s"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:261
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:290
 msgid ""
 "Automatic Line by Timer\n"
 "you can set/unset a timer\n"
@@ -1798,80 +1808,80 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:274
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:303
 msgid "UTC"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:277
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:306
 msgid "Local = UTC"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:305
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:334
 msgid "GPS Auto"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:306
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:335
 msgid "every 15 Degrees +/- 1 hour"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:320
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:349
 msgid "Install Layouts"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:324
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:353
 msgid "Install Languages"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:328
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:357
 msgid "Uninstall Logbook"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:332
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:337
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:361
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:366
 msgid "Install"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:333
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:362
 msgid "Install OpenCPN_Logbook_Layouts.zip"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:339
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:368
 msgid "Install OpenCPN_Mac_Logbook_Languages.zip"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:341
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:370
 msgid "Install OpenCPN_Logbook_Languages.zip"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:345
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:374
 msgid "Uninstall"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:346
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:375
 msgid ""
 "Uninstalls\n"
 "Logbook-Plugin,\n"
@@ -1883,258 +1893,258 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:370
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:399
 msgid "Behavior"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:409
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:438
 msgid "Degres"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:419
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:448
 msgid "Minutes"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:423
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:61
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:452
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:63
 msgid "'"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:426
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:455
 msgid "Seconds"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:430
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:62
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:459
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:64
 msgid "\""
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:440
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:64
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:469
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:66
 msgid "sm"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:443
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:472
 msgid "Speed"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:447
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:551
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:676
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:65
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:73
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:476
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:580
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:705
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:67
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:75
 msgid "kts"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:459
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:488
 msgid "Show Depth in"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:463
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:469
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:489
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:492
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:498
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:518
 msgid "Meter"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:463
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:489
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:495
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:492
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:518
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:524
 msgid "Feet"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:463
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:489
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:521
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:492
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:518
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:550
 msgid "Fathom"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:485
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:514
 msgid "Show Wave/Swell in"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:499
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:68
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:528
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:70
 msgid "ft"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:515
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:690
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:544
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:719
 msgid "True"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:515
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:544
 msgid "Magnetic"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:525
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:554
 msgid "fm"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:544
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:72
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:573
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:74
 msgid "mb"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:547
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:576
 msgid "Windspeed"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:572
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:676
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:74
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:601
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:705
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:76
 msgid "m/s"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:593
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:676
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:75
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:622
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:705
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:77
 msgid "km/h"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:602
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:631
 msgid "Fuel/Water"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:608
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:637
 msgid "Capacity"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:612
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:78
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:641
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:80
 msgid "gal"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:615
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:644
 msgid "Motor Hours"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:634
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:638
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:663
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:667
 msgid "Day(s)"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:641
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:670
 msgid "Week(s)"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:645
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:674
 msgid "Weeks(s)"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:648
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:652
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:677
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:681
 msgid "Month"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:660
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:689
 msgid "If GPS off use for manual entry"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:672
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:701
 msgid "Windspeed "
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:686
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:715
 msgid " Direction "
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:690
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:719
 msgid "Relative"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:705
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:734
 msgid "Abbreviations"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:726
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:755
 msgid "Path to ODT-Editor"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:736
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:765
 msgid "Path to Datamanager"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:750
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:779
 msgid "Path to MailClient"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:764
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:793
 msgid ""
 "Path to HTML-Editor\n"
 "(optional)"
@@ -2142,56 +2152,56 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:776
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:805
 msgid "Reset Paths"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:782
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:811
 msgid "Paths"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:907
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:942
 msgid "Please fill in one character in Degrees, Minuts and Seconds"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:910
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:945
 msgid "Please fill in one character in Degrees, Minutes and Seconds"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:1111
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:1114
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:1150
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:1153
 msgid "Sorry, 0 Hrs 0 Min 0 Sec are not possible"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:1208
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:1247
 msgid "Set Path to HTML-Editor"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:1222
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:1261
 msgid "Set Path to DataManager"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:1236
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:1275
 msgid "Set Path to MailClient"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:1250
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/LogbookOptions.cpp:1289
 msgid "Set Path to ODT-Editor"
 msgstr ""
 
@@ -2222,35 +2232,35 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:420
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:423
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:425
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:419
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:422
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:424
 msgid "Logbook Preferences"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:812
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:856
 msgid "Select zipped Layout-Files"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:868
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:870
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:912
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:914
 msgid "Layouts installed"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:905
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:949
 msgid "Select zipped Languages-Files"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:931
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:933
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:975
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/logbook_pi.cpp:977
 msgid "Languages installed"
 msgstr ""
 
@@ -2303,7 +2313,13 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:54
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:33
+msgid "automatic line Waypoint arrived"
+msgstr ""
+
+#: C:\Users\Konni\Documents\Visual
+#: Studio
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:56
 msgid ""
 "Automatic line by timer\n"
 "\n"
@@ -2315,31 +2331,31 @@ msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:69
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:71
 msgid "fth"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:82
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:84
 msgid "day(s)"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:83
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:85
 msgid "week(s)"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:84
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/Options.cpp:86
 msgid "month"
 msgstr ""
 
 #: C:\Users\Konni\Documents\Visual
 #: Studio
-#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/OverView.cpp:201
+#: 2008\Projects\OpenCPN-2.5.0-Source\plugins\LogbookKonni_pi\src/OverView.cpp:208
 msgid "Logbook until "
 msgstr ""
 

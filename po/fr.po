@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-18 01:49+0100\n"
-"PO-Revision-Date: 2011-12-18 01:57+0100\n"
+"POT-Creation-Date: 2011-12-26 17:01+0100\n"
+"PO-Revision-Date: 2011-12-26 15:18+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,6 +16,14 @@ msgstr ""
 #
 msgid "\n"
 msgstr "\n"
+#
+#, c-format
+msgid ""
+"\n"
+"Name of Waypoint: %s\n"
+"True bearing to destination: %4.1f%s\n"
+"Range to destination: %4.2f%s"
+msgstr ""
 #
 msgid ""
 "\n"
@@ -231,11 +239,17 @@ msgstr ""
 msgid "Date"
 msgstr "Date"
 #
+#
+#
+#
 #, fuzzy
 msgid "Date + Days"
 msgstr ""
 "Distance\n"
 "quotidienne"
+#
+#
+#
 #
 #, fuzzy
 msgid "Date + Month"
@@ -243,8 +257,14 @@ msgstr ""
 "Date de\n"
 "naissance"
 #
+#
+#
+#
+#, fuzzy
 msgid "Date + Weeks"
 msgstr ""
+"Distance\n"
+"quotidienne"
 #
 msgid "Date Launched"
 msgstr ""
@@ -366,6 +386,9 @@ msgstr "Trier les mises en page par "
 msgid "Firstname"
 msgstr "Prénom"
 #
+#
+#
+#
 #, fuzzy
 msgid "Fix Date"
 msgstr "Date"
@@ -437,6 +460,11 @@ msgstr "Si le GPS est hors service, entrez les données manuellement"
 #
 msgid "If Watch changed"
 msgstr "Si la montre a changé"
+#
+msgid "If Waypoint arrived"
+msgstr ""
+"Ligne automatique\n"
+"Changement de quart"
 #
 msgid ""
 "If You have created Your own Layouts\n"
@@ -581,6 +609,9 @@ msgstr ""
 msgid "Logbook from %s to %s"
 msgstr "Logbook de %s à %s"
 #
+#
+#
+#
 #, fuzzy
 msgid "Logbook until "
 msgstr "Ancien livre de bord depuis %s"
@@ -633,7 +664,7 @@ msgstr ""
 "livre de bord"
 #
 msgid "No"
-msgstr "Non"
+msgstr ""
 #
 msgid "No GPS-Signal !"
 msgstr "Pas de signal GPS"
@@ -653,15 +684,12 @@ msgstr ""
 "Pas de chemin vers l'éditeur HTML\n"
 "dans \"Boite à outils/Compléments/LogbookKonni/Préférences\""
 #
-msgid "Not implemented yet"
-msgstr ""
-#
 #, c-format
 msgid "Old Logbook until %s"
 msgstr "Ancien livre de bord depuis %s"
 #
 msgid "Only Layouts with prefix:"
-msgstr "Seulement avec le préfixe de la mise en page :"
+msgstr "Seulement avec le préfixe de la mise en page:"
 #
 msgid ""
 "Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV "
@@ -726,6 +754,14 @@ msgid ""
 msgstr ""
 "Veuillez entrer 1.30 or 1,30 or 1:30\n"
 "pour 1:30h"
+#
+#, fuzzy
+msgid ""
+"Please enter the Date in the format:\n"
+"   "
+msgstr ""
+"Veuillez entrer la date au format :\n"
+"      %s"
 #
 #, c-format
 msgid ""
@@ -1094,9 +1130,6 @@ msgstr "Info personnelle"
 msgid "View"
 msgstr "Voir"
 #
-msgid "View "
-msgstr "Voir"
-#
 msgid "View data in browser (HTML) or Openoffice/LibreOffice (ODT)"
 msgstr ""
 "Voir les données dans le navigateur (Html) ou OpenOffice/LibreOffice (Odt)"
@@ -1187,7 +1220,7 @@ msgstr ""
 "de port"
 #
 msgid "Yes"
-msgstr "Qui"
+msgstr ""
 #
 msgid ""
 "Your Logbook has 800 lines or more\n"
@@ -1230,6 +1263,12 @@ msgstr ""
 msgid ""
 "automatic line\n"
 "change of guards"
+msgstr ""
+"Ligne automatique\n"
+"Changement de quart"
+#
+#, fuzzy
+msgid "automatic line Waypoint arrived"
 msgstr ""
 "Ligne automatique\n"
 "Changement de quart"

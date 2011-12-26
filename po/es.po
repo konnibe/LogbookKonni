@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-18 01:49+0100\n"
+"POT-Creation-Date: 2011-12-26 17:01+0100\n"
 "PO-Revision-Date: 2011-11-25 01:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,6 +17,14 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 #
 msgid "\n"
+msgstr ""
+#
+#, c-format
+msgid ""
+"\n"
+"Name of Waypoint: %s\n"
+"True bearing to destination: %4.1f%s\n"
+"Range to destination: %4.2f%s"
 msgstr ""
 #
 msgid ""
@@ -236,6 +244,14 @@ msgstr "Fecha"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 msgid "Date + Days"
 msgstr "DistanciaEtmal"
@@ -256,9 +272,25 @@ msgstr "DistanciaEtmal"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 msgid "Date + Month"
 msgstr "Fecha de nacimiento"
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -411,6 +443,14 @@ msgstr "Nombre"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 msgid "Fix Date"
 msgstr "Fecha"
@@ -474,6 +514,9 @@ msgid "If GPS off use for manual entry"
 msgstr ""
 #
 msgid "If Watch changed"
+msgstr ""
+#
+msgid "If Waypoint arrived"
 msgstr ""
 #
 msgid ""
@@ -668,6 +711,14 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 msgid "Logbook until "
 msgstr "Abrir fichero de bitácora antiguo"
@@ -737,21 +788,6 @@ msgid ""
 "No Path set to HTML-Editor\n"
 "in Toolbox/Plugins/LogbookKonni/Preferences"
 msgstr ""
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
-msgid "Not implemented yet"
-msgstr "no implementado aún"
 #
 #, fuzzy, c-format
 msgid "Old Logbook until %s"
@@ -884,6 +920,11 @@ msgid ""
 msgstr ""
 "Entre por favor 1.30 o 1,30 o 1:30\n"
 "para 1:30h"
+#
+msgid ""
+"Please enter the Date in the format:\n"
+"   "
+msgstr ""
 #
 #, c-format
 msgid ""
@@ -1346,10 +1387,6 @@ msgstr ""
 msgid "View"
 msgstr "Ver"
 #
-#, fuzzy
-msgid "View "
-msgstr "Ver"
-#
 msgid "View data in browser (HTML) or Openoffice/LibreOffice (ODT)"
 msgstr ""
 #
@@ -1525,6 +1562,14 @@ msgstr "Nº amarre"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
 msgid "Yes"
 msgstr "Si"
 #
@@ -1563,6 +1608,9 @@ msgstr ""
 msgid ""
 "automatic line\n"
 "change of guards"
+msgstr ""
+#
+msgid "automatic line Waypoint arrived"
 msgstr ""
 #
 msgid "day(s)"
@@ -1687,9 +1735,35 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "BuyParts"
 #~ msgstr "Comprar recambios"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1767,6 +1841,19 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "GRT"
 #~ msgstr "BRT"
 #
@@ -1779,8 +1866,34 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Bitácora Konni"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1899,6 +2012,47 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Not implemented yet"
+#~ msgstr "no implementado aún"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Ruta al editor HTML (opcional)"
 #
@@ -1925,8 +2079,34 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Save"
 #~ msgstr "Guardar"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2083,9 +2263,35 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Seleccione Layout"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2273,8 +2479,34 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2342,6 +2574,36 @@ msgstr ""
 #, fuzzy
 #~ msgid "Traditional-Style"
 #~ msgstr "Nacionalidad"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "View "
+#~ msgstr "Ver"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2500,6 +2762,19 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Watchlist"
 #~ msgstr "Guardia"
@@ -2583,9 +2858,35 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Wave Peak"
 #~ msgstr "Oleaje"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
