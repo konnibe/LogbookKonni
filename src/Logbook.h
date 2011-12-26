@@ -9,6 +9,8 @@
 #include "LogbookHTML.h"
 #include "nmea0183/nmea0183.h"
 
+//#define PBVE_DEBUG 1
+
 class Options;
 class LogbookDialog;
 class PBVEDialog;
@@ -79,6 +81,10 @@ private:
 	wxString			positionTraditional(int NEflag, double a, bool mode );
 	wxString			positionGPSLike(int NEflag, double a, bool mode );
 	void				setOldPosition();
+
+#ifdef PBVE_DEBUG
+	int pbvecount;
+#endif
 
 public:
 	LogbookDialog*	dialog;
