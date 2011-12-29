@@ -48,6 +48,7 @@
 #include <wx/filefn.h>
 #include <wx/msgdlg.h>
 #include <memory>
+
 using namespace std;
 
 #ifndef DECL_EXP
