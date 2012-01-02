@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2011-12-26 17:01+0100\n"
-"PO-Revision-Date: 2011-12-26 17:08+0100\n"
+"PO-Revision-Date: 2011-12-12 11:03+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -28,10 +28,6 @@ msgid ""
 "True bearing to destination: %4.1f%s\n"
 "Range to destination: %4.2f%s"
 msgstr ""
-"\n"
-"Name des Wegpunktes: %s\n"
-"Wahre Peilung zum Ziel: %4.1f%s\n"
-"Distanz zum Ziel: %4.2f%s"
 #
 msgid ""
 "\n"
@@ -39,6 +35,7 @@ msgid ""
 msgstr ""
 "\n"
 "nicht gefunden im Layoutfile"
+#
 #
 msgid "      Course- Message after Minutes"
 msgstr "     Kurs-Mitteilung nach Minuten"
@@ -48,6 +45,7 @@ msgstr "     Windrichtung bezogen auf:"
 #
 msgid " - Timer on - Interval: "
 msgstr "- Timer ein - Interval:"
+#
 #
 msgid " Direction "
 msgstr "Richtung"
@@ -69,6 +67,7 @@ msgstr "'"
 #
 msgid "0"
 msgstr ""
+#
 #
 msgid "Abbreviations"
 msgstr "Abkürzungen"
@@ -106,8 +105,9 @@ msgstr "Adresse"
 msgid "All Logbooks"
 msgstr "Alle Logbücher"
 #
+#
 msgid "Append Line every Nm"
-msgstr "Fügt Zeile hinzu je sm:"
+msgstr "Füge Zeile hinzu je Nm"
 #
 msgid "Are you sure ?"
 msgstr "Sind Sie sicher ?"
@@ -115,12 +115,13 @@ msgstr "Sind Sie sicher ?"
 msgid "At"
 msgstr "bei"
 #
+#
 msgid ""
 "Automatic Line by Timer\n"
 "you can set/unset a timer\n"
 "or change this text in options"
 msgstr ""
-"Automatischer Eintrag durch Timer\n"
+"Automatischer Eintrag durch Timerr\n"
 "Sie können einen Timer ein- oder ausschalten\n"
 "oder diesen Text ändern unter Optionen"
 #
@@ -144,6 +145,7 @@ msgstr ""
 #
 msgid "Beam"
 msgstr "Breite"
+#
 #
 msgid "Behavior"
 msgstr "Verhalten"
@@ -178,11 +180,12 @@ msgstr "KüG"
 msgid "Callsign"
 msgstr "Rufzeichen"
 #
+#
 msgid "Capacity"
 msgstr "Kapazität"
 #
 msgid "Category"
-msgstr "Kategorie"
+msgstr "Kategaory"
 #
 msgid "Clouds"
 msgstr "Wolken"
@@ -202,7 +205,7 @@ msgid ""
 "and can be viewed with Button \"Select Logbook\""
 msgstr ""
 "Erstellt ein neues Logbuch\n"
-"das aktive Logbuch wird mit dem heutigen Datum gespeichert\n"
+"das active Logbuch wird mit dem heutigen Datum gespeichert\n"
 "und kann über den Button \"Wähle Logbuch\" angezeigt werden."
 #
 msgid "Crewlist"
@@ -212,7 +215,7 @@ msgid "Current"
 msgstr "Strom"
 #
 msgid "Current Avg."
-msgstr "Strom Ø"
+msgstr "Strom durchsch."
 #
 msgid "Current Max."
 msgstr "Strom max."
@@ -223,8 +226,33 @@ msgstr "Strom von"
 msgid "Date"
 msgstr "Datum"
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 msgid "Date + Days"
 msgstr "Datum + Tage"
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -247,6 +275,14 @@ msgstr "Datum + Monat(e)"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
 msgid "Date + Weeks"
 msgstr "Datum + Woche(n)"
 #
@@ -258,6 +294,7 @@ msgstr "Geburtstag"
 #
 msgid "Date of Issue"
 msgstr "ausgegeben am"
+#
 #
 msgid "Day(s)"
 msgstr "Tag(e)"
@@ -309,6 +346,21 @@ msgstr "E"
 msgid "Edit Layout"
 msgstr "Layout editieren"
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 msgid "Edit Layouts"
 msgstr "Layout editieren"
 #
@@ -336,6 +388,7 @@ msgstr "Zubehör"
 msgid "Export"
 msgstr ""
 #
+#
 msgid "Fathom"
 msgstr "Faden"
 #
@@ -349,11 +402,29 @@ msgstr "Filtere Layout nach"
 msgid "Firstname"
 msgstr "Vorname"
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 msgid "Fix Date"
 msgstr "fixes Datum"
 #
 msgid "Fuel"
 msgstr "Treibstoff"
+#
 #
 msgid "Fuel/Water"
 msgstr "Treibstoff/Wasser"
@@ -401,17 +472,22 @@ msgstr "Rumpf Identifikations-Nr."
 msgid "If"
 msgstr "Wenn"
 #
+#
 msgid "If Course changes more then "
 msgstr "Wenn Kursänderung mehr als °  "
 #
 msgid "If GPS off use for manual entry"
 msgstr "Wenn GPS nicht eingeschaltet ist benutze"
 #
+#
 msgid "If Watch changed"
 msgstr "Wenn Wachwechsel"
 #
+#, fuzzy
 msgid "If Waypoint arrived"
-msgstr "Wenn Wegpunkt erreicht wurde"
+msgstr ""
+"automatische Zeile\n"
+"Wachwechsel"
 #
 msgid ""
 "If You have created Your own Layouts\n"
@@ -419,7 +495,7 @@ msgid ""
 "The _ is important"
 msgstr ""
 "Wenn Sie ein eigenes Layout erstellt haben\n"
-"stellen Sie bitte z.b. Mein_ voran\n"
+"stellen Sie bitte z,b. Mein_ voran\n"
 "Der Unterstrich _ ist wichtig !"
 #
 msgid ""
@@ -432,6 +508,7 @@ msgstr ""
 msgid "Information"
 msgstr "Info"
 #
+#
 msgid "Install"
 msgstr "Installiere"
 #
@@ -440,22 +517,26 @@ msgid "Install Languages"
 msgstr "Installiere Sprach-Dateien"
 #
 msgid "Install Layouts"
-msgstr "Installiere Layouts"
+msgstr "Installiere ein Layout"
+#
 #
 msgid "Install OpenCPN_Logbook_Languages.zip"
 msgstr "Installiere OpenCPN_Logbook_Languages.zip"
 #
+#
 msgid "Install OpenCPN_Logbook_Layouts.zip"
 msgstr "Installiere OpenCPN_Logbook_Layouts.zip"
 #
+#
 msgid "Install OpenCPN_Mac_Logbook_Languages.zip"
-msgstr "Installiere OpenCPN_Mac_Logbook_Languages.zip"
+msgstr "Installiere OpenCPN_Mac__Logbook_Languages.zip"
 #
 msgid "Install single Layout"
 msgstr "Installiere ein Layout"
 #
 msgid "Insurance"
 msgstr "Versicherung"
+#
 #
 msgid "Interval:"
 msgstr "Interval:"
@@ -535,7 +616,7 @@ msgstr ""
 "\n"
 "\t- automatische (NMEA) oder manuelle Eingabe\n"
 "\t- Timer für automatischen Logbucheintrag\n"
-"\t- Fileexport nach ods,html,xml(nur Windows),csv\n"
+"\t- Fileexport nach ods,html,xml(Windows only),csv\n"
 "\t- mehrere Layouts\n"
 "\t- Layouts editierbar\n"
 "\n"
@@ -550,11 +631,29 @@ msgstr ""
 msgid "Logbook from %s to %s"
 msgstr "Logbuch vom %s bis %s"
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 msgid "Logbook until "
 msgstr "Altes Logbuch bis "
 #
 msgid "MMSI"
 msgstr ""
+#
 #
 msgid "Magnetic"
 msgstr "Magnet"
@@ -565,11 +664,13 @@ msgstr "Instandhaltung"
 msgid "Meter"
 msgstr "Meter"
 #
+#
 msgid "Minutes"
 msgstr "Minuten"
 #
 msgid "Minutes greater than 59"
 msgstr "Minuten sind größer als 59"
+#
 #
 msgid "Month"
 msgstr "Monat(e)"
@@ -596,6 +697,23 @@ msgstr ""
 msgid "New Logbook"
 msgstr "Neues Logbuch"
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 msgid "No"
 msgstr "Nein"
 #
@@ -620,6 +738,7 @@ msgstr ""
 msgid "Old Logbook until %s"
 msgstr "Altes Logbuch bis %s"
 #
+#
 msgid "Only Layouts with prefix:"
 msgstr "nur Layouts mit Prefix:"
 #
@@ -641,6 +760,7 @@ msgstr "Pass-Nr."
 #
 msgid "Path to Datamanager"
 msgstr "Pfad zum Dateimanager"
+#
 #
 msgid ""
 "Path to HTML-Editor\n"
@@ -687,12 +807,13 @@ msgstr ""
 "Bitte geben Sie 1.30 oder 1,30 oder 1:30\n"
 "für 1:30h ein."
 #
+#, fuzzy
 msgid ""
 "Please enter the Date in the format:\n"
 "   "
 msgstr ""
 "Bitte geben Sie das Datum im Format:\n"
-"   "
+"      %s"
 #
 #, c-format
 msgid ""
@@ -733,6 +854,7 @@ msgstr "Reff"
 msgid "Registration"
 msgstr "Register-Nr."
 #
+#
 msgid "Relative"
 msgstr "Relativ"
 #
@@ -752,7 +874,7 @@ msgid "Repairs"
 msgstr "Reparaturen"
 #
 msgid "RepairsTODO"
-msgstr "Reparaturen zu erledigen"
+msgstr "Reparaturen zu erlegigen"
 #
 msgid "Reset Paths"
 msgstr "Pfade zurücksetzen"
@@ -799,6 +921,7 @@ msgstr "Raparaturen-Datei speichern"
 msgid "Save Service File"
 msgstr "Service-Datei speichern"
 #
+#
 msgid "Seconds"
 msgstr "Sekunden"
 #
@@ -806,7 +929,7 @@ msgid "Select Layout:"
 msgstr "Wähle Layout:"
 #
 msgid "Select Layout: "
-msgstr "Wähle Layout:"
+msgstr "Wähle Route"
 #
 msgid "Select Logbook"
 msgstr "Wähle Logbuch"
@@ -866,11 +989,13 @@ msgstr "Pfad zum Mail-Program"
 msgid "Set Path to ODT-Editor"
 msgstr "Pfad zum ODT-Editor"
 #
+#
 msgid "Show Depth in"
 msgstr "Tiefe in"
 #
 msgid "Show Equipment"
 msgstr "Zeige Zubehör"
+#
 #
 msgid "Show Logbook Icon"
 msgstr "Zeige Logbuch-Icon"
@@ -881,8 +1006,9 @@ msgstr "Zeige Position im Format"
 msgid "Show ToolTips"
 msgstr "Zeige Tooltips"
 #
+#
 msgid "Show Wave/Swell in"
-msgstr "Welle/Schwell in"
+msgstr "Welle/Swell in"
 #
 #
 msgid "Show all Layouts"
@@ -913,7 +1039,7 @@ msgid "Speed"
 msgstr "Fahrt"
 #
 msgid "Speed Avg."
-msgstr "Fahrt Ø"
+msgstr "Fahrt durchsch."
 #
 msgid "Speed Max."
 msgstr "Fahrt max."
@@ -937,13 +1063,13 @@ msgid "Street"
 msgstr "Strasse"
 #
 msgid "Swell"
-msgstr "Schwell"
+msgstr ""
 #
 msgid "Swell Avg."
-msgstr "Schwell Ø"
+msgstr "Swell durchsch."
 #
 msgid "Swell Max."
-msgstr "Schwell max."
+msgstr "Swell max."
 #
 msgid "Telephone"
 msgstr "Telefon"
@@ -966,6 +1092,7 @@ msgstr ""
 "\n"
 "Bitte ändern Sie die Werte unter Optionen"
 #
+#
 msgid "Timer on/off"
 msgstr "Timer an/aus"
 #
@@ -977,6 +1104,7 @@ msgstr "Reisezeit"
 #
 msgid "Town"
 msgstr "Stadt"
+#
 #
 msgid "True"
 msgstr "Wahr"
@@ -1052,13 +1180,14 @@ msgid "Wave"
 msgstr "Wellenhöhe"
 #
 msgid "Wave Avg."
-msgstr "Wellenhöhe Ø"
+msgstr "Wellenhöhe durchschn."
 #
 msgid "Wave Max."
 msgstr "Wellen max."
 #
 msgid "Weather"
 msgstr "Wetter"
+#
 #
 msgid "Week(s)"
 msgstr "Woche(n)"
@@ -1071,7 +1200,7 @@ msgid "Wind"
 msgstr "Wind"
 #
 msgid "Wind Avg."
-msgstr "Windstärke Ø"
+msgstr "Windstärke durchschn."
 #
 msgid "Wind Max."
 msgstr "Wind max."
@@ -1090,6 +1219,7 @@ msgstr ""
 "Windrichtung wurde auf \"default\" zurückgesetzt\n"
 "\n"
 #
+#
 msgid "Windspeed"
 msgstr "Windstärke"
 #
@@ -1102,7 +1232,24 @@ msgid "Write warning \"No GPS\""
 msgstr "schreibe Warnung  \"No GPS\""
 #
 msgid "Yard-Nr."
-msgstr "Werft-Nr."
+msgstr "Marina-Nr."
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 msgid "Yes"
 msgstr "Ja"
@@ -1114,7 +1261,7 @@ msgid ""
 "\n"
 "If you have a running timer, it's stopped now !!!"
 msgstr ""
-"Ihr Logbuch hat 800 Zeilen oder mehr\n"
+"Ihr Logbuch hat 800 zeilen oder mehr\n"
 "\n"
 "Bitte erstellen Sie ein neues Logbuch, um Ladezeiten zu verringern.\n"
 "\n"
@@ -1150,14 +1297,18 @@ msgstr ""
 "automatische Zeile\n"
 "Wachwechsel"
 #
+#, fuzzy
 msgid "automatic line Waypoint arrived"
-msgstr "automatische Zeile Wegpunkt erreciht"
+msgstr ""
+"automatische Zeile\n"
+"Wachwechsel"
 #
 msgid "day(s)"
 msgstr "Tag(e)"
 #
 msgid "default"
 msgstr ""
+#
 #
 msgid ""
 "default = Relative to Boat\n"
@@ -1169,6 +1320,7 @@ msgstr ""
 msgid "delay to find the right course to the wind"
 msgstr "Verzögerung bis der richtige Kurs zum Wind gefunden wurde"
 #
+#
 msgid "every 15 Degrees +/- 1 hour"
 msgstr "je 15 Grad +/- 1 Stunde"
 #
@@ -1176,13 +1328,13 @@ msgid "export your BuyParts-data as HTML or ODT"
 msgstr "Exportieren Sie Ihre \"Kaufe-Zubehör\"-Daten in HTML oder ODT"
 #
 msgid "export your Overview-data as HTML or ODT"
-msgstr "Exportieren Sie Ihre \"Übersicht\"-Daten in HTML oder ODT"
+msgstr "Exportieren Sie Ihre \"Übersichtr\"-Daten in HTML oder ODT"
 #
 msgid "export your Repairs-data as HTML or ODT"
 msgstr "Exportieren Sie Ihre \"Reparatur\"-Daten in HTML oder ODT"
 #
 msgid "export your Service-data as HTML or ODT"
-msgstr "Exportieren Sie Ihre \"Service\"-Daten in HTML oder ODT"
+msgstr "Exportieren Sie Ihre \"Servicer\"-Daten in HTML oder ODT"
 #
 msgid ""
 "export your boat/equipment-data as:\n"
@@ -1275,8 +1427,30 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "BuyParts"
 #~ msgstr "Zubehör kaufen"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1308,6 +1482,17 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Logbuch Konni"
 #
@@ -1325,8 +1510,30 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Pfad zum HTML-Editor (optional)"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1401,11 +1608,61 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
 #~ msgid "View "
 #~ msgstr "Ansehen"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#~ msgid "en_"
+#~ msgstr "de_"
