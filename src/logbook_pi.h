@@ -39,8 +39,8 @@
 #define     PLUGIN_VERSION_MINOR    910
 
 #define     MY_API_VERSION_MAJOR    1
-#define     MY_API_VERSION_MINOR    5
-
+//#define     MY_API_VERSION_MINOR    5	// for OpenCPN 2.5
+#define     MY_API_VERSION_MINOR    6	// for OpenCPN 2.6.xxxx Beta
 
 
 #include "../../../include/ocpn_plugin.h"
