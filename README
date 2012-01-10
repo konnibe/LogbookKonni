@@ -7,6 +7,11 @@ Clone the git repository to <OPENCPN_SOURCE_TLD>/plugins/LogbookKonni_pi (the _p
 cd <OPENCPN_SOURCE_TLD>/plugins
 git clone git://github.com/konnibe/LogbookKonni.git LogbookKonni_pi
 
+if You want to compile the plugin with the latest 2.6 Beta of OpenCPN please change in the file "logbook_pi.h" the line
+
+#define     MY_API_VERSION_MINOR    5 // for OpenCPN 2.5
+#define     MY_API_VERSION_MINOR    6 // for OpenCPN 2.6 Beta
+
 Build OpenCPN as normally (build instructions on http://opencpn.org)
 
 Localizations distribution
