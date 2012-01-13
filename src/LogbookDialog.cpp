@@ -433,7 +433,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridOverview = new wxGrid( m_panel142, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 	
 	// Grid
-	m_gridOverview->CreateGrid( 1, 25 );
+	m_gridOverview->CreateGrid( 1, 27 );
 	m_gridOverview->EnableEditing( false );
 	m_gridOverview->EnableGridLines( true );
 	m_gridOverview->EnableDragGridSize( false );
@@ -448,47 +448,53 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridOverview->SetColSize( 5, 73 );
 	m_gridOverview->SetColSize( 6, 93 );
 	m_gridOverview->SetColSize( 7, 96 );
-	m_gridOverview->SetColSize( 8, 60 );
+	m_gridOverview->SetColSize( 8, 70 );
 	m_gridOverview->SetColSize( 9, 80 );
 	m_gridOverview->SetColSize( 10, 80 );
 	m_gridOverview->SetColSize( 11, 80 );
 	m_gridOverview->SetColSize( 12, 80 );
-	m_gridOverview->SetColSize( 13, 80 );
+	m_gridOverview->SetColSize( 13, 114 );
 	m_gridOverview->SetColSize( 14, 80 );
 	m_gridOverview->SetColSize( 15, 93 );
-	m_gridOverview->SetColSize( 16, 100 );
+	m_gridOverview->SetColSize( 16, 129 );
 	m_gridOverview->SetColSize( 17, 80 );
 	m_gridOverview->SetColSize( 18, 80 );
 	m_gridOverview->SetColSize( 19, 100 );
 	m_gridOverview->SetColSize( 20, 80 );
+	m_gridOverview->SetColSize( 21, 80 );
+	m_gridOverview->SetColSize( 22, 80 );
+	m_gridOverview->SetColSize( 23, 80 );
+	m_gridOverview->SetColSize( 24, 80 );
 	m_gridOverview->EnableDragColMove( false );
 	m_gridOverview->EnableDragColSize( true );
 	m_gridOverview->SetColLabelSize( 30 );
-	m_gridOverview->SetColLabelValue( 0, _("Logbook") );
-	m_gridOverview->SetColLabelValue( 1, _("Route") );
-	m_gridOverview->SetColLabelValue( 2, _("Start") );
-	m_gridOverview->SetColLabelValue( 3, _("End") );
-	m_gridOverview->SetColLabelValue( 4, _("Total Time") );
-	m_gridOverview->SetColLabelValue( 5, _("Distance") );
-	m_gridOverview->SetColLabelValue( 6, _("Distance p. Day") );
-	m_gridOverview->SetColLabelValue( 7, _("Best Dist. p. Day") );
-	m_gridOverview->SetColLabelValue( 8, _("Speed Avg.") );
-	m_gridOverview->SetColLabelValue( 9, _("Speed Max.") );
-	m_gridOverview->SetColLabelValue( 10, _("Engine") );
-	m_gridOverview->SetColLabelValue( 11, _("Fuel") );
-	m_gridOverview->SetColLabelValue( 12, _("Water") );
-	m_gridOverview->SetColLabelValue( 13, _("Wind from") );
-	m_gridOverview->SetColLabelValue( 14, _("Wind Avg.") );
-	m_gridOverview->SetColLabelValue( 15, _("Wind Max.") );
-	m_gridOverview->SetColLabelValue( 16, _("Current from") );
-	m_gridOverview->SetColLabelValue( 17, _("Current Avg.") );
-	m_gridOverview->SetColLabelValue( 18, _("Current Max.") );
-	m_gridOverview->SetColLabelValue( 19, _("Wave Avg.") );
-	m_gridOverview->SetColLabelValue( 20, _("Wave Max.") );
-	m_gridOverview->SetColLabelValue( 21, _("Swell Avg.") );
-	m_gridOverview->SetColLabelValue( 22, _("Swell Max.") );
-	m_gridOverview->SetColLabelValue( 23, _("Sails used mostly") );
-	m_gridOverview->SetColLabelValue( 24, _T("") );  // Poedit doesn't like null strings here
+	m_gridOverview->SetColLabelValue( 0, wxT("Logbook") );
+	m_gridOverview->SetColLabelValue( 1, wxT("Route") );
+	m_gridOverview->SetColLabelValue( 2, wxT("Start") );
+	m_gridOverview->SetColLabelValue( 3, wxT("End") );
+	m_gridOverview->SetColLabelValue( 4, wxT("Total Time") );
+	m_gridOverview->SetColLabelValue( 5, wxT("Distance") );
+	m_gridOverview->SetColLabelValue( 6, wxT("Distance p. Day") );
+	m_gridOverview->SetColLabelValue( 7, wxT("Best Dist. p. Day") );
+	m_gridOverview->SetColLabelValue( 8, wxT("Speed Avg.") );
+	m_gridOverview->SetColLabelValue( 9, wxT("Speed Max.") );
+	m_gridOverview->SetColLabelValue( 10, wxT("Speed STW Avg.") );
+	m_gridOverview->SetColLabelValue( 11, wxT("Speed STW Max.") );
+	m_gridOverview->SetColLabelValue( 12, wxT("Engine") );
+	m_gridOverview->SetColLabelValue( 13, wxT("Fuel") );
+	m_gridOverview->SetColLabelValue( 14, wxT("Water") );
+	m_gridOverview->SetColLabelValue( 15, wxT("Winddirection Avg.") );
+	m_gridOverview->SetColLabelValue( 16, wxT("Wind Avg.") );
+	m_gridOverview->SetColLabelValue( 17, wxT("Wind Max.") );
+	m_gridOverview->SetColLabelValue( 18, wxT("Currentdirection Avg.") );
+	m_gridOverview->SetColLabelValue( 19, wxT("Current Avg.") );
+	m_gridOverview->SetColLabelValue( 20, wxT("Current Max.") );
+	m_gridOverview->SetColLabelValue( 21, wxT("Wave Avg.") );
+	m_gridOverview->SetColLabelValue( 22, wxT("Wave Max.") );
+	m_gridOverview->SetColLabelValue( 23, wxT("Swell Avg.") );
+	m_gridOverview->SetColLabelValue( 24, wxT("Swell Max.") );
+	m_gridOverview->SetColLabelValue( 25, wxT("Sails used mostly") );
+	m_gridOverview->SetColLabelValue( 26, wxT("Path") );
 	m_gridOverview->SetColLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
 	
 	// Rows
@@ -2265,12 +2271,6 @@ void LogbookDialog::init()
 	clouds[8] = wxT("Nimbostratus");
 	clouds[9] = wxT("Cumulonimbus");
 
-	m_gridGlobal->SetColMinimalAcceptableWidth(0);
-	m_gridWeather->SetColMinimalAcceptableWidth(0);
-	m_gridMotorSails->SetColMinimalAcceptableWidth(0);
-	m_gridOverview->SetColMinimalAcceptableWidth(0);
-	m_gridOverview->SetColMinimalWidth(overview->FPATH,0);
-	m_gridOverview->SetColSize(overview->FPATH,0);
 //	imageList = new wxImageList(160,120);
 
 	saveDialogFilter = _("Opendocument SpreadSheet(*.ods)|*.ods|\
@@ -2473,6 +2473,13 @@ Backup Logbook(*.txt)|*.txt");
 #endif
 
 	logbookPlugIn->GetOriginalColors();
+
+	m_gridGlobal->SetColMinimalAcceptableWidth(0);
+	m_gridWeather->SetColMinimalAcceptableWidth(0);
+	m_gridMotorSails->SetColMinimalAcceptableWidth(0);
+	m_gridOverview->SetColMinimalAcceptableWidth(0);
+	m_gridOverview->SetColMinimalWidth(OverView::FPATH,0);
+	m_gridOverview->SetColSize(OverView::FPATH,0);
 
 #ifndef __WXMSW__  // wxWidgets won't set buttonwidth in Linux like in windows
 	m_buttonEditLayout->SetMinSize( wxSize( 25,-1 ) );

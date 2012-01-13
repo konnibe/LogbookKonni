@@ -209,12 +209,14 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 	}
 
 	int lastrow = 0;
+	oneLogbookTotalReset();
 
 	wxString route = _T("xxx");
+	int rowNewLogbook = -1;
 	while( (t = stream->ReadLine()))
 	{
 		if(input.Eof()) break;
-
+		rowNewLogbook++;
 		wxStringTokenizer tkz(t, _T("\t"),wxTOKEN_RET_EMPTY );
 		int c = 0;
 		while ( tkz.HasMoreTokens() )
@@ -244,6 +246,8 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 								{
 									startdate = s;
 									enddate = s;
+									if(rowNewLogbook == 0)
+										oneLogbookTotal.logbookStart = oneLogbookTotal.logbookEnd = s;
 								}
 								else
 									enddate = s;
@@ -262,11 +266,14 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 								{
 									starttime = s;
 									endtime = s;
+									if(rowNewLogbook == 0)
+										oneLogbookTotal.logbookTimeStart = oneLogbookTotal.logbookTimeEnd = s;
 								}
 								else
 									endtime = s;
 				break;
-			case SIGN:				
+			case SIGN:		   sign = s;
+				break;
 			case WATCH:	
 				break;
 			case DISTANCE:			s.ToDouble(&x);
@@ -277,49 +284,86 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 										bestetmaltemp += x;
 										if(bestetmaltemp > bestetmal)
 											bestetmal = bestetmaltemp;
+										if(bestetmal > oneLogbookTotal.bestetmal)
+											 oneLogbookTotal.bestetmal = bestetmal;
 									}
-
+									oneLogbookTotal.distance += x;
+									//allLogbooksTotal.distance += x;
 				break;
 			case DISTANCETOTAL:		
 			case POSITION:			
 			case COG:				
 			case HEADING:	
 				break;
-			case SOG:				s.ToDouble(&x);
-									speed += x;
-									speedcount++;
-									if(x> speedpeak) speedpeak = x;
+			case SOG:				if(sign == _T("S"))
+									{
+										s.ToDouble(&x);
+										speed += x;	oneLogbookTotal.speed += x;
+										speedcount++; oneLogbookTotal.speedcount++;
+										if(x > speedpeak) speedpeak = x;
+										if(x > oneLogbookTotal.speedpeak) oneLogbookTotal.speedpeak = x;
+									}
 				break;
-			case STW:				
+			case STW:				if(sign == _T("S"))
+									{
+										s.ToDouble(&x);
+										speedSTW += x; oneLogbookTotal.speedSTW += x;
+										speedcountSTW++; oneLogbookTotal.speedcountSTW++;
+										if(x > speedpeakSTW) speedpeakSTW = x;
+										if(x > oneLogbookTotal.speedpeakSTW) oneLogbookTotal.speedpeakSTW = x;
+									}
+				break;
 			case DEPTH:				
 			case REMARKS:			
 			case BAROMETER:			
 				break;
-			case WIND:				s.ToDouble(&x);
-									winddir += x;
-									windcount++;
+			case WIND:				if(!s.IsEmpty())
+									{
+									s.ToDouble(&x);
+									winddir += x; oneLogbookTotal.winddir += x;
+									windcount++; oneLogbookTotal.windcount++;
+									}
 				break;
-			case WINDFORCE:			s.ToDouble(&x);
-									wind += x;
+			case WINDFORCE:			if(!s.IsEmpty())
+									{
+									s.ToDouble(&x);
+									wind += x; oneLogbookTotal.wind += x;
 									if(x > windpeak) windpeak = x; 
+									if(x > oneLogbookTotal.windpeak) oneLogbookTotal.windpeak = x;
+									}
 				break;
-			case CURRENT:			s.ToDouble(&x);
-									currentdir += x;
-									currentcount++;
+			case CURRENT:			if(!s.IsEmpty())
+									{
+									s.ToDouble(&x);
+									currentdir += x; oneLogbookTotal.currentdir += x;
+									currentcount++; oneLogbookTotal.currentcount++;
+									}
 				break;
-			case CURRENTFORCE:		s.ToDouble(&x);
-									current += x;
+			case CURRENTFORCE:		if(!s.IsEmpty())
+									{
+									s.ToDouble(&x);
+									current += x; oneLogbookTotal.current += x;
 									if(x > currentpeak) currentpeak = x; 
+									if(x > oneLogbookTotal.currentpeak) oneLogbookTotal.currentpeak = x;
+									}
 				break;
-			case WAVE:				s.ToDouble(&x);
-									wave += x;
-									wavecount++;
+			case WAVE:				if(!s.IsEmpty())
+									{
+									s.ToDouble(&x);
+									wave += x; oneLogbookTotal.wave += x;
+									wavecount++; oneLogbookTotal.wavecount++;
 									if(x > wavepeak) wavepeak = x; 
+									if(x > oneLogbookTotal.wavepeak) oneLogbookTotal.wavepeak = x;
+									}
 				break;
-			case SWELL:				s.ToDouble(&x);
-									swell += x;
-									swellcount++;
+			case SWELL:				if(!s.IsEmpty())
+									{
+									s.ToDouble(&x);
+									swell += x; oneLogbookTotal.swell += x;
+									swellcount++; oneLogbookTotal.swellcount++;
 									if(x > swellpeak) swellpeak = x; 
+									if(x > oneLogbookTotal.swellpeak) oneLogbookTotal.swellpeak = x;
+									}
 				break;
 			case WEATHER:			
 			case CLOUDS:			
@@ -331,12 +375,17 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 									tkz1.GetNextToken().ToLong(&minutes);
 									enginehours += hours; enginemin += minutes;
 									if(enginemin >= 60) { enginehours++; enginemin -= 60; }
+									oneLogbookTotal.enginehours += hours; oneLogbookTotal.enginemin += minutes;
+									if(oneLogbookTotal.enginemin >= 60) { oneLogbookTotal.enginehours++; oneLogbookTotal.enginemin -= 60; }
 				break;
 			case ENGINETOTAL:		
 				break;
 			case FUEL:				s.ToDouble(&x);
 									if(x < 0)
+									{
 										fuel += x;
+										oneLogbookTotal.fuel += x;
+									}
 				break;
 			case FUELTOTAL:			
 				break;
@@ -369,7 +418,10 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 				break;
 			case WATER:				s.ToDouble(&x);
 									if(x < 0)
+									{
 										water += x;
+										oneLogbookTotal.water += x;
+									}
 				break;
 			case WATERTOTAL:		
 				break;
@@ -382,6 +434,7 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 			writeSumColumn(lastrow, logbook, path, colour);
 		test = false;
 	}
+	writeSumColumnLogbook(oneLogbookTotal,lastrow, logbook, colour);
 }
 
 void OverView::resetValues()
@@ -399,6 +452,8 @@ void OverView::resetValues()
 	distance = 0;
 	speed = 0;
 	speedpeak = 0;
+	speedSTW = 0;
+	speedpeakSTW = 0;
 	water = 0;
 	fuel = 0;
 	wind = 0;
@@ -418,12 +473,54 @@ void OverView::resetValues()
 	currentcount = 0;
 	etmalcount = 0;
 	speedcount = 0;
+	speedcountSTW = 0;
 	t_coll.clear();
+
+	sign = wxEmptyString;
+}
+
+void OverView::oneLogbookTotalReset()
+{
+	oneLogbookTotal.sails.Clear();
+
+	oneLogbookTotal.logbookStart = wxEmptyString;
+	oneLogbookTotal.logbookEnd = wxEmptyString;
+	oneLogbookTotal.logbookTimeStart = wxEmptyString;
+	oneLogbookTotal.logbookTimeEnd = wxEmptyString;
+	oneLogbookTotal.distance = 0;
+	oneLogbookTotal.speed = 0;
+	oneLogbookTotal.speedpeak = 0;
+	oneLogbookTotal.speedSTW = 0;
+	oneLogbookTotal.speedpeakSTW = 0;
+	oneLogbookTotal.enginehours = 0;
+	oneLogbookTotal.enginemin = 0;
+	oneLogbookTotal.fuel = 0;
+	oneLogbookTotal.water = 0;
+	oneLogbookTotal.winddir = 0;
+	oneLogbookTotal.wind = 0;
+	oneLogbookTotal.wave = 0;
+	oneLogbookTotal.swell = 0;
+	oneLogbookTotal.current = 0;
+	oneLogbookTotal.currentdir = 0;
+	oneLogbookTotal.windpeak = 0;
+	oneLogbookTotal.wavepeak = 0;
+	oneLogbookTotal.swellpeak = 0;
+	oneLogbookTotal.currentpeak = 0;
+
+	oneLogbookTotal.windcount = 0;
+	oneLogbookTotal.currentcount = 0;
+	oneLogbookTotal.wavecount = 0;
+	oneLogbookTotal.swellcount = 0;
+	oneLogbookTotal.etmalcount = 0;
+	oneLogbookTotal.speedcount = 0;
+	oneLogbookTotal.speedcountSTW = 0;
 }
 
 void OverView::writeSumColumn(int row, wxString logbook, wxString path, bool colour)
 {
 	wxString d, sail;
+	wxString nothing = _T("-----");
+
 	switch(opt->showWaveSwell)
 	{
 		case 0:	d = opt->meter; break;
@@ -464,45 +561,90 @@ void OverView::writeSumColumn(int row, wxString logbook, wxString path, bool col
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FWATER,temp);
 #endif
-	temp = wxString::Format(_T("%6.2f %s"),wind/windcount,_T("kts"));
+	if(windcount)
+		temp = wxString::Format(_T("%6.2f %s"),wind/windcount,_T("kts"));
+	else
+		temp = nothing;
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FWIND,temp);
-	temp = wxString::Format(_T("%6.2f %s"),winddir/windcount,opt->Deg.c_str());
+
+	if(windcount)
+		temp = wxString::Format(_T("%6.2f %s"),winddir/windcount,opt->Deg.c_str());
+	else
+		temp = nothing;
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FWINDDIR,temp);
+
 	temp = wxString::Format(_T("%6.2f %s"),windpeak,_T("kts"));
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FWINDPEAK,temp);
-	temp = wxString::Format(_T("%6.2f %s"),wave/wavecount,d.c_str());
+
+	if(wavecount)
+		temp = wxString::Format(_T("%6.2f %s"),wave/wavecount,d.c_str());
+	else
+		temp = nothing;
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FWAVE,temp);
+
 	temp = wxString::Format(_T("%6.2f %s"),wavepeak,d.c_str());
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FWAVEPEAK,temp);
-	temp = wxString::Format(_T("%6.2f %s"),swell/swellcount,d.c_str());
+
+	if(swellcount)
+		temp = wxString::Format(_T("%6.2f %s"),swell/swellcount,d.c_str());
+	else
+		temp = nothing;
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FSWELL,temp);
+
 	temp = wxString::Format(_T("%6.2f %s"),swellpeak,d.c_str());
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FSWELLPEAK,temp);
-	wxString::Format(_T("%6.2f %s"),currentdir/currentcount,opt->Deg.c_str());
+
+	if(currentcount)
+		wxString::Format(_T("%6.2f %s"),currentdir/currentcount,opt->Deg.c_str());
+	else
+		temp = nothing;
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FCURRENTDIR,temp);
-	temp = wxString::Format(_T("%6.2f %s"),current/currentcount,d.c_str());
+
+	if(currentcount)
+		temp = wxString::Format(_T("%6.2f %s"),current/currentcount,d.c_str());
+	else
+		temp = nothing;
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FCURRENT,temp);
+
 	temp = wxString::Format(_T("%6.2f %s"),currentpeak,d.c_str());
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FCURRENTPEAK,temp);
+
 	temp = wxString::Format(_T("%0002i:%02i %s"),enginehours,enginemin,opt->motorh.c_str());
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FENGINE,temp);
-	temp = wxString::Format(_T("%4.2f %s"),speed/speedcount,opt->speed.c_str());
+
+	if(speedcount)
+		temp = wxString::Format(_T("%6.2f %s"),speed/speedcount,opt->speed.c_str());
+	else
+		temp = nothing;
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FSPEED,temp);
-	temp = wxString::Format(_T("%4.2f %s"),speedpeak,opt->speed.c_str());
+
+	temp = wxString::Format(_T("%6.2f %s"),speedpeak,opt->speed.c_str());
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FBSPEED,temp);
+
+	if(speedcountSTW)
+		temp = wxString::Format(_T("%6.2f %s"),speedSTW/speedcountSTW,opt->speed.c_str());
+	else
+		temp = nothing;
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FSPEEDSTW,temp);
+
+	temp = wxString::Format(_T("%6.2f %s"),speedpeakSTW,opt->speed.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FBSPEEDSTW,temp);
+
 	grid->SetCellValue(row,FPATH,path);
 
 	wxDateTime startdt, enddt;
@@ -514,6 +656,164 @@ void OverView::writeSumColumn(int row, wxString logbook, wxString path, bool col
 
 	wxTimeSpan journey = enddt.Subtract(startdt);
 	grid->SetCellValue(row,FJOURNEY,journey.Format(_T("%D Days %H:%M "))+opt->motorh);
+
+	int max = 0; 
+	wxString result;
+	collection::iterator it;
+
+	for(it = t_coll.begin(); it != t_coll.end(); ++it)
+		if(it->second >= max)  { sail = it->first; max = it->second; }
+	grid->SetCellValue(row,FSAILS,sail);
+
+	if(colour)
+		for(int i = 0; i < grid->GetCols(); i++)
+			grid->SetCellBackgroundColour(row,i,wxColour(230,230,230));
+}
+
+void OverView::writeSumColumnLogbook(total data, int row, wxString logbook, bool colour)
+{
+	wxString nothing = _T("-----");
+
+	parent->m_gridOverview->AppendRows();
+	row = parent->m_gridOverview->GetRows()-1;
+	for(int i= 0; i < parent->m_gridOverview->GetNumberCols(); i++)
+		grid->SetCellBackgroundColour(row,i,wxColour(156,156,156));
+
+	wxString d, sail;
+	switch(opt->showWaveSwell)
+	{
+		case 0:	d = opt->meter; break;
+		case 1: d = opt->feet; break;
+		case 2: d = opt->fathom; break;
+	}
+
+	grid->SetCellAlignment(row,FLOG,wxALIGN_LEFT, wxALIGN_TOP);
+	grid->SetCellAlignment(row,FROUTE,wxALIGN_LEFT, wxALIGN_TOP);
+	grid->SetCellAlignment(row,FSAILS,wxALIGN_LEFT, wxALIGN_TOP);
+
+	grid->SetCellValue(row,FLOG,_("Logbook Total"));
+	grid->SetCellValue(row,FSTART,data.logbookStart);
+	grid->SetCellValue(row,FEND,enddate);
+
+	wxString temp = wxString::Format(_T("%6.2f %s"),data.distance,opt->distance.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FDISTANCE,temp);
+/*	temp = wxString::Format(_T("%6.2f %s"),etmal,opt->distance.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FETMAL,temp);*/
+	temp = wxString::Format(_T("%6.2f %s"),data.bestetmal,opt->distance.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FBESTETMAL,temp);
+
+#ifdef __WXOSX__
+	temp = wxString::Format(_T("%6.2f %s"),labs(fuel),opt->vol.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FFUEL,temp);
+	temp = wxString::Format(_T("%6.2f %s"),labs(water),opt->vol.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FWATER,temp);
+#else
+	temp = wxString::Format(_T("%6.2f %s"),abs(data.fuel),opt->vol.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FFUEL,temp);
+	temp = wxString::Format(_T("%6.2f %s"),abs(data.water),opt->vol.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FWATER,temp);
+#endif
+	if(data.windcount)
+		temp = wxString::Format(_T("%6.2f %s"),data.wind/data.windcount,_T("kts"));
+	else
+		temp = nothing;
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FWIND,temp);
+
+	if(data.windcount)
+		temp = wxString::Format(_T("%6.2f %s"),data.winddir/data.windcount,opt->Deg.c_str());
+	else
+		temp = nothing;
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FWINDDIR,temp);
+
+	temp = wxString::Format(_T("%6.2f %s"),data.windpeak,_T("kts"));
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FWINDPEAK,temp);
+
+	if(data.wavecount)
+		temp = wxString::Format(_T("%6.2f %s"),data.wave/data.wavecount,d.c_str());
+	else
+		temp = nothing;
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FWAVE,temp);
+
+	temp = wxString::Format(_T("%6.2f %s"),data.wavepeak,d.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FWAVEPEAK,temp);
+
+	if(data.swellcount)
+		temp = wxString::Format(_T("%6.2f %s"),data.swell/data.swellcount,d.c_str());
+	else
+		temp = nothing;
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FSWELL,temp);
+
+	temp = wxString::Format(_T("%6.2f %s"),data.swellpeak,d.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FSWELLPEAK,temp);
+
+	if(data.currentcount)
+		wxString::Format(_T("%6.2f %s"),data.currentdir/data.currentcount,opt->Deg.c_str());
+	else
+		temp = nothing;
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FCURRENTDIR,temp);
+
+	if(data.currentcount)
+		temp = wxString::Format(_T("%6.2f %s"),data.current/data.currentcount,d.c_str());
+	else
+		temp = nothing;
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FCURRENT,temp);
+
+	temp = wxString::Format(_T("%6.2f %s"),data.currentpeak,d.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FCURRENTPEAK,temp);
+
+	temp = wxString::Format(_T("%0002i:%02i %s"),data.enginehours,data.enginemin,opt->motorh.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FENGINE,temp);
+
+	if(data.speedcount)
+		temp = wxString::Format(_T("%6.2f %s"),data.speed/data.speedcount,opt->speed.c_str());
+	else
+		temp = nothing;
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FSPEED,temp);
+
+	temp = wxString::Format(_T("%6.2f %s"),data.speedpeak,opt->speed.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FBSPEED,temp);
+
+	if(data.speedcountSTW)
+		temp = wxString::Format(_T("%6.2f %s"),data.speedSTW/data.speedcountSTW,opt->speed.c_str());
+	else
+		temp = nothing;
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FSPEEDSTW,temp);
+
+	temp = wxString::Format(_T("%6.2f %s"),data.speedpeakSTW,opt->speed.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FBSPEEDSTW,temp);
+
+	wxDateTime startdt, enddt;
+
+	parent->myParseDate(data.logbookStart,startdt);
+	startdt.ParseTime(data.logbookTimeStart);
+	parent->myParseDate(enddate,enddt);
+	enddt.ParseTime(endtime);
+//	wxMessageBox(enddate+endtime+_("\n")+data.logbookStart+data.logbookTimeStart+_("\n")+enddt.FormatDate()+enddt.FormatTime()+_T("\n")+startdt.FormatDate()+startdt.FormatTime());
+
+	wxTimeSpan journey = enddt.Subtract(startdt);
+	grid->SetCellValue(row,FJOURNEY,journey.Format(_T("%E Weeks %D Days %H:%M "))+opt->motorh);
 
 	int max = 0; 
 	wxString result;

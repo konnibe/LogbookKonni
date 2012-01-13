@@ -716,7 +716,6 @@ Please create a new logbook to minimize the loadingtime.\n\nIf you have a runnin
 	if(lastRow > 0)
 		{
 			dialog->logGrids[0]->SetCellValue(lastRow,0,dialog->logGrids[0]->GetCellValue(lastRow-1,0));
-			dialog->logGrids[0]->SetCellValue(lastRow,3,dialog->logGrids[0]->GetCellValue(lastRow-1,3));
 			dialog->logGrids[0]->SetCellValue(lastRow,4,dialog->logGrids[0]->GetCellValue(lastRow-1,4));
 			dialog->logGrids[0]->SetCellValue(lastRow,7,sLat+sLon);
 			changeCellValue(lastRow, 0,0);
@@ -1014,7 +1013,7 @@ wxDouble Logbook::positionStringToDezimalModern(wxString pos)
 	temp.ToDouble(&resmin);
 	if(pos.Contains(_T("S"))) resmin = -resmin;
 	if(pos.Contains(_T("W"))) resmin = -resmin;
-//	wxMessageBox(wxString::Format(_T("%f\n%f\n%f"),resdeg,resmin/60,resdeg+(resmin/60)));
+
 	return resdeg + (resmin/60);
 }
 
@@ -1148,9 +1147,11 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						}
 					}
 	else if(grid == 0 && col == 5)
-					{
+					{	
 						s.Replace(_T(","),_T("."));
+
 						s = wxString::Format(_T("%.2f %s"),wxAtof(s),opt->distance.c_str());
+										
 						s.Replace(_T("."),dialog->decimalPoint);
 						dialog->logGrids[grid]->SetCellValue(row,col,s);
 
@@ -1161,6 +1162,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 	
 	else if(grid == 0 && col== 3)
 					{
+						dialog->logGrids[grid]->SetCellValue(row,col,s.Upper());
 						if(row == dialog->m_gridGlobal->GetNumberRows()-1)
 							dialog->maintenance->checkService(row);
 					}
@@ -1230,6 +1232,11 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 							s= wxString::Format(_T("%9.2f %s"),distTotal+dist,opt->distance.c_str());
 							s.Replace(_T("."),dialog->decimalPoint);
 							dialog->logGrids[grid]->SetCellValue(row,6,s);
+
+							if(dist >= 0.1)
+								dialog->m_gridGlobal->SetCellValue(row,3,_T("S"));
+							else
+								dialog->m_gridGlobal->SetCellValue(row,3,_T(""));
 								
 						}
 					}

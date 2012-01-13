@@ -23,10 +23,47 @@ class Logbook;
 
 using namespace std;
 
+struct total{
+	wxArrayString		sails;
+
+	wxString			logbookStart;
+	wxString			logbookEnd;
+	wxString			logbookTimeStart;
+	wxString			logbookTimeEnd;
+	double				distance;
+	double				bestetmal;
+	double				speed;
+	double				speedpeak;
+	double				speedSTW;
+	double				speedpeakSTW;
+	int					enginehours;
+	int					enginemin;
+	double				fuel;
+	double				water;
+	double				winddir;
+	double				wind;
+	double				wave;
+	double				swell;
+	double				current;
+	double				currentdir;
+	double				windpeak;
+	double				wavepeak;
+	double				swellpeak;
+	double				currentpeak;
+
+	int					windcount;
+	int					currentcount;
+	int					wavecount;
+	int					swellcount;
+	int					etmalcount;
+	int					speedcount;
+	int					speedcountSTW;
+};
+
 class OverView : public Export
 {
 public:
-	enum gridfields{FLOG, FROUTE, FSTART, FEND, FJOURNEY, FDISTANCE, FETMAL, FBESTETMAL, FSPEED, FBSPEED, FENGINE, FFUEL, FWATER, FWINDDIR, FWIND, FWINDPEAK, 
+	enum gridfields{FLOG, FROUTE, FSTART, FEND, FJOURNEY, FDISTANCE, FETMAL, FBESTETMAL, FSPEED, FBSPEED, FSPEEDSTW, FBSPEEDSTW, FENGINE, FFUEL, FWATER, FWINDDIR, FWIND, FWINDPEAK, 
 					FCURRENTDIR, FCURRENT, FCURRENTPEAK, FWAVE, FWAVEPEAK, FSWELL, FSWELLPEAK, FSAILS, FPATH };
 	OverView(LogbookDialog* d, wxString data, wxString lay, wxString layoutODT);
 	~OverView(void);
@@ -44,6 +81,7 @@ public:
 	wxString toHTML(wxString path,wxString layout,int mode);
 
 	wxString			layout_locn;
+	struct total		oneLogbookTotal;
 
 private:
 	enum logfields{ROUTE,DATE, TIME, SIGN,WATCH, DISTANCE, DISTANCETOTAL, POSITION, COG, HEADING, SOG, STW, DEPTH,
@@ -53,9 +91,11 @@ private:
 	void loadLogbookData(wxString filename, bool colour);
 	void loadAllLogbooks();
 	void writeSumColumn(int row, wxString logbook, wxString path, bool colour);
+	void writeSumColumnLogbook(total data, int row, wxString logbook, bool colour);
 	void resetValues();
 	void clearGrid();
 	wxString setPlaceHolders(int mode, wxGrid *grid, int row, wxString middle);
+	void oneLogbookTotalReset();
 
 	LogbookDialog*		parent;
 	wxGrid*				grid;
@@ -85,6 +125,8 @@ private:
 	double				bestetmaltemp;
 	double				speed;
 	double				speedpeak;
+	double				speedSTW;
+	double				speedpeakSTW;
 	int					enginehours;
 	int					enginemin;
 	double				fuel;
@@ -106,6 +148,8 @@ private:
 	int					swellcount;
 	int					etmalcount;
 	int					speedcount;
+	int					speedcountSTW;
+	wxString			sign;
 
 	typedef std::map<wxString, int> collection;
 	typedef std::pair<wxString, int> pair;
