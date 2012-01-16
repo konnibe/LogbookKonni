@@ -184,8 +184,8 @@ bool logbookkonni_pi::DeInit(void)
 
 void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_body)
 {
-	if(m_plogbook_window)
-	{
+    if(m_plogbook_window)
+    {
       if(message_id == _T("LOGBOOK_LOG_LASTLINE_REQUEST"))
       {
 		  wxJSONValue key;
@@ -197,7 +197,8 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
 		  wxJSONWriter w;
 		  wxString out;
 		  w.Write(key, out);
-		  SetPluginMessage(wxString(_T("LOGBOOK_LOG_LASTLINE_RESPONSE")),out);
+		  wxString id = wxString(_T("LOGBOOK_LOG_LASTLINE_RESPONSE"));
+		  SetPluginMessage(id,out);
       }
       else if(message_id == _T("LOGBOOK_LOG_LASTLINE_RESPONSE"))
       {		
@@ -207,7 +208,7 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
 		  if(numErrors != 0) return;
 		  wxString str;
 		    for(int i = 0; i < 32; i++)
-				str += wxString::Format(_T("Data=%s\n"),data.ItemAt(i).AsString());
+				str += wxString::Format(_T("Data=%s\n"),data.ItemAt(i).AsString().c_str());
 		  wxMessageBox(str);
 	  }
       else if(message_id == _T("LOGBOOK_SERVICE_LASTlINE_REQUEST"))
@@ -227,7 +228,7 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
 		m_plogbook_window->m_gridGlobal->SetCellValue(lastRow,13,data.Item(_T("Remarks")).AsString());
 		m_plogbook_window->m_gridMotorSails->SetCellValue(lastRow,8,data.Item(_T("MotorRemarks")).AsString());
       }
-	}
+  }
 }
 
 
