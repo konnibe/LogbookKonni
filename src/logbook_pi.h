@@ -36,7 +36,7 @@
 #endif //precompiled headers
 
 #define     PLUGIN_VERSION_MAJOR    0
-#define     PLUGIN_VERSION_MINOR    910
+#define     PLUGIN_VERSION_MINOR    911
 
 #define     MY_API_VERSION_MAJOR    1
 //#define     MY_API_VERSION_MINOR    5	// for OpenCPN 2.5
@@ -57,6 +57,7 @@
 #include <wx/splitter.h>
 #include <wx/fileconf.h>
 
+#include "jsonwriter.h"
 //----------------------------------------------------------------------------------------------------------
 //    The PlugIn Class Definition
 //----------------------------------------------------------------------------------------------------------
@@ -118,6 +119,9 @@ public:
       int GetToolbarToolCount(void);
       void ShowPreferencesDialog( wxWindow* parent );
       void OnToolbarToolCallback(int id);
+	  void SetPluginMessage(wxString &message_id, wxString &message_body);
+	  void SendLogbookMessage(wxString message_id, wxString message_body);
+//	  void SendPluginMessage(wxString &message_id, wxString &message_body);
 
 	  void loadLanguages(wxWindow * parent);
 	  void loadLayouts(wxWindow * parent);

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-26 17:01+0100\n"
+"POT-Creation-Date: 2012-01-15 18:51+0100\n"
 "PO-Revision-Date: 2011-11-25 01:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -222,11 +222,8 @@ msgstr "Corriente"
 msgid "Current Max."
 msgstr "Corriente"
 #
-#
-#
-#
 #, fuzzy
-msgid "Current from"
+msgid "Currentdirection Avg."
 msgstr "Corriente"
 #
 msgid "Date"
@@ -657,6 +654,34 @@ msgstr "Bitácora"
 msgid "Logbook Preferences"
 msgstr "Bitácora preferencias"
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Logbook Total"
+msgstr "Abrir fichero de bitácora antiguo"
+#
 msgid "Logbook for OpenCPN"
 msgstr "Bitácora para OpenCPN"
 #
@@ -812,6 +837,68 @@ msgstr "Patrón"
 #
 msgid "Passport-Nr"
 msgstr "Nº.Pasaporte"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Path"
+msgstr "Guardia"
 #
 msgid "Path to Datamanager"
 msgstr ""
@@ -1222,6 +1309,17 @@ msgstr "Velocidad"
 msgid "Speed Max."
 msgstr "Mar de fondo"
 #
+#, fuzzy
+msgid "Speed STW Avg."
+msgstr "Velocidad"
+#
+#
+#
+#
+#, fuzzy
+msgid "Speed STW Max."
+msgstr "Mar de fondo"
+#
 #
 #
 #
@@ -1506,19 +1604,16 @@ msgstr "Viento"
 msgid "Wind Max."
 msgstr "Viento"
 #
-#
-#
-#
-#, fuzzy
-msgid "Wind from"
-msgstr "Viento"
-#
 msgid ""
 "Wind is set to Heading,\n"
 "but GPS sends no Heading Data.\n"
 "Wind is set now to Realative to boat\n"
 "\n"
 msgstr ""
+#
+#, fuzzy
+msgid "Winddirection Avg."
+msgstr "Viento"
 #
 #
 msgid "Windspeed"
@@ -1752,6 +1847,11 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "BuyParts"
 #~ msgstr "Comprar recambios"
@@ -1788,8 +1888,28 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Listado de tripulación"
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Current from"
+#~ msgstr "Corriente"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1895,8 +2015,18 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Bitácora Konni"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2049,9 +2179,19 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Not implemented yet"
 #~ msgstr "no implementado aún"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2124,8 +2264,18 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Save"
 #~ msgstr "Guardar"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2316,9 +2466,19 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Seleccione Layout"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2540,8 +2700,18 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2644,9 +2814,19 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Ver"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2839,6 +3019,11 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Watchlist"
 #~ msgstr "Guardia"
@@ -2939,9 +3124,29 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Wave Peak"
 #~ msgstr "Oleaje"
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Wind from"
+#~ msgstr "Viento"
+#
+#
+#
+#
+#
 #
 #
 #

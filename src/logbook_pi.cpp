@@ -48,6 +48,8 @@
 #include <wx/msgdlg.h>
 #include <memory>
 
+#include "jsonreader.h"
+
 using namespace std;
 
 #ifndef DECL_EXP
@@ -153,7 +155,8 @@ int logbookkonni_pi::Init(void)
          //  INSTALLS_CONTEXTMENU_ITEMS     |
            WANTS_NMEA_SENTENCES      |
            WANTS_NMEA_EVENTS		 |
-           USES_AUI_MANAGER
+           USES_AUI_MANAGER			 |
+		   WANTS_PLUGIN_MESSAGING
 		);
 }
 
@@ -175,6 +178,62 @@ bool logbookkonni_pi::DeInit(void)
 		m_plogbook_window->Destroy();
 	}
 	return true;
+}
+
+//Demo implementation of response mechanism
+
+void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_body)
+{
+	if(m_plogbook_window)
+	{
+      if(message_id == _T("LOGBOOK_LOG_LASTLINE_REQUEST"))
+      {
+		  wxJSONValue key;
+		  int tcol = 0;
+		  int lastRow = m_plogbook_window->logGrids[0]->GetNumberRows()-1;
+		  for(unsigned int g = 0; g < LOGGRIDS; g++)
+			  for( int col = 0; col < m_plogbook_window->logGrids[g]->GetNumberCols(); col++)
+				  key[tcol++] = m_plogbook_window->logGrids[g]->GetCellValue(lastRow,col);
+		  wxJSONWriter w;
+		  wxString out;
+		  w.Write(key, out);
+		  SetPluginMessage(wxString(_T("LOGBOOK_LOG_LASTLINE_RESPONSE")),out);
+      }
+      else if(message_id == _T("LOGBOOK_LOG_LASTLINE_RESPONSE"))
+      {		
+		  wxJSONReader reader;
+		  wxJSONValue  data;
+		  int numErrors = reader.Parse( message_body, &data );
+		  if(numErrors != 0) return;
+		  wxString str;
+		    for(int i = 0; i < 32; i++)
+				str += wxString::Format(_T("Data=%s\n"),data.ItemAt(i).AsString());
+		  wxMessageBox(str);
+	  }
+      else if(message_id == _T("LOGBOOK_SERVICE_LASTlINE_REQUEST"))
+      {
+            ;//SendCursorVariation();
+      }
+      else if(message_id == _T("LOGBOOK_LOG_ADDLINE_REQUEST"))
+      {
+		wxJSONReader reader;
+		wxJSONValue  data;
+		int numErrors = reader.Parse( message_body, &data );
+		if(numErrors != 0) return;
+
+		m_plogbook_window->logbook->appendRow(false);
+		int lastRow = m_plogbook_window->m_gridGlobal->GetRows()-1;
+
+		m_plogbook_window->m_gridGlobal->SetCellValue(lastRow,13,data.Item(_T("Remarks")).AsString());
+		m_plogbook_window->m_gridMotorSails->SetCellValue(lastRow,8,data.Item(_T("MotorRemarks")).AsString());
+      }
+	}
+}
+
+
+void logbookkonni_pi::SendLogbookMessage(wxString message_id, wxString message_body)
+{
+	SendPluginMessage(message_id,message_body);
 }
 
 void logbookkonni_pi::GetOriginalColors()
@@ -400,6 +459,13 @@ int logbookkonni_pi::GetToolbarToolCount(void)
 
 void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 {
+//	wxJSONValue str;
+//	str[_T("Remarks")] = _T("Test");
+//	str[_T("MotorRemarks")] = _T("MotorTest");
+//      wxJSONWriter w;
+//      wxString out;
+//      w.Write(str, out);
+	SendPluginMessage(wxString(_T("LOGBOOK_LOG_LASTLINE_REQUEST")),wxEmptyString);
 #ifdef __WXOSX__
 // Not tested yet
     	AddLocaleCatalog( _T("opencpn-logbookkonni_pi") );
@@ -463,6 +529,11 @@ void logbookkonni_pi::OnToolbarToolCallback(int id)
 	
 	m_plogbook_window->Show(); 
 	m_plogbook_window->SetFocus();
+
+    if (m_plogbook_window->IsShown())
+            SendPluginMessage(wxString(_T("LOGBOOK_WINDOW_SHOWN")), wxEmptyString);
+      else
+            SendPluginMessage(_T("LOGBOOK_WINDOW_HIDDEN"), wxEmptyString);
 }
 
 void logbookkonni_pi::SaveConfig()
@@ -989,6 +1060,7 @@ void LogbookTimer::OnTimer(wxTimerEvent& ev)
 	if(!plogbook_pi->m_plogbook_window->IsShown())
 	{
 		plogbook_pi->m_plogbook_window->Show();
+        plogbook_pi->SendLogbookMessage(_T("LOGBOOK_WINDOW_SHOWN"), wxEmptyString);
 	}
 	plogbook_pi->m_plogbook_window->logbook->appendRow(false);
 }

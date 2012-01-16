@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-26 17:01+0100\n"
+"POT-Creation-Date: 2012-01-15 18:51+0100\n"
 "PO-Revision-Date: 2011-12-29 09:35+0100\n"
 "Last-Translator: Pavel Kalian <pavel@kalian.cz>\n"
 "Language-Team: Pavel Kalian <pavel@kalian.cz>\n"
@@ -225,11 +225,9 @@ msgstr "Proud prům."
 msgid "Current Max."
 msgstr "Max proud"
 #
-#
-#
-#
-msgid "Current from"
-msgstr "Proud z"
+#, fuzzy
+msgid "Currentdirection Avg."
+msgstr "Proud prům."
 #
 msgid "Date"
 msgstr "Datum"
@@ -651,6 +649,34 @@ msgstr "Lodní deník"
 msgid "Logbook Preferences"
 msgstr "Nastavení lodného deníku"
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Logbook Total"
+msgstr "Deník do"
+#
 msgid "Logbook for OpenCPN"
 msgstr "Lodní deník pro OpenCPN"
 #
@@ -807,6 +833,68 @@ msgstr "Majitel"
 #
 msgid "Passport-Nr"
 msgstr "Číslo pasu"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Path"
+msgstr "Cesty"
 #
 msgid "Path to Datamanager"
 msgstr "Cesta k manažeru dat"
@@ -1210,6 +1298,17 @@ msgstr "Prúm. Rychlost"
 msgid "Speed Max."
 msgstr "Max rychlost"
 #
+#, fuzzy
+msgid "Speed STW Avg."
+msgstr "Prúm. Rychlost"
+#
+#
+#
+#
+#, fuzzy
+msgid "Speed STW Max."
+msgstr "Max rychlost"
+#
 #
 #
 #
@@ -1492,12 +1591,6 @@ msgstr "Vítr prům."
 msgid "Wind Max."
 msgstr "Max vítr"
 #
-#
-#
-#
-msgid "Wind from"
-msgstr "Vítr z"
-#
 msgid ""
 "Wind is set to Heading,\n"
 "but GPS sends no Heading Data.\n"
@@ -1508,6 +1601,10 @@ msgstr ""
 "ale GPS neposílá žádné směrové data\n"
 "Vítr je nastaven na relativní k lodi\n"
 "\n"
+#
+#, fuzzy
+msgid "Winddirection Avg."
+msgstr "Vítr prům."
 #
 #
 msgid "Windspeed"
@@ -1817,8 +1914,18 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Best Etmal"
 #~ msgstr "Max NM/24h"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1884,8 +1991,27 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Seznam posádky"
+#
+#
+#
+#
+#
+#
+#
+#~ msgid "Current from"
+#~ msgstr "Proud z"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2100,8 +2226,18 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "GPS Auto (Ocean Crossing)"
 #~ msgstr "GPS Auto (přejezd oceánu)"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2202,8 +2338,18 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Konniho lodní deník"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2399,8 +2545,18 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "NetTonnage"
 #~ msgstr "Čistá registrovaná prostornost"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2431,6 +2587,11 @@ msgstr "Napiš vlastní popis"
 #, fuzzy
 #~ msgid "Not implemented yet"
 #~ msgstr "zatím neimplementováno"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2499,8 +2660,18 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Save"
 #~ msgstr "Uložit"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2687,6 +2858,11 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Vybrat rozvržení:"
@@ -2782,8 +2958,18 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Show Maintence Rows coloured"
 #~ msgstr "Zobraz řádky údržby v barvě"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3000,8 +3186,18 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Dnes"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3100,6 +3296,11 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Zobrazit"
@@ -3179,6 +3380,20 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Watchlist"
 #~ msgstr "Hlídka"
+#
+#
+#
+#
+#
+#
+#
+#~ msgid "Wind from"
+#~ msgstr "Vítr z"

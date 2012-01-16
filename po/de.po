@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2011-12-26 17:01+0100\n"
-"PO-Revision-Date: 2011-12-12 11:03+0100\n"
+"POT-Creation-Date: 2012-01-15 18:51+0100\n"
+"PO-Revision-Date: 2012-01-15 19:05+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -220,8 +220,8 @@ msgstr "Strom durchsch."
 msgid "Current Max."
 msgstr "Strom max."
 #
-msgid "Current from"
-msgstr "Strom von"
+msgid "Currentdirection Avg."
+msgstr "Stromrichtung durchsch."
 #
 msgid "Date"
 msgstr "Datum"
@@ -483,11 +483,8 @@ msgstr "Wenn GPS nicht eingeschaltet ist benutze"
 msgid "If Watch changed"
 msgstr "Wenn Wachwechsel"
 #
-#, fuzzy
 msgid "If Waypoint arrived"
-msgstr ""
-"automatische Zeile\n"
-"Wachwechsel"
+msgstr "Wenn Wegpunkt erreicht"
 #
 msgid ""
 "If You have created Your own Layouts\n"
@@ -592,6 +589,26 @@ msgstr "Logbuch"
 #
 msgid "Logbook Preferences"
 msgstr "Logbuch Optionen"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+msgid "Logbook Total"
+msgstr "Logbuch gesamt"
 #
 msgid "Logbook for OpenCPN"
 msgstr "Logbuch für OpenCPN"
@@ -758,6 +775,9 @@ msgstr "Eigner"
 msgid "Passport-Nr"
 msgstr "Pass-Nr."
 #
+msgid "Path"
+msgstr "Pfade"
+#
 msgid "Path to Datamanager"
 msgstr "Pfad zum Dateimanager"
 #
@@ -807,13 +827,12 @@ msgstr ""
 "Bitte geben Sie 1.30 oder 1,30 oder 1:30\n"
 "für 1:30h ein."
 #
-#, fuzzy
 msgid ""
 "Please enter the Date in the format:\n"
 "   "
 msgstr ""
 "Bitte geben Sie das Datum im Format:\n"
-"      %s"
+"   "
 #
 #, c-format
 msgid ""
@@ -1044,6 +1063,12 @@ msgstr "Fahrt durchsch."
 msgid "Speed Max."
 msgstr "Fahrt max."
 #
+msgid "Speed STW Avg."
+msgstr "Fahrt d.W. durchsch."
+#
+msgid "Speed STW Max."
+msgstr "Fahrt d.W. max."
+#
 msgid "Start"
 msgstr "Start"
 #
@@ -1205,9 +1230,6 @@ msgstr "Windstärke durchschn."
 msgid "Wind Max."
 msgstr "Wind max."
 #
-msgid "Wind from"
-msgstr "Wind von"
-#
 msgid ""
 "Wind is set to Heading,\n"
 "but GPS sends no Heading Data.\n"
@@ -1218,6 +1240,9 @@ msgstr ""
 "erhalte aber keine Daten.\n"
 "Windrichtung wurde auf \"default\" zurückgesetzt\n"
 "\n"
+#
+msgid "Winddirection Avg."
+msgstr "Windrichtung durchschn."
 #
 #
 msgid "Windspeed"
@@ -1297,11 +1322,10 @@ msgstr ""
 "automatische Zeile\n"
 "Wachwechsel"
 #
-#, fuzzy
 msgid "automatic line Waypoint arrived"
 msgstr ""
 "automatische Zeile\n"
-"Wachwechsel"
+"Wegpunlt erreicht"
 #
 msgid "day(s)"
 msgstr "Tag(e)"
@@ -1438,6 +1462,9 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
 #~ msgid "BuyParts"
 #~ msgstr "Zubehör kaufen"
 #
@@ -1468,8 +1495,18 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Crewliste"
+#
+#
+#~ msgid "Current from"
+#~ msgstr "Strom von"
+#
+#
+#
 #
 #
 #
@@ -1521,8 +1558,14 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Pfad zum HTML-Editor (optional)"
+#
+#
+#
 #
 #
 #
@@ -1619,9 +1662,15 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
+#
+#
+#
 #
 #
 #
@@ -1642,27 +1691,5 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #~ msgstr "Ansehen"
 #
 #
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#~ msgid "en_"
-#~ msgstr "de_"
+#~ msgid "Wind from"
+#~ msgstr "Wind von"

@@ -2,12 +2,13 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "logbookkonni_pi"
-!define PRODUCT_VERSION "0.909"
+!define PRODUCT_VERSION "0.911"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 XPStyle on
 RequestExecutionLevel admin
 #RequestExecutionLevel user
+
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 OutFile "LogbookKonni-Setup.exe"
@@ -16,7 +17,7 @@ LoadLanguageFile "${NSISDIR}\Contrib\Language files\English.nlf"
 LoadLanguageFile "${NSISDIR}\Contrib\Language files\French.nlf"
 LoadLanguageFile "${NSISDIR}\Contrib\Language files\German.nlf"
 LoadLanguageFile "${NSISDIR}\Contrib\Language files\Spanish.nlf"
-
+LoadLanguageFile "${NSISDIR}\Contrib\Language files\Danish.nlf"
 ; License data
 ; Not exactly translated, but it shows what's needed
 /*LicenseLangString myLicenseData ${LANG_ENGLISH} ""
@@ -80,7 +81,10 @@ LangString Message ${LANG_SIMPCHINESE} "Simplified Chinese message"
 LangString Message ${LANG_SLOVAK} "Slovak message"
 */
 
-InstallDir "$PROGRAMFILES\OpenCPN"
+#InstallDir "$PROGRAMFILES\OpenCPN"
+InstallDir "$PROGRAMFILES"
+Page directory
+Page instfiles
 Icon "${NSISDIR}\Contrib\Graphics\Icons\modern-install.ico"
 UninstallIcon "${NSISDIR}\Contrib\Graphics\Icons\modern-uninstall.ico"
 ;LicenseText "Falls Sie alle Bedingungen des Abkommens akzeptieren, klicken Sie auf 'Annehmen'. Sie müssen die Lizenzvereinbarungen anerkennen um $(^Name) zu installieren."
@@ -110,6 +114,8 @@ Function .onInit
 	Push Spanish
 ;	Push ${LANG_SWEDISH}
 ;	Push Swedish
+	Push ${LANG_DANISH}
+	Push Danish
 ;	Push ${LANG_TRADCHINESE}
 ;	Push "Traditional Chinese"
 ;	Push ${LANG_SIMPCHINESE}
@@ -123,7 +129,7 @@ Function .onInit
 
 	Pop $LANGUAGE
 	StrCmp $LANGUAGE "cancel" 0 +2
-		Abort
+	Abort
 FunctionEnd
 
 Section "DLL" SEC01
@@ -141,7 +147,8 @@ Section "Languages" SEC02
    File "C:\Program Files (x86)\OpenCPN\share\locale\fr\LC_MESSAGES\opencpn-logbookkonni_pi.mo"
    SetOutPath "$INSTDIR\share\locale\es\LC_MESSAGES\"
    File "C:\Program Files (x86)\OpenCPN\share\locale\es\LC_MESSAGES\opencpn-logbookkonni_pi.mo"
-
+   SetOutPath "$INSTDIR\share\locale\da\LC_MESSAGES\"
+   File "C:\Program Files (x86)\OpenCPN\share\locale\da\LC_MESSAGES\opencpn-logbookkonni_pi.mo"
 SectionEnd
 
 Section "Layouts" SEC03

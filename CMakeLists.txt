@@ -82,7 +82,14 @@ SET(SRC_LOGBOOKKONNI
 		src/EzGrid.h
 		src/EzGrid.cpp
 		src/GridCellChoiceRenderer.h	
-		src/GridCellChoiceRenderer.cpp		
+		src/GridCellChoiceRenderer.cpp
+        src/json_defs.h
+        src/jsonreader.h
+        src/jsonval.h
+        src/jsonwriter.h
+        src/jsonreader.cpp
+        src/jsonval.cpp
+        src/jsonwriter.cpp 				
  	)
 
 SET(SRC_NMEA0183
