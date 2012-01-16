@@ -197,7 +197,7 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
 		  wxJSONWriter w;
 		  wxString out;
 		  w.Write(key, out);
-		  wxString id = wxString(_T("LOGBOOK_LOG_LASTLINE_RESPONSE"));
+		  wxString id = _T("LOGBOOK_LOG_LASTLINE_RESPONSE");
 		  SetPluginMessage(id,out);
       }
       else if(message_id == _T("LOGBOOK_LOG_LASTLINE_RESPONSE"))
