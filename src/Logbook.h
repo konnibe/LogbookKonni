@@ -49,7 +49,6 @@ private:
 	wxString			sWindSpeed;
 	wxString			sDepth;
 	wxString			sLogText;
-	wxString			lastWayPoint;
 	Options				*opt;
 	bool				noSentence;
 	bool				gpsStatus;
@@ -76,7 +75,6 @@ private:
 	wxString			getWake();
 	void				checkCourseChanged();
 	void				checkGuardChanged();
-	void				checkWayPoint(RMB rmb);
 	void				checkDistance();
 	wxString			positionTraditional(int NEflag, double a, bool mode );
 	wxString			positionGPSLike(int NEflag, double a, bool mode );
@@ -96,6 +94,9 @@ public:
 	wxDateTime		mCorrectedDateTime;
 	long			dLastMinute;
 	PBVEDialog*		pvbe;
+	bool			WP_skipped;
+	wxString		lastWayPoint;
+	bool			OCPN_Message;
 
 public:
 	Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString layoutODT);
@@ -117,6 +118,7 @@ public:
 	void setLayoutLocation(wxString loc);
 	void SetGPSStatus(bool status);
 	bool checkGPS(bool appendClick);
+	void checkWayPoint(RMB rmb);
 
 
 	wxTextFile* logbookFile;

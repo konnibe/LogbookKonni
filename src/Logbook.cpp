@@ -39,11 +39,11 @@ Logbook::Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString
 	pbvecount = 0;
 #endif
 	oldLogbook = false;
-
+	OCPN_Message = false;
 	noSentence = true;
 	modified = false;
 	wxString logLay;
-	wxString lastWayPoint = _T("");
+	lastWayPoint = _T("");
 
 	dialog = parent;
 	opt = dialog->logbookPlugIn->opt;
@@ -73,6 +73,7 @@ Logbook::Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString
 	noAppend = false;
 	gpsStatus = false;
 	waypointArrived = false;
+	WP_skipped = false;
 	bCOW = false;
 	dCOW = -1;
 	dCOG = -1;
@@ -207,9 +208,9 @@ void Logbook::SetSentence(wxString &sentence)
 					{
 						  if(m_NMEA0183.Rmb.IsArrivalCircleEntered == NTrue)
 						{
-							  if(m_NMEA0183.Rmb.To != lastWayPoint)
+							  if(m_NMEA0183.Rmb.From != lastWayPoint)
 							{
-								lastWayPoint = m_NMEA0183.Rmb.To;
+								//lastWayPoint = m_NMEA0183.Rmb.From;
 								checkWayPoint(m_NMEA0183.Rmb);
 							}
 						}
@@ -820,10 +821,13 @@ void Logbook::checkCourseChanged()
 
 void Logbook::checkWayPoint(RMB rmb)
 {
+	if(lastWayPoint == rmb.From) return;
+
 	tempRMB = rmb;
 	waypointArrived = true;
 	appendRow(false);
-	waypointArrived = false;	
+	waypointArrived = false;
+	lastWayPoint = rmb.From;
 }
 
 void Logbook::checkGuardChanged()
@@ -1716,12 +1720,23 @@ bool Logbook::checkGPS(bool appendClick)
 			sLogText += opt->guardChangeText;
 		else if(waypointArrived)
 		{
-			wxString s = wxString::Format(_("\nName of Waypoint: %s\nTrue bearing to destination: %4.1f%s\nRange to destination: %4.2f%s"),
-																	tempRMB.To.c_str(),
+			wxString s, ext;
+
+			if(!OCPN_Message)
+			{	 s = wxString::Format(_("\nName of Waypoint: %s\nTrue bearing to destination: %4.1f%s\nRange to destination: %4.2f%s"),
+																	tempRMB.From.c_str(),
 																	tempRMB.BearingToDestinationDegreesTrue,opt->Deg.c_str(),
 																	tempRMB.RangeToDestinationNauticalMiles,opt->distance.c_str());
-			s.Replace(_T("."),dialog->decimalPoint);
-			sLogText += opt->waypointText + s;
+				s.Replace(_T("."),dialog->decimalPoint);
+			}
+			else
+				s = wxString::Format(_("\nName of Waypoint: %s"),tempRMB.From.c_str());
+
+			if(WP_skipped)
+				ext = _("Waypoint skipped");
+			else
+				ext = _("WayPoint arrived");
+			sLogText += wxString::Format(_T("%s\n%s%s"),opt->waypointText,ext,s);
 			
 		}
 		else if(everySM && !appendClick)
@@ -1740,6 +1755,19 @@ bool Logbook::checkGPS(bool appendClick)
 			sLogText = _("No GPS-Signal !");
 		else
 			sLogText = _T("");
+		if(waypointArrived)
+		{
+			wxString ext;
+			wxString s = wxString::Format(_("\nName of Waypoint: %s"),tempRMB.From.c_str());
+			if(WP_skipped)
+				ext = _("Waypoint skipped");
+			else
+				ext = _("WayPoint arrived");
+			if(sLogText != _T(""))
+				sLogText += wxString::Format(_T("\n%s\n%s%s"),opt->waypointText,ext,s);
+			else
+				sLogText += wxString::Format(_T("%s\n%s%s"),opt->waypointText,ext,s);
+		}
 		return false;
 	}
 }

@@ -197,20 +197,22 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
 		  wxJSONWriter w;
 		  wxString out;
 		  w.Write(key, out);
-		  wxString id = wxString(_T("LOGBOOK_LOG_LASTLINE_RESPONSE"));
+		  wxString id = _T("LOGBOOK_LOG_LASTLINE_RESPONSE");
 		  SetPluginMessage(id,out);
+		  return;
       }
-      else if(message_id == _T("LOGBOOK_LOG_LASTLINE_RESPONSE"))
-      {		
+/*      else if(message_id == _T("LOGBOOK_LOG_LASTLINE_RESPONSE"))          // small demo how to get the data from the logbook
+      {																		// use SendMessage(_T("LOGBOOK_LOG_LASTLINE_REQUEST"),wxEmptyString);
 		  wxJSONReader reader;
 		  wxJSONValue  data;
 		  int numErrors = reader.Parse( message_body, &data );
 		  if(numErrors != 0) return;
 		  wxString str;
-		    for(int i = 0; i < 32; i++)
+		    for(int i = 0; i < 33; i++)
 				str += wxString::Format(_T("Data=%s\n"),data.ItemAt(i).AsString().c_str());
 		  wxMessageBox(str);
 	  }
+*/
       else if(message_id == _T("LOGBOOK_SERVICE_LASTlINE_REQUEST"))
       {
             ;//SendCursorVariation();
@@ -227,7 +229,28 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
 
 		m_plogbook_window->m_gridGlobal->SetCellValue(lastRow,13,data.Item(_T("Remarks")).AsString());
 		m_plogbook_window->m_gridMotorSails->SetCellValue(lastRow,8,data.Item(_T("MotorRemarks")).AsString());
+		return;
       }
+      else if(message_id == _T("OCPN_WPT_ARRIVED"))
+      {
+		wxJSONReader reader;
+		wxJSONValue  data;
+		int numErrors = reader.Parse( message_body, &data );
+		if(numErrors != 0) return;
+
+		RMB rmb;
+		rmb.BearingToDestinationDegreesTrue = 999.0;
+		rmb.From = data.Item(_T("WP_arrived")).AsString();
+		rmb.To   = data.Item(_T("WP_next")).AsString();
+		m_plogbook_window->logbook->WP_skipped = data.Item(_T("isSkipped")).AsBool();
+		m_plogbook_window->logbook->OCPN_Message = true;
+
+		//m_plogbook_window->logbook->SetGPSStatus(true);
+		m_plogbook_window->logbook->checkWayPoint(rmb);
+		m_plogbook_window->logbook->OCPN_Message = false;
+		m_plogbook_window->logbook->WP_skipped = false;
+	  }
+
   }
 }
 
@@ -460,13 +483,27 @@ int logbookkonni_pi::GetToolbarToolCount(void)
 
 void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 {
-//	wxJSONValue str;
-//	str[_T("Remarks")] = _T("Test");
-//	str[_T("MotorRemarks")] = _T("MotorTest");
-//      wxJSONWriter w;
-//      wxString out;
-//      w.Write(str, out);
-	SendPluginMessage(wxString(_T("LOGBOOK_LOG_LASTLINE_REQUEST")),wxEmptyString);
+/*	  wxJSONValue str;
+	  str[_T("Remarks")] = _T("Messaging Test");
+	  str[_T("MotorRemarks")] = _T("Messaging MotorTest");
+      wxJSONWriter w;
+      wxString out;
+      w.Write(str, out);
+
+	  SetPluginMessage(wxString(_T("LOGBOOK_LOG_ADDLINE_REQUEST")),out);
+*/
+/*	  wxJSONValue str;
+	  str[_T("WP_arrived")] = _T("001");
+	  str[_T("WP_next")] = _T("002");
+	  str[_T("isSkipped")] = true;
+      wxJSONWriter w;
+      wxString out;
+      w.Write(str, out);
+
+	  SetPluginMessage(wxString(_T("OCPN_WPT_ARRIVED")),out);
+*/
+//	  SendPluginMessage(_T("LOGBOOK_LOG_LASTLINE_REQUEST"),wxEmptyString);
+	
 #ifdef __WXOSX__
 // Not tested yet
     	AddLocaleCatalog( _T("opencpn-logbookkonni_pi") );
