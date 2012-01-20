@@ -1928,9 +1928,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "BuyParts"
 #~ msgstr "Comprar recambios"
+#
+#
 #
 #
 #
@@ -2004,9 +2008,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Current from"
 #~ msgstr "Corriente"
+#
+#
 #
 #
 #
@@ -2148,8 +2156,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Bitácora Konni"
+#
+#
 #
 #
 #
@@ -2338,9 +2350,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Not implemented yet"
 #~ msgstr "no implementado aún"
+#
+#
 #
 #
 #
@@ -2449,8 +2465,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Save"
 #~ msgstr "Guardar"
+#
+#
 #
 #
 #
@@ -2677,9 +2697,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Seleccione Layout"
+#
+#
 #
 #
 #
@@ -2937,8 +2961,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
+#
 #
 #
 #
@@ -3077,9 +3105,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Ver"
+#
+#
 #
 #
 #
@@ -3308,9 +3340,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Watchlist"
 #~ msgstr "Guardia"
+#
+#
 #
 #
 #
@@ -3449,9 +3485,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Wind from"
 #~ msgstr "Viento"
+#
+#
 #
 #
 #

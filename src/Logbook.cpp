@@ -938,7 +938,7 @@ wxString Logbook::getWake()
 					dtend.Add(sp);
 
 			if(now >= dtstart && now <= dtend)
-			{	
+			{		
 				if(count != 0)
 					name += _T("\n");
 				name += dialog->m_gridCrewWake->GetCellValue(r,1)+ _T(" ") + dialog->m_gridCrewWake->GetCellValue(r,0);
@@ -1159,9 +1159,31 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 					{
 						wxDateTime dt;
 						const wxChar* c;
+						c = dialog->myParseTime(s,dt);
+					/*	bool correction = false;
+
+//						wxMessageBox(wxString::Format(_T("%i"),s.GetChar(0)));
+						if((int) s.GetChar(0) == 19979 || (int) s.GetChar(0) == 19978 )  // chinese time starts with this two chars
+						{																 // ParseTime will not handle this correct
+							if((int) s.GetChar(0) == 19979)  // is it like 'F with a broken arm' ?
+								correction = true;           // It's a PM-Time, needs correction
+
+							unsigned int i;
+							for( i = 0; i < s.Len(); i++) // eleminate leading chars
+								if(s.at(i) >= '0' && s.at(i) <= '9')
+									break;
+							if(i > 0)
+								s = s.Remove(0,i);
+						}
 
 						s = s.Upper();
 						c = dt.ParseTime(s);
+						if(correction) // make correction for PM (chinese only)
+						{
+							wxTimeSpan diff(12); 
+							dt.Add(diff);
+						}
+						*/
 
 						if(!c)
 						{
@@ -1791,7 +1813,7 @@ bool Logbook::checkGPS(bool appendClick)
 				ext = _("Waypoint skipped");
 			else
 				ext = _("WayPoint arrived");
-			sLogText += wxString::Format(_T("%s\n%s%s"),opt->waypointText,ext,s);
+			sLogText += wxString::Format(_T("%s\n%s%s"),opt->waypointText.c_str(),ext.c_str(),s.c_str());
 			
 		}
 		else if(everySM && !appendClick)
@@ -1819,9 +1841,9 @@ bool Logbook::checkGPS(bool appendClick)
 			else
 				ext = _("WayPoint arrived");
 			if(sLogText != _T(""))
-				sLogText += wxString::Format(_T("\n%s\n%s%s"),opt->waypointText,ext,s);
+				sLogText += wxString::Format(_T("\n%s\n%s%s"),opt->waypointText.c_str(),ext.c_str(),s.c_str());
 			else
-				sLogText += wxString::Format(_T("%s\n%s%s"),opt->waypointText,ext,s);
+				sLogText += wxString::Format(_T("%s\n%s%s"),opt->waypointText.c_str(),ext.c_str(),s.c_str());
 		}
 		return false;
 	}

@@ -1447,10 +1447,14 @@ msgstr "Ecrire votre  propre \"étiquette\" "
 #
 #
 #
+#
+#
 #~ msgid "Current from"
 #~ msgstr ""
 #~ "Origine\n"
 #~ "du courant"
+#
+#
 #
 #
 #

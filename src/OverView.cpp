@@ -651,9 +651,11 @@ void OverView::writeSumColumn(int row, wxString logbook, wxString path, bool col
 	wxDateTime startdt, enddt;
 
 	parent->myParseDate(startdate,startdt);
-	startdt.ParseTime(starttime);
+//	startdt.ParseTime(starttime);
+	parent->myParseTime(starttime,startdt);
 	parent->myParseDate(enddate,enddt);
-	enddt.ParseTime(endtime);
+//	enddt.ParseTime(endtime);
+	parent->myParseTime(endtime,enddt);
 
 	wxTimeSpan journey = enddt.Subtract(startdt);
 	grid->SetCellValue(row,FJOURNEY,journey.Format(_T("%D Days %H:%M "))+opt->motorh);
@@ -808,9 +810,11 @@ void OverView::writeSumColumnLogbook(total data, int row, wxString logbook, bool
 	wxDateTime startdt, enddt;
 
 	parent->myParseDate(data.logbookStart,startdt);
-	startdt.ParseTime(data.logbookTimeStart);
+//	startdt.ParseTime(data.logbookTimeStart);
+	parent->myParseTime(data.logbookTimeStart,startdt);
 	parent->myParseDate(enddate,enddt);
-	enddt.ParseTime(endtime);
+//	enddt.ParseTime(endtime);
+	parent->myParseTime(endtime,enddt);
 //	wxMessageBox(enddate+endtime+_("\n")+data.logbookStart+data.logbookTimeStart+_("\n")+enddt.FormatDate()+enddt.FormatTime()+_T("\n")+startdt.FormatDate()+startdt.FormatTime());
 
 	wxTimeSpan journey = enddt.Subtract(startdt);

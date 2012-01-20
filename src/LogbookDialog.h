@@ -442,6 +442,7 @@ enum FORMAT {HTML,ODT};
 		}
 
 		bool myParseDate(wxString s,wxDateTime  &dt);
+		const wxChar* myParseTime(wxString s, wxDateTime &dt);
 		void setDatePattern();
 
 		void setTitleExt();

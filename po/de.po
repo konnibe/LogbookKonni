@@ -1537,8 +1537,12 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
 #~ msgid "BuyParts"
 #~ msgstr "Zubehör kaufen"
+#
+#
 #
 #
 #
@@ -1590,8 +1594,12 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
 #~ msgid "Current from"
 #~ msgstr "Strom von"
+#
+#
 #
 #
 #
@@ -1665,8 +1673,12 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Pfad zum HTML-Editor (optional)"
+#
+#
 #
 #
 #
@@ -1785,9 +1797,13 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
+#
+#
 #
 #
 #
