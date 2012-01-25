@@ -627,6 +627,27 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
+
+	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	m_staticText791 = new wxStaticText( m_panel16, wxID_ANY, _("Temperature"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText791->Wrap( -1 );
+	fgSizer91->Add( m_staticText791, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
+	
+	m_textCtrlTemperature = new wxTextCtrl( m_panel16, wxID_ANY, _("F"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
+	fgSizer91->Add( m_textCtrlTemperature, 0, wxALL, 0 );
+	
+	
+	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	
+	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	
+	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	
+	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 	m_staticText46 = new wxStaticText( m_panel16, wxID_ANY, _("Fuel/Water"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText46->Wrap( -1 );
@@ -992,6 +1013,7 @@ void LogbookOptions::setValues()
 	m_sSpeed->SetValue(opt->speed);
 
 	m_sBaro->SetValue(opt->baro);
+	m_textCtrlTemperature->SetValue(opt->temperature);
 	m_smeter->SetValue(opt->meter);
 	m_sFeet->SetValue(opt->feet);
 	m_sFathom->SetValue(opt->fathom);
@@ -1082,10 +1104,11 @@ void LogbookOptions::getValues()
 	opt->distance = m_sDist->GetValue();
 	opt->speed    = m_sSpeed->GetValue();
 
-	opt->baro   = m_sBaro->GetValue();
-	opt->meter  = m_smeter->GetValue();
-	opt->feet   = m_sFeet->GetValue();
-	opt->fathom = m_sFathom->GetValue();
+	opt->baro        = m_sBaro->GetValue();
+	opt->temperature = m_textCtrlTemperature->GetValue();
+	opt->meter       = m_smeter->GetValue();
+	opt->feet        = m_sFeet->GetValue();
+	opt->fathom      = m_sFathom->GetValue();
 
 	opt->windkts   = m_sKnots->GetValue();
 	opt->windmeter = m_sMeterSec->GetValue();

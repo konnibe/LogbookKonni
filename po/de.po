@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-15 18:51+0100\n"
-"PO-Revision-Date: 2012-01-15 19:05+0100\n"
+"POT-Creation-Date: 2012-01-25 16:50+0100\n"
+"PO-Revision-Date: 2012-01-25 16:58+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -24,10 +24,22 @@ msgstr ""
 #, c-format
 msgid ""
 "\n"
+"Name of Waypoint: %s"
+msgstr ""
+"\n"
+"Wegpunkt-Name: %s"
+#
+#, c-format
+msgid ""
+"\n"
 "Name of Waypoint: %s\n"
 "True bearing to destination: %4.1f%s\n"
 "Range to destination: %4.2f%s"
 msgstr ""
+"\n"
+"Wegpunkt-Name: %s\n"
+"Wahre Peilung zum Ziel: %4.1f%s\n"
+"Distanz zum Ziel: %4.2f%s"
 #
 msgid ""
 "\n"
@@ -101,6 +113,9 @@ msgstr "Neue Zeile"
 #
 msgid "Adress"
 msgstr "Adresse"
+#
+msgid "Air"
+msgstr "Luft"
 #
 msgid "All Logbooks"
 msgstr "Alle Logbücher"
@@ -243,6 +258,8 @@ msgstr "Datum"
 #
 #
 #
+#
+#
 msgid "Date + Days"
 msgstr "Datum + Tage"
 #
@@ -263,8 +280,12 @@ msgstr "Datum + Tage"
 #
 #
 #
+#
+#
 msgid "Date + Month"
 msgstr "Datum + Monat(e)"
+#
+#
 #
 #
 #
@@ -376,6 +397,15 @@ msgstr "Ende 2. Wache"
 msgid "End 3.Watch"
 msgstr "Ende 3. Wache"
 #
+msgid "End 4.Watch"
+msgstr "Ende 4. Wache"
+#
+msgid "End 5.Watch"
+msgstr "Ende 5. Wache"
+#
+msgid "End 6.Watch"
+msgstr "Ende 6. Wache"
+#
 msgid "Engine"
 msgstr "Maschine"
 #
@@ -387,6 +417,9 @@ msgstr "Zubehör"
 #
 msgid "Export"
 msgstr ""
+#
+msgid "F"
+msgstr "C"
 #
 #
 msgid "Fathom"
@@ -401,6 +434,8 @@ msgstr "Filtere Layout nach"
 #
 msgid "Firstname"
 msgstr "Vorname"
+#
+#
 #
 #
 #
@@ -468,6 +503,9 @@ msgstr "Rumpf"
 #
 msgid "Hull Identification No."
 msgstr "Rumpf Identifikations-Nr."
+#
+msgid "Hydrometer"
+msgstr ""
 #
 msgid "If"
 msgstr "Wenn"
@@ -607,6 +645,8 @@ msgstr "Logbuch Optionen"
 #
 #
 #
+#
+#
 msgid "Logbook Total"
 msgstr "Logbuch gesamt"
 #
@@ -647,6 +687,8 @@ msgstr ""
 #, c-format
 msgid "Logbook from %s to %s"
 msgstr "Logbuch vom %s bis %s"
+#
+#
 #
 #
 #
@@ -713,6 +755,8 @@ msgstr ""
 #
 msgid "New Logbook"
 msgstr "Neues Logbuch"
+#
+#
 #
 #
 #
@@ -1081,6 +1125,15 @@ msgstr "Start 2.Wache"
 msgid "Start 3.Watch"
 msgstr "Start 3.Wache"
 #
+msgid "Start 4.Watch"
+msgstr "Start 4.Wache"
+#
+msgid "Start 5.Watch"
+msgstr "Start 5.Wache"
+#
+msgid "Start 6.Watch"
+msgstr "Start 6.Wache"
+#
 msgid "Startvalue"
 msgstr "Startbetrag"
 #
@@ -1098,6 +1151,9 @@ msgstr "Swell max."
 #
 msgid "Telephone"
 msgstr "Telefon"
+#
+msgid "Temperature"
+msgstr "Temperatur"
 #
 msgid "Time"
 msgstr "Zeit"
@@ -1210,6 +1266,12 @@ msgstr "Wellenhöhe durchschn."
 msgid "Wave Max."
 msgstr "Wellen max."
 #
+msgid "WayPoint arrived"
+msgstr "Wegpunkt erreicht"
+#
+msgid "Waypoint skipped"
+msgstr "Wegpunkt übersprungen"
+#
 msgid "Weather"
 msgstr "Wetter"
 #
@@ -1258,6 +1320,8 @@ msgstr "schreibe Warnung  \"No GPS\""
 #
 msgid "Yard-Nr."
 msgstr "Marina-Nr."
+#
+#
 #
 #
 #
@@ -1465,8 +1529,24 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "BuyParts"
 #~ msgstr "Zubehör kaufen"
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1502,8 +1582,24 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #~ msgstr "Crewliste"
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Current from"
 #~ msgstr "Strom von"
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1561,8 +1657,24 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Pfad zum HTML-Editor (optional)"
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1665,6 +1777,14 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
@@ -1686,10 +1806,14 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Ansehen"
-#
-#
-#~ msgid "Wind from"
-#~ msgstr "Wind von"

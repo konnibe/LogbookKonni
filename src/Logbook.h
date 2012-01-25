@@ -20,7 +20,7 @@ class Logbook : public LogbookHTML
 private:
 	enum fields{ ROUTE,RDATE,RTIME,SIGN,WAKE,DISTANCE,DTOTAL,POSITION,COG,COW,SOG,SOW,DEPTH,REMARKS,
 				 BARO,WIND,WSPD,CURRENT,CSPD,WAVE,SWELL,WEATHER,CLOUDS,VISIBILITY,
-				 MOTOR,MOTORT,FUEL,FUELT,SAILS,REEF,WATER,WATERT,MREMARKS};	
+				 MOTOR,MOTORT,FUEL,FUELT,SAILS,REEF,WATER,WATERT,MREMARKS,HYDRO,TEMPAIR,TEMPWATER};	
 
 	struct Pos{
 		double posLat;
@@ -45,6 +45,7 @@ private:
 	wxString		    sCOG;
 	wxString		    sCOW;
 	wxString			sDistance;
+	wxString			sTemperatureWater;
 	wxString		    sWind;
 	wxString			sWindSpeed;
 	wxString			sDepth;

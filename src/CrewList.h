@@ -35,13 +35,13 @@ public:
 	wxString		layout;
 	wxString		ODTLayout;
 
+	bool modified;
+
 private:
 	void loadData();
 	wxString readLayout(wxString layoutFileName);
 	wxString readLayoutODT(wxString layoutFileName);
 	wxString replacePlaceholder(wxString html, wxString s, bool ngrid, int row, int col, bool mode);
-
-	bool modified;
 
 	wxTextFile* crewListFile;
 	

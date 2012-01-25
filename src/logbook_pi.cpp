@@ -239,7 +239,6 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
 		if(numErrors != 0) return;
 
 		RMB rmb;
-		rmb.BearingToDestinationDegreesTrue = 999.0;
 		rmb.From = data.Item(_T("WP_arrived")).AsString();
 		rmb.To   = data.Item(_T("WP_next")).AsString();
 		m_plogbook_window->logbook->WP_skipped = data.Item(_T("isSkipped")).AsBool();
@@ -624,6 +623,7 @@ void logbookkonni_pi::SaveConfig()
 			pConf->Write ( _T ( "NavFathom" ), opt->fathom );
 
 			pConf->Write ( _T ( "Baro" ), opt->baro);
+			pConf->Write ( _T ( "Temperature" ), opt->temperature);
 			pConf->Write ( _T ( "Windkts" ), opt->windkts );
 			pConf->Write ( _T ( "WindMeter" ), opt->windmeter );
 			pConf->Write ( _T ( "WindKmh" ), opt->windkmh );
@@ -749,6 +749,7 @@ void logbookkonni_pi::LoadConfig()
 			pConf->Read ( _T ( "NavDistance" ), &opt->distance );
 			pConf->Read ( _T ( "NavSpeed" ), &opt->speed );
 			pConf->Read ( _T ( "Baro" ), &opt->baro);
+			pConf->Read ( _T ( "Temperature" ), &opt->temperature);
 			pConf->Read ( _T ( "NavMeter" ), &opt->meter );
 			pConf->Read ( _T ( "NavFeet" ), &opt->feet);
 			pConf->Read ( _T ( "NavFathom" ), &opt->fathom );

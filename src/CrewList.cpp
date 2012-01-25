@@ -97,6 +97,10 @@ void CrewList::loadData()
 
 		gridCrew->AppendRows();
 		gridWake->AppendRows();
+		gridWake->SetReadOnly(i,0);
+		gridWake->SetReadOnly(i,1);
+		gridWake->SetCellAlignment(i,0,wxALIGN_LEFT, wxALIGN_TOP);
+		gridWake->SetCellAlignment(i,1,wxALIGN_LEFT, wxALIGN_TOP);
 
 		count = gridCrew->GetNumberCols();
 		numRows = gridCrew->GetNumberRows()-1;
@@ -155,6 +159,11 @@ void CrewList::addCrew(wxGrid* grid, wxGrid* wake)
 
 	gridCrew->AppendRows();
 	gridWake->AppendRows();
+	int lastRow = gridWake->GetNumberRows()-1;
+	gridWake->SetCellAlignment(lastRow,0,wxALIGN_LEFT, wxALIGN_TOP);
+	gridWake->SetCellAlignment(lastRow,1,wxALIGN_LEFT, wxALIGN_TOP);
+	gridWake->SetReadOnly(lastRow,0);
+	gridWake->SetReadOnly(lastRow,1);
 	gridWake->SetCellValue(gridWake->GetNumberRows()-1,gridWake->GetNumberCols()-1,_T(" "));
 }
 
@@ -192,7 +201,8 @@ void CrewList::changeCrewWake(wxGrid* grid, int row, int col, int offset)
 		return;
 	}
 
-	gridWake->SetCellValue(row,col,dt.FormatTime());
+	gridWake->SetCellValue(row,col,dt.Format(_T("%H:%M")));
+	this->modified = true;
 }
 
 void CrewList::saveCSV(wxString path)
@@ -735,11 +745,12 @@ void CrewList::deleteRow(int row)
 	{
 		gridCrew->DeleteRows(row);
 		gridWake->DeleteRows(row);
-
-		crewListFile->Open();
+		modified = true;
+/*		crewListFile->Open();
 		crewListFile->RemoveLine(row);
 		crewListFile->Write();
 		crewListFile->Close();
+*/
 	}
 #endif
 }

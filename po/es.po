@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-15 18:51+0100\n"
+"POT-Creation-Date: 2012-01-25 16:50+0100\n"
 "PO-Revision-Date: 2011-11-25 01:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -17,6 +17,12 @@ msgstr ""
 "X-Poedit-SearchPath-0: .\n"
 #
 msgid "\n"
+msgstr ""
+#
+#, c-format
+msgid ""
+"\n"
+"Name of Waypoint: %s"
 msgstr ""
 #
 #, c-format
@@ -101,6 +107,9 @@ msgid "Add a new line"
 msgstr "Añadir línea"
 #
 msgid "Adress"
+msgstr ""
+#
+msgid "Air"
 msgstr ""
 #
 #, fuzzy
@@ -249,6 +258,8 @@ msgstr "Fecha"
 #
 #
 #
+#
+#
 #, fuzzy
 msgid "Date + Days"
 msgstr "DistanciaEtmal"
@@ -277,9 +288,13 @@ msgstr "DistanciaEtmal"
 #
 #
 #
+#
+#
 #, fuzzy
 msgid "Date + Month"
 msgstr "Fecha de nacimiento"
+#
+#
 #
 #
 #
@@ -397,6 +412,18 @@ msgstr "Fin 2ª guardia"
 msgid "End 3.Watch"
 msgstr "Fin 3ª guardia"
 #
+#, fuzzy
+msgid "End 4.Watch"
+msgstr "Fin 1ª guardia"
+#
+#, fuzzy
+msgid "End 5.Watch"
+msgstr "Fin 1ª guardia"
+#
+#, fuzzy
+msgid "End 6.Watch"
+msgstr "Fin 1ª guardia"
+#
 msgid "Engine"
 msgstr "Máquina"
 #
@@ -407,6 +434,9 @@ msgid "Equipment"
 msgstr "Equipamiento"
 #
 msgid "Export"
+msgstr ""
+#
+msgid "F"
 msgstr ""
 #
 #
@@ -423,6 +453,8 @@ msgstr "Editar Layout"
 #
 msgid "Firstname"
 msgstr "Nombre"
+#
+#
 #
 #
 #
@@ -500,6 +532,10 @@ msgstr "Casco"
 #
 msgid "Hull Identification No."
 msgstr ""
+#
+#, fuzzy
+msgid "Hydrometer"
+msgstr "Barómetro"
 #
 msgid "If"
 msgstr "Si"
@@ -678,6 +714,8 @@ msgstr "Bitácora preferencias"
 #
 #
 #
+#
+#
 #, fuzzy
 msgid "Logbook Total"
 msgstr "Abrir fichero de bitácora antiguo"
@@ -719,6 +757,8 @@ msgstr ""
 #, c-format
 msgid "Logbook from %s to %s"
 msgstr ""
+#
+#
 #
 #
 #
@@ -1336,6 +1376,18 @@ msgstr "Inicio 2ªguardia"
 msgid "Start 3.Watch"
 msgstr "Inicio 3ªguardia"
 #
+#, fuzzy
+msgid "Start 4.Watch"
+msgstr "Inicio 1ªguardia"
+#
+#, fuzzy
+msgid "Start 5.Watch"
+msgstr "Inicio 1ªguardia"
+#
+#, fuzzy
+msgid "Start 6.Watch"
+msgstr "Inicio 1ªguardia"
+#
 msgid "Startvalue"
 msgstr "Valor inicial"
 #
@@ -1409,6 +1461,9 @@ msgstr "Mar de fondo"
 #
 msgid "Telephone"
 msgstr "Teléfon0"
+#
+msgid "Temperature"
+msgstr ""
 #
 msgid "Time"
 msgstr ""
@@ -1571,6 +1626,12 @@ msgstr "Oleaje"
 msgid "Wave Max."
 msgstr "Oleaje"
 #
+msgid "WayPoint arrived"
+msgstr ""
+#
+msgid "Waypoint skipped"
+msgstr ""
+#
 msgid "Weather"
 msgstr "Meteo"
 #
@@ -1629,6 +1690,8 @@ msgstr ""
 #
 msgid "Yard-Nr."
 msgstr "Nº amarre"
+#
+#
 #
 #
 #
@@ -1852,9 +1915,35 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "BuyParts"
 #~ msgstr "Comprar recambios"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1902,9 +1991,35 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Current from"
 #~ msgstr "Corriente"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2020,8 +2135,34 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Bitácora Konni"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2184,9 +2325,35 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Not implemented yet"
 #~ msgstr "no implementado aún"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2269,8 +2436,34 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Save"
 #~ msgstr "Guardar"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2471,9 +2664,35 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Seleccione Layout"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2705,8 +2924,34 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2819,9 +3064,35 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Ver"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3024,9 +3295,35 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Watchlist"
 #~ msgstr "Guardia"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3139,9 +3436,35 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Wind from"
 #~ msgstr "Viento"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #

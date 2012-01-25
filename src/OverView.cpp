@@ -284,8 +284,8 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 										bestetmaltemp += x;
 										if(bestetmaltemp > bestetmal)
 											bestetmal = bestetmaltemp;
-										if(bestetmal > oneLogbookTotal.bestetmal)
-											 oneLogbookTotal.bestetmal = bestetmal;
+										if(bestetmaltemp > oneLogbookTotal.bestetmal)
+											 oneLogbookTotal.bestetmal = bestetmaltemp;
 									}
 									oneLogbookTotal.distance += x;
 									//allLogbooksTotal.distance += x;
@@ -488,6 +488,7 @@ void OverView::oneLogbookTotalReset()
 	oneLogbookTotal.logbookTimeStart = wxEmptyString;
 	oneLogbookTotal.logbookTimeEnd = wxEmptyString;
 	oneLogbookTotal.distance = 0;
+	oneLogbookTotal.bestetmal = 0;
 	oneLogbookTotal.speed = 0;
 	oneLogbookTotal.speedpeak = 0;
 	oneLogbookTotal.speedSTW = 0;

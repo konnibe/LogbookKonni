@@ -72,6 +72,7 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 
 	// Grid Weather
 	baro = _("mb");
+	temperature = _("F");
 	windkts = _("kts");
 	windmeter = _("m/s");
 	windkmh = _("km/h");

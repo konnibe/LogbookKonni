@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-15 18:51+0100\n"
+"POT-Creation-Date: 2012-01-25 16:50+0100\n"
 "PO-Revision-Date: 2011-12-29 09:35+0100\n"
 "Last-Translator: Pavel Kalian <pavel@kalian.cz>\n"
 "Language-Team: Pavel Kalian <pavel@kalian.cz>\n"
@@ -19,6 +19,12 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 #
 msgid "\n"
+msgstr ""
+#
+#, c-format
+msgid ""
+"\n"
+"Name of Waypoint: %s"
 msgstr ""
 #
 #, c-format
@@ -104,6 +110,9 @@ msgstr "Přidat nový záznam"
 #
 msgid "Adress"
 msgstr "Adresa"
+#
+msgid "Air"
+msgstr ""
 #
 msgid "All Logbooks"
 msgstr "Všechny deníky"
@@ -252,6 +261,8 @@ msgstr "Datum"
 #
 #
 #
+#
+#
 msgid "Date + Days"
 msgstr "Datum + dny"
 #
@@ -279,8 +290,12 @@ msgstr "Datum + dny"
 #
 #
 #
+#
+#
 msgid "Date + Month"
 msgstr "Datum + měsíce"
+#
+#
 #
 #
 #
@@ -397,6 +412,18 @@ msgstr "Konec 2. hlídky"
 msgid "End 3.Watch"
 msgstr "Konec 3. hlídky"
 #
+#, fuzzy
+msgid "End 4.Watch"
+msgstr "Konec 1. hlídky"
+#
+#, fuzzy
+msgid "End 5.Watch"
+msgstr "Konec 1. hlídky"
+#
+#, fuzzy
+msgid "End 6.Watch"
+msgstr "Konec 1. hlídky"
+#
 msgid "Engine"
 msgstr "Motor"
 #
@@ -408,6 +435,9 @@ msgstr "Vybavení"
 #
 msgid "Export"
 msgstr "Exportovat"
+#
+msgid "F"
+msgstr ""
 #
 #
 msgid "Fathom"
@@ -422,6 +452,8 @@ msgstr "Filtr rozvržení podle"
 #
 msgid "Firstname"
 msgstr "Jméno"
+#
+#
 #
 #
 #
@@ -496,6 +528,10 @@ msgstr "Trup"
 #
 msgid "Hull Identification No."
 msgstr "Identifikační číslo trupu"
+#
+#, fuzzy
+msgid "Hydrometer"
+msgstr "Barometr"
 #
 msgid "If"
 msgstr "Pokud"
@@ -673,6 +709,8 @@ msgstr "Nastavení lodného deníku"
 #
 #
 #
+#
+#
 #, fuzzy
 msgid "Logbook Total"
 msgstr "Deník do"
@@ -714,6 +752,8 @@ msgstr ""
 #, c-format
 msgid "Logbook from %s to %s"
 msgstr "Deník od %s do %s"
+#
+#
 #
 #
 #
@@ -791,6 +831,8 @@ msgstr "Navigace"
 #
 msgid "New Logbook"
 msgstr "Nový lodní deník"
+#
+#
 #
 msgid "No"
 msgstr "Ne"
@@ -1324,6 +1366,18 @@ msgstr "Začátek 2. hlídky"
 msgid "Start 3.Watch"
 msgstr "Začátek 3. hlídky"
 #
+#, fuzzy
+msgid "Start 4.Watch"
+msgstr "Začátek 1. hlídky"
+#
+#, fuzzy
+msgid "Start 5.Watch"
+msgstr "Začátek 1. hlídky"
+#
+#, fuzzy
+msgid "Start 6.Watch"
+msgstr "Začátek 1. hlídky"
+#
 msgid "Startvalue"
 msgstr "Počáteční hodnota"
 #
@@ -1395,6 +1449,9 @@ msgstr "Příboj max"
 #
 msgid "Telephone"
 msgstr "Telefon"
+#
+msgid "Temperature"
+msgstr ""
 #
 msgid "Time"
 msgstr "Čas"
@@ -1562,6 +1619,14 @@ msgstr "Vlna prům."
 msgid "Wave Max."
 msgstr "Vlna max"
 #
+#, fuzzy
+msgid "WayPoint arrived"
+msgstr "Pokud je dosažen bod"
+#
+#, fuzzy
+msgid "Waypoint skipped"
+msgstr "Pokud je dosažen bod"
+#
 msgid "Weather"
 msgstr "Počasí"
 #
@@ -1620,6 +1685,8 @@ msgstr "Vypisuj varování \"Není GPS\""
 #
 msgid "Yard-Nr."
 msgstr "Č. doku"
+#
+#
 #
 msgid "Yes"
 msgstr "Ano"
@@ -1919,8 +1986,34 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Best Etmal"
 #~ msgstr "Max NM/24h"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1996,6 +2089,19 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Seznam posádky"
 #
@@ -2005,8 +2111,34 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Current from"
 #~ msgstr "Proud z"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2231,8 +2363,34 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "GPS Auto (Ocean Crossing)"
 #~ msgstr "GPS Auto (přejezd oceánu)"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2343,8 +2501,34 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Konniho lodní deník"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2550,8 +2734,34 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "NetTonnage"
 #~ msgstr "Čistá registrovaná prostornost"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2587,6 +2797,19 @@ msgstr "Napiš vlastní popis"
 #, fuzzy
 #~ msgid "Not implemented yet"
 #~ msgstr "zatím neimplementováno"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2665,8 +2888,34 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Save"
 #~ msgstr "Uložit"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2863,6 +3112,19 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Vybrat rozvržení:"
@@ -2963,8 +3225,34 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Show Maintence Rows coloured"
 #~ msgstr "Zobraz řádky údržby v barvě"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3191,8 +3479,34 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Dnes"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3301,6 +3615,19 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Zobrazit"
@@ -3385,9 +3712,35 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Watchlist"
 #~ msgstr "Hlídka"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #

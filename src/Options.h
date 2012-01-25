@@ -75,6 +75,7 @@ public:
 
 	// Grid Weather
 	wxString	baro;
+	wxString    temperature;
 	wxString	windkts;
 	wxString	windmeter;
 	wxString	windkmh;

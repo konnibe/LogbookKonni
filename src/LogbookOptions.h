@@ -97,7 +97,7 @@ class LogbookOptions : public wxDialog
 		wxStaticLine* m_staticline13;
 		wxPanel* m_panel16;
 		
-		
+		wxStaticText* m_staticText791;		
 		
 		
 		
@@ -250,6 +250,8 @@ class LogbookOptions : public wxDialog
 		wxTextCtrl* m_textCtrlMailClient;
 		wxTextCtrl* m_textCtrlHTMLEditorPath;
 		wxBitmapButton* m_bpButtonHTMLEditor;
+		wxTextCtrl* m_textCtrlTemperature;
+
 
 		LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi* log_pi, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 613,586  ), long style = wxDEFAULT_DIALOG_STYLE );
 		~LogbookOptions();

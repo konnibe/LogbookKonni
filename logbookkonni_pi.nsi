@@ -18,6 +18,7 @@ LoadLanguageFile "${NSISDIR}\Contrib\Language files\French.nlf"
 LoadLanguageFile "${NSISDIR}\Contrib\Language files\German.nlf"
 LoadLanguageFile "${NSISDIR}\Contrib\Language files\Spanish.nlf"
 LoadLanguageFile "${NSISDIR}\Contrib\Language files\Danish.nlf"
+LoadLanguageFile "${NSISDIR}\Contrib\Language files\Polish.nlf"
 ; License data
 ; Not exactly translated, but it shows what's needed
 /*LicenseLangString myLicenseData ${LANG_ENGLISH} ""
@@ -106,8 +107,8 @@ Function .onInit
 	Push French
 	Push ${LANG_GERMAN}
 	Push German
-;	Push ${LANG_KOREAN}
-;	Push Korean
+	Push ${LANG_POLISH}
+	Push Polish
 ;	Push ${LANG_RUSSIAN}
 ;	Push Russian
 	Push ${LANG_SPANISH}
@@ -149,6 +150,8 @@ Section "Languages" SEC02
    File "C:\Program Files (x86)\OpenCPN\share\locale\es\LC_MESSAGES\opencpn-logbookkonni_pi.mo"
    SetOutPath "$INSTDIR\share\locale\da\LC_MESSAGES\"
    File "C:\Program Files (x86)\OpenCPN\share\locale\da\LC_MESSAGES\opencpn-logbookkonni_pi.mo"
+   SetOutPath "$INSTDIR\share\locale\pl\LC_MESSAGES\"
+   File "C:\Program Files (x86)\OpenCPN\share\locale\pl\LC_MESSAGES\opencpn-logbookkonni_pi.mo"
 SectionEnd
 
 Section "Layouts" SEC03

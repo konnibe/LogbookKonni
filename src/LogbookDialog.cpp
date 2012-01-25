@@ -245,7 +245,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridWeather = new wxGrid( m_panel7, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxALWAYS_SHOW_SB );
 	
 	// Grid
-	m_gridWeather->CreateGrid( 0, 10 );
+	m_gridWeather->CreateGrid( 0, 13 );
 	m_gridWeather->EnableEditing( true );
 	m_gridWeather->EnableGridLines( true );
 	m_gridWeather->EnableDragGridSize( false );
@@ -266,15 +266,18 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridWeather->EnableDragColSize( true );
 	m_gridWeather->SetColLabelSize( 30 );
 	m_gridWeather->SetColLabelValue( 0, _("Barometer") );
-	m_gridWeather->SetColLabelValue( 1, _("Wind") );
-	m_gridWeather->SetColLabelValue( 2, _("W/Strength") );
-	m_gridWeather->SetColLabelValue( 3, _("Current") );
-	m_gridWeather->SetColLabelValue( 4, _("C/Strength") );
-	m_gridWeather->SetColLabelValue( 5, _("Wave") );
-	m_gridWeather->SetColLabelValue( 6, _("Swell") );
-	m_gridWeather->SetColLabelValue( 7, _("Weather") );
-	m_gridWeather->SetColLabelValue( 8, _("Clouds") );
-	m_gridWeather->SetColLabelValue( 9, _("Visibility") );
+	m_gridWeather->SetColLabelValue( 1, _("Hydrometer") );
+	m_gridWeather->SetColLabelValue( 2, _("Air") );
+	m_gridWeather->SetColLabelValue( 3, _("Water") );
+	m_gridWeather->SetColLabelValue( 4, _("Wind") );
+	m_gridWeather->SetColLabelValue( 5, _("W/Strength") );
+	m_gridWeather->SetColLabelValue( 6, _("Current") );
+	m_gridWeather->SetColLabelValue( 7, _("C/Strength") );
+	m_gridWeather->SetColLabelValue( 8, _("Wave") );
+	m_gridWeather->SetColLabelValue( 9, _("Swell") );
+	m_gridWeather->SetColLabelValue( 10, _("Weather") );
+	m_gridWeather->SetColLabelValue( 11, _("Clouds") );
+	m_gridWeather->SetColLabelValue( 12, _("Visibility") );
 	m_gridWeather->SetColLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
 	
 	// Rows
@@ -662,7 +665,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridCrewWake = new wxGrid( m_panel21, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 	
 	// Grid
-	m_gridCrewWake->CreateGrid( 0, 8 );
+	m_gridCrewWake->CreateGrid( 0, 14 );
 	m_gridCrewWake->EnableEditing( true );
 	m_gridCrewWake->EnableGridLines( true );
 	m_gridCrewWake->EnableDragGridSize( false );
@@ -688,6 +691,12 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridCrewWake->SetColLabelValue( 5, _("End 2.Watch") );
 	m_gridCrewWake->SetColLabelValue( 6, _("Start 3.Watch") );
 	m_gridCrewWake->SetColLabelValue( 7, _("End 3.Watch") );
+	m_gridCrewWake->SetColLabelValue( 8, _("Start 4.Watch") );
+	m_gridCrewWake->SetColLabelValue( 9, _("End 4.Watch") );
+	m_gridCrewWake->SetColLabelValue( 10, _("Start 5.Watch") );
+	m_gridCrewWake->SetColLabelValue( 11, _("End 5.Watch") );
+	m_gridCrewWake->SetColLabelValue( 12, _("Start 6.Watch") );
+	m_gridCrewWake->SetColLabelValue( 13, _("End 6.Watch") );
 	m_gridCrewWake->SetColLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
 	
 	// Rows
@@ -698,7 +707,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	// Label Appearance
 	
 	// Cell Defaults
-	m_gridCrewWake->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
+	m_gridCrewWake->SetDefaultCellAlignment( wxALIGN_CENTRE, wxALIGN_TOP );
 	sbSizer1->Add( m_gridCrewWake, 1, wxALL|wxEXPAND, 5 );
 	
 	fgSizer7->Add( sbSizer1, 1, wxEXPAND, 5 );
@@ -2527,6 +2536,7 @@ void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )
 	if(ev.GetId() == DELETE_ROW)
 	{
 		logbook->deleteRow(selGridRow);
+		logbook->modified = true;
 		selGridRow--;
 		if(selGridRow < 0) selGridRow = 0;
 	}
@@ -2700,7 +2710,7 @@ void LogbookDialog::m_gridGlobalOnGridCellRightClick( wxGridEvent& ev )
 		}
 	}
 
-	if(ev.GetCol() == 8 && (m_notebook8->GetSelection() == 1))
+	if(ev.GetCol() == 11 && (m_notebook8->GetSelection() == 1))
 	{
 		m_menu1->PrependSeparator();
 		for(int i = 0; i < 10; i++)
@@ -3199,6 +3209,7 @@ void LogbookDialog::m_gridCrewOnGridCellRightClick( wxGridEvent& ev )
 void LogbookDialog::m_menuItem2OnMenuSelection( wxCommandEvent& ev )
 {
 	crewList->deleteRow(selGridRow);
+	crewList->modified = true;
 }
 
 /////////////////////////////////////////////////////////////
@@ -3329,6 +3340,7 @@ void LogbookDialog::boatNameOnTextEnter( wxCommandEvent& ev )
 void LogbookDialog::m_menuItem3OnMenuSelection( wxCommandEvent& ev )
 {
 	boat->deleteRow(selGridRow);
+	boat->modified = true;
 }
 
 wxDateTime LogbookDialog::getDateTo(wxString filename)
@@ -4031,37 +4043,39 @@ bool LogbookDialog::myParseDate(wxString s, wxDateTime &dt)
 	long month;
 	long year;
 
-	if((s.GetChar(2) != dateSeparator) && (s.GetChar(1) != dateSeparator)) 
-		return false;
+	for(unsigned int i = 0; i < s.Length(); i++)
+		if(s.at(i) < '0' || s.at(i) > '9')
+			dateSeparator = s.at(i);
 
+	int i = 0;
 	wxString temp = s.substr(0,s.find_first_of(dateSeparator));
-	switch(datePattern.GetChar(0))
+	switch(datePattern.GetChar(i))
 		{
-		case 'd': temp.ToLong(&day);
+		case 'd': temp.ToLong(&day); i += 3;
 			break;
-		case 'm': temp.ToLong(&month);
+		case 'm': temp.ToLong(&month); i += 3;
 			break;
-		case 'y': temp.ToLong(&year);
+		case 'y': temp.ToLong(&year); i += 5;
 			break;
 		}
 	temp = s.substr(s.find_first_of(dateSeparator)+1,s.find_last_of(dateSeparator)-2);
-	switch(datePattern.GetChar(3))
+	switch(datePattern.GetChar(i))
 		{
-		case 'd': temp.ToLong(&day);
+		case 'd': temp.ToLong(&day); i += 3;
 			break;
-		case 'm': temp.ToLong(&month);
+		case 'm': temp.ToLong(&month); i += 3;
 			break;
-		case 'y': temp.ToLong(&year);
+		case 'y': temp.ToLong(&year); i += 5;
 			break;
 		}
 	temp = s.substr(s.find_last_of(dateSeparator)+1);
-	switch(datePattern.GetChar(6))
+	switch(datePattern.GetChar(i))
 		{
-		case 'd': temp.ToLong(&day);
+		case 'd': temp.ToLong(&day); i += 3;
 			break;
-		case 'm': temp.ToLong(&month);
+		case 'm': temp.ToLong(&month); i += 3;
 			break;
-		case 'y': temp.ToLong(&year);
+		case 'y': temp.ToLong(&year); i += 5;
 			break;
 		}
 
@@ -4077,28 +4091,32 @@ void LogbookDialog::setDatePattern()
 	wxDateTime dt;
 	dt.Set((wxDateTime::wxDateTime_t) 14, (wxDateTime::Month) 11, 2011);
 	wxString s = dt.FormatDate();
-	dateSeparator = s.GetChar(2);
 
-	if(s.SubString(0,1) == _T("14"))
-		datePattern = _T("dd") + wxString(dateSeparator);
-	if(s.SubString(0,1) == _T("12"))
-		datePattern = _T("mm") + wxString(dateSeparator);
-	if(s.SubString(0,1) == _T("2011"))
-		datePattern = _T("yyyy") + wxString(dateSeparator);
+	for(unsigned int i = 0; i < s.Length(); i++)
+		if(s.at(i) < '0' || s.at(i) > '9')
+			dateSeparator = s.at(i);
 
-	if(s.SubString(3,4) == _T("12"))
-		datePattern += _T("mm") + wxString(dateSeparator);
-	if(s.SubString(3,4) == _T("14"))
-		datePattern += _T("dd") + wxString(dateSeparator);
-    if(s.SubString(3,4) == _T("2011"))
-		datePattern += _T("yyyy") + wxString(dateSeparator);
+	int i = 0;
+	if(s.SubString(i,1) == _T("14"))
+		{ datePattern = _T("dd") + wxString(dateSeparator); i += 3; }
+	if(s.SubString(i,1) == _T("12"))
+		{ datePattern = _T("mm") + wxString(dateSeparator); i += 3; }
+	if(s.SubString(i,3) == _T("2011"))
+		{ datePattern = _T("yyyy") + wxString(dateSeparator); i += 5; }
 
-	if(s.SubString(6,9) == _T("12"))
-		datePattern += _T("mm");
-	if(s.SubString(6,9) == _T("14"))
-		datePattern += _T("dd");
-	if(s.SubString(6,9) == _T("2011"))
-		datePattern += _T("yyyy");
+	if(s.SubString(i,i+1) == _T("14"))
+		{ datePattern += _T("dd") + wxString(dateSeparator);  i += 3; }
+	if(s.SubString(i,i+1) == _T("12"))
+		{ datePattern += _T("mm") + wxString(dateSeparator);  i += 3; }
+    if(s.SubString(i,i+3) == _T("2011"))
+		{ datePattern += _T("yyyy") + wxString(dateSeparator);  i += 5; }
+
+	if(s.SubString(i,i+1) == _T("14"))
+		{ datePattern += _T("dd");  i += 3; }
+	if(s.SubString(i,i+1) == _T("12"))
+		{ datePattern += _T("mm");  i += 3; }
+    if(s.SubString(i,i+3) == _T("2011"))
+		{ datePattern += _T("yyyy");  i += 5; }
 }
 
 ////////////////////////////////////////////////////////////

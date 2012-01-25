@@ -279,6 +279,18 @@ void Logbook::SetSentence(wxString &sentence)
 					sWindSpeed = wxString::Format(_T("%5.2f %s"), m_NMEA0183.Mwv.WindSpeed,temp.c_str());
 				  }
 			}
+            else if(m_NMEA0183.LastSentenceIDReceived == _T("MTW"))
+            {	
+					  if(m_NMEA0183.Parse())
+					  {
+						double t;
+						if(opt->temperature == _T("F"))
+							t = (( m_NMEA0183.Mtw.Temperature * 9 ) / 5 ) + 32;
+						else
+							t = m_NMEA0183.Mtw.Temperature;
+						sTemperatureWater = wxString::Format(_T("%4.1f %s %s"),t,opt->Deg.c_str(),opt->temperature.c_str());
+					  }
+			}
             else if(m_NMEA0183.LastSentenceIDReceived == _T("DBT"))
             {			
 					  m_NMEA0183.Parse();
@@ -598,23 +610,23 @@ void Logbook::loadData()
 				break;
 			case BARO:		dialog->m_gridWeather->SetCellValue(row,0,s);
 				break;
-			case WIND:		dialog->m_gridWeather->SetCellValue(row,1,s);
+			case WIND:		dialog->m_gridWeather->SetCellValue(row,4,s);
 				break;
-			case WSPD:		dialog->m_gridWeather->SetCellValue(row,2,s);
+			case WSPD:		dialog->m_gridWeather->SetCellValue(row,5,s);
 				break;
-			case CURRENT:	dialog->m_gridWeather->SetCellValue(row,3,s);
+			case CURRENT:	dialog->m_gridWeather->SetCellValue(row,6,s);
 				break;
-			case CSPD:		dialog->m_gridWeather->SetCellValue(row,4,s);
+			case CSPD:		dialog->m_gridWeather->SetCellValue(row,7,s);
 				break;
-			case WAVE:		dialog->m_gridWeather->SetCellValue(row,5,s);
+			case WAVE:		dialog->m_gridWeather->SetCellValue(row,8,s);
 				break;
-			case SWELL:		dialog->m_gridWeather->SetCellValue(row,6,s);
+			case SWELL:		dialog->m_gridWeather->SetCellValue(row,9,s);
 				break;
-			case WEATHER:	dialog->m_gridWeather->SetCellValue(row,7,s);
+			case WEATHER:	dialog->m_gridWeather->SetCellValue(row,10,s);
 				break;
-			case CLOUDS:	dialog->m_gridWeather->SetCellValue(row,8,s);
+			case CLOUDS:	dialog->m_gridWeather->SetCellValue(row,11,s);
 				break;
-			case VISIBILITY:dialog->m_gridWeather->SetCellValue(row,9,s);
+			case VISIBILITY:dialog->m_gridWeather->SetCellValue(row,12,s);
 				break;
 			case MOTOR:		dialog->m_gridMotorSails->SetCellValue(row,0,s);
 				break;
@@ -636,6 +648,12 @@ void Logbook::loadData()
 							dialog->m_gridMotorSails->SetReadOnly(row,7);
 				break;
 			case MREMARKS:	dialog->m_gridMotorSails->SetCellValue(row,8,s);
+				break;
+			case HYDRO:		dialog->m_gridWeather->SetCellValue(row,1,s);
+				break;
+			case TEMPAIR:	dialog->m_gridWeather->SetCellValue(row,2,s);
+				break;
+			case TEMPWATER:	dialog->m_gridWeather->SetCellValue(row,3,s);
 				break;
 			}
 			c++;
@@ -744,8 +762,9 @@ Please create a new logbook to minimize the loadingtime.\n\nIf you have a runnin
 	dialog->logGrids[0]->SetCellValue(lastRow,10,sSOG);
 	dialog->logGrids[0]->SetCellValue(lastRow,11,sSOW);
 	dialog->logGrids[0]->SetCellValue(lastRow,12,sDepth);
-	dialog->logGrids[1]->SetCellValue(lastRow,1,sWind);
-	dialog->logGrids[1]->SetCellValue(lastRow,2,sWindSpeed);
+	dialog->logGrids[1]->SetCellValue(lastRow,3,sTemperatureWater);
+	dialog->logGrids[1]->SetCellValue(lastRow,4,sWind);
+	dialog->logGrids[1]->SetCellValue(lastRow,5,sWindSpeed);
 	dialog->logGrids[2]->SetCellValue(lastRow,0,_T("00.00"));
 	dialog->logGrids[2]->SetCellValue(lastRow,2,_T("0"));
 	dialog->logGrids[2]->SetCellValue(lastRow,6,_T("0"));
@@ -904,7 +923,7 @@ wxString Logbook::getWake()
 
 	for(int r = 0; r < dialog->m_gridCrewWake->GetRows(); r++)
 	{
-		for(int i = 0; i < 3; i++)
+		for(int i = 0; i < 6; i++)
 		{
 			start = dialog->m_gridCrewWake->GetCellValue(r,2+i*2);
 			end   = dialog->m_gridCrewWake->GetCellValue(r,3+i*2);
@@ -1076,11 +1095,21 @@ void Logbook::update()
 		{
 			for(int c = 0; c < dialog->logGrids[g]->GetNumberCols(); c++)
 			{
+				if(g == 1 && (c == 1 || c == 2 || c == 3))
+					continue;
 				temp = dialog->logGrids[g]->GetCellValue(r,c);
 				s += dialog->replaceDangerChar(temp);
 				s += _T(" \t");
 			}
 		}
+
+		for(int ext = 1; ext < 4; ext ++) // extended 3 columns in weathergrid
+		{
+			temp = dialog->logGrids[1]->GetCellValue(r,ext);
+			s += dialog->replaceDangerChar(temp);
+			s += _T(" \t");
+		}
+
 		s.RemoveLast();
 		stream->WriteString(s+_T("\n"));
 		s = _T("");
@@ -1097,7 +1126,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 	s = dialog->logGrids[grid]->GetCellValue(row,col);
 
 	if((grid == 0 && (col == 0 || col == 4 || col == 13)) ||
-		(grid == 1 && (col == 7 || col == 8 || col == 9)) ||
+		(grid == 1 && (col == 10 || col == 11 || col == 12)) ||
 		(grid == 2 && (col == 4 || col == 5 || col == 8)))
 	{
 		return;
@@ -1237,10 +1266,10 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 							s.Replace(_T("."),dialog->decimalPoint);
 							dialog->logGrids[grid]->SetCellValue(row,6,s);
 
-							if(dist >= 0.1)
+							if(dist >= 0.01)
 								dialog->m_gridGlobal->SetCellValue(row,3,_T("S"));
 							else
-								dialog->m_gridGlobal->SetCellValue(row,3,_T(""));
+								dialog->m_gridGlobal->SetCellValue(row,3,dialog->m_gridGlobal->GetCellValue(row-1,3));
 								
 						}
 					}
@@ -1311,8 +1340,34 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 							dialog->logGrids[grid]->SetCellValue(row,col,s);
 						}
 					}
-
 	else if(grid == 1 && col == 1)
+					{
+						if(s != _T(""))
+						{
+							s = wxString::Format(_T("%4.1f%%"),wxAtof(s));
+							s.Replace(_T("."),dialog->decimalPoint);
+							dialog->logGrids[grid]->SetCellValue(row,col,s);
+						}
+					}
+	else if(grid == 1 && col == 2)
+					{
+						if(s != _T("") && !s.Contains(opt->Deg))
+						{
+							s = wxString::Format(_T("%3.0f %s %s"),wxAtof(s), opt->Deg.c_str(),opt->temperature.c_str());
+							s.Replace(_T("."),dialog->decimalPoint);
+							dialog->logGrids[grid]->SetCellValue(row,col,s);
+						}
+					}
+	else if(grid == 1 && col == 3)
+					{
+						if(s != _T("") && !s.Contains(opt->Deg))
+						{
+							s = wxString::Format(_T("%3.0f %s %s"),wxAtof(s), opt->Deg.c_str(),opt->temperature.c_str());
+							s.Replace(_T("."),dialog->decimalPoint);
+							dialog->logGrids[grid]->SetCellValue(row,col,s);
+						}
+					}
+	else if(grid == 1 && col == 4)
 					{
 						if(s != _T("") && !s.Contains(opt->Deg))
 						{
@@ -1321,7 +1376,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 							dialog->logGrids[grid]->SetCellValue(row,col,s);
 						}
 					}
-	else if(grid == 1 && col == 2 )
+	else if(grid == 1 && col == 5 )
 					{
 						if(s != _T(""))
 						{
@@ -1337,7 +1392,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 							dialog->logGrids[grid]->SetCellValue(row,col,s);
 						}
 					}
-	else if(grid == 1 && col == 3)
+	else if(grid == 1 && col == 6)
 					{
 						if(s != _T("") && !s.Contains(opt->Deg))
 						{
@@ -1347,7 +1402,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 							dialog->logGrids[grid]->SetCellValue(row,col,s);						
 						}
 					}				
-	else if(grid == 1 && col == 4)
+	else if(grid == 1 && col == 7)
 					{
 						if(s != _T(""))
 						{
@@ -1357,7 +1412,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 							dialog->logGrids[grid]->SetCellValue(row,col,s);
 						}
 					}
-	else if(grid == 1 && (col == 5 || col == 6))
+	else if(grid == 1 && (col == 8 || col == 9))
 					{
 						wxString d;
 						switch(opt->showWaveSwell)
@@ -1749,7 +1804,7 @@ bool Logbook::checkGPS(bool appendClick)
 	else
 	{
 		sLat = sLon = sDate = sTime = _T("");
-		sCOG = sCOW = sSOG = sSOW = sDepth = sWind = sWindSpeed = _T("");
+		sCOG = sCOW = sSOG = sSOW = sDepth = sWind = sWindSpeed = sTemperatureWater = _T("");
 		bCOW = false;
 		if(opt->noGPS)
 			sLogText = _("No GPS-Signal !");
