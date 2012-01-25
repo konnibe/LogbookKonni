@@ -1791,7 +1791,7 @@ bool Logbook::checkGPS(bool appendClick)
 				ext = _("Waypoint skipped");
 			else
 				ext = _("WayPoint arrived");
-			sLogText += wxString::Format(_T("%s\n%s%s"),opt->waypointText,ext,s);
+			sLogText += wxString::Format(_T("%s\n%s%s"),opt->waypointText.c_str(),ext.c_str(),s.c_str());
 			
 		}
 		else if(everySM && !appendClick)
@@ -1819,9 +1819,9 @@ bool Logbook::checkGPS(bool appendClick)
 			else
 				ext = _("WayPoint arrived");
 			if(sLogText != _T(""))
-				sLogText += wxString::Format(_T("\n%s\n%s%s"),opt->waypointText,ext,s);
+				sLogText += wxString::Format(_T("\n%s\n%s%s"),opt->waypointText.c_str(),ext.c_str(),s.c_str());
 			else
-				sLogText += wxString::Format(_T("%s\n%s%s"),opt->waypointText,ext,s);
+				sLogText += wxString::Format(_T("%s\n%s%s"),opt->waypointText.c_str(),ext.c_str(),s.c_str());
 		}
 		return false;
 	}
