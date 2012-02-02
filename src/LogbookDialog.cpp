@@ -3501,10 +3501,10 @@ void LogbookDialog::onButtonClickViewService(wxCommandEvent &ev)
 {
 	if(this->m_radioBtnHTMLService->GetValue())
 		maintenance->viewHTML(SERVICE,_T(""),
-		m_choiceSelectLayoutService->GetString(m_choiceSelectLayoutService->GetSelection()),1);
+		m_choiceSelectLayoutService->GetString(m_choiceSelectLayoutService->GetSelection()),false);
 	else
 		maintenance->viewODT(SERVICE,_T(""),
-		m_choiceSelectLayoutService->GetString(m_choiceSelectLayoutService->GetSelection()),0);
+		m_choiceSelectLayoutService->GetString(m_choiceSelectLayoutService->GetSelection()),true);
 }
 
 void LogbookDialog::OnKeyDownService( wxKeyEvent& ev )
@@ -3630,10 +3630,10 @@ void LogbookDialog::onButtonClickViewRepairs( wxCommandEvent& event )
 {
 	if(this->m_radioBtnHTMLRepairs->GetValue())
 		maintenance->viewHTML(REPAIRS,_T(""),
-		m_choiceSelectLayoutRepairs->GetString(m_choiceSelectLayoutRepairs->GetSelection()),true);
+		m_choiceSelectLayoutRepairs->GetString(m_choiceSelectLayoutRepairs->GetSelection()),false);
 	else
 		maintenance->viewODT(REPAIRS,_T(""),
-		m_choiceSelectLayoutRepairs->GetString(m_choiceSelectLayoutRepairs->GetSelection()),false);
+		m_choiceSelectLayoutRepairs->GetString(m_choiceSelectLayoutRepairs->GetSelection()),true);
 }
 
 void LogbookDialog::onGridCellRightClickRepairs( wxGridEvent& ev )
@@ -3801,10 +3801,10 @@ void LogbookDialog::onButtonClickViewBuyParts( wxCommandEvent& event )
 {
 	if(this->m_radioBtnHTMLBuyParts->GetValue())
 		maintenance->viewHTML(BUYPARTS,_T(""),
-		m_choiceSelectLayoutBuyParts->GetString(m_choiceSelectLayoutBuyParts->GetSelection()),true);
+		m_choiceSelectLayoutBuyParts->GetString(m_choiceSelectLayoutBuyParts->GetSelection()),false);
 	else
 		maintenance->viewODT(BUYPARTS,_T(""),
-		m_choiceSelectLayoutBuyParts->GetString(m_choiceSelectLayoutBuyParts->GetSelection()),false);
+		m_choiceSelectLayoutBuyParts->GetString(m_choiceSelectLayoutBuyParts->GetSelection()),true);
 }
 
 void LogbookDialog::onGridCellSelectedBuyParts(wxGridEvent &ev)

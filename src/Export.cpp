@@ -137,11 +137,11 @@ bool Export::cutInPartsHTML(wxString html, wxString* top, wxString* header, wxSt
 wxTextFile* Export::setFiles(wxString savePath, wxString *path, int mode)
 {
 	if(mode == 0 )
-		(*path).Replace(wxT("txt"),wxT("odt"));
+	{	(*path).Replace(wxT("txt"),wxT("html")); }
 	else if(mode == 1)
-		(*path).Replace(wxT("txt"),wxT("html"));
+	{	(*path).Replace(wxT("txt"),wxT("odt")); }
 	else 
-		(*path) = savePath;
+	{	(*path) = savePath; }
 
 	if(::wxFileExists(*path))
 		::wxRemoveFile(*path);

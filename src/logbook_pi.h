@@ -36,7 +36,7 @@
 #endif //precompiled headers
 
 #define     PLUGIN_VERSION_MAJOR    0
-#define     PLUGIN_VERSION_MINOR    911
+#define     PLUGIN_VERSION_MINOR    912
 
 #define     MY_API_VERSION_MAJOR    1
 //#define     MY_API_VERSION_MINOR    5	// for OpenCPN 2.5
@@ -130,6 +130,7 @@ private:
 	  void OnTimer(wxTimerEvent& ev);
 	  void SaveConfig();
 	  void LoadConfig();
+	  void startLogbook();
 	  void dialogDimmer(PI_ColorScheme cs,wxWindow* ctrl,wxColour col,wxColour col1, wxColour back_color,wxColour text_color,
 						wxColour uitext, wxColour udkrd);
 

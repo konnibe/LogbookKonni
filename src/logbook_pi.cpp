@@ -135,12 +135,19 @@ int logbookkonni_pi::Init(void)
 	timer = new LogbookTimer(this);
 	m_timer = new wxTimer(timer,wxID_ANY);
 	timer->Connect( wxEVT_TIMER, wxObjectEventFunction( &LogbookTimer::OnTimer ));
+	
+	SendPluginMessage(_T("LOGBOOK_READY_FOR_REQUESTS"), _T("TRUE"));
 
 	if(opt->timer)
 	{
 		m_plogbook_window = new LogbookDialog(this, m_timer, m_parent_window, wxID_ANY,_("Active Logbook"), wxDefaultPosition, wxSize( opt->dlgWidth,opt->dlgHeight ), wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER);
 		m_plogbook_window->init();
 		m_plogbook_window->SetPosition(wxPoint(-1,this->m_parent_window->GetParent()->GetPosition().y+80));
+
+		if (m_plogbook_window->IsShown())
+			    SendPluginMessage(wxString(_T("LOGBOOK_WINDOW_SHOWN")), wxEmptyString);
+		else
+            SendPluginMessage(_T("LOGBOOK_WINDOW_HIDDEN"), wxEmptyString);
 
 		m_timer->Start(opt->timerSec);
 	}
@@ -177,6 +184,7 @@ bool logbookkonni_pi::DeInit(void)
 		m_plogbook_window->Close();
 		m_plogbook_window->Destroy();
 	}
+	SendPluginMessage(_T("LOGBOOK_READY_FOR_REQUESTS"), _T("FALSE"));
 	return true;
 }
 
@@ -184,10 +192,11 @@ bool logbookkonni_pi::DeInit(void)
 
 void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_body)
 {
-    if(m_plogbook_window)
-    {
       if(message_id == _T("LOGBOOK_LOG_LASTLINE_REQUEST"))
       {
+		if(!m_plogbook_window)
+			startLogbook();
+
 		  wxJSONValue key;
 		  int tcol = 0;
 		  int lastRow = m_plogbook_window->logGrids[0]->GetNumberRows()-1;
@@ -213,9 +222,56 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
 		  wxMessageBox(str);
 	  }
 */
-      else if(message_id == _T("LOGBOOK_SERVICE_LASTlINE_REQUEST"))
+      else if(message_id == _T("LOGBOOK_BUYPARTS_ADDLINE_REQUEST"))
       {
-            ;//SendCursorVariation();
+		wxJSONReader reader;
+		wxJSONValue  data;
+		int priority, amount;
+		wxString category, title, unit, text;
+		wxString prText[6]; 
+
+		int numErrors = reader.Parse( message_body, &data );
+		if(numErrors != 0) return;
+
+		if(!m_plogbook_window)
+			startLogbook();
+
+		m_plogbook_window->Show();		
+		m_plogbook_window->m_logbook->SetSelection(4); // Maintenance
+		m_plogbook_window->m_notebook6->SetSelection(2); // BuyParts
+
+		for(int i = 0; i < data.Size(); i++)
+		{
+			//wxMessageBox(data[i].Item(_T("Text")).AsString());
+			priority = data[i].Item(_T("Priority")).AsInt();
+			category = data[i].Item(_T("Category")).AsString();
+			title    = _("from");
+			title   += _T(" ") + data[i].Item(_T("PluginName")).AsString() + _("-Plugin");
+			amount   = data[i].Item(_T("Amount")).AsInt();
+			unit     = data[i].Item(_T("Unit")).AsString();
+			text     = data[i].Item(_T("Text")).AsString();
+			
+			prText[priority] += wxString::Format(_T("%4i  %-15s %-30s\n"),amount,unit,text);
+
+		}
+
+		for(int i = 0; i < 6; i++)
+		{
+			if(prText[i] != wxEmptyString)
+			{
+				m_plogbook_window->maintenance->addLineBuyParts();
+				int lastRow = m_plogbook_window->m_gridMaintenanceBuyParts->GetRows()-1;
+
+				m_plogbook_window->m_gridMaintenanceBuyParts->SetCellValue(lastRow,0,wxString::Format(_T("%i"),i));
+				m_plogbook_window->m_gridMaintenanceBuyParts->SetCellValue(lastRow,1,category);
+				m_plogbook_window->m_gridMaintenanceBuyParts->SetCellValue(lastRow,2,title);
+				m_plogbook_window->m_gridMaintenanceBuyParts->SetCellValue(lastRow,3,prText[i].RemoveLast());
+				m_plogbook_window->m_gridMaintenanceBuyParts->AutoSizeRow(lastRow,false);
+			}
+		}
+		m_plogbook_window->maintenance->checkBuyParts();
+
+		return;
       }
       else if(message_id == _T("LOGBOOK_LOG_ADDLINE_REQUEST"))
       {
@@ -223,6 +279,9 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
 		wxJSONValue  data;
 		int numErrors = reader.Parse( message_body, &data );
 		if(numErrors != 0) return;
+
+		if(!m_plogbook_window)
+			startLogbook();
 
 		m_plogbook_window->logbook->appendRow(false);
 		int lastRow = m_plogbook_window->m_gridGlobal->GetRows()-1;
@@ -249,8 +308,21 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
 		m_plogbook_window->logbook->OCPN_Message = false;
 		m_plogbook_window->logbook->WP_skipped = false;
 	  }
+}
 
-  }
+void logbookkonni_pi::startLogbook()
+{
+		if(!m_plogbook_window)
+		{
+			m_plogbook_window = new LogbookDialog(this, m_timer, m_parent_window, wxID_ANY,_("Active Logbook"), wxDefaultPosition, wxSize( opt->dlgWidth,opt->dlgHeight ), wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER);
+			m_plogbook_window->init();
+			m_plogbook_window->SetPosition(wxPoint(-1,this->m_parent_window->GetParent()->GetPosition().y+80));
+
+			if (m_plogbook_window->IsShown())
+				    SendPluginMessage(wxString(_T("LOGBOOK_WINDOW_SHOWN")), wxEmptyString);
+			else
+				SendPluginMessage(_T("LOGBOOK_WINDOW_HIDDEN"), wxEmptyString);		
+		}
 }
 
 

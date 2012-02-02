@@ -2001,8 +2001,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "Best Etmal"
 #~ msgstr "Max NM/24h"
+#
 #
 #
 #
@@ -2108,6 +2110,7 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "CrewList"
 #~ msgstr "Seznam posádky"
 #
@@ -2132,8 +2135,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "Current from"
 #~ msgstr "Proud z"
+#
 #
 #
 #
@@ -2388,8 +2393,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "GPS Auto (Ocean Crossing)"
 #~ msgstr "GPS Auto (přejezd oceánu)"
+#
 #
 #
 #
@@ -2530,8 +2537,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Konniho lodní deník"
+#
 #
 #
 #
@@ -2767,8 +2776,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "NetTonnage"
 #~ msgstr "Čistá registrovaná prostornost"
+#
 #
 #
 #
@@ -2819,6 +2830,7 @@ msgstr "Napiš vlastní popis"
 #, fuzzy
 #~ msgid "Not implemented yet"
 #~ msgstr "zatím neimplementováno"
+#
 #
 #
 #
@@ -2927,8 +2939,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "Save"
 #~ msgstr "Uložit"
+#
 #
 #
 #
@@ -3155,6 +3169,7 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Vybrat rozvržení:"
@@ -3270,8 +3285,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "Show Maintence Rows coloured"
 #~ msgstr "Zobraz řádky údržby v barvě"
+#
 #
 #
 #
@@ -3528,8 +3545,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "Today"
 #~ msgstr "Dnes"
+#
 #
 #
 #
@@ -3668,6 +3687,7 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Zobrazit"
@@ -3767,9 +3787,11 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Watchlist"
 #~ msgstr "Hlídka"
+#
 #
 #
 #

@@ -465,6 +465,24 @@ wxString CrewList::replacePlaceholder(wxString html,wxString s, bool nGrid, int 
 					case WAKEEND3:		html.Replace(wxT("#WAKEE3#"),wake->GetCellValue(row,col));
 										html.Replace(wxT("#LWAKEE3#"),wake->GetColLabelValue(col));	
 										break;
+					case WAKESTART4:	html.Replace(wxT("#WAKE4#"),wake->GetCellValue(row,col));
+										html.Replace(wxT("#LWAKE4#"),wake->GetColLabelValue(col));	
+										break;
+					case WAKEEND4:		html.Replace(wxT("#WAKEE4#"),wake->GetCellValue(row,col));
+										html.Replace(wxT("#LWAKEE4#"),wake->GetColLabelValue(col));	
+										break;
+					case WAKESTART5:	html.Replace(wxT("#WAKE5#"),wake->GetCellValue(row,col));
+										html.Replace(wxT("#LWAKE5#"),wake->GetColLabelValue(col));	
+										break;
+					case WAKEEND5:		html.Replace(wxT("#WAKEE5#"),wake->GetCellValue(row,col));
+										html.Replace(wxT("#LWAKEE5#"),wake->GetColLabelValue(col));	
+										break;
+					case WAKESTART6:	html.Replace(wxT("#WAKE6#"),wake->GetCellValue(row,col));
+										html.Replace(wxT("#LWAKE6#"),wake->GetColLabelValue(col));	
+										break;
+					case WAKEEND6:		html.Replace(wxT("#WAKEE6#"),wake->GetCellValue(row,col));
+										html.Replace(wxT("#LWAKEE6#"),wake->GetColLabelValue(col));	
+										break;
 				}
 				break;
 			}

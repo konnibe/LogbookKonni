@@ -232,7 +232,7 @@ void Maintenance::setAlignmentRepairs()
 
 void Maintenance::setAlignmentBuyParts()
 {
-	repairs->SetCellRenderer(lastRowBuyParts, RPRIORITY, new wxGridCellChoiceRenderer);
+	buyparts->SetCellRenderer(lastRowBuyParts, PPRIORITY, new wxGridCellChoiceRenderer);
 	buyparts->SetCellEditor(lastRowBuyParts,PPRIORITY,new wxFastComboEditor(6,m_Priority));
 	buyparts->SetCellEditor(lastRowBuyParts,PARTS,new wxGridCellAutoWrapStringEditor);
 	buyparts->SetCellAlignment(lastRowBuyParts,PPRIORITY,wxALIGN_CENTER, wxALIGN_TOP);
@@ -295,7 +295,7 @@ void Maintenance::loadData()
 
 			switch(c)
 			{
-			case PRIORITY:	buyparts->SetCellValue(row,PRIORITY,s);
+			case PPRIORITY:	buyparts->SetCellValue(row,PPRIORITY,s);
 							break;
 			case PCATEGORY:	buyparts->SetCellValue(row,PCATEGORY,s);
 							break;
@@ -345,7 +345,7 @@ void Maintenance::loadData()
 
 	checkService(dialog->m_gridGlobal->GetNumberRows()-1);
 	checkRepairs();
-	checkBuyParts();
+//	checkBuyParts();
 	modified = false;
 }
 
@@ -671,7 +671,7 @@ void Maintenance::checkBuyParts()
 	for(int row = 0; row < buyparts->GetNumberRows(); row++)
 	{
 		long i;
-		buyparts->GetCellValue(row,RPRIORITY).ToLong(&i);
+		buyparts->GetCellValue(row,PPRIORITY).ToLong(&i);
 		switch(i)
 		{
 		case 0:
@@ -1214,7 +1214,7 @@ wxString Maintenance::replaceNewLine(int mode, wxString str)
 		 str.Replace(wxT("\n"),wxT("<br>"));
 		 break;
 	case 1: // ODT
-		 str.Replace(wxT("\n"),wxT("<text:line-break/>"));
+		 str.Replace(wxT("\n"),wxT("<text:line-break/>"));		 
 		 break;
 	}
 
