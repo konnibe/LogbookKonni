@@ -89,13 +89,14 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		Maintenance*	maintenance;
 
 		wxImageList *imageList;
-
+		
 		wxNotebook* m_logbook;
 		wxPanel* m_panel2;
 		wxButton* m_button4;
 		wxButton* logSave;
 		wxStaticLine* m_staticline8;
 		wxStaticText* m_staticText32;
+		wxChoice* logbookChoice;
 		wxButton* logView;
 		wxStaticLine* m_staticline7;
 		wxButton* newLogbook;
@@ -117,6 +118,7 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		wxStaticLine* m_staticline11;
 		wxGrid* m_gridOverview;
 		wxMenu* m_menuOverView;
+		wxPanel* m_panel21;
 		wxButton* crewAdd;
 		wxButton* crewSave;
 		wxStaticLine* m_staticline5;
@@ -127,6 +129,7 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		wxGrid* m_gridCrew;
 		wxMenu* m_menu2;
 		wxGrid* m_gridCrewWake;
+		wxMenu* m_menu21;
 		wxPanel* m_panel3;
 		wxButton* addEquipmentButton;
 		wxToggleButton* m_toggleBtnShowEquipment;
@@ -134,6 +137,7 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		wxButton* boatSave;
 		wxStaticLine* m_staticline4;
 		wxStaticText* m_staticText322;
+		wxChoice* boatChoice;
 		wxButton* boatView;
 		wxStaticLine* m_staticline3;
 		wxSplitterWindow* m_splitter1;
@@ -210,6 +214,7 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		wxStaticText* m_staticText6213;
 		wxStaticLine* m_staticline1413;
 		wxMenu* m_menu71;
+		wxPanel* m_panel16;
 		wxStaticLine* m_staticline1511;
 		wxStaticText* m_staticText6211;
 		wxStaticLine* m_staticline1411;
@@ -219,7 +224,7 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		wxStaticText* m_staticText6212;
 		wxStaticLine* m_staticline1412;
 		wxStaticText* m_staticText6012;
-		wxCalendarCtrl* m_calendar1;
+		wxCalendarCtrl* m_calendar1;		
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void LogbookDialogOnClose( wxCloseEvent& event ) ;
@@ -332,7 +337,10 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		virtual void onGridCellLeftClickBuyParts( wxGridEvent& event );
 		virtual void OnToggleButtonShowEquip( wxCommandEvent& event );
 		virtual void OnKeyDownOverview( wxKeyEvent& event );
-
+		virtual void m_menuItem19MenuSelection( wxCommandEvent& event );		
+		virtual void m_menuItem21MenuSelection( wxCommandEvent& event );		
+		virtual void OnGridCellRightClickWake( wxGridEvent& event );
+		
 		virtual void m_menu1Highlighted(wxMenuEvent& event);
 
 		virtual void gridGlobalScrolled( wxScrollWinEvent& event );
@@ -349,7 +357,6 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 enum maintenanceTab {SERVICE,REPAIRS,BUYPARTS};
 enum FORMAT {HTML,ODT};
 
-		wxChoice* logbookChoice;
 		wxButton* m_buttonReloadLayout;
 		wxButton* m_buttonEditLayout;
 		wxRadioButton* m_radioBtnHTML;
@@ -364,12 +371,10 @@ enum FORMAT {HTML,ODT};
 		wxRadioButton* m_radioBtnAllLogbooks;
 		wxRadioButton* m_radioBtnSelectLogbook;
 		wxButton* m_buttonSelectLogbook;
-		wxPanel* m_panel21;
 		wxButton* m_buttonReloadCrew;
 		wxButton* m_buttonEditLayoutCrew;
 		wxRadioButton* m_radioBtnHTMLCrew;
 		wxRadioButton* m_radioBtnODTCrew;
-		wxChoice* boatChoice;
 		wxButton* m_buttonReloadLayoutsBoat;
 		wxButton* m_buttonEditLayoutBoat;
 		wxRadioButton* m_radioBtnHTMLBoat;
@@ -399,7 +404,6 @@ enum FORMAT {HTML,ODT};
 		wxRadioButton* m_radioBtnODTRepairs;
 		wxButton* m_buttonViewRepairs;
 		wxGrid* m_gridMaintanenceRepairs;
-		wxPanel* m_panel16;
 		wxButton* m_buttonAddLineBuyParts;
 		wxButton* m_buttonSaveBuyParts;
 		wxChoice* m_choiceSelectLayoutBuyParts;
