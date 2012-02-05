@@ -1008,44 +1008,44 @@ AutomaticWatch::AutomaticWatch( wxWindow* parent, wxWindowID id, const wxString&
 	
 	wxBoxSizer* bSizer23;
 	bSizer23 = new wxBoxSizer( wxVERTICAL );
+
+	m_staticText86 = new wxStaticText( this, wxID_ANY, wxT("Drag 'n Drop to change the order in the list"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText86->Wrap( -1 );
+	bSizer23->Add( m_staticText86, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 	
-	m_staticText84 = new wxStaticText( this, wxID_ANY, _("Drag 'n Drop to change the Order of the Watch"), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText84->Wrap( -1 );
-	bSizer23->Add( m_staticText84, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
-	
-	m_listCtrlWatchNames = new wxListCtrl( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), wxLC_ALIGN_LEFT|wxLC_REPORT|wxLC_SINGLE_SEL|wxALWAYS_SHOW_SB  );
+	m_listCtrlWatchNames = new wxListCtrl( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), wxLC_ALIGN_LEFT|wxLC_REPORT|wxLC_SINGLE_SEL|wxLC_SORT_ASCENDING|wxALWAYS_SHOW_SB );
 	bSizer23->Add( m_listCtrlWatchNames, 1, wxALL|wxEXPAND, 5 );
 	
-	wxBoxSizer* bSizer28;
-	bSizer28 = new wxBoxSizer( wxHORIZONTAL );
+	wxBoxSizer* bSizer26;
+	bSizer26 = new wxBoxSizer( wxHORIZONTAL );
 	
-	m_staticText81 = new wxStaticText( this, wxID_ANY, _("Persons:"), wxDefaultPosition, wxSize( -1,-1 ), 0 );
-	m_staticText81->Wrap( -1 );
-	bSizer28->Add( m_staticText81, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5 );
+	m_staticText80 = new wxStaticText( this, wxID_ANY, wxT("Persons:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText80->Wrap( -1 );
+	bSizer26->Add( m_staticText80, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_staticTextPersons = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxSize( 20,-1 ), 0 );
+	m_staticTextPersons = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
 	m_staticTextPersons->Wrap( -1 );
-	bSizer28->Add( m_staticTextPersons, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer26->Add( m_staticTextPersons, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_staticText83 = new wxStaticText( this, wxID_ANY, _("Length of Watch:"), wxDefaultPosition, wxSize( -1,-1 ), 0 );
-	m_staticText83->Wrap( -1 );
-	bSizer28->Add( m_staticText83, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	m_staticTextLengthWatch = new wxStaticText( this, wxID_ANY, _("12:00"), wxDefaultPosition, wxSize( 50,-1 ), 0 );
-	m_staticTextLengthWatch->Wrap( -1 );
-	bSizer28->Add( m_staticTextLengthWatch, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	m_staticText82 = new wxStaticText( this, wxID_ANY, _("No. Watches"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText82 = new wxStaticText( this, wxID_ANY, wxT("Watchtime:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText82->Wrap( -1 );
-	bSizer28->Add( m_staticText82, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer26->Add( m_staticText82, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_staticTextLengthWatch = new wxStaticText( this, wxID_ANY, wxT("00:00"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
+	m_staticTextLengthWatch->Wrap( -1 );
+	bSizer26->Add( m_staticTextLengthWatch, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_staticText85 = new wxStaticText( this, wxID_ANY, wxT("No. Watches"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText85->Wrap( -1 );
+	bSizer26->Add( m_staticText85, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	wxString m_choice20Choices[] = { wxT("1"), wxT("2"), wxT("3"), wxT("4"), wxT("5"), wxT("6") };
 	int m_choice20NChoices = sizeof( m_choice20Choices ) / sizeof( wxString );
 	m_choice20 = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 40,-1 ), m_choice20NChoices, m_choice20Choices, 0 );
 	m_choice20->SetSelection( 0 );
-	bSizer28->Add( m_choice20, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	bSizer26->Add( m_choice20, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	bSizer23->Add( bSizer28, 0, wxEXPAND, 5 );
+	bSizer23->Add( bSizer26, 0, wxEXPAND, 5 );
 	
 	m_sdbSizer4 = new wxStdDialogButtonSizer();
 	m_sdbSizer4OK = new wxButton( this, wxID_OK );
@@ -1074,6 +1074,7 @@ AutomaticWatch::~AutomaticWatch()
 	m_choice20->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( AutomaticWatch::OnChoice ), NULL, this );
 	
 }
+
 
 void AutomaticWatch::OnInit( wxInitDialogEvent& event )
 {
@@ -1116,6 +1117,11 @@ void AutomaticWatch::setStrings(int i)
 	wxTimeSpan diff(0,0,watchtime);
 	dt.Add(diff);
 	this->m_staticTextLengthWatch->SetLabel(wxString::Format(_T("%s"),dt.FormatTime()));
+}
+
+void AutomaticWatch::OnListBeginDrag( wxListEvent& event )
+{
+
 }
 
 

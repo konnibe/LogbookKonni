@@ -6,9 +6,10 @@
 #include <wx/textfile.h> 
 #include <wx/grid.h>
 
-#define CREWFIELDS 13
+#define CREWFIELDS 13 
 
 class LogbookDialog;
+class AutomaticWatch;
 
 class CrewList
 {
@@ -42,6 +43,7 @@ private:
 	wxString readLayout(wxString layoutFileName);
 	wxString readLayoutODT(wxString layoutFileName);
 	wxString replacePlaceholder(wxString html, wxString s, bool ngrid, int row, int col, bool mode);
+	void setWatches(AutomaticWatch* dlg, wxString time);
 
 	wxTextFile* crewListFile;
 	
@@ -58,4 +60,52 @@ private:
 	enum fields{NAME,BIRTHNAME,FIRSTNAME,TITLE,BIRTHDATE,BIRTHPLACE,NATIONALITY,
 				PASSPORT,EST_IN,EST_ON,ZIP,COUNTRY,TOWN,STREET};
 	enum fieldsWake{LWNAME,LWFIRSTNAME,WAKESTART1,WAKEEND1,WAKESTART2,WAKEEND2,WAKESTART3,WAKEEND3,WAKESTART4,WAKEEND4,WAKESTART5,WAKEEND5,WAKESTART6,WAKEEND6};
+};
+
+/////////////////////////////// Automatic Watchlist ///////////////
+#include <wx/artprov.h>
+#include <wx/xrc/xmlres.h>
+#include <wx/listctrl.h>
+#include <wx/string.h>
+#include <wx/gdicmn.h>
+#include <wx/font.h>
+#include <wx/colour.h>
+#include <wx/settings.h>
+#include <wx/stattext.h>
+#include <wx/choice.h>
+#include <wx/sizer.h>
+#include <wx/button.h>
+#include <wx/dialog.h>
+
+class AutomaticWatch : public wxDialog 
+{
+	private:
+	LogbookDialog* parent;
+
+	void setStrings(int i);
+
+	protected:
+		wxStaticText* m_staticText86;
+		wxStaticText* m_staticText80;
+		wxStaticText* m_staticText82;
+		wxStaticText* m_staticText85;
+		wxStdDialogButtonSizer* m_sdbSizer4;
+		wxButton* m_sdbSizer4OK;
+		wxButton* m_sdbSizer4Cancel;
+		
+		// Virtual event handlers, overide them in your derived class
+		void OnInit( wxInitDialogEvent& event );
+		void OnListBeginDrag( wxListEvent& event );
+		void OnChoice( wxCommandEvent& event );
+		
+	
+	public:
+		wxListCtrl* m_listCtrlWatchNames;
+		wxChoice* m_choice20;
+		wxStaticText* m_staticTextLengthWatch;
+		wxStaticText* m_staticTextPersons;
+		
+		AutomaticWatch( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Automatic Watch Interval"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 398,339 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER ); 
+		~AutomaticWatch();
+	
 };
