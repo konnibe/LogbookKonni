@@ -1,0 +1,1728 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-01-25 16:50+0100\n"
+"PO-Revision-Date: 2012-01-29 08:09+0100\n"
+"Last-Translator: Jacob Handrup <jacob@familienhandrup.dk>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Language: \n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: C:\\Dokumente und Einstellungen\\Konni.MICKY-6B710455C"
+"\\Eigene Dateien\\Visual Studio 2008\\Projects\\opencpn\\plugins"
+"\\LogbookKonni_pi\\src\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Language: Danish\n"
+"X-Poedit-Country: DENMARK\n"
+"X-Poedit-SearchPath-0: .\n"
+#
+msgid "\n"
+msgstr "\n"
+#
+#, c-format
+msgid ""
+"\n"
+"Name of Waypoint: %s"
+msgstr ""
+"\n"
+"Waypoint name: %s"
+#
+#, c-format
+msgid ""
+"\n"
+"Name of Waypoint: %s\n"
+"True bearing to destination: %4.1f%s\n"
+"Range to destination: %4.2f%s"
+msgstr ""
+"\n"
+"Waypoint navn: %s\n"
+"Sand pejling til destination: %4.1f%s\n"
+"Afstand til destination: %4.2f%s"
+#
+msgid ""
+"\n"
+"not found in layoutfile "
+msgstr ""
+"\n"
+"ikke fundet i layoutfile"
+#
+#
+msgid "      Course- Message after Minutes"
+msgstr "     Kurs- Besked efter minutter"
+#
+msgid "     Winddirection set to:"
+msgstr "     Vindretning sat til:"
+#
+msgid " - Timer on - Interval: "
+msgstr "- Timer til - Interval:"
+#
+#
+msgid " Direction "
+msgstr " Retning"
+#
+msgid ""
+"!\n"
+"\n"
+"Did you forget to add this line in your layout ?"
+msgstr ""
+"!\n"
+"\n"
+"Glemte du at tilføje denne linie it dit layout  ?"
+#
+msgid "\""
+msgstr "\""
+#
+msgid "'"
+msgstr "'"
+#
+msgid "0"
+msgstr "0"
+#
+#
+msgid "Abbreviations"
+msgstr "Forkortelser"
+#
+msgid "Active"
+msgstr "Aktiv"
+#
+msgid "Active Logbook"
+msgstr "Aktive logbog"
+#
+msgid "Actuell Logbook"
+msgstr "Aktuel logbog"
+#
+msgid "Add Crew"
+msgstr "Tilføj besætning"
+#
+msgid "Add Equipment"
+msgstr "Tilføj udstyr"
+#
+msgid "Add Line"
+msgstr "Tilføj linie"
+#
+msgid "Add a line to the end of your logbook"
+msgstr "Tilføj linie i slutningen af logbogen"
+#
+msgid "Add a new Crewmember"
+msgstr "Tilføj nyt besætningsmedlem"
+#
+msgid "Add a new line"
+msgstr "Tilføj ny linie"
+#
+msgid "Adress"
+msgstr "Adresse"
+#
+msgid "Air"
+msgstr "Luft"
+#
+msgid "All Logbooks"
+msgstr "Alle logbøger"
+#
+#
+msgid "Append Line every Nm"
+msgstr "Tilføj linie hver sm"
+#
+msgid "Are you sure ?"
+msgstr "Er du sikker ?"
+#
+msgid "At"
+msgstr "Ved"
+#
+#
+msgid ""
+"Automatic Line by Timer\n"
+"you can set/unset a timer\n"
+"or change this text in options"
+msgstr ""
+"Automatisk linie af timer\n"
+"du kan slå timer til/fra\n"
+"eller ændre denne tekst under Indstillinger"
+#
+msgid ""
+"Automatic line by timer\n"
+"\n"
+"You can set/unset a timer-interval\n"
+"or change this text in Toolbox/Plugins/Logbook\n"
+"\n"
+"Shift+Enter appends a new line"
+msgstr ""
+"Automatisk linie af timer\n"
+"\n"
+"Du kan slå timer-interval til/fra\n"
+"eller ændre denne tekst i Toolbox/Plugins/Logbook\n"
+"\n"
+"Shift+Enter tilføjer ny linie"
+#
+msgid "Barometer"
+msgstr "Barometer"
+#
+msgid "Beam"
+msgstr "Bredde"
+#
+#
+msgid "Behavior"
+msgstr "Indstillinger"
+#
+msgid "Best Dist. p. Day"
+msgstr "Bedste distance per dag"
+#
+msgid "Birthname"
+msgstr "Fødselsnavn"
+#
+msgid "Boat"
+msgstr "Båd"
+#
+msgid "Builder"
+msgstr "Værft"
+#
+msgid "Buy Parts"
+msgstr "Køb reservedele"
+#
+msgid "Buy parts for this repair"
+msgstr "Køb reservedele til denne reparation"
+#
+msgid "Buy parts for this service"
+msgstr "Køb reservedel til denne reparation"
+#
+msgid "C/Strength"
+msgstr "Strømstyrke"
+#
+msgid "COG (T)"
+msgstr "COG"
+#
+msgid "Callsign"
+msgstr "Kaldesignal"
+#
+#
+msgid "Capacity"
+msgstr "Kapacitet"
+#
+msgid "Category"
+msgstr "Kategori"
+#
+msgid "Clouds"
+msgstr "Skyer"
+#
+msgid "Confirm"
+msgstr "Bekræft"
+#
+msgid "Construction"
+msgstr "Konstruktion"
+#
+msgid "Country"
+msgstr "Land"
+#
+msgid ""
+"Create a new logbook\n"
+"the active logbook is saved with today's date\n"
+"and can be viewed with Button \"Select Logbook\""
+msgstr ""
+"Lav en ny logbog\n"
+"den aktive logbog gemmes med dags dato\n"
+"og kan ses med knappen \"Vælg logbog\""
+#
+msgid "Crewlist"
+msgstr "Besætningsliste"
+#
+msgid "Current"
+msgstr "Strøm"
+#
+msgid "Current Avg."
+msgstr "Gennemsnitlige strøm"
+#
+msgid "Current Max."
+msgstr "Maximal strøm"
+#
+msgid "Currentdirection Avg."
+msgstr "Gennemsnitlige strøm retning"
+#
+msgid "Date"
+msgstr "Dato"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+msgid "Date + Days"
+msgstr "Dato + Dage"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+msgid "Date + Month"
+msgstr "Dato + Måned"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+msgid "Date + Weeks"
+msgstr "Dato + uger"
+#
+msgid "Date Launched"
+msgstr "Søsætningsdato"
+#
+msgid "Date of Birth"
+msgstr "Fødselsdag"
+#
+msgid "Date of Issue"
+msgstr "Udstedt dato"
+#
+#
+msgid "Day(s)"
+msgstr "Dag(e)"
+#
+#
+msgid "Degres"
+msgstr "Grader"
+#
+msgid "Delete Layout"
+msgstr "Slet layout"
+#
+msgid "Delete Row"
+msgstr "Slet række"
+#
+#, c-format
+msgid "Delete Row Nr. %i ?"
+msgstr "Slet række nr. %i ?"
+#
+msgid "Depth"
+msgstr "Dybde"
+#
+msgid "Description"
+msgstr "Beskrivelse"
+#
+msgid "Designer"
+msgstr "Designer"
+#
+msgid "Details"
+msgstr "Detaljer"
+#
+msgid "Displacement"
+msgstr "Deplacement"
+#
+msgid "Distance"
+msgstr "Distance"
+#
+msgid "Distance p. Day"
+msgstr "Distance pr. dag"
+#
+msgid "DistanceTotal"
+msgstr "Distance ialt"
+#
+msgid "Draft"
+msgstr "Dybgang"
+#
+msgid "E"
+msgstr "E"
+#
+msgid "Edit Layout"
+msgstr "Rediger layout"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+msgid "Edit Layouts"
+msgstr "Rediger layouts"
+#
+msgid "End"
+msgstr "Slut"
+#
+msgid "End 1.Watch"
+msgstr "Slut på 1. vagt"
+#
+msgid "End 2.Watch"
+msgstr "Slut på 2. vagt"
+#
+msgid "End 3.Watch"
+msgstr "Slut på 3. vagt"
+#
+msgid "End 4.Watch"
+msgstr "Slut på 4. vagt"
+#
+msgid "End 5.Watch"
+msgstr "Slut på 5. vagt"
+#
+msgid "End 6.Watch"
+msgstr "Slut på 6. vagt"
+#
+msgid "Engine"
+msgstr "Motor"
+#
+msgid "EngineTotal"
+msgstr "Motor ialt"
+#
+msgid "Equipment"
+msgstr "Udstyr"
+#
+msgid "Export"
+msgstr "Eksporter"
+#
+# (C)elsius or (F)ahrenheit
+msgid "F"
+msgstr "C"
+#
+#
+msgid "Fathom"
+msgstr "Favne"
+#
+#
+msgid "Feet"
+msgstr "Fod"
+#
+msgid "Filter Layout by"
+msgstr "Filtrer layout ved"
+#
+msgid "Firstname"
+msgstr "Fornavn"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+msgid "Fix Date"
+msgstr "Ret dato"
+#
+msgid "Fuel"
+msgstr "Brændstof"
+#
+#
+msgid "Fuel/Water"
+msgstr "Brændstof/Vand"
+#
+msgid "FuelTotal"
+msgstr "Brændstof total"
+#
+msgid "GPS Auto"
+msgstr "GPS Auto"
+#
+msgid "Goto Route"
+msgstr "Gå til rute"
+#
+msgid "Greatest Width of Hull"
+msgstr "Største bredde på skrog"
+#
+msgid "HIN-Nr."
+msgstr "Skrog ID nummer"
+#
+msgid ""
+"Have You forgotten to enclose the Header with [[ and ]]\n"
+" or Data with {{ and }} ?"
+msgstr ""
+"Har du glemt at indkapsle overskrift med [[ og ]]\n"
+"eller data med {{ og }} ?"
+#
+msgid "Heading"
+msgstr "Kurs"
+#
+msgid "Hide Equipment"
+msgstr "Skjul udstyr"
+#
+msgid "Hide column"
+msgstr "Skjul kolonne"
+#
+msgid "Homeport"
+msgstr "Hjemhavn"
+#
+msgid "Hull"
+msgstr "Skrog"
+#
+msgid "Hull Identification No."
+msgstr "Skrog identifikations nummer"
+#
+msgid "Hydrometer"
+msgstr "Hydrometer"
+#
+msgid "If"
+msgstr "Hvis"
+#
+#
+msgid "If Course changes more then "
+msgstr "Hvis kurs ændres mere end °  "
+#
+msgid "If GPS off use for manual entry"
+msgstr "Hvis GPS er slået fra brug for manuel indput"
+#
+#
+msgid "If Watch changed"
+msgstr "Hvis vagt skiftet"
+#
+msgid "If Waypoint arrived"
+msgstr "Hvis ankomst til waypoint"
+#
+msgid ""
+"If You have created Your own Layouts\n"
+"prepend them with e.g. My_ \n"
+"The _ is important"
+msgstr ""
+"Hvis du har lavet dit eget layout\n"
+"tilføjes f.eks My_ i begyndelsen af navnet\n"
+"Underscore _ er vigtigt !"
+#
+msgid ""
+"If You have created Your own layouts\n"
+"with prefix e.g. My_"
+msgstr ""
+"Hvis du har lavet dit eget layout\n"
+"med f.eks My_ foran"
+#
+msgid "Information"
+msgstr "Information"
+#
+#
+msgid "Install"
+msgstr "Installer"
+#
+#
+msgid "Install Languages"
+msgstr "Installer sprog"
+#
+msgid "Install Layouts"
+msgstr "Installer layouts"
+#
+#
+msgid "Install OpenCPN_Logbook_Languages.zip"
+msgstr "Installer OpenCPN_Logbook_Languages.zip"
+#
+#
+msgid "Install OpenCPN_Logbook_Layouts.zip"
+msgstr "Installer OpenCPN_Logbook_Layouts.zip"
+#
+#
+msgid "Install OpenCPN_Mac_Logbook_Languages.zip"
+msgstr "Installer OpenCPN_Mac__Logbook_Languages.zip"
+#
+msgid "Install single Layout"
+msgstr "Installer enkelt layout"
+#
+msgid "Insurance"
+msgstr "Forsikring"
+#
+#
+msgid "Interval:"
+msgstr "Interval:"
+#
+msgid "Issued in"
+msgstr "Udsted i"
+#
+msgid ""
+"It's not allowed to append Data to a old Logbook\n"
+"\n"
+"OpenCPN switchs to actuell logbook"
+msgstr ""
+"Det er ikke tilladt at tilføje data til en gammel logbog\n"
+"\n"
+"Den aktuelle logbog benyttes ! "
+#
+msgid "LOA"
+msgstr "LOA"
+#
+msgid "LOD"
+msgstr "LOD"
+#
+msgid "LWL"
+msgstr "LWL"
+#
+msgid "Languages installed"
+msgstr "Installerede sprog"
+#
+msgid "Last Logbook is\n"
+msgstr "Sidste logbog er\n"
+#
+msgid "Last line from Logbook\n"
+msgstr "Sidste linie fra logbog\n"
+#
+msgid "Layouts installed"
+msgstr "Layouts installeret"
+#
+msgid "Length in Waterline"
+msgstr "Længde - vandlinie"
+#
+msgid "Length over Deck"
+msgstr "Længde over dæk"
+#
+msgid "Length over all"
+msgstr "Længde over alt"
+#
+msgid "Local = UTC"
+msgstr "Lokal = UTC"
+#
+msgid "Logbook"
+msgstr "Logbog"
+#
+msgid "Logbook Preferences"
+msgstr "Logbog indstillinger"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+msgid "Logbook Total"
+msgstr "Logbog total"
+#
+msgid "Logbook for OpenCPN"
+msgstr "Logbog til OpenCPN"
+#
+msgid ""
+"Logbook for OpenCPN\n"
+"\n"
+"\t- automatic (NMEA) or manual input\n"
+"\t- Timer for automatic line insert\n"
+"\t- Fileexport to ods,html,xml(Windows only),csv\n"
+"\t- Multiple layouts\n"
+"\t- Costumizable layout\n"
+"\n"
+"Thanks's to the community for their helpfull suggestions.\n"
+"\n"
+"If You find a bug post it on\n"
+"http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945."
+"html\n"
+"Helpfull Videos are at Youtube, search for LogbookKonni."
+msgstr ""
+"Logbog til OpenCPN\n"
+"\n"
+"\t- automatisk (NMEA) eller manuel indput\n"
+"\t- indsætter automatisk linie efter tid\n"
+"\t- fil eksport til ods,html,xml(kun Windows),csv\n"
+"\t- flere layouts\n"
+"\t- tilpas selv dine layouts\n"
+"\n"
+"Tak til community for deres støtte.\n"
+"\n"
+"Hvis du finder en fejl meddel det venligst på:\n"
+"http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945."
+"html\n"
+"Hjælpevideos kan findes på Youtube, søg efter LogbookKonni."
+#
+#, c-format
+msgid "Logbook from %s to %s"
+msgstr "Logbog fra %s til %s"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+msgid "Logbook until "
+msgstr "Logbog indtil"
+#
+msgid "MMSI"
+msgstr "MMSI"
+#
+#
+msgid "Magnetic"
+msgstr "Magnetisk"
+#
+msgid "Maintenance"
+msgstr "Vedligehold"
+#
+msgid "Meter"
+msgstr "Meter"
+#
+#
+msgid "Minutes"
+msgstr "Minutter"
+#
+msgid "Minutes greater than 59"
+msgstr "Minutter er større end 59"
+#
+#
+msgid "Month"
+msgstr "Måned"
+#
+#
+msgid "Motor Hours"
+msgstr "Motor timer"
+#
+msgid "Motor/Sails"
+msgstr "Motor/Sejl"
+#
+msgid "Name"
+msgstr "Navn"
+#
+msgid "Name      "
+msgstr "Navn"
+#
+msgid "Nationality"
+msgstr "Nationalitet"
+#
+msgid "Navigation"
+msgstr "Navigation"
+#
+msgid "New Logbook"
+msgstr "Ny logbog"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+msgid "No"
+msgstr "Nej"
+#
+msgid "No GPS-Signal !"
+msgstr "ingen GPS-signal"
+#
+msgid ""
+"No Path set to HTML-Editor\n"
+"in ToolBox/Plugins/LogbookKonni/Preferences"
+msgstr ""
+"Ingen sti fundet til HTML-Editor\n"
+"i ToolBox/Plugins/LogbookKonni/Preferences "
+#
+msgid ""
+"No Path set to HTML-Editor\n"
+"in Toolbox/Plugins/LogbookKonni/Preferences"
+msgstr ""
+"Ingen sti fundet til HTML-Editor\n"
+"i ToolBox/Plugins/LogbookKonni/Preferences"
+#
+#, c-format
+msgid "Old Logbook until %s"
+msgstr "Gammel logbog indtil %s"
+#
+#
+msgid "Only Layouts with prefix:"
+msgstr "kun layouts med Prefix:"
+#
+msgid ""
+"Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV "
+"Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
+msgstr ""
+"Opendocument Regneark(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV Format "
+"OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
+#
+msgid "Overview"
+msgstr "Oversigt"
+#
+msgid "Owner"
+msgstr "Ejer"
+#
+msgid "Passport-Nr"
+msgstr "Pas nummer"
+#
+msgid "Path"
+msgstr "Sti"
+#
+msgid "Path to Datamanager"
+msgstr "Sti til Datamanager"
+#
+#
+msgid ""
+"Path to HTML-Editor\n"
+"(optional)"
+msgstr ""
+"Sti til HTML-Editor\n"
+"(optional)"
+#
+msgid "Path to MailClient"
+msgstr "Sti til Mail program"
+#
+msgid "Path to ODT-Editor"
+msgstr "Sti til ODT-Editor"
+#
+msgid "Paths"
+msgstr "Stier"
+#
+msgid "Place of Birth"
+msgstr "Fødselssted"
+#
+msgid ""
+"Please enter 05445.1234n03012.0504e for\n"
+"054Deg 45.1234Min N 030Deg 12.0504Min E"
+msgstr ""
+"Anfør 05445.1234n03012.0504e for\n"
+"054° 45,1234' N \n"
+"030°12,0504' E "
+#
+msgid ""
+"Please enter 0544512.15n0301205.15e for\n"
+"054Deg 45Min 12.15Sec N 030Deg 12Min 05.15Sec E"
+msgstr ""
+"Anfør 0544512.15n0301205.15e for\n"
+"054° 45' 12.15\" N \n"
+"030°12' 05.15\" E"
+#
+msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45:00 PM"
+msgstr "Anfør 4 cifre i 24h-format f.eks 1545 = 15:45:00"
+#
+msgid ""
+"Please enter like 1.30 or 1,30 or 1:30\n"
+"for 1:30h"
+msgstr ""
+"Anfør 1.30 eller 1,30 eller 1:30\n"
+"for 1:30t."
+#
+msgid ""
+"Please enter the Date in the format:\n"
+"   "
+msgstr ""
+"Anfør dato i formatet:\n"
+"      %s"
+#
+#, c-format
+msgid ""
+"Please enter the Date in the format:\n"
+"      %s"
+msgstr ""
+"Anfør dato i formatet:\n"
+"      %s"
+#
+msgid ""
+"Please enter the Time in the format:\n"
+"   12:30:00PM"
+msgstr ""
+"Anfør tid i formatet:\n"
+"   12:30:00."
+#
+msgid "Please fill in one character in Degrees, Minutes and Seconds"
+msgstr "Anfør én karakter i  Grader, Minutter og Sekunder"
+#
+msgid "Please fill in one character in Degrees, Minuts and Seconds"
+msgstr "Anfør én karakter i  Grader, Minutter og Sekunder"
+#
+msgid "Policy"
+msgstr "Police"
+#
+msgid "Position"
+msgstr "Position"
+#
+msgid "Priority"
+msgstr "Prioritet"
+#
+msgid "R"
+msgstr "R"
+#
+msgid "Reef"
+msgstr "Reb"
+#
+msgid "Registration"
+msgstr "Registrerings-Nr."
+#
+#
+msgid "Relative"
+msgstr "Relativ"
+#
+msgid "Reload Layouts"
+msgstr "Hent layouts igen"
+#
+msgid "Remarks"
+msgstr "Bemærkninger"
+#
+msgid "Rename Layout"
+msgstr "Omdøb layout"
+#
+msgid "Repair done"
+msgstr "Reparation afsluttet"
+#
+msgid "Repairs"
+msgstr "Reparationer"
+#
+msgid "RepairsTODO"
+msgstr "Manglende reparationer"
+#
+msgid "Reset Paths"
+msgstr "Nulstil stier"
+#
+msgid "Reset all Values to zero ?"
+msgstr "Nulstil alle værdier ?"
+#
+msgid "Route"
+msgstr "Rute"
+#
+msgid "SOG"
+msgstr "SOG"
+#
+msgid "STW"
+msgstr "STW"
+#
+msgid "Sail-Nr."
+msgstr "Sejl nummer"
+#
+msgid "Sails"
+msgstr "Sejl"
+#
+msgid "Sails used mostly"
+msgstr "Mest brugte sejl"
+#
+msgid "Save Boat File"
+msgstr "Gem båd fil"
+#
+msgid "Save BuyParts File"
+msgstr "Gem KøbReservedele fil"
+#
+msgid "Save CrewList File"
+msgstr "Gem besætningsliste fil"
+#
+msgid "Save Logbook File"
+msgstr "Gem logbog fil"
+#
+msgid "Save Overview File"
+msgstr "Gem oversigts fil"
+#
+msgid "Save Repairs File"
+msgstr "Gem reparations fil"
+#
+msgid "Save Service File"
+msgstr "Gem service fil"
+#
+#
+msgid "Seconds"
+msgstr "Sekunder"
+#
+msgid "Select Layout:"
+msgstr "Vælg layout:"
+#
+msgid "Select Layout: "
+msgstr "Vælg layout:"
+#
+msgid "Select Logbook"
+msgstr "Vælg logbog"
+#
+msgid "Select Route"
+msgstr "Vælg rute"
+#
+msgid ""
+"Select a layout which is displayed\n"
+"with button \"View\""
+msgstr ""
+"Vælg et layout som vises\n"
+"med knappen \"Se\""
+#
+msgid ""
+"Select a old logbook\n"
+"Everytime a new logbook is created, you'll \n"
+"find the active logbook as old logbook here"
+msgstr ""
+"Vælg en gammel logbog.\n"
+"Hvergang du laver en ny logbog, kan du\n"
+"finde både den aktive logbog og gamle logbøger her."
+#
+msgid "Select one of the old logbooks"
+msgstr "Vælg en af de gamle logbøger"
+#
+msgid "Select zipped Languages-Files"
+msgstr "Vælg zip pakket Sprog filer"
+#
+msgid "Select zipped Layout-Files"
+msgstr "Vælg zip pakket Layout filer"
+#
+msgid "Send Layout by email"
+msgstr "Send layout med email"
+#
+msgid "Serial-Nr."
+msgstr "Serie-Nr."
+#
+msgid "Service"
+msgstr "Service"
+#
+msgid "Service TODO"
+msgstr "Service TODO"
+#
+msgid "Service done"
+msgstr "Service afsluttet"
+#
+msgid "Set Path to DataManager"
+msgstr "Indstil sti til datamanager"
+#
+msgid "Set Path to HTML-Editor"
+msgstr "indstil sti til HTML-Editor"
+#
+msgid "Set Path to MailClient"
+msgstr "Indstil sti til mail program"
+#
+msgid "Set Path to ODT-Editor"
+msgstr "Indstil sti til ODT-Editor"
+#
+#
+msgid "Show Depth in"
+msgstr "Dybder i"
+#
+msgid "Show Equipment"
+msgstr "Vis udstyr"
+#
+#
+msgid "Show Logbook Icon"
+msgstr "Vis logbogs Ikon"
+#
+msgid "Show Position Fomat"
+msgstr "Vis position format"
+#
+msgid "Show ToolTips"
+msgstr "Vis ToolTips"
+#
+#
+msgid "Show Wave/Swell in"
+msgstr "Bølger/dønning i"
+#
+#
+msgid "Show all Layouts"
+msgstr "Vis alle layouts"
+#
+msgid "Show hidden columns"
+msgstr "Vis skjulte kolonner"
+#
+msgid "Show/Hide Equipmentgrid"
+msgstr "Vis/Skjul udstyr"
+#
+msgid "Sign"
+msgstr "Aktivitet"
+#
+msgid "Sorry, 0 Hrs 0 Min 0 Sec are not possible"
+msgstr "Beklager, 0 timer 0 minutter 0 sekunder er ikke muligt"
+#
+msgid "Sorry, Logbook has no lines"
+msgstr "Beklager, logbog indeholder ingen linier"
+#
+msgid "Sorry, Your Logbook has no lines"
+msgstr "Beklager, din logbog har ingen linier"
+#
+msgid "Sorry, no Layout installed"
+msgstr "Beklager, ingen layout installeret"
+#
+msgid "Speed"
+msgstr "Fart"
+#
+msgid "Speed Avg."
+msgstr "Gennemsnitlig fart"
+#
+msgid "Speed Max."
+msgstr "Maximal fart"
+#
+msgid "Speed STW Avg."
+msgstr "Gennemsnitlig STW fart"
+#
+msgid "Speed STW Max."
+msgstr "Maximal STW fart"
+#
+msgid "Start"
+msgstr "Start"
+#
+msgid "Start 1.Watch"
+msgstr "Start 1.vagt"
+#
+msgid "Start 2.Watch"
+msgstr "Start 2.vagt"
+#
+msgid "Start 3.Watch"
+msgstr "Start 3.vagt"
+#
+msgid "Start 4.Watch"
+msgstr "Start 4.vagt"
+#
+msgid "Start 5.Watch"
+msgstr "Start 5.vagt"
+#
+msgid "Start 6.Watch"
+msgstr "Start 6.vagt"
+#
+msgid "Startvalue"
+msgstr "Startværdi"
+#
+msgid "Street"
+msgstr "Gade"
+#
+msgid "Swell"
+msgstr "Dønning"
+#
+msgid "Swell Avg."
+msgstr "Gennemsnitlig dønning"
+#
+msgid "Swell Max."
+msgstr "Maximale dønning"
+#
+msgid "Telephone"
+msgstr "Telefon"
+#
+msgid "Temperature"
+msgstr "Temperatur"
+#
+msgid "Time"
+msgstr "Tid"
+#
+msgid "Timer"
+msgstr "Timer til/fra"
+#
+msgid "Timer "
+msgstr "Timer til/fra"
+#
+msgid ""
+"Timer has 0 h 0 Min 0 sec.\n"
+"\n"
+"Please change settings in Options"
+msgstr ""
+"Timer har 0 t 0 Min 0 sek.\n"
+"\n"
+"Venligst ret indstillinger i Options"
+#
+#
+msgid "Timer on/off"
+msgstr "Timer til/fra"
+#
+msgid "Title"
+msgstr "Titel"
+#
+msgid "Total Time"
+msgstr "Total tid"
+#
+msgid "Town"
+msgstr "By"
+#
+#
+msgid "True"
+msgstr "Sand"
+#
+msgid "Type"
+msgstr "Type"
+#
+msgid "UTC"
+msgstr "UTC"
+#
+msgid ""
+"Uncheck if You have no GPS\n"
+"If GPS is out of order, uncheck to\n"
+"prevent that the message repeats."
+msgstr ""
+"Fravælg, hvis du ikke benytter en GPS\n"
+"Fravælg hvis GPS ikke er funktionsdygtig\n"
+"for at undgå beskeden gentager sig."
+#
+msgid "Uninstall"
+msgstr "Afinstaller"
+#
+msgid "Uninstall Logbook"
+msgstr "Afinstaller logbog"
+#
+msgid ""
+"Uninstalls\n"
+"Logbook-Plugin,\n"
+"all Logbook-Data,\n"
+"all Logbook-Layouts,\n"
+"all Logbook-Languages\n"
+"and cleans the OpenCPN.ini"
+msgstr ""
+"Afinstallerer\n"
+"Logbog-Plugin\n"
+"alle Logbog-data\n"
+"alle Logbog-layouts\n"
+"alle Logbog-sprog\n"
+"og renser OpenCPN.ini"
+#
+msgid "Urgentvalue"
+msgstr "Presserende værdi"
+#
+# Textfield for userlabel in boat
+msgid "UserLabel"
+msgstr "Brugerlabel"
+#
+msgid "View"
+msgstr "Se"
+#
+msgid "View data in browser (HTML) or Openoffice/LibreOffice (ODT)"
+msgstr "Se data i Browser(HTML) eller Open/Libreoffice (ODT) "
+#
+msgid "Visibility"
+msgstr "Sigtbarhed"
+#
+msgid "W/Strength"
+msgstr "Vindstyrke"
+#
+msgid "Warnvalue"
+msgstr "Varselsværdi"
+#
+msgid "Watch"
+msgstr "Vagt"
+#
+msgid "Water"
+msgstr "Vand"
+#
+msgid "WaterTotal"
+msgstr "Vand ialt"
+#
+msgid "Wave"
+msgstr "Bølgehøjde"
+#
+msgid "Wave Avg."
+msgstr "Gennemsnitlig bølgehøjde"
+#
+msgid "Wave Max."
+msgstr "Maximale bølgehøjde"
+#
+msgid "WayPoint arrived"
+msgstr "Ankommet waypoint"
+#
+msgid "Waypoint skipped"
+msgstr "Waypoint sprunget over"
+#
+msgid "Weather"
+msgstr "Vejr"
+#
+#
+msgid "Week(s)"
+msgstr "Uge(r)"
+#
+#
+msgid "Weeks(s)"
+msgstr "Uger(r)"
+#
+msgid "Wind"
+msgstr "Vind"
+#
+msgid "Wind Avg."
+msgstr "Gennemsnitlig vind"
+#
+msgid "Wind Max."
+msgstr "Maximale vind"
+#
+msgid ""
+"Wind is set to Heading,\n"
+"but GPS sends no Heading Data.\n"
+"Wind is set now to Realative to boat\n"
+"\n"
+msgstr ""
+"Vindretning er sat til Kurs\n"
+"men GPS sender ingen Kurs data.\n"
+"Vindretning er nu sat til Relativ til båden\n"
+"\n"
+#
+msgid "Winddirection Avg."
+msgstr "Gennemsnitlig vind retning"
+#
+#
+msgid "Windspeed"
+msgstr "Vindstyrke"
+#
+#
+msgid "Windspeed "
+msgstr "Vindstyrke"
+#
+#
+msgid "Write warning \"No GPS\""
+msgstr "Skriv advarsel  \"Ingen GPS\""
+#
+msgid "Yard-Nr."
+msgstr "Havneplads nummer"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+msgid "Yes"
+msgstr "Ja"
+#
+msgid ""
+"Your Logbook has 800 lines or more\n"
+"\n"
+"Please create a new logbook to minimize the loadingtime.\n"
+"\n"
+"If you have a running timer, it's stopped now !!!"
+msgstr ""
+"Din logbog her 800 linier eller mere\n"
+"\n"
+"Venligst start en ny logbog for at minimere hentningstiden\n"
+"\n"
+"Hvis du har en Timer kørende, er denne stoppet nu !!!"
+#
+msgid "Your Logbook has no lines ?"
+msgstr "Din logbog har ingen linier ?"
+#
+msgid "Zip"
+msgstr "Postnummer"
+#
+msgid "add the equipment of your boat"
+msgstr "tilføj udstyret i din båd"
+#
+msgid ""
+"automatic line\n"
+"Distance > "
+msgstr ""
+"automatisk linie\n"
+"Distance > "
+#
+msgid ""
+"automatic line\n"
+"change of course >"
+msgstr ""
+"automatisk linie\n"
+"Kursændring > "
+#
+msgid ""
+"automatic line\n"
+"change of guards"
+msgstr ""
+"automatisk linie\n"
+"vagtskifte"
+#
+msgid "automatic line Waypoint arrived"
+msgstr "automatisk linie Ankomst Waypoint"
+#
+msgid "day(s)"
+msgstr "Dag(e)"
+#
+msgid "default"
+msgstr "Standard"
+#
+#
+msgid ""
+"default = Relative to Boat\n"
+"Heading = Actual wind direction"
+msgstr ""
+"Standard = Relativ vindretning\n"
+"Kurs = Sand vindretning"
+#
+msgid "delay to find the right course to the wind"
+msgstr "forsinkelse for at finde den rigtige kurs til vinden"
+#
+#
+msgid "every 15 Degrees +/- 1 hour"
+msgstr "hver 15 grader +/- 1 time"
+#
+msgid "export your BuyParts-data as HTML or ODT"
+msgstr "Eksporter dine  \"Køb Dele\"-data som HTML eller ODT"
+#
+msgid "export your Overview-data as HTML or ODT"
+msgstr "Eksporter dine  \"Oversigt\"-data som HTML eller ODT"
+#
+msgid "export your Repairs-data as HTML or ODT"
+msgstr "Eksporter dine \"Reparation\"-data som HTML eller ODT"
+#
+msgid "export your Service-data as HTML or ODT"
+msgstr "Eksporter dine  \"Service\"-data som HTML eller ODT"
+#
+msgid ""
+"export your boat/equipment-data as:\n"
+"      HTML, ODT,  ODS, XML, CSV"
+msgstr ""
+"Eksporter dine \"Båd/Udrustning\"-data som:\n"
+"           HTML, ODT,  ODS, XML, CSV"
+#
+msgid ""
+"export your crew-data as:\n"
+"HTML, ODT,  ODS, XML, CSV"
+msgstr ""
+"Eksporter dine \"Besætning\"-data som:\n"
+"        HTML, ODT,  ODS, XML, CSV"
+#
+msgid ""
+"export your logbook-data as:\n"
+"HTML, ODT,  ODS, XML, CSV"
+msgstr ""
+"Eksporter dine \"Logbog\"-data som:\n"
+"   HTML, ODT,  ODS, XML, CSV"
+#
+msgid "fm"
+msgstr "fm"
+#
+msgid "from"
+msgstr "fra"
+#
+msgid "ft"
+msgstr "ft"
+#
+msgid "fth"
+msgstr "fth"
+#
+msgid "gal"
+msgstr "gal"
+#
+msgid "h"
+msgstr "t"
+#
+msgid "km/h"
+msgstr "km/t"
+#
+msgid "kts"
+msgstr "kts"
+#
+msgid "m"
+msgstr "m"
+#
+msgid "m/s"
+msgstr "m/s"
+#
+msgid "mb"
+msgstr "mb"
+#
+msgid "month"
+msgstr "måned"
+#
+msgid "none"
+msgstr "ingen"
+#
+msgid "s"
+msgstr "s"
+#
+msgid "sm"
+msgstr "sm"
+#
+msgid "to"
+msgstr "til"
+#
+msgid "week(s)"
+msgstr "uge(r)"
+#
+msgid "write your own label"
+msgstr "skriv din egen label"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#~ msgid "BuyParts"
+#~ msgstr "Zubehör kaufen"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#~ msgid "CrewList"
+#~ msgstr "Crewliste"
+#
+#
+#~ msgid "Current from"
+#~ msgstr "Strøm fra"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#~ msgid "Logbook Konni"
+#~ msgstr "Logbuch Konni"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#~ msgid "Path to HTML-Editor (optional)"
+#~ msgstr "Pfad zum HTML-Editor (optional)"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#~ msgid "Save"
+#~ msgstr "Speichern"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Select boat-layout to view"
+#~ msgstr "Wähle Route"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "View "
+#~ msgstr "Ansehen"
+#
+#
+#~ msgid "Wind from"
+#~ msgstr "Vind fra"

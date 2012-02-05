@@ -251,7 +251,7 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
 			unit     = data[i].Item(_T("Unit")).AsString();
 			text     = data[i].Item(_T("Text")).AsString();
 			
-			prText[priority] += wxString::Format(_T("%4i  %-15s %-30s\n"),amount,unit,text);
+			prText[priority] += wxString::Format(_T("%4i  %-15s %-30s\n"),amount,unit.c_str(),text.c_str());
 
 		}
 

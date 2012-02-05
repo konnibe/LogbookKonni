@@ -1,0 +1,1369 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: logbookkonni_pi 2.6.1310\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2012-01-25 16:50+0100\n"
+"PO-Revision-Date: 2012-01-20 18:14+0100\n"
+"Last-Translator: Konni <konnibe@hotmail.de>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-SourceCharset: utf-8\n"
+"X-Poedit-Basepath: C:\\Users\\Konni\\Documents\\Visual Studio 2010\\Projects"
+"\\opencpn\\plugins\\LogbookKonni_pi\\src\n"
+"X-Poedit-Language: Polish\n"
+"X-Poedit-Country: POLAND\n"
+"X-Poedit-SearchPath-0: C:\\Users\\Konni\\Documents\\Visual Studio 2010"
+"\\Projects\\opencpn\\plugins\\LogbookKonni_pi\\src\n"
+#
+msgid "\n"
+msgstr "\n"
+#
+#, c-format
+msgid ""
+"\n"
+"Name of Waypoint: %s"
+msgstr ""
+"\n"
+"Nazwa Waypointa: %s"
+#
+#, c-format
+msgid ""
+"\n"
+"Name of Waypoint: %s\n"
+"True bearing to destination: %4.1f%s\n"
+"Range to destination: %4.2f%s"
+msgstr ""
+"\n"
+"Nazwa Waypointa: %s\n"
+"Namiar Rzeczywisty na cel: %4.1f%s\n"
+"Odległość do celu: %4.2f%s"
+#
+msgid ""
+"\n"
+"not found in layoutfile "
+msgstr ""
+"\n"
+"nie znaleziono w pliku szablonu"
+#
+msgid "      Course- Message after Minutes"
+msgstr "    Wpis o zmianie kursu po minutach"
+#
+msgid "     Winddirection set to:"
+msgstr "     Kierunek wiatru ustawiony na:"
+#
+msgid " - Timer on - Interval: "
+msgstr " - Timer włączony - Interwał: "
+#
+msgid " Direction "
+msgstr "Kierunek"
+#
+msgid ""
+"!\n"
+"\n"
+"Did you forget to add this line in your layout ?"
+msgstr ""
+"!\n"
+"\n"
+"Zapomniałeś dodać tą linię w szablonie?"
+#
+msgid "\""
+msgstr "\""
+#
+msgid "'"
+msgstr "'"
+#
+msgid "0"
+msgstr "0"
+#
+msgid "Abbreviations"
+msgstr "Skróty"
+#
+msgid "Active"
+msgstr "Aktywne"
+#
+msgid "Active Logbook"
+msgstr "Aktywny Dziennik"
+#
+msgid "Actuell Logbook"
+msgstr "Aktywny Dziennik"
+#
+msgid "Add Crew"
+msgstr "Dodaj załogę"
+#
+msgid "Add Equipment"
+msgstr "Dodaj wyposażenie"
+#
+msgid "Add Line"
+msgstr "Dodaj Wpis"
+#
+msgid "Add a line to the end of your logbook"
+msgstr "Dodaj wpis na końcu Dziennika"
+#
+msgid "Add a new Crewmember"
+msgstr "Dodaj nowego załoganta"
+#
+msgid "Add a new line"
+msgstr "Dodaj wpis"
+#
+msgid "Adress"
+msgstr "Adres"
+#
+msgid "Air"
+msgstr ""
+"Temp.\n"
+"powietrza"
+#
+msgid "All Logbooks"
+msgstr "Wszystkie Dzienniki"
+#
+msgid "Append Line every Nm"
+msgstr "Dodawaj Wpis co X mm"
+#
+msgid "Are you sure ?"
+msgstr "Czy jesteś pewien?"
+#
+msgid "At"
+msgstr "W"
+#
+msgid ""
+"Automatic Line by Timer\n"
+"you can set/unset a timer\n"
+"or change this text in options"
+msgstr ""
+"wpis automatyczny Timera\n"
+"możesz włączyć/wyłączyć Timer\n"
+"lub zmienić ten tekst w Preferencjach."
+#
+msgid ""
+"Automatic line by timer\n"
+"\n"
+"You can set/unset a timer-interval\n"
+"or change this text in Toolbox/Plugins/Logbook\n"
+"\n"
+"Shift+Enter appends a new line"
+msgstr ""
+"Wpis automatyczny Timera\n"
+"\n"
+"Możesz włączyć/wyłączyć Timer\n"
+"lub zmienić ten tekst w Narzędzia/Wtyczki/Dziennik Jachtowy\n"
+"\n"
+"Shift+Enter dodaje nową linię"
+#
+msgid "Barometer"
+msgstr "Ciśnienie"
+#
+msgid "Beam"
+msgstr "Szerokość"
+#
+msgid "Behavior"
+msgstr "Zachowanie"
+#
+msgid "Best Dist. p. Day"
+msgstr ""
+"Najlepszy\n"
+"Przebieg Dobowy"
+#
+msgid "Birthname"
+msgstr "Nazwisko panieńskie"
+#
+msgid "Boat"
+msgstr "Jacht"
+#
+msgid "Builder"
+msgstr "Budowniczy"
+#
+msgid "Buy Parts"
+msgstr "Kup Części"
+#
+msgid "Buy parts for this repair"
+msgstr "Kup części do tej naprawy"
+#
+msgid "Buy parts for this service"
+msgstr "Kup części do tej czynności"
+#
+msgid "C/Strength"
+msgstr ""
+"Prędkość\n"
+"Prądu"
+#
+msgid "COG (T)"
+msgstr "KDd"
+#
+msgid "Callsign"
+msgstr "Znak wywoławczy"
+#
+msgid "Capacity"
+msgstr "Pojemność"
+#
+msgid "Category"
+msgstr "Kategoria"
+#
+msgid "Clouds"
+msgstr "Zachmurzenie"
+#
+msgid "Confirm"
+msgstr "Potwierdź"
+#
+msgid "Construction"
+msgstr "Konstrukcja"
+#
+msgid "Country"
+msgstr "Kraj"
+#
+msgid ""
+"Create a new logbook\n"
+"the active logbook is saved with today's date\n"
+"and can be viewed with Button \"Select Logbook\""
+msgstr ""
+"Utwórz nowy dziennik\n"
+"aktywny dziennik zostanie zapisany z dzisiejszą datą\n"
+"i może być dostępny pod przyciskiem \"Wybierz Dziennik\""
+#
+msgid "Crewlist"
+msgstr "Lista załogi"
+#
+msgid "Current"
+msgstr "Prąd"
+#
+msgid "Current Avg."
+msgstr ""
+"Średni\n"
+"prąd"
+#
+msgid "Current Max."
+msgstr ""
+"Maksymalny\n"
+"prąd"
+#
+msgid "Currentdirection Avg."
+msgstr ""
+"Średni\n"
+"kierunek prądu"
+#
+msgid "Date"
+msgstr "Data"
+#
+msgid "Date + Days"
+msgstr "Data + Dni"
+#
+msgid "Date + Month"
+msgstr "Data + Miesięcy"
+#
+msgid "Date + Weeks"
+msgstr "Data + Tygodni"
+#
+msgid "Date Launched"
+msgstr "Data wodowania"
+#
+msgid "Date of Birth"
+msgstr ""
+"Data\n"
+"urodzenia"
+#
+msgid "Date of Issue"
+msgstr "Data wydania"
+#
+msgid "Day(s)"
+msgstr "Dni"
+#
+msgid "Degres"
+msgstr "Stopnie"
+#
+msgid "Delete Layout"
+msgstr "Usuń Szablon"
+#
+msgid "Delete Row"
+msgstr "Usuń Wpis"
+#
+#, c-format
+msgid "Delete Row Nr. %i ?"
+msgstr "Usunąć wiersz nr %i?"
+#
+msgid "Depth"
+msgstr "Głębokość"
+#
+msgid "Description"
+msgstr "Opis"
+#
+msgid "Designer"
+msgstr "Projektant"
+#
+msgid "Details"
+msgstr "Szczegóły"
+#
+msgid "Displacement"
+msgstr "Wyporność"
+#
+msgid "Distance"
+msgstr "Droga"
+#
+msgid "Distance p. Day"
+msgstr ""
+"Przebieg\n"
+"dobowy"
+#
+msgid "DistanceTotal"
+msgstr ""
+"Całkowita\n"
+"Droga"
+#
+msgid "Draft"
+msgstr "Zanurzenie"
+#
+msgid "E"
+msgstr "E"
+#
+msgid "Edit Layout"
+msgstr "Edytuj Szablon"
+#
+msgid "Edit Layouts"
+msgstr "Edytuj Szablony"
+#
+msgid "End"
+msgstr "Koniec"
+#
+msgid "End 1.Watch"
+msgstr ""
+"Koniec\n"
+"I wachty"
+#
+msgid "End 2.Watch"
+msgstr ""
+"Koniec\n"
+"II wachty"
+#
+msgid "End 3.Watch"
+msgstr ""
+"Koniec\n"
+"III wachty"
+#
+msgid "End 4.Watch"
+msgstr ""
+"Koniec\n"
+"IV wachty"
+#
+msgid "End 5.Watch"
+msgstr ""
+"Koniec\n"
+"V wachty"
+#
+msgid "End 6.Watch"
+msgstr ""
+"Koniec\n"
+"VI wachty"
+#
+msgid "Engine"
+msgstr "Motogodziny"
+#
+msgid "EngineTotal"
+msgstr ""
+"Motogodziny\n"
+"łącznie"
+#
+msgid "Equipment"
+msgstr "Wyposażenie"
+#
+msgid "Export"
+msgstr "Eksport"
+#
+# (C)elsius or (F)ahrenheit
+msgid "F"
+msgstr "C"
+#
+msgid "Fathom"
+msgstr "Sążeń"
+#
+msgid "Feet"
+msgstr "Stopa"
+#
+msgid "Filter Layout by"
+msgstr "Filtruj Szablony"
+#
+msgid "Firstname"
+msgstr "Imię"
+#
+msgid "Fix Date"
+msgstr "Data naprawy"
+#
+msgid "Fuel"
+msgstr "Paliwo"
+#
+msgid "Fuel/Water"
+msgstr "Paliwo/Woda"
+#
+msgid "FuelTotal"
+msgstr ""
+"Paliwo\n"
+"łącznie"
+#
+msgid "GPS Auto"
+msgstr "Automatyczny z GPS"
+#
+msgid "Goto Route"
+msgstr "Idź do Trasy"
+#
+msgid "Greatest Width of Hull"
+msgstr "Największa szerokość kadłuba"
+#
+msgid "HIN-Nr."
+msgstr "Nr HIN"
+#
+msgid ""
+"Have You forgotten to enclose the Header with [[ and ]]\n"
+" or Data with {{ and }} ?"
+msgstr ""
+"Zapomniałes zamknąć Nagłówek w [[ i ]]\n"
+"lub Dane w {{ i }}?"
+#
+msgid "Heading"
+msgstr "Kurs"
+#
+msgid "Hide Equipment"
+msgstr "Ukryj Wyposażenie"
+#
+msgid "Hide column"
+msgstr "Ukryj kolumnę"
+#
+msgid "Homeport"
+msgstr "Port macierzysty"
+#
+msgid "Hull"
+msgstr "Kadłub"
+#
+msgid "Hull Identification No."
+msgstr "Numer Identyfikacyjny Kadłuba"
+#
+msgid "Hydrometer"
+msgstr "Hydrometr"
+#
+msgid "If"
+msgstr "Jeżeli"
+#
+msgid "If Course changes more then "
+msgstr "Jeśli kurs zmieni się o więcej niż "
+#
+msgid "If GPS off use for manual entry"
+msgstr "Jeśli GPS jest wyłączony wpisz ręcznie"
+#
+msgid "If Watch changed"
+msgstr "Jeśli nastąpiła zmiana wachty"
+#
+msgid "If Waypoint arrived"
+msgstr "Jeśli osiągnięto Waypoint"
+#
+msgid ""
+"If You have created Your own Layouts\n"
+"prepend them with e.g. My_ \n"
+"The _ is important"
+msgstr ""
+"Jeśli utworzyłeś własne szablony\n"
+"poprzedź je np.: Mój_\n"
+"Znak _ jest istotny"
+#
+msgid ""
+"If You have created Your own layouts\n"
+"with prefix e.g. My_"
+msgstr ""
+"Jeśli utworzyłeś własne szablony\n"
+"z prefiksem np.: Mój_ "
+#
+msgid "Information"
+msgstr "Informacje"
+#
+msgid "Install"
+msgstr "Instaluj"
+#
+msgid "Install Languages"
+msgstr "Instaluj Języki"
+#
+msgid "Install Layouts"
+msgstr "Instaluj Szablony"
+#
+msgid "Install OpenCPN_Logbook_Languages.zip"
+msgstr "Instaluj OpenCPN_Logbook_Languages.zip"
+#
+msgid "Install OpenCPN_Logbook_Layouts.zip"
+msgstr "Instaluj OpenCPN_Logbook_Layouts.zip"
+#
+msgid "Install OpenCPN_Mac_Logbook_Languages.zip"
+msgstr "Instaluj OpenCPN_Mac_Logbook_Languages.zip"
+#
+msgid "Install single Layout"
+msgstr "Zainstaluj pojedynczy Szablon"
+#
+msgid "Insurance"
+msgstr "Ubezpieczenie"
+#
+msgid "Interval:"
+msgstr "Interwał:"
+#
+msgid "Issued in"
+msgstr "Wydany przez"
+#
+msgid ""
+"It's not allowed to append Data to a old Logbook\n"
+"\n"
+"OpenCPN switchs to actuell logbook"
+msgstr ""
+"Nie można dodawać wpisów do archiwalnego Dziennika\n"
+"\n"
+"Przełączono na aktualny Dziennik"
+#
+msgid "LOA"
+msgstr "Lc"
+#
+msgid "LOD"
+msgstr "Lp"
+#
+msgid "LWL"
+msgstr "Lw"
+#
+msgid "Languages installed"
+msgstr "Języki zainstalowan"
+#
+msgid "Last Logbook is\n"
+msgstr "Ostatni Dziennik\n"
+#
+msgid "Last line from Logbook\n"
+msgstr "Ostatni wpis w Dzienniku\n"
+#
+msgid "Layouts installed"
+msgstr "Szablony zainstalowane"
+#
+msgid "Length in Waterline"
+msgstr "Długość w linii wodnej"
+#
+msgid "Length over Deck"
+msgstr "Długość po pokładzie"
+#
+msgid "Length over all"
+msgstr "Długość całkowita"
+#
+msgid "Local = UTC"
+msgstr "Lokalny = UTC"
+#
+msgid "Logbook"
+msgstr "Dziennik"
+#
+msgid "Logbook Preferences"
+msgstr "Preferencje Dziennika"
+#
+msgid "Logbook Total"
+msgstr "Dzienniki Łącznie"
+#
+msgid "Logbook for OpenCPN"
+msgstr "Dziennik Jachtowy dla OpenCPN"
+#
+msgid ""
+"Logbook for OpenCPN\n"
+"\n"
+"\t- automatic (NMEA) or manual input\n"
+"\t- Timer for automatic line insert\n"
+"\t- Fileexport to ods,html,xml(Windows only),csv\n"
+"\t- Multiple layouts\n"
+"\t- Costumizable layout\n"
+"\n"
+"Thanks's to the community for their helpfull suggestions.\n"
+"\n"
+"If You find a bug post it on\n"
+"http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945."
+"html\n"
+"Helpfull Videos are at Youtube, search for LogbookKonni."
+msgstr ""
+"Dziennik Jachtowy dla OpenCPN\n"
+"\n"
+"\t- wpisy automatyczne (NMEA) lub ręczne\n"
+"\t- Timer generujący wpisy\n"
+"\t- Eksport danych do ods, html, xml(tylko Windows), csv\n"
+"\t- Wiele szablonów\n"
+"\t- Edytowalne szablony\n"
+"\n"
+"Podziękowania dla społeczności za pomocne sugestie.\n"
+"\n"
+"Jeśli znajdziesz błąd napisz w\n"
+"http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945."
+"html\n"
+"Pomocne filmy na Youtube, szukaj LogbookKonni."
+#
+#, c-format
+msgid "Logbook from %s to %s"
+msgstr "Dziennik od %s do %s"
+#
+msgid "Logbook until "
+msgstr "Dziennik do"
+#
+msgid "MMSI"
+msgstr "MMSI"
+#
+msgid "Magnetic"
+msgstr "Magnetyczny"
+#
+msgid "Maintenance"
+msgstr "Obsługa"
+#
+msgid "Meter"
+msgstr "Metr"
+#
+msgid "Minutes"
+msgstr "Minuty"
+#
+msgid "Minutes greater than 59"
+msgstr "Liczba minut większa niż 59"
+#
+msgid "Month"
+msgstr "Miesięcy"
+#
+msgid "Motor Hours"
+msgstr "Motogodziny"
+#
+msgid "Motor/Sails"
+msgstr "Silnik/Żagle"
+#
+msgid "Name"
+msgstr "Nazwisko"
+#
+msgid "Name      "
+msgstr "Nazwa"
+#
+msgid "Nationality"
+msgstr "Narodowość"
+#
+msgid "Navigation"
+msgstr "Nawigacja"
+#
+msgid "New Logbook"
+msgstr "Nowy Dziennik"
+#
+msgid "No"
+msgstr "Nie"
+#
+msgid "No GPS-Signal !"
+msgstr "Brak sygnału GPS!"
+#
+msgid ""
+"No Path set to HTML-Editor\n"
+"in ToolBox/Plugins/LogbookKonni/Preferences"
+msgstr ""
+"Brak ścieżki do Edytora HTML\n"
+"w Narzędzia/Wtyczki/LogbookKonni/Preferencje"
+#
+msgid ""
+"No Path set to HTML-Editor\n"
+"in Toolbox/Plugins/LogbookKonni/Preferences"
+msgstr ""
+"Brak ścieżki do Edytora HTML\n"
+"w Narzędzia/Wtyczki/LogbookKonni/Preferencje"
+#
+#, c-format
+msgid "Old Logbook until %s"
+msgstr "Archiwalny dziennik do %s"
+#
+msgid "Only Layouts with prefix:"
+msgstr "tylko Szablony z prefiksem:"
+#
+msgid ""
+"Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV "
+"Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
+msgstr ""
+"Otwórz dokument Arkusz(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV Format "
+"OpenOffice(*.csv)|*.csv|Kopia zapasowa Dziennika(*.txt)|*.txt"
+#
+msgid "Overview"
+msgstr "Przegląd"
+#
+msgid "Owner"
+msgstr "Właściciel"
+#
+msgid "Passport-Nr"
+msgstr "Nr paszportu"
+#
+msgid "Path"
+msgstr "Ścieżka"
+#
+msgid "Path to Datamanager"
+msgstr "Ścieżka do Menadżera plików"
+#
+msgid ""
+"Path to HTML-Editor\n"
+"(optional)"
+msgstr ""
+"Ścieżka do edytora HTML\n"
+"(opcjonalnie)"
+#
+msgid "Path to MailClient"
+msgstr "Ścieżka do klienta poczty"
+#
+msgid "Path to ODT-Editor"
+msgstr "Ścieżka do edytora ODT"
+#
+msgid "Paths"
+msgstr "Ścieżki"
+#
+msgid "Place of Birth"
+msgstr "Miejsce urodzenia"
+#
+msgid ""
+"Please enter 05445.1234n03012.0504e for\n"
+"054Deg 45.1234Min N 030Deg 12.0504Min E"
+msgstr ""
+"Wprowadź 05445.1234n03012.0504e dla\n"
+"054Deg 45.1234Min N 030Deg 12.0504Min E"
+#
+msgid ""
+"Please enter 0544512.15n0301205.15e for\n"
+"054Deg 45Min 12.15Sec N 030Deg 12Min 05.15Sec E"
+msgstr ""
+"Wprowadź 0544512.15n0301205.15e dla\n"
+"054Deg 45Min 12.15Sec N 030Deg 12Min 05.15Sec E"
+#
+msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45:00 PM"
+msgstr "Wprowadź 4 cyfry w formacie 24h np. 1545 = 03:45:00 PM"
+#
+msgid ""
+"Please enter like 1.30 or 1,30 or 1:30\n"
+"for 1:30h"
+msgstr ""
+"Wprowadź 1.30, 1,30 lub 1:30\n"
+"dla 1:30h"
+#
+msgid ""
+"Please enter the Date in the format:\n"
+"   "
+msgstr ""
+"Wprowadź Datę w formacie:\n"
+"   "
+#
+#, c-format
+msgid ""
+"Please enter the Date in the format:\n"
+"      %s"
+msgstr ""
+"Wprowadź Datę w formacie:\n"
+"      %s"
+#
+msgid ""
+"Please enter the Time in the format:\n"
+"   12:30:00PM"
+msgstr ""
+"Wprowadź Czas w formacie:\n"
+"   12:30:00PM"
+#
+msgid "Please fill in one character in Degrees, Minutes and Seconds"
+msgstr "Wprowadź jeden znak dla stopni, minut i sekund"
+#
+msgid "Please fill in one character in Degrees, Minuts and Seconds"
+msgstr "Wprowadź jeden znak dla stopni, minut i sekund"
+#
+msgid "Policy"
+msgstr "Nr polisy"
+#
+msgid "Position"
+msgstr "Pozycja"
+#
+msgid "Priority"
+msgstr "Priorytet"
+#
+msgid "R"
+msgstr "P"
+#
+msgid "Reef"
+msgstr "Refy"
+#
+msgid "Registration"
+msgstr "Rejestracja"
+#
+msgid "Relative"
+msgstr "Względny"
+#
+msgid "Reload Layouts"
+msgstr "Przeładuj Szablony"
+#
+msgid "Remarks"
+msgstr "Uwagi"
+#
+msgid "Rename Layout"
+msgstr "Zmień nazwę Szablonu"
+#
+msgid "Repair done"
+msgstr "Naprawa wykonana"
+#
+msgid "Repairs"
+msgstr "Naprawy"
+#
+msgid "RepairsTODO"
+msgstr "Naprawa"
+#
+msgid "Reset Paths"
+msgstr "Resetuj ścieżki"
+#
+msgid "Reset all Values to zero ?"
+msgstr "Wyzerować wszystkie wartości?"
+#
+msgid "Route"
+msgstr "Trasa"
+#
+msgid "SOG"
+msgstr "Vd"
+#
+msgid "STW"
+msgstr "Vw"
+#
+msgid "Sail-Nr."
+msgstr "Żagiel Nr."
+#
+msgid "Sails"
+msgstr "Żagle"
+#
+msgid "Sails used mostly"
+msgstr ""
+"Najczęściej\n"
+"używane żagle"
+#
+msgid "Save Boat File"
+msgstr "Zapisz plik Opisu Jachtu"
+#
+msgid "Save BuyParts File"
+msgstr "Zapisz plik Kupna Części"
+#
+msgid "Save CrewList File"
+msgstr "Zapisz plik Listy Załogi"
+#
+msgid "Save Logbook File"
+msgstr "Zapisz plik Dziennika"
+#
+msgid "Save Overview File"
+msgstr "Zapisz plik Przeglądu"
+#
+msgid "Save Repairs File"
+msgstr "Zapisz plik Napraw"
+#
+msgid "Save Service File"
+msgstr "Zapisz plik Serwisu"
+#
+msgid "Seconds"
+msgstr "Sekundy"
+#
+msgid "Select Layout:"
+msgstr "Wybierz Szablon:"
+#
+msgid "Select Layout: "
+msgstr "Wybierz Szablon"
+#
+msgid "Select Logbook"
+msgstr "Wybierz Dziennik"
+#
+msgid "Select Route"
+msgstr "Wybierz Trasę"
+#
+msgid ""
+"Select a layout which is displayed\n"
+"with button \"View\""
+msgstr ""
+"Wybierz szablon, który będzie wyświetlany\n"
+"pod przyciskiem \"Widok\""
+#
+msgid ""
+"Select a old logbook\n"
+"Everytime a new logbook is created, you'll \n"
+"find the active logbook as old logbook here"
+msgstr ""
+"Wybierz dziennik archiwalny\n"
+"Za każdym razem kiedy utworzysz nowy dziennik,\n"
+"aktywny znajdzie się tutaj"
+#
+msgid "Select one of the old logbooks"
+msgstr "Wybierz jeden z dzienników archiwalnych"
+#
+msgid "Select zipped Languages-Files"
+msgstr "Wybierz spakowane pliki Języków"
+#
+msgid "Select zipped Layout-Files"
+msgstr "Wybierz spakowane pliki Szablonów"
+#
+msgid "Send Layout by email"
+msgstr "Wyślij Szablon emailem"
+#
+msgid "Serial-Nr."
+msgstr "Numer seryjny"
+#
+msgid "Service"
+msgstr "Serwis"
+#
+msgid "Service TODO"
+msgstr "Czynność serwisowa"
+#
+msgid "Service done"
+msgstr "Czynność wykonana"
+#
+msgid "Set Path to DataManager"
+msgstr "Ustaw ścieżkę do Menadżera plików"
+#
+msgid "Set Path to HTML-Editor"
+msgstr "Ustaw ścieżkę do edytora HTML"
+#
+msgid "Set Path to MailClient"
+msgstr "Ustaw ścieżkę do klienta poczty"
+#
+msgid "Set Path to ODT-Editor"
+msgstr "Ustaw ścieżkę do edytora ODT"
+#
+msgid "Show Depth in"
+msgstr "Pokazuj Głębokość w"
+#
+msgid "Show Equipment"
+msgstr "Pokaż Wyposażenie"
+#
+msgid "Show Logbook Icon"
+msgstr "Pokazuj ikonę Dziennika"
+#
+msgid "Show Position Fomat"
+msgstr "Format Pozycji"
+#
+msgid "Show ToolTips"
+msgstr "Pokazuj podpowiedzi-dymki"
+#
+msgid "Show Wave/Swell in"
+msgstr "Pokaż Stan morza/Martwą falę w"
+#
+msgid "Show all Layouts"
+msgstr "Pokaż wszystkie Szablony"
+#
+msgid "Show hidden columns"
+msgstr "Pokaż ukryte kolumny"
+#
+msgid "Show/Hide Equipmentgrid"
+msgstr "Pokaż/Ukryj Wyposażenie"
+#
+msgid "Sign"
+msgstr "Stan"
+#
+msgid "Sorry, 0 Hrs 0 Min 0 Sec are not possible"
+msgstr "Niestety, 0 godz., 0 min, 0 sek. nie jest możliwe"
+#
+msgid "Sorry, Logbook has no lines"
+msgstr "Dziennik nie ma wpisów"
+#
+msgid "Sorry, Your Logbook has no lines"
+msgstr "Niestety, Twój Dziennik nie zawiera wpisów"
+#
+msgid "Sorry, no Layout installed"
+msgstr "Nie zainstalowano Szablonu"
+#
+msgid "Speed"
+msgstr "Prędkość"
+#
+msgid "Speed Avg."
+msgstr ""
+"Średnia\n"
+"prędkość"
+#
+msgid "Speed Max."
+msgstr ""
+"Maksymalna\n"
+"prędkość"
+#
+msgid "Speed STW Avg."
+msgstr ""
+"Średnia\n"
+"Vw"
+#
+msgid "Speed STW Max."
+msgstr ""
+"Maksymalna\n"
+"Vw"
+#
+msgid "Start"
+msgstr "Początek"
+#
+msgid "Start 1.Watch"
+msgstr ""
+"Początek\n"
+"I wachty"
+#
+msgid "Start 2.Watch"
+msgstr ""
+"Początek\n"
+"II wachty"
+#
+msgid "Start 3.Watch"
+msgstr ""
+"Początek\n"
+"III wachty"
+#
+msgid "Start 4.Watch"
+msgstr ""
+"Początek\n"
+"IV wachty"
+#
+msgid "Start 5.Watch"
+msgstr ""
+"Początek\n"
+"V wachty"
+#
+msgid "Start 6.Watch"
+msgstr ""
+"Początek\n"
+"VI wachty"
+#
+msgid "Startvalue"
+msgstr ""
+"Wartość\n"
+"początkowa"
+#
+msgid "Street"
+msgstr "Ulica"
+#
+msgid "Swell"
+msgstr ""
+"Martwa\n"
+"fala"
+#
+msgid "Swell Avg."
+msgstr ""
+"Średnia\n"
+"martwa fala"
+#
+msgid "Swell Max."
+msgstr ""
+"Maksymalna\n"
+"martwa fala"
+#
+msgid "Telephone"
+msgstr "Telefon"
+#
+msgid "Temperature"
+msgstr "Temperatura"
+#
+msgid "Time"
+msgstr "Czas"
+#
+msgid "Timer"
+msgstr "Timer"
+#
+msgid "Timer "
+msgstr "Timer"
+#
+msgid ""
+"Timer has 0 h 0 Min 0 sec.\n"
+"\n"
+"Please change settings in Options"
+msgstr ""
+"Timer ustawiony 0 h 0 Min 0 sec.\n"
+"\n"
+"Zmień ustawienie w Preferencjach "
+#
+msgid "Timer on/off"
+msgstr "Timer włącz/wyłącz"
+#
+msgid "Title"
+msgstr "Tytuł"
+#
+msgid "Total Time"
+msgstr "Łączny czas"
+#
+msgid "Town"
+msgstr "Miasto"
+#
+msgid "True"
+msgstr "Rzeczywisty"
+#
+msgid "Type"
+msgstr "Typ"
+#
+msgid "UTC"
+msgstr "UTC"
+#
+msgid ""
+"Uncheck if You have no GPS\n"
+"If GPS is out of order, uncheck to\n"
+"prevent that the message repeats."
+msgstr ""
+"Odznacz jeśli nie masz GPS\n"
+"Jeżeli GPS nie działa, odznacz aby\n"
+"uniknąć powtarzających się ostrzeżeń."
+#
+msgid "Uninstall"
+msgstr "Odinstaluj"
+#
+msgid "Uninstall Logbook"
+msgstr "Udinstaluj Dziennik"
+#
+msgid ""
+"Uninstalls\n"
+"Logbook-Plugin,\n"
+"all Logbook-Data,\n"
+"all Logbook-Layouts,\n"
+"all Logbook-Languages\n"
+"and cleans the OpenCPN.ini"
+msgstr ""
+"Odinstalowuje\n"
+"Wtyczkę Dziennik,\n"
+"wszytkie dane Dziennika,\n"
+"wszystkie Szablony Dziennika,\n"
+"wszystkie Języki Dziennika\n"
+"i czyści OpenCPN.ini"
+#
+msgid "Urgentvalue"
+msgstr "Pilnie"
+#
+msgid "UserLabel"
+msgstr "Etykieta użytkownika"
+#
+msgid "View"
+msgstr "Podgląd"
+#
+msgid "View data in browser (HTML) or Openoffice/LibreOffice (ODT)"
+msgstr "Zobacz w przeglądarce (HTML) lub OpenOffice (ODT)"
+#
+msgid "Visibility"
+msgstr "Widzialność"
+#
+msgid "W/Strength"
+msgstr "Siła Wiatru"
+#
+msgid "Warnvalue"
+msgstr "Ostrzeżenie"
+#
+msgid "Watch"
+msgstr "Wachta"
+#
+msgid "Water"
+msgstr ""
+"Temp.\n"
+"wody"
+#
+msgid "WaterTotal"
+msgstr "Woda łącznie"
+#
+msgid "Wave"
+msgstr "Stan morza"
+#
+msgid "Wave Avg."
+msgstr ""
+"Średni\n"
+"stan morza"
+#
+msgid "Wave Max."
+msgstr ""
+"Maksymalny\n"
+"stan morza"
+#
+msgid "WayPoint arrived"
+msgstr "Jeśli osiągnięto Waypoint"
+#
+msgid "Waypoint skipped"
+msgstr "Jeśli ominięto Waypoint"
+#
+msgid "Weather"
+msgstr "Pogoda"
+#
+msgid "Week(s)"
+msgstr "Tygodni"
+#
+msgid "Weeks(s)"
+msgstr "Tygodni"
+#
+msgid "Wind"
+msgstr "Wiatr"
+#
+msgid "Wind Avg."
+msgstr ""
+"Średni\n"
+"wiatr"
+#
+msgid "Wind Max."
+msgstr ""
+"Maksymalny\n"
+"wiatr"
+#
+msgid ""
+"Wind is set to Heading,\n"
+"but GPS sends no Heading Data.\n"
+"Wind is set now to Realative to boat\n"
+"\n"
+msgstr ""
+"Wskazanie Kierunku Wiatru ustawione na Rzeczywiste\n"
+"ale GPS nie podaje Kursu\n"
+"Wskazanie Kierunku Wiatru ustawiono na względne do jachtu\n"
+"\n"
+#
+msgid "Winddirection Avg."
+msgstr ""
+"Średni\n"
+"kierunek wiatru"
+#
+msgid "Windspeed"
+msgstr "Prędkość wiatru"
+#
+msgid "Windspeed "
+msgstr "Prędkość wiatru"
+#
+msgid "Write warning \"No GPS\""
+msgstr "Zapisuj ostrzeżenie \"Brak GPS\""
+#
+msgid "Yard-Nr."
+msgstr "Nr doku"
+#
+msgid "Yes"
+msgstr "Tak"
+#
+msgid ""
+"Your Logbook has 800 lines or more\n"
+"\n"
+"Please create a new logbook to minimize the loadingtime.\n"
+"\n"
+"If you have a running timer, it's stopped now !!!"
+msgstr ""
+"Twój Dziennik zawiera 800 wpisów lub więcej\n"
+"\n"
+"Stwórz nowy dziennik aby przyspieszyć ładowanie.\n"
+"\n"
+"Jeśli miałeś włączony timer, został teraz zatrzymany !!!"
+#
+msgid "Your Logbook has no lines ?"
+msgstr "Twój Dziennik nie ma wpisów?"
+#
+msgid "Zip"
+msgstr "Kod pocztowy"
+#
+msgid "add the equipment of your boat"
+msgstr "dodaj wyposażenie jachtu"
+#
+msgid ""
+"automatic line\n"
+"Distance > "
+msgstr ""
+"wpis automatyczny\n"
+"Odległość > "
+#
+msgid ""
+"automatic line\n"
+"change of course >"
+msgstr ""
+"wpis automatyczny\n"
+"zmiana kursu >"
+#
+msgid ""
+"automatic line\n"
+"change of guards"
+msgstr ""
+"wpis automatyczny\n"
+"zmiana wachty"
+#
+msgid "automatic line Waypoint arrived"
+msgstr ""
+"wpis automatyczny\n"
+"osiągnięto Waypoint"
+#
+msgid "day(s)"
+msgstr "dni"
+#
+msgid "default"
+msgstr "domyślne"
+#
+msgid ""
+"default = Relative to Boat\n"
+"Heading = Actual wind direction"
+msgstr ""
+"domyślne = Względem Jachtu\n"
+"Kurs = Rzeczywisty kierunek wiatru"
+#
+msgid "delay to find the right course to the wind"
+msgstr "czas na ustawienie jachtu odpowiednio do wiatru"
+#
+msgid "every 15 Degrees +/- 1 hour"
+msgstr "co 15 stopni +/- 1 godzina"
+#
+msgid "export your BuyParts-data as HTML or ODT"
+msgstr "eksportuj dane Kupna Części jako HTML lub ODT"
+#
+msgid "export your Overview-data as HTML or ODT"
+msgstr "eksportuj dane Przeglądu jako HTML lub ODT"
+#
+msgid "export your Repairs-data as HTML or ODT"
+msgstr "eksportuj dane napraw jako HTML lub ODT"
+#
+msgid "export your Service-data as HTML or ODT"
+msgstr "eksportuj dane Serwisowe jako HTML lub ODT"
+#
+msgid ""
+"export your boat/equipment-data as:\n"
+"      HTML, ODT,  ODS, XML, CSV"
+msgstr ""
+"eksportuj dane jachtu oraz wyposażenia jako:\n"
+"      HTML, ODT, ODS, XML, CSV"
+#
+msgid ""
+"export your crew-data as:\n"
+"HTML, ODT,  ODS, XML, CSV"
+msgstr ""
+"eksportuj dane załogi jako:\n"
+"HTML, ODT. ODS, XML, CSV"
+#
+msgid ""
+"export your logbook-data as:\n"
+"HTML, ODT,  ODS, XML, CSV"
+msgstr ""
+"eksportuj dane z dziennika jako:\n"
+"HTML, ODT, ODS, XML, CSV"
+#
+msgid "fm"
+msgstr "sąż"
+#
+msgid "from"
+msgstr "od"
+#
+msgid "ft"
+msgstr "ft"
+#
+msgid "fth"
+msgstr "sąż"
+#
+msgid "gal"
+msgstr "gal"
+#
+msgid "h"
+msgstr "g"
+#
+msgid "km/h"
+msgstr "km/h"
+#
+msgid "kts"
+msgstr "w"
+#
+msgid "m"
+msgstr "m"
+#
+msgid "m/s"
+msgstr "m/s"
+#
+msgid "mb"
+msgstr "mb"
+#
+msgid "month"
+msgstr "miesięcy"
+#
+msgid "none"
+msgstr "puste"
+#
+msgid "s"
+msgstr "s"
+#
+msgid "sm"
+msgstr "mm"
+#
+msgid "to"
+msgstr "do"
+#
+msgid "week(s)"
+msgstr "tygodni"
+#
+msgid "write your own label"
+msgstr "wpisz własną etykietę"

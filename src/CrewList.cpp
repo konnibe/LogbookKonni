@@ -202,7 +202,68 @@ void CrewList::changeCrewWake(wxGrid* grid, int row, int col, int offset)
 	}
 
 	gridWake->SetCellValue(row,col,dt.Format(_T("%H:%M")));
+
+	wxListItem info;
+	if(row == 0 && col == WAKESTART1)
+	{
+		AutomaticWatch* dlg = new AutomaticWatch(dialog);
+		if(dlg->ShowModal() == wxID_OK)
+		{
+			wxString time = dialog->m_gridCrewWake->GetCellValue(0,WAKESTART1);
+
+			for(int i = 0; i < dialog->m_gridCrewWake->GetNumberRows(); i++)
+				for(int c = 0; c < dialog->m_gridCrewWake->GetNumberCols(); c++)
+					dialog->m_gridCrewWake->SetCellValue(i,c,wxEmptyString);
+
+			dialog->m_gridCrewWake->SetCellValue(0,WAKESTART1,time);
+
+			for(int row = 0; row < dlg->m_listCtrlWatchNames->GetItemCount(); row++)
+			{
+				for(int col = 0; col < 2; col++)
+				{
+					info.m_itemId = row;
+					info.m_col = col;
+					info.m_mask = wxLIST_MASK_TEXT;
+
+					dlg->m_listCtrlWatchNames->GetItem(info);
+					dialog->m_gridCrewWake->SetCellValue(row,col,info.GetText());
+				}
+			}
+			setWatches(dlg, time);
+		}
+		delete dlg ;
+	}
 	this->modified = true;
+}
+
+void CrewList::setWatches(AutomaticWatch* dlg, wxString time)
+{
+	wxDateTime dt, df;
+	dialog->myParseTime(time, dt);
+	dialog->myParseTime(dlg->m_staticTextLengthWatch->GetLabel(),df);
+	wxTimeSpan diff(df.GetHour(),df.GetMinute(), df.GetSecond());
+
+	int end = ((dlg->m_choice20->GetSelection()) * 2) + WAKEEND1;
+
+	for(int col = WAKESTART1; col < end; col += 2)
+	{
+		for(int row = 0; row < dlg->m_listCtrlWatchNames->GetItemCount(); row++)
+		{
+			if(col == WAKESTART1 && row == 0)
+			{
+				dt.Add(diff);
+				dialog->m_gridCrewWake->SetCellValue(row,col+1,dt.Format(_T("%H:%M")));
+			}
+			else
+			{
+				dialog->m_gridCrewWake->SetCellValue(row,col,dt.Format(_T("%H:%M")));
+				dt.Add(diff);
+				dialog->m_gridCrewWake->SetCellValue(row,col+1,dt.Format(_T("%H:%M")));
+			}
+
+		}
+	}
+
 }
 
 void CrewList::saveCSV(wxString path)
@@ -934,3 +995,127 @@ void CrewList::saveODS(wxString path)
 	zip.Close();
 	out.Close();
 }
+
+
+
+//////////////////////// Automatic Watch Dialog ////////////////////
+
+AutomaticWatch::AutomaticWatch( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->parent = (LogbookDialog*) parent;
+
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	
+	wxBoxSizer* bSizer23;
+	bSizer23 = new wxBoxSizer( wxVERTICAL );
+	
+	m_staticText84 = new wxStaticText( this, wxID_ANY, _("Drag 'n Drop to change the Order of the Watch"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText84->Wrap( -1 );
+	bSizer23->Add( m_staticText84, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
+	
+	m_listCtrlWatchNames = new wxListCtrl( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), wxLC_ALIGN_LEFT|wxLC_REPORT|wxLC_SINGLE_SEL|wxALWAYS_SHOW_SB  );
+	bSizer23->Add( m_listCtrlWatchNames, 1, wxALL|wxEXPAND, 5 );
+	
+	wxBoxSizer* bSizer28;
+	bSizer28 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_staticText81 = new wxStaticText( this, wxID_ANY, _("Persons:"), wxDefaultPosition, wxSize( -1,-1 ), 0 );
+	m_staticText81->Wrap( -1 );
+	bSizer28->Add( m_staticText81, 0, wxALL|wxALIGN_CENTER_HORIZONTAL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_staticTextPersons = new wxStaticText( this, wxID_ANY, wxT("0"), wxDefaultPosition, wxSize( 20,-1 ), 0 );
+	m_staticTextPersons->Wrap( -1 );
+	bSizer28->Add( m_staticTextPersons, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_staticText83 = new wxStaticText( this, wxID_ANY, _("Length of Watch:"), wxDefaultPosition, wxSize( -1,-1 ), 0 );
+	m_staticText83->Wrap( -1 );
+	bSizer28->Add( m_staticText83, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_staticTextLengthWatch = new wxStaticText( this, wxID_ANY, _("12:00"), wxDefaultPosition, wxSize( 50,-1 ), 0 );
+	m_staticTextLengthWatch->Wrap( -1 );
+	bSizer28->Add( m_staticTextLengthWatch, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_staticText82 = new wxStaticText( this, wxID_ANY, _("No. Watches"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText82->Wrap( -1 );
+	bSizer28->Add( m_staticText82, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	wxString m_choice20Choices[] = { wxT("1"), wxT("2"), wxT("3"), wxT("4"), wxT("5"), wxT("6") };
+	int m_choice20NChoices = sizeof( m_choice20Choices ) / sizeof( wxString );
+	m_choice20 = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxSize( 40,-1 ), m_choice20NChoices, m_choice20Choices, 0 );
+	m_choice20->SetSelection( 0 );
+	bSizer28->Add( m_choice20, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	bSizer23->Add( bSizer28, 0, wxEXPAND, 5 );
+	
+	m_sdbSizer4 = new wxStdDialogButtonSizer();
+	m_sdbSizer4OK = new wxButton( this, wxID_OK );
+	m_sdbSizer4->AddButton( m_sdbSizer4OK );
+	m_sdbSizer4Cancel = new wxButton( this, wxID_CANCEL );
+	m_sdbSizer4->AddButton( m_sdbSizer4Cancel );
+	m_sdbSizer4->Realize();
+	bSizer23->Add( m_sdbSizer4, 0, wxALIGN_CENTER, 5 );
+	
+	this->SetSizer( bSizer23 );
+	this->Layout();
+	
+	this->Centre( wxBOTH );
+	
+	// Connect Events
+	this->Connect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( AutomaticWatch::OnInit ) );
+	m_listCtrlWatchNames->Connect( wxEVT_COMMAND_LIST_BEGIN_DRAG, wxListEventHandler( AutomaticWatch::OnListBeginDrag ), NULL, this );
+	m_choice20->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( AutomaticWatch::OnChoice ), NULL, this );
+}
+
+AutomaticWatch::~AutomaticWatch()
+{
+	// Disconnect Events
+	this->Disconnect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( AutomaticWatch::OnInit ) );
+	m_listCtrlWatchNames->Disconnect( wxEVT_COMMAND_LIST_BEGIN_DRAG, wxListEventHandler( AutomaticWatch::OnListBeginDrag ), NULL, this );
+	m_choice20->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( AutomaticWatch::OnChoice ), NULL, this );
+	
+}
+
+void AutomaticWatch::OnInit( wxInitDialogEvent& event )
+{
+	wxListItem itemCol;
+	long i;
+
+	itemCol.SetText(_("Name"));
+	itemCol.SetImage(-1);
+	itemCol.SetWidth(150);
+	m_listCtrlWatchNames->InsertColumn(0, itemCol);
+	itemCol.SetText(_("FirstName"));
+	itemCol.SetImage(-1);
+	itemCol.SetWidth(150);
+	m_listCtrlWatchNames->InsertColumn(1, itemCol);
+
+	for(i = 0; i < parent->m_gridCrewWake->GetNumberRows(); i++)
+	{
+		m_listCtrlWatchNames->InsertItem(i,parent->m_gridCrewWake->GetCellValue(i,0));
+		m_listCtrlWatchNames->SetItem(i,1,parent->m_gridCrewWake->GetCellValue(i,1));
+	}
+
+	setStrings(i);
+	//this->Fit();
+
+}
+
+void AutomaticWatch::OnChoice( wxCommandEvent& event )
+{
+	setStrings(this->m_listCtrlWatchNames->GetItemCount());
+}
+
+void AutomaticWatch::setStrings(int i)
+{
+	this->m_staticTextPersons->SetLabel(wxString::Format(_T("%i"),i));
+	wxDateTime dt = wxDateTime::Now();
+	long sec = 24*(60*60);
+	int noWatches = this->m_choice20->GetSelection()+1;
+	float watchtime = (sec / i) / noWatches;
+	dt = dt.Set(0,0);
+	wxTimeSpan diff(0,0,watchtime);
+	dt.Add(diff);
+	this->m_staticTextLengthWatch->SetLabel(wxString::Format(_T("%s"),dt.FormatTime()));
+}
+
+
