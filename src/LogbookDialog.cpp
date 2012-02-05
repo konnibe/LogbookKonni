@@ -708,6 +708,15 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	
 	// Cell Defaults
 	m_gridCrewWake->SetDefaultCellAlignment( wxALIGN_CENTRE, wxALIGN_TOP );
+	
+	m_menu21 = new wxMenu();
+	wxMenuItem* m_menuItem21;
+	m_menuItem21 = new wxMenuItem( m_menu21, wxID_ANY, wxString( _("Delete Row") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu21->Append( m_menuItem21 );
+	
+	wxMenuItem* m_menuItem19;
+	m_menuItem19 = new wxMenuItem( m_menu21, wxID_ANY, wxString( _("Set Watches") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu21->Append( m_menuItem19 );	
 	sbSizer1->Add( m_gridCrewWake, 1, wxALL|wxEXPAND, 5 );
 	
 	fgSizer7->Add( sbSizer1, 1, wxEXPAND, 5 );
@@ -1621,10 +1630,12 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_radioBtnAllLogbooks->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookDialog::OnRadioButtonAllLogbooks ), NULL, this );
 	m_radioBtnActuellLogbook->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( LogbookDialog::OnRadioButtonActuellLogbook ), NULL, this );
 	m_toggleBtnShowEquipment->Connect( wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnToggleButtonShowEquip ), NULL, this );
-
+	this->Connect( m_menuItem19->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::m_menuItem19MenuSelection ) );
+	this->Connect( m_menuItem21->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::m_menuItem21MenuSelection ) );	
 	m_gridMaintanence->Connect( wxEVT_GRID_CELL_CHANGE, wxGridEventHandler( LogbookDialog::onGridCellServiceChange ), NULL, this );
 	m_gridMaintanence->Connect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( LogbookDialog::onGridCellServiceSelected ), NULL, this );
-
+	m_gridCrewWake->Connect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::OnGridCellRightClickWake ), NULL, this );
+	
 	this->Connect( m_menuItem9->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceOK ) );
 	this->Connect( m_menuItem92->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceBuyParts ) );
 
@@ -1792,7 +1803,10 @@ LogbookDialog::~LogbookDialog()
 	m_gridMaintenanceBuyParts->Disconnect( wxEVT_GRID_CELL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::onGridCellLeftClickBuyParts ), NULL, this );
 	m_buttonSaveBuyParts->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::onButtobClickSaveBuyParts ), NULL, this );
 	m_toggleBtnShowEquipment->Disconnect( wxEVT_COMMAND_TOGGLEBUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::OnToggleButtonShowEquip ), NULL, this );
-
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::m_menuItem19MenuSelection ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::m_menuItem21MenuSelection ) );
+	m_gridCrewWake->Disconnect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::OnGridCellRightClickWake ), NULL, this );
+	
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceOK ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceBuyParts ) );
 	this->Disconnect( 503, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionShowHiddenCols ) );
@@ -3108,6 +3122,24 @@ void LogbookDialog::getIniValues()
 void LogbookDialog::crewAddOnButtonClick( wxCommandEvent& ev )
 {
 	crewList->addCrew(m_gridCrew,m_gridCrewWake);
+}
+
+void LogbookDialog::OnGridCellRightClickWake( wxGridEvent& event )
+{
+    m_gridCrewWake->SetGridCursor(event.GetRow(),event.GetCol());
+    m_gridCrewWake->PopupMenu(m_menu21);
+}
+
+void LogbookDialog::m_menuItem19MenuSelection( wxCommandEvent& event )
+{
+    crewList->showAutomaticWatchDlg();
+}
+
+void LogbookDialog::m_menuItem21MenuSelection( wxCommandEvent& event )
+{
+	int row = m_gridCrewWake->GetGridCursorRow();
+	m_gridCrewWake->DeleteRows(row);
+	crewList->modified = true;    
 }
 
 void LogbookDialog::crewSaveOnButtonClick( wxCommandEvent& ev )
