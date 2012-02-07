@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-25 16:50+0100\n"
-"PO-Revision-Date: 2012-01-25 16:58+0100\n"
+"POT-Creation-Date: 2012-02-07 21:58+0100\n"
+"PO-Revision-Date: 2012-02-07 22:05+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -77,8 +77,14 @@ msgstr "\""
 msgid "'"
 msgstr "'"
 #
+msgid "-Plugin"
+msgstr ""
+#
 msgid "0"
 msgstr ""
+#
+msgid "1. Watch of 1. Person"
+msgstr "1. Wache der 1. Person"
 #
 #
 msgid "Abbreviations"
@@ -110,6 +116,12 @@ msgstr "Fügt ein neues Crewmitglied hinzu"
 #
 msgid "Add a new line"
 msgstr "Neue Zeile"
+#
+msgid "Add to Watchlist"
+msgstr "zur Wachliste hinzufügen"
+#
+msgid "Add to Watchlist same as"
+msgstr "zur Wachliste hinzufügen wie.."
 #
 msgid "Adress"
 msgstr "Adresse"
@@ -361,6 +373,9 @@ msgstr "Distanz gesamt"
 msgid "Draft"
 msgstr "Tiefgang"
 #
+msgid "Drag 'n Drop to change the order in the list"
+msgstr "Drag 'n Drop um die Reihenfolge der Listeneinträge zu ändern"
+#
 msgid "E"
 msgstr "E"
 #
@@ -431,6 +446,9 @@ msgstr "Fuß"
 #
 msgid "Filter Layout by"
 msgstr "Filtere Layout nach"
+#
+msgid "FirstName"
+msgstr "Vorname"
 #
 msgid "Firstname"
 msgstr "Vorname"
@@ -795,6 +813,9 @@ msgstr ""
 "kein Pfad zum HTML-Editor\n"
 "in ToolBox/Plugins/LogbookKonni/Preferences gesetzt "
 #
+msgid "No. Watches"
+msgstr "Anzahl Wachen"
+#
 #, c-format
 msgid "Old Logbook until %s"
 msgstr "Altes Logbuch bis %s"
@@ -842,6 +863,12 @@ msgstr "Pfad zum ODT-Editor"
 msgid "Paths"
 msgstr "Pfade"
 #
+msgid "Person:"
+msgstr "Person:"
+#
+msgid "Persons:"
+msgstr "Personen:"
+#
 msgid "Place of Birth"
 msgstr "Geburtsort"
 #
@@ -861,8 +888,8 @@ msgstr ""
 "054° 45' 12.15\" N \n"
 "030°12' 05.15\" E ein"
 #
-msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45:00 PM"
-msgstr "Bitte 4 Zahlen im 24h-Format eingeben z.B. 1545 = 15:45:00"
+msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45 PM"
+msgstr "Bitte 4 Zahlen im 24h-Format eingeben z.B. 1545 = 15:45"
 #
 msgid ""
 "Please enter like 1.30 or 1,30 or 1:30\n"
@@ -1051,6 +1078,9 @@ msgstr "Pfad zum Mail-Program"
 #
 msgid "Set Path to ODT-Editor"
 msgstr "Pfad zum ODT-Editor"
+#
+msgid "Set Watches"
+msgstr "Wachzeiten setzen"
 #
 #
 msgid "Show Depth in"
@@ -1487,6 +1517,9 @@ msgstr "kein"
 msgid "s"
 msgstr ""
 #
+msgid "same watch as"
+msgstr "dieselbe Wachzeit wie"
+#
 msgid "sm"
 msgstr ""
 #
@@ -1498,6 +1531,7 @@ msgstr "Woche(n)"
 #
 msgid "write your own label"
 msgstr "schreiben Sie Ihr eigenes Label"
+#
 #
 #
 #
@@ -1584,6 +1618,7 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
 #~ msgid "CrewList"
 #~ msgstr "Crewliste"
 #
@@ -1599,8 +1634,10 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
 #~ msgid "Current from"
 #~ msgstr "Strom von"
+#
 #
 #
 #
@@ -1680,8 +1717,10 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Pfad zum HTML-Editor (optional)"
+#
 #
 #
 #
@@ -1806,9 +1845,11 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
+#
 #
 #
 #

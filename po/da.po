@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-25 16:50+0100\n"
+"POT-Creation-Date: 2012-02-07 21:58+0100\n"
 "PO-Revision-Date: 2012-01-29 08:09+0100\n"
 "Last-Translator: Jacob Handrup <jacob@familienhandrup.dk>\n"
 "Language-Team: \n"
@@ -78,8 +78,14 @@ msgstr "\""
 msgid "'"
 msgstr "'"
 #
+msgid "-Plugin"
+msgstr ""
+#
 msgid "0"
 msgstr "0"
+#
+msgid "1. Watch of 1. Person"
+msgstr ""
 #
 #
 msgid "Abbreviations"
@@ -111,6 +117,12 @@ msgstr "Tilføj nyt besætningsmedlem"
 #
 msgid "Add a new line"
 msgstr "Tilføj ny linie"
+#
+msgid "Add to Watchlist"
+msgstr ""
+#
+msgid "Add to Watchlist same as"
+msgstr ""
 #
 msgid "Adress"
 msgstr "Adresse"
@@ -356,6 +368,9 @@ msgstr "Distance ialt"
 msgid "Draft"
 msgstr "Dybgang"
 #
+msgid "Drag 'n Drop to change the order in the list"
+msgstr ""
+#
 msgid "E"
 msgstr "E"
 #
@@ -427,6 +442,10 @@ msgstr "Fod"
 #
 msgid "Filter Layout by"
 msgstr "Filtrer layout ved"
+#
+#, fuzzy
+msgid "FirstName"
+msgstr "Fornavn"
 #
 msgid "Firstname"
 msgstr "Fornavn"
@@ -782,6 +801,10 @@ msgstr ""
 "Ingen sti fundet til HTML-Editor\n"
 "i ToolBox/Plugins/LogbookKonni/Preferences"
 #
+#, fuzzy
+msgid "No. Watches"
+msgstr "Vagt"
+#
 #, c-format
 msgid "Old Logbook until %s"
 msgstr "Gammel logbog indtil %s"
@@ -829,6 +852,12 @@ msgstr "Sti til ODT-Editor"
 msgid "Paths"
 msgstr "Stier"
 #
+msgid "Person:"
+msgstr ""
+#
+msgid "Persons:"
+msgstr ""
+#
 msgid "Place of Birth"
 msgstr "Fødselssted"
 #
@@ -848,7 +877,8 @@ msgstr ""
 "054° 45' 12.15\" N \n"
 "030°12' 05.15\" E"
 #
-msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45:00 PM"
+#, fuzzy
+msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45 PM"
 msgstr "Anfør 4 cifre i 24h-format f.eks 1545 = 15:45:00"
 #
 msgid ""
@@ -1038,6 +1068,10 @@ msgstr "Indstil sti til mail program"
 #
 msgid "Set Path to ODT-Editor"
 msgstr "Indstil sti til ODT-Editor"
+#
+#, fuzzy
+msgid "Set Watches"
+msgstr "Start 1.vagt"
 #
 #
 msgid "Show Depth in"
@@ -1470,6 +1504,9 @@ msgstr "ingen"
 msgid "s"
 msgstr "s"
 #
+msgid "same watch as"
+msgstr ""
+#
 msgid "sm"
 msgstr "sm"
 #
@@ -1481,6 +1518,7 @@ msgstr "uge(r)"
 #
 msgid "write your own label"
 msgstr "skriv din egen label"
+#
 #
 #
 #
@@ -1541,12 +1579,15 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
 #~ msgid "CrewList"
 #~ msgstr "Crewliste"
 #
 #
+#
 #~ msgid "Current from"
 #~ msgstr "Strøm fra"
+#
 #
 #
 #
@@ -1600,8 +1641,10 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Pfad zum HTML-Editor (optional)"
+#
 #
 #
 #
@@ -1700,6 +1743,7 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
@@ -1719,9 +1763,11 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Ansehen"
+#
 #
 #
 #~ msgid "Wind from"

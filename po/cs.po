@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-25 16:50+0100\n"
+"POT-Creation-Date: 2012-02-07 21:58+0100\n"
 "PO-Revision-Date: 2011-12-29 09:35+0100\n"
 "Last-Translator: Pavel Kalian <pavel@kalian.cz>\n"
 "Language-Team: Pavel Kalian <pavel@kalian.cz>\n"
@@ -74,7 +74,13 @@ msgstr ""
 msgid "'"
 msgstr ""
 #
+msgid "-Plugin"
+msgstr ""
+#
 msgid "0"
+msgstr ""
+#
+msgid "1. Watch of 1. Person"
 msgstr ""
 #
 #
@@ -107,6 +113,109 @@ msgstr "P5idat člena posádky"
 #
 msgid "Add a new line"
 msgstr "Přidat nový záznam"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Add to Watchlist"
+msgstr "Hlídka"
+#
+msgid "Add to Watchlist same as"
+msgstr ""
 #
 msgid "Adress"
 msgstr "Adresa"
@@ -373,6 +482,9 @@ msgstr "Celková vzdálenost"
 msgid "Draft"
 msgstr "Ponor"
 #
+msgid "Drag 'n Drop to change the order in the list"
+msgstr ""
+#
 msgid "E"
 msgstr ""
 #
@@ -449,6 +561,10 @@ msgstr "Stopy"
 #
 msgid "Filter Layout by"
 msgstr "Filtr rozvržení podle"
+#
+#, fuzzy
+msgid "FirstName"
+msgstr "Jméno"
 #
 msgid "Firstname"
 msgstr "Jméno"
@@ -854,6 +970,10 @@ msgstr ""
 "Není nastavena cesta k editoru HTML\n"
 "v Nástroje/Zásuvné moduly/LogbookKonni/Nastavení"
 #
+#, fuzzy
+msgid "No. Watches"
+msgstr "Hlídka"
+#
 #, c-format
 msgid "Old Logbook until %s"
 msgstr "Starý deník do %s"
@@ -1016,6 +1136,12 @@ msgstr "Cesta k editoru ODT"
 msgid "Paths"
 msgstr "Cesty"
 #
+msgid "Person:"
+msgstr ""
+#
+msgid "Persons:"
+msgstr ""
+#
 msgid "Place of Birth"
 msgstr "Místo narození"
 #
@@ -1033,7 +1159,8 @@ msgstr ""
 "Prosím zadej  0544512.15n0301205.15e pro\n"
 "054Deg 45Min 12Sec N 030Deg 12Min 05Sec E"
 #
-msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45:00 PM"
+#, fuzzy
+msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45 PM"
 msgstr "Prosím, vlož 4 číslice ve 24h formátu (1545 = 15:45:00)"
 #
 msgid ""
@@ -1281,6 +1408,10 @@ msgstr "Nastavit cestu k poštovnímu programu"
 #
 msgid "Set Path to ODT-Editor"
 msgstr "Nastavit cestu k editoru ODT"
+#
+#, fuzzy
+msgid "Set Watches"
+msgstr "Začátek 1. hlídky"
 #
 #
 msgid "Show Depth in"
@@ -1837,6 +1968,9 @@ msgstr "nic"
 msgid "s"
 msgstr "s"
 #
+msgid "same watch as"
+msgstr ""
+#
 msgid "sm"
 msgstr "NM"
 #
@@ -1862,6 +1996,7 @@ msgstr "týdny"
 #
 msgid "write your own label"
 msgstr "Napiš vlastní popis"
+#
 #
 #
 #
@@ -2056,9 +2191,11 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "BuyParts"
 #~ msgstr "Koupit díly"
+#
 #
 #
 #
@@ -2136,8 +2273,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "Current from"
 #~ msgstr "Proud z"
+#
 #
 #
 #
@@ -2394,8 +2533,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "GPS Auto (Ocean Crossing)"
 #~ msgstr "GPS Auto (přejezd oceánu)"
+#
 #
 #
 #
@@ -2538,8 +2679,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Konniho lodní deník"
+#
 #
 #
 #
@@ -2777,8 +2920,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "NetTonnage"
 #~ msgstr "Čistá registrovaná prostornost"
+#
 #
 #
 #
@@ -2830,6 +2975,7 @@ msgstr "Napiš vlastní popis"
 #, fuzzy
 #~ msgid "Not implemented yet"
 #~ msgstr "zatím neimplementováno"
+#
 #
 #
 #
@@ -2940,8 +3086,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "Save"
 #~ msgstr "Uložit"
+#
 #
 #
 #
@@ -3170,6 +3318,7 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Vybrat rozvržení:"
@@ -3286,8 +3435,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "Show Maintence Rows coloured"
 #~ msgstr "Zobraz řádky údržby v barvě"
+#
 #
 #
 #
@@ -3546,8 +3697,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "Today"
 #~ msgstr "Dnes"
+#
 #
 #
 #
@@ -3688,109 +3841,11 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Zobrazit"
 #
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
-#~ msgid "Watchlist"
-#~ msgstr "Hlídka"
 #
 #
 #

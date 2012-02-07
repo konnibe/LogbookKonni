@@ -340,7 +340,11 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		virtual void m_menuItem19MenuSelection( wxCommandEvent& event );		
 		virtual void m_menuItem21MenuSelection( wxCommandEvent& event );		
 		virtual void OnGridCellRightClickWake( wxGridEvent& event );
-		
+		virtual void OnMenuSelectionAddWatch( wxCommandEvent& event );
+		virtual void OnMenuSelectionSameWatch( wxCommandEvent& event );
+
+		virtual void OnGridEditorShownCrew( wxGridEvent& event );
+
 		virtual void m_menu1Highlighted(wxMenuEvent& event);
 
 		virtual void gridGlobalScrolled( wxScrollWinEvent& event );

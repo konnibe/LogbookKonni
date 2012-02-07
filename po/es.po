@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-25 16:50+0100\n"
+"POT-Creation-Date: 2012-02-07 21:58+0100\n"
 "PO-Revision-Date: 2011-11-25 01:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -69,7 +69,13 @@ msgstr "\""
 msgid "'"
 msgstr "'"
 #
+msgid "-Plugin"
+msgstr ""
+#
 msgid "0"
+msgstr ""
+#
+msgid "1. Watch of 1. Person"
 msgstr ""
 #
 #
@@ -105,6 +111,111 @@ msgstr ""
 #, fuzzy
 msgid "Add a new line"
 msgstr "Añadir línea"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "Add to Watchlist"
+msgstr "Guardia"
+#
+msgid "Add to Watchlist same as"
+msgstr ""
 #
 msgid "Adress"
 msgstr ""
@@ -375,6 +486,9 @@ msgstr "Distancia total"
 msgid "Draft"
 msgstr "Calado"
 #
+msgid "Drag 'n Drop to change the order in the list"
+msgstr ""
+#
 msgid "E"
 msgstr "E"
 #
@@ -450,6 +564,10 @@ msgstr "Pie"
 #, fuzzy
 msgid "Filter Layout by"
 msgstr "Editar Layout"
+#
+#, fuzzy
+msgid "FirstName"
+msgstr "Nombre"
 #
 msgid "Firstname"
 msgstr "Nombre"
@@ -854,6 +972,10 @@ msgid ""
 "in Toolbox/Plugins/LogbookKonni/Preferences"
 msgstr ""
 #
+#, fuzzy
+msgid "No. Watches"
+msgstr "Guardia"
+#
 #, fuzzy, c-format
 msgid "Old Logbook until %s"
 msgstr "Abrir fichero de bitácora antiguo"
@@ -1019,6 +1141,12 @@ msgstr "Ruta al editor HTML"
 msgid "Paths"
 msgstr "Guardia"
 #
+msgid "Person:"
+msgstr ""
+#
+msgid "Persons:"
+msgstr ""
+#
 msgid "Place of Birth"
 msgstr "Lugar de nacimiento"
 #
@@ -1038,7 +1166,7 @@ msgstr ""
 "Entre por favor 0544512n0301205e para\n"
 "054° 45' 12\" N  030°12' 05\" E"
 #
-msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45:00 PM"
+msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45 PM"
 msgstr ""
 #
 msgid ""
@@ -1284,6 +1412,10 @@ msgstr "Ruta al editor HTML"
 #, fuzzy
 msgid "Set Path to ODT-Editor"
 msgstr "Ruta al editor HTML"
+#
+#, fuzzy
+msgid "Set Watches"
+msgstr "Inicio 1ªguardia"
 #
 #
 msgid "Show Depth in"
@@ -1866,6 +1998,9 @@ msgstr "Máquina"
 msgid "s"
 msgstr ""
 #
+msgid "same watch as"
+msgstr ""
+#
 msgid "sm"
 msgstr ""
 #
@@ -1877,6 +2012,7 @@ msgstr ""
 #
 msgid "write your own label"
 msgstr ""
+#
 #
 #
 #
@@ -1988,8 +2124,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "CrewList"
 #~ msgstr "Listado de tripulación"
+#
 #
 #
 #
@@ -2016,6 +2154,7 @@ msgstr ""
 #, fuzzy
 #~ msgid "Current from"
 #~ msgstr "Corriente"
+#
 #
 #
 #
@@ -2163,8 +2302,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Bitácora Konni"
+#
 #
 #
 #
@@ -2359,9 +2500,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Not implemented yet"
 #~ msgstr "no implementado aún"
+#
 #
 #
 #
@@ -2476,8 +2619,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Save"
 #~ msgstr "Guardar"
+#
 #
 #
 #
@@ -2710,9 +2855,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Seleccione Layout"
+#
 #
 #
 #
@@ -2976,8 +3123,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
 #
 #
 #
@@ -3122,9 +3271,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Ver"
+#
 #
 #
 #
@@ -3359,107 +3510,6 @@ msgstr ""
 #
 #
 #
-#, fuzzy
-#~ msgid "Watchlist"
-#~ msgstr "Guardia"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
 #
 #
 #
@@ -3506,9 +3556,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Wind from"
 #~ msgstr "Viento"
+#
 #
 #
 #

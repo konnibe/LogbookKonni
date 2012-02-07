@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-25 16:50+0100\n"
+"POT-Creation-Date: 2012-02-07 21:58+0100\n"
 "PO-Revision-Date: 2012-01-02 11:56+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
@@ -65,7 +65,13 @@ msgstr "\""
 msgid "'"
 msgstr "'"
 #
+msgid "-Plugin"
+msgstr ""
+#
 msgid "0"
+msgstr ""
+#
+msgid "1. Watch of 1. Person"
 msgstr ""
 #
 msgid "Abbreviations"
@@ -103,6 +109,12 @@ msgstr "Ajouter un nouveau membre d'équipage"
 #
 msgid "Add a new line"
 msgstr "Ajouter une nouvelle ligne"
+#
+msgid "Add to Watchlist"
+msgstr ""
+#
+msgid "Add to Watchlist same as"
+msgstr ""
 #
 # used in ODT-Layout
 msgid "Adress"
@@ -336,6 +348,9 @@ msgstr ""
 "Tirant\n"
 "d'eau"
 #
+msgid "Drag 'n Drop to change the order in the list"
+msgstr ""
+#
 msgid "E"
 msgstr ""
 "E\n"
@@ -397,6 +412,10 @@ msgstr "Pieds"
 #
 msgid "Filter Layout by"
 msgstr "Trier les mises en page par "
+#
+#, fuzzy
+msgid "FirstName"
+msgstr "Prénom"
 #
 msgid "Firstname"
 msgstr "Prénom"
@@ -716,6 +735,10 @@ msgstr ""
 "Pas de chemin vers l'éditeur HTML\n"
 "dans \"Boite à outils/Compléments/LogbookKonni/Préférences\""
 #
+#, fuzzy
+msgid "No. Watches"
+msgstr "Regarder"
+#
 #, c-format
 msgid "Old Logbook until %s"
 msgstr "Ancien livre de bord depuis %s"
@@ -762,6 +785,12 @@ msgstr "Indiquer le chemin de l'éditeur Odt"
 msgid "Paths"
 msgstr "Chemins"
 #
+msgid "Person:"
+msgstr ""
+#
+msgid "Persons:"
+msgstr ""
+#
 msgid "Place of Birth"
 msgstr ""
 "Lieu de\n"
@@ -781,7 +810,8 @@ msgstr ""
 "Veuillez entrer 0544512.15n0301205.15e pour\n"
 "054Deg 45Min 12.15Sec N 030Deg 12Min 05.15Sec E"
 #
-msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45:00 PM"
+#, fuzzy
+msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45 PM"
 msgstr "Veuillez entrer 4 chiffres au format 24h ex : 1545 = 15:45:00"
 #
 msgid ""
@@ -984,6 +1014,10 @@ msgstr "Activer le chemin du logiciel Clientmail"
 #
 msgid "Set Path to ODT-Editor"
 msgstr "Activer le chemin de l'éditeur Odt"
+#
+#, fuzzy
+msgid "Set Watches"
+msgstr "1er Quart"
 #
 msgid "Show Depth in"
 msgstr "Profondeur en"
@@ -1417,6 +1451,9 @@ msgstr "Rien"
 msgid "s"
 msgstr "s"
 #
+msgid "same watch as"
+msgstr ""
+#
 msgid "sm"
 msgstr "sm"
 #
@@ -1450,10 +1487,12 @@ msgstr "Ecrire votre  propre \"étiquette\" "
 #
 #
 #
+#
 #~ msgid "Current from"
 #~ msgstr ""
 #~ "Origine\n"
 #~ "du courant"
+#
 #
 #
 #

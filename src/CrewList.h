@@ -14,6 +14,12 @@ class AutomaticWatch;
 class CrewList
 {
 public:
+	enum fields{NAME,BIRTHNAME,FIRSTNAME,TITLE,BIRTHDATE,BIRTHPLACE,NATIONALITY,
+				PASSPORT,EST_IN,EST_ON,ZIP,COUNTRY,TOWN,STREET};
+
+	enum fieldsWake{LWNAME,LWFIRSTNAME,WAKESTART1,WAKEEND1,WAKESTART2,WAKEEND2,WAKESTART3,WAKEEND3,
+				WAKESTART4,WAKEEND4,WAKESTART5,WAKEEND5,WAKESTART6,WAKEEND6};
+
 	CrewList(LogbookDialog* d, wxString data, wxString lay, wxString layoutODT);
 	~CrewList(void);
 
@@ -32,10 +38,19 @@ public:
 	void saveData();
 	void setLayoutLocation(wxString loc);
 	void showAutomaticWatchDlg();
+	void addToWatchList();
+	void SameWatchAsDlg(int row);
+
+	LogbookDialog*	dialog;
+	wxGrid*			gridCrew;
+	wxGrid*			gridWake;
 
 	wxString		layout_locn;
 	wxString		layout;
 	wxString		ODTLayout;
+
+	wxString        lastSelectedName;
+	wxString        lastSelectedFirstName;
 	
 	bool modified;
 
@@ -46,22 +61,17 @@ private:
 	wxString replacePlaceholder(wxString html, wxString s, bool ngrid, int row, int col, bool mode);
 	void setWatches(AutomaticWatch* dlg, wxString time);
 	bool checkHourFormat(wxString s, int row, int col, wxDateTime* dt);
+	int searchInWatch();
 
 	wxTextFile* crewListFile;
+	wxTextFile* watchListFile;
 	
 
 private:
-	wxGrid*			gridCrew;
-	wxGrid*			gridWake;
 	wxArrayString	crewFields;
-	LogbookDialog*	dialog;
 	wxString		data_locn;
 	wxString 		html_locn;
 	wxString		ODT_locn;
-
-	enum fields{NAME,BIRTHNAME,FIRSTNAME,TITLE,BIRTHDATE,BIRTHPLACE,NATIONALITY,
-				PASSPORT,EST_IN,EST_ON,ZIP,COUNTRY,TOWN,STREET};
-	enum fieldsWake{LWNAME,LWFIRSTNAME,WAKESTART1,WAKEEND1,WAKESTART2,WAKEEND2,WAKESTART3,WAKEEND3,WAKESTART4,WAKEEND4,WAKESTART5,WAKEEND5,WAKESTART6,WAKEEND6};
 };
 
 /////////////////////////////// Automatic Watchlist ///////////////
@@ -135,4 +145,32 @@ public:
 private:
     wxListCtrl *m_pOwner;
     AutomaticWatch* watch;
+};
+
+///////////////////////////////////////////////////////////////////////////////
+/// Class SameWatchAs
+///////////////////////////////////////////////////////////////////////////////
+class SameWatchAs : public wxDialog 
+{
+	private:
+		CrewList *parent;
+		int row;
+
+	protected:
+		wxStaticText* m_staticText108;
+		wxStaticText* m_staticText110;
+		wxStaticLine* m_staticline39;
+		wxStdDialogButtonSizer* m_sdbSizer4;
+		wxButton* m_sdbSizer4OK;
+		wxButton* m_sdbSizer4Cancel;
+	
+		virtual void OnInitDialog( wxInitDialogEvent& event );
+
+	public:
+		wxChoice* m_choice23;
+		wxStaticText* m_staticTextPersonName;
+
+		SameWatchAs( wxWindow* parent, int gridRow, wxWindowID id = wxID_ANY, const wxString& title = wxT("Set Same Watch as"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 350,125 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		~SameWatchAs();
+	
 };

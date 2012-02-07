@@ -30,10 +30,21 @@ CrewList::CrewList(LogbookDialog* d, wxString data, wxString layout, wxString la
 	else
 		layout_locn = layoutODT;
 
+	wxString watchData = data;
+	watchData.Append(_T("watchlist.txt"));
+	wxFileName wxHomeFiledir(watchData) ;
+	if(true != wxHomeFiledir.FileExists())
+	{
+		watchListFile = new wxTextFile(watchData);				
+		watchListFile->Create();
+	}
+	else
+		watchListFile = new wxTextFile(watchData);
+
 	wxString crewData = data;
 	crewData.Append(_T("crewlist.txt"));
-	wxFileName wxHomeFiledir(crewData) ;
-	if(true != wxHomeFiledir.FileExists())
+	wxFileName wxHomeFiledir1(crewData) ;
+	if(true != wxHomeFiledir1.FileExists())
 	{
 		crewListFile = new wxTextFile(crewData);				
 		crewListFile->Create();
@@ -96,11 +107,6 @@ void CrewList::loadData()
 		line = crewListFile->GetLine(i);
 
 		gridCrew->AppendRows();
-		gridWake->AppendRows();
-		gridWake->SetReadOnly(i,0);
-		gridWake->SetReadOnly(i,1);
-		gridWake->SetCellAlignment(i,0,wxALIGN_LEFT, wxALIGN_TOP);
-		gridWake->SetCellAlignment(i,1,wxALIGN_LEFT, wxALIGN_TOP);
 
 		count = gridCrew->GetNumberCols();
 		numRows = gridCrew->GetNumberRows()-1;
@@ -113,14 +119,38 @@ void CrewList::loadData()
 		{
 			s = tkz.GetNextToken().RemoveLast();
 			s = dialog->restoreDangerChar(s);
-			if(c == count)
-			{					
-				grid = gridWake;
-				c = 2;
-			}
 
-			if(grid == gridCrew && c == 0) 	gridWake->SetCellValue(numRows,0,s);
-			if(grid == gridCrew && c == 2) 	gridWake->SetCellValue(numRows,1,s);
+			grid->SetCellValue(numRows,c++,s);
+		}
+	}
+	crewListFile->Close();
+
+	watchListFile->Open();
+	lineCount = watchListFile->GetLineCount();
+
+	if(lineCount <= 0) { watchListFile->Close(); return; }
+
+	for( int i = 0; i < lineCount; i++)
+	{
+		line = watchListFile->GetLine(i);
+
+		gridWake->AppendRows();
+		gridWake->SetReadOnly(i,0);
+		gridWake->SetReadOnly(i,1);
+		gridWake->SetCellAlignment(i,0,wxALIGN_LEFT, wxALIGN_TOP);
+		gridWake->SetCellAlignment(i,1,wxALIGN_LEFT, wxALIGN_TOP);
+
+		count = gridWake->GetNumberCols();
+		numRows = gridWake->GetNumberRows()-1;
+
+		wxStringTokenizer tkz(line, _T("\t"),wxTOKEN_RET_EMPTY);
+		int c = 0;
+		grid = gridWake;
+
+		while ( tkz.HasMoreTokens() )
+		{
+			s = tkz.GetNextToken().RemoveLast();
+			s = dialog->restoreDangerChar(s);
 			grid->SetCellValue(numRows,c++,s);
 		}
 	}
@@ -141,14 +171,28 @@ void CrewList::saveData()
 	{
 		for(int c = 0; c < gridCrew->GetNumberCols(); c++)
 			s += gridCrew->GetCellValue(r,c)+_T(" \t");
-		for(int c = 2; c < gridWake->GetNumberCols(); c++)
-			s += gridWake->GetCellValue(r,c)+_T(" \t");
 		s.RemoveLast();
 		crewListFile->AddLine(s);
 		s = _T("");
 	}
 	crewListFile->Write();
 	crewListFile->Close();
+
+	s = _T("");
+	watchListFile->Open();
+	watchListFile->Clear();
+
+	count = gridWake->GetNumberRows();
+	for(int r = 0; r < count; r++)
+	{
+		for(int c = 0; c < gridWake->GetNumberCols(); c++)
+			s += gridWake->GetCellValue(r,c)+_T(" \t");
+		s.RemoveLast();
+		watchListFile->AddLine(s);
+		s = _T("");
+	}
+	watchListFile->Write();
+	watchListFile->Close();
 }
 
 void CrewList::addCrew(wxGrid* grid, wxGrid* wake)
@@ -165,6 +209,56 @@ void CrewList::addCrew(wxGrid* grid, wxGrid* wake)
 	gridWake->SetReadOnly(lastRow,0);
 	gridWake->SetReadOnly(lastRow,1);
 	gridWake->SetCellValue(gridWake->GetNumberRows()-1,gridWake->GetNumberCols()-1,_T(" "));
+	gridCrew->SetFocus();
+	gridCrew->SetGridCursor(lastRow,NAME);
+}
+
+void CrewList::addToWatchList()
+{
+	gridWake->AppendRows();
+	int lastRow = gridWake->GetNumberRows()-1;
+	gridWake->SetCellAlignment(lastRow,LWNAME,wxALIGN_LEFT, wxALIGN_TOP);
+	gridWake->SetCellAlignment(lastRow,LWFIRSTNAME,wxALIGN_LEFT, wxALIGN_TOP);
+	gridWake->SetCellValue(lastRow,LWNAME,gridCrew->GetCellValue(gridCrew->GetCursorRow(),NAME));
+	gridWake->SetCellValue(lastRow,LWFIRSTNAME,gridCrew->GetCellValue(gridCrew->GetCursorRow(),FIRSTNAME));
+
+	modified = true;
+}
+
+void CrewList::SameWatchAsDlg(int row)
+{
+	SameWatchAs* dlg = new SameWatchAs(dialog, row);
+
+	if(dlg->ShowModal() == wxID_OK)
+	{
+		int rowfound = dlg->m_choice23->GetSelection();
+
+		wxStringTokenizer tkz1(dlg->m_staticTextPersonName->GetLabel(),_T(","));
+		wxString firstname, name;
+		firstname = tkz1.GetNextToken();
+		if(tkz1.HasMoreTokens())
+				name = tkz1.GetNextToken();
+
+		if(rowfound >= 0)
+		{
+
+			rowfound++;
+			gridWake->InsertRows(rowfound);
+			gridWake->SetCellAlignment(rowfound,0,wxALIGN_LEFT, wxALIGN_TOP);
+			gridWake->SetCellAlignment(rowfound,1,wxALIGN_LEFT, wxALIGN_TOP);
+
+			for(int i = 0; i < gridWake->GetNumberCols(); i++)
+			{
+				if(i == CrewList::LWFIRSTNAME)
+					gridWake->SetCellValue(rowfound,CrewList::LWFIRSTNAME,firstname);
+				else if(i == CrewList::LWNAME)
+					gridWake->SetCellValue(rowfound,CrewList::LWNAME,name);
+				else
+					gridWake->SetCellValue(rowfound,i,gridWake->GetCellValue(rowfound-1,i));
+			}
+		}
+	}
+	delete dlg;
 }
 
 void CrewList::changeCrew(wxGrid* grid, int row, int col, int offset)
@@ -172,14 +266,33 @@ void CrewList::changeCrew(wxGrid* grid, int row, int col, int offset)
 	wxString result;
 
 	modified = true;
+	wxString search;
 
 	if(col == 0 && offset == 0)
-			gridWake->SetCellValue(row,0,gridCrew->GetCellValue(row,0));
+	{
+			int rowWake = searchInWatch();
+			if(rowWake >= 0)
+				gridWake->SetCellValue(rowWake,0,gridCrew->GetCellValue(dialog->selGridRow,0));
+	}
 	if(col == 2 && offset == 0)
-			gridWake->SetCellValue(row,1,gridCrew->GetCellValue(row,2));
+	{
+			int rowWake = searchInWatch();
+			if(rowWake >= 0)
+				gridWake->SetCellValue(rowWake,1,gridCrew->GetCellValue(row,2));
+	}
 
 	if(gridWake->GetCellValue(row,gridWake->GetNumberCols()-1) == _T(""))
 		gridWake->SetCellValue(row,gridWake->GetNumberCols()-1,_T(" "));
+}
+
+int CrewList::searchInWatch() 
+{
+	for(int row = 0; row < gridWake->GetNumberRows(); row++)
+		if(lastSelectedName == gridWake->GetCellValue(row,LWNAME) && 
+		   lastSelectedFirstName == gridWake->GetCellValue(row,LWFIRSTNAME) )
+			return row;
+
+	return -1;
 }
 
 void CrewList::changeCrewWake(wxGrid* grid, int row, int col, int offset)
@@ -191,7 +304,7 @@ void CrewList::changeCrewWake(wxGrid* grid, int row, int col, int offset)
 
 	gridWake->SetCellValue(row,col,dt.Format(_T("%H:%M")));
           
-	this->modified = true;
+	modified = true;
 }
 
 void CrewList::showAutomaticWatchDlg()
@@ -254,29 +367,27 @@ void CrewList::setWatches(AutomaticWatch* dlg, wxString time)
 	wxDateTime dt, df;
 	dialog->myParseTime(time, dt);
 	dialog->myParseTime(dlg->m_staticTextLengthWatch->GetLabel(),df);
-	wxTimeSpan diff(df.GetHour(),df.GetMinute(), df.GetSecond());
+	wxTimeSpan diff(df.GetHour(),df.GetMinute()-1, df.GetSecond());
+//	wxTimeSpan diffm(0,01,0);
 
 	int end = ((dlg->m_choice20->GetSelection()) * 2) + WAKEEND1;
 
-	for(int col = WAKESTART1; col < end; col += 2)
+	int row, col;
+	for(col = WAKESTART1; col < end; col += 2)
 	{
-		for(int row = 0; row < dlg->m_listCtrlWatchNames->GetItemCount(); row++)
+		for(row = 0; row < dlg->m_listCtrlWatchNames->GetItemCount(); row++)
 		{
-			//if(col == WAKESTART1 && row == 0)
-			//{
-			//	dt.Add(diff);
-			//	dialog->m_gridCrewWake->SetCellValue(row,col+1,dt.Format(_T("%H:%M")));
-			//}
-			//else
-			{
-				dialog->m_gridCrewWake->SetCellValue(row,col,dt.Format(_T("%H:%M")));
+				gridWake->SetCellValue(row,col,dt.Format(_T("%H:%M")));
 				dt.Add(diff);
-				dialog->m_gridCrewWake->SetCellValue(row,col+1,dt.Format(_T("%H:%M")));
-			}
-
+				gridWake->SetCellValue(row,col+1,dt.Format(_T("%H:%M")));
+//				dt.Add(diffm);
 		}
 	}
 
+	if(gridWake->GetCellValue(0,WAKESTART1) != gridWake->GetCellValue(row-1,col-1))
+		gridWake->SetCellValue(row-1,col-1,gridWake->GetCellValue(0,WAKESTART1));
+
+	modified = true;
 }
 
 void CrewList::saveCSV(wxString path)
@@ -823,7 +934,9 @@ void CrewList::deleteRow(int row)
     	if (answer == wxID_OK)
         {
             gridCrew->DeleteRows(row);
-            gridWake->DeleteRows(row);
+			int row = searchInWatch();
+			if(row >= 0)
+				gridWake->DeleteRows(row);
             
             crewListFile->Open();
             crewListFile->RemoveLine(row);
@@ -836,13 +949,10 @@ void CrewList::deleteRow(int row)
 	if (answer == wxYES)
 	{
 		gridCrew->DeleteRows(row);
-		gridWake->DeleteRows(row);
+		int row = searchInWatch();
+		if(row >= 0)
+			gridWake->DeleteRows(row);
 		modified = true;
-/*		crewListFile->Open();
-		crewListFile->RemoveLine(row);
-		crewListFile->Write();
-		crewListFile->Close();
-*/
 	}
 #endif
 }
@@ -1027,7 +1137,7 @@ AutomaticWatch::AutomaticWatch( wxWindow* parent, wxWindowID id, const wxString&
 	fgSizer34->SetFlexibleDirection( wxBOTH );
 	fgSizer34->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
-	m_staticText87 = new wxStaticText( this, wxID_ANY, wxT("1. Watch of 1. Person"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText87 = new wxStaticText( this, wxID_ANY, _("1. Watch of 1. Person"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText87->Wrap( -1 );
 	fgSizer34->Add( m_staticText87, 0, wxALIGN_CENTER|wxALL, 5 );
 	
@@ -1039,11 +1149,11 @@ AutomaticWatch::AutomaticWatch( wxWindow* parent, wxWindowID id, const wxString&
 	m_staticline27 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
 	bSizer23->Add( m_staticline27, 0, wxEXPAND | wxALL, 5 );
 	
-	m_staticText86 = new wxStaticText( this, wxID_ANY, wxT("Drag 'n Drop to change the order in the list"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText86 = new wxStaticText( this, wxID_ANY, _("Drag 'n Drop to change the order in the list"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText86->Wrap( -1 );
 	bSizer23->Add( m_staticText86, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 	
-	m_listCtrlWatchNames = new wxListCtrl( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), wxLC_ALIGN_LEFT|wxLC_REPORT|wxLC_SINGLE_SEL|wxLC_SORT_ASCENDING|wxALWAYS_SHOW_SB );
+	m_listCtrlWatchNames = new wxListCtrl( this, wxID_ANY, wxDefaultPosition, wxSize( -1,-1 ), wxLC_ALIGN_LEFT|wxLC_REPORT|wxLC_SINGLE_SEL|wxALWAYS_SHOW_SB );
 	bSizer23->Add( m_listCtrlWatchNames, 1, wxALL|wxEXPAND, 5 );
 	
 	m_staticline28 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
@@ -1054,7 +1164,7 @@ AutomaticWatch::AutomaticWatch( wxWindow* parent, wxWindowID id, const wxString&
 	fgSizer341->SetFlexibleDirection( wxBOTH );
 	fgSizer341->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
-	m_staticText80 = new wxStaticText( this, wxID_ANY, wxT("Persons:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText80 = new wxStaticText( this, wxID_ANY, _("Persons:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText80->Wrap( -1 );
 	fgSizer341->Add( m_staticText80, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -1070,7 +1180,7 @@ AutomaticWatch::AutomaticWatch( wxWindow* parent, wxWindowID id, const wxString&
 	m_staticTextLengthWatch->Wrap( -1 );
 	fgSizer341->Add( m_staticTextLengthWatch, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_staticText85 = new wxStaticText( this, wxID_ANY, wxT("No. Watches"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText85 = new wxStaticText( this, wxID_ANY, _("No. Watches"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText85->Wrap( -1 );
 	fgSizer341->Add( m_staticText85, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -1130,13 +1240,14 @@ void AutomaticWatch::OnInit( wxInitDialogEvent& event )
 
 	for(i = 0; i < parent->m_gridCrewWake->GetNumberRows(); i++)
 	{
-		m_listCtrlWatchNames->InsertItem(i,parent->m_gridCrewWake->GetCellValue(i,0));
-		m_listCtrlWatchNames->SetItem(i,1,parent->m_gridCrewWake->GetCellValue(i,1));
+		long index = m_listCtrlWatchNames->InsertItem(i,parent->m_gridCrewWake->GetCellValue(i,CrewList::LWNAME));
+		m_listCtrlWatchNames->SetItem(index,1,parent->m_gridCrewWake->GetCellValue(i,CrewList::LWFIRSTNAME));
 	}
 
 	setStrings(i);
 	
-	this->m_textCtrlStartTime->SetValue(parent->m_gridCrewWake->GetCellValue(0,2));
+	if(parent->m_gridCrewWake->GetCellValue(0,2) != wxEmptyString)
+		this->m_textCtrlStartTime->SetValue(parent->m_gridCrewWake->GetCellValue(0,2));
 	
 	m_ctrlText = wxEmptyString;
 	dndIndex = -1;
@@ -1157,11 +1268,11 @@ void AutomaticWatch::setStrings(int i)
 	wxDateTime dt = wxDateTime::Now();
 	long sec = 24*(60*60);
 	int noWatches = this->m_choice20->GetSelection()+1;
-	float watchtime = (sec / i) / noWatches;
+	int watchtime = wxRound(((double)sec / (double)i) / (double)noWatches);
 	dt = dt.Set(0,0);
 	wxTimeSpan diff(0,0,watchtime);
 	dt.Add(diff);
-	this->m_staticTextLengthWatch->SetLabel(dt.Format(_T("%H:%M")).c_str());
+	this->m_staticTextLengthWatch->SetLabel(dt.Format(_T("%H:%M:%S")).c_str());
 }
 
 void AutomaticWatch::OnListBeginDrag( wxListEvent& event )
@@ -1177,12 +1288,14 @@ void AutomaticWatch::OnListBeginDrag( wxListEvent& event )
 	info.m_mask = wxLIST_MASK_TEXT;
 	m_listCtrlWatchNames->GetItem(info);
 
+	info.SetId(row);
 	info.m_col = 1;
+	info.m_mask = wxLIST_MASK_TEXT;
 	m_ctrlText += _T("\t")+info.GetText();
 	m_listCtrlWatchNames->GetItem(info);
 	m_ctrlText += _T("\t")+info.GetText();	
 	
-        wxTextDataObject data(m_ctrlText);
+    wxTextDataObject data(m_ctrlText);
 	wxDropSource dragSource( this );
 	dragSource.SetData( data );
 	dragSource.DoDragDrop( TRUE );
@@ -1204,7 +1317,6 @@ bool DnDText::OnDropText(wxCoord x, wxCoord y, const wxString& text)
     long row = m_pOwner->HitTest(p,flag );
     if(row == wxNOT_FOUND )
       return false;
-    //wxMessageBox(wxString::Format(_T(" %s %s%i x=%i y=%i row = %i"),first.c_str() ,name.c_str(),wxLIST_HITTEST_ONITEM,x,y, row));    
     
     wxListItem info;
     info.SetId(row);
@@ -1222,13 +1334,97 @@ bool DnDText::OnDropText(wxCoord x, wxCoord y, const wxString& text)
     this->m_pOwner->SetItem(row,0,name);
     if(first != wxEmptyString)
       this->m_pOwner->SetItem(row,1,first);  
+	else
+      this->m_pOwner->SetItem(row,1,wxEmptyString);  
     
     this->m_pOwner->SetItem(watch->dndIndex,0,nameold);
-    this->m_pOwner->SetItem(watch->dndIndex,1,firstold); 
+	if(firstold != wxEmptyString)
+		this->m_pOwner->SetItem(watch->dndIndex,1,firstold); 
+	else
+		this->m_pOwner->SetItem(watch->dndIndex,1,wxEmptyString);
     
     this->m_pOwner->Refresh();
     
     return true;
+}
+
+//////////////// Same Watch as Dialog //////////////
+
+SameWatchAs::SameWatchAs( wxWindow* parent, int gridRow, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->parent = ((LogbookDialog*)parent)->crewList;
+	row = gridRow;
+
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	
+	wxBoxSizer* bSizer23;
+	bSizer23 = new wxBoxSizer( wxVERTICAL );
+	
+	wxFlexGridSizer* fgSizer41;
+	fgSizer41 = new wxFlexGridSizer( 0, 2, 0, 0 );
+	fgSizer41->SetFlexibleDirection( wxBOTH );
+	fgSizer41->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+	
+	m_staticText108 = new wxStaticText( this, wxID_ANY, _("Person:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText108->Wrap( -1 );
+	fgSizer41->Add( m_staticText108, 0, wxALL, 5 );
+	
+	m_staticTextPersonName = new wxStaticText( this, wxID_ANY, wxT(""), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextPersonName->Wrap( -1 );
+	fgSizer41->Add( m_staticTextPersonName, 0, wxALL, 5 );
+	
+	bSizer23->Add( fgSizer41, 0, wxALIGN_CENTER, 5 );
+	
+	wxFlexGridSizer* fgSizer42;
+	fgSizer42 = new wxFlexGridSizer( 0, 2, 0, 0 );
+	fgSizer42->SetFlexibleDirection( wxBOTH );
+	fgSizer42->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+	
+	m_staticText110 = new wxStaticText( this, wxID_ANY, _("same watch as"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText110->Wrap( -1 );
+	fgSizer42->Add( m_staticText110, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	wxArrayString m_choice23Choices;
+	m_choice23 = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choice23Choices, 0 );
+	m_choice23->SetSelection( 0 );
+	fgSizer42->Add( m_choice23, 0, wxALL, 5 );
+	
+	bSizer23->Add( fgSizer42, 0, wxALIGN_CENTER, 5 );
+	
+	m_staticline39 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
+	bSizer23->Add( m_staticline39, 0, wxEXPAND | wxALL, 5 );
+	
+	m_sdbSizer4 = new wxStdDialogButtonSizer();
+	m_sdbSizer4OK = new wxButton( this, wxID_OK );
+	m_sdbSizer4->AddButton( m_sdbSizer4OK );
+	m_sdbSizer4Cancel = new wxButton( this, wxID_CANCEL );
+	m_sdbSizer4->AddButton( m_sdbSizer4Cancel );
+	m_sdbSizer4->Realize();
+	bSizer23->Add( m_sdbSizer4, 0, wxALIGN_CENTER, 5 );
+	
+	this->SetSizer( bSizer23 );
+	this->Layout();
+	
+	this->Centre( wxBOTH );
+
+	this->Connect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( SameWatchAs::OnInitDialog ) );
+}
+
+SameWatchAs::~SameWatchAs()
+{
+	this->Disconnect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( SameWatchAs::OnInitDialog ) );
+}
+
+void SameWatchAs::OnInitDialog( wxInitDialogEvent& event )
+{
+	m_staticTextPersonName->SetLabel(parent->gridCrew->GetCellValue(row,CrewList::FIRSTNAME)+_T(",")+
+		                         parent->gridCrew->GetCellValue(row,CrewList::NAME));
+
+	for(int i = 0; i < parent->gridWake->GetNumberRows(); i++)
+		m_choice23->Append(parent->gridWake->GetCellValue(i,CrewList::LWFIRSTNAME)+_T(",")+
+		                         parent->gridWake->GetCellValue(i,CrewList::LWNAME));
+
+	m_choice23->SetSelection(0);
 }
 
 

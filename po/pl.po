@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.6.1310\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-01-25 16:50+0100\n"
+"POT-Creation-Date: 2012-02-07 21:58+0100\n"
 "PO-Revision-Date: 2012-01-20 18:14+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
@@ -79,8 +79,14 @@ msgstr "\""
 msgid "'"
 msgstr "'"
 #
+msgid "-Plugin"
+msgstr ""
+#
 msgid "0"
 msgstr "0"
+#
+msgid "1. Watch of 1. Person"
+msgstr ""
 #
 msgid "Abbreviations"
 msgstr "Skróty"
@@ -111,6 +117,12 @@ msgstr "Dodaj nowego załoganta"
 #
 msgid "Add a new line"
 msgstr "Dodaj wpis"
+#
+msgid "Add to Watchlist"
+msgstr ""
+#
+msgid "Add to Watchlist same as"
+msgstr ""
 #
 msgid "Adress"
 msgstr "Adres"
@@ -317,6 +329,9 @@ msgstr ""
 msgid "Draft"
 msgstr "Zanurzenie"
 #
+msgid "Drag 'n Drop to change the order in the list"
+msgstr ""
+#
 msgid "E"
 msgstr "E"
 #
@@ -385,6 +400,10 @@ msgstr "Stopa"
 #
 msgid "Filter Layout by"
 msgstr "Filtruj Szablony"
+#
+#, fuzzy
+msgid "FirstName"
+msgstr "Imię"
 #
 msgid "Firstname"
 msgstr "Imię"
@@ -661,6 +680,10 @@ msgstr ""
 "Brak ścieżki do Edytora HTML\n"
 "w Narzędzia/Wtyczki/LogbookKonni/Preferencje"
 #
+#, fuzzy
+msgid "No. Watches"
+msgstr "Wachta"
+#
 #, c-format
 msgid "Old Logbook until %s"
 msgstr "Archiwalny dziennik do %s"
@@ -706,6 +729,12 @@ msgstr "Ścieżka do edytora ODT"
 msgid "Paths"
 msgstr "Ścieżki"
 #
+msgid "Person:"
+msgstr ""
+#
+msgid "Persons:"
+msgstr ""
+#
 msgid "Place of Birth"
 msgstr "Miejsce urodzenia"
 #
@@ -723,7 +752,8 @@ msgstr ""
 "Wprowadź 0544512.15n0301205.15e dla\n"
 "054Deg 45Min 12.15Sec N 030Deg 12Min 05.15Sec E"
 #
-msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45:00 PM"
+#, fuzzy
+msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45 PM"
 msgstr "Wprowadź 4 cyfry w formacie 24h np. 1545 = 03:45:00 PM"
 #
 msgid ""
@@ -913,6 +943,12 @@ msgstr "Ustaw ścieżkę do klienta poczty"
 #
 msgid "Set Path to ODT-Editor"
 msgstr "Ustaw ścieżkę do edytora ODT"
+#
+#, fuzzy
+msgid "Set Watches"
+msgstr ""
+"Początek\n"
+"I wachty"
 #
 msgid "Show Depth in"
 msgstr "Pokazuj Głębokość w"
@@ -1355,6 +1391,9 @@ msgstr "puste"
 #
 msgid "s"
 msgstr "s"
+#
+msgid "same watch as"
+msgstr ""
 #
 msgid "sm"
 msgstr "mm"
