@@ -63,7 +63,7 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 	Min = _("'");
 	Sec = _("\"");
 
-	distance = _("sm");
+	distance = _("NM");
 	speed = _("kts");
 
 	meter = _("m");

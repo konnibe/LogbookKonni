@@ -1240,6 +1240,22 @@ wxString Maintenance::readLayoutHTML(wxString path1,wxString layoutFileName)
 	return html;
 }
 
+void Maintenance::deleteFindItRow(wxString category, wxString plugin)
+{
+	int del = buyparts->GetNumberRows();
+	int row = 0;
+	while(row < buyparts->GetNumberRows())
+	{
+		if(buyparts->GetCellValue(row,PCATEGORY).Contains(category) && 
+			buyparts->GetCellValue(row,TITLE).Contains(plugin))
+				buyparts->DeleteRows(row);
+		else
+			row++;
+
+	}
+
+}
+
 void Maintenance::showDateDialog(int row, int col, wxGrid* grid)
 {
 	DateDialog* d = new DateDialog(grid);

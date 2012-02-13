@@ -225,10 +225,13 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
       else if(message_id == _T("LOGBOOK_BUYPARTS_ADDLINE_REQUEST"))
       {
 		wxJSONReader reader;
-		wxJSONValue  data;
+		wxJSONValue  data = NULL;
 		int priority, amount;
-		wxString category, title, unit, text;
+		wxString category, title, unit, text, plugin;
 		wxString prText[6]; 
+
+	//	for(int z = 0; z < 6; z++) 
+		//	prText[z] = wxEmptyString;
 
 		int numErrors = reader.Parse( message_body, &data );
 		if(numErrors != 0) return;
@@ -242,11 +245,11 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
 
 		for(int i = 0; i < data.Size(); i++)
 		{
-			//wxMessageBox(data[i].Item(_T("Text")).AsString());
 			priority = data[i].Item(_T("Priority")).AsInt();
 			category = data[i].Item(_T("Category")).AsString();
-			title    = _("from");
-			title   += _T(" ") + data[i].Item(_T("PluginName")).AsString() + _("-Plugin");
+			title    = _("from ");
+			plugin = data[i].Item(_T("PluginName")).AsString();
+			title   += plugin + _("-Plugin");
 			amount   = data[i].Item(_T("Amount")).AsInt();
 			unit     = data[i].Item(_T("Unit")).AsString();
 			text     = data[i].Item(_T("Text")).AsString();
@@ -254,12 +257,16 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
 			prText[priority] += wxString::Format(_T("%4i  %-15s %-30s\n"),amount,unit.c_str(),text.c_str());
 
 		}
+		//wxMessageBox(wxString::Format(_("%i"),data.Size()));
+		if(plugin == _T("FindIt"))
+			m_plogbook_window->maintenance->deleteFindItRow(category,plugin);
 
 		for(int i = 0; i < 6; i++)
 		{
 			if(prText[i] != wxEmptyString)
 			{
 				m_plogbook_window->maintenance->addLineBuyParts();
+
 				int lastRow = m_plogbook_window->m_gridMaintenanceBuyParts->GetRows()-1;
 
 				m_plogbook_window->m_gridMaintenanceBuyParts->SetCellValue(lastRow,0,wxString::Format(_T("%i"),i));
@@ -269,8 +276,9 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
 				m_plogbook_window->m_gridMaintenanceBuyParts->AutoSizeRow(lastRow,false);
 			}
 		}
-		m_plogbook_window->maintenance->checkBuyParts();
 
+		m_plogbook_window->maintenance->checkBuyParts();
+		
 		return;
       }
       else if(message_id == _T("LOGBOOK_LOG_ADDLINE_REQUEST"))

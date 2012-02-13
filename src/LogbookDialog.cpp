@@ -229,6 +229,10 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	wxMenuItem* m_menuItem15;
 	m_menuItem15 = new wxMenuItem( m_menu1, wxID_ANY, wxString( _("Hide column") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menu1->Append( m_menuItem15 );
+
+	wxMenuItem* m_menuItemSearch;
+	m_menuItemSearch = new wxMenuItem( m_menu1, wxID_ANY, wxString( _("Search in Logbook") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu1->Append( m_menuItemSearch );
 	
 	m_gridGlobal->Connect( wxEVT_RIGHT_DOWN, wxMouseEventHandler( LogbookDialog::m_gridGlobalOnContextMenu ), NULL, this ); 
 	
@@ -1580,6 +1584,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	this->Connect( m_menuItem1->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::m_menuItem1OnMenuSelection ) );
 	this->Connect( m_menuItem15->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHideColumn ) );
 	this->Connect( m_menuItem16->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHideColumnOverView ) );
+	this->Connect( m_menuItemSearch->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionSearch ) );
 	m_gridWeather->Connect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::m_gridWeatherOnGridCellRightClick ), NULL, this );
 	m_gridWeather->Connect( wxEVT_GRID_CELL_CHANGE, wxGridEventHandler( LogbookDialog::m_gridWeatherOnGridCmdCellChange ), NULL, this );
 	m_gridWeather->Connect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( LogbookDialog::m_gridWeatherOnGridSelectCell ), NULL, this );
@@ -1673,6 +1678,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	this->Connect( m_menuItem1311->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionBuyPartsDelete ) );
 	this->Connect( m_menuItem13->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceDelete ) );
 	this->Connect( m_menuItem132->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionShowHiddenCols ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionSearch ) );
 	this->Connect( m_menuItem14->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionShowHiddenColsOverview ) );
 	m_gridMaintanenceRepairs->Connect( wxEVT_GRID_CELL_CHANGE, wxGridEventHandler( LogbookDialog::onGridCellRepairsChange ), NULL, this );
 	m_gridMaintanenceRepairs->Connect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::onGridCellRightClickRepairs ), NULL, this );
@@ -1894,6 +1900,11 @@ void LogbookDialog::m_menu1Highlighted(wxMenuEvent& ev)
 #else
 	wxMessageBox(m_menu1->GetLabel(ev.GetMenuId()));
 #endif
+}
+
+void LogbookDialog::OnMenuSelectionSearch( wxCommandEvent& event )
+{
+	logbook->showSearchDlg(selGridRow,selGridCol);
 }
 
 void LogbookDialog::OnMenuSelectionHideColumn(wxCommandEvent& ev)

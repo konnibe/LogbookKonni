@@ -18,10 +18,6 @@ class PBVEDialog;
 class Logbook : public LogbookHTML
 {
 private:
-	enum fields{ ROUTE,RDATE,RTIME,SIGN,WAKE,DISTANCE,DTOTAL,POSITION,COG,COW,SOG,SOW,DEPTH,REMARKS,
-				 BARO,WIND,WSPD,CURRENT,CSPD,WAVE,SWELL,WEATHER,CLOUDS,VISIBILITY,
-				 MOTOR,MOTORT,FUEL,FUELT,SAILS,REEF,WATER,WATERT,MREMARKS,HYDRO,TEMPAIR,TEMPWATER};	
-
 	struct Pos{
 		double posLat;
 		double latitude;
@@ -86,6 +82,10 @@ private:
 #endif
 
 public:
+	enum fields{ ROUTE,RDATE,RTIME,SIGN,WAKE,DISTANCE,DTOTAL,POSITION,COG,COW,SOG,SOW,DEPTH,REMARKS,
+				 BARO,WIND,WSPD,CURRENT,CSPD,WAVE,SWELL,WEATHER,CLOUDS,VISIBILITY,
+				 MOTOR,MOTORT,FUEL,FUELT,SAILS,REEF,WATER,WATERT,MREMARKS,HYDRO,TEMPAIR,TEMPWATER};	
+
 	LogbookDialog*	dialog;
 	LogbookHTML*	logbookHTML;
 	wxString		layout_locn;
@@ -120,7 +120,7 @@ public:
 	void SetGPSStatus(bool status);
 	bool checkGPS(bool appendClick);
 	void checkWayPoint(RMB rmb);
-
+	void showSearchDlg(int row, int col);
 
 	wxTextFile* logbookFile;
 	wxString	title;
@@ -178,6 +178,49 @@ class PBVEDialog : public wxFrame
 		wxTextCtrl* m_textCtrlPVBE;		
 		PBVEDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 		~PBVEDialog();
+	
+};
+
+#include <wx/datectrl.h>
+///////////////////////////////////////////////////////////////////////////////
+/// Class LogbookSearch
+///////////////////////////////////////////////////////////////////////////////
+class LogbookSearch : public wxDialog 
+{
+	private:
+		LogbookDialog* parent;
+		int row, col;
+		int searchrow;
+		bool direction;
+
+	protected:
+		wxStaticText* m_staticText96;
+		wxStaticLine* m_staticline32;
+		wxStaticText* m_staticText108;
+		wxStaticText* m_staticText110;
+		wxStaticText* m_staticText97;
+		wxStaticLine* m_staticline39;
+		wxButton* m_buttonBack;
+		wxButton* m_buttonForward;
+		
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnInitDialog( wxInitDialogEvent& event );
+		virtual void OnButtonClickBack( wxCommandEvent& event );
+		virtual void OnButtonClickForward( wxCommandEvent& event );
+		virtual void OnButtonClickSelectDate( wxCommandEvent& event );
+		
+	
+	public:
+		wxRadioButton* m_radioBtnActuell;
+		wxRadioButton* m_radioBtnAll;
+		wxTextCtrl* m_textCtrl72;
+		wxChoice* m_choice23;
+		wxChoice* m_choiceGreaterEqual;
+		wxDatePickerCtrl* m_datePicker;
+		wxButton* m_buttonSelectDate;
+
+		LogbookSearch( wxWindow* parent, int row, int col, wxWindowID id = wxID_ANY, const wxString& title = wxT("Search in Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 353,219 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		~LogbookSearch();
 	
 };
 #endif

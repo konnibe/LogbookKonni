@@ -466,7 +466,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_staticText38->Wrap( -1 );
 	fgSizer91->Add( m_staticText38, 0, wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_sDist = new wxTextCtrl( m_panel16, wxID_ANY, _("sm"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
+	m_sDist = new wxTextCtrl( m_panel16, wxID_ANY, _("NM"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
 	fgSizer91->Add( m_sDist, 0, 0, 5 );
 	
 	m_staticText39 = new wxStaticText( m_panel16, wxID_ANY, _("Speed"), wxDefaultPosition, wxDefaultSize, 0 );

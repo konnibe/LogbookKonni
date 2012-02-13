@@ -52,6 +52,7 @@ public:
 	void viewHTML(int tab,wxString path,wxString layout,int mode);
 	wxString toHTML(int tab,wxString path,wxString layout,int mode);
 	void showDateDialog( int row, int col, wxGrid* grid);
+	void deleteFindItRow(wxString category,wxString plugin);
 
 	wxGrid*		grid;
 	wxGrid*		buyparts;

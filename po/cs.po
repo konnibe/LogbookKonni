@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-07 21:58+0100\n"
+"POT-Creation-Date: 2012-02-08 14:31+0100\n"
 "PO-Revision-Date: 2011-12-29 09:35+0100\n"
 "Last-Translator: Pavel Kalian <pavel@kalian.cz>\n"
 "Language-Team: Pavel Kalian <pavel@kalian.cz>\n"
@@ -947,6 +947,10 @@ msgstr "Navigace"
 #
 msgid "New Logbook"
 msgstr "Nový lodní deník"
+#
+#, fuzzy
+msgid "Nm"
+msgstr "Příjmení"
 #
 #
 #
@@ -1971,9 +1975,6 @@ msgstr "s"
 msgid "same watch as"
 msgstr ""
 #
-msgid "sm"
-msgstr "NM"
-#
 #
 #
 #
@@ -1996,6 +1997,7 @@ msgstr "týdny"
 #
 msgid "write your own label"
 msgstr "Napiš vlastní popis"
+#
 #
 #
 #
@@ -2192,9 +2194,11 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "BuyParts"
 #~ msgstr "Koupit díly"
+#
 #
 #
 #
@@ -2274,8 +2278,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "Current from"
 #~ msgstr "Proud z"
+#
 #
 #
 #
@@ -2534,8 +2540,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "GPS Auto (Ocean Crossing)"
 #~ msgstr "GPS Auto (přejezd oceánu)"
+#
 #
 #
 #
@@ -2680,8 +2688,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Konniho lodní deník"
+#
 #
 #
 #
@@ -2921,8 +2931,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "NetTonnage"
 #~ msgstr "Čistá registrovaná prostornost"
+#
 #
 #
 #
@@ -2975,6 +2987,7 @@ msgstr "Napiš vlastní popis"
 #, fuzzy
 #~ msgid "Not implemented yet"
 #~ msgstr "zatím neimplementováno"
+#
 #
 #
 #
@@ -3087,8 +3100,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "Save"
 #~ msgstr "Uložit"
+#
 #
 #
 #
@@ -3319,6 +3334,7 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Vybrat rozvržení:"
@@ -3436,8 +3452,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "Show Maintence Rows coloured"
 #~ msgstr "Zobraz řádky údržby v barvě"
+#
 #
 #
 #
@@ -3698,8 +3716,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "Today"
 #~ msgstr "Dnes"
+#
 #
 #
 #
@@ -3842,6 +3862,7 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Zobrazit"
@@ -3869,5 +3890,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
 #~ msgid "Wind from"
 #~ msgstr "Vítr z"
+#
+#
+#~ msgid "sm"
+#~ msgstr "NM"

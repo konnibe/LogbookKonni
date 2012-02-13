@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.6.1310\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-07 21:58+0100\n"
+"POT-Creation-Date: 2012-02-08 14:31+0100\n"
 "PO-Revision-Date: 2012-01-20 18:14+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
@@ -659,6 +659,10 @@ msgstr "Nawigacja"
 #
 msgid "New Logbook"
 msgstr "Nowy Dziennik"
+#
+#, fuzzy
+msgid "Nm"
+msgstr "Nazwisko"
 #
 msgid "No"
 msgstr "Nie"
@@ -1395,9 +1399,6 @@ msgstr "s"
 msgid "same watch as"
 msgstr ""
 #
-msgid "sm"
-msgstr "mm"
-#
 msgid "to"
 msgstr "do"
 #
@@ -1406,3 +1407,7 @@ msgstr "tygodni"
 #
 msgid "write your own label"
 msgstr "wpisz własną etykietę"
+#
+#
+#~ msgid "sm"
+#~ msgstr "mm"

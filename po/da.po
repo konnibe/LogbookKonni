@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-07 21:58+0100\n"
+"POT-Creation-Date: 2012-02-08 14:31+0100\n"
 "PO-Revision-Date: 2012-01-29 08:09+0100\n"
 "Last-Translator: Jacob Handrup <jacob@familienhandrup.dk>\n"
 "Language-Team: \n"
@@ -764,6 +764,10 @@ msgstr "Navigation"
 msgid "New Logbook"
 msgstr "Ny logbog"
 #
+#, fuzzy
+msgid "Nm"
+msgstr "Navn"
+#
 #
 #
 #
@@ -1507,9 +1511,6 @@ msgstr "s"
 msgid "same watch as"
 msgstr ""
 #
-msgid "sm"
-msgstr "sm"
-#
 msgid "to"
 msgstr "til"
 #
@@ -1518,6 +1519,7 @@ msgstr "uge(r)"
 #
 msgid "write your own label"
 msgstr "skriv din egen label"
+#
 #
 #
 #
@@ -1580,13 +1582,16 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
 #~ msgid "CrewList"
 #~ msgstr "Crewliste"
 #
 #
 #
+#
 #~ msgid "Current from"
 #~ msgstr "Strøm fra"
+#
 #
 #
 #
@@ -1642,8 +1647,10 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Pfad zum HTML-Editor (optional)"
+#
 #
 #
 #
@@ -1744,9 +1751,11 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
+#
 #
 #
 #
@@ -1770,5 +1779,10 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
 #~ msgid "Wind from"
 #~ msgstr "Vind fra"
+#
+#
+#~ msgid "sm"
+#~ msgstr "sm"

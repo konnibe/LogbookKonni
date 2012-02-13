@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-07 21:58+0100\n"
+"POT-Creation-Date: 2012-02-08 14:31+0100\n"
 "PO-Revision-Date: 2012-02-07 22:05+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
@@ -774,6 +774,9 @@ msgstr ""
 msgid "New Logbook"
 msgstr "Neues Logbuch"
 #
+msgid "Nm"
+msgstr ""
+#
 #
 #
 #
@@ -1520,9 +1523,6 @@ msgstr ""
 msgid "same watch as"
 msgstr "dieselbe Wachzeit wie"
 #
-msgid "sm"
-msgstr ""
-#
 msgid "to"
 msgstr "bis"
 #
@@ -1531,6 +1531,7 @@ msgstr "Woche(n)"
 #
 msgid "write your own label"
 msgstr "schreiben Sie Ihr eigenes Label"
+#
 #
 #
 #
@@ -1619,6 +1620,7 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
 #~ msgid "CrewList"
 #~ msgstr "Crewliste"
 #
@@ -1635,8 +1637,10 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
 #~ msgid "Current from"
 #~ msgstr "Strom von"
+#
 #
 #
 #
@@ -1718,8 +1722,10 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Pfad zum HTML-Editor (optional)"
+#
 #
 #
 #
@@ -1846,9 +1852,11 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
+#
 #
 #
 #
