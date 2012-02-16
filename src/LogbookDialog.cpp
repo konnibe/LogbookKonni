@@ -2599,45 +2599,23 @@ void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )
 
 		wxString g,temp;
 		int n = 0;
-
-		for(int i = 0; i < 2; i++)
+		wxFileInputStream in(path);
+		wxTextInputStream xml(in);
+		while(!in.Eof())
 		{
-			if(i == 1)
-			{
-				path = stdPath + wxFileName::GetPathSeparator() + _T("navobj.xml.changes");
-				if(!wxFile::Exists(path)) break;
-			}
-			wxFileInputStream in(path);
-			wxTextInputStream xml(in);
-			while(!in.Eof())
+			temp = xml.ReadLine();
+			if(temp.Contains(_T("<rte>")))
 			{
 				temp = xml.ReadLine();
-				if(temp.Contains(_T("<rte>")))
+				if(temp.Contains(_T("<name>")))
 				{
-					temp = xml.ReadLine();
-					if(temp.Contains(_T("<name>")))
-					{
-						temp = temp.AfterFirst('>');
-						g = temp.BeforeFirst('<');
-						if(i == 1)
-						{
-							for(int z = 0; z < 6; z++)
-								temp = xml.ReadLine();
-							if(temp.Contains(_T("<opencpn:action>delete")))
-								dlg->m_listCtrlRoute->DeleteItem(dlg->m_listCtrlRoute->FindItem(0,g));
-							else
-								dlg->m_listCtrlRoute->InsertItem(n++,g);
-
-						}
-						else
-							dlg->m_listCtrlRoute->InsertItem(n++,g);
-					}
-					//else if(temp.Contains(_T("<extensions>")))
-						//dlg->m_listCtrlRoute->InsertItem(n++,_("Unnamed Route"));
+					temp = temp.AfterFirst('>');
+					g = temp.BeforeFirst('<');
+					dlg->m_listCtrlRoute->InsertItem(n++,g);
 				}
 			}
 		}
-
+		
 		if(dlg->ShowModal() == wxID_OK)
 		{
 			int selIndex = -1;
