@@ -1233,7 +1233,7 @@ void AutomaticWatch::OnInit( wxInitDialogEvent& event )
 	itemCol.SetImage(-1);
 	itemCol.SetWidth(150);
 	m_listCtrlWatchNames->InsertColumn(0, itemCol);
-	itemCol.SetText(_("FirstName"));
+	itemCol.SetText(_("Firstname"));
 	itemCol.SetImage(-1);
 	itemCol.SetWidth(150);
 	m_listCtrlWatchNames->InsertColumn(1, itemCol);

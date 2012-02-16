@@ -1066,6 +1066,7 @@ void Logbook::deleteRow(int row)
 			dialog->logGrids[i]->DeleteRows(row);
 	}
 #endif
+	modified = true;
 }
 
 void Logbook::changeCellValue(int row, int col, int mode)
@@ -1086,7 +1087,7 @@ void Logbook::update()
 	dialog->logGrids[0]->Refresh();
 	
 	int count;
-	if((count  = dialog->logGrids[0]->GetNumberRows() )== 0) return;
+	if((count  = dialog->logGrids[0]->GetNumberRows() )== 0) { wxFile f; f.Create(data_locn,true); return; }
 	
 	wxString s = _T(""), temp;
 
