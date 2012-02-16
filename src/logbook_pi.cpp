@@ -229,7 +229,7 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
       else if(message_id == _T("LOGBOOK_BUYPARTS_ADDLINE_REQUEST"))
       {
 		wxJSONReader reader;
-		wxJSONValue  data = NULL;
+		wxJSONValue  data;
 		int priority, amount;
 		wxString category, title, unit, text, plugin;
 		wxString prText[6]; 

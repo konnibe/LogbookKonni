@@ -89,7 +89,7 @@ void CrewList::loadData()
 {
 	wxString s, line;
 	wxGrid* grid;
-	int count, lineCount, numRows;
+	int lineCount, numRows;
 
 	if(gridCrew->GetNumberRows() > 0)
 	{
@@ -108,7 +108,7 @@ void CrewList::loadData()
 
 		gridCrew->AppendRows();
 
-		count = gridCrew->GetNumberCols();
+		//count = gridCrew->GetNumberCols();
 		numRows = gridCrew->GetNumberRows()-1;
 
 		wxStringTokenizer tkz(line, _T("\t"),wxTOKEN_RET_EMPTY);
@@ -140,7 +140,7 @@ void CrewList::loadData()
 		gridWake->SetCellAlignment(i,0,wxALIGN_LEFT, wxALIGN_TOP);
 		gridWake->SetCellAlignment(i,1,wxALIGN_LEFT, wxALIGN_TOP);
 
-		count = gridWake->GetNumberCols();
+		//count = gridWake->GetNumberCols();
 		numRows = gridWake->GetNumberRows()-1;
 
 		wxStringTokenizer tkz(line, _T("\t"),wxTOKEN_RET_EMPTY);
@@ -372,7 +372,7 @@ void CrewList::setWatches(AutomaticWatch* dlg, wxString time)
 
 	int end = ((dlg->m_choice20->GetSelection()) * 2) + WAKEEND1;
 
-	int row, col;
+	int row = 0, col;
 	for(col = WAKESTART1; col < end; col += 2)
 	{
 		for(row = 0; row < dlg->m_listCtrlWatchNames->GetItemCount(); row++)

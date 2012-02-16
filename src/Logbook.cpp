@@ -1879,7 +1879,7 @@ void Logbook::SetGPSStatus(bool status)
 void Logbook::showSearchDlg(int row, int col)
 {
 	LogbookSearch* dlg = new LogbookSearch(dialog, row, col);
-	bool shown = dlg->Show(true);
+	dlg->Show(true);
 
 /*	while(shown)
 	{
