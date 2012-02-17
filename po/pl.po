@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.6.1310\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-08 14:31+0100\n"
+"POT-Creation-Date: 2012-02-16 15:00+0100\n"
 "PO-Revision-Date: 2012-01-20 18:14+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
@@ -401,10 +401,6 @@ msgstr "Stopa"
 msgid "Filter Layout by"
 msgstr "Filtruj Szablony"
 #
-#, fuzzy
-msgid "FirstName"
-msgstr "Imię"
-#
 msgid "Firstname"
 msgstr "Imię"
 #
@@ -492,6 +488,10 @@ msgid ""
 msgstr ""
 "Jeśli utworzyłeś własne szablony\n"
 "z prefiksem np.: Mój_ "
+#
+#, fuzzy
+msgid "In Column"
+msgstr "Ukryj kolumnę"
 #
 msgid "Information"
 msgstr "Informacje"
@@ -645,6 +645,9 @@ msgstr "Motogodziny"
 msgid "Motor/Sails"
 msgstr "Silnik/Żagle"
 #
+msgid "NM"
+msgstr ""
+#
 msgid "Name"
 msgstr "Nazwisko"
 #
@@ -659,10 +662,6 @@ msgstr "Nawigacja"
 #
 msgid "New Logbook"
 msgstr "Nowy Dziennik"
-#
-#, fuzzy
-msgid "Nm"
-msgstr "Nazwisko"
 #
 msgid "No"
 msgstr "Nie"
@@ -881,8 +880,24 @@ msgstr "Zapisz plik Napraw"
 msgid "Save Service File"
 msgstr "Zapisz plik Serwisu"
 #
+#, fuzzy
+msgid "Search in"
+msgstr "Wybierz Dziennik"
+#
+#, fuzzy
+msgid "Search in Logbook"
+msgstr "Wybierz Dziennik"
+#
+#, fuzzy
+msgid "Searchstring"
+msgstr "Wybierz Dziennik"
+#
 msgid "Seconds"
 msgstr "Sekundy"
+#
+#, fuzzy
+msgid "Select"
+msgstr "Wybierz Trasę"
 #
 msgid "Select Layout:"
 msgstr "Wybierz Szablon:"
@@ -1360,6 +1375,10 @@ msgstr "sąż"
 msgid "from"
 msgstr "od"
 #
+#, fuzzy
+msgid "from "
+msgstr "od"
+#
 msgid "ft"
 msgstr "ft"
 #
@@ -1407,6 +1426,68 @@ msgstr "tygodni"
 #
 msgid "write your own label"
 msgstr "wpisz własną etykietę"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "FirstName"
+#~ msgstr "Imię"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Nm"
+#~ msgstr "Nazwisko"
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Search.."
+#~ msgstr "Wybierz Dziennik"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #~ msgid "sm"

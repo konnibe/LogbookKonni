@@ -7,9 +7,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-08 14:31+0100\n"
-"PO-Revision-Date: 2012-02-15 14:08+0100\n"
-"Last-Translator: Pavel Kalian <pavel@kalian.cz>\n"
+"POT-Creation-Date: 2012-02-16 15:00+0100\n"
+"PO-Revision-Date: 2012-02-17 13:33+0100\n"
+"Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: Pavel Kalian <pavel@kalian.cz>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -559,9 +559,6 @@ msgstr "Stopy"
 msgid "Filter Layout by"
 msgstr "Filtr rozvržení podle"
 #
-msgid "FirstName"
-msgstr "Jméno"
-#
 msgid "Firstname"
 msgstr "Jméno"
 #
@@ -674,6 +671,10 @@ msgid ""
 msgstr ""
 "pokud sis vytvořil vlastní rozvržení\n"
 "s prefixem např. My_"
+#
+#, fuzzy
+msgid "In Column"
+msgstr "Schovat sloupec"
 #
 msgid "Information"
 msgstr "Informace"
@@ -927,6 +928,9 @@ msgstr "Motohodiny"
 msgid "Motor/Sails"
 msgstr "Motor/Plachty"
 #
+msgid "NM"
+msgstr ""
+#
 msgid "Name"
 msgstr "Příjmení"
 #
@@ -941,9 +945,6 @@ msgstr "Navigace"
 #
 msgid "New Logbook"
 msgstr "Nový lodní deník"
-#
-msgid "Nm"
-msgstr ""
 #
 #
 #
@@ -1335,9 +1336,25 @@ msgstr "Ulož soubor oprav"
 msgid "Save Service File"
 msgstr "Ulož soubor servisu"
 #
+#, fuzzy
+msgid "Search in"
+msgstr "Vybrat lodní deník"
+#
+#, fuzzy
+msgid "Search in Logbook"
+msgstr "Vybrat lodní deník"
+#
+#, fuzzy
+msgid "Searchstring"
+msgstr "Vybrat lodní deník"
+#
 #
 msgid "Seconds"
 msgstr "Sekundy"
+#
+#, fuzzy
+msgid "Select"
+msgstr "Vyber trasu"
 #
 msgid "Select Layout:"
 msgstr "Vyber rozložení:"
@@ -1914,6 +1931,12 @@ msgstr ""
 msgid "from"
 msgstr "z"
 #
+#
+#
+#
+msgid "from "
+msgstr "z "
+#
 msgid "ft"
 msgstr ""
 #
@@ -2123,8 +2146,38 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Best Etmal"
 #~ msgstr "Max NM/24h"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2242,8 +2295,38 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Seznam posádky"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2419,8 +2502,56 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Etmal "
 #~ msgstr "NM/24h"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#~ msgid "FirstName"
+#~ msgstr "Jméno"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2642,6 +2773,21 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "GrossTonnage"
 #~ msgstr "Celková registrovaná prostornost"
 #
@@ -2694,8 +2840,38 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Konniho lodní deník"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2943,8 +3119,38 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "NetTonnage"
 #~ msgstr "Čistá registrovaná prostornost"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3054,8 +3260,38 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Cesta k editoru HTML (volitelné)"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3268,8 +3504,47 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Schedule"
 #~ msgstr "Rozvrh"
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Search.."
+#~ msgstr "Vybrat lodní deník"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3482,8 +3757,38 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Show Maintence Rows coloured"
 #~ msgstr "Zobraz řádky údržby v barvě"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3752,8 +4057,38 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Dnes"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3862,6 +4197,21 @@ msgstr "Napiš vlastní popis"
 #, fuzzy
 #~ msgid "Traditional-Style"
 #~ msgstr "Národnost"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #

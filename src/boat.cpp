@@ -96,7 +96,7 @@ void Boat::createTextCtrlConnections()
 	{
 		if(l[i]->IsKindOf(CLASSINFO(wxTextCtrl)))
 		{
-			l[i]->Connect( wxEVT_COMMAND_TEXT_ENTER, 
+			l[i]->Connect( wxEVT_COMMAND_TEXT_UPDATED, 
 				wxCommandEventHandler(LogbookDialog::boatNameOnTextEnter),NULL,parent);		
 			ctrl.Append(l[i]);
 		}
@@ -133,7 +133,7 @@ void Boat::loadData()
 			s += tkz.GetNextToken().RemoveLast();
 			s = parent->restoreDangerChar(s);
 			wxTextCtrl* t = wxDynamicCast(ctrl[c++], wxTextCtrl);
-			t->SetValue(s);	
+			t->ChangeValue(s);	
 		}
 	}
 	boatFile->Close();

@@ -662,6 +662,13 @@ void Logbook::loadData()
 			}
 			c++;
 		}
+		wxString temp = dialog->m_gridGlobal->GetCellValue(row,DISTANCE);
+		temp.Replace(_T(","),_T("."));
+		double dist = wxAtof(temp);
+		if((dialog->m_gridGlobal->GetCellValue(row,SIGN) == wxEmptyString || 
+			dialog->m_gridGlobal->GetCellValue(row,SIGN).GetChar(0) == ' ') && dist > 0)
+				dialog->m_gridGlobal->SetCellValue(row,SIGN,_T("S"));
+
 		dialog->setEqualRowHeight(row);
 		row++;
 	}
@@ -1066,6 +1073,7 @@ void Logbook::deleteRow(int row)
 			dialog->logGrids[i]->DeleteRows(row);
 	}
 #endif
+	modified = true;
 }
 
 void Logbook::changeCellValue(int row, int col, int mode)
@@ -1086,7 +1094,7 @@ void Logbook::update()
 	dialog->logGrids[0]->Refresh();
 	
 	int count;
-	if((count  = dialog->logGrids[0]->GetNumberRows() )== 0) return;
+	if((count  = dialog->logGrids[0]->GetNumberRows() )== 0) { wxFile f; f.Create(data_locn,true); return; }
 	
 	wxString s = _T(""), temp;
 
@@ -1221,6 +1229,12 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						computeCell(grid, row, col, s, true);
 						if(row == dialog->m_gridGlobal->GetNumberRows()-1)
 							dialog->maintenance->checkService(row);
+						
+						s.Replace(_T(","),_T("."));
+						if(wxAtof(s) >= 0.01) 
+							dialog->m_gridGlobal->SetCellValue(row,SIGN,_T("S"));
+						else
+							dialog->m_gridGlobal->SetCellValue(row,SIGN,_T(""));
 					}
 	
 	else if(grid == 0 && col== 3)
@@ -1296,7 +1310,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 							s.Replace(_T("."),dialog->decimalPoint);
 							dialog->logGrids[grid]->SetCellValue(row,6,s);
 
-							if(dist >= 0.01)
+							if(dist > 0)
 								dialog->m_gridGlobal->SetCellValue(row,3,_T("S"));
 							else
 								dialog->m_gridGlobal->SetCellValue(row,3,dialog->m_gridGlobal->GetCellValue(row-1,3));
@@ -1958,14 +1972,14 @@ LogbookSearch::LogbookSearch( wxWindow* parent, int row, int col, wxWindowID id,
 	fgSizer41->SetFlexibleDirection( wxBOTH );
 	fgSizer41->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
-	m_staticText96 = new wxStaticText( this, wxID_ANY, wxT("Search in"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText96 = new wxStaticText( this, wxID_ANY, _("Search in"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText96->Wrap( -1 );
 	fgSizer41->Add( m_staticText96, 0, wxALL, 5 );
 	
-	m_radioBtnActuell = new wxRadioButton( this, wxID_ANY, wxT("Actuell Logbook"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_radioBtnActuell = new wxRadioButton( this, wxID_ANY, _("Actuell Logbook"), wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer41->Add( m_radioBtnActuell, 0, wxALL, 5 );
 	
-	m_radioBtnAll = new wxRadioButton( this, wxID_ANY, wxT("AllLogbooks"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_radioBtnAll = new wxRadioButton( this, wxID_ANY, _("All Logbooks"), wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer41->Add( m_radioBtnAll, 0, wxALL, 5 );
 	
 	bSizer23->Add( fgSizer41, 0, wxALIGN_CENTER, 5 );
@@ -1978,14 +1992,14 @@ LogbookSearch::LogbookSearch( wxWindow* parent, int row, int col, wxWindowID id,
 	fgSizer411->SetFlexibleDirection( wxBOTH );
 	fgSizer411->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
-	m_staticText108 = new wxStaticText( this, wxID_ANY, wxT("Searchstring"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText108 = new wxStaticText( this, wxID_ANY, _("Searchstring"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText108->Wrap( -1 );
 	fgSizer411->Add( m_staticText108, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	m_textCtrl72 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 250,-1 ), wxTE_LEFT|wxTE_MULTILINE );
 	fgSizer411->Add( m_textCtrl72, 0, wxALL, 5 );
 	
-	m_staticText110 = new wxStaticText( this, wxID_ANY, wxT("In Column"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText110 = new wxStaticText( this, wxID_ANY, _("In Column"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText110->Wrap( -1 );
 	fgSizer411->Add( m_staticText110, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -1994,7 +2008,7 @@ LogbookSearch::LogbookSearch( wxWindow* parent, int row, int col, wxWindowID id,
 	m_choice23->SetSelection( 0 );
 	fgSizer411->Add( m_choice23, 0, wxALL, 5 );
 	
-	m_staticText97 = new wxStaticText( this, wxID_ANY, wxT("Date"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText97 = new wxStaticText( this, wxID_ANY, _("Date"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText97->Wrap( -1 );
 	fgSizer411->Add( m_staticText97, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
@@ -2012,7 +2026,7 @@ LogbookSearch::LogbookSearch( wxWindow* parent, int row, int col, wxWindowID id,
 	m_datePicker = new wxDatePickerCtrl( this, wxID_ANY, wxDefaultDateTime, wxDefaultPosition, wxDefaultSize, wxDP_DEFAULT );
 	fgSizer42->Add( m_datePicker, 0, wxALL, 5 );
 	
-	m_buttonSelectDate = new wxButton( this, wxID_ANY, wxT("Select"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_buttonSelectDate = new wxButton( this, wxID_ANY, _("Select"), wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer42->Add( m_buttonSelectDate, 0, wxALL, 5 );
 	
 	fgSizer411->Add( fgSizer42, 1, wxEXPAND, 5 );
@@ -2071,6 +2085,8 @@ void LogbookSearch::OnInitDialog( wxInitDialogEvent& event )
 
 	this->m_choice23->SetSelection(col);
 	this->m_textCtrl72->SetFocus();
+
+	this->m_radioBtnAll->Hide();
 }
 
 void LogbookSearch::OnButtonClickSelectDate( wxCommandEvent& event )

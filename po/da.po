@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-08 14:31+0100\n"
+"POT-Creation-Date: 2012-02-16 15:00+0100\n"
 "PO-Revision-Date: 2012-01-29 08:09+0100\n"
 "Last-Translator: Jacob Handrup <jacob@familienhandrup.dk>\n"
 "Language-Team: \n"
@@ -443,10 +443,6 @@ msgstr "Fod"
 msgid "Filter Layout by"
 msgstr "Filtrer layout ved"
 #
-#, fuzzy
-msgid "FirstName"
-msgstr "Fornavn"
-#
 msgid "Firstname"
 msgstr "Fornavn"
 #
@@ -552,6 +548,10 @@ msgid ""
 msgstr ""
 "Hvis du har lavet dit eget layout\n"
 "med f.eks My_ foran"
+#
+#, fuzzy
+msgid "In Column"
+msgstr "Skjul kolonne"
 #
 msgid "Information"
 msgstr "Information"
@@ -749,6 +749,9 @@ msgstr "Motor timer"
 msgid "Motor/Sails"
 msgstr "Motor/Sejl"
 #
+msgid "NM"
+msgstr ""
+#
 msgid "Name"
 msgstr "Navn"
 #
@@ -763,10 +766,6 @@ msgstr "Navigation"
 #
 msgid "New Logbook"
 msgstr "Ny logbog"
-#
-#, fuzzy
-msgid "Nm"
-msgstr "Navn"
 #
 #
 #
@@ -1005,9 +1004,25 @@ msgstr "Gem reparations fil"
 msgid "Save Service File"
 msgstr "Gem service fil"
 #
+#, fuzzy
+msgid "Search in"
+msgstr "Vælg logbog"
+#
+#, fuzzy
+msgid "Search in Logbook"
+msgstr "Vælg logbog"
+#
+#, fuzzy
+msgid "Searchstring"
+msgstr "Vælg logbog"
+#
 #
 msgid "Seconds"
 msgstr "Sekunder"
+#
+#, fuzzy
+msgid "Select"
+msgstr "Vælg rute"
 #
 msgid "Select Layout:"
 msgstr "Vælg layout:"
@@ -1472,6 +1487,10 @@ msgstr "fm"
 msgid "from"
 msgstr "fra"
 #
+#, fuzzy
+msgid "from "
+msgstr "fra"
+#
 msgid "ft"
 msgstr "ft"
 #
@@ -1550,8 +1569,38 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "BuyParts"
 #~ msgstr "Zubehör kaufen"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1589,8 +1638,57 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Current from"
 #~ msgstr "Strøm fra"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "FirstName"
+#~ msgstr "Fornavn"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1619,6 +1717,40 @@ msgstr "skriv din egen label"
 #
 #~ msgid "Logbook Konni"
 #~ msgstr "Logbuch Konni"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Nm"
+#~ msgstr "Navn"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1687,8 +1819,47 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Save"
 #~ msgstr "Speichern"
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Search.."
+#~ msgstr "Vælg logbog"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1773,6 +1944,21 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Ansehen"
@@ -1780,8 +1966,38 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Wind from"
 #~ msgstr "Vind fra"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #~ msgid "sm"

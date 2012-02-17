@@ -166,6 +166,11 @@ wxString LogbookHTML::toHTML(wxString path, wxString layout, bool mode)
 	wxString newMiddleHTML;
 
 	topHTML.Replace(wxT("#LLOGBOOK#"),parent->m_logbook->GetPageText(0));
+	topHTML.Replace(wxT("#LFROM#"),_("from"));
+	topHTML.Replace(wxT("#LTO#"),_("to"));
+	topHTML.Replace(wxT("#SDATE#"),parent->m_gridGlobal->GetCellValue(0,1));
+	topHTML.Replace(wxT("#EDATE#"),parent->m_gridGlobal->GetCellValue(
+		parent->m_gridGlobal->GetNumberRows()-1,1));
 	topHTML.Replace(wxT("#TYPE#"),parent->boatType->GetValue());
 	topHTML.Replace(wxT("#BOATNAME#"),parent->boatName->GetValue());
 	topHTML.Replace(wxT("#HOMEPORT#"),parent->homeport->GetValue());
@@ -276,6 +281,15 @@ wxString LogbookHTML::replacePlaceholder(wxString html,wxString htmlHeader,int g
 					{
 						case BARO:		html.Replace(wxT("#BARO#"),replaceNewLine(g->GetCellValue(row,col),mode));
 										html.Replace(wxT("#LBARO#"),g->GetColLabelValue(col));
+								break;
+						case HYDRO:		html.Replace(wxT("#HYDRO#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LHYDRO#"),g->GetColLabelValue(col));
+								break;
+						case AIRTE:		html.Replace(wxT("#AIRTE#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LAIRTE#"),g->GetColLabelValue(col));
+								break;
+						case WATERTE:	html.Replace(wxT("#WTE#"),replaceNewLine(g->GetCellValue(row,col),mode));
+										html.Replace(wxT("#LWTE#"),g->GetColLabelValue(col));
 								break;
 						case WIND:		html.Replace(wxT("#WIND#"),replaceNewLine(g->GetCellValue(row,col),mode));
 										html.Replace(wxT("#LWIND#"),g->GetColLabelValue(col));

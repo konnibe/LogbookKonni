@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "logbookkonni_pi"
-!define PRODUCT_VERSION "0.911"
+!define PRODUCT_VERSION "0.914"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 XPStyle on
@@ -255,7 +255,7 @@ FunctionEnd
 
 Section Uninstall
   SetShellVarContext all
-  RMDir /r $APPDATA\opencpn\plugins\logbook
+ ; RMDir /r $APPDATA\opencpn\plugins\logbook
   DeleteINISec $APPDATA\opencpn\opencpn.ini PlugIns/Logbook
   DeleteINISec $APPDATA\opencpn\opencpn.ini PlugIns/Logbook/OverviewGridColWidth
   DeleteINISec $APPDATA\opencpn\opencpn.ini PlugIns/Logbook/ServiceGridColWidth

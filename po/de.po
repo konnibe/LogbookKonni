@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-08 14:31+0100\n"
-"PO-Revision-Date: 2012-02-07 22:05+0100\n"
+"POT-Creation-Date: 2012-02-16 15:00+0100\n"
+"PO-Revision-Date: 2012-02-17 13:23+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -212,7 +212,7 @@ msgid "Capacity"
 msgstr "Kapazität"
 #
 msgid "Category"
-msgstr "Kategaory"
+msgstr "Kategory"
 #
 msgid "Clouds"
 msgstr "Wolken"
@@ -447,9 +447,6 @@ msgstr "Fuß"
 msgid "Filter Layout by"
 msgstr "Filtere Layout nach"
 #
-msgid "FirstName"
-msgstr "Vorname"
-#
 msgid "Firstname"
 msgstr "Vorname"
 #
@@ -557,6 +554,9 @@ msgid ""
 msgstr ""
 "Wen Sie ein Layout mit dem Prefix\n"
 "z.B. Mein_ erstellt haben"
+#
+msgid "In Column"
+msgstr "In Spalte"
 #
 msgid "Information"
 msgstr "Info"
@@ -759,6 +759,9 @@ msgstr "Motor Stunden"
 msgid "Motor/Sails"
 msgstr "Maschine/Segel"
 #
+msgid "NM"
+msgstr ""
+#
 msgid "Name"
 msgstr ""
 #
@@ -773,9 +776,6 @@ msgstr ""
 #
 msgid "New Logbook"
 msgstr "Neues Logbuch"
-#
-msgid "Nm"
-msgstr ""
 #
 #
 #
@@ -1014,9 +1014,21 @@ msgstr "Raparaturen-Datei speichern"
 msgid "Save Service File"
 msgstr "Service-Datei speichern"
 #
+msgid "Search in"
+msgstr "Suche in"
+#
+msgid "Search in Logbook"
+msgstr "Suche in Logbuch"
+#
+msgid "Searchstring"
+msgstr "Sucheingabe"
+#
 #
 msgid "Seconds"
 msgstr "Sekunden"
+#
+msgid "Select"
+msgstr "Wähle"
 #
 msgid "Select Layout:"
 msgstr "Wähle Layout:"
@@ -1484,6 +1496,9 @@ msgstr ""
 msgid "from"
 msgstr "vom"
 #
+msgid "from "
+msgstr "vom "
+#
 msgid "ft"
 msgstr ""
 #
@@ -1491,7 +1506,7 @@ msgid "fth"
 msgstr ""
 #
 msgid "gal"
-msgstr ""
+msgstr "l"
 #
 msgid "h"
 msgstr ""
@@ -1531,6 +1546,14 @@ msgstr "Woche(n)"
 #
 msgid "write your own label"
 msgstr "schreiben Sie Ihr eigenes Label"
+#
+#
+#
+#, fuzzy
+#~ msgid "AllLogbooks"
+#~ msgstr "Alle Logbücher"
+#
+#
 #
 #
 #
@@ -1621,6 +1644,8 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Crewliste"
 #
@@ -1638,8 +1663,17 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
 #~ msgid "Current from"
 #~ msgstr "Strom von"
+#
+#
+#
+#~ msgid "FirstName"
+#~ msgstr "Vorname"
+#
+#
 #
 #
 #
@@ -1681,6 +1715,8 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #~ msgid "Logbook Konni"
 #~ msgstr "Logbuch Konni"
+#
+#
 #
 #
 #
@@ -1775,8 +1811,17 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
 #~ msgid "Save"
 #~ msgstr "Speichern"
+#
+#
+#
+#~ msgid "Search.."
+#~ msgstr "Suche.."
+#
+#
 #
 #
 #
@@ -1856,6 +1901,8 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
+#
+#
 #
 #
 #

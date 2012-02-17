@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-08 14:31+0100\n"
+"POT-Creation-Date: 2012-02-16 15:00+0100\n"
 "PO-Revision-Date: 2011-11-25 01:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -565,10 +565,6 @@ msgstr "Pie"
 msgid "Filter Layout by"
 msgstr "Editar Layout"
 #
-#, fuzzy
-msgid "FirstName"
-msgstr "Nombre"
-#
 msgid "Firstname"
 msgstr "Nombre"
 #
@@ -679,6 +675,9 @@ msgstr ""
 msgid ""
 "If You have created Your own layouts\n"
 "with prefix e.g. My_"
+msgstr ""
+#
+msgid "In Column"
 msgstr ""
 #
 msgid "Information"
@@ -941,6 +940,9 @@ msgstr "Horas máquina"
 msgid "Motor/Sails"
 msgstr "Motor/Vela"
 #
+msgid "NM"
+msgstr ""
+#
 msgid "Name"
 msgstr "Nombre"
 #
@@ -955,10 +957,6 @@ msgstr "Navigación"
 #
 msgid "New Logbook"
 msgstr "Bitácora nueva"
-#
-#, fuzzy
-msgid "Nm"
-msgstr "Nombre"
 #
 msgid "No"
 msgstr ""
@@ -1351,9 +1349,25 @@ msgstr "Guardar Listado de tripulación"
 msgid "Save Service File"
 msgstr "Guardar Listado de tripulación"
 #
+#, fuzzy
+msgid "Search in"
+msgstr "Seleccione bitácora"
+#
+#, fuzzy
+msgid "Search in Logbook"
+msgstr "Seleccione bitácora"
+#
+#, fuzzy
+msgid "Searchstring"
+msgstr "Seleccione bitácora"
+#
 #
 msgid "Seconds"
 msgstr "Segundos"
+#
+#, fuzzy
+msgid "Select"
+msgstr "Seleccione ruta"
 #
 msgid "Select Layout:"
 msgstr "Seleccione Layout:"
@@ -1961,6 +1975,13 @@ msgstr ""
 msgid "from"
 msgstr "Viento"
 #
+#
+#
+#
+#, fuzzy
+msgid "from "
+msgstr "Viento"
+#
 msgid "ft"
 msgstr ""
 #
@@ -2013,6 +2034,21 @@ msgstr ""
 #
 msgid "write your own label"
 msgstr ""
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2128,8 +2164,38 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Listado de tripulación"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2158,6 +2224,40 @@ msgstr ""
 #, fuzzy
 #~ msgid "Current from"
 #~ msgstr "Corriente"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "FirstName"
+#~ msgstr "Nombre"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2259,6 +2359,21 @@ msgstr ""
 #
 #~ msgid "GRT"
 #~ msgstr "BRT"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2455,8 +2570,57 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Logbook files (*.txt)|*.txt"
 #~ msgstr "Ficheros bitácora (*.txt)|*.txt"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Nm"
+#~ msgstr "Nombre"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2564,8 +2728,38 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Ruta al editor HTML (opcional)"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2776,8 +2970,47 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Schedule"
 #~ msgstr "Calendário"
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Search.."
+#~ msgstr "Seleccione bitácora"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2871,6 +3104,21 @@ msgstr ""
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Seleccione Layout"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3138,8 +3386,38 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3288,9 +3566,39 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Ver"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3548,6 +3856,21 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Wave Peak"
 #~ msgstr "Oleaje"
@@ -3576,9 +3899,39 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Wind from"
 #~ msgstr "Viento"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #

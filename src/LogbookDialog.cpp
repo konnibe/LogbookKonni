@@ -829,28 +829,28 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	bname->Wrap( -1 );
 	fgSizer38->Add( bname, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	boatName = new wxTextCtrl( m_panel72, 1, wxEmptyString, wxDefaultPosition, wxSize( 200,-1 ), wxTE_PROCESS_ENTER );
+	boatName = new wxTextCtrl( m_panel72, 1, wxEmptyString, wxDefaultPosition, wxSize( 200,-1 ), 0 );
 	fgSizer38->Add( boatName, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	m_staticText114 = new wxStaticText( m_panel72, wxID_ANY, _("Homeport"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText114->Wrap( -1 );
 	fgSizer38->Add( m_staticText114, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	homeport = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 150,-1 ), wxTE_PROCESS_ENTER );
+	homeport = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 150,-1 ), 0 );
 	fgSizer38->Add( homeport, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	m_staticText115 = new wxStaticText( m_panel72, wxID_ANY, _("Callsign"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText115->Wrap( -1 );
 	fgSizer38->Add( m_staticText115, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	callsign = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	callsign = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer38->Add( callsign, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	m_staticText116 = new wxStaticText( m_panel72, wxID_ANY, _("HIN-Nr."), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText116->Wrap( -1 );
 	fgSizer38->Add( m_staticText116, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	hin = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	hin = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	hin->SetToolTip( _("Hull Identification No.") );
 	fgSizer38->Add( hin, 0, wxALL, 5 );
 	
@@ -871,28 +871,28 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_staticText119->Wrap( -1 );
 	fgSizer38->Add( m_staticText119, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	insurance = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 200,-1 ), wxTE_PROCESS_ENTER );
+	insurance = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 200,-1 ), 0 );
 	fgSizer38->Add( insurance, 0, wxALL, 5 );
 	
 	m_staticText118 = new wxStaticText( m_panel72, wxID_ANY, _("Registration"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText118->Wrap( -1 );
 	fgSizer38->Add( m_staticText118, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	registration = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 150,-1 ), wxTE_PROCESS_ENTER );
+	registration = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 150,-1 ), 0 );
 	fgSizer38->Add( registration, 0, wxALL, 5 );
 	
 	m_staticText120 = new wxStaticText( m_panel72, wxID_ANY, _("Policy"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText120->Wrap( -1 );
 	fgSizer38->Add( m_staticText120, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	policy = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	policy = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer38->Add( policy, 0, wxALL, 5 );
 	
 	m_staticText53 = new wxStaticText( m_panel72, wxID_ANY, _("MMSI"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText53->Wrap( -1 );
 	fgSizer38->Add( m_staticText53, 0, wxALL, 5 );
 	
-	mmsi = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	mmsi = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer38->Add( mmsi, 0, wxALL, 5 );
 	
 	sbSizer11->Add( fgSizer38, 1, wxEXPAND, 5 );
@@ -910,21 +910,21 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_staticText90->Wrap( -1 );
 	fgSizer39->Add( m_staticText90, 0, wxALL, 5 );
 	
-	ownerName = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 200,-1 ), wxTE_PROCESS_ENTER );
+	ownerName = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 200,-1 ), 0 );
 	fgSizer39->Add( ownerName, 0, wxALL, 5 );
 	
 	m_staticText91 = new wxStaticText( m_panel72, wxID_ANY, _("Firstname"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText91->Wrap( -1 );
 	fgSizer39->Add( m_staticText91, 0, wxALL, 5 );
 	
-	ownerFirstname = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 150,-1 ), wxTE_PROCESS_ENTER );
+	ownerFirstname = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 150,-1 ), 0 );
 	fgSizer39->Add( ownerFirstname, 0, wxALL, 5 );
 	
 	m_staticText95 = new wxStaticText( m_panel72, wxID_ANY, _("Telephone"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText95->Wrap( -1 );
 	fgSizer39->Add( m_staticText95, 0, wxALL, 5 );
 	
-	ownerPhone = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 200,-1 ), wxTE_PROCESS_ENTER );
+	ownerPhone = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 200,-1 ), 0 );
 	fgSizer39->Add( ownerPhone, 0, wxALL, 5 );
 	
 	
@@ -943,21 +943,21 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_staticText92->Wrap( -1 );
 	fgSizer39->Add( m_staticText92, 0, wxALL, 5 );
 	
-	ownerStreet = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 200,-1 ), wxTE_PROCESS_ENTER );
+	ownerStreet = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 200,-1 ), 0 );
 	fgSizer39->Add( ownerStreet, 0, wxALL, 5 );
 	
 	m_staticText93 = new wxStaticText( m_panel72, wxID_ANY, _("Zip"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText93->Wrap( -1 );
 	fgSizer39->Add( m_staticText93, 0, wxALL, 5 );
 	
-	owenerZip = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 150,-1 ), wxTE_PROCESS_ENTER );
+	owenerZip = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 150,-1 ), 0 );
 	fgSizer39->Add( owenerZip, 0, wxALL, 5 );
 	
 	m_staticText94 = new wxStaticText( m_panel72, wxID_ANY, _("Town"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText94->Wrap( -1 );
 	fgSizer39->Add( m_staticText94, 0, wxALL, 5 );
 	
-	ownerTown = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 200,-1 ), wxTE_PROCESS_ENTER );
+	ownerTown = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 200,-1 ), 0 );
 	fgSizer39->Add( ownerTown, 0, wxALL, 5 );
 	
 	sbSizer6->Add( fgSizer39, 1, wxEXPAND, 5 );
@@ -976,28 +976,28 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_staticText128->Wrap( -1 );
 	fgSizer33->Add( m_staticText128, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	boatType = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 150,-1 ), wxTE_PROCESS_ENTER );
+	boatType = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 150,-1 ), 0 );
 	fgSizer33->Add( boatType, 0, wxALL, 5 );
 	
 	m_staticText125 = new wxStaticText( m_panel72, wxID_ANY, _("Builder"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText125->Wrap( -1 );
 	fgSizer33->Add( m_staticText125, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	builder = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 150,-1 ), wxTE_PROCESS_ENTER );
+	builder = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 150,-1 ), 0 );
 	fgSizer33->Add( builder, 0, wxALL, 5 );
 	
 	m_staticText124 = new wxStaticText( m_panel72, wxID_ANY, _("Hull"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText124->Wrap( -1 );
 	fgSizer33->Add( m_staticText124, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	hull = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	hull = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer33->Add( hull, 0, wxALL, 5 );
 	
 	m_staticText126 = new wxStaticText( m_panel72, wxID_ANY, _("Date Launched"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText126->Wrap( -1 );
 	fgSizer33->Add( m_staticText126, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	dateLaunched = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	dateLaunched = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer33->Add( dateLaunched, 0, wxALL, 5 );
 	
 	m_staticText127 = new wxStaticText( m_panel72, wxID_ANY, _("Yard-Nr."), wxDefaultPosition, wxDefaultSize, 0 );
@@ -1011,14 +1011,14 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_staticText123->Wrap( -1 );
 	fgSizer33->Add( m_staticText123, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	designer = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 150,-1 ), wxTE_PROCESS_ENTER );
+	designer = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 150,-1 ), 0 );
 	fgSizer33->Add( designer, 0, wxALL, 5 );
 	
 	m_staticText129 = new wxStaticText( m_panel72, wxID_ANY, _("Construction"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText129->Wrap( -1 );
 	fgSizer33->Add( m_staticText129, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	construction = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 150,-1 ), wxTE_PROCESS_ENTER );
+	construction = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 150,-1 ), 0 );
 	fgSizer33->Add( construction, 0, wxALL, 5 );
 	
 	
@@ -1043,7 +1043,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_staticText106->Wrap( -1 );
 	fgSizer33->Add( m_staticText106, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	LOA = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), wxTE_PROCESS_ENTER );
+	LOA = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	LOA->SetToolTip( _("Length over all") );
 	
 	fgSizer33->Add( LOA, 0, wxALL, 5 );
@@ -1052,7 +1052,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_staticText107->Wrap( -1 );
 	fgSizer33->Add( m_staticText107, 0, wxALL, 5 );
 	
-	LOD = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), wxTE_PROCESS_ENTER );
+	LOD = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	LOD->SetToolTip( _("Length over Deck") );
 	
 	fgSizer33->Add( LOD, 0, wxALL, 5 );
@@ -1061,7 +1061,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_staticText108->Wrap( -1 );
 	fgSizer33->Add( m_staticText108, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	LWL = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), wxTE_PROCESS_ENTER );
+	LWL = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	LWL->SetToolTip( _("Length in Waterline") );
 	
 	fgSizer33->Add( LWL, 0, wxALL, 5 );
@@ -1070,7 +1070,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_staticText109->Wrap( -1 );
 	fgSizer33->Add( m_staticText109, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	beam = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), wxTE_PROCESS_ENTER );
+	beam = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	beam->SetToolTip( _("Greatest Width of Hull") );
 	
 	fgSizer33->Add( beam, 0, wxALL, 5 );
@@ -1082,36 +1082,36 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	draft = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	fgSizer33->Add( draft, 0, wxALL, 5 );
 	
-	UserLabel1 = new wxTextCtrl( m_panel72, wxID_ANY, _("UserLabel"), wxDefaultPosition, wxSize( 40,-1 ), wxTE_PROCESS_ENTER );
+	UserLabel1 = new wxTextCtrl( m_panel72, wxID_ANY, _("UserLabel"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
 	UserLabel1->SetToolTip( _("write your own label") );
 	
 	fgSizer33->Add( UserLabel1, 0, wxALL, 5 );
 	
-	Userfield1 = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	Userfield1 = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer33->Add( Userfield1, 0, wxALL, 5 );
 	
-	UserLabel2 = new wxTextCtrl( m_panel72, wxID_ANY, _("UserLabel"), wxDefaultPosition, wxSize( 60,-1 ), wxTE_PROCESS_ENTER );
+	UserLabel2 = new wxTextCtrl( m_panel72, wxID_ANY, _("UserLabel"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
 	UserLabel2->SetToolTip( _("write your own label") );
 	
 	fgSizer33->Add( UserLabel2, 0, wxALL, 5 );
 	
-	Userfield2 = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	Userfield2 = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer33->Add( Userfield2, 0, wxALL, 5 );
 	
-	UserLabel3 = new wxTextCtrl( m_panel72, wxID_ANY, _("UserLabel"), wxDefaultPosition, wxSize( 60,-1 ), wxTE_PROCESS_ENTER );
+	UserLabel3 = new wxTextCtrl( m_panel72, wxID_ANY, _("UserLabel"), wxDefaultPosition, wxSize( 60,-1 ), 0 );
 	UserLabel3->SetToolTip( _("write your own label") );
 	UserLabel3->SetMaxSize( wxSize( 30,-1 ) );
 	
 	fgSizer33->Add( UserLabel3, 0, wxALL, 5 );
 	
-	Userfield3 = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), wxTE_PROCESS_ENTER );
+	Userfield3 = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	fgSizer33->Add( Userfield3, 0, wxALL, 5 );
 	
 	m_staticText122 = new wxStaticText( m_panel72, wxID_ANY, _("Displacement"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText122->Wrap( -1 );
 	fgSizer33->Add( m_staticText122, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	displacement = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), wxTE_PROCESS_ENTER );
+	displacement = new wxTextCtrl( m_panel72, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 80,-1 ), 0 );
 	fgSizer33->Add( displacement, 0, wxALL, 5 );
 	
 	sbSizer8->Add( fgSizer33, 1, wxEXPAND, 5 );
@@ -1603,7 +1603,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	addEquipmentButton->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::boataddEquipmentButtonOnButtonClick ), NULL, this );
 	boatSave->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::boatSaveOnButtonClick ), NULL, this );
 	boatView->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::boatViewOnButtonClick ), NULL, this );
-	boatName->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookDialog::boatNameOnTextEnter ), NULL, this );
+//	boatName->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( LogbookDialog::boatNameOnTextEnter ), NULL, this );
 	m_gridEquipment->Connect( wxEVT_GRID_CELL_CHANGE, wxGridEventHandler( LogbookDialog::m_gridEquipmentOnGridCellChange ), NULL, this );
 	m_gridEquipment->Connect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::m_gridEquipmentOnGridCellRightClick ), NULL, this );
 	this->Connect( m_menuItem3->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::m_menuItem3OnMenuSelection ) );
@@ -1778,7 +1778,7 @@ LogbookDialog::~LogbookDialog()
 	addEquipmentButton->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::boataddEquipmentButtonOnButtonClick ), NULL, this );
 	boatSave->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::boatSaveOnButtonClick ), NULL, this );
 	boatView->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::boatViewOnButtonClick ), NULL, this );
-	boatName->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookDialog::boatNameOnTextEnter ), NULL, this );
+//	boatName->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( LogbookDialog::boatNameOnTextEnter ), NULL, this );
 	m_gridEquipment->Disconnect( wxEVT_GRID_CELL_CHANGE, wxGridEventHandler( LogbookDialog::m_gridEquipmentOnGridCellChange ), NULL, this );
 	m_gridEquipment->Disconnect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::m_gridEquipmentOnGridCellRightClick ), NULL, this );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::m_menuItem3OnMenuSelection ) );
@@ -2599,23 +2599,45 @@ void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )
 
 		wxString g,temp;
 		int n = 0;
-		wxFileInputStream in(path);
-		wxTextInputStream xml(in);
-		while(!in.Eof())
+
+		for(int i = 0; i < 2; i++)
 		{
-			temp = xml.ReadLine();
-			if(temp.Contains(_T("<rte>")))
+			if(i == 1)
+			{
+				path = stdPath + wxFileName::GetPathSeparator() + _T("navobj.xml.changes");
+				if(!wxFile::Exists(path)) break;
+			}
+			wxFileInputStream in(path);
+			wxTextInputStream xml(in);
+			while(!in.Eof())
 			{
 				temp = xml.ReadLine();
-				if(temp.Contains(_T("<name>")))
+				if(temp.Contains(_T("<rte>")))
 				{
-					temp = temp.AfterFirst('>');
-					g = temp.BeforeFirst('<');
-					dlg->m_listCtrlRoute->InsertItem(n++,g);
+					temp = xml.ReadLine();
+					if(temp.Contains(_T("<name>")))
+					{
+						temp = temp.AfterFirst('>');
+						g = temp.BeforeFirst('<');
+						if(i == 1)
+						{
+							for(int z = 0; z < 6; z++)
+								temp = xml.ReadLine();
+							if(temp.Contains(_T("<opencpn:action>delete")))
+								dlg->m_listCtrlRoute->DeleteItem(dlg->m_listCtrlRoute->FindItem(0,g));
+							else
+								dlg->m_listCtrlRoute->InsertItem(n++,g);
+
+						}
+						else
+							dlg->m_listCtrlRoute->InsertItem(n++,g);
+					}
+					//else if(temp.Contains(_T("<extensions>")))
+						//dlg->m_listCtrlRoute->InsertItem(n++,_("Unnamed Route"));
 				}
 			}
 		}
-		
+
 		if(dlg->ShowModal() == wxID_OK)
 		{
 			int selIndex = -1;
@@ -2672,6 +2694,7 @@ void LogbookDialog::OnNoteBookPageChangedLogbook(wxNotebookEvent & ev)
 {
 	if(ev.GetEventObject() == this->m_logbook && ev.GetSelection() == 1)
 	{      // OverView
+		logbook->modified = true;
 		logbook->update();
 		overview->refresh();
 	}
@@ -3416,8 +3439,9 @@ void LogbookDialog::m_gridEquipmentOnGridCellRightClick( wxGridEvent& ev )
 
 void LogbookDialog::boatNameOnTextEnter( wxCommandEvent& ev )
 {
-	((wxTextCtrl*)ev.GetEventObject())->Navigate();
+	//((wxTextCtrl*)ev.GetEventObject())->Navigate();
 	boat->modified = true;
+	ev.Skip();
 }
 
 void LogbookDialog::m_menuItem3OnMenuSelection( wxCommandEvent& ev )

@@ -212,7 +212,7 @@
                         <object class="notebookpage" expanded="0">
                             <property name="bitmap"></property>
                             <property name="label">Logbook</property>
-                            <property name="select">1</property>
+                            <property name="select">0</property>
                             <object class="wxPanel" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
@@ -5532,7 +5532,7 @@
                         <object class="notebookpage" expanded="0">
                             <property name="bitmap"></property>
                             <property name="label">Boat</property>
-                            <property name="select">0</property>
+                            <property name="select">1</property>
                             <object class="wxPanel" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
@@ -7125,7 +7125,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">200,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -7159,8 +7159,8 @@
                                                                                 <event name="OnRightUp"></event>
                                                                                 <event name="OnSetFocus"></event>
                                                                                 <event name="OnSize"></event>
-                                                                                <event name="OnText"></event>
-                                                                                <event name="OnTextEnter">boatNameOnTextEnter</event>
+                                                                                <event name="OnText">boatNameOnTextEnter</event>
+                                                                                <event name="OnTextEnter"></event>
                                                                                 <event name="OnTextMaxLen"></event>
                                                                                 <event name="OnTextURL"></event>
                                                                                 <event name="OnUpdateUI"></event>
@@ -7303,7 +7303,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">150,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -7481,7 +7481,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size"></property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -7659,7 +7659,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size"></property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip">Hull Identification No.</property>
@@ -8035,7 +8035,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">200,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -8213,7 +8213,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">150,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -8391,7 +8391,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size"></property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -8569,7 +8569,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size"></property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip">Maritime Mobile Service Identity</property>
@@ -8779,7 +8779,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">200,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -8957,7 +8957,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">150,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -9135,7 +9135,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">200,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -9353,7 +9353,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">200,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -9531,7 +9531,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">150,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -9709,7 +9709,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">200,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -9919,7 +9919,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">150,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -10097,7 +10097,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">150,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -10275,7 +10275,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size"></property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -10453,7 +10453,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size"></property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -10809,7 +10809,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">150,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -10987,7 +10987,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">150,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -11225,7 +11225,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">80,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip">Length over all</property>
@@ -11403,7 +11403,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">80,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip">Length over Deck</property>
@@ -11581,7 +11581,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">80,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip">Length in Waterline</property>
@@ -11759,7 +11759,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">80,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip">Greatest Width of Hull</property>
@@ -12119,7 +12119,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size"></property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -12301,7 +12301,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size"></property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -12483,7 +12483,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">80,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
@@ -12661,7 +12661,7 @@
                                                                                 <property name="row"></property>
                                                                                 <property name="show">1</property>
                                                                                 <property name="size">80,-1</property>
-                                                                                <property name="style">wxTE_PROCESS_ENTER</property>
+                                                                                <property name="style"></property>
                                                                                 <property name="subclass"></property>
                                                                                 <property name="toolbar_pane">0</property>
                                                                                 <property name="tooltip"></property>
