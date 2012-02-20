@@ -672,6 +672,10 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_menuItemSameWatch = new wxMenuItem( m_menu2, wxID_ANY, wxString( _("Add to Watchlist same as") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menu2->Append( m_menuItemSameWatch );
 	
+	wxMenuItem* m_menuItem22;
+	m_menuItem22 = new wxMenuItem( m_menu2, wxID_ANY, wxString( _("Show hidden columns") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu2->Append( m_menuItem22 );
+
 	m_gridCrewWake = new wxGrid( m_panel21, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 	
 	// Grid
@@ -729,6 +733,10 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_menu21->Append( m_menuItem19 );	
 	sbSizer1->Add( m_gridCrewWake, 1, wxALL|wxEXPAND, 5 );
 	
+	wxMenuItem* m_menuItem23;
+	m_menuItem23 = new wxMenuItem( m_menu21, wxID_ANY, wxString( _("Show hidden columns") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu21->Append( m_menuItem23 );
+
 	fgSizer7->Add( sbSizer1, 1, wxEXPAND, 5 );
 	
 	m_panel21->SetSizer( fgSizer7 );
@@ -1572,6 +1580,12 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	this->Connect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( LogbookDialog::LogbookDialogOnClose ) );
 	this->Connect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( LogbookDialog::LogbookDialogOnInitDialog ) );
 	m_button4->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::m_button4OnButtonClick ), NULL, this );
+	m_gridGlobal->Connect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickGlobal ), NULL, this );
+	m_gridWeather->Connect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickWeather ), NULL, this );
+	m_gridMotorSails->Connect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickMotorSails ), NULL, this );
+	m_gridOverview->Connect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickOverview ), NULL, this );
+	m_gridCrew->Connect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickCrew ), NULL, this );
+	m_gridCrewWake->Connect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickCrewWake ), NULL, this );
 	logSave->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::logSaveOnButtonClick ), NULL, this );
 	logView->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::logViewOnButtonClick ), NULL, this );
 	newLogbook->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::newLogbookOnButtonClick ), NULL, this );
@@ -1646,6 +1660,8 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	this->Connect( m_menuItemSameWatch->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionSameWatch ) );
 	this->Connect( m_menuItemAddWake->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionAddWatch ) );
 	m_gridCrew->Connect( wxEVT_GRID_EDITOR_SHOWN, wxGridEventHandler( LogbookDialog::OnGridEditorShownCrew ), NULL, this );
+	this->Connect( m_menuItem22->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHiddenCrew ) );
+	this->Connect( m_menuItem23->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHiddenWake ) );
 
 	m_gridMaintanence->Connect( wxEVT_GRID_CELL_CHANGE, wxGridEventHandler( LogbookDialog::onGridCellServiceChange ), NULL, this );
 	m_gridMaintanence->Connect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( LogbookDialog::onGridCellServiceSelected ), NULL, this );
@@ -1755,6 +1771,12 @@ LogbookDialog::~LogbookDialog()
 	m_gridGlobal->Disconnect( wxEVT_GRID_CELL_CHANGE, wxGridEventHandler( LogbookDialog::m_gridGlobalOnGridCmdCellChange ), NULL, this );
 	m_gridGlobal->Disconnect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( LogbookDialog::m_gridGlobalOnGridSelectCell ), NULL, this );
 	m_gridGlobal->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( LogbookDialog::m_gridGlobalOnKeyDown ), NULL, this );
+	m_gridGlobal->Disconnect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickGlobal ), NULL, this );
+	m_gridWeather->Disconnect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickWeather ), NULL, this );
+	m_gridMotorSails->Disconnect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickMotorSails ), NULL, this );
+	m_gridOverview->Disconnect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickOverview ), NULL, this );
+	m_gridCrew->Disconnect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickCrew ), NULL, this );
+	m_gridCrewWake->Disconnect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickCrewWake ), NULL, this );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::m_TimerOnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::m_menuItem1OnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHideColumn ) );
@@ -1825,6 +1847,8 @@ LogbookDialog::~LogbookDialog()
 	m_gridCrewWake->Disconnect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::OnGridCellRightClickWake ), NULL, this );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionSameWatch ) );
 	m_gridCrew->Disconnect( wxEVT_GRID_EDITOR_SHOWN, wxGridEventHandler( LogbookDialog::OnGridEditorShownCrew ), NULL, this );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHiddenCrew ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHiddenWake ) );
 
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceOK ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceBuyParts ) );
@@ -1892,6 +1916,26 @@ LogbookDialog::~LogbookDialog()
 }
 
 
+void LogbookDialog::OnGridLabelLeftDClickGlobal( wxGridEvent& ev )
+{
+	if(ev.GetCol() == -1) return;
+	selGridCol = ev.GetCol();
+	navigationHideColumn(ev);
+}
+
+void LogbookDialog::OnGridLabelLeftDClickWeather( wxGridEvent& ev )
+{
+	if(ev.GetCol() == -1) return;
+	selGridCol = ev.GetCol();
+	navigationHideColumn(ev);
+}
+
+void LogbookDialog::OnGridLabelLeftDClickMotorSails( wxGridEvent& ev )
+{
+	if(ev.GetCol() == -1) return;
+	selGridCol = ev.GetCol();
+	navigationHideColumn(ev);
+}
 
 void LogbookDialog::m_menu1Highlighted(wxMenuEvent& ev)
 {
@@ -1909,13 +1953,18 @@ void LogbookDialog::OnMenuSelectionSearch( wxCommandEvent& event )
 
 void LogbookDialog::OnMenuSelectionHideColumn(wxCommandEvent& ev)
 {
+	navigationHideColumn(ev);	
+}
+
+void LogbookDialog::navigationHideColumn(wxCommandEvent& ev)
+{
 	int selGrid = this->m_notebook8->GetSelection();
 
 	logGrids[selGrid]->SetColumnWidth(selGridCol,0);
 	if(previousColumn != selGridCol)
 		logGrids[selGrid]->SetGridCursor(selGridRow,previousColumn);
 	selGridCol = previousColumn;
-	logGrids[selGrid]->Refresh();	
+	logGrids[selGrid]->Refresh();
 }
 
 void LogbookDialog::m_gridGlobalOnKeyDown( wxKeyEvent& ev )
@@ -2493,7 +2542,20 @@ Backup Logbook(*.txt)|*.txt");
 	maintenance = new Maintenance(this,data,layoutHTML,layoutODT);
 	maintenance->loadData();
 
+	m_gridGlobal->SetColMinimalAcceptableWidth(0);
+	m_gridWeather->SetColMinimalAcceptableWidth(0);
+	m_gridMotorSails->SetColMinimalAcceptableWidth(0);
+
+	m_gridOverview->SetColMinimalAcceptableWidth(0);
+
+	m_gridCrew->SetColMinimalAcceptableWidth(0);
+	m_gridCrewWake->SetColMinimalAcceptableWidth(0);
+
 	getIniValues();
+
+	m_gridOverview->SetColMinimalWidth(OverView::FPATH,0);
+	m_gridOverview->SetColSize(OverView::FPATH,0);
+
 	setCellAlign(0);
 
 	m_logbook->SetSelection(0);
@@ -2520,13 +2582,6 @@ Backup Logbook(*.txt)|*.txt");
 #endif
 
 	logbookPlugIn->GetOriginalColors();
-
-	m_gridGlobal->SetColMinimalAcceptableWidth(0);
-	m_gridWeather->SetColMinimalAcceptableWidth(0);
-	m_gridMotorSails->SetColMinimalAcceptableWidth(0);
-	m_gridOverview->SetColMinimalAcceptableWidth(0);
-	m_gridOverview->SetColMinimalWidth(OverView::FPATH,0);
-	m_gridOverview->SetColSize(OverView::FPATH,0);
 
 #ifndef __WXMSW__  // wxWidgets won't set buttonwidth in Linux like in windows
 	m_buttonEditLayout->SetMinSize( wxSize( 25,-1 ) );
@@ -3175,6 +3230,38 @@ void LogbookDialog::OnGridCellRightClickWake( wxGridEvent& event )
 {
     m_gridCrewWake->SetGridCursor(event.GetRow(),event.GetCol());
     m_gridCrewWake->PopupMenu(m_menu21);
+}
+
+void LogbookDialog::OnGridLabelLeftDClickCrew( wxGridEvent& ev )
+{
+	if(ev.GetCol() == -1) return;
+	m_gridCrew->SetColumnWidth(ev.GetCol(),0);
+	m_gridCrew->Refresh();
+}
+
+void LogbookDialog::OnGridLabelLeftDClickCrewWake( wxGridEvent& ev )
+{
+	if(ev.GetCol() == -1) return;
+	m_gridCrewWake->SetColumnWidth(ev.GetCol(),0);
+	m_gridCrewWake->Refresh();
+}
+
+void LogbookDialog::OnMenuSelectionHiddenCrew( wxCommandEvent& event )
+{
+	for(int i = 0; i < m_gridCrew->GetNumberCols(); i++)
+		if(m_gridCrew->GetColumnWidth(i) == 0)
+			m_gridCrew->AutoSizeColumn(i,false);
+
+	m_gridCrew->Refresh();
+}
+
+void LogbookDialog::OnMenuSelectionHiddenWake( wxCommandEvent& event )
+{
+	for(int i = 0; i < m_gridCrewWake->GetNumberCols(); i++)
+		if(m_gridCrewWake->GetColumnWidth(i) == 0)
+			m_gridCrewWake->AutoSizeColumn(i,false);
+
+	m_gridCrewWake->Refresh();
 }
 
 void LogbookDialog::OnGridEditorShownCrew( wxGridEvent& ev )
@@ -3997,6 +4084,13 @@ void LogbookDialog::onGridEditorShow( wxGridEvent& ev )
 void LogbookDialog::onButtonClickSelectLogbook(wxCommandEvent & ec)
 {
 	overview->selectLogbook();		
+}
+
+void LogbookDialog::OnGridLabelLeftDClickOverview( wxGridEvent& ev )
+{
+	if(ev.GetCol() == -1) return;
+	m_gridOverview->SetColumnWidth(ev.GetCol(),0);
+	m_gridOverview->Refresh();	
 }
 
 void LogbookDialog::OnKeyDownOverview( wxKeyEvent& ev )

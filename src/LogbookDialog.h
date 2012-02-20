@@ -82,6 +82,7 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 
 		void				declareExportHeader();
 		bool				checkHiddenColumns(wxGrid* grid,int i,bool use);
+		void				navigationHideColumn(wxCommandEvent& ev);
 	
 	public:
 		Boat*			boat;
@@ -232,6 +233,14 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		virtual void OnNoteBookPageChangedLogbook( wxNotebookEvent& event );
 		virtual void m_button4OnButtonClick( wxCommandEvent& event ) ;
 		virtual void logSaveOnButtonClick( wxCommandEvent& event ) ;
+		virtual void OnGridLabelLeftDClickGlobal( wxGridEvent& event );
+		virtual void OnGridLabelLeftDClickWeather( wxGridEvent& event );
+		virtual void OnGridLabelLeftDClickMotorSails( wxGridEvent& event );
+		virtual void OnGridLabelLeftDClickOverview( wxGridEvent& event );
+		virtual void OnGridLabelLeftDClickCrew( wxGridEvent& event );
+		virtual void OnGridLabelLeftDClickCrewWake( wxGridEvent& event );
+		virtual void OnMenuSelectionHiddenCrew( wxCommandEvent& event );
+		virtual void OnMenuSelectionHiddenWake( wxCommandEvent& event );
 		virtual void onButtonReloadLayoutLogbook( wxCommandEvent& event ) ;
 		virtual void onButtonClickEditLayoutLogbook( wxCommandEvent& event ) ;
 		virtual void onRadioButtonHTML( wxCommandEvent& event ) ;

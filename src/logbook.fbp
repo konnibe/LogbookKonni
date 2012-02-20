@@ -22,7 +22,7 @@
         <property name="skip_python_events">1</property>
         <property name="use_enum">0</property>
         <property name="use_microsoft_bom">0</property>
-        <object class="Dialog" expanded="0">
+        <object class="Dialog" expanded="1">
             <property name="BottomDockable">1</property>
             <property name="LeftDockable">1</property>
             <property name="RightDockable">1</property>
@@ -118,16 +118,16 @@
             <event name="OnSetFocus"></event>
             <event name="OnSize"></event>
             <event name="OnUpdateUI"></event>
-            <object class="wxBoxSizer" expanded="0">
+            <object class="wxBoxSizer" expanded="1">
                 <property name="minimum_size"></property>
                 <property name="name">bSizer2</property>
                 <property name="orient">wxVERTICAL</property>
                 <property name="permission">none</property>
-                <object class="sizeritem" expanded="0">
+                <object class="sizeritem" expanded="1">
                     <property name="border">5</property>
                     <property name="flag">wxEXPAND | wxALL</property>
                     <property name="proportion">1</property>
-                    <object class="wxNotebook" expanded="0">
+                    <object class="wxNotebook" expanded="1">
                         <property name="BottomDockable">1</property>
                         <property name="LeftDockable">1</property>
                         <property name="RightDockable">1</property>
@@ -209,11 +209,11 @@
                         <event name="OnSetFocus"></event>
                         <event name="OnSize"></event>
                         <event name="OnUpdateUI"></event>
-                        <object class="notebookpage" expanded="0">
+                        <object class="notebookpage" expanded="1">
                             <property name="bitmap"></property>
                             <property name="label">Logbook</property>
-                            <property name="select">0</property>
-                            <object class="wxPanel" expanded="0">
+                            <property name="select">1</property>
+                            <object class="wxPanel" expanded="1">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -291,7 +291,7 @@
                                 <event name="OnSetFocus"></event>
                                 <event name="OnSize"></event>
                                 <event name="OnUpdateUI"></event>
-                                <object class="wxFlexGridSizer" expanded="0">
+                                <object class="wxFlexGridSizer" expanded="1">
                                     <property name="cols">1</property>
                                     <property name="flexible_direction">wxBOTH</property>
                                     <property name="growablecols">0</property>
@@ -1546,11 +1546,11 @@
                                             <event name="OnUpdateUI"></event>
                                         </object>
                                     </object>
-                                    <object class="sizeritem" expanded="0">
+                                    <object class="sizeritem" expanded="1">
                                         <property name="border">5</property>
                                         <property name="flag">wxEXPAND | wxALL</property>
                                         <property name="proportion">1</property>
-                                        <object class="wxNotebook" expanded="0">
+                                        <object class="wxNotebook" expanded="1">
                                             <property name="BottomDockable">1</property>
                                             <property name="LeftDockable">1</property>
                                             <property name="RightDockable">1</property>
@@ -1632,11 +1632,11 @@
                                             <event name="OnSetFocus"></event>
                                             <event name="OnSize"></event>
                                             <event name="OnUpdateUI"></event>
-                                            <object class="notebookpage" expanded="0">
+                                            <object class="notebookpage" expanded="1">
                                                 <property name="bitmap"></property>
                                                 <property name="label">Navigation</property>
-                                                <property name="select">1</property>
-                                                <object class="wxPanel" expanded="0">
+                                                <property name="select">0</property>
+                                                <object class="wxPanel" expanded="1">
                                                     <property name="BottomDockable">1</property>
                                                     <property name="LeftDockable">1</property>
                                                     <property name="RightDockable">1</property>
@@ -1714,7 +1714,7 @@
                                                     <event name="OnSetFocus"></event>
                                                     <event name="OnSize"></event>
                                                     <event name="OnUpdateUI"></event>
-                                                    <object class="wxFlexGridSizer" expanded="0">
+                                                    <object class="wxFlexGridSizer" expanded="1">
                                                         <property name="cols">1</property>
                                                         <property name="flexible_direction">wxBOTH</property>
                                                         <property name="growablecols">0</property>
@@ -1726,11 +1726,11 @@
                                                         <property name="permission">none</property>
                                                         <property name="rows">1</property>
                                                         <property name="vgap">0</property>
-                                                        <object class="sizeritem" expanded="0">
+                                                        <object class="sizeritem" expanded="1">
                                                             <property name="border">5</property>
                                                             <property name="flag">wxALL|wxEXPAND</property>
                                                             <property name="proportion">1</property>
-                                                            <object class="wxGrid" expanded="0">
+                                                            <object class="wxGrid" expanded="1">
                                                                 <property name="BottomDockable">1</property>
                                                                 <property name="LeftDockable">1</property>
                                                                 <property name="RightDockable">1</property>
@@ -1845,7 +1845,7 @@
                                                                 <event name="OnGridEditorHidden"></event>
                                                                 <event name="OnGridEditorShown"></event>
                                                                 <event name="OnGridLabelLeftClick"></event>
-                                                                <event name="OnGridLabelLeftDClick"></event>
+                                                                <event name="OnGridLabelLeftDClick">OnGridLabelLeftDClickGlobal</event>
                                                                 <event name="OnGridLabelRightClick"></event>
                                                                 <event name="OnGridLabelRightDClick"></event>
                                                                 <event name="OnGridRangeSelect"></event>
@@ -1871,7 +1871,7 @@
                                                                 <event name="OnSetFocus"></event>
                                                                 <event name="OnSize"></event>
                                                                 <event name="OnUpdateUI"></event>
-                                                                <object class="wxMenu" expanded="0">
+                                                                <object class="wxMenu" expanded="1">
                                                                     <property name="label">MyMenu</property>
                                                                     <property name="name">m_menu1</property>
                                                                     <property name="permission">protected</property>
@@ -1963,7 +1963,7 @@
                                             <object class="notebookpage" expanded="0">
                                                 <property name="bitmap"></property>
                                                 <property name="label">Weather</property>
-                                                <property name="select">0</property>
+                                                <property name="select">1</property>
                                                 <object class="wxPanel" expanded="0">
                                                     <property name="BottomDockable">1</property>
                                                     <property name="LeftDockable">1</property>
@@ -2166,7 +2166,7 @@
                                                                 <event name="OnGridEditorHidden"></event>
                                                                 <event name="OnGridEditorShown"></event>
                                                                 <event name="OnGridLabelLeftClick"></event>
-                                                                <event name="OnGridLabelLeftDClick"></event>
+                                                                <event name="OnGridLabelLeftDClick">OnGridLabelLeftDClickWeather</event>
                                                                 <event name="OnGridLabelRightClick"></event>
                                                                 <event name="OnGridLabelRightDClick"></event>
                                                                 <event name="OnGridRangeSelect"></event>
@@ -2403,7 +2403,7 @@
                                                                 <event name="OnGridEditorHidden"></event>
                                                                 <event name="OnGridEditorShown"></event>
                                                                 <event name="OnGridLabelLeftClick"></event>
-                                                                <event name="OnGridLabelLeftDClick"></event>
+                                                                <event name="OnGridLabelLeftDClick">OnGridLabelLeftDClickMotorSails</event>
                                                                 <event name="OnGridLabelRightClick"></event>
                                                                 <event name="OnGridLabelRightDClick"></event>
                                                                 <event name="OnGridRangeSelect"></event>
@@ -3983,7 +3983,7 @@
                                             <event name="OnGridEditorHidden"></event>
                                             <event name="OnGridEditorShown"></event>
                                             <event name="OnGridLabelLeftClick">OnGridLabelLeftClickOverview</event>
-                                            <event name="OnGridLabelLeftDClick"></event>
+                                            <event name="OnGridLabelLeftDClick">OnGridLabelLeftDClickOverview</event>
                                             <event name="OnGridLabelRightClick"></event>
                                             <event name="OnGridLabelRightDClick"></event>
                                             <event name="OnGridRangeSelect"></event>
@@ -4068,11 +4068,11 @@
                                 </object>
                             </object>
                         </object>
-                        <object class="notebookpage" expanded="0">
+                        <object class="notebookpage" expanded="1">
                             <property name="bitmap"></property>
                             <property name="label">Crewlist</property>
                             <property name="select">0</property>
-                            <object class="wxPanel" expanded="0">
+                            <object class="wxPanel" expanded="1">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
                                 <property name="RightDockable">1</property>
@@ -4150,7 +4150,7 @@
                                 <event name="OnSetFocus"></event>
                                 <event name="OnSize"></event>
                                 <event name="OnUpdateUI"></event>
-                                <object class="wxFlexGridSizer" expanded="0">
+                                <object class="wxFlexGridSizer" expanded="1">
                                     <property name="cols">1</property>
                                     <property name="flexible_direction">wxBOTH</property>
                                     <property name="growablecols">0</property>
@@ -5133,11 +5133,11 @@
                                             <event name="OnUpdateUI"></event>
                                         </object>
                                     </object>
-                                    <object class="sizeritem" expanded="0">
+                                    <object class="sizeritem" expanded="1">
                                         <property name="border">5</property>
                                         <property name="flag">wxEXPAND</property>
                                         <property name="proportion">1</property>
-                                        <object class="wxStaticBoxSizer" expanded="0">
+                                        <object class="wxStaticBoxSizer" expanded="1">
                                             <property name="id">wxID_ANY</property>
                                             <property name="label"></property>
                                             <property name="minimum_size">-1,450</property>
@@ -5145,11 +5145,11 @@
                                             <property name="orient">wxVERTICAL</property>
                                             <property name="permission">none</property>
                                             <event name="OnUpdateUI"></event>
-                                            <object class="sizeritem" expanded="0">
+                                            <object class="sizeritem" expanded="1">
                                                 <property name="border">5</property>
                                                 <property name="flag">wxALL|wxEXPAND</property>
                                                 <property name="proportion">1</property>
-                                                <object class="wxGrid" expanded="0">
+                                                <object class="wxGrid" expanded="1">
                                                     <property name="BottomDockable">1</property>
                                                     <property name="LeftDockable">1</property>
                                                     <property name="RightDockable">1</property>
@@ -5264,7 +5264,7 @@
                                                     <event name="OnGridEditorHidden"></event>
                                                     <event name="OnGridEditorShown">OnGridEditorShownCrew</event>
                                                     <event name="OnGridLabelLeftClick"></event>
-                                                    <event name="OnGridLabelLeftDClick"></event>
+                                                    <event name="OnGridLabelLeftDClick">OnGridLabelLeftDClickCrew</event>
                                                     <event name="OnGridLabelRightClick"></event>
                                                     <event name="OnGridLabelRightDClick"></event>
                                                     <event name="OnGridRangeSelect"></event>
@@ -5290,7 +5290,7 @@
                                                     <event name="OnSetFocus"></event>
                                                     <event name="OnSize"></event>
                                                     <event name="OnUpdateUI"></event>
-                                                    <object class="wxMenu" expanded="0">
+                                                    <object class="wxMenu" expanded="1">
                                                         <property name="label">MyMenu</property>
                                                         <property name="name">m_menu2</property>
                                                         <property name="permission">protected</property>
@@ -5339,14 +5339,29 @@
                                                             <event name="OnMenuSelection">OnMenuSelectionSameWatch</event>
                                                             <event name="OnUpdateUI"></event>
                                                         </object>
+                                                        <object class="wxMenuItem" expanded="1">
+                                                            <property name="bitmap"></property>
+                                                            <property name="checked">0</property>
+                                                            <property name="enabled">1</property>
+                                                            <property name="help"></property>
+                                                            <property name="id">wxID_ANY</property>
+                                                            <property name="kind">wxITEM_NORMAL</property>
+                                                            <property name="label">Show hidden columns</property>
+                                                            <property name="name">m_menuItem22</property>
+                                                            <property name="permission">none</property>
+                                                            <property name="shortcut"></property>
+                                                            <property name="unchecked_bitmap"></property>
+                                                            <event name="OnMenuSelection">OnMenuSelectionHiddenCrew</event>
+                                                            <event name="OnUpdateUI"></event>
+                                                        </object>
                                                     </object>
                                                 </object>
                                             </object>
-                                            <object class="sizeritem" expanded="0">
+                                            <object class="sizeritem" expanded="1">
                                                 <property name="border">5</property>
                                                 <property name="flag">wxALL|wxEXPAND</property>
                                                 <property name="proportion">1</property>
-                                                <object class="wxGrid" expanded="0">
+                                                <object class="wxGrid" expanded="1">
                                                     <property name="BottomDockable">1</property>
                                                     <property name="LeftDockable">1</property>
                                                     <property name="RightDockable">1</property>
@@ -5461,7 +5476,7 @@
                                                     <event name="OnGridEditorHidden"></event>
                                                     <event name="OnGridEditorShown"></event>
                                                     <event name="OnGridLabelLeftClick"></event>
-                                                    <event name="OnGridLabelLeftDClick"></event>
+                                                    <event name="OnGridLabelLeftDClick">OnGridLabelLeftDClickCrewWake</event>
                                                     <event name="OnGridLabelRightClick"></event>
                                                     <event name="OnGridLabelRightDClick"></event>
                                                     <event name="OnGridRangeSelect"></event>
@@ -5487,7 +5502,7 @@
                                                     <event name="OnSetFocus"></event>
                                                     <event name="OnSize"></event>
                                                     <event name="OnUpdateUI"></event>
-                                                    <object class="wxMenu" expanded="0">
+                                                    <object class="wxMenu" expanded="1">
                                                         <property name="label">MyMenu</property>
                                                         <property name="name">m_menu21</property>
                                                         <property name="permission">protected</property>
@@ -5521,6 +5536,21 @@
                                                             <event name="OnMenuSelection">m_menuItem19nMenuSelection</event>
                                                             <event name="OnUpdateUI"></event>
                                                         </object>
+                                                        <object class="wxMenuItem" expanded="1">
+                                                            <property name="bitmap"></property>
+                                                            <property name="checked">0</property>
+                                                            <property name="enabled">1</property>
+                                                            <property name="help"></property>
+                                                            <property name="id">wxID_ANY</property>
+                                                            <property name="kind">wxITEM_NORMAL</property>
+                                                            <property name="label">Show hidden columns</property>
+                                                            <property name="name">m_menuItem23</property>
+                                                            <property name="permission">none</property>
+                                                            <property name="shortcut"></property>
+                                                            <property name="unchecked_bitmap"></property>
+                                                            <event name="OnMenuSelection">OnMenuSelectionHiddenWake</event>
+                                                            <event name="OnUpdateUI"></event>
+                                                        </object>
                                                     </object>
                                                 </object>
                                             </object>
@@ -5532,7 +5562,7 @@
                         <object class="notebookpage" expanded="0">
                             <property name="bitmap"></property>
                             <property name="label">Boat</property>
-                            <property name="select">1</property>
+                            <property name="select">0</property>
                             <object class="wxPanel" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>

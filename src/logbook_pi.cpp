@@ -222,6 +222,10 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
 		  wxMessageBox(str);
 	  }
 */
+      else if(message_id == _T("LOGBOOK_IS_READY_FOR_REQUEST"))
+      {
+	  	SendPluginMessage(_T("LOGBOOK_READY_FOR_REQUESTS"), _T("TRUE"));
+	  }
       else if(message_id == _T("LOGBOOK_BUYPARTS_ADDLINE_REQUEST"))
       {
 		wxJSONReader reader;
