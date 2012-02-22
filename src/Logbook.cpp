@@ -1388,6 +1388,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 					{
 						if(s != _T(""))
 						{
+							s.Replace(_T(","),_T("."));
 							s = wxString::Format(_T("%4.1f%%"),wxAtof(s));
 							s.Replace(_T("."),dialog->decimalPoint);
 							dialog->logGrids[grid]->SetCellValue(row,col,s);
@@ -1879,7 +1880,7 @@ void Logbook::SetGPSStatus(bool status)
 void Logbook::showSearchDlg(int row, int col)
 {
 	LogbookSearch* dlg = new LogbookSearch(dialog, row, col);
-	bool shown = dlg->Show(true);
+	dlg->Show(true);
 
 /*	while(shown)
 	{

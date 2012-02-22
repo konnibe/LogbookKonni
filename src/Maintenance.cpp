@@ -1242,7 +1242,7 @@ wxString Maintenance::readLayoutHTML(wxString path1,wxString layoutFileName)
 
 void Maintenance::deleteFindItRow(wxString category, wxString plugin)
 {
-	int del = buyparts->GetNumberRows();
+//	int del = buyparts->GetNumberRows();
 	int row = 0;
 	while(row < buyparts->GetNumberRows())
 	{

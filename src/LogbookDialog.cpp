@@ -51,6 +51,7 @@
 #include <wx/mimetype.h>
 #include <wx/platinfo.h>
 #include <wx/timer.h> 
+#include <wx/arrimpl.cpp>
 
 //#define PBVE_DEBUG 1
 //////////////////////////////////////////////////////////////////////////
@@ -1666,6 +1667,9 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridMaintanence->Connect( wxEVT_GRID_CELL_CHANGE, wxGridEventHandler( LogbookDialog::onGridCellServiceChange ), NULL, this );
 	m_gridMaintanence->Connect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( LogbookDialog::onGridCellServiceSelected ), NULL, this );
 	m_gridCrewWake->Connect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::OnGridCellRightClickWake ), NULL, this );
+	m_gridMaintanence->Connect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftClickService ), NULL, this );
+	m_gridMaintenanceBuyParts->Connect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftClickBuyParts ), NULL, this );
+	m_gridMaintanenceRepairs->Connect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftClickRepairs ), NULL, this );
 	
 	this->Connect( m_menuItem9->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceOK ) );
 	this->Connect( m_menuItem92->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceBuyParts ) );
@@ -1855,6 +1859,9 @@ LogbookDialog::~LogbookDialog()
 	this->Disconnect( 503, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionShowHiddenCols ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionShowHiddenColsOverview ) );
 	m_gridMaintanence->Disconnect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::onGridCellRightClickService ), NULL, this );
+	m_gridMaintanence->Disconnect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftClickService ), NULL, this );
+	m_gridMaintenanceBuyParts->Disconnect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftClickBuyParts ), NULL, this );
+	m_gridMaintanenceRepairs->Disconnect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftClickRepairs ), NULL, this );
 
 	m_gridMaintenanceBuyParts->Disconnect( wxEVT_GRID_CELL_CHANGE, wxGridEventHandler( LogbookDialog::onGridCellChangeBuyParts ), NULL, this );
 	m_gridMaintenanceBuyParts->Disconnect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::onGridCellRightClickBuyParts ), NULL, this );
@@ -2356,6 +2363,7 @@ void LogbookDialog::init()
 	decimalPoint = wxLocale::GetInfo(wxLOCALE_DECIMAL_POINT, wxLOCALE_CAT_NUMBER);
 	setDatePattern();
 
+	wxInitAllImageHandlers();
 	clouds[0] = wxT("Cirrus");
 	clouds[1] = wxT("Cirrocumulus");
 	clouds[2] = wxT("Cirrostratus");
@@ -2512,18 +2520,6 @@ Backup Logbook(*.txt)|*.txt");
 	if(!wxDir::Exists(data))
 		wxMkdir(data);
 
-/*	wxString imageDir = data+_T("clouds");
-	appendOSDirSlash(&imageDir) ;
-	if(wxDir::Exists(imageDir))
-	{
-		wxBitmap cirrus(imageDir+_T("cirrus.jpg"),wxBITMAP_TYPE_JPEG);
-		imageList->Add(cirrus);
-		wxBitmap cirrocumulus(imageDir+_T("cirrocumulus.jpg"),wxBITMAP_TYPE_JPEG);
-		imageList->Add(cirrocumulus);
-		wxBitmap cirrostratus(imageDir+_T("cirrostratus.jpg"),wxBITMAP_TYPE_JPEG);
-		imageList->Add(cirrostratus);
-	}
-*/
 	layoutHTML = data;
 	layoutHTML.append(_T("HTMLLayouts"));
 	appendOSDirSlash(&layoutHTML);
@@ -2829,14 +2825,24 @@ void LogbookDialog::m_gridGlobalOnGridCellRightClick( wxGridEvent& ev )
 	if(ev.GetCol() == 11 && (m_notebook8->GetSelection() == 1))
 	{
 		m_menu1->PrependSeparator();
+		wxString path = *pHome_Locn;
+		path += _T("data") + wxString(wxFileName::GetPathSeparator());
+		path +=_T("clouds") + wxString(wxFileName::GetPathSeparator());
+
 		for(int i = 0; i < 10; i++)
 		{
-			wxMenuItem *item = new wxMenuItem( m_menu1, wxID_ANY, 
-				clouds[i] , wxEmptyString, wxITEM_NORMAL );
-			m_menu1->Prepend( item );
+			wxMenu *temp = new wxMenu();
+			wxMenuItem *item = new wxMenuItem( temp, wxID_ANY, clouds[i], wxEmptyString,wxITEM_NORMAL);
+			wxBitmap bmp( (path+clouds[i]+_T(".jpg")), wxBITMAP_TYPE_ANY);
+			//bmp.SetWidth(400), bmp.SetHeight(300);
+			item->SetBitmap(bmp);
+			temp->Append(item);
+			//m_menu1->Prepend( item );
+			m_menu1->Prepend( -1, clouds[i], temp );
+			//m_menu1->AppendSubMenu(temp,clouds[i]);
+		//	item->Check(false);
 			this->Connect( item->GetId(), wxEVT_COMMAND_MENU_SELECTED, 
 				wxCommandEventHandler( LogbookDialog::m_menuItem1OnMenuSelection ) );
-
 		}
 	}
 
@@ -3107,9 +3113,9 @@ void LogbookDialog::setCellAlign(int i)
 		m_gridGlobal->SetCellAlignment(i,3,wxALIGN_CENTRE, wxALIGN_TOP);
 		m_gridGlobal->SetCellAlignment(i,4,wxALIGN_LEFT, wxALIGN_TOP);
 		m_gridGlobal->SetCellAlignment(i,13,wxALIGN_LEFT, wxALIGN_TOP);
-		m_gridWeather->SetCellAlignment(i,7,wxALIGN_LEFT, wxALIGN_TOP);
-		m_gridWeather->SetCellAlignment(i,8,wxALIGN_LEFT, wxALIGN_TOP);
-		m_gridWeather->SetCellAlignment(i,9,wxALIGN_LEFT, wxALIGN_TOP);
+		m_gridWeather->SetCellAlignment(i,10,wxALIGN_LEFT, wxALIGN_TOP);
+		m_gridWeather->SetCellAlignment(i,11,wxALIGN_LEFT, wxALIGN_TOP);
+		m_gridWeather->SetCellAlignment(i,12,wxALIGN_LEFT, wxALIGN_TOP);
 		m_gridMotorSails->SetCellAlignment(i,4,wxALIGN_LEFT, wxALIGN_TOP);
 		m_gridMotorSails->SetCellAlignment(i,5,wxALIGN_LEFT, wxALIGN_TOP);
 		m_gridMotorSails->SetCellAlignment(i,8,wxALIGN_LEFT, wxALIGN_TOP);
@@ -3216,6 +3222,51 @@ void LogbookDialog::getIniValues()
 	}
 }
 
+void LogbookDialog::sortGrid(wxGrid* grid, int col, bool ascending)
+{
+	bool sort = false;
+	myGridStringTable* data = (myGridStringTable*)grid->GetTable();
+
+	wxGridStringArray arr = data->m_data;
+	if(arr.Count() < 2) return;
+
+	wxGridStringArray temp;
+
+	temp .Add(arr[0]);
+	int i;
+	do{
+		sort = false;
+		i = 0;
+		do
+		{
+			if(ascending) 
+			{
+				if((arr[i][col] > arr[i+1][col]))
+				{
+					temp[0] = arr[i];
+					arr[i]  = arr[i+1];
+					arr[i+1]  = temp[0];
+					sort = true;
+				}
+			}
+			else
+			{
+				if((arr[i+1][col] > arr[i][col]))
+				{
+					temp[0] = arr[i];
+					arr[i]  = arr[i+1];
+					arr[i+1]  = temp[0];
+					sort = true;
+				}
+			}
+			i++;
+		}while(i < grid->GetNumberRows()-1);
+	}while(sort);
+	data->m_data = arr;
+
+	grid->AutoSizeRows();
+	grid->ForceRefresh();
+}
 
 //////////////////////////////////////////////////////////
 //				CrewList Events
@@ -3571,6 +3622,24 @@ void LogbookDialog::onButtobClickAddLineService(wxCommandEvent &ev)
 	maintenance->addLine();
 }
 
+void LogbookDialog::OnGridLabelLeftClickService( wxGridEvent& event )
+{
+	int row, col;
+	row = event.GetRow();
+	col = event.GetCol();
+
+	this->m_gridMaintanence->SetFocus();
+
+	if(row != -1 || (row == -1 && col == -1)) { event.Skip(); return; }
+
+	this->m_gridMaintanence->SetGridCursor(0,col);
+	static bool ascending = true;
+	this->sortGrid(this->m_gridMaintanence,event.GetCol(),ascending);
+	ascending = !ascending;
+
+	maintenance->checkService(m_gridGlobal->GetNumberRows()-1);
+}
+
 void LogbookDialog::onButtobClickSaveService(wxCommandEvent & ev)
 {
 	wxString filter = _T("");
@@ -3715,6 +3784,24 @@ void LogbookDialog::onMenuSelectionServiceBuyParts(wxCommandEvent &ev)
 void LogbookDialog::onButtobClickAddLineRepairs(wxCommandEvent &ev)
 {
 	maintenance->addLineRepairs();
+}
+
+void LogbookDialog::OnGridLabelLeftClickRepairs( wxGridEvent& event )
+{
+	int row, col;
+	row = event.GetRow();
+	col = event.GetCol();
+
+	this->m_gridMaintanenceRepairs->SetFocus();
+
+	if(row != -1 || (row == -1 && col == -1)) { event.Skip(); return; }
+
+	this->m_gridMaintanenceRepairs->SetGridCursor(0,col);
+	static bool ascending = true;
+	this->sortGrid(this->m_gridMaintanenceRepairs,event.GetCol(),ascending);
+	ascending = !ascending;
+
+	maintenance->checkRepairs();
 }
 
 void LogbookDialog::onGridCellRepairsSelected( wxGridEvent& ev )
@@ -3897,6 +3984,24 @@ void LogbookDialog::onGridCellRightClickBuyParts( wxGridEvent& ev )
 	maintenance->selectedRowBuyParts = ev.GetRow();
 	maintenance->selectedColBuyParts = ev.GetCol();
 	m_gridMaintanence->PopupMenu( m_menu711, ev.GetPosition() );
+}
+
+void LogbookDialog::OnGridLabelLeftClickBuyParts( wxGridEvent& event )
+{
+	int row, col;
+	row = event.GetRow();
+	col = event.GetCol();
+
+	this->m_gridMaintenanceBuyParts->SetFocus();
+
+	if(row != -1 || (row == -1 && col == -1)) { event.Skip(); return; }
+
+	this->m_gridMaintenanceBuyParts->SetGridCursor(0,col);
+	static bool ascending = true;
+	this->sortGrid(this->m_gridMaintenanceBuyParts,event.GetCol(),ascending);
+	ascending = !ascending;
+
+	maintenance->checkBuyParts();
 }
 
 void LogbookDialog::onGridCellLeftClickBuyParts(wxGridEvent& ev)
@@ -4804,4 +4909,395 @@ void SelectLogbook::OnInit(wxInitDialogEvent& ev)
 		}
 		m_listCtrlSelectLogbook->InsertItem(i,filename);
 	}
+}
+
+//////////////////////////// myGridStringTable /////////
+
+
+WX_DEFINE_OBJARRAY(myGridStringArray)
+
+//IMPLEMENT_DYNAMIC_CLASS( myGridStringTable, wxGridTableBase )
+
+myGridStringTable::myGridStringTable()
+        : wxGridTableBase()
+{
+}
+
+myGridStringTable::myGridStringTable( int numRows, int numCols )
+        : wxGridTableBase()
+{
+    m_data.Alloc( numRows );
+
+    wxArrayString sa;
+    sa.Alloc( numCols );
+    sa.Add( wxEmptyString, numCols );
+
+    m_data.Add( sa, numRows );
+}
+
+myGridStringTable::~myGridStringTable()
+{
+}
+
+int myGridStringTable::GetNumberRows()
+{
+    return m_data.GetCount();
+}
+
+int myGridStringTable::GetNumberCols()
+{
+    if ( m_data.GetCount() > 0 )
+        return m_data[0].GetCount();
+    else
+        return 0;
+}
+
+wxString myGridStringTable::GetValue( int row, int col )
+{
+    wxCHECK_MSG( (row < GetNumberRows()) && (col < GetNumberCols()),
+                 wxEmptyString,
+                 _T("invalid row or column index in myGridStringTable") );
+
+    return m_data[row][col];
+}
+
+void myGridStringTable::SetValue( int row, int col, const wxString& value )
+{
+    wxCHECK_RET( (row < GetNumberRows()) && (col < GetNumberCols()),
+                 _T("invalid row or column index in myGridStringTable") );
+
+    m_data[row][col] = value;
+}
+
+bool myGridStringTable::IsEmptyCell( int row, int col )
+{
+    wxCHECK_MSG( (row < GetNumberRows()) && (col < GetNumberCols()),
+                 true,
+                  _T("invalid row or column index in myGridStringTable") );
+
+    return (m_data[row][col] == wxEmptyString);
+}
+
+void myGridStringTable::Clear()
+{
+    int row, col;
+    int numRows, numCols;
+
+    numRows = m_data.GetCount();
+    if ( numRows > 0 )
+    {
+        numCols = m_data[0].GetCount();
+
+        for ( row = 0; row < numRows; row++ )
+        {
+            for ( col = 0; col < numCols; col++ )
+            {
+                m_data[row][col] = wxEmptyString;
+            }
+        }
+    }
+}
+
+bool myGridStringTable::InsertRows( size_t pos, size_t numRows )
+{
+    size_t curNumRows = m_data.GetCount();
+    size_t curNumCols = ( curNumRows > 0 ? m_data[0].GetCount() :
+                          ( GetView() ? GetView()->GetNumberCols() : 0 ) );
+
+    if ( pos >= curNumRows )
+    {
+        return AppendRows( numRows );
+    }
+
+    wxArrayString sa;
+    sa.Alloc( curNumCols );
+    sa.Add( wxEmptyString, curNumCols );
+    m_data.Insert( sa, pos, numRows );
+
+    if ( GetView() )
+    {
+        wxGridTableMessage msg( this,
+                                wxGRIDTABLE_NOTIFY_ROWS_INSERTED,
+                                pos,
+                                numRows );
+
+        GetView()->ProcessTableMessage( msg );
+    }
+
+    return true;
+}
+
+bool myGridStringTable::AppendRows( size_t numRows )
+{
+    size_t curNumRows = m_data.GetCount();
+    size_t curNumCols = ( curNumRows > 0
+                         ? m_data[0].GetCount()
+                         : ( GetView() ? GetView()->GetNumberCols() : 0 ) );
+
+    wxArrayString sa;
+    if ( curNumCols > 0 )
+    {
+        sa.Alloc( curNumCols );
+        sa.Add( wxEmptyString, curNumCols );
+    }
+
+    m_data.Add( sa, numRows );
+
+    if ( GetView() )
+    {
+        wxGridTableMessage msg( this,
+                                wxGRIDTABLE_NOTIFY_ROWS_APPENDED,
+                                numRows );
+
+        GetView()->ProcessTableMessage( msg );
+    }
+
+    return true;
+}
+
+bool myGridStringTable::DeleteRows( size_t pos, size_t numRows )
+{
+    size_t curNumRows = m_data.GetCount();
+
+    if ( pos >= curNumRows )
+    {
+        wxFAIL_MSG( wxString::Format
+                    (
+                        wxT("Called myGridStringTable::DeleteRows(pos=%lu, N=%lu)\nPos value is invalid for present table with %lu rows"),
+                        (unsigned long)pos,
+                        (unsigned long)numRows,
+                        (unsigned long)curNumRows
+                    ) );
+
+        return false;
+    }
+
+    if ( numRows > curNumRows - pos )
+    {
+        numRows = curNumRows - pos;
+    }
+
+    if ( numRows >= curNumRows )
+    {
+        m_data.Clear();
+    }
+    else
+    {
+        m_data.RemoveAt( pos, numRows );
+    }
+
+    if ( GetView() )
+    {
+        wxGridTableMessage msg( this,
+                                wxGRIDTABLE_NOTIFY_ROWS_DELETED,
+                                pos,
+                                numRows );
+
+        GetView()->ProcessTableMessage( msg );
+    }
+
+    return true;
+}
+
+bool myGridStringTable::InsertCols( size_t pos, size_t numCols )
+{
+    size_t row, col;
+
+    size_t curNumRows = m_data.GetCount();
+    size_t curNumCols = ( curNumRows > 0
+                         ? m_data[0].GetCount()
+                         : ( GetView() ? GetView()->GetNumberCols() : 0 ) );
+
+    if ( pos >= curNumCols )
+    {
+        return AppendCols( numCols );
+    }
+
+    if ( !m_colLabels.IsEmpty() )
+    {
+        m_colLabels.Insert( wxEmptyString, pos, numCols );
+
+        size_t i;
+        for ( i = pos; i < pos + numCols; i++ )
+            m_colLabels[i] = wxGridTableBase::GetColLabelValue( i );
+    }
+
+    for ( row = 0; row < curNumRows; row++ )
+    {
+        for ( col = pos; col < pos + numCols; col++ )
+        {
+            m_data[row].Insert( wxEmptyString, col );
+        }
+    }
+
+    if ( GetView() )
+    {
+        wxGridTableMessage msg( this,
+                                wxGRIDTABLE_NOTIFY_COLS_INSERTED,
+                                pos,
+                                numCols );
+
+        GetView()->ProcessTableMessage( msg );
+    }
+
+    return true;
+}
+
+bool myGridStringTable::AppendCols( size_t numCols )
+{
+    size_t row;
+
+    size_t curNumRows = m_data.GetCount();
+
+#if 0
+    if ( !curNumRows )
+    {
+        // TODO: something better than this ?
+        //
+        wxFAIL_MSG( wxT("Unable to append cols to a grid table with no rows.\nCall AppendRows() first") );
+        return false;
+    }
+#endif
+
+    for ( row = 0; row < curNumRows; row++ )
+    {
+        m_data[row].Add( wxEmptyString, numCols );
+    }
+
+    if ( GetView() )
+    {
+        wxGridTableMessage msg( this,
+                                wxGRIDTABLE_NOTIFY_COLS_APPENDED,
+                                numCols );
+
+        GetView()->ProcessTableMessage( msg );
+    }
+
+    return true;
+}
+
+bool myGridStringTable::DeleteCols( size_t pos, size_t numCols )
+{
+    size_t row;
+
+    size_t curNumRows = m_data.GetCount();
+    size_t curNumCols = ( curNumRows > 0 ? m_data[0].GetCount() :
+                          ( GetView() ? GetView()->GetNumberCols() : 0 ) );
+
+    if ( pos >= curNumCols )
+    {
+        wxFAIL_MSG( wxString::Format
+                    (
+                        wxT("Called myGridStringTable::DeleteCols(pos=%lu, N=%lu)\nPos value is invalid for present table with %lu cols"),
+                        (unsigned long)pos,
+                        (unsigned long)numCols,
+                        (unsigned long)curNumCols
+                    ) );
+        return false;
+    }
+
+    int colID;
+    if ( GetView() )
+        colID = GetView()->GetColAt( pos );
+    else
+        colID = pos;
+
+    if ( numCols > curNumCols - colID )
+    {
+        numCols = curNumCols - colID;
+    }
+
+    if ( !m_colLabels.IsEmpty() )
+    {
+        // m_colLabels stores just as many elements as it needs, e.g. if only
+        // the label of the first column had been set it would have only one
+        // element and not numCols, so account for it
+        int nToRm = m_colLabels.size() - colID;
+        if ( nToRm > 0 )
+            m_colLabels.RemoveAt( colID, nToRm );
+    }
+
+    for ( row = 0; row < curNumRows; row++ )
+    {
+        if ( numCols >= curNumCols )
+        {
+            m_data[row].Clear();
+        }
+        else
+        {
+            m_data[row].RemoveAt( colID, numCols );
+        }
+    }
+
+    if ( GetView() )
+    {
+        wxGridTableMessage msg( this,
+                                wxGRIDTABLE_NOTIFY_COLS_DELETED,
+                                pos,
+                                numCols );
+
+        GetView()->ProcessTableMessage( msg );
+    }
+
+    return true;
+}
+
+wxString myGridStringTable::GetRowLabelValue( int row )
+{
+    if ( row > (int)(m_rowLabels.GetCount()) - 1 )
+    {
+        // using default label
+        //
+        return wxGridTableBase::GetRowLabelValue( row );
+    }
+    else
+    {
+        return m_rowLabels[row];
+    }
+}
+
+wxString myGridStringTable::GetColLabelValue( int col )
+{
+    if ( col > (int)(m_colLabels.GetCount()) - 1 )
+    {
+        // using default label
+        //
+        return wxGridTableBase::GetColLabelValue( col );
+    }
+    else
+    {
+        return m_colLabels[col];
+    }
+}
+
+void myGridStringTable::SetRowLabelValue( int row, const wxString& value )
+{
+    if ( row > (int)(m_rowLabels.GetCount()) - 1 )
+    {
+        int n = m_rowLabels.GetCount();
+        int i;
+
+        for ( i = n; i <= row; i++ )
+        {
+            m_rowLabels.Add( wxGridTableBase::GetRowLabelValue(i) );
+        }
+    }
+
+    m_rowLabels[row] = value;
+}
+
+void myGridStringTable::SetColLabelValue( int col, const wxString& value )
+{
+    if ( col > (int)(m_colLabels.GetCount()) - 1 )
+    {
+        int n = m_colLabels.GetCount();
+        int i;
+
+        for ( i = n; i <= col; i++ )
+        {
+            m_colLabels.Add( wxGridTableBase::GetColLabelValue(i) );
+        }
+    }
+
+    m_colLabels[col] = value;
 }

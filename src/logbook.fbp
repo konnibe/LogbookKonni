@@ -212,7 +212,7 @@
                         <object class="notebookpage" expanded="1">
                             <property name="bitmap"></property>
                             <property name="label">Logbook</property>
-                            <property name="select">1</property>
+                            <property name="select">0</property>
                             <object class="wxPanel" expanded="1">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
@@ -13004,7 +13004,7 @@
                         <object class="notebookpage" expanded="0">
                             <property name="bitmap">; Load From File</property>
                             <property name="label">Maintenance</property>
-                            <property name="select">0</property>
+                            <property name="select">1</property>
                             <object class="wxPanel" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
@@ -13177,7 +13177,7 @@
                                             <object class="notebookpage" expanded="0">
                                                 <property name="bitmap"></property>
                                                 <property name="label">Service</property>
-                                                <property name="select">1</property>
+                                                <property name="select">0</property>
                                                 <object class="wxPanel" expanded="0">
                                                     <property name="BottomDockable">1</property>
                                                     <property name="LeftDockable">1</property>
@@ -14376,7 +14376,7 @@
                                                                         <event name="OnGridEditorCreated"></event>
                                                                         <event name="OnGridEditorHidden"></event>
                                                                         <event name="OnGridEditorShown"></event>
-                                                                        <event name="OnGridLabelLeftClick"></event>
+                                                                        <event name="OnGridLabelLeftClick">OnGridLabelLeftClickService</event>
                                                                         <event name="OnGridLabelLeftDClick"></event>
                                                                         <event name="OnGridLabelRightClick"></event>
                                                                         <event name="OnGridLabelRightDClick"></event>
@@ -15666,7 +15666,7 @@
                                                                         <event name="OnGridEditorCreated"></event>
                                                                         <event name="OnGridEditorHidden"></event>
                                                                         <event name="OnGridEditorShown"></event>
-                                                                        <event name="OnGridLabelLeftClick"></event>
+                                                                        <event name="OnGridLabelLeftClick">OnGridLabelLeftClickRepairs</event>
                                                                         <event name="OnGridLabelLeftDClick"></event>
                                                                         <event name="OnGridLabelRightClick"></event>
                                                                         <event name="OnGridLabelRightDClick"></event>
@@ -15757,7 +15757,7 @@
                                             <object class="notebookpage" expanded="0">
                                                 <property name="bitmap"></property>
                                                 <property name="label">Buy Parts</property>
-                                                <property name="select">0</property>
+                                                <property name="select">1</property>
                                                 <object class="wxPanel" expanded="0">
                                                     <property name="BottomDockable">1</property>
                                                     <property name="LeftDockable">1</property>
@@ -16956,7 +16956,7 @@
                                                                         <event name="OnGridEditorCreated"></event>
                                                                         <event name="OnGridEditorHidden">onGridEditorHidden</event>
                                                                         <event name="OnGridEditorShown">onGridEditorShow</event>
-                                                                        <event name="OnGridLabelLeftClick"></event>
+                                                                        <event name="OnGridLabelLeftClick">OnGridLabelLeftClickBuyParts</event>
                                                                         <event name="OnGridLabelLeftDClick"></event>
                                                                         <event name="OnGridLabelRightClick"></event>
                                                                         <event name="OnGridLabelRightDClick"></event>

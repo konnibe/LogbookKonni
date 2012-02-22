@@ -83,7 +83,8 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		void				declareExportHeader();
 		bool				checkHiddenColumns(wxGrid* grid,int i,bool use);
 		void				navigationHideColumn(wxCommandEvent& ev);
-	
+		void				sortGrid(wxGrid* grid, int col, bool ascending);
+
 	public:
 		Boat*			boat;
 		CrewList*		crewList;
@@ -352,6 +353,9 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		virtual void OnGridCellRightClickWake( wxGridEvent& event );
 		virtual void OnMenuSelectionAddWatch( wxCommandEvent& event );
 		virtual void OnMenuSelectionSameWatch( wxCommandEvent& event );
+		virtual void OnGridLabelLeftClickService( wxGridEvent& event );
+		virtual void OnGridLabelLeftClickRepairs( wxGridEvent& event );
+		virtual void OnGridLabelLeftClickBuyParts( wxGridEvent& event );
 
 		virtual void OnGridEditorShownCrew( wxGridEvent& event );
 
@@ -613,6 +617,54 @@ class SelectLogbook : public wxDialog
 #endif
 		~SelectLogbook();
 	
+};
+
+///////////////////////////////////////////////////////////////////////////
+WX_DECLARE_OBJARRAY(wxArrayString, myGridStringArray);//(,
+                              //class WXDLLIMPEXP_ADV);
+
+class myGridStringTable : public wxGridTableBase
+{
+public:
+    myGridStringTable();
+    myGridStringTable( int numRows, int numCols );
+    virtual ~myGridStringTable();
+
+    // these are pure virtual in wxGridTableBase
+    //
+    int GetNumberRows();
+    int GetNumberCols();
+    wxString GetValue( int row, int col );
+    void SetValue( int row, int col, const wxString& s );
+    bool IsEmptyCell( int row, int col );
+
+    // overridden functions from wxGridTableBase
+    //
+    void Clear();
+    bool InsertRows( size_t pos = 0, size_t numRows = 1 );
+    bool AppendRows( size_t numRows = 1 );
+    bool DeleteRows( size_t pos = 0, size_t numRows = 1 );
+    bool InsertCols( size_t pos = 0, size_t numCols = 1 );
+    bool AppendCols( size_t numCols = 1 );
+    bool DeleteCols( size_t pos = 0, size_t numCols = 1 );
+
+    void SetRowLabelValue( int row, const wxString& );
+    void SetColLabelValue( int col, const wxString& );
+    wxString GetRowLabelValue( int row );
+    wxString GetColLabelValue( int col );
+
+    wxGridStringArray m_data;
+
+private:
+
+
+    // These only get used if you set your own labels, otherwise the
+    // GetRow/ColLabelValue functions return wxGridTableBase defaults
+    //
+    wxArrayString     m_rowLabels;
+    wxArrayString     m_colLabels;
+
+//    DECLARE_DYNAMIC_CLASS_NO_COPY( wxGridStringTable )
 };
 
 #endif //__logbook__
