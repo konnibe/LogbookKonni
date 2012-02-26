@@ -908,6 +908,10 @@ wxString OverView::setPlaceHolders(int mode, wxGrid *grid, int row, wxString mid
 	newMiddleODT.Replace(wxT("#LSPEED#"),grid->GetTable()->GetColLabelValue(FSPEED));
 	newMiddleODT.Replace(wxT("#FBSPEED#"),replaceNewLine(mode,grid->GetCellValue(row,FBSPEED)));
 	newMiddleODT.Replace(wxT("#LBSPEED#"),grid->GetTable()->GetColLabelValue(FBSPEED));
+	newMiddleODT.Replace(wxT("#FSPEEDSTW#"),replaceNewLine(mode,grid->GetCellValue(row,FSPEEDSTW)));
+	newMiddleODT.Replace(wxT("#LSPEEDSTW#"),grid->GetTable()->GetColLabelValue(FSPEEDSTW));
+	newMiddleODT.Replace(wxT("#FBSPEEDSTW#"),replaceNewLine(mode,grid->GetCellValue(row,FBSPEEDSTW)));
+	newMiddleODT.Replace(wxT("#LBSPEEDSTW#"),grid->GetTable()->GetColLabelValue(FBSPEEDSTW));
 
 	newMiddleODT.Replace(wxT("#FENGINE#"),replaceNewLine(mode,grid->GetCellValue(row,FENGINE)));
 	newMiddleODT.Replace(wxT("#LENGINE#"),grid->GetTable()->GetColLabelValue(FENGINE));

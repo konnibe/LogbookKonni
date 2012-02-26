@@ -314,6 +314,15 @@ wxString LogbookHTML::replacePlaceholder(wxString html,wxString htmlHeader,int g
 								break;
 						case CLOUDS:	html.Replace(wxT("#CLOUDS#"),replaceNewLine(g->GetCellValue(row,col),mode));
 										html.Replace(wxT("#LCLOUDS#"),g->GetColLabelValue(col));
+										{
+										wxString cl = replaceNewLine(g->GetCellValue(row,col),mode).Lower();
+										if(cl.Contains(_T(" ")))
+											cl = cl.SubString(0,cl.find_first_of(' ')-1);
+										if(html.Contains(wxT("#PCLOUDS%23")))
+											html.Replace(wxT("../../../clouds/#PCLOUDS%23"),_T("../clouds/")+cl);
+										else
+											html.Replace(wxT("#PCLOUDS#"),cl);
+										}
 								break;
 						case VISIBILITY:html.Replace(wxT("#VISIBILITY#"),replaceNewLine(g->GetCellValue(row,col),mode));
 										html.Replace(wxT("#LVISIBILITY#"),g->GetColLabelValue(col));

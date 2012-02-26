@@ -1635,7 +1635,7 @@
                                             <object class="notebookpage" expanded="1">
                                                 <property name="bitmap"></property>
                                                 <property name="label">Navigation</property>
-                                                <property name="select">0</property>
+                                                <property name="select">1</property>
                                                 <object class="wxPanel" expanded="1">
                                                     <property name="BottomDockable">1</property>
                                                     <property name="LeftDockable">1</property>
@@ -1963,7 +1963,7 @@
                                             <object class="notebookpage" expanded="0">
                                                 <property name="bitmap"></property>
                                                 <property name="label">Weather</property>
-                                                <property name="select">1</property>
+                                                <property name="select">0</property>
                                                 <object class="wxPanel" expanded="0">
                                                     <property name="BottomDockable">1</property>
                                                     <property name="LeftDockable">1</property>
@@ -4071,7 +4071,7 @@
                         <object class="notebookpage" expanded="1">
                             <property name="bitmap"></property>
                             <property name="label">Crewlist</property>
-                            <property name="select">0</property>
+                            <property name="select">1</property>
                             <object class="wxPanel" expanded="1">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>
@@ -5263,7 +5263,7 @@
                                                     <event name="OnGridEditorCreated"></event>
                                                     <event name="OnGridEditorHidden"></event>
                                                     <event name="OnGridEditorShown">OnGridEditorShownCrew</event>
-                                                    <event name="OnGridLabelLeftClick"></event>
+                                                    <event name="OnGridLabelLeftClick">onGridLabelLeftClickCrew</event>
                                                     <event name="OnGridLabelLeftDClick">OnGridLabelLeftDClickCrew</event>
                                                     <event name="OnGridLabelRightClick"></event>
                                                     <event name="OnGridLabelRightDClick"></event>
@@ -13004,7 +13004,7 @@
                         <object class="notebookpage" expanded="0">
                             <property name="bitmap">; Load From File</property>
                             <property name="label">Maintenance</property>
-                            <property name="select">1</property>
+                            <property name="select">0</property>
                             <object class="wxPanel" expanded="0">
                                 <property name="BottomDockable">1</property>
                                 <property name="LeftDockable">1</property>

@@ -1663,6 +1663,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridCrew->Connect( wxEVT_GRID_EDITOR_SHOWN, wxGridEventHandler( LogbookDialog::OnGridEditorShownCrew ), NULL, this );
 	this->Connect( m_menuItem22->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHiddenCrew ) );
 	this->Connect( m_menuItem23->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHiddenWake ) );
+	m_gridCrew->Connect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::onGridLabelLeftClickCrew ), NULL, this );
 
 	m_gridMaintanence->Connect( wxEVT_GRID_CELL_CHANGE, wxGridEventHandler( LogbookDialog::onGridCellServiceChange ), NULL, this );
 	m_gridMaintanence->Connect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( LogbookDialog::onGridCellServiceSelected ), NULL, this );
@@ -1853,6 +1854,7 @@ LogbookDialog::~LogbookDialog()
 	m_gridCrew->Disconnect( wxEVT_GRID_EDITOR_SHOWN, wxGridEventHandler( LogbookDialog::OnGridEditorShownCrew ), NULL, this );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHiddenCrew ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHiddenWake ) );
+	m_gridCrew->Disconnect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::onGridLabelLeftClickCrew ), NULL, this );
 
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceOK ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceBuyParts ) );
@@ -1966,6 +1968,13 @@ void LogbookDialog::OnMenuSelectionHideColumn(wxCommandEvent& ev)
 void LogbookDialog::navigationHideColumn(wxCommandEvent& ev)
 {
 	int selGrid = this->m_notebook8->GetSelection();
+	int count = 0;
+
+	for(int i = 0; i < logGrids[selGrid]->GetNumberCols() && count < 2; i++)
+		if(logGrids[selGrid]->GetColumnWidth(i) > 0)
+			count++;
+
+	if(count < 2) return;
 
 	logGrids[selGrid]->SetColumnWidth(selGridCol,0);
 	if(previousColumn != selGridCol)
@@ -2834,7 +2843,7 @@ void LogbookDialog::m_gridGlobalOnGridCellRightClick( wxGridEvent& ev )
 			wxMenu *temp = new wxMenu();
 			wxMenuItem *item = new wxMenuItem( temp, wxID_ANY, clouds[i], wxEmptyString,wxITEM_NORMAL);
 			wxBitmap bmp( (path+clouds[i]+_T(".jpg")), wxBITMAP_TYPE_ANY);
-			//bmp.SetWidth(400), bmp.SetHeight(300);
+			//bmp.SetWidth(200), bmp.SetHeight(135);
 			item->SetBitmap(bmp);
 			temp->Append(item);
 			//m_menu1->Prepend( item );
@@ -3283,9 +3292,33 @@ void LogbookDialog::OnGridCellRightClickWake( wxGridEvent& event )
     m_gridCrewWake->PopupMenu(m_menu21);
 }
 
+void LogbookDialog::onGridLabelLeftClickCrew( wxGridEvent& event )
+{
+	int row, col;
+	row = event.GetRow();
+	col = event.GetCol();
+
+	this->m_gridCrew->SetFocus();
+
+	if(row != -1 || (row == -1 && col == -1)) { event.Skip(); return; }
+
+	this->m_gridCrew->SetGridCursor(0,col);
+	static bool ascending = true;
+	this->sortGrid(this->m_gridCrew,event.GetCol(),ascending);
+	ascending = !ascending;
+}
+
 void LogbookDialog::OnGridLabelLeftDClickCrew( wxGridEvent& ev )
 {
 	if(ev.GetCol() == -1) return;
+	int count = 0;
+
+	for(int i = 0; i < m_gridCrew->GetNumberCols() && count < 2; i++)
+		if(m_gridCrew->GetColumnWidth(i) > 0)
+			count++;
+
+	if(count < 2) return;
+
 	m_gridCrew->SetColumnWidth(ev.GetCol(),0);
 	m_gridCrew->Refresh();
 }
@@ -3293,6 +3326,13 @@ void LogbookDialog::OnGridLabelLeftDClickCrew( wxGridEvent& ev )
 void LogbookDialog::OnGridLabelLeftDClickCrewWake( wxGridEvent& ev )
 {
 	if(ev.GetCol() == -1) return;
+	int count = 0;
+
+	for(int i = 0; i < m_gridCrewWake->GetNumberCols() && count < 2; i++)
+		if(m_gridCrewWake->GetColumnWidth(i) > 0)
+			count++;
+
+	if(count < 2) return;
 	m_gridCrewWake->SetColumnWidth(ev.GetCol(),0);
 	m_gridCrewWake->Refresh();
 }
@@ -4194,6 +4234,13 @@ void LogbookDialog::onButtonClickSelectLogbook(wxCommandEvent & ec)
 void LogbookDialog::OnGridLabelLeftDClickOverview( wxGridEvent& ev )
 {
 	if(ev.GetCol() == -1) return;
+	int count = 0;
+
+	for(int i = 0; i < m_gridOverview->GetNumberCols() && count < 2; i++)
+		if(m_gridOverview->GetColumnWidth(i) > 0)
+			count++;
+
+	if(count < 2) return;
 	m_gridOverview->SetColumnWidth(ev.GetCol(),0);
 	m_gridOverview->Refresh();	
 }

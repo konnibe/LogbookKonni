@@ -356,6 +356,7 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		virtual void OnGridLabelLeftClickService( wxGridEvent& event );
 		virtual void OnGridLabelLeftClickRepairs( wxGridEvent& event );
 		virtual void OnGridLabelLeftClickBuyParts( wxGridEvent& event );
+		virtual void onGridLabelLeftClickCrew( wxGridEvent& event );
 
 		virtual void OnGridEditorShownCrew( wxGridEvent& event );
 
