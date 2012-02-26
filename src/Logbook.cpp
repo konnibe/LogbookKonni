@@ -2088,6 +2088,7 @@ void LogbookSearch::OnInitDialog( wxInitDialogEvent& event )
 	this->m_textCtrl72->SetFocus();
 
 	this->m_radioBtnAll->Hide();
+	this->Fit();
 }
 
 void LogbookSearch::OnButtonClickSelectDate( wxCommandEvent& event )

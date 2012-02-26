@@ -2161,8 +2161,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Best Etmal"
 #~ msgstr "Max NM/24h"
+#
+#
+#
+#
 #
 #
 #
@@ -2310,8 +2318,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Seznam posádky"
+#
+#
+#
+#
 #
 #
 #
@@ -2517,6 +2533,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Etmal "
 #~ msgstr "NM/24h"
 #
@@ -2535,8 +2555,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "FirstName"
 #~ msgstr "Jméno"
+#
+#
+#
+#
 #
 #
 #
@@ -2788,6 +2816,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "GrossTonnage"
 #~ msgstr "Celková registrovaná prostornost"
 #
@@ -2855,8 +2887,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Konniho lodní deník"
+#
+#
+#
+#
 #
 #
 #
@@ -3134,8 +3174,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "NetTonnage"
 #~ msgstr "Čistá registrovaná prostornost"
+#
+#
+#
+#
 #
 #
 #
@@ -3275,8 +3323,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Cesta k editoru HTML (volitelné)"
+#
+#
+#
+#
 #
 #
 #
@@ -3519,8 +3575,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Schedule"
 #~ msgstr "Rozvrh"
+#
+#
+#
+#
 #
 #
 #
@@ -3530,6 +3594,10 @@ msgstr "Napiš vlastní popis"
 #, fuzzy
 #~ msgid "Search.."
 #~ msgstr "Vybrat lodní deník"
+#
+#
+#
+#
 #
 #
 #
@@ -3772,8 +3840,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Show Maintence Rows coloured"
 #~ msgstr "Zobraz řádky údržby v barvě"
+#
+#
+#
+#
 #
 #
 #
@@ -4072,8 +4148,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Dnes"
+#
+#
+#
+#
 #
 #
 #
@@ -4197,6 +4281,10 @@ msgstr "Napiš vlastní popis"
 #, fuzzy
 #~ msgid "Traditional-Style"
 #~ msgstr "Národnost"
+#
+#
+#
+#
 #
 #
 #

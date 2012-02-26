@@ -1442,9 +1442,17 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "FirstName"
 #~ msgstr "Imię"
+#
+#
+#
+#
 #
 #
 #
@@ -1470,9 +1478,17 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Search.."
 #~ msgstr "Wybierz Dziennik"
+#
+#
+#
+#
 #
 #
 #
