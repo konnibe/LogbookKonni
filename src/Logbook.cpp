@@ -565,7 +565,7 @@ void Logbook::loadData()
 	dialog->m_gridMotorSails->BeginBatch();
 
 	int row = 0;
-	while( (t = stream->ReadLine()))
+	while( !(t = stream->ReadLine()).IsEmpty())
 	{
 		if(input.Eof()) break;
 		dialog->m_gridGlobal->AppendRows();
@@ -1310,7 +1310,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 							s.Replace(_T("."),dialog->decimalPoint);
 							dialog->logGrids[grid]->SetCellValue(row,6,s);
 
-							if(dist > 0)
+							if(dist >= 0.1)
 								dialog->m_gridGlobal->SetCellValue(row,3,_T("S"));
 							else
 								dialog->m_gridGlobal->SetCellValue(row,3,dialog->m_gridGlobal->GetCellValue(row-1,3));

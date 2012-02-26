@@ -216,6 +216,7 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 	while( (t = stream->ReadLine()))
 	{
 		if(input.Eof()) break;
+		sign = wxEmptyString;
 		rowNewLogbook++;
 		wxStringTokenizer tkz(t, _T("\t"),wxTOKEN_RET_EMPTY );
 		int c = 0;
@@ -276,9 +277,12 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 				break;
 			case WATCH:	
 				break;
-			case DISTANCE:			s.ToDouble(&x);
+			case DISTANCE:			if(sign != 'S') break;
+									s.ToDouble(&x);
+
 									distance += x;
 									etmal = distance/etmalcount;
+
 									if(date == etmaldate)
 									{
 										bestetmaltemp += x;
