@@ -70,7 +70,7 @@ class LogbookTimer;
 class LogbookOptions;
 class Options;
 
-class logbookkonni_pi : public opencpn_plugin
+class logbookkonni_pi : public opencpn_plugin_16
 {
 public:
 	logbookkonni_pi(void *ppimgr);

@@ -73,12 +73,6 @@ extern "C" DECL_EXP void destroy_pi(opencpn_plugin* p)
 }
 
 
-//---------------------------------------------------------------------------------------------------------
-//
-//    Demo PlugIn Implementation
-//
-//---------------------------------------------------------------------------------------------------------
-
 #include "icons.h"
 
 //---------------------------------------------------------------------------------------------------------
@@ -87,7 +81,7 @@ extern "C" DECL_EXP void destroy_pi(opencpn_plugin* p)
 //
 //---------------------------------------------------------------------------------------------------------
 logbookkonni_pi::logbookkonni_pi(void *ppimgr)
-      :opencpn_plugin(ppimgr)
+      :opencpn_plugin_16(ppimgr)
 {	
       // Create the PlugIn icons
       initialize_images();
