@@ -1878,6 +1878,7 @@ void Logbook::setWayPointArrivedText()
 				{ msg = _("Next WP Name: "); }
 			else
 				{ msg = _("Last waypoint of the Route"); tempRMB.To = wxEmptyString; }
+
 			wxString s = wxString::Format(_("\nName of Waypoint: %s\n%s %s"),tempRMB.From.c_str(), msg.c_str(), tempRMB.To.c_str());
 
 			if(WP_skipped)
