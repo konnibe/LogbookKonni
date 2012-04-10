@@ -36,11 +36,10 @@
 #endif //precompiled headers
 
 #define     PLUGIN_VERSION_MAJOR    0
-#define     PLUGIN_VERSION_MINOR    915
+#define     PLUGIN_VERSION_MINOR    916
 
 #define     MY_API_VERSION_MAJOR    1
-//#define     MY_API_VERSION_MINOR    5	// for OpenCPN 2.5
-#define     MY_API_VERSION_MINOR    6	// for OpenCPN 2.6.xxxx Beta
+#define     MY_API_VERSION_MINOR    6	
 
 
 #include "../../../include/ocpn_plugin.h"
@@ -84,6 +83,7 @@ public:
       wxTimer 		    *m_timer;
 	  wxColour			col,col1,gridline,uitext,udkrd,back_color,text_color;
 	  wxColour			mcol,mcol1,mgridline, muitext,mudkrd,mback_color,mtext_color;
+	  wxString			lastWaypointInRoute;
 
 	  wxLocale*			local;
 

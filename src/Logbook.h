@@ -76,6 +76,7 @@ private:
 	wxString			positionTraditional(int NEflag, double a, bool mode );
 	wxString			positionGPSLike(int NEflag, double a, bool mode );
 	void				setOldPosition();
+	void				setWayPointArrivedText();
 
 #ifdef PBVE_DEBUG
 	int pbvecount;
@@ -98,6 +99,8 @@ public:
 	bool			WP_skipped;
 	wxString		lastWayPoint;
 	bool			OCPN_Message;
+	wxString		activeRoute;
+	wxString		activeRouteGUID;
 
 public:
 	Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString layoutODT);
