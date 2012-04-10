@@ -82,6 +82,9 @@ Logbook::Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString
 	guardChange = false;
 	dLastMinute = -1;
 	oldPosition.latitude = 500;
+	activeRoute = wxEmptyString;
+	activeRouteGUID = wxEmptyString;
+
 //	tempRMB = 0;
 }
 
@@ -771,6 +774,13 @@ Please create a new logbook to minimize the loadingtime.\n\nIf you have a runnin
 			dialog->logGrids[0]->SetCellValue(lastRow,2,mCorrectedDateTime.FormatTime());
 		}
 
+	if(activeRouteGUID != wxEmptyString)
+	{
+		if(activeRoute != wxEmptyString)
+			dialog->logGrids[0]->SetCellValue(lastRow,0,activeRoute);
+		else
+			dialog->logGrids[0]->SetCellValue(lastRow,0,_("(Unnamed Route)"));
+	}
 	dialog->logGrids[0]->SetCellValue(lastRow,7,sLat+sLon);
 	dialog->logGrids[0]->SetCellValue(lastRow,8,sCOG);
 	dialog->logGrids[0]->SetCellValue(lastRow,9,sCOW);
@@ -1823,20 +1833,16 @@ bool Logbook::checkGPS(bool appendClick)
 			wxString s, ext;
 
 			if(!OCPN_Message)
-			{	 s = wxString::Format(_("\nName of Waypoint: %s\nTrue bearing to destination: %4.1f%s\nRange to destination: %4.2f%s"),
+			{	/* s = wxString::Format(_("\nName of Waypoint: %s\nTrue bearing to destination: %4.1f%s\nRange to destination: %4.2f%s"),
 																	tempRMB.From.c_str(),
 																	tempRMB.BearingToDestinationDegreesTrue,opt->Deg.c_str(),
 																	tempRMB.RangeToDestinationNauticalMiles,opt->distance.c_str());
-				s.Replace(_T("."),dialog->decimalPoint);
+				s.Replace(_T("."),dialog->decimalPoint);*/
 			}
 			else
-				s = wxString::Format(_("\nName of Waypoint: %s"),tempRMB.From.c_str());
-
-			if(WP_skipped)
-				ext = _("Waypoint skipped");
-			else
-				ext = _("WayPoint arrived");
-			sLogText += wxString::Format(_T("%s\n%s%s"),opt->waypointText.c_str(),ext.c_str(),s.c_str());
+			{
+				setWayPointArrivedText();
+			}
 			
 		}
 		else if(everySM && !appendClick)
@@ -1857,19 +1863,32 @@ bool Logbook::checkGPS(bool appendClick)
 			sLogText = _T("");
 		if(waypointArrived)
 		{
+			setWayPointArrivedText();
+		}
+		return false;
+	}
+}
+
+void Logbook::setWayPointArrivedText()
+{
 			wxString ext;
-			wxString s = wxString::Format(_("\nName of Waypoint: %s"),tempRMB.From.c_str());
+			wxString msg;
+
+			if(tempRMB.To != _T("-1"))
+				{ msg = _("Next WP Name: "); }
+			else
+				{ msg = _("Last waypoint of the Route"); tempRMB.To = wxEmptyString; }
+			wxString s = wxString::Format(_("\nName of Waypoint: %s\n%s %s"),tempRMB.From.c_str(), msg.c_str(), tempRMB.To.c_str());
+
 			if(WP_skipped)
 				ext = _("Waypoint skipped");
 			else
 				ext = _("WayPoint arrived");
+
 			if(sLogText != _T(""))
 				sLogText += wxString::Format(_T("\n%s\n%s%s"),opt->waypointText.c_str(),ext.c_str(),s.c_str());
 			else
 				sLogText += wxString::Format(_T("%s\n%s%s"),opt->waypointText.c_str(),ext.c_str(),s.c_str());
-		}
-		return false;
-	}
 }
 
 void Logbook::SetGPSStatus(bool status)

@@ -148,11 +148,13 @@ void OverView::selectLogbook()
 	if(selIndex == -1) return;
 
 	selectedLogbook = selLogbook.files[selIndex];
+	showAllLogbooks = false;
 	loadLogbookData(selectedLogbook,false);
 }
 
 void OverView::actuellLogbook()
 {
+	showAllLogbooks = false;
 	clearGrid();
 	for(unsigned int i=0; i < logbooks.size(); i++)
 	  if(!logbooks[i].Contains(_T("until")))
@@ -165,6 +167,7 @@ void OverView::actuellLogbook()
 
 void OverView::allLogbooks()
 {
+	showAllLogbooks = true;
 	clearGrid();
 	for(unsigned int i = 0; i < logbooks.Count(); i++)
 	{
@@ -438,7 +441,8 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 			writeSumColumn(lastrow, logbook, path, colour);
 		test = false;
 	}
-	writeSumColumnLogbook(oneLogbookTotal,lastrow, logbook, colour);
+	if(!showAllLogbooks)
+		writeSumColumnLogbook(oneLogbookTotal,lastrow, logbook, colour);
 }
 
 void OverView::resetValues()

@@ -150,6 +150,7 @@ private:
 	int					speedcount;
 	int					speedcountSTW;
 	wxString			sign;
+	bool				showAllLogbooks;
 
 	typedef std::map<wxString, int> collection;
 	typedef std::pair<wxString, int> pair;

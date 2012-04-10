@@ -105,6 +105,7 @@ int logbookkonni_pi::Init(void)
     AddLocaleCatalog( _T("opencpn-logbookkonni_pi") );
 
 	m_plogbook_window = NULL;
+	lastWaypointInRoute = _T("-1");
 
 	opt = new Options();
 	// Get a pointer to the opencpn display canvas, to use as a parent for windows created
@@ -255,7 +256,7 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
 			prText[priority] += wxString::Format(_T("%4i  %-15s %-30s\n"),amount,unit.c_str(),text.c_str());
 
 		}
-		//wxMessageBox(wxString::Format(_("%i"),data.Size()));
+
 		if(plugin == _T("FindIt"))
 			m_plogbook_window->maintenance->deleteFindItRow(category,plugin);
 
@@ -298,21 +299,75 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
       }
       else if(message_id == _T("OCPN_WPT_ARRIVED"))
       {
+		if(!opt->waypointArrived) return;
+
 		wxJSONReader reader;
 		wxJSONValue  data;
 		int numErrors = reader.Parse( message_body, &data );
 		if(numErrors != 0) return;
 
+		if(!m_plogbook_window)
+			startLogbook();
+
 		RMB rmb;
 		rmb.From = data.Item(_T("WP_arrived")).AsString();
-		rmb.To   = data.Item(_T("WP_next")).AsString();
+		rmb.To   = lastWaypointInRoute =  data.Item(_T("Next_WP")).AsString();
 		m_plogbook_window->logbook->WP_skipped = data.Item(_T("isSkipped")).AsBool();
 		m_plogbook_window->logbook->OCPN_Message = true;
 
-		//m_plogbook_window->logbook->SetGPSStatus(true);
 		m_plogbook_window->logbook->checkWayPoint(rmb);
+
 		m_plogbook_window->logbook->OCPN_Message = false;
 		m_plogbook_window->logbook->WP_skipped = false;
+	  }
+	  else if(message_id == _T("OCPN_RTE_ENDED"))
+      {
+		if(!opt->waypointArrived) return;
+
+		wxJSONReader reader;
+		wxJSONValue  data;
+		int numErrors = reader.Parse( message_body, &data );
+		if(numErrors != 0) return;
+
+		if(!m_plogbook_window)
+			startLogbook();
+
+		RMB rmb;
+		rmb.From = lastWaypointInRoute;
+		rmb.To = _T("-1");//data.Item(_T("Route_ended")).AsString();
+		m_plogbook_window->logbook->WP_skipped = false;
+		m_plogbook_window->logbook->OCPN_Message = true;
+
+		m_plogbook_window->logbook->checkWayPoint(rmb);
+		m_plogbook_window->logbook->OCPN_Message = false;
+		lastWaypointInRoute = _T("-1");
+		m_plogbook_window->logbook->lastWayPoint = wxEmptyString;
+	  }
+	  else if(message_id == _T("OCPN_RTE_DEACTIVATED"))
+      {
+		wxJSONReader reader;
+		wxJSONValue  data;
+		int numErrors = reader.Parse( message_body, &data );
+		if(numErrors != 0) return;
+
+		if(!m_plogbook_window)
+			startLogbook();
+
+		m_plogbook_window->logbook->activeRoute = wxEmptyString;
+		m_plogbook_window->logbook->activeRouteGUID = wxEmptyString;
+	  }
+	  else if(message_id == _T("OCPN_RTE_ACTIVATED"))
+      {
+		wxJSONReader reader;
+		wxJSONValue  data;
+		int numErrors = reader.Parse( message_body, &data );
+		if(numErrors != 0) return;
+
+		if(!m_plogbook_window)
+			startLogbook();
+
+		m_plogbook_window->logbook->activeRoute = data.Item(_T("Route_activated")).AsString();
+		m_plogbook_window->logbook->activeRouteGUID = data.Item(_T("GUID")).AsString();
 	  }
 }
 
