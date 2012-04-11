@@ -25,8 +25,10 @@ sudo make install
 
 that's it.
 
-Install Layouts (they are nessesary to display e.g. in a browser) 
----------------------------------------------------------------------
+Install Layouts (Linux/Mac only)
+----------------------------
+they are nessesary to display data e.g. in a browser
+
 start opencpn
 select in the toolbar Options/Plugins and enable the plugin.
 click the peferences-button
