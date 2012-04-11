@@ -13,15 +13,11 @@ open a terminal here and copy/paste this command:
  
 git clone git://github.com/konnibe/LogbookKonni.git LogbookKonni_pi
 
-Now go into the <OPENCPN_SOURCE_TLD>/build directory:
+Run this commands:
 
-cd ..
-cd build
-
-Run this commands ('sudo' on Linux only):
-
-cmake ../
-sudo make
+cd ../build
+cmake ..
+cmake --build . --target logbookkonni_pi
 sudo make install
 
 that's it.
