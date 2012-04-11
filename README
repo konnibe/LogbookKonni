@@ -6,6 +6,7 @@ Building from source
 Please use Git for download and don't hit the downloads-link above to create a .zip or tar.zip !!
  
 Clone the git repository to <OPENCPN_SOURCE_TLD>/plugins/LogbookKonni_pi (the _pi at the end matters!)
+---------------------------------------------------------------------------
 
 cd <OPENCPN_SOURCE_TLD>/plugins
 open a terminal here and copy/paste this command:
