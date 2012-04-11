@@ -3,26 +3,30 @@ Logbook Konni for OpenCPN
 
 Building from source
 --------------------
+Please use Git for download and don't hit the downloads-link above to create a .zip or tar.zip !!
+ 
 Clone the git repository to <OPENCPN_SOURCE_TLD>/plugins/LogbookKonni_pi (the _pi at the end matters!)
+
 cd <OPENCPN_SOURCE_TLD>/plugins
+open a terminal here and copy/paste this command:
+ 
 git clone git://github.com/konnibe/LogbookKonni.git LogbookKonni_pi
 
-if You want to compile the plugin with the latest 2.6 Beta of OpenCPN please change in the file "logbook_pi.h" the line
+Now go into the <OPENCPN_SOURCE_TLD>/build directory:
 
-#define     MY_API_VERSION_MINOR    5 // for OpenCPN 2.5
-#define     MY_API_VERSION_MINOR    6 // for OpenCPN 2.6 Beta
+cd ..
+cd build
 
-Build OpenCPN as normally (build instructions on http://opencpn.org)
+Run this commands ('sudo' on Linux only):
 
-Localizations distribution
---------------------------
-OpenCPN_Logbook_Languages.zip
-The .mo files belong to the respective directory structure
-eg. 
-de\LC_MESSAGES\opencpn-logbookkonni_pi.mo
-es\LC_MESSAGES\opencpn-logbookkonni_pi.mo
-etc.
+cmake ../
+sudo make
+sudo make install
 
-Layouts distribution
---------------------
-Zip the contents of data\Layouts into OpenCPN_Logbook_Layouts.zip
+that's it.
+
+Install Layouts (they are nessesary to display e.g. in a browser) 
+---------------------------------------------------------------------
+start opencpn, select in the toolbar Options/Plugins and enable the plugin.
+click the peferences-button, in the dialog click "Install" below the label "Install Layouts"
+in the filedialog select in the directory<OPENCPN_SOURCE_TLD>/plugins/LogbookKonni_pi the file OpenCPN_Logbook_Layouts.zip
