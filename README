@@ -27,6 +27,8 @@ that's it.
 
 Install Layouts (they are nessesary to display e.g. in a browser) 
 ---------------------------------------------------------------------
-start opencpn, select in the toolbar Options/Plugins and enable the plugin.
-click the peferences-button, in the dialog click "Install" below the label "Install Layouts"
-in the filedialog select in the directory<OPENCPN_SOURCE_TLD>/plugins/LogbookKonni_pi the file OpenCPN_Logbook_Layouts.zip
+start opencpn
+select in the toolbar Options/Plugins and enable the plugin.
+click the peferences-button
+in the dialog click "Install" below the label "Install Layouts"
+in the filedialog select in the directory '<OPENCPN_SOURCE_TLD>/plugins/LogbookKonni_pi' the file 'OpenCPN_Logbook_Layouts.zip'
