@@ -22,7 +22,7 @@ sudo make install
 
 that's it.
 
-Install Layouts (Linux/Mac only)
+Install Layouts (Linux only)
 ----------------------------
 they are nessesary to display data e.g. in a browser
 
