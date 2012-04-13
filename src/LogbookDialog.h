@@ -84,6 +84,7 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		bool				checkHiddenColumns(wxGrid* grid,int i,bool use);
 		void				navigationHideColumn(wxCommandEvent& ev);
 		void				sortGrid(wxGrid* grid, int col, bool ascending);
+		void				clearDataDir();
 
 	public:
 		Boat*			boat;

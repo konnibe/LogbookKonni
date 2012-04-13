@@ -2109,9 +2109,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "BuyParts"
 #~ msgstr "Comprar recambios"
+#
 #
 #
 #
@@ -2233,9 +2235,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Current from"
 #~ msgstr "Corriente"
+#
 #
 #
 #
@@ -2377,8 +2381,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "GRT"
 #~ msgstr "BRT"
+#
 #
 #
 #
@@ -2613,8 +2619,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Logbook files (*.txt)|*.txt"
 #~ msgstr "Ficheros bitácora (*.txt)|*.txt"
+#
 #
 #
 #
@@ -2638,6 +2646,7 @@ msgstr ""
 #, fuzzy
 #~ msgid "Nm"
 #~ msgstr "Nombre"
+#
 #
 #
 #
@@ -2783,8 +2792,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Ruta al editor HTML (opcional)"
+#
 #
 #
 #
@@ -3033,8 +3044,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Schedule"
 #~ msgstr "Calendário"
+#
 #
 #
 #
@@ -3157,9 +3170,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Seleccione Layout"
+#
 #
 #
 #
@@ -3465,8 +3480,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
 #
 #
 #
@@ -3653,9 +3670,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Ver"
+#
 #
 #
 #
@@ -3951,6 +3970,7 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Wave Peak"
 #~ msgstr "Oleaje"
@@ -3998,9 +4018,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Wind from"
 #~ msgstr "Viento"
+#
 #
 #
 #

@@ -1083,6 +1083,7 @@ void logbookkonni_pi::loadLayouts(wxWindow *parent)
 		wxMkdir(data);
 
 	wxString data1 = data;
+	wxString data2 = data;
 
 	data.Append(_T("HTMLLayouts"));
 	data.append(sep);
@@ -1094,6 +1095,10 @@ void logbookkonni_pi::loadLayouts(wxWindow *parent)
 	if(!wxDir::Exists(data1))
 		wxMkdir(data1);
 
+	data2.Append(_T("Clouds"));
+	data2.append(sep);
+	if(!wxDir::Exists(data2))
+		wxMkdir(data2);
 
 	wxFileDialog* openFileDialog =
 		new wxFileDialog( parent, _("Select zipped Layout-Files"), _T(""), FILETYPES, FILETYPES,
@@ -1108,12 +1113,14 @@ void logbookkonni_pi::loadLayouts(wxWindow *parent)
 		{
 			if(entry->GetName().Contains(_T("HTMLLayouts")))
 				path = data;
-			else
+			else if(entry->GetName().Contains(_T("ODTLayouts")))
 				path = data1;
+			else
+				path = data2;
 
 			wxString name = entry->GetName();
 
-			if(!name.Contains(_T(".htm")) && !name.Contains(_T(".odt"))) continue;
+			if(!name.Contains(_T(".htm")) && !name.Contains(_T(".odt")) && !name.Contains(_T(".jpg"))) continue;
 			wxString fn = name.AfterLast(wxFileName::GetPathSeparator());
 
 			if(name.Contains(sep+_T("boat")))

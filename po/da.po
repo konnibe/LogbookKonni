@@ -1580,8 +1580,10 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
 #~ msgid "BuyParts"
 #~ msgstr "Zubehör kaufen"
+#
 #
 #
 #
@@ -1657,8 +1659,10 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
 #~ msgid "Current from"
 #~ msgstr "Strøm fra"
+#
 #
 #
 #
@@ -1727,8 +1731,10 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Logbuch Konni"
+#
 #
 #
 #
@@ -1752,6 +1758,7 @@ msgstr "skriv din egen label"
 #, fuzzy
 #~ msgid "Nm"
 #~ msgstr "Navn"
+#
 #
 #
 #
@@ -1858,8 +1865,10 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
 #~ msgid "Save"
 #~ msgstr "Speichern"
+#
 #
 #
 #
@@ -1955,9 +1964,11 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
+#
 #
 #
 #

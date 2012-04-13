@@ -1922,6 +1922,37 @@ LogbookDialog::~LogbookDialog()
 	delete crewList;
 	delete boat;
 	delete logbook;
+
+	clearDataDir();
+
+}
+
+void LogbookDialog::clearDataDir()
+{
+	wxString data = *pHome_Locn;
+	data.Append(_T("data"));
+	data.Append(wxFileName::GetPathSeparator());
+
+	wxString f = wxFindFirstFile(data+_T("*.tmp"));
+	while ( !f.empty() )
+	{
+		wxRemoveFile(f);
+		f = wxFindNextFile();
+	}
+
+	f = wxFindFirstFile(data+_T("*.html"));
+	while ( !f.empty() )
+	{
+		wxRemoveFile(f);
+		f = wxFindNextFile();
+	}
+
+	f = wxFindFirstFile(data+_T("*.odt"));
+	while ( !f.empty() )
+	{
+		wxRemoveFile(f);
+		f = wxFindNextFile();
+	}
 }
 
 
@@ -3018,6 +3049,8 @@ void LogbookDialog::loadLayoutChoice(wxString path, wxChoice* choice)
 
 	for(int n = 0; n < i; n++)
 	{
+		if(wxFileName(files[n]).GetExt().Upper() != _T("ODT") && wxFileName(files[n]).GetExt().Upper() != _T("HTML")) continue;
+
 		if(this->logbookPlugIn->opt->filterLayout)
 		{
 			if(wxFileName(files[n]).GetName().Contains(logbookPlugIn->opt->layoutPrefix))

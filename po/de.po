@@ -1553,9 +1553,11 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "AllLogbooks"
 #~ msgstr "Alle Logbücher"
+#
 #
 #
 #
@@ -1658,6 +1660,7 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
 #~ msgid "CrewList"
 #~ msgstr "Crewliste"
 #
@@ -1681,8 +1684,10 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
 #~ msgid "Current from"
 #~ msgstr "Strom von"
+#
 #
 #
 #
@@ -1737,8 +1742,10 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Logbuch Konni"
+#
 #
 #
 #
@@ -1845,8 +1852,10 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
 #~ msgid "Save"
 #~ msgstr "Speichern"
+#
 #
 #
 #
@@ -1938,9 +1947,11 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
+#
 #
 #
 #
