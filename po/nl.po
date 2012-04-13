@@ -1,26 +1,20 @@
-# SOME DESCRIPTIVE TITLE.
-# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
-# This file is distributed under the same license as the PACKAGE package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
-#
 msgid ""
 msgstr ""
-"Project-Id-Version: logbookkonni_pi 2.6.1310\n"
+"Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-16 15:00+0100\n"
-"PO-Revision-Date: 2012-01-20 18:14+0100\n"
+"PO-Revision-Date: 2012-04-13 21:28+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
-"Language-Team: \n"
+"Language-Team: rider2@kpnmail.nl <rider2@kpnmail.nl>\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop\n"
+"X-Poedit-Basepath: .\n"
 "X-Poedit-SourceCharset: utf-8\n"
-"X-Poedit-Basepath: C:\\Users\\Konni\\Documents\\Visual Studio 2010\\Projects"
-"\\opencpn\\plugins\\LogbookKonni_pi\\src\n"
-"X-Poedit-Language: Polish\n"
-"X-Poedit-Country: POLAND\n"
-"X-Poedit-SearchPath-0: C:\\Users\\Konni\\Documents\\Visual Studio 2010"
-"\\Projects\\opencpn\\plugins\\LogbookKonni_pi\\src\n"
+"X-Poedit-Language: Dutch\n"
+"X-Poedit-Country: NETHERLANDS\n"
+"X-Poedit-SearchPath-0: .\n"
 #
 msgid "\n"
 msgstr "\n"
@@ -31,7 +25,7 @@ msgid ""
 "Name of Waypoint: %s"
 msgstr ""
 "\n"
-"Nazwa Waypointa: %s"
+"Naam Routepunt: %s"
 #
 #, c-format
 msgid ""
@@ -41,28 +35,28 @@ msgid ""
 "Range to destination: %4.2f%s"
 msgstr ""
 "\n"
-"Nazwa Waypointa: %s\n"
-"Namiar Rzeczywisty na cel: %4.1f%s\n"
-"Odległość do celu: %4.2f%s"
+"Naam Routepunt  : %s\n"
+"Ware Koers          : %4.1f%s\n"
+"Verheid                 : %4.2f%s"
 #
 msgid ""
 "\n"
 "not found in layoutfile "
 msgstr ""
 "\n"
-"nie znaleziono w pliku szablonu"
+"niet in Lay-out bestand gevonden"
 #
 msgid "      Course- Message after Minutes"
-msgstr "    Wpis o zmianie kursu po minutach"
+msgstr "               Koersbericht na (minuten):"
 #
 msgid "     Winddirection set to:"
-msgstr "     Kierunek wiatru ustawiony na:"
+msgstr "           Windrichting instellen als:"
 #
 msgid " - Timer on - Interval: "
-msgstr " - Timer włączony - Interwał: "
+msgstr "- Timer Aan - Tijdinterval:"
 #
 msgid " Direction "
-msgstr "Kierunek"
+msgstr "Richting"
 #
 msgid ""
 "!\n"
@@ -71,7 +65,7 @@ msgid ""
 msgstr ""
 "!\n"
 "\n"
-"Zapomniałeś dodać tą linię w szablonie?"
+"Bent u vergeten deze regel op te nemen in uw Lay-out?"
 #
 msgid "\""
 msgstr "\""
@@ -80,78 +74,90 @@ msgid "'"
 msgstr "'"
 #
 msgid "-Plugin"
-msgstr ""
+msgstr "-PlugIn"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 msgid "0"
 msgstr "0"
 #
 msgid "1. Watch of 1. Person"
-msgstr ""
+msgstr "1e Wacht van 1e persoon"
 #
 msgid "Abbreviations"
-msgstr "Skróty"
+msgstr "Eenheden en afkortingen"
 #
 msgid "Active"
-msgstr "Aktywne"
+msgstr "Actief"
 #
 msgid "Active Logbook"
-msgstr "Aktywny Dziennik"
+msgstr "Actief Journaal"
 #
 msgid "Actuell Logbook"
-msgstr "Aktywny Dziennik"
+msgstr "Actuele Journaal"
 #
 msgid "Add Crew"
-msgstr "Dodaj załogę"
+msgstr ""
+"Toevoegen\n"
+"bemanning"
 #
 msgid "Add Equipment"
-msgstr "Dodaj wyposażenie"
+msgstr "Toevoegen apparatuur"
 #
 msgid "Add Line"
-msgstr "Dodaj Wpis"
+msgstr "Voeg regel toe"
 #
 msgid "Add a line to the end of your logbook"
-msgstr "Dodaj wpis na końcu Dziennika"
+msgstr "Voeg een regel toe aan het einde van het Journaal"
 #
 msgid "Add a new Crewmember"
-msgstr "Dodaj nowego załoganta"
+msgstr "Toevoegen nieuw bemanningslid"
 #
 msgid "Add a new line"
-msgstr "Dodaj wpis"
+msgstr "Toevoegen nieuwe regel"
 #
 msgid "Add to Watchlist"
-msgstr ""
+msgstr "Toevoegen aan wachtlijst"
 #
 msgid "Add to Watchlist same as"
-msgstr ""
+msgstr "Toevoegen aan wachtlijst zoals"
 #
+# used in ODT-Layout
 msgid "Adress"
 msgstr "Adres"
 #
 msgid "Air"
-msgstr ""
-"Temp.\n"
-"powietrza"
+msgstr "Lucht"
 #
 msgid "All Logbooks"
-msgstr "Wszystkie Dzienniki"
+msgstr "Alle Journaals"
 #
 msgid "Append Line every Nm"
-msgstr "Dodawaj Wpis co X mm"
+msgstr "Voeg regel toe na elke (NM):"
 #
 msgid "Are you sure ?"
-msgstr "Czy jesteś pewien?"
+msgstr "Bent u hier zeker van?"
 #
 msgid "At"
-msgstr "W"
+msgstr "Uitgevoerd op"
 #
 msgid ""
 "Automatic Line by Timer\n"
 "you can set/unset a timer\n"
 "or change this text in options"
 msgstr ""
-"wpis automatyczny Timera\n"
-"możesz włączyć/wyłączyć Timer\n"
-"lub zmienić ten tekst w Preferencjach."
+"Automatische regel per tijdinterval:\n"
+"U kunt dit Aan en Uit zetten en de instellingen ervan aanpasen in Toolbox/"
+"Plugins/Logbook"
 #
 msgid ""
 "Automatic line by timer\n"
@@ -161,424 +167,416 @@ msgid ""
 "\n"
 "Shift+Enter appends a new line"
 msgstr ""
-"Wpis automatyczny Timera\n"
-"\n"
-"Możesz włączyć/wyłączyć Timer\n"
-"lub zmienić ten tekst w Narzędzia/Wtyczki/Dziennik Jachtowy\n"
-"\n"
-"Shift+Enter dodaje nową linię"
+"Automatische invoer per tijdinterval\n"
+"U kunt dit Aan en Uit zetten en de instellingen ervan aanpassen in Toolbox/"
+"Plugins/Logbook. SHIFTt+ENTER voegt een nieuwe regel toe."
 #
 msgid "Barometer"
-msgstr "Ciśnienie"
+msgstr "barometer"
 #
 msgid "Beam"
-msgstr "Szerokość"
+msgstr "Breedte"
 #
 msgid "Behavior"
-msgstr "Zachowanie"
+msgstr "Instellingen"
 #
 msgid "Best Dist. p. Day"
 msgstr ""
-"Najlepszy\n"
-"Przebieg Dobowy"
+"Max. verheid\n"
+"per dag"
 #
 msgid "Birthname"
-msgstr "Nazwisko panieńskie"
+msgstr "Meisjesnaam"
 #
 msgid "Boat"
-msgstr "Jacht"
+msgstr "Vaartuig"
 #
 msgid "Builder"
-msgstr "Budowniczy"
+msgstr "Bouwer"
 #
+# En FR je pense le terme plus approprié
 msgid "Buy Parts"
-msgstr "Kup Części"
+msgstr "Te kopen onderdelen"
 #
 msgid "Buy parts for this repair"
-msgstr "Kup części do tej naprawy"
+msgstr "Te kopen onderdelen voor deze reparatie"
 #
 msgid "Buy parts for this service"
-msgstr "Kup części do tej czynności"
+msgstr "Te kopen onderdelen voor dit onderhoud"
 #
 msgid "C/Strength"
 msgstr ""
-"Prędkość\n"
-"Prądu"
+"Stroom-\n"
+"sterkte"
 #
 msgid "COG (T)"
-msgstr "KDd"
+msgstr "COG (W)"
 #
 msgid "Callsign"
-msgstr "Znak wywoławczy"
+msgstr "Roepnaam"
 #
 msgid "Capacity"
-msgstr "Pojemność"
+msgstr "Voorraad"
 #
 msgid "Category"
-msgstr "Kategoria"
+msgstr "Categorie"
 #
 msgid "Clouds"
-msgstr "Zachmurzenie"
+msgstr "Bewolking"
 #
 msgid "Confirm"
-msgstr "Potwierdź"
+msgstr "Accepteer"
 #
 msgid "Construction"
-msgstr "Konstrukcja"
+msgstr "Constructie"
 #
 msgid "Country"
-msgstr "Kraj"
+msgstr "Land"
 #
 msgid ""
 "Create a new logbook\n"
 "the active logbook is saved with today's date\n"
 "and can be viewed with Button \"Select Logbook\""
 msgstr ""
-"Utwórz nowy dziennik\n"
-"aktywny dziennik zostanie zapisany z dzisiejszą datą\n"
-"i może być dostępny pod przyciskiem \"Wybierz Dziennik\""
+"Maak een nieuw Journaal\n"
+"Het actieve Journaal wordt opgeslagen met de datum van vandaag\n"
+"en kan worden bekeken via de knop \"Selecteer Journaal\"."
 #
 msgid "Crewlist"
-msgstr "Lista załogi"
+msgstr "Bemanningslijst"
 #
 msgid "Current"
-msgstr "Prąd"
+msgstr "Stroom"
 #
 msgid "Current Avg."
 msgstr ""
-"Średni\n"
-"prąd"
+"Stroomsterkte\n"
+"(gem.)"
 #
 msgid "Current Max."
 msgstr ""
-"Maksymalny\n"
-"prąd"
+"Stroomsterkte\n"
+"(max.)"
 #
 msgid "Currentdirection Avg."
 msgstr ""
-"Średni\n"
-"kierunek prądu"
+"Stroom\n"
+"(gem.)"
 #
 msgid "Date"
-msgstr "Data"
+msgstr "Datum"
 #
 msgid "Date + Days"
-msgstr "Data + Dni"
+msgstr "Datum + Dagen"
 #
 msgid "Date + Month"
-msgstr "Data + Miesięcy"
+msgstr "Datum + Maand"
 #
 msgid "Date + Weeks"
-msgstr "Data + Tygodni"
+msgstr "Datum + Week"
 #
 msgid "Date Launched"
-msgstr "Data wodowania"
+msgstr "Datum te water"
 #
 msgid "Date of Birth"
-msgstr ""
-"Data\n"
-"urodzenia"
+msgstr "Geboortedatum"
 #
 msgid "Date of Issue"
-msgstr "Data wydania"
+msgstr "Datum van uitgifte"
 #
 msgid "Day(s)"
-msgstr "Dni"
+msgstr "Dag(en)"
 #
 msgid "Degres"
-msgstr "Stopnie"
+msgstr "graden:"
 #
 msgid "Delete Layout"
-msgstr "Usuń Szablon"
+msgstr "Verwijder Lay-out"
 #
 msgid "Delete Row"
-msgstr "Usuń Wpis"
+msgstr "Regel verwijderen"
 #
 #, c-format
 msgid "Delete Row Nr. %i ?"
-msgstr "Usunąć wiersz nr %i?"
+msgstr "Verwijder regel n° %i ?"
 #
 msgid "Depth"
-msgstr "Głębokość"
+msgstr "Diepte"
 #
 msgid "Description"
-msgstr "Opis"
+msgstr "Beschrijving"
 #
 msgid "Designer"
-msgstr "Projektant"
+msgstr "Ontwerper"
 #
 msgid "Details"
-msgstr "Szczegóły"
+msgstr "Details"
 #
 msgid "Displacement"
-msgstr "Wyporność"
+msgstr "Waterverplaatsing"
 #
 msgid "Distance"
-msgstr "Droga"
+msgstr "verheid:"
 #
 msgid "Distance p. Day"
 msgstr ""
-"Przebieg\n"
-"dobowy"
+"Verheid\n"
+"per dag"
 #
 msgid "DistanceTotal"
-msgstr ""
-"Całkowita\n"
-"Droga"
+msgstr "Ttl verheid"
 #
 msgid "Draft"
-msgstr "Zanurzenie"
+msgstr "Diepgang"
 #
 msgid "Drag 'n Drop to change the order in the list"
-msgstr ""
+msgstr "Verslepen om de volgorde in de lijst te veranderen."
 #
 msgid "E"
-msgstr "E"
+msgstr "A "
 #
 msgid "Edit Layout"
-msgstr "Edytuj Szablon"
+msgstr "Aanpassen Lay-out"
 #
 msgid "Edit Layouts"
-msgstr "Edytuj Szablony"
+msgstr "Aanpassen Lay-outs"
+#
+#
+#
 #
 msgid "End"
-msgstr "Koniec"
+msgstr "Einde"
 #
 msgid "End 1.Watch"
 msgstr ""
-"Koniec\n"
-"I wachty"
+"1e Wacht:\n"
+"eind"
 #
 msgid "End 2.Watch"
 msgstr ""
-"Koniec\n"
-"II wachty"
+"2e Wacht:\n"
+"eind"
 #
 msgid "End 3.Watch"
 msgstr ""
-"Koniec\n"
-"III wachty"
+"3e Wacht:\n"
+"eind"
 #
 msgid "End 4.Watch"
 msgstr ""
-"Koniec\n"
-"IV wachty"
+"4e Wacht:\n"
+"eind"
 #
 msgid "End 5.Watch"
 msgstr ""
-"Koniec\n"
-"V wachty"
+"5e Wacht:\n"
+"eind"
 #
 msgid "End 6.Watch"
 msgstr ""
-"Koniec\n"
-"VI wachty"
+"6e Wacht:\n"
+"eind"
 #
 msgid "Engine"
-msgstr "Motogodziny"
+msgstr "Motor"
 #
 msgid "EngineTotal"
-msgstr ""
-"Motogodziny\n"
-"łącznie"
+msgstr "Ttl motor"
 #
 msgid "Equipment"
-msgstr "Wyposażenie"
+msgstr "Apparatuur"
 #
 msgid "Export"
-msgstr "Eksport"
+msgstr "Exporteren"
 #
-# (C)elsius or (F)ahrenheit
 msgid "F"
-msgstr "C"
+msgstr "F"
 #
 msgid "Fathom"
-msgstr "Sążeń"
+msgstr "vadem:"
 #
 msgid "Feet"
-msgstr "Stopa"
+msgstr "voet:"
 #
 msgid "Filter Layout by"
-msgstr "Filtruj Szablony"
+msgstr "Filter Lay-out door"
 #
 msgid "Firstname"
-msgstr "Imię"
+msgstr "Voornaam"
 #
 msgid "Fix Date"
-msgstr "Data naprawy"
+msgstr "Stel datum in"
 #
 msgid "Fuel"
-msgstr "Paliwo"
+msgstr "Brandstof"
 #
 msgid "Fuel/Water"
-msgstr "Paliwo/Woda"
+msgstr "Brandstof/Water"
 #
 msgid "FuelTotal"
-msgstr ""
-"Paliwo\n"
-"łącznie"
+msgstr "Ttl brandstof"
 #
 msgid "GPS Auto"
-msgstr "Automatyczny z GPS"
+msgstr "GPS automatisch"
 #
 msgid "Goto Route"
-msgstr "Idź do Trasy"
+msgstr "Ga naar route"
 #
 msgid "Greatest Width of Hull"
-msgstr "Największa szerokość kadłuba"
+msgstr ""
+"Grootste breedte\n"
+"van romp"
 #
 msgid "HIN-Nr."
-msgstr "Nr HIN"
+msgstr "HIN-nr."
 #
 msgid ""
 "Have You forgotten to enclose the Header with [[ and ]]\n"
 " or Data with {{ and }} ?"
 msgstr ""
-"Zapomniałes zamknąć Nagłówek w [[ i ]]\n"
-"lub Dane w {{ i }}?"
+"Bent u vergeten the header te omsluiten met  [[ en ]],\n"
+"of de gegevens met {{  en  }}?"
 #
 msgid "Heading"
-msgstr "Kurs"
+msgstr "koers"
 #
 msgid "Hide Equipment"
-msgstr "Ukryj Wyposażenie"
+msgstr "Verberg apparatuur"
 #
 msgid "Hide column"
-msgstr "Ukryj kolumnę"
+msgstr "Kolom verbergen"
 #
 msgid "Homeport"
-msgstr "Port macierzysty"
+msgstr "Thuishaven"
 #
 msgid "Hull"
-msgstr "Kadłub"
+msgstr "Romp"
 #
 msgid "Hull Identification No."
-msgstr "Numer Identyfikacyjny Kadłuba"
+msgstr "Rompnr."
 #
 msgid "Hydrometer"
-msgstr "Hydrometr"
+msgstr "hydrometer"
 #
 msgid "If"
-msgstr "Jeżeli"
+msgstr "Als"
 #
 msgid "If Course changes more then "
-msgstr "Jeśli kurs zmieni się o więcej niż "
+msgstr "Bij koersverandering > (graden):"
 #
 msgid "If GPS off use for manual entry"
-msgstr "Jeśli GPS jest wyłączony wpisz ręcznie"
+msgstr "Als de GPS niet functioneert, de gegevens met de hand invoeren."
 #
 msgid "If Watch changed"
-msgstr "Jeśli nastąpiła zmiana wachty"
+msgstr "Voeg regel toe bij wisseling van de wacht"
 #
 msgid "If Waypoint arrived"
-msgstr "Jeśli osiągnięto Waypoint"
+msgstr "Voeg regel toe bij aankomst routepunt"
 #
 msgid ""
 "If You have created Your own Layouts\n"
 "prepend them with e.g. My_ \n"
 "The _ is important"
 msgstr ""
-"Jeśli utworzyłeś własne szablony\n"
-"poprzedź je np.: Mój_\n"
-"Znak _ jest istotny"
+"Als u uw eigen Lay-outs maakt, laat\n"
+"dan de naam ervan starten met bijv. :  Mijn_ .\n"
+"Het teken \" _\" is noodzakelijk!"
 #
 msgid ""
 "If You have created Your own layouts\n"
 "with prefix e.g. My_"
 msgstr ""
-"Jeśli utworzyłeś własne szablony\n"
-"z prefiksem np.: Mój_ "
+"Aanvinken als u uw eigen Lay-out heeft gemaakt,\n"
+"waarvan de naam start met bijv. Mijn_."
 #
-#, fuzzy
 msgid "In Column"
-msgstr "Ukryj kolumnę"
+msgstr "In kolom"
 #
 msgid "Information"
-msgstr "Informacje"
+msgstr "Informatie"
 #
 msgid "Install"
-msgstr "Instaluj"
+msgstr "Installeer"
 #
 msgid "Install Languages"
-msgstr "Instaluj Języki"
+msgstr "Installeer Talen"
 #
 msgid "Install Layouts"
-msgstr "Instaluj Szablony"
+msgstr "Installeer Lay-outs"
 #
 msgid "Install OpenCPN_Logbook_Languages.zip"
-msgstr "Instaluj OpenCPN_Logbook_Languages.zip"
+msgstr "Installeer OpenCPN_Logbook_Layouts.zip"
 #
 msgid "Install OpenCPN_Logbook_Layouts.zip"
-msgstr "Instaluj OpenCPN_Logbook_Layouts.zip"
+msgstr "Installeer OpenCPN_Logbook_Layouts.zip"
 #
 msgid "Install OpenCPN_Mac_Logbook_Languages.zip"
-msgstr "Instaluj OpenCPN_Mac_Logbook_Languages.zip"
+msgstr "Installeer OpenCPN_Mac_Logbook_Languages.zip (MAC versie)"
 #
 msgid "Install single Layout"
-msgstr "Zainstaluj pojedynczy Szablon"
+msgstr "Installeer enkele Lay-out"
 #
 msgid "Insurance"
-msgstr "Ubezpieczenie"
+msgstr "Verzekering"
 #
 msgid "Interval:"
-msgstr "Interwał:"
+msgstr "Tijdinterval: "
 #
 msgid "Issued in"
-msgstr "Wydany przez"
+msgstr "Uitgegeven in"
 #
 msgid ""
 "It's not allowed to append Data to a old Logbook\n"
 "\n"
 "OpenCPN switchs to actuell logbook"
 msgstr ""
-"Nie można dodawać wpisów do archiwalnego Dziennika\n"
-"\n"
-"Przełączono na aktualny Dziennik"
+"Het is niet toegestaan om gegevens toe te voegen aan een oud Journaal\n"
+"OpenCPN kiest nu het actuele Journaal."
 #
 msgid "LOA"
-msgstr "Lc"
+msgstr "LOA"
 #
 msgid "LOD"
-msgstr "Lp"
+msgstr "Lengte dek"
 #
 msgid "LWL"
-msgstr "Lw"
+msgstr "LWL"
 #
 msgid "Languages installed"
-msgstr "Języki zainstalowan"
+msgstr "Taalbestanden geïnstalleerd"
 #
 msgid "Last Logbook is\n"
-msgstr "Ostatni Dziennik\n"
+msgstr "Het laatste Journaal is\n"
 #
 msgid "Last line from Logbook\n"
-msgstr "Ostatni wpis w Dzienniku\n"
+msgstr "Laatste regel in Journaal\n"
 #
 msgid "Layouts installed"
-msgstr "Szablony zainstalowane"
+msgstr "Lay-out bestanden geïnstalleerd"
 #
 msgid "Length in Waterline"
-msgstr "Długość w linii wodnej"
+msgstr "Lengte over waterlijn"
 #
 msgid "Length over Deck"
-msgstr "Długość po pokładzie"
+msgstr "Lengte over dek"
 #
 msgid "Length over all"
-msgstr "Długość całkowita"
+msgstr "Lengte over alles"
 #
 msgid "Local = UTC"
-msgstr "Lokalny = UTC"
+msgstr "LT = UTC"
 #
 msgid "Logbook"
-msgstr "Dziennik"
+msgstr "Journaal"
 #
 msgid "Logbook Preferences"
-msgstr "Preferencje Dziennika"
+msgstr "Journaalvoorkeuren"
 #
 msgid "Logbook Total"
-msgstr "Dzienniki Łącznie"
+msgstr "Totaal Journaal"
 #
 msgid "Logbook for OpenCPN"
-msgstr "Dziennik Jachtowy dla OpenCPN"
+msgstr "Journaal voor OpenCPN"
 #
 msgid ""
 "Logbook for OpenCPN\n"
@@ -596,181 +594,193 @@ msgid ""
 "html\n"
 "Helpfull Videos are at Youtube, search for LogbookKonni."
 msgstr ""
-"Dziennik Jachtowy dla OpenCPN\n"
+"Journaal voor OpenCPN\n"
 "\n"
-"\t- wpisy automatyczne (NMEA) lub ręczne\n"
-"\t- Timer generujący wpisy\n"
-"\t- Eksport danych do ods, html, xml(tylko Windows), csv\n"
-"\t- Wiele szablonów\n"
-"\t- Edytowalne szablony\n"
+"\t- Automatische (NMEA) of handmatige invoer\n"
+"\t- Timer voor automatische invoer van regels\n"
+"\t- Bestandsuitvoer in ODS, HTML, XM l(Windows seulement), CSV\n"
+"\t- Meerdere Lay-outs\n"
+"\t- Aan te passen Lay-out\n"
 "\n"
-"Podziękowania dla społeczności za pomocne sugestie.\n"
+"Met dank aan de OpenCPN community voor alle suggesties.\n"
 "\n"
-"Jeśli znajdziesz błąd napisz w\n"
+"Als u een bug ontdekt, meld die dan bij:\n"
 "http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945."
-"html\n"
-"Pomocne filmy na Youtube, szukaj LogbookKonni."
+"html .\n"
+"Gebruikersvideo's zijn beschikbaar op Youtube (zoek naar LogbookKonni)."
 #
 #, c-format
 msgid "Logbook from %s to %s"
-msgstr "Dziennik od %s do %s"
+msgstr "Journaal van %s tot %s"
 #
 msgid "Logbook until "
-msgstr "Dziennik do"
+msgstr "Journaal tot "
 #
 msgid "MMSI"
 msgstr "MMSI"
 #
 msgid "Magnetic"
-msgstr "Magnetyczny"
+msgstr "Magnetisch"
 #
 msgid "Maintenance"
-msgstr "Obsługa"
+msgstr "Onderhoud"
 #
 msgid "Meter"
-msgstr "Metr"
+msgstr "meter:"
 #
 msgid "Minutes"
-msgstr "Minuty"
+msgstr "minuten:"
 #
 msgid "Minutes greater than 59"
-msgstr "Liczba minut większa niż 59"
+msgstr "Aantal minuten meer dan 59"
+#
+#
+#
 #
 msgid "Month"
-msgstr "Miesięcy"
+msgstr "Maand"
 #
 msgid "Motor Hours"
-msgstr "Motogodziny"
+msgstr "Draaiuren motor:"
 #
 msgid "Motor/Sails"
-msgstr "Silnik/Żagle"
+msgstr "Motor/Zeil"
 #
 msgid "NM"
-msgstr ""
+msgstr "NM"
 #
 msgid "Name"
-msgstr "Nazwisko"
+msgstr "Naam"
 #
 msgid "Name      "
-msgstr "Nazwa"
+msgstr "Naam"
 #
 msgid "Nationality"
-msgstr "Narodowość"
+msgstr "Nationaliteit"
 #
 msgid "Navigation"
-msgstr "Nawigacja"
+msgstr "Navigatie"
 #
 msgid "New Logbook"
-msgstr "Nowy Dziennik"
+msgstr "Nieuw Journaal"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 msgid "No"
-msgstr "Nie"
+msgstr "Nee"
 #
 msgid "No GPS-Signal !"
-msgstr "Brak sygnału GPS!"
+msgstr "Geen GPS-signaal!"
 #
 msgid ""
 "No Path set to HTML-Editor\n"
 "in ToolBox/Plugins/LogbookKonni/Preferences"
 msgstr ""
-"Brak ścieżki do Edytora HTML\n"
-"w Narzędzia/Wtyczki/LogbookKonni/Preferencje"
+"Geen pad beschikbaar naar HTML-editor\n"
+"in Toolbox/Plugins/Logbook/Voorkeuren/Paden"
 #
 msgid ""
 "No Path set to HTML-Editor\n"
 "in Toolbox/Plugins/LogbookKonni/Preferences"
 msgstr ""
-"Brak ścieżki do Edytora HTML\n"
-"w Narzędzia/Wtyczki/LogbookKonni/Preferencje"
+"Geen pad beschikbaar naar HTML-editor\n"
+"in Toolbox/Plugins/Logbook/Voorkeuren/Paden"
 #
-#, fuzzy
 msgid "No. Watches"
-msgstr "Wachta"
+msgstr "Aantal wachten"
 #
 #, c-format
 msgid "Old Logbook until %s"
-msgstr "Archiwalny dziennik do %s"
+msgstr "Oud Journaal tot %s"
 #
 msgid "Only Layouts with prefix:"
-msgstr "tylko Szablony z prefiksem:"
+msgstr "alleen Lay-outs startend met:"
 #
 msgid ""
 "Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV "
 "Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
 msgstr ""
-"Otwórz dokument Arkusz(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV Format "
-"OpenOffice(*.csv)|*.csv|Kopia zapasowa Dziennika(*.txt)|*.txt"
+"Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV "
+"Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
 #
 msgid "Overview"
-msgstr "Przegląd"
+msgstr "Overzicht"
 #
 msgid "Owner"
-msgstr "Właściciel"
+msgstr "Eigenaar"
 #
 msgid "Passport-Nr"
-msgstr "Nr paszportu"
+msgstr "Paspoortnr."
 #
 msgid "Path"
-msgstr "Ścieżka"
+msgstr "Pad"
 #
 msgid "Path to Datamanager"
-msgstr "Ścieżka do Menadżera plików"
+msgstr "Pad naar browser applicatie:"
 #
 msgid ""
 "Path to HTML-Editor\n"
 "(optional)"
 msgstr ""
-"Ścieżka do edytora HTML\n"
-"(opcjonalnie)"
+"Pad naar HTML-appplicatie:\n"
+"(optioneel)"
 #
 msgid "Path to MailClient"
-msgstr "Ścieżka do klienta poczty"
+msgstr "Pad naar e-mail applicatie:"
 #
 msgid "Path to ODT-Editor"
-msgstr "Ścieżka do edytora ODT"
+msgstr "Pad naar tekstbewerker (ODT):"
 #
 msgid "Paths"
-msgstr "Ścieżki"
+msgstr "Paden"
 #
 msgid "Person:"
-msgstr ""
+msgstr "Persoon:"
 #
 msgid "Persons:"
-msgstr ""
+msgstr "Personen:"
 #
 msgid "Place of Birth"
-msgstr "Miejsce urodzenia"
+msgstr "Gebooorteplaats"
 #
 msgid ""
 "Please enter 05445.1234n03012.0504e for\n"
 "054Deg 45.1234Min N 030Deg 12.0504Min E"
 msgstr ""
-"Wprowadź 05445.1234n03012.0504e dla\n"
-"054Deg 45.1234Min N 030Deg 12.0504Min E"
+"Voer 05445.1234n03012.0504e in voor\n"
+"054g 45.1234m N 030 12.0504m E"
 #
 msgid ""
 "Please enter 0544512.15n0301205.15e for\n"
 "054Deg 45Min 12.15Sec N 030Deg 12Min 05.15Sec E"
 msgstr ""
-"Wprowadź 0544512.15n0301205.15e dla\n"
-"054Deg 45Min 12.15Sec N 030Deg 12Min 05.15Sec E"
+"Voer 0544512.15n0301205.15e in voor\n"
+"054g 45m 12.15s N 030g 12m 05.15s E"
 #
-#, fuzzy
 msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45 PM"
-msgstr "Wprowadź 4 cyfry w formacie 24h np. 1545 = 03:45:00 PM"
+msgstr "Voer 4 cijfers in 24 uur format in, zoals: 1545 = 03:45 PM"
 #
 msgid ""
 "Please enter like 1.30 or 1,30 or 1:30\n"
 "for 1:30h"
 msgstr ""
-"Wprowadź 1.30, 1,30 lub 1:30\n"
-"dla 1:30h"
+"Voer 1.30 of 1,30 of 1:30\n"
+"in voor 01:30 u"
 #
 msgid ""
 "Please enter the Date in the format:\n"
 "   "
 msgstr ""
-"Wprowadź Datę w formacie:\n"
+"Voer datum in met format:\n"
 "   "
 #
 #, c-format
@@ -778,359 +788,356 @@ msgid ""
 "Please enter the Date in the format:\n"
 "      %s"
 msgstr ""
-"Wprowadź Datę w formacie:\n"
-"      %s"
+"Voer datum in met format:\n"
+"    %s"
 #
 msgid ""
 "Please enter the Time in the format:\n"
 "   12:30:00PM"
 msgstr ""
-"Wprowadź Czas w formacie:\n"
-"   12:30:00PM"
+"Voer tijd in met format:\n"
+"    12:30:00PM"
 #
 msgid "Please fill in one character in Degrees, Minutes and Seconds"
-msgstr "Wprowadź jeden znak dla stopni, minut i sekund"
+msgstr "Voer graden, minuten, seconden in"
 #
 msgid "Please fill in one character in Degrees, Minuts and Seconds"
-msgstr "Wprowadź jeden znak dla stopni, minut i sekund"
+msgstr "Voer graden, minuten , seconden in"
 #
 msgid "Policy"
-msgstr "Nr polisy"
+msgstr "Polisnr."
 #
 msgid "Position"
-msgstr "Pozycja"
+msgstr "Positie"
 #
 msgid "Priority"
-msgstr "Priorytet"
+msgstr "Prio"
 #
 msgid "R"
-msgstr "P"
+msgstr "H "
 #
 msgid "Reef"
-msgstr "Refy"
+msgstr "Aantal riffen"
 #
 msgid "Registration"
-msgstr "Rejestracja"
+msgstr "Registratie"
 #
 msgid "Relative"
-msgstr "Względny"
+msgstr "Relatief"
 #
 msgid "Reload Layouts"
-msgstr "Przeładuj Szablony"
+msgstr "Herlaad Lay-outs"
 #
 msgid "Remarks"
-msgstr "Uwagi"
+msgstr "Opmerkingen"
 #
 msgid "Rename Layout"
-msgstr "Zmień nazwę Szablonu"
+msgstr "Hernoem Lay-out"
 #
 msgid "Repair done"
-msgstr "Naprawa wykonana"
+msgstr "Reparatie uitgevoerd"
 #
 msgid "Repairs"
-msgstr "Naprawy"
+msgstr "Reparaties"
 #
 msgid "RepairsTODO"
-msgstr "Naprawa"
+msgstr "Uit te voeren reparaties"
 #
+# En conception logicielle au peu aussi utiliser :
+# Réinitialiser
+# Effacer
 msgid "Reset Paths"
-msgstr "Resetuj ścieżki"
+msgstr "Oorspronkelijke waarden"
 #
 msgid "Reset all Values to zero ?"
-msgstr "Wyzerować wszystkie wartości?"
+msgstr "Alle waarden instellen op nul?"
 #
 msgid "Route"
-msgstr "Trasa"
+msgstr "Route"
 #
 msgid "SOG"
-msgstr "Vd"
+msgstr "SOG"
 #
 msgid "STW"
-msgstr "Vw"
+msgstr "STW"
 #
 msgid "Sail-Nr."
-msgstr "Żagiel Nr."
+msgstr "Zeilnr."
 #
 msgid "Sails"
-msgstr "Żagle"
+msgstr "Zeilvoering"
 #
 msgid "Sails used mostly"
 msgstr ""
-"Najczęściej\n"
-"używane żagle"
+"Zeilvoering\n"
+"(meest gebruikt)"
 #
 msgid "Save Boat File"
-msgstr "Zapisz plik Opisu Jachtu"
+msgstr "Opslaan Vaartuigbestand"
 #
 msgid "Save BuyParts File"
-msgstr "Zapisz plik Kupna Części"
+msgstr "Opslaan Te_Kopen_Onderdelen-bestand"
 #
 msgid "Save CrewList File"
-msgstr "Zapisz plik Listy Załogi"
+msgstr "Opslaan Bemanningslijst-bestand"
 #
 msgid "Save Logbook File"
-msgstr "Zapisz plik Dziennika"
+msgstr "Journaalbestand Opslaan"
 #
 msgid "Save Overview File"
-msgstr "Zapisz plik Przeglądu"
+msgstr "Opslaan Overzichtbestand"
 #
 msgid "Save Repairs File"
-msgstr "Zapisz plik Napraw"
+msgstr "Opslaan Reparatiebestand"
 #
 msgid "Save Service File"
-msgstr "Zapisz plik Serwisu"
+msgstr "Opslaan Onderhoudbestand"
 #
-#, fuzzy
 msgid "Search in"
-msgstr "Wybierz Dziennik"
+msgstr "Zoek in"
 #
-#, fuzzy
 msgid "Search in Logbook"
-msgstr "Wybierz Dziennik"
+msgstr "Zoek in Journaal ..."
 #
-#, fuzzy
 msgid "Searchstring"
-msgstr "Wybierz Dziennik"
+msgstr "Zoekstring"
 #
 msgid "Seconds"
-msgstr "Sekundy"
+msgstr "seconden:"
 #
-#, fuzzy
+# Me semble plus approprié que le terme :
+# Sélectionner la route du fait du contexte d'affichage
 msgid "Select"
-msgstr "Wybierz Trasę"
+msgstr "Selecteer datum"
 #
 msgid "Select Layout:"
-msgstr "Wybierz Szablon:"
+msgstr "Selecteer Lay-out:"
 #
 msgid "Select Layout: "
-msgstr "Wybierz Szablon"
+msgstr "Selecteer Lay-out:"
 #
 msgid "Select Logbook"
-msgstr "Wybierz Dziennik"
+msgstr "Selecteer Journaal"
 #
+# Me semble plus approprié que le terme :
+# Sélectionner la route du fait du contexte d'affichage
 msgid "Select Route"
-msgstr "Wybierz Trasę"
+msgstr "Selecteer route"
 #
 msgid ""
 "Select a layout which is displayed\n"
 "with button \"View\""
 msgstr ""
-"Wybierz szablon, który będzie wyświetlany\n"
-"pod przyciskiem \"Widok\""
+"Selecteer te tonen Lay-out\n"
+"met de knop \"Toon\""
 #
 msgid ""
 "Select a old logbook\n"
 "Everytime a new logbook is created, you'll \n"
 "find the active logbook as old logbook here"
 msgstr ""
-"Wybierz dziennik archiwalny\n"
-"Za każdym razem kiedy utworzysz nowy dziennik,\n"
-"aktywny znajdzie się tutaj"
+"Selecteer een oud Journaal\n"
+"Elke keer als een nieuw Journaal is gemaakt, kunt\n"
+"u het actieve Journaal als oud Journaal hier vinden."
 #
 msgid "Select one of the old logbooks"
-msgstr "Wybierz jeden z dzienników archiwalnych"
+msgstr "Selecteer één van de oude Journaals"
 #
 msgid "Select zipped Languages-Files"
-msgstr "Wybierz spakowane pliki Języków"
+msgstr "Selecteer de Taal zip-bestanden"
 #
 msgid "Select zipped Layout-Files"
-msgstr "Wybierz spakowane pliki Szablonów"
+msgstr "Selecteer de Lay-out zip-bestanden"
 #
 msgid "Send Layout by email"
-msgstr "Wyślij Szablon emailem"
+msgstr "Verstuur Lay-out e-mail "
 #
 msgid "Serial-Nr."
-msgstr "Numer seryjny"
+msgstr "Serienr."
 #
 msgid "Service"
-msgstr "Serwis"
+msgstr "Onderhoud"
 #
 msgid "Service TODO"
-msgstr "Czynność serwisowa"
+msgstr "Uit te voeren onderhoud"
 #
 msgid "Service done"
-msgstr "Czynność wykonana"
+msgstr "Onderhoud uitgevoerd"
 #
 msgid "Set Path to DataManager"
-msgstr "Ustaw ścieżkę do Menadżera plików"
+msgstr "Geef pad aan naar browser applicatie"
 #
 msgid "Set Path to HTML-Editor"
-msgstr "Ustaw ścieżkę do edytora HTML"
+msgstr "Geef pad aan naar HTML-applicatie "
 #
 msgid "Set Path to MailClient"
-msgstr "Ustaw ścieżkę do klienta poczty"
+msgstr "Geef pad aan naar e-mail applicatie"
 #
 msgid "Set Path to ODT-Editor"
-msgstr "Ustaw ścieżkę do edytora ODT"
+msgstr "Geef pad aan naar tekstbewerker (ODT)"
 #
-#, fuzzy
 msgid "Set Watches"
-msgstr ""
-"Początek\n"
-"I wachty"
+msgstr "Pas wachtinstelling toe"
 #
 msgid "Show Depth in"
-msgstr "Pokazuj Głębokość w"
+msgstr "Toon dieptes in:"
 #
 msgid "Show Equipment"
-msgstr "Pokaż Wyposażenie"
+msgstr "Toon apparatuur"
 #
 msgid "Show Logbook Icon"
-msgstr "Pokazuj ikonę Dziennika"
+msgstr "Toon Logbook icoon"
 #
+# Used in Options
 msgid "Show Position Fomat"
-msgstr "Format Pozycji"
+msgstr "      Positieweergave als:"
 #
 msgid "Show ToolTips"
-msgstr "Pokazuj podpowiedzi-dymki"
+msgstr "Toon Tool Tips"
 #
 msgid "Show Wave/Swell in"
-msgstr "Pokaż Stan morza/Martwą falę w"
+msgstr "Toon golfhoogtes in:"
 #
 msgid "Show all Layouts"
-msgstr "Pokaż wszystkie Szablony"
+msgstr "Toon alle Lay-outs"
 #
 msgid "Show hidden columns"
-msgstr "Pokaż ukryte kolumny"
+msgstr "Toon verborgen kolommen"
 #
 msgid "Show/Hide Equipmentgrid"
-msgstr "Pokaż/Ukryj Wyposażenie"
+msgstr "Toon/Verberg apparatuurgrid"
 #
 msgid "Sign"
-msgstr "Stan"
+msgstr "Paraaf"
 #
 msgid "Sorry, 0 Hrs 0 Min 0 Sec are not possible"
-msgstr "Niestety, 0 godz., 0 min, 0 sek. nie jest możliwe"
+msgstr "Fout: 0 u 0 m 0 s is niet mogelijk!"
 #
 msgid "Sorry, Logbook has no lines"
-msgstr "Dziennik nie ma wpisów"
+msgstr "Fout: het Journaal bevat geen regel(s)!"
 #
 msgid "Sorry, Your Logbook has no lines"
-msgstr "Niestety, Twój Dziennik nie zawiera wpisów"
+msgstr "Fout: het Journaal bevat geen regel(s)!"
 #
 msgid "Sorry, no Layout installed"
-msgstr "Nie zainstalowano Szablonu"
+msgstr "Fout: geen Lay-out geïnstalleerd!"
 #
 msgid "Speed"
-msgstr "Prędkość"
+msgstr "vaart:"
 #
 msgid "Speed Avg."
 msgstr ""
-"Średnia\n"
-"prędkość"
+"Vaart\n"
+"(gem.)"
 #
 msgid "Speed Max."
 msgstr ""
-"Maksymalna\n"
-"prędkość"
+"Vaart\n"
+"(max.)"
 #
 msgid "Speed STW Avg."
 msgstr ""
-"Średnia\n"
-"Vw"
+"STW\n"
+"(gem.)"
 #
 msgid "Speed STW Max."
 msgstr ""
-"Maksymalna\n"
-"Vw"
+"STW\n"
+"(max.)"
 #
 msgid "Start"
-msgstr "Początek"
+msgstr "Start"
 #
 msgid "Start 1.Watch"
 msgstr ""
-"Początek\n"
-"I wachty"
+"1e Wacht:\n"
+"start"
 #
 msgid "Start 2.Watch"
 msgstr ""
-"Początek\n"
-"II wachty"
+"2e Wacht:\n"
+"start"
 #
 msgid "Start 3.Watch"
 msgstr ""
-"Początek\n"
-"III wachty"
+"3e Wacht:\n"
+"start"
 #
 msgid "Start 4.Watch"
 msgstr ""
-"Początek\n"
-"IV wachty"
+"4e Wacht:\n"
+"start"
 #
 msgid "Start 5.Watch"
 msgstr ""
-"Początek\n"
-"V wachty"
+"5e Wacht:\n"
+"start"
 #
 msgid "Start 6.Watch"
 msgstr ""
-"Początek\n"
-"VI wachty"
+"6e Wacht:\n"
+"start"
 #
 msgid "Startvalue"
-msgstr ""
-"Wartość\n"
-"początkowa"
+msgstr "Startwaarde"
 #
 msgid "Street"
-msgstr "Ulica"
+msgstr "Straat"
 #
 msgid "Swell"
-msgstr ""
-"Martwa\n"
-"fala"
+msgstr "Deining"
 #
 msgid "Swell Avg."
 msgstr ""
-"Średnia\n"
-"martwa fala"
+"Deining\n"
+"(gem.)"
 #
 msgid "Swell Max."
 msgstr ""
-"Maksymalna\n"
-"martwa fala"
+"Deining\n"
+"(max.)"
 #
 msgid "Telephone"
-msgstr "Telefon"
+msgstr "Telefoon"
 #
 msgid "Temperature"
-msgstr "Temperatura"
+msgstr "Temperatuur"
 #
 msgid "Time"
-msgstr "Czas"
+msgstr "Tijd"
 #
 msgid "Timer"
-msgstr "Timer"
+msgstr "Timerinstellingen"
 #
 msgid "Timer "
-msgstr "Timer"
+msgstr "Klok"
 #
 msgid ""
 "Timer has 0 h 0 Min 0 sec.\n"
 "\n"
 "Please change settings in Options"
 msgstr ""
-"Timer ustawiony 0 h 0 Min 0 sec.\n"
-"\n"
-"Zmień ustawienie w Preferencjach "
+"Timer: 0h 0m 0s\n"
+"Instellingen wijzigen in Toolbox/Plugins/Logbook/Voorkeuren/Instellingen/"
+"Timerinstellingen"
 #
 msgid "Timer on/off"
-msgstr "Timer włącz/wyłącz"
+msgstr "Timer Aan/Uit"
 #
 msgid "Title"
-msgstr "Tytuł"
+msgstr "Titel"
 #
 msgid "Total Time"
-msgstr "Łączny czas"
+msgstr "Ttl tijd"
 #
 msgid "Town"
-msgstr "Miasto"
+msgstr "Woonplaats"
 #
 msgid "True"
-msgstr "Rzeczywisty"
+msgstr "Waar"
 #
 msgid "Type"
-msgstr "Typ"
+msgstr "Type"
 #
 msgid "UTC"
 msgstr "UTC"
@@ -1140,15 +1147,15 @@ msgid ""
 "If GPS is out of order, uncheck to\n"
 "prevent that the message repeats."
 msgstr ""
-"Odznacz jeśli nie masz GPS\n"
-"Jeżeli GPS nie działa, odznacz aby\n"
-"uniknąć powtarzających się ostrzeżeń."
+"Niet aanvinken als u geen GPS heeft of \n"
+"als uw GPS niet functioneert om te voor-\n"
+"komen dat de melding zich blijft herhalen."
 #
 msgid "Uninstall"
-msgstr "Odinstaluj"
+msgstr "Verwijder"
 #
 msgid "Uninstall Logbook"
-msgstr "Udinstaluj Dziennik"
+msgstr "Verwijder Logbook PlugIn"
 #
 msgid ""
 "Uninstalls\n"
@@ -1158,85 +1165,86 @@ msgid ""
 "all Logbook-Languages\n"
 "and cleans the OpenCPN.ini"
 msgstr ""
-"Odinstalowuje\n"
-"Wtyczkę Dziennik,\n"
-"wszytkie dane Dziennika,\n"
-"wszystkie Szablony Dziennika,\n"
-"wszystkie Języki Dziennika\n"
-"i czyści OpenCPN.ini"
+"Verwijderen van:\n"
+"  Logbook PlugIn,\n"
+"  alle Journaalgegevens,\n"
+"  alle Journaal Lay-outs,\n"
+"  alle Logbook taalbestanden\n"
+"En opschonen van het bestand OpenCPN.ini."
 #
 msgid "Urgentvalue"
-msgstr "Pilnie"
+msgstr "Urgentiewaarde"
 #
+# Textfield for userlabel in boat
 msgid "UserLabel"
-msgstr "Etykieta użytkownika"
+msgstr "Extra info-veld"
 #
 msgid "View"
-msgstr "Podgląd"
+msgstr "Toon"
 #
 msgid "View data in browser (HTML) or Openoffice/LibreOffice (ODT)"
-msgstr "Zobacz w przeglądarce (HTML) lub OpenOffice (ODT)"
+msgstr "Bekijk gegevens in browser (HTML) of in OpenOffice/LibreOffice (ODT)"
 #
 msgid "Visibility"
-msgstr "Widzialność"
+msgstr "Zicht"
 #
 msgid "W/Strength"
-msgstr "Siła Wiatru"
+msgstr ""
+"Wind-\n"
+"kracht"
 #
 msgid "Warnvalue"
-msgstr "Ostrzeżenie"
+msgstr "Alarmwaarde"
 #
 msgid "Watch"
-msgstr "Wachta"
+msgstr "Wacht"
 #
 msgid "Water"
-msgstr ""
-"Temp.\n"
-"wody"
+msgstr "Water"
 #
 msgid "WaterTotal"
-msgstr "Woda łącznie"
+msgstr "Ttl water"
 #
 msgid "Wave"
-msgstr "Stan morza"
+msgstr "Golven"
 #
 msgid "Wave Avg."
 msgstr ""
-"Średni\n"
-"stan morza"
+"Golfhoogte\n"
+"(gem.)"
 #
 msgid "Wave Max."
 msgstr ""
-"Maksymalny\n"
-"stan morza"
+"Golfhoogte\n"
+"(max.)"
 #
 msgid "WayPoint arrived"
-msgstr "Jeśli osiągnięto Waypoint"
+msgstr "Routepunt bereikt"
 #
 msgid "Waypoint skipped"
-msgstr "Jeśli ominięto Waypoint"
+msgstr "Routepunt geschrapt"
 #
 msgid "Weather"
-msgstr "Pogoda"
+msgstr "Weer"
 #
 msgid "Week(s)"
-msgstr "Tygodni"
+msgstr "Week(en)"
 #
 msgid "Weeks(s)"
-msgstr "Tygodni"
+msgstr "Week(en)"
 #
 msgid "Wind"
-msgstr "Wiatr"
+msgstr "Wind"
 #
 msgid "Wind Avg."
 msgstr ""
-"Średni\n"
-"wiatr"
+"Windkracht\n"
+"(gem.)"
 #
 msgid "Wind Max."
 msgstr ""
-"Maksymalny\n"
-"wiatr"
+"Windkracht\n"
+"(max.)"
 #
 msgid ""
 "Wind is set to Heading,\n"
@@ -1244,30 +1252,41 @@ msgid ""
 "Wind is set now to Realative to boat\n"
 "\n"
 msgstr ""
-"Wskazanie Kierunku Wiatru ustawione na Rzeczywiste\n"
-"ale GPS nie podaje Kursu\n"
-"Wskazanie Kierunku Wiatru ustawiono na względne do jachtu\n"
+"Windinvoer was ingesteld op Ware Wind,\n"
+"maar GPS geeft geen koerinformatie.\n"
+"Windinvoer is nu ingesteld op Schijnbare Wind.\n"
 "\n"
 #
 msgid "Winddirection Avg."
 msgstr ""
-"Średni\n"
-"kierunek wiatru"
+"Wind\n"
+"(gem.)"
 #
 msgid "Windspeed"
-msgstr "Prędkość wiatru"
+msgstr "windsnelheid:"
 #
 msgid "Windspeed "
-msgstr "Prędkość wiatru"
+msgstr "Windsnelheid"
 #
 msgid "Write warning \"No GPS\""
-msgstr "Zapisuj ostrzeżenie \"Brak GPS\""
+msgstr "Toon waarschuwing \"Geen GPS\""
 #
 msgid "Yard-Nr."
-msgstr "Nr doku"
+msgstr "Bouwnr."
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 msgid "Yes"
-msgstr "Tak"
+msgstr "Ja"
 #
 msgid ""
 "Your Logbook has 800 lines or more\n"
@@ -1276,126 +1295,125 @@ msgid ""
 "\n"
 "If you have a running timer, it's stopped now !!!"
 msgstr ""
-"Twój Dziennik zawiera 800 wpisów lub więcej\n"
-"\n"
-"Stwórz nowy dziennik aby przyspieszyć ładowanie.\n"
-"\n"
-"Jeśli miałeś włączony timer, został teraz zatrzymany !!!"
+"Uw Journaal heeft 800 regels of meer.\n"
+"Maak een nieuw Journaal om de laadtijd te bekorten.\n"
+"Als u automatische invoer gebruikt, wordt die nu gestopt!"
 #
 msgid "Your Logbook has no lines ?"
-msgstr "Twój Dziennik nie ma wpisów?"
+msgstr "Uw Journaal bevat geen regels!"
 #
 msgid "Zip"
-msgstr "Kod pocztowy"
+msgstr "Postcode"
 #
 msgid "add the equipment of your boat"
-msgstr "dodaj wyposażenie jachtu"
+msgstr "Voeg de apparatuur van uw vaartuig toe"
 #
 msgid ""
 "automatic line\n"
 "Distance > "
 msgstr ""
-"wpis automatyczny\n"
-"Odległość > "
+"Automatische invoer bij:\n"
+"Afgelegde Verheid"
 #
 msgid ""
 "automatic line\n"
 "change of course >"
 msgstr ""
-"wpis automatyczny\n"
-"zmiana kursu >"
+"Automatische invoer bij:\n"
+"Koersverandering >"
 #
 msgid ""
 "automatic line\n"
 "change of guards"
 msgstr ""
-"wpis automatyczny\n"
-"zmiana wachty"
+"Automatische invoer bij:\n"
+"Wisseling Wacht"
 #
+#, fuzzy
 msgid "automatic line Waypoint arrived"
 msgstr ""
-"wpis automatyczny\n"
-"osiągnięto Waypoint"
+"Automatische invoer bij:\n"
+"Aankomst Routepunt"
 #
 msgid "day(s)"
-msgstr "dni"
+msgstr "dag(en)"
 #
 msgid "default"
-msgstr "domyślne"
+msgstr "standaard"
 #
 msgid ""
 "default = Relative to Boat\n"
 "Heading = Actual wind direction"
 msgstr ""
-"domyślne = Względem Jachtu\n"
-"Kurs = Rzeczywisty kierunek wiatru"
+"standaard = Schijnbare Wind\n"
+"koers = Ware Wind"
 #
 msgid "delay to find the right course to the wind"
-msgstr "czas na ustawienie jachtu odpowiednio do wiatru"
+msgstr "Vertraging om de juiste koers t.o.v. de wind te vinden."
 #
 msgid "every 15 Degrees +/- 1 hour"
-msgstr "co 15 stopni +/- 1 godzina"
+msgstr "Elke 15 graden +/- 1 uur"
 #
 msgid "export your BuyParts-data as HTML or ODT"
-msgstr "eksportuj dane Kupna Części jako HTML lub ODT"
+msgstr "Exporteer gegevens van te kopen onderdelen met format HTML of ODT"
 #
 msgid "export your Overview-data as HTML or ODT"
-msgstr "eksportuj dane Przeglądu jako HTML lub ODT"
+msgstr "Exporteer overzichtgegevens met format  HTML of ODT."
 #
 msgid "export your Repairs-data as HTML or ODT"
-msgstr "eksportuj dane napraw jako HTML lub ODT"
+msgstr "Exporteer reparatiegegevens met format HTML of ODT"
 #
 msgid "export your Service-data as HTML or ODT"
-msgstr "eksportuj dane Serwisowe jako HTML lub ODT"
+msgstr "Exporteer onderhoudsgegevens met format HTML of ODT"
 #
 msgid ""
 "export your boat/equipment-data as:\n"
 "      HTML, ODT,  ODS, XML, CSV"
 msgstr ""
-"eksportuj dane jachtu oraz wyposażenia jako:\n"
-"      HTML, ODT, ODS, XML, CSV"
+"Exporteer scheeps- en apparatuurgegevens\n"
+"met format : HTML, ODT,  ODS, XML, CSV"
 #
 msgid ""
 "export your crew-data as:\n"
 "HTML, ODT,  ODS, XML, CSV"
 msgstr ""
-"eksportuj dane załogi jako:\n"
-"HTML, ODT. ODS, XML, CSV"
+"Exporteer bemanninggegevens met\n"
+"format : HTML, ODT,  ODS, XML, CSV"
 #
 msgid ""
 "export your logbook-data as:\n"
 "HTML, ODT,  ODS, XML, CSV"
 msgstr ""
-"eksportuj dane z dziennika jako:\n"
-"HTML, ODT, ODS, XML, CSV"
+"Exporteer het Journaal met format:\n"
+"HTML, ODT,  ODS, XML, CSV"
 #
 msgid "fm"
-msgstr "sąż"
+msgstr "fm"
 #
 msgid "from"
-msgstr "od"
+msgstr "van"
 #
-#, fuzzy
 msgid "from "
-msgstr "od"
+msgstr "van"
 #
 msgid "ft"
-msgstr "ft"
+msgstr "vt"
 #
 msgid "fth"
-msgstr "sąż"
+msgstr "vdm"
 #
+# Sur une version FR l'utilisateur souhaitera plus saisir des Litres.
 msgid "gal"
-msgstr "gal"
+msgstr "liter"
 #
 msgid "h"
-msgstr "g"
+msgstr "u"
 #
 msgid "km/h"
 msgstr "km/h"
 #
 msgid "kts"
-msgstr "w"
+msgstr "knp"
 #
 msgid "m"
 msgstr "m"
@@ -1404,135 +1422,27 @@ msgid "m/s"
 msgstr "m/s"
 #
 msgid "mb"
-msgstr "mb"
+msgstr "Hp"
 #
 msgid "month"
-msgstr "miesięcy"
+msgstr "maand"
 #
 msgid "none"
-msgstr "puste"
+msgstr "niets"
 #
 msgid "s"
 msgstr "s"
 #
 msgid "same watch as"
-msgstr ""
+msgstr "Zelfde wacht als"
 #
+# means
+# Logbook from date to date
 msgid "to"
-msgstr "do"
+msgstr "naar"
 #
 msgid "week(s)"
-msgstr "tygodni"
+msgstr "week(en)"
 #
 msgid "write your own label"
-msgstr "wpisz własną etykietę"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
-#~ msgid "FirstName"
-#~ msgstr "Imię"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
-#~ msgid "Nm"
-#~ msgstr "Nazwisko"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
-#~ msgid "Search.."
-#~ msgstr "Wybierz Dziennik"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#~ msgid "sm"
-#~ msgstr "mm"
+msgstr "Maak eigen veldnaam"
