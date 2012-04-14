@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-02-16 15:00+0100\n"
-"PO-Revision-Date: 2012-04-13 21:28+0100\n"
+"PO-Revision-Date: 2012-04-14 17:50+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: rider2@kpnmail.nl <rider2@kpnmail.nl>\n"
 "MIME-Version: 1.0\n"
@@ -25,7 +25,7 @@ msgid ""
 "Name of Waypoint: %s"
 msgstr ""
 "\n"
-"Naam Routepunt: %s"
+"Naam routepunt: %s"
 #
 #, c-format
 msgid ""
@@ -35,7 +35,7 @@ msgid ""
 "Range to destination: %4.2f%s"
 msgstr ""
 "\n"
-"Naam Routepunt  : %s\n"
+"Naam routepunt  : %s\n"
 "Ware Koers          : %4.1f%s\n"
 "Verheid                 : %4.2f%s"
 #
@@ -44,19 +44,19 @@ msgid ""
 "not found in layoutfile "
 msgstr ""
 "\n"
-"niet in Lay-out bestand gevonden"
+"niet in opmaakstijlen-bestand gevonden"
 #
 msgid "      Course- Message after Minutes"
 msgstr "               Koersbericht na (minuten):"
 #
 msgid "     Winddirection set to:"
-msgstr "           Windrichting instellen als:"
+msgstr "           Windindicatie instellen als:"
 #
 msgid " - Timer on - Interval: "
 msgstr "- Timer Aan - Tijdinterval:"
 #
 msgid " Direction "
-msgstr "Richting"
+msgstr "Indicatie"
 #
 msgid ""
 "!\n"
@@ -65,7 +65,7 @@ msgid ""
 msgstr ""
 "!\n"
 "\n"
-"Bent u vergeten deze regel op te nemen in uw Lay-out?"
+"Bent u vergeten deze regel op te nemen in uw opmaakstijl?"
 #
 msgid "\""
 msgstr "\""
@@ -100,10 +100,10 @@ msgid "Active"
 msgstr "Actief"
 #
 msgid "Active Logbook"
-msgstr "Actief Journaal"
+msgstr "Actief journaal"
 #
 msgid "Actuell Logbook"
-msgstr "Actuele Journaal"
+msgstr "Actuele journaal"
 #
 msgid "Add Crew"
 msgstr ""
@@ -114,10 +114,10 @@ msgid "Add Equipment"
 msgstr "Toevoegen apparatuur"
 #
 msgid "Add Line"
-msgstr "Voeg regel toe"
+msgstr "Toevoegen regel"
 #
 msgid "Add a line to the end of your logbook"
-msgstr "Voeg een regel toe aan het einde van het Journaal"
+msgstr "Toevoegen regel aan het einde van het journaal"
 #
 msgid "Add a new Crewmember"
 msgstr "Toevoegen nieuw bemanningslid"
@@ -139,10 +139,10 @@ msgid "Air"
 msgstr "Lucht"
 #
 msgid "All Logbooks"
-msgstr "Alle Journaals"
+msgstr "Alle journaals"
 #
 msgid "Append Line every Nm"
-msgstr "Voeg regel toe na elke (NM):"
+msgstr "Regel toevoegen na elke (NM):"
 #
 msgid "Are you sure ?"
 msgstr "Bent u hier zeker van?"
@@ -167,12 +167,12 @@ msgid ""
 "\n"
 "Shift+Enter appends a new line"
 msgstr ""
-"Automatische invoer per tijdinterval\n"
+"Automatische regelinvoer per tijdinterval\n"
 "U kunt dit Aan en Uit zetten en de instellingen ervan aanpassen in Toolbox/"
 "Plugins/Logbook. SHIFTt+ENTER voegt een nieuwe regel toe."
 #
 msgid "Barometer"
-msgstr "barometer"
+msgstr "Luchtdruk"
 #
 msgid "Beam"
 msgstr "Breedte"
@@ -210,7 +210,7 @@ msgstr ""
 "sterkte"
 #
 msgid "COG (T)"
-msgstr "COG (W)"
+msgstr "COG"
 #
 msgid "Callsign"
 msgstr "Roepnaam"
@@ -238,9 +238,9 @@ msgid ""
 "the active logbook is saved with today's date\n"
 "and can be viewed with Button \"Select Logbook\""
 msgstr ""
-"Maak een nieuw Journaal\n"
-"Het actieve Journaal wordt opgeslagen met de datum van vandaag\n"
-"en kan worden bekeken via de knop \"Selecteer Journaal\"."
+"Maak een nieuw journaal\n"
+"Het actieve journaal wordt opgeslagen met de datum van vandaag\n"
+"en kan dan worden bekeken via de knop \"Selecteer journaal\"."
 #
 msgid "Crewlist"
 msgstr "Bemanningslijst"
@@ -273,7 +273,7 @@ msgid "Date + Month"
 msgstr "Datum + Maand"
 #
 msgid "Date + Weeks"
-msgstr "Datum + Week"
+msgstr "Datum + Weken"
 #
 msgid "Date Launched"
 msgstr "Datum te water"
@@ -288,17 +288,17 @@ msgid "Day(s)"
 msgstr "Dag(en)"
 #
 msgid "Degres"
-msgstr "graden:"
+msgstr "Graden:"
 #
 msgid "Delete Layout"
-msgstr "Verwijder Lay-out"
+msgstr "Verwijder opmaakstijl"
 #
 msgid "Delete Row"
 msgstr "Regel verwijderen"
 #
 #, c-format
 msgid "Delete Row Nr. %i ?"
-msgstr "Verwijder regel n° %i ?"
+msgstr "Regelnr. %i verwijderen?"
 #
 msgid "Depth"
 msgstr "Diepte"
@@ -316,7 +316,7 @@ msgid "Displacement"
 msgstr "Waterverplaatsing"
 #
 msgid "Distance"
-msgstr "verheid:"
+msgstr "Verheid"
 #
 msgid "Distance p. Day"
 msgstr ""
@@ -333,13 +333,13 @@ msgid "Drag 'n Drop to change the order in the list"
 msgstr "Verslepen om de volgorde in de lijst te veranderen."
 #
 msgid "E"
-msgstr "A "
+msgstr "A"
 #
 msgid "Edit Layout"
-msgstr "Aanpassen Lay-out"
+msgstr "Aanpassen opmaakstijl"
 #
 msgid "Edit Layouts"
-msgstr "Aanpassen Lay-outs"
+msgstr "Aanpassen opmaakstijlen"
 #
 #
 #
@@ -390,16 +390,16 @@ msgid "Export"
 msgstr "Exporteren"
 #
 msgid "F"
-msgstr "F"
+msgstr "C"
 #
 msgid "Fathom"
-msgstr "vadem:"
+msgstr "vadem"
 #
 msgid "Feet"
-msgstr "voet:"
+msgstr "voet"
 #
 msgid "Filter Layout by"
-msgstr "Filter Lay-out door"
+msgstr "Filter opmaakstijl door"
 #
 msgid "Firstname"
 msgstr "Voornaam"
@@ -428,17 +428,17 @@ msgstr ""
 "van romp"
 #
 msgid "HIN-Nr."
-msgstr "HIN-nr."
+msgstr "Rompnr."
 #
 msgid ""
 "Have You forgotten to enclose the Header with [[ and ]]\n"
 " or Data with {{ and }} ?"
 msgstr ""
-"Bent u vergeten the header te omsluiten met  [[ en ]],\n"
+"Bent u vergeten the 'header' te omsluiten met  [[ en ]],\n"
 "of de gegevens met {{  en  }}?"
 #
 msgid "Heading"
-msgstr "koers"
+msgstr "Koers"
 #
 msgid "Hide Equipment"
 msgstr "Verberg apparatuur"
@@ -456,7 +456,7 @@ msgid "Hull Identification No."
 msgstr "Rompnr."
 #
 msgid "Hydrometer"
-msgstr "hydrometer"
+msgstr "Luchtvochtigheid"
 #
 msgid "If"
 msgstr "Als"
@@ -465,20 +465,20 @@ msgid "If Course changes more then "
 msgstr "Bij koersverandering > (graden):"
 #
 msgid "If GPS off use for manual entry"
-msgstr "Als de GPS niet functioneert, de gegevens met de hand invoeren."
+msgstr "Als de GPS niet functioneert, onderstaande velden met de hand invullen."
 #
 msgid "If Watch changed"
-msgstr "Voeg regel toe bij wisseling van de wacht"
+msgstr "Regel toevoegen bij wisseling van de wacht"
 #
 msgid "If Waypoint arrived"
-msgstr "Voeg regel toe bij aankomst routepunt"
+msgstr "Regel toevoegen bij aankomst routepunt"
 #
 msgid ""
 "If You have created Your own Layouts\n"
 "prepend them with e.g. My_ \n"
 "The _ is important"
 msgstr ""
-"Als u uw eigen Lay-outs maakt, laat\n"
+"Als u uw eigen opmaakstijl maakt, laat\n"
 "dan de naam ervan starten met bijv. :  Mijn_ .\n"
 "Het teken \" _\" is noodzakelijk!"
 #
@@ -486,7 +486,7 @@ msgid ""
 "If You have created Your own layouts\n"
 "with prefix e.g. My_"
 msgstr ""
-"Aanvinken als u uw eigen Lay-out heeft gemaakt,\n"
+"Aanvinken als u uw eigen opmaakstijl heeft gemaakt,\n"
 "waarvan de naam start met bijv. Mijn_."
 #
 msgid "In Column"
@@ -499,10 +499,10 @@ msgid "Install"
 msgstr "Installeer"
 #
 msgid "Install Languages"
-msgstr "Installeer Talen"
+msgstr "Installeer talen"
 #
 msgid "Install Layouts"
-msgstr "Installeer Lay-outs"
+msgstr "Installeer opmaakstijlen"
 #
 msgid "Install OpenCPN_Logbook_Languages.zip"
 msgstr "Installeer OpenCPN_Logbook_Layouts.zip"
@@ -514,13 +514,13 @@ msgid "Install OpenCPN_Mac_Logbook_Languages.zip"
 msgstr "Installeer OpenCPN_Mac_Logbook_Languages.zip (MAC versie)"
 #
 msgid "Install single Layout"
-msgstr "Installeer enkele Lay-out"
+msgstr "Installeer enkele opmaakstijl"
 #
 msgid "Insurance"
 msgstr "Verzekering"
 #
 msgid "Interval:"
-msgstr "Tijdinterval: "
+msgstr "Tijdinterval:"
 #
 msgid "Issued in"
 msgstr "Uitgegeven in"
@@ -530,14 +530,14 @@ msgid ""
 "\n"
 "OpenCPN switchs to actuell logbook"
 msgstr ""
-"Het is niet toegestaan om gegevens toe te voegen aan een oud Journaal\n"
-"OpenCPN kiest nu het actuele Journaal."
+"Het is niet toegestaan om gegevens toe te voegen aan een oud journaal\n"
+"OpenCPN kiest nu het actuele journaal."
 #
 msgid "LOA"
 msgstr "LOA"
 #
 msgid "LOD"
-msgstr "Lengte dek"
+msgstr "Lengte over dek"
 #
 msgid "LWL"
 msgstr "LWL"
@@ -546,13 +546,13 @@ msgid "Languages installed"
 msgstr "Taalbestanden geïnstalleerd"
 #
 msgid "Last Logbook is\n"
-msgstr "Het laatste Journaal is\n"
+msgstr "Het voorgaande journaal is:\n"
 #
 msgid "Last line from Logbook\n"
-msgstr "Laatste regel in Journaal\n"
+msgstr "Laatste regel in journaal\n"
 #
 msgid "Layouts installed"
-msgstr "Lay-out bestanden geïnstalleerd"
+msgstr "Opmaakstijlen geïnstalleerd"
 #
 msgid "Length in Waterline"
 msgstr "Lengte over waterlijn"
@@ -598,9 +598,9 @@ msgstr ""
 "\n"
 "\t- Automatische (NMEA) of handmatige invoer\n"
 "\t- Timer voor automatische invoer van regels\n"
-"\t- Bestandsuitvoer in ODS, HTML, XM l(Windows seulement), CSV\n"
-"\t- Meerdere Lay-outs\n"
-"\t- Aan te passen Lay-out\n"
+"\t- Bestandsuitvoer in ODS, HTML, XM l(Windows seulement) en CSV\n"
+"\t- Meerdere opmaakstijlen\n"
+"\t- Aan te passen opmaakstijl\n"
 "\n"
 "Met dank aan de OpenCPN community voor alle suggesties.\n"
 "\n"
@@ -620,16 +620,16 @@ msgid "MMSI"
 msgstr "MMSI"
 #
 msgid "Magnetic"
-msgstr "Magnetisch"
+msgstr "magnetisch"
 #
 msgid "Maintenance"
 msgstr "Onderhoud"
 #
 msgid "Meter"
-msgstr "meter:"
+msgstr "meter"
 #
 msgid "Minutes"
-msgstr "minuten:"
+msgstr "Minuten:"
 #
 msgid "Minutes greater than 59"
 msgstr "Aantal minuten meer dan 59"
@@ -641,10 +641,10 @@ msgid "Month"
 msgstr "Maand"
 #
 msgid "Motor Hours"
-msgstr "Draaiuren motor:"
+msgstr "Draaiuren motor"
 #
 msgid "Motor/Sails"
-msgstr "Motor/Zeil"
+msgstr "Voortstuwing"
 #
 msgid "NM"
 msgstr "NM"
@@ -662,7 +662,7 @@ msgid "Navigation"
 msgstr "Navigatie"
 #
 msgid "New Logbook"
-msgstr "Nieuw Journaal"
+msgstr "Nieuw journaal"
 #
 #
 #
@@ -685,14 +685,14 @@ msgid ""
 "No Path set to HTML-Editor\n"
 "in ToolBox/Plugins/LogbookKonni/Preferences"
 msgstr ""
-"Geen pad beschikbaar naar HTML-editor\n"
+"Geen pad beschikbaar naar HTML-applicatie\n"
 "in Toolbox/Plugins/Logbook/Voorkeuren/Paden"
 #
 msgid ""
 "No Path set to HTML-Editor\n"
 "in Toolbox/Plugins/LogbookKonni/Preferences"
 msgstr ""
-"Geen pad beschikbaar naar HTML-editor\n"
+"Geen pad beschikbaar naar HTML-applicatie\n"
 "in Toolbox/Plugins/Logbook/Voorkeuren/Paden"
 #
 msgid "No. Watches"
@@ -700,10 +700,10 @@ msgstr "Aantal wachten"
 #
 #, c-format
 msgid "Old Logbook until %s"
-msgstr "Oud Journaal tot %s"
+msgstr "Oud journaal tot %s"
 #
 msgid "Only Layouts with prefix:"
-msgstr "alleen Lay-outs startend met:"
+msgstr "alleen opmaak startend met:"
 #
 msgid ""
 "Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV "
@@ -757,17 +757,19 @@ msgid ""
 "054Deg 45.1234Min N 030Deg 12.0504Min E"
 msgstr ""
 "Voer 05445.1234n03012.0504e in voor\n"
-"054g 45.1234m N 030 12.0504m E"
+"054g 45.1234m N\n"
+"030g 12.0504m E"
 #
 msgid ""
 "Please enter 0544512.15n0301205.15e for\n"
 "054Deg 45Min 12.15Sec N 030Deg 12Min 05.15Sec E"
 msgstr ""
 "Voer 0544512.15n0301205.15e in voor\n"
-"054g 45m 12.15s N 030g 12m 05.15s E"
+"054g 45m 12.15s N\n"
+"030g 12m 05.15s E"
 #
 msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45 PM"
-msgstr "Voer 4 cijfers in 24 uur format in, zoals: 1545 = 03:45 PM"
+msgstr "Voer 4 cijfers in 24-uur format in, zoals: 1545 = 03:45 PM"
 #
 msgid ""
 "Please enter like 1.30 or 1,30 or 1:30\n"
@@ -814,7 +816,7 @@ msgid "Priority"
 msgstr "Prio"
 #
 msgid "R"
-msgstr "H "
+msgstr "H"
 #
 msgid "Reef"
 msgstr "Aantal riffen"
@@ -823,16 +825,16 @@ msgid "Registration"
 msgstr "Registratie"
 #
 msgid "Relative"
-msgstr "Relatief"
+msgstr "relatief"
 #
 msgid "Reload Layouts"
-msgstr "Herlaad Lay-outs"
+msgstr "Herlaad opmaakstijlen"
 #
 msgid "Remarks"
 msgstr "Opmerkingen"
 #
 msgid "Rename Layout"
-msgstr "Hernoem Lay-out"
+msgstr "Hernoem opmaakstijl"
 #
 msgid "Repair done"
 msgstr "Reparatie uitgevoerd"
@@ -847,7 +849,7 @@ msgstr "Uit te voeren reparaties"
 # Réinitialiser
 # Effacer
 msgid "Reset Paths"
-msgstr "Oorspronkelijke waarden"
+msgstr "Oorspronkelijke paden"
 #
 msgid "Reset all Values to zero ?"
 msgstr "Alle waarden instellen op nul?"
@@ -873,37 +875,37 @@ msgstr ""
 "(meest gebruikt)"
 #
 msgid "Save Boat File"
-msgstr "Opslaan Vaartuigbestand"
+msgstr "Opslaan vaartuigbestand"
 #
 msgid "Save BuyParts File"
-msgstr "Opslaan Te_Kopen_Onderdelen-bestand"
+msgstr "Opslaan te_kopen_onderdelen-bestand"
 #
 msgid "Save CrewList File"
-msgstr "Opslaan Bemanningslijst-bestand"
+msgstr "Opslaan bemanningslijst-bestand"
 #
 msgid "Save Logbook File"
-msgstr "Journaalbestand Opslaan"
+msgstr "Journaalbestand opslaan"
 #
 msgid "Save Overview File"
-msgstr "Opslaan Overzichtbestand"
+msgstr "Opslaan overzichtbestand"
 #
 msgid "Save Repairs File"
-msgstr "Opslaan Reparatiebestand"
+msgstr "Opslaan reparatiebestand"
 #
 msgid "Save Service File"
-msgstr "Opslaan Onderhoudbestand"
+msgstr "Opslaan onderhoudbestand"
 #
 msgid "Search in"
 msgstr "Zoek in"
 #
 msgid "Search in Logbook"
-msgstr "Zoek in Journaal ..."
+msgstr "Zoek in journaal ..."
 #
 msgid "Searchstring"
 msgstr "Zoekstring"
 #
 msgid "Seconds"
-msgstr "seconden:"
+msgstr "Seconden:"
 #
 # Me semble plus approprié que le terme :
 # Sélectionner la route du fait du contexte d'affichage
@@ -911,13 +913,13 @@ msgid "Select"
 msgstr "Selecteer datum"
 #
 msgid "Select Layout:"
-msgstr "Selecteer Lay-out:"
+msgstr "Selecteer opmaakstijl:"
 #
 msgid "Select Layout: "
-msgstr "Selecteer Lay-out:"
+msgstr "Selecteer opmaakstijl: "
 #
 msgid "Select Logbook"
-msgstr "Selecteer Journaal"
+msgstr "Selecteer journaal"
 #
 # Me semble plus approprié que le terme :
 # Sélectionner la route du fait du contexte d'affichage
@@ -928,7 +930,7 @@ msgid ""
 "Select a layout which is displayed\n"
 "with button \"View\""
 msgstr ""
-"Selecteer te tonen Lay-out\n"
+"Selecteer te gebruiken opmaakstijl\n"
 "met de knop \"Toon\""
 #
 msgid ""
@@ -936,21 +938,21 @@ msgid ""
 "Everytime a new logbook is created, you'll \n"
 "find the active logbook as old logbook here"
 msgstr ""
-"Selecteer een oud Journaal\n"
-"Elke keer als een nieuw Journaal is gemaakt, kunt\n"
-"u het actieve Journaal als oud Journaal hier vinden."
+"Selecteer een oud journaal\n"
+"Elke keer als een nieuw journaal is gemaakt,\n"
+"kunt u voorgaande journaals hier vinden."
 #
 msgid "Select one of the old logbooks"
-msgstr "Selecteer één van de oude Journaals"
+msgstr "Selecteer één van de oude journaals"
 #
 msgid "Select zipped Languages-Files"
-msgstr "Selecteer de Taal zip-bestanden"
+msgstr "Selecteer de taalbestanden (zip)"
 #
 msgid "Select zipped Layout-Files"
-msgstr "Selecteer de Lay-out zip-bestanden"
+msgstr "Selecteer de opmaakbestanden (zip)"
 #
 msgid "Send Layout by email"
-msgstr "Verstuur Lay-out e-mail "
+msgstr "Verstuur opmaakstijl e-mail "
 #
 msgid "Serial-Nr."
 msgstr "Serienr."
@@ -993,13 +995,13 @@ msgid "Show Position Fomat"
 msgstr "      Positieweergave als:"
 #
 msgid "Show ToolTips"
-msgstr "Toon Tool Tips"
+msgstr "Toon ToolTips"
 #
 msgid "Show Wave/Swell in"
 msgstr "Toon golfhoogtes in:"
 #
 msgid "Show all Layouts"
-msgstr "Toon alle Lay-outs"
+msgstr "Toon alle opmaakstijlen"
 #
 msgid "Show hidden columns"
 msgstr "Toon verborgen kolommen"
@@ -1014,16 +1016,16 @@ msgid "Sorry, 0 Hrs 0 Min 0 Sec are not possible"
 msgstr "Fout: 0 u 0 m 0 s is niet mogelijk!"
 #
 msgid "Sorry, Logbook has no lines"
-msgstr "Fout: het Journaal bevat geen regel(s)!"
+msgstr "Fout: het journaal bevat geen regel(s)!"
 #
 msgid "Sorry, Your Logbook has no lines"
-msgstr "Fout: het Journaal bevat geen regel(s)!"
+msgstr "Fout: het journaal bevat geen regel(s)!"
 #
 msgid "Sorry, no Layout installed"
-msgstr "Fout: geen Lay-out geïnstalleerd!"
+msgstr "Fout: geen opmaakstijlen geïnstalleerd!"
 #
 msgid "Speed"
-msgstr "vaart:"
+msgstr "Vaart"
 #
 msgid "Speed Avg."
 msgstr ""
@@ -1110,7 +1112,7 @@ msgid "Timer"
 msgstr "Timerinstellingen"
 #
 msgid "Timer "
-msgstr "Klok"
+msgstr "Timer"
 #
 msgid ""
 "Timer has 0 h 0 Min 0 sec.\n"
@@ -1134,7 +1136,7 @@ msgid "Town"
 msgstr "Woonplaats"
 #
 msgid "True"
-msgstr "Waar"
+msgstr "waar"
 #
 msgid "Type"
 msgstr "Type"
@@ -1152,7 +1154,7 @@ msgstr ""
 "komen dat de melding zich blijft herhalen."
 #
 msgid "Uninstall"
-msgstr "Verwijder"
+msgstr "Verwijderen"
 #
 msgid "Uninstall Logbook"
 msgstr "Verwijder Logbook PlugIn"
@@ -1167,17 +1169,17 @@ msgid ""
 msgstr ""
 "Verwijderen van:\n"
 "  Logbook PlugIn,\n"
-"  alle Journaalgegevens,\n"
-"  alle Journaal Lay-outs,\n"
+"  alle journaalgegevens,\n"
+"  alle journaal opmaakstijlen,\n"
 "  alle Logbook taalbestanden\n"
-"En opschonen van het bestand OpenCPN.ini."
+"Opschonen van het bestand OpenCPN.ini."
 #
 msgid "Urgentvalue"
 msgstr "Urgentiewaarde"
 #
 # Textfield for userlabel in boat
 msgid "UserLabel"
-msgstr "Extra info-veld"
+msgstr "ExtraVeld"
 #
 msgid "View"
 msgstr "Toon"
@@ -1252,9 +1254,9 @@ msgid ""
 "Wind is set now to Realative to boat\n"
 "\n"
 msgstr ""
-"Windinvoer was ingesteld op Ware Wind,\n"
-"maar GPS geeft geen koerinformatie.\n"
-"Windinvoer is nu ingesteld op Schijnbare Wind.\n"
+"Windindicatie was ingesteld op Ware Wind,\n"
+"maar de GPS geeft geen koerinformatie.\n"
+"Windindicatie is nu ingesteld op Schijnbare Wind.\n"
 "\n"
 #
 msgid "Winddirection Avg."
@@ -1263,7 +1265,7 @@ msgstr ""
 "(gem.)"
 #
 msgid "Windspeed"
-msgstr "windsnelheid:"
+msgstr "Windsnelheid"
 #
 msgid "Windspeed "
 msgstr "Windsnelheid"
@@ -1295,12 +1297,12 @@ msgid ""
 "\n"
 "If you have a running timer, it's stopped now !!!"
 msgstr ""
-"Uw Journaal heeft 800 regels of meer.\n"
-"Maak een nieuw Journaal om de laadtijd te bekorten.\n"
+"Journaal heeft 800 regels of meer.\n"
+"Maak een nieuw journaal om de laadtijd te bekorten.\n"
 "Als u automatische invoer gebruikt, wordt die nu gestopt!"
 #
 msgid "Your Logbook has no lines ?"
-msgstr "Uw Journaal bevat geen regels!"
+msgstr "Journaal bevat geen regels!"
 #
 msgid "Zip"
 msgstr "Postcode"
@@ -1312,27 +1314,27 @@ msgid ""
 "automatic line\n"
 "Distance > "
 msgstr ""
-"Automatische invoer bij:\n"
-"Afgelegde Verheid"
+"Automatische regelinvoer bij:\n"
+"Afgelegde Verheid >"
 #
 msgid ""
 "automatic line\n"
 "change of course >"
 msgstr ""
-"Automatische invoer bij:\n"
+"Automatische regelinvoer bij:\n"
 "Koersverandering >"
 #
 msgid ""
 "automatic line\n"
 "change of guards"
 msgstr ""
-"Automatische invoer bij:\n"
+"Automatische regelinvoer bij:\n"
 "Wisseling Wacht"
 #
 #, fuzzy
 msgid "automatic line Waypoint arrived"
 msgstr ""
-"Automatische invoer bij:\n"
+"Automatische regelinvoer bij:\n"
 "Aankomst Routepunt"
 #
 msgid "day(s)"
@@ -1358,7 +1360,7 @@ msgid "export your BuyParts-data as HTML or ODT"
 msgstr "Exporteer gegevens van te kopen onderdelen met format HTML of ODT"
 #
 msgid "export your Overview-data as HTML or ODT"
-msgstr "Exporteer overzichtgegevens met format  HTML of ODT."
+msgstr "Exporteer overzichtgegevens met format HTML of ODT."
 #
 msgid "export your Repairs-data as HTML or ODT"
 msgstr "Exporteer reparatiegegevens met format HTML of ODT"
@@ -1384,7 +1386,7 @@ msgid ""
 "export your logbook-data as:\n"
 "HTML, ODT,  ODS, XML, CSV"
 msgstr ""
-"Exporteer het Journaal met format:\n"
+"Exporteer het journaal met format:\n"
 "HTML, ODT,  ODS, XML, CSV"
 #
 msgid "fm"
@@ -1394,7 +1396,7 @@ msgid "from"
 msgstr "van"
 #
 msgid "from "
-msgstr "van"
+msgstr "van "
 #
 msgid "ft"
 msgstr "vt"
@@ -1404,7 +1406,7 @@ msgstr "vdm"
 #
 # Sur une version FR l'utilisateur souhaitera plus saisir des Litres.
 msgid "gal"
-msgstr "liter"
+msgstr "ltr"
 #
 msgid "h"
 msgstr "u"
@@ -1439,7 +1441,7 @@ msgstr "Zelfde wacht als"
 # means
 # Logbook from date to date
 msgid "to"
-msgstr "naar"
+msgstr "tot"
 #
 msgid "week(s)"
 msgstr "week(en)"
