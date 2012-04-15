@@ -91,10 +91,12 @@ wxString OverView::toODT(wxString path,wxString layout,int mode)
 	if(!cutInPartsODT( odt, &top, &header,	&middle, &bottom))
 		return _T("");
 
+	if(mode == 1)
+		tempPath.Replace(_T("html"),_T("txt"));
 	wxTextFile* text = setFiles(path, &tempPath, mode);
-	writeToODT(text,parent->m_gridOverview,data_file,layout_locn+layout+_T(".odt"), top,header,middle,bottom,mode);
+	writeToODT(text,parent->m_gridOverview,tempPath,layout_locn+layout+_T(".odt"), top,header,middle,bottom,mode);
 
-	return data_file;
+	return tempPath;
 }
 
 wxString OverView::toHTML(wxString path,wxString layout,int mode)
@@ -112,7 +114,7 @@ wxString OverView::toHTML(wxString path,wxString layout,int mode)
 	wxTextFile* text = setFiles(path, &tempPath, mode);
 	writeToHTML(text,parent->m_gridOverview,tempPath,layout_locn+layout+_T(".html"), top,header,middle,bottom,mode);
 
-	return data_file;
+	return tempPath;
 }
 
 void OverView::loadAllLogbooks()
@@ -896,59 +898,59 @@ wxString OverView::setPlaceHolders(int mode, wxGrid *grid, int row, wxString mid
 {
 	wxString newMiddleODT = middle;
 
-	newMiddleODT.Replace(wxT("#FLOG#"),replaceNewLine(mode,grid->GetCellValue(row,FLOG)));
+	newMiddleODT.Replace(wxT("#FLOG#"),replaceNewLine(mode,grid->GetCellValue(row,FLOG),false));
 	newMiddleODT.Replace(wxT("#LLOG#"),grid->GetTable()->GetColLabelValue(FLOG));
-	newMiddleODT.Replace(wxT("#FROUTE#"),replaceNewLine(mode,grid->GetCellValue(row,FROUTE)));
+	newMiddleODT.Replace(wxT("#FROUTE#"),replaceNewLine(mode,grid->GetCellValue(row,FROUTE),false));
 	newMiddleODT.Replace(wxT("#LROUTE#"),grid->GetTable()->GetColLabelValue(FROUTE));
-	newMiddleODT.Replace(wxT("#FSTART#"),replaceNewLine(mode,grid->GetCellValue(row,FSTART)));
+	newMiddleODT.Replace(wxT("#FSTART#"),replaceNewLine(mode,grid->GetCellValue(row,FSTART),false));
 	newMiddleODT.Replace(wxT("#LSTART#"),grid->GetTable()->GetColLabelValue(FSTART));
-	newMiddleODT.Replace(wxT("#FEND#"),replaceNewLine(mode,grid->GetCellValue(row,FEND)));
+	newMiddleODT.Replace(wxT("#FEND#"),replaceNewLine(mode,grid->GetCellValue(row,FEND),false));
 	newMiddleODT.Replace(wxT("#LEND#"),grid->GetTable()->GetColLabelValue(FEND));
-	newMiddleODT.Replace(wxT("#FJOURNEY#"),replaceNewLine(mode,grid->GetCellValue(row,FJOURNEY)));
+	newMiddleODT.Replace(wxT("#FJOURNEY#"),replaceNewLine(mode,grid->GetCellValue(row,FJOURNEY),false));
 	newMiddleODT.Replace(wxT("#LJOURNEY#"),grid->GetTable()->GetColLabelValue(FJOURNEY));
-	newMiddleODT.Replace(wxT("#FDISTANCE#"),replaceNewLine(mode,grid->GetCellValue(row,FDISTANCE)));
+	newMiddleODT.Replace(wxT("#FDISTANCE#"),replaceNewLine(mode,grid->GetCellValue(row,FDISTANCE),false));
 	newMiddleODT.Replace(wxT("#LDISTANCE#"),grid->GetTable()->GetColLabelValue(FDISTANCE));
-	newMiddleODT.Replace(wxT("#FETMAL#"),replaceNewLine(mode,grid->GetCellValue(row,FETMAL)));
+	newMiddleODT.Replace(wxT("#FETMAL#"),replaceNewLine(mode,grid->GetCellValue(row,FETMAL),false));
 	newMiddleODT.Replace(wxT("#LETMAL#"),grid->GetTable()->GetColLabelValue(FETMAL));
-	newMiddleODT.Replace(wxT("#FBESTETMAL#"),replaceNewLine(mode,grid->GetCellValue(row,FBESTETMAL)));
+	newMiddleODT.Replace(wxT("#FBESTETMAL#"),replaceNewLine(mode,grid->GetCellValue(row,FBESTETMAL),false));
 	newMiddleODT.Replace(wxT("#LBESTETMAL#"),grid->GetTable()->GetColLabelValue(FBESTETMAL));
-	newMiddleODT.Replace(wxT("#FSPEED#"),replaceNewLine(mode,grid->GetCellValue(row,FSPEED)));
+	newMiddleODT.Replace(wxT("#FSPEED#"),replaceNewLine(mode,grid->GetCellValue(row,FSPEED),false));
 	newMiddleODT.Replace(wxT("#LSPEED#"),grid->GetTable()->GetColLabelValue(FSPEED));
-	newMiddleODT.Replace(wxT("#FBSPEED#"),replaceNewLine(mode,grid->GetCellValue(row,FBSPEED)));
+	newMiddleODT.Replace(wxT("#FBSPEED#"),replaceNewLine(mode,grid->GetCellValue(row,FBSPEED),false));
 	newMiddleODT.Replace(wxT("#LBSPEED#"),grid->GetTable()->GetColLabelValue(FBSPEED));
-	newMiddleODT.Replace(wxT("#FSPEEDSTW#"),replaceNewLine(mode,grid->GetCellValue(row,FSPEEDSTW)));
+	newMiddleODT.Replace(wxT("#FSPEEDSTW#"),replaceNewLine(mode,grid->GetCellValue(row,FSPEEDSTW),false));
 	newMiddleODT.Replace(wxT("#LSPEEDSTW#"),grid->GetTable()->GetColLabelValue(FSPEEDSTW));
-	newMiddleODT.Replace(wxT("#FBSPEEDSTW#"),replaceNewLine(mode,grid->GetCellValue(row,FBSPEEDSTW)));
+	newMiddleODT.Replace(wxT("#FBSPEEDSTW#"),replaceNewLine(mode,grid->GetCellValue(row,FBSPEEDSTW),false));
 	newMiddleODT.Replace(wxT("#LBSPEEDSTW#"),grid->GetTable()->GetColLabelValue(FBSPEEDSTW));
 
-	newMiddleODT.Replace(wxT("#FENGINE#"),replaceNewLine(mode,grid->GetCellValue(row,FENGINE)));
+	newMiddleODT.Replace(wxT("#FENGINE#"),replaceNewLine(mode,grid->GetCellValue(row,FENGINE),false));
 	newMiddleODT.Replace(wxT("#LENGINE#"),grid->GetTable()->GetColLabelValue(FENGINE));
-	newMiddleODT.Replace(wxT("#FFUEL#"),replaceNewLine(mode,grid->GetCellValue(row,FFUEL)));
+	newMiddleODT.Replace(wxT("#FFUEL#"),replaceNewLine(mode,grid->GetCellValue(row,FFUEL),false));
 	newMiddleODT.Replace(wxT("#LFUEL#"),grid->GetTable()->GetColLabelValue(FFUEL));
-	newMiddleODT.Replace(wxT("#FWATER#"),replaceNewLine(mode,grid->GetCellValue(row,FWATER)));
+	newMiddleODT.Replace(wxT("#FWATER#"),replaceNewLine(mode,grid->GetCellValue(row,FWATER),false));
 	newMiddleODT.Replace(wxT("#LWATER#"),grid->GetTable()->GetColLabelValue(FWATER));
-	newMiddleODT.Replace(wxT("#FWINDDIR#"),replaceNewLine(mode,grid->GetCellValue(row,FWINDDIR)));
+	newMiddleODT.Replace(wxT("#FWINDDIR#"),replaceNewLine(mode,grid->GetCellValue(row,FWINDDIR),false));
 	newMiddleODT.Replace(wxT("#LWINDDIR#"),grid->GetTable()->GetColLabelValue(FWINDDIR));
-	newMiddleODT.Replace(wxT("#FWIND#"),replaceNewLine(mode,grid->GetCellValue(row,FWIND)));
+	newMiddleODT.Replace(wxT("#FWIND#"),replaceNewLine(mode,grid->GetCellValue(row,FWIND),false));
 	newMiddleODT.Replace(wxT("#LWIND#"),grid->GetTable()->GetColLabelValue(FWIND));
-	newMiddleODT.Replace(wxT("#FWINDPEAK#"),replaceNewLine(mode,grid->GetCellValue(row,FWINDPEAK)));
+	newMiddleODT.Replace(wxT("#FWINDPEAK#"),replaceNewLine(mode,grid->GetCellValue(row,FWINDPEAK),false));
 	newMiddleODT.Replace(wxT("#LWINDPEAK#"),grid->GetTable()->GetColLabelValue(FWINDPEAK));
-	newMiddleODT.Replace(wxT("#FCURRENTDIR#"),replaceNewLine(mode,grid->GetCellValue(row,FCURRENTDIR)));
+	newMiddleODT.Replace(wxT("#FCURRENTDIR#"),replaceNewLine(mode,grid->GetCellValue(row,FCURRENTDIR),false));
 	newMiddleODT.Replace(wxT("#LCURRENTDIR#"),grid->GetTable()->GetColLabelValue(FCURRENTDIR));
 
-	newMiddleODT.Replace(wxT("#FCURRENT#"),replaceNewLine(mode,grid->GetCellValue(row,FCURRENT)));
+	newMiddleODT.Replace(wxT("#FCURRENT#"),replaceNewLine(mode,grid->GetCellValue(row,FCURRENT),false));
 	newMiddleODT.Replace(wxT("#LCURRENT#"),grid->GetTable()->GetColLabelValue(FCURRENT));
-	newMiddleODT.Replace(wxT("#FCURRENTPEAK#"),replaceNewLine(mode,grid->GetCellValue(row,FCURRENTPEAK)));
+	newMiddleODT.Replace(wxT("#FCURRENTPEAK#"),replaceNewLine(mode,grid->GetCellValue(row,FCURRENTPEAK),false));
 	newMiddleODT.Replace(wxT("#LCURRENTPEAK#"),grid->GetTable()->GetColLabelValue(FCURRENTPEAK));
-	newMiddleODT.Replace(wxT("#FWAVE#"),replaceNewLine(mode,grid->GetCellValue(row,FWAVE)));
+	newMiddleODT.Replace(wxT("#FWAVE#"),replaceNewLine(mode,grid->GetCellValue(row,FWAVE),false));
 	newMiddleODT.Replace(wxT("#LWAVE#"),grid->GetTable()->GetColLabelValue(FWAVE));
-	newMiddleODT.Replace(wxT("#FWAVEPEAK#"),replaceNewLine(mode,grid->GetCellValue(row,FWAVEPEAK)));
+	newMiddleODT.Replace(wxT("#FWAVEPEAK#"),replaceNewLine(mode,grid->GetCellValue(row,FWAVEPEAK),false));
 	newMiddleODT.Replace(wxT("#LWAVEPEAK#"),grid->GetTable()->GetColLabelValue(FWAVEPEAK));
-	newMiddleODT.Replace(wxT("#FSWELL#"),replaceNewLine(mode,grid->GetCellValue(row,FSWELL)));
+	newMiddleODT.Replace(wxT("#FSWELL#"),replaceNewLine(mode,grid->GetCellValue(row,FSWELL),false));
 	newMiddleODT.Replace(wxT("#LSWELL#"),grid->GetTable()->GetColLabelValue(FSWELL));
-	newMiddleODT.Replace(wxT("#FSWELLPEAK#"),replaceNewLine(mode,grid->GetCellValue(row,FSWELLPEAK)));
+	newMiddleODT.Replace(wxT("#FSWELLPEAK#"),replaceNewLine(mode,grid->GetCellValue(row,FSWELLPEAK),false));
 	newMiddleODT.Replace(wxT("#LSWELLPEAK#"),grid->GetTable()->GetColLabelValue(FSWELLPEAK));
-	newMiddleODT.Replace(wxT("#FSAILS#"),replaceNewLine(mode,grid->GetCellValue(row,FSAILS)));
+	newMiddleODT.Replace(wxT("#FSAILS#"),replaceNewLine(mode,grid->GetCellValue(row,FSAILS),false));
 	newMiddleODT.Replace(wxT("#LSAILS#"),grid->GetTable()->GetColLabelValue(FSAILS));
 
 	return newMiddleODT;

@@ -31,7 +31,7 @@ private:
 	void setSelection();
 	bool checkLayoutError(int result, wxString html, wxString layout);
 	wxString replacePlaceholder(wxString html, wxString htmlHeader, int grid, int row, int col, bool mode);
-	wxString replaceNewLine(wxString s, bool mode);
+	wxString replaceNewLine(wxString s, bool mode, bool label);
 
 	LogbookDialog *parent;
 	Logbook		  *logbook;

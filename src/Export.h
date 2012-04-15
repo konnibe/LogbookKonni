@@ -31,7 +31,7 @@ public:
 
 	wxTextFile* setFiles(wxString savePath, wxString* path, int mode);
 	virtual wxString setPlaceHolders(int mode, wxGrid *grid, int row, wxString middle){ return _T("");}
-	wxString replaceNewLine(int mode, wxString str);
+	static wxString replaceNewLine(int mode, wxString str, bool label);
 
 private:
 	LogbookDialog* dialog;

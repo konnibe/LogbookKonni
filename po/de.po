@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 15:00+0100\n"
+"POT-Creation-Date: 2012-04-15 19:13+0200\n"
 "PO-Revision-Date: 2012-02-17 13:23+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
@@ -21,25 +21,14 @@ msgstr ""
 msgid "\n"
 msgstr ""
 #
-#, c-format
-msgid ""
-"\n"
-"Name of Waypoint: %s"
-msgstr ""
-"\n"
-"Wegpunkt-Name: %s"
-#
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "\n"
 "Name of Waypoint: %s\n"
-"True bearing to destination: %4.1f%s\n"
-"Range to destination: %4.2f%s"
+"%s %s"
 msgstr ""
 "\n"
-"Wegpunkt-Name: %s\n"
-"Wahre Peilung zum Ziel: %4.1f%s\n"
-"Distanz zum Ziel: %4.2f%s"
+"Wegpunkt-Name: %s"
 #
 msgid ""
 "\n"
@@ -76,6 +65,9 @@ msgstr "\""
 #
 msgid "'"
 msgstr "'"
+#
+msgid "(Unnamed Route)"
+msgstr ""
 #
 msgid "-Plugin"
 msgstr ""
@@ -141,6 +133,21 @@ msgstr "Sind Sie sicher ?"
 #
 msgid "At"
 msgstr "bei"
+#
+msgid ""
+"At Work\n"
+"\n"
+"Help\n"
+"\n"
+"Rightclick treeView for menu\n"
+"Add a treenode\n"
+"Add a item\n"
+"Insert text\n"
+"Click OK\n"
+"\n"
+"\n"
+"Save/Load not installed yet"
+msgstr ""
 #
 #
 msgid ""
@@ -625,6 +632,9 @@ msgstr "letzte Logbuch-Datei ist\n"
 msgid "Last line from Logbook\n"
 msgstr "Letzte Zeile aus Logbuch\n"
 #
+msgid "Last waypoint of the Route"
+msgstr ""
+#
 msgid "Layouts installed"
 msgstr "Layouts installiert"
 #
@@ -774,8 +784,17 @@ msgstr "Nationalität"
 msgid "Navigation"
 msgstr ""
 #
+msgid "New Item"
+msgstr ""
+#
 msgid "New Logbook"
 msgstr "Neues Logbuch"
+#
+msgid "New Node"
+msgstr ""
+#
+msgid "Next WP Name: "
+msgstr ""
 #
 #
 #
@@ -1200,6 +1219,9 @@ msgstr "Telefon"
 msgid "Temperature"
 msgstr "Temperatur"
 #
+msgid "Textblocks"
+msgstr ""
+#
 msgid "Time"
 msgstr "Zeit"
 #
@@ -1538,14 +1560,43 @@ msgstr ""
 msgid "same watch as"
 msgstr "dieselbe Wachzeit wie"
 #
+msgid "test1"
+msgstr ""
+#
 msgid "to"
 msgstr "bis"
+#
+msgid "use Textblocks..."
+msgstr ""
 #
 msgid "week(s)"
 msgstr "Woche(n)"
 #
 msgid "write your own label"
 msgstr "schreiben Sie Ihr eigenes Label"
+#
+#
+#
+#~ msgid ""
+#~ "\n"
+#~ "Name of Waypoint: %s\n"
+#~ "True bearing to destination: %4.1f%s\n"
+#~ "Range to destination: %4.2f%s"
+#~ msgstr ""
+#~ "\n"
+#~ "Wegpunkt-Name: %s\n"
+#~ "Wahre Peilung zum Ziel: %4.1f%s\n"
+#~ "Distanz zum Ziel: %4.2f%s"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1557,6 +1608,16 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #, fuzzy
 #~ msgid "AllLogbooks"
 #~ msgstr "Alle Logbücher"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1661,6 +1722,16 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Crewliste"
 #
@@ -1685,8 +1756,28 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Current from"
 #~ msgstr "Strom von"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1743,8 +1834,28 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Logbuch Konni"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1853,8 +1964,28 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Save"
 #~ msgstr "Speichern"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1948,9 +2079,29 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #

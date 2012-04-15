@@ -189,16 +189,32 @@ bool Export::writeToODT(wxTextFile* logFile,wxGrid* grid, wxString filenameOut,w
 	return true;
 }
 
-wxString Export::replaceNewLine(int mode, wxString str)
+
+wxString Export::replaceNewLine(int mode, wxString str, bool label)
 {
-	switch(mode)
-	{
-	case 0: // HTML
-		 str.Replace(wxT("\n"),wxT("<br>"));
-		 break;
-	case 1:		  // ODT
-		 str.Replace(wxT("\n"),wxT("<text:line-break/>"));
-		 break;
-	}
+	str.Replace(wxT("&"),wxT("&amp;"));
+	str.Replace(wxT("<"),wxT("&lt;"));
+	str.Replace(wxT(">"),wxT("&gt;"));
+	str.Replace(wxT("'"),wxT("&apos;"));
+	str.Replace(wxT("\""),wxT("&quot;"));
+
+	if(mode == 0)
+		{// HTML
+		  str.Replace(wxT("\n"),wxT("<br>"));
+		} 
+	else
+		{// ODT
+		  if(!label)
+		  {
+		  str.Replace(wxT("\n"),wxT("<text:line-break/>"));
+		  str.Replace(wxT("\xD\xA"),wxT("<text:line-break/>"));
+		  }
+		  else
+		  {
+		  str.Replace(wxT("\n"),wxT(" "));
+		  str.Replace(wxT("\xD\xA"),wxT(" "));
+		  }
+		}
+
 	return str;
 }

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 15:00+0100\n"
+"POT-Creation-Date: 2012-04-15 19:13+0200\n"
 "PO-Revision-Date: 2012-04-11 16:28+0100\n"
 "Last-Translator: Gilletarom <gilletarom@netpratique.fr>\n"
 "Language-Team: \n"
@@ -17,25 +17,14 @@ msgstr ""
 msgid "\n"
 msgstr "\n"
 #
-#, c-format
-msgid ""
-"\n"
-"Name of Waypoint: %s"
-msgstr ""
-"\n"
-"Nom du waypoint : %s"
-#
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "\n"
 "Name of Waypoint: %s\n"
-"True bearing to destination: %4.1f%s\n"
-"Range to destination: %4.2f%s"
+"%s %s"
 msgstr ""
 "\n"
-"Nom du Waypoint             : %s\n"
-"Cap vrai vers l'arrivée      : %4.1f%s\n"
-"Distance jusqu'à l'arrivée : %4.2f%s"
+"Nom du waypoint : %s"
 #
 msgid ""
 "\n"
@@ -70,6 +59,9 @@ msgstr "\""
 #
 msgid "'"
 msgstr "'"
+#
+msgid "(Unnamed Route)"
+msgstr ""
 #
 msgid "-Plugin"
 msgstr "-Plug-in"
@@ -151,6 +143,21 @@ msgstr "Etes vous certain  ?"
 #
 msgid "At"
 msgstr "A"
+#
+msgid ""
+"At Work\n"
+"\n"
+"Help\n"
+"\n"
+"Rightclick treeView for menu\n"
+"Add a treenode\n"
+"Add a item\n"
+"Insert text\n"
+"Click OK\n"
+"\n"
+"\n"
+"Save/Load not installed yet"
+msgstr ""
 #
 msgid ""
 "Automatic Line by Timer\n"
@@ -594,6 +601,9 @@ msgstr "Dernière ligne du livre de bord\n"
 msgid "Last line from Logbook\n"
 msgstr "Dernière ligne du livre de bord\n"
 #
+msgid "Last waypoint of the Route"
+msgstr ""
+#
 msgid "Layouts installed"
 msgstr "Mises en page  installée"
 #
@@ -704,10 +714,19 @@ msgstr "Nationalité"
 msgid "Navigation"
 msgstr "Navigation"
 #
+msgid "New Item"
+msgstr ""
+#
 msgid "New Logbook"
 msgstr ""
 "Nouveau\n"
 "livre de bord"
+#
+msgid "New Node"
+msgstr ""
+#
+msgid "Next WP Name: "
+msgstr ""
 #
 #
 #
@@ -1172,6 +1191,9 @@ msgstr "Téléphone"
 msgid "Temperature"
 msgstr "Température"
 #
+msgid "Textblocks"
+msgstr ""
+#
 msgid "Time"
 msgstr "Heure"
 #
@@ -1513,13 +1535,32 @@ msgstr "s"
 msgid "same watch as"
 msgstr "Même quart que"
 #
+msgid "test1"
+msgstr ""
+#
 # means
 # Logbook from date to date
 msgid "to"
 msgstr "à"
+#
+msgid "use Textblocks..."
+msgstr ""
 #
 msgid "week(s)"
 msgstr "semaine(s)"
 #
 msgid "write your own label"
 msgstr "Ecrire votre  propre \"étiquette\" "
+#
+#
+#
+#~ msgid ""
+#~ "\n"
+#~ "Name of Waypoint: %s\n"
+#~ "True bearing to destination: %4.1f%s\n"
+#~ "Range to destination: %4.2f%s"
+#~ msgstr ""
+#~ "\n"
+#~ "Nom du Waypoint             : %s\n"
+#~ "Cap vrai vers l'arrivée      : %4.1f%s\n"
+#~ "Distance jusqu'à l'arrivée : %4.2f%s"

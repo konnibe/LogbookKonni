@@ -7,6 +7,7 @@
 #include "LogbookDialog.h"
 #include "logbook_pi.h"
 #include "MessageBoxOSX.h"
+#include "Export.h"
 
 #include <wx/textctrl.h>
 #include <wx/filefn.h>
@@ -264,140 +265,140 @@ wxString Boat::toODT(wxString path,wxString layout,bool mode)
 			switch(i)
 			{
 			case 0: 
-				odt.Replace(wxT("#BOATNAME#"),te->GetValue());
-				odt.Replace(wxT("#LBOATNAME#"),parent->bname->GetLabel());
+				odt.Replace(wxT("#BOATNAME#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LBOATNAME#"),Export::replaceNewLine(true,parent->bname->GetLabel(),true));
 				break;
 			case 1: 
-				odt.Replace(wxT("#HOMEPORT#"),te->GetValue());
-				odt.Replace(wxT("#LHOMEPORT#"),parent->m_staticText114->GetLabel());
+				odt.Replace(wxT("#HOMEPORT#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LHOMEPORT#"),Export::replaceNewLine(true,parent->m_staticText114->GetLabel(),true));
 				break;
 			case 2: 
-				odt.Replace(wxT("#CALLSIGN#"),te->GetValue());
-				odt.Replace(wxT("#LCALLSIGN#"),parent->m_staticText115->GetLabel());
+				odt.Replace(wxT("#CALLSIGN#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LCALLSIGN#"),Export::replaceNewLine(true,parent->m_staticText115->GetLabel(),true));
 				break;
 			case 3: 
-				odt.Replace(wxT("#HIN#"),te->GetValue());
-				odt.Replace(wxT("#LHIN#"),parent->m_staticText116->GetLabel());
+				odt.Replace(wxT("#HIN#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LHIN#"),Export::replaceNewLine(true,parent->m_staticText116->GetLabel(),true));
 				break;
 			case 4: 
-				odt.Replace(wxT("#SAILNO#"),te->GetValue());
-				odt.Replace(wxT("#LSAILNO#"),parent->m_staticText117->GetLabel());
+				odt.Replace(wxT("#SAILNO#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LSAILNO#"),Export::replaceNewLine(true,parent->m_staticText117->GetLabel(),true));
 				break;
 			case 6: 
-				odt.Replace(wxT("#REGISTRATION#"),te->GetValue());
-				odt.Replace(wxT("#LREGISTRATION#"),parent->m_staticText118->GetLabel());
+				odt.Replace(wxT("#REGISTRATION#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LREGISTRATION#"),Export::replaceNewLine(true,parent->m_staticText118->GetLabel(),true));
 				break;
 			case 5: 
-				odt.Replace(wxT("#INSURANCE#"),te->GetValue());
-				odt.Replace(wxT("#LINSURANCE#"),parent->m_staticText119->GetLabel());
+				odt.Replace(wxT("#INSURANCE#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LINSURANCE#"),Export::replaceNewLine(true,parent->m_staticText119->GetLabel(),true));
 				break;
 			case 7: 
-				odt.Replace(wxT("#POLICY#"),te->GetValue());
-				odt.Replace(wxT("#LPOLICY#"),parent->m_staticText120->GetLabel());
+				odt.Replace(wxT("#POLICY#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LPOLICY#"),Export::replaceNewLine(true,parent->m_staticText120->GetLabel(),true));
 				break;
 			case 8: 
-				odt.Replace(wxT("#MMSI#"),te->GetValue());
-				odt.Replace(wxT("#LMMSI#"),parent->m_staticText53->GetLabel());
+				odt.Replace(wxT("#MMSI#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LMMSI#"),Export::replaceNewLine(true,parent->m_staticText53->GetLabel(),true));
 				break;
 			case 9: 
-				odt.Replace(wxT("#ONAME#"),te->GetValue());
-				odt.Replace(wxT("#LONAME#"),parent->m_staticText90->GetLabel());
+				odt.Replace(wxT("#ONAME#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LONAME#"),Export::replaceNewLine(true,parent->m_staticText90->GetLabel(),true));
 				break;
 			case 10: 
-				odt.Replace(wxT("#OFIRST#"),te->GetValue());
-				odt.Replace(wxT("#LOFIRST#"),parent->m_staticText91->GetLabel());
+				odt.Replace(wxT("#OFIRST#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LOFIRST#"),Export::replaceNewLine(true,parent->m_staticText91->GetLabel(),true));
 				break;
 			case 11: 
-				odt.Replace(wxT("#TELEPHONE#"),te->GetValue());
-				odt.Replace(wxT("#LTELEPHONE#"),parent->m_staticText95->GetLabel());
+				odt.Replace(wxT("#TELEPHONE#"),Export::replaceNewLine(true,te->GetValue(), false));
+				odt.Replace(wxT("#LTELEPHONE#"),Export::replaceNewLine(true,parent->m_staticText95->GetLabel(),true));
 				break;
 			case 12: 
-				odt.Replace(wxT("#STREET#"),te->GetValue());
-				odt.Replace(wxT("#LSTREET#"),parent->m_staticText92->GetLabel());
+				odt.Replace(wxT("#STREET#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LSTREET#"),Export::replaceNewLine(true,parent->m_staticText92->GetLabel(),true));
 				break;
 			case 13: 
-				odt.Replace(wxT("#ZIP#"),te->GetValue());
-				odt.Replace(wxT("#LZIP#"),parent->m_staticText93->GetLabel());
+				odt.Replace(wxT("#ZIP#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LZIP#"),Export::replaceNewLine(true,parent->m_staticText93->GetLabel(),true));
 				break;
 			case 14: 
-				odt.Replace(wxT("#TOWN#"),te->GetValue());	
-				odt.Replace(wxT("#LTOWN#"),parent->m_staticText94->GetLabel());
+				odt.Replace(wxT("#TOWN#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LTOWN#"),Export::replaceNewLine(true,parent->m_staticText94->GetLabel(),true));
 				break;
 			case 15: 
-				odt.Replace(wxT("#TYPE#"),te->GetValue());
-				odt.Replace(wxT("#LTYPE#"),parent->m_staticText128->GetLabel());
+				odt.Replace(wxT("#TYPE#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LTYPE#"),Export::replaceNewLine(true,parent->m_staticText128->GetLabel(),true));
 				break;
 			case 16: 
-				odt.Replace(wxT("#BUILDER#"),te->GetValue());
-				odt.Replace(wxT("#LBUILDER#"),parent->m_staticText125->GetLabel());
+				odt.Replace(wxT("#BUILDER#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LBUILDER#"),Export::replaceNewLine(true,parent->m_staticText125->GetLabel(),true));
 				break;
 			case 17: 
-				odt.Replace(wxT("#HULL#"),te->GetValue());
-				odt.Replace(wxT("#LHULL#"),parent->m_staticText124->GetLabel());
+				odt.Replace(wxT("#HULL#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LHULL#"),Export::replaceNewLine(true,parent->m_staticText124->GetLabel(),true));
 				break;
 			case 18: 
-				odt.Replace(wxT("#LAUNCHED#"),te->GetValue());
-				odt.Replace(wxT("#LLAUNCHED#"),parent->m_staticText126->GetLabel());
+				odt.Replace(wxT("#LAUNCHED#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LLAUNCHED#"),Export::replaceNewLine(true,parent->m_staticText126->GetLabel(),true));
 				break;
 			case 19:
-				odt.Replace(wxT("#YARDNO#"),te->GetValue());
-				odt.Replace(wxT("#LYARDNO#"),parent->m_staticText127->GetLabel());
+				odt.Replace(wxT("#YARDNO#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LYARDNO#"),Export::replaceNewLine(true,parent->m_staticText127->GetLabel(),true));
 				break;
 			case 20:
-				odt.Replace(wxT("#DESIGNER#"),te->GetValue());
-				odt.Replace(wxT("#LDESIGNER#"),parent->m_staticText123->GetLabel());
+				odt.Replace(wxT("#DESIGNER#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LDESIGNER#"),Export::replaceNewLine(true,parent->m_staticText123->GetLabel(),true));
 				break;
 			case 21: 
-				odt.Replace(wxT("#CONSTRUCT#"),te->GetValue());
-				odt.Replace(wxT("#LCONSTRUCT#"),parent->m_staticText129->GetLabel());
+				odt.Replace(wxT("#CONSTRUCT#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LCONSTRUCT#"),Export::replaceNewLine(true,parent->m_staticText129->GetLabel(),true));
 				break;
 			case 22: 
-				odt.Replace(wxT("#LOA#"),te->GetValue());
-				odt.Replace(wxT("#LLOA#"),parent->m_staticText106->GetLabel());
+				odt.Replace(wxT("#LOA#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LLOA#"),Export::replaceNewLine(true,parent->m_staticText106->GetLabel(),true));
 				break;
 			case 23:
-				odt.Replace(wxT("#LOD#"),te->GetValue());
-				odt.Replace(wxT("#LLOD#"),parent->m_staticText107->GetLabel());
+				odt.Replace(wxT("#LOD#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LLOD#"),Export::replaceNewLine(true,parent->m_staticText107->GetLabel(),true));
 				break;
 			case 24:
-				odt.Replace(wxT("#LWL#"),te->GetValue());
-				odt.Replace(wxT("#LLWL#"),parent->m_staticText108->GetLabel());
+				odt.Replace(wxT("#LWL#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LLWL#"),Export::replaceNewLine(true,parent->m_staticText108->GetLabel(),true));
 				break;
 			case 25: 
-				odt.Replace(wxT("#BEAM#"),te->GetValue());
-				odt.Replace(wxT("#LBEAM#"),parent->m_staticText109->GetLabel());
+				odt.Replace(wxT("#BEAM#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LBEAM#"),Export::replaceNewLine(true,parent->m_staticText109->GetLabel(),true));
 				break;
 			case 26: 
-				odt.Replace(wxT("#DRAFT#"),te->GetValue());
-				odt.Replace(wxT("#LDRAFT#"),parent->m_staticText110->GetLabel());
+				odt.Replace(wxT("#DRAFT#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LDRAFT#"),Export::replaceNewLine(true,parent->m_staticText110->GetLabel(),true));
 				break;
 			case 27: 
-				odt.Replace(wxT("#LUSER1#"),parent->UserLabel1->GetValue());
+				odt.Replace(wxT("#LUSER1#"),Export::replaceNewLine(true,parent->UserLabel1->GetValue(),true));
 				break;
 			case 28:
-				odt.Replace(wxT("#USER1#"),te->GetValue());
+				odt.Replace(wxT("#USER1#"),Export::replaceNewLine(true,te->GetValue(),false));
 				break;
 			case 29: 
-				odt.Replace(wxT("#LUSER2#"),parent->UserLabel2->GetValue());
+				odt.Replace(wxT("#LUSER2#"),Export::replaceNewLine(true,parent->UserLabel2->GetValue(),true));
 				break;
 			case 30:
-				odt.Replace(wxT("#USER2#"),te->GetValue());
+				odt.Replace(wxT("#USER2#"),Export::replaceNewLine(true,te->GetValue(),false));
 				break;
 			case 31: 
-				odt.Replace(wxT("#LUSER3#"),parent->UserLabel3->GetValue());
+				odt.Replace(wxT("#LUSER3#"),Export::replaceNewLine(true,parent->UserLabel3->GetValue(),true));
 				break;
 			case 32:
-				odt.Replace(wxT("#USER3#"),te->GetValue());
+				odt.Replace(wxT("#USER3#"),Export::replaceNewLine(true,te->GetValue(),false));
 				break;
 			case 33: 
-				odt.Replace(wxT("#DISPL#"),te->GetValue());	
-				odt.Replace(wxT("#LDISPL#"),parent->m_staticText122->GetLabel());
+				odt.Replace(wxT("#DISPL#"),Export::replaceNewLine(true,te->GetValue(),false));
+				odt.Replace(wxT("#LDISPL#"),Export::replaceNewLine(true,parent->m_staticText122->GetLabel(),true));
 				break;
 			}
 		}
 	}
 
-	odt.Replace(_T("#LOWNER#"),parent->sbSizer6->GetStaticBox()->GetLabel());
+	odt.Replace(_T("#LOWNER#"),Export::replaceNewLine(true,parent->sbSizer6->GetStaticBox()->GetLabel(),true));
 	if(odt.Contains(wxT("{{")))
 		odt = repeatAreaODT(odt);
 	

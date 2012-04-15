@@ -33,6 +33,7 @@
 #include <wx/stattext.h>
 #include <wx/textctrl.h>
 #include <wx/splitter.h>
+#include <wx/treectrl.h>
 #include <wx/dialog.h>
 #include <wx/filepicker.h>
 #include <wx/radiobox.h>
@@ -55,6 +56,8 @@
 #define	MENUTIMER		505
 #define ID_LOGTIMER		510
 #define ID_GPSTIMER		510
+#define COLDFINGER_REM  511
+#define COLDFINGER_MOT  512
 
 #define GPSTIMEOUT 5000
 #define LOGSAVETIME 600000
@@ -667,6 +670,75 @@ private:
     wxArrayString     m_colLabels;
 
 //    DECLARE_DYNAMIC_CLASS_NO_COPY( wxGridStringTable )
+};
+
+//////////////////// Díalog ColdFinger //////////////////////////////////
+class ColdFinger : public wxDialog 
+{
+	private:
+	    bool modified;
+		wxTreeItemId selectedItem;
+
+	protected:
+		wxSplitterWindow* m_splitter2;
+		wxPanel* m_panel18;
+		wxMenu* m_menu9;
+		wxPanel* m_panel19;
+		wxStaticText* m_staticText94;
+		wxStaticText* m_staticText95;
+		wxChoice* m_choice23;
+		wxStaticText* m_staticText96;
+		wxChoice* m_choice24;
+		wxStaticLine* m_staticline32;
+		wxStaticText* m_staticText97;
+		wxTextCtrl* m_textCtrl73;
+		wxStdDialogButtonSizer* m_sdbSizer8;
+		wxButton* m_sdbSizer8OK;
+		wxButton* m_sdbSizer8Cancel;
+		
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnInitDialog( wxInitDialogEvent& event );
+		virtual void OnTreeBeginDragCold( wxTreeEvent& event ) { event.Skip(); }
+		virtual void OnTreeItemRightClickCold( wxTreeEvent& event ) { event.Skip(); }
+		virtual void OnTreeSelChanged( wxTreeEvent& event );
+		virtual void OnMenuSelectionAddCold( wxCommandEvent& event );
+		virtual void OnMenuSelectionDeleteCold( wxCommandEvent& event );
+		virtual void OnMenuSelectionRenameCold( wxCommandEvent& event );
+		virtual void OnMenuSelectionaddNodeCold( wxCommandEvent& event );
+		virtual void OnMenuTreeSelectionDeleteNodeCold( wxCommandEvent& event );
+		virtual void OnTextCold( wxCommandEvent& event );
+		virtual void OnOKButtonClickCold( wxCommandEvent& event );
+		
+	
+	public:
+		enum treenodes { NODE,ITEM };
+		wxTreeCtrl* m_treeCtrl3;
+		wxString text;
+		
+		ColdFinger( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Textblocks Dialog"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 524,392 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER ); 
+		~ColdFinger();
+		
+		void m_splitter2OnIdle( wxIdleEvent& )
+		{
+			m_splitter2->SetSashPosition( 0 );
+			m_splitter2->Disconnect( wxEVT_IDLE, wxIdleEventHandler( ColdFinger::m_splitter2OnIdle ), NULL, this );
+		}
+		
+		void m_treeCtrl3OnContextMenu( wxMouseEvent &event )
+		{
+			m_treeCtrl3->PopupMenu( m_menu9, event.GetPosition() );
+		}
+	
+};
+
+class myTreeItem : public wxTreeItemData
+{
+public:
+	myTreeItem(int type,wxString text);
+
+	int		 type;
+	wxString text;
+
 };
 
 #endif //__logbook__

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 15:00+0100\n"
+"POT-Creation-Date: 2012-04-15 19:13+0200\n"
 "PO-Revision-Date: 2012-02-26 06:27+0100\n"
 "Last-Translator: Jacob Handrup <jacob@familienhandrup.dk>\n"
 "Language-Team: \n"
@@ -22,25 +22,14 @@ msgstr ""
 msgid "\n"
 msgstr "\n"
 #
-#, c-format
-msgid ""
-"\n"
-"Name of Waypoint: %s"
-msgstr ""
-"\n"
-"Waypoint name: %s"
-#
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "\n"
 "Name of Waypoint: %s\n"
-"True bearing to destination: %4.1f%s\n"
-"Range to destination: %4.2f%s"
+"%s %s"
 msgstr ""
 "\n"
-"Waypoint navn: %s\n"
-"Sand pejling til destination: %4.1f%s\n"
-"Afstand til destination: %4.2f%s"
+"Waypoint name: %s"
 #
 msgid ""
 "\n"
@@ -77,6 +66,9 @@ msgstr "\""
 #
 msgid "'"
 msgstr "'"
+#
+msgid "(Unnamed Route)"
+msgstr ""
 #
 msgid "-Plugin"
 msgstr "-Plugin"
@@ -142,6 +134,21 @@ msgstr "Er du sikker ?"
 #
 msgid "At"
 msgstr "Ved"
+#
+msgid ""
+"At Work\n"
+"\n"
+"Help\n"
+"\n"
+"Rightclick treeView for menu\n"
+"Add a treenode\n"
+"Add a item\n"
+"Insert text\n"
+"Click OK\n"
+"\n"
+"\n"
+"Save/Load not installed yet"
+msgstr ""
 #
 #
 msgid ""
@@ -618,6 +625,9 @@ msgstr "Sidste logbog er\n"
 msgid "Last line from Logbook\n"
 msgstr "Sidste linie fra logbog\n"
 #
+msgid "Last waypoint of the Route"
+msgstr ""
+#
 msgid "Layouts installed"
 msgstr "Layouts installeret"
 #
@@ -763,8 +773,17 @@ msgstr "Nationalitet"
 msgid "Navigation"
 msgstr "Navigation"
 #
+msgid "New Item"
+msgstr ""
+#
 msgid "New Logbook"
 msgstr "Ny logbog"
+#
+msgid "New Node"
+msgstr ""
+#
+msgid "Next WP Name: "
+msgstr ""
 #
 #
 #
@@ -1188,6 +1207,9 @@ msgstr "Telefon"
 msgid "Temperature"
 msgstr "Temperatur"
 #
+msgid "Textblocks"
+msgstr ""
+#
 msgid "Time"
 msgstr "Tid"
 #
@@ -1522,14 +1544,43 @@ msgstr "s"
 msgid "same watch as"
 msgstr "samme vagt som"
 #
+msgid "test1"
+msgstr ""
+#
 msgid "to"
 msgstr "til"
+#
+msgid "use Textblocks..."
+msgstr ""
 #
 msgid "week(s)"
 msgstr "uge(r)"
 #
 msgid "write your own label"
 msgstr "skriv din egen label"
+#
+#
+#
+#~ msgid ""
+#~ "\n"
+#~ "Name of Waypoint: %s\n"
+#~ "True bearing to destination: %4.1f%s\n"
+#~ "Range to destination: %4.2f%s"
+#~ msgstr ""
+#~ "\n"
+#~ "Waypoint navn: %s\n"
+#~ "Sand pejling til destination: %4.1f%s\n"
+#~ "Afstand til destination: %4.2f%s"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1634,6 +1685,16 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Crewliste"
 #
@@ -1660,8 +1721,28 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Current from"
 #~ msgstr "Strøm fra"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1732,8 +1813,28 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Logbuch Konni"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1758,6 +1859,16 @@ msgstr "skriv din egen label"
 #, fuzzy
 #~ msgid "Nm"
 #~ msgstr "Navn"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1866,8 +1977,28 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Save"
 #~ msgstr "Speichern"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1965,9 +2096,29 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #

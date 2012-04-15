@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 15:00+0100\n"
+"POT-Creation-Date: 2012-04-15 19:13+0200\n"
 "PO-Revision-Date: 2012-02-17 13:33+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: Pavel Kalian <pavel@kalian.cz>\n"
@@ -21,25 +21,14 @@ msgstr ""
 msgid "\n"
 msgstr ""
 #
-#, c-format
-msgid ""
-"\n"
-"Name of Waypoint: %s"
-msgstr ""
-"\n"
-"Jméno bodu: %s"
-#
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "\n"
 "Name of Waypoint: %s\n"
-"True bearing to destination: %4.1f%s\n"
-"Range to destination: %4.2f%s"
+"%s %s"
 msgstr ""
 "\n"
-"Jméno trasového bodut: %s\n"
-"Skutečný směr k cíli: %4.1f%s\n"
-"Vzdálenost k cíli: %4.2f%s"
+"Jméno bodu: %s"
 #
 msgid ""
 "\n"
@@ -74,6 +63,9 @@ msgid "\""
 msgstr ""
 #
 msgid "'"
+msgstr ""
+#
+msgid "(Unnamed Route)"
 msgstr ""
 #
 msgid "-Plugin"
@@ -235,6 +227,21 @@ msgstr "Jsi si jist?"
 #
 msgid "At"
 msgstr "U"
+#
+msgid ""
+"At Work\n"
+"\n"
+"Help\n"
+"\n"
+"Rightclick treeView for menu\n"
+"Add a treenode\n"
+"Add a item\n"
+"Insert text\n"
+"Click OK\n"
+"\n"
+"\n"
+"Save/Load not installed yet"
+msgstr ""
 #
 #
 msgid ""
@@ -775,6 +782,9 @@ msgstr "Poslední lodní deník je\n"
 msgid "Last line from Logbook\n"
 msgstr "Poslední řádka lodního deníku\n"
 #
+msgid "Last waypoint of the Route"
+msgstr ""
+#
 msgid "Layouts installed"
 msgstr "Rozvržení instalovány"
 #
@@ -943,8 +953,17 @@ msgstr "Národnost"
 msgid "Navigation"
 msgstr "Navigace"
 #
+msgid "New Item"
+msgstr ""
+#
 msgid "New Logbook"
 msgstr "Nový lodní deník"
+#
+msgid "New Node"
+msgstr ""
+#
+msgid "Next WP Name: "
+msgstr ""
 #
 #
 #
@@ -1589,6 +1608,9 @@ msgstr "Telefon"
 msgid "Temperature"
 msgstr "Teplota"
 #
+msgid "Textblocks"
+msgstr ""
+#
 msgid "Time"
 msgstr "Čas"
 #
@@ -1979,6 +2001,9 @@ msgstr "s"
 msgid "same watch as"
 msgstr "Stejná hlídka jako"
 #
+msgid "test1"
+msgstr ""
+#
 #
 #
 #
@@ -1996,11 +2021,37 @@ msgstr "Stejná hlídka jako"
 msgid "to"
 msgstr "do"
 #
+msgid "use Textblocks..."
+msgstr ""
+#
 msgid "week(s)"
 msgstr "týdny"
 #
 msgid "write your own label"
 msgstr "Napiš vlastní popis"
+#
+#
+#
+#~ msgid ""
+#~ "\n"
+#~ "Name of Waypoint: %s\n"
+#~ "True bearing to destination: %4.1f%s\n"
+#~ "Range to destination: %4.2f%s"
+#~ msgstr ""
+#~ "\n"
+#~ "Jméno trasového bodut: %s\n"
+#~ "Skutečný směr k cíli: %4.1f%s\n"
+#~ "Vzdálenost k cíli: %4.2f%s"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2245,6 +2296,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "BuyParts"
 #~ msgstr "Koupit díly"
@@ -2325,8 +2386,28 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Seznam posádky"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2542,6 +2623,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Etmal "
 #~ msgstr "NM/24h"
 #
@@ -2565,8 +2656,28 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "FirstName"
 #~ msgstr "Jméno"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2828,6 +2939,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "GrossTonnage"
 #~ msgstr "Celková registrovaná prostornost"
 #
@@ -2900,8 +3021,28 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Konniho lodní deník"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3189,8 +3330,28 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "NetTonnage"
 #~ msgstr "Čistá registrovaná prostornost"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3340,8 +3501,28 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Cesta k editoru HTML (volitelné)"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3594,8 +3775,28 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Schedule"
 #~ msgstr "Rozvrh"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3610,6 +3811,16 @@ msgstr "Napiš vlastní popis"
 #, fuzzy
 #~ msgid "Search.."
 #~ msgstr "Vybrat lodní deník"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3862,8 +4073,28 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Show Maintence Rows coloured"
 #~ msgstr "Zobraz řádky údržby v barvě"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -4172,8 +4403,28 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Dnes"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -4302,6 +4553,16 @@ msgstr "Napiš vlastní popis"
 #, fuzzy
 #~ msgid "Traditional-Style"
 #~ msgstr "Národnost"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #

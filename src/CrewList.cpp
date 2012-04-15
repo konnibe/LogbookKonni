@@ -1,6 +1,7 @@
 #include "CrewList.h"
 #include "LogbookDialog.h"
 #include "MessageBoxOSX.h"
+#include "Export.h"
 
 #ifndef WX_PRECOMP
      #include <wx/wx.h>
@@ -519,18 +520,18 @@ void CrewList::saveHTML(wxString savePath, wxString layout, bool mode)
 	wxString newMiddleHTML;
 	wxString newWakeHTML;
 
-	topHTML.Replace(wxT("#TYPE#"),dialog->boatType->GetValue());
-	topHTML.Replace(wxT("#BOATNAME#"),dialog->boatName->GetValue());
-	topHTML.Replace(wxT("#HOMEPORT#"),dialog->homeport->GetValue());
-	topHTML.Replace(wxT("#CALLSIGN#"),dialog->callsign->GetValue());
-	topHTML.Replace(wxT("#REGISTRATION#"),dialog->registration->GetValue());
+	topHTML.Replace(wxT("#TYPE#"),Export::replaceNewLine(mode,dialog->boatType->GetValue(),false));
+	topHTML.Replace(wxT("#BOATNAME#"),Export::replaceNewLine(mode,dialog->boatName->GetValue(),false));
+	topHTML.Replace(wxT("#HOMEPORT#"),Export::replaceNewLine(mode,dialog->homeport->GetValue(),false));
+	topHTML.Replace(wxT("#CALLSIGN#"),Export::replaceNewLine(mode,dialog->callsign->GetValue(),false));
+	topHTML.Replace(wxT("#REGISTRATION#"),Export::replaceNewLine(mode,dialog->registration->GetValue(),false));
 
-	topHTML.Replace(wxT("#LTYPE#"),dialog->m_staticText128->GetLabel());
-	topHTML.Replace(wxT("#LBOATNAME#"),dialog->bname->GetLabel());
-	topHTML.Replace(wxT("#LHOMEPORT#"),dialog->m_staticText114->GetLabel());
-	topHTML.Replace(wxT("#LCALLSIGN#"),dialog->m_staticText115->GetLabel());
-	topHTML.Replace(wxT("#LREGISTRATION#"),dialog->m_staticText118->GetLabel());
-	topHTML.Replace(wxT("#LCREWLIST#"),dialog->m_logbook->GetPageText(2));
+	topHTML.Replace(wxT("#LTYPE#"),Export::replaceNewLine(mode,dialog->m_staticText128->GetLabel(),true));
+	topHTML.Replace(wxT("#LBOATNAME#"),Export::replaceNewLine(mode,dialog->bname->GetLabel(),true));
+	topHTML.Replace(wxT("#LHOMEPORT#"),Export::replaceNewLine(mode,dialog->m_staticText114->GetLabel(),true));
+	topHTML.Replace(wxT("#LCALLSIGN#"),Export::replaceNewLine(mode,dialog->m_staticText115->GetLabel(),true));
+	topHTML.Replace(wxT("#LREGISTRATION#"),Export::replaceNewLine(mode,dialog->m_staticText118->GetLabel(),true));
+	topHTML.Replace(wxT("#LCREWLIST#"),Export::replaceNewLine(mode,dialog->m_logbook->GetPageText(2),true));
 
 	if(html.Contains(_T("<!--Repeat -->")))
 	{	
@@ -579,94 +580,94 @@ wxString CrewList::replacePlaceholder(wxString html,wxString s, bool nGrid, int 
 			case 0:
 				switch(col)
 				{
-					case NAME:			html.Replace(wxT("#NAME#"),grid->GetCellValue(row,col));
-										html.Replace(wxT("#LNAME#"),grid->GetColLabelValue(col));
+				case NAME:				html.Replace(wxT("#NAME#"),Export::replaceNewLine(mode,grid->GetCellValue(row,col),false));
+										html.Replace(wxT("#LNAME#"),Export::replaceNewLine(mode,grid->GetColLabelValue(col),true));
 										break;
-					case BIRTHNAME:		html.Replace(wxT("#BIRTHNAME#"),grid->GetCellValue(row,col));
-										html.Replace(wxT("#LBIRTHNAME#"),grid->GetColLabelValue(col));
+					case BIRTHNAME:		html.Replace(wxT("#BIRTHNAME#"),Export::replaceNewLine(mode,grid->GetCellValue(row,col),false));
+										html.Replace(wxT("#LBIRTHNAME#"),Export::replaceNewLine(mode,grid->GetColLabelValue(col),true));
 										break;
-					case FIRSTNAME:		html.Replace(wxT("#FIRSTNAME#"),grid->GetCellValue(row,col));
-										html.Replace(wxT("#LFIRSTNAME#"),grid->GetColLabelValue(col));
+					case FIRSTNAME:		html.Replace(wxT("#FIRSTNAME#"),Export::replaceNewLine(mode,grid->GetCellValue(row,col),false));
+										html.Replace(wxT("#LFIRSTNAME#"),Export::replaceNewLine(mode,grid->GetColLabelValue(col),true));
 										break;
-					case TITLE:			html.Replace(wxT("#TITLE#"),grid->GetCellValue(row,col));
-										html.Replace(wxT("#LTITLE#"),grid->GetColLabelValue(col));			
+					case TITLE:			html.Replace(wxT("#TITLE#"),Export::replaceNewLine(mode,grid->GetCellValue(row,col),false));
+										html.Replace(wxT("#LTITLE#"),Export::replaceNewLine(mode,grid->GetColLabelValue(col),true));		
 										break;
-					case BIRTHPLACE:	html.Replace(wxT("#BIRTHPLACE#"),grid->GetCellValue(row,col));
-										html.Replace(wxT("#LBIRTHPLACE#"),grid->GetColLabelValue(col));	
+					case BIRTHPLACE:	html.Replace(wxT("#BIRTHPLACE#"),Export::replaceNewLine(mode,grid->GetCellValue(row,col),false));
+										html.Replace(wxT("#LBIRTHPLACE#"),Export::replaceNewLine(mode,grid->GetColLabelValue(col),true));
 										break;
-					case BIRTHDATE:		html.Replace(wxT("#BIRTHDATE#"),grid->GetCellValue(row,col));
-										html.Replace(wxT("#LBIRTHDATE#"),grid->GetColLabelValue(col));	
+					case BIRTHDATE:		html.Replace(wxT("#BIRTHDATE#"),Export::replaceNewLine(mode,grid->GetCellValue(row,col),false));
+										html.Replace(wxT("#LBIRTHDATE#"),Export::replaceNewLine(mode,grid->GetColLabelValue(col),true));
 										break;
-					case NATIONALITY:	html.Replace(wxT("#NATIONALITY#"),grid->GetCellValue(row,col));
-										html.Replace(wxT("#LNATIONALITY#"),grid->GetColLabelValue(col));	
+					case NATIONALITY:	html.Replace(wxT("#NATIONALITY#"),Export::replaceNewLine(mode,grid->GetCellValue(row,col),false));
+										html.Replace(wxT("#LNATIONALITY#"),Export::replaceNewLine(mode,grid->GetColLabelValue(col),true));	
 										break;
-					case PASSPORT:		html.Replace(wxT("#PASSPORT#"),grid->GetCellValue(row,col));
-										html.Replace(wxT("#LPASSPORT#"),grid->GetColLabelValue(col));	
+					case PASSPORT:		html.Replace(wxT("#PASSPORT#"),Export::replaceNewLine(mode,grid->GetCellValue(row,col),false));
+										html.Replace(wxT("#LPASSPORT#"),Export::replaceNewLine(mode,grid->GetColLabelValue(col),true));
 										break;
-					case EST_IN:		html.Replace(wxT("#EST_IN#"),grid->GetCellValue(row,col));
-										html.Replace(wxT("#LEST_IN#"),grid->GetColLabelValue(col));	
+					case EST_IN:		html.Replace(wxT("#EST_IN#"),Export::replaceNewLine(mode,grid->GetCellValue(row,col),false));
+										html.Replace(wxT("#LEST_IN#"),Export::replaceNewLine(mode,grid->GetColLabelValue(col),true));
 										break;
-					case EST_ON:		html.Replace(wxT("#EST_ON#"),grid->GetCellValue(row,col));
-										html.Replace(wxT("#LEST_ON#"),grid->GetColLabelValue(col));	
+					case EST_ON:		html.Replace(wxT("#EST_ON#"),Export::replaceNewLine(mode,grid->GetCellValue(row,col),false));
+										html.Replace(wxT("#LEST_ON#"),Export::replaceNewLine(mode,grid->GetColLabelValue(col),true));
 										break;
-					case ZIP:			html.Replace(wxT("#ZIP#"),grid->GetCellValue(row,col));
-										html.Replace(wxT("#LZIP#"),grid->GetColLabelValue(col));	
+					case ZIP:			html.Replace(wxT("#ZIP#"),Export::replaceNewLine(mode,grid->GetCellValue(row,col),false));
+										html.Replace(wxT("#LZIP#"),Export::replaceNewLine(mode,grid->GetColLabelValue(col),true));
 										break;
-					case COUNTRY:		html.Replace(wxT("#COUNTRY#"),grid->GetCellValue(row,col));
-										html.Replace(wxT("#LCOUNTRY#"),grid->GetColLabelValue(col));	
+					case COUNTRY:		html.Replace(wxT("#COUNTRY#"),Export::replaceNewLine(mode,grid->GetCellValue(row,col),false));
+										html.Replace(wxT("#LCOUNTRY#"),Export::replaceNewLine(mode,grid->GetColLabelValue(col),true));	
 										break;
-					case TOWN:			html.Replace(wxT("#TOWN#"),grid->GetCellValue(row,col));
-										html.Replace(wxT("#LTOWN#"),grid->GetColLabelValue(col));	
+					case TOWN:			html.Replace(wxT("#TOWN#"),Export::replaceNewLine(mode,grid->GetCellValue(row,col),false));
+										html.Replace(wxT("#LTOWN#"),Export::replaceNewLine(mode,grid->GetColLabelValue(col),true));
 										break;
-					case STREET:		html.Replace(wxT("#STREET#"),grid->GetCellValue(row,col));
-										html.Replace(wxT("#LSTREET#"),grid->GetColLabelValue(col));	
+					case STREET:		html.Replace(wxT("#STREET#"),Export::replaceNewLine(mode,grid->GetCellValue(row,col),false));
+										html.Replace(wxT("#LSTREET#"),Export::replaceNewLine(mode,grid->GetColLabelValue(col),true));	
 										break;
 				}
 				break;
 			case 1:
 				switch(col)
 				{
-					case LWNAME:		html.Replace(wxT("#NAME#"),wake->GetCellValue(row,col));
-										html.Replace(wxT("#LNAME#"),wake->GetColLabelValue(col));	
+					case LWNAME:		html.Replace(wxT("#NAME#"),Export::replaceNewLine(mode,wake->GetCellValue(row,col),false));
+										html.Replace(wxT("#LNAME#"),Export::replaceNewLine(mode,wake->GetColLabelValue(col),true));	
 										break;
-					case LWFIRSTNAME:	html.Replace(wxT("#FIRSTNAME#"),wake->GetCellValue(row,col));
-										html.Replace(wxT("#LFIRSTNAME#"),wake->GetColLabelValue(col));	
+					case LWFIRSTNAME:	html.Replace(wxT("#FIRSTNAME#"),Export::replaceNewLine(mode,wake->GetCellValue(row,col),false));
+										html.Replace(wxT("#LFIRSTNAME#"),Export::replaceNewLine(mode,wake->GetColLabelValue(col),true));	
 										break;
-					case WAKESTART1:	html.Replace(wxT("#WAKE1#"),wake->GetCellValue(row,col));
-										html.Replace(wxT("#LWAKE1#"),wake->GetColLabelValue(col));	
+					case WAKESTART1:	html.Replace(wxT("#WAKE1#"),Export::replaceNewLine(mode,wake->GetCellValue(row,col),false));
+										html.Replace(wxT("#LWAKE1#"),Export::replaceNewLine(mode,wake->GetColLabelValue(col),true));	
 										break;
-					case WAKEEND1:		html.Replace(wxT("#WAKEE1#"),wake->GetCellValue(row,col));
-										html.Replace(wxT("#LWAKEE1#"),wake->GetColLabelValue(col));	
+					case WAKEEND1:		html.Replace(wxT("#WAKEE1#"),Export::replaceNewLine(mode,wake->GetCellValue(row,col),false));
+										html.Replace(wxT("#LWAKEE1#"),Export::replaceNewLine(mode,wake->GetColLabelValue(col),true));	
 										break;
-					case WAKESTART2:	html.Replace(wxT("#WAKE2#"),wake->GetCellValue(row,col));
-										html.Replace(wxT("#LWAKE2#"),wake->GetColLabelValue(col));	
+					case WAKESTART2:	html.Replace(wxT("#WAKE2#"),Export::replaceNewLine(mode,wake->GetCellValue(row,col),false));
+										html.Replace(wxT("#LWAKE2#"),Export::replaceNewLine(mode,wake->GetColLabelValue(col),true));	
 										break;
-					case WAKEEND2:		html.Replace(wxT("#WAKEE2#"),wake->GetCellValue(row,col));
-										html.Replace(wxT("#LWAKEE2#"),wake->GetColLabelValue(col));	
+					case WAKEEND2:		html.Replace(wxT("#WAKEE2#"),Export::replaceNewLine(mode,wake->GetCellValue(row,col),false));
+										html.Replace(wxT("#LWAKEE2#"),Export::replaceNewLine(mode,wake->GetColLabelValue(col),true));	
 										break;
-					case WAKESTART3:	html.Replace(wxT("#WAKE3#"),wake->GetCellValue(row,col));
-										html.Replace(wxT("#LWAKE3#"),wake->GetColLabelValue(col));	
+					case WAKESTART3:	html.Replace(wxT("#WAKE3#"),Export::replaceNewLine(mode,wake->GetCellValue(row,col),false));
+										html.Replace(wxT("#LWAKE3#"),Export::replaceNewLine(mode,wake->GetColLabelValue(col),true));	
 										break;
-					case WAKEEND3:		html.Replace(wxT("#WAKEE3#"),wake->GetCellValue(row,col));
-										html.Replace(wxT("#LWAKEE3#"),wake->GetColLabelValue(col));	
+					case WAKEEND3:		html.Replace(wxT("#WAKEE3#"),Export::replaceNewLine(mode,wake->GetCellValue(row,col),false));
+										html.Replace(wxT("#LWAKEE3#"),Export::replaceNewLine(mode,wake->GetColLabelValue(col),true));		
 										break;
-					case WAKESTART4:	html.Replace(wxT("#WAKE4#"),wake->GetCellValue(row,col));
-										html.Replace(wxT("#LWAKE4#"),wake->GetColLabelValue(col));	
+					case WAKESTART4:	html.Replace(wxT("#WAKE4#"),Export::replaceNewLine(mode,wake->GetCellValue(row,col),false));
+										html.Replace(wxT("#LWAKE4#"),Export::replaceNewLine(mode,wake->GetColLabelValue(col),true));	
 										break;
-					case WAKEEND4:		html.Replace(wxT("#WAKEE4#"),wake->GetCellValue(row,col));
-										html.Replace(wxT("#LWAKEE4#"),wake->GetColLabelValue(col));	
+					case WAKEEND4:		html.Replace(wxT("#WAKEE4#"),Export::replaceNewLine(mode,wake->GetCellValue(row,col),false));
+										html.Replace(wxT("#LWAKEE4#"),Export::replaceNewLine(mode,wake->GetColLabelValue(col),true));	
 										break;
-					case WAKESTART5:	html.Replace(wxT("#WAKE5#"),wake->GetCellValue(row,col));
-										html.Replace(wxT("#LWAKE5#"),wake->GetColLabelValue(col));	
+					case WAKESTART5:	html.Replace(wxT("#WAKE5#"),Export::replaceNewLine(mode,wake->GetCellValue(row,col),false));
+										html.Replace(wxT("#LWAKE5#"),Export::replaceNewLine(mode,wake->GetColLabelValue(col),true));	
 										break;
-					case WAKEEND5:		html.Replace(wxT("#WAKEE5#"),wake->GetCellValue(row,col));
-										html.Replace(wxT("#LWAKEE5#"),wake->GetColLabelValue(col));	
+					case WAKEEND5:		html.Replace(wxT("#WAKEE5#"),Export::replaceNewLine(mode,wake->GetCellValue(row,col),false));
+										html.Replace(wxT("#LWAKEE5#"),Export::replaceNewLine(mode,wake->GetColLabelValue(col),true));	
 										break;
-					case WAKESTART6:	html.Replace(wxT("#WAKE6#"),wake->GetCellValue(row,col));
-										html.Replace(wxT("#LWAKE6#"),wake->GetColLabelValue(col));	
+					case WAKESTART6:	html.Replace(wxT("#WAKE6#"),Export::replaceNewLine(mode,wake->GetCellValue(row,col),false));
+										html.Replace(wxT("#LWAKE6#"),Export::replaceNewLine(mode,wake->GetColLabelValue(col),true));	
 										break;
-					case WAKEEND6:		html.Replace(wxT("#WAKEE6#"),wake->GetCellValue(row,col));
-										html.Replace(wxT("#LWAKEE6#"),wake->GetColLabelValue(col));	
+					case WAKEEND6:		html.Replace(wxT("#WAKEE6#"),Export::replaceNewLine(mode,wake->GetCellValue(row,col),false));
+										html.Replace(wxT("#LWAKEE6#"),Export::replaceNewLine(mode,wake->GetColLabelValue(col),true));	
 										break;
 				}
 				break;
@@ -786,7 +787,7 @@ void CrewList::saveODT(wxString savePath,wxString layout, bool mode)
 		middleWakeODT		= middleODT.substr(0,indexWakeTop);
 		topODT.Replace(wxT("#LFROM#"),_("from"));
 		topODT.Replace(wxT("#LTO#"),_("to"));
-		topODT.Replace(wxT("#LWATCH#"),dialog->m_gridGlobal->GetColLabelValue(4));
+		topODT.Replace(wxT("#LWATCH#"),Export::replaceNewLine(mode,dialog->m_gridGlobal->GetColLabelValue(4),true));
 	}
 	else
 	{
@@ -823,21 +824,21 @@ void CrewList::saveODT(wxString savePath,wxString layout, bool mode)
 
 		middleData.Replace(wxT("#LFROM#"),_("from"));
 		middleData.Replace(wxT("#LTO#"),_("to"));
-		middleData.Replace(wxT("#LWATCH#"),dialog->m_gridGlobal->GetColLabelValue(4));
+		middleData.Replace(wxT("#LWATCH#"),Export::replaceNewLine(mode,dialog->m_gridGlobal->GetColLabelValue(4),true));
 	}
 
-	topODT.Replace(wxT("#TYPE#"),dialog->boatType->GetValue());
-	topODT.Replace(wxT("#BOATNAME#"),dialog->boatName->GetValue());
-	topODT.Replace(wxT("#HOMEPORT#"),dialog->homeport->GetValue());
-	topODT.Replace(wxT("#CALLSIGN#"),dialog->callsign->GetValue());
-	topODT.Replace(wxT("#REGISTRATION#"),dialog->registration->GetValue());
+	topODT.Replace(wxT("#TYPE#"),Export::replaceNewLine(mode,dialog->boatType->GetValue(),false));
+	topODT.Replace(wxT("#BOATNAME#"),Export::replaceNewLine(mode,dialog->boatName->GetValue(),false));
+	topODT.Replace(wxT("#HOMEPORT#"),Export::replaceNewLine(mode,dialog->homeport->GetValue(),false));
+	topODT.Replace(wxT("#CALLSIGN#"),Export::replaceNewLine(mode,dialog->callsign->GetValue(),false));
+	topODT.Replace(wxT("#REGISTRATION#"),Export::replaceNewLine(mode,dialog->registration->GetValue(),false));
 
-	topODT.Replace(wxT("#LTYPE#"),dialog->m_staticText128->GetLabel());
-	topODT.Replace(wxT("#LBOATNAME#"),dialog->bname->GetLabel());
-	topODT.Replace(wxT("#LHOMEPORT#"),dialog->m_staticText114->GetLabel());
-	topODT.Replace(wxT("#LCALLSIGN#"),dialog->m_staticText115->GetLabel());
-	topODT.Replace(wxT("#LREGISTRATION#"),dialog->m_staticText118->GetLabel());
-	topODT.Replace(wxT("#LCREWLIST#"),dialog->m_logbook->GetPageText(2));
+	topODT.Replace(wxT("#LTYPE#"),Export::replaceNewLine(mode,dialog->m_staticText128->GetLabel(),true));
+	topODT.Replace(wxT("#LBOATNAME#"),Export::replaceNewLine(mode,dialog->bname->GetLabel(),true));
+	topODT.Replace(wxT("#LHOMEPORT#"),Export::replaceNewLine(mode,dialog->m_staticText114->GetLabel(),true));
+	topODT.Replace(wxT("#LCALLSIGN#"),Export::replaceNewLine(mode,dialog->m_staticText115->GetLabel(),true));
+	topODT.Replace(wxT("#LREGISTRATION#"),Export::replaceNewLine(mode,dialog->m_staticText118->GetLabel(),true));
+	topODT.Replace(wxT("#LCREWLIST#"),Export::replaceNewLine(mode,dialog->m_logbook->GetPageText(2),true));
 
 	path = data_locn;
 	wxTextFile *logFile = new wxTextFile(path);
@@ -885,7 +886,7 @@ void CrewList::saveODT(wxString savePath,wxString layout, bool mode)
 		{
 			newMiddleODT = middleODT;
 			for(int col = 0; col < colsMax; col++)
-				newMiddleODT = replacePlaceholder(newMiddleODT,headerODT,0,row,col,0);
+				newMiddleODT = replacePlaceholder(newMiddleODT,headerODT,0,row,col,mode);
 			odtFile << newMiddleODT;
 		}
 	}
@@ -901,7 +902,7 @@ void CrewList::saveODT(wxString savePath,wxString layout, bool mode)
 		{
 			newWakeODT = middleWakeODT;
 			for(int col = 0; col < colsMax; col++)
-				newWakeODT = replacePlaceholder(newWakeODT,headerODT,1,row,col,0);
+				newWakeODT = replacePlaceholder(newWakeODT,headerODT,1,row,col,mode);
 			odtFile << newWakeODT;
 		}
 	}

@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "logbookkonni_pi"
-!define PRODUCT_VERSION "0.916"
+!define PRODUCT_VERSION "0.917"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 XPStyle on
@@ -19,6 +19,7 @@ LoadLanguageFile "${NSISDIR}\Contrib\Language files\German.nlf"
 LoadLanguageFile "${NSISDIR}\Contrib\Language files\Spanish.nlf"
 LoadLanguageFile "${NSISDIR}\Contrib\Language files\Danish.nlf"
 LoadLanguageFile "${NSISDIR}\Contrib\Language files\Polish.nlf"
+LoadLanguageFile "${NSISDIR}\Contrib\Language files\Dutch.nlf"
 ; License data
 ; Not exactly translated, but it shows what's needed
 /*LicenseLangString myLicenseData ${LANG_ENGLISH} ""
@@ -101,8 +102,8 @@ Function .onInit
 	Push ""
 	Push ${LANG_ENGLISH}
 	Push English
-;	Push ${LANG_DUTCH}
-;	Push Dutch
+	Push ${LANG_DUTCH}
+	Push Dutch
 	Push ${LANG_FRENCH}
 	Push French
 	Push ${LANG_GERMAN}
@@ -152,6 +153,8 @@ Section "Languages" SEC02
    File "C:\Program Files (x86)\OpenCPN\share\locale\da\LC_MESSAGES\opencpn-logbookkonni_pi.mo"
    SetOutPath "$INSTDIR\share\locale\pl\LC_MESSAGES\"
    File "C:\Program Files (x86)\OpenCPN\share\locale\pl\LC_MESSAGES\opencpn-logbookkonni_pi.mo"
+   SetOutPath "$INSTDIR\share\locale\nl\LC_MESSAGES\"
+   File "C:\Program Files (x86)\OpenCPN\share\locale\nl\LC_MESSAGES\opencpn-logbookkonni_pi.mo"
 SectionEnd
 
 Section "Layouts" SEC03
