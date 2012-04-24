@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 15:00+0100\n"
+"POT-Creation-Date: 2012-04-24 16:20+0200\n"
 "PO-Revision-Date: 2012-04-14 17:50+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: rider2@kpnmail.nl <rider2@kpnmail.nl>\n"
@@ -19,25 +19,14 @@ msgstr ""
 msgid "\n"
 msgstr "\n"
 #
-#, c-format
-msgid ""
-"\n"
-"Name of Waypoint: %s"
-msgstr ""
-"\n"
-"Naam routepunt: %s"
-#
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "\n"
 "Name of Waypoint: %s\n"
-"True bearing to destination: %4.1f%s\n"
-"Range to destination: %4.2f%s"
+"%s %s"
 msgstr ""
 "\n"
-"Naam routepunt  : %s\n"
-"Ware Koers          : %4.1f%s\n"
-"Verheid                 : %4.2f%s"
+"Naam routepunt: %s"
 #
 msgid ""
 "\n"
@@ -72,6 +61,9 @@ msgstr "\""
 #
 msgid "'"
 msgstr "'"
+#
+msgid "(Unnamed Route)"
+msgstr ""
 #
 msgid "-Plugin"
 msgstr "-PlugIn"
@@ -113,8 +105,20 @@ msgstr ""
 msgid "Add Equipment"
 msgstr "Toevoegen apparatuur"
 #
+#, fuzzy
+msgid "Add Item"
+msgstr ""
+"Toevoegen\n"
+"bemanning"
+#
 msgid "Add Line"
 msgstr "Toevoegen regel"
+#
+#, fuzzy
+msgid "Add Treenode"
+msgstr ""
+"Toevoegen\n"
+"bemanning"
 #
 msgid "Add a line to the end of your logbook"
 msgstr "Toevoegen regel aan het einde van het journaal"
@@ -245,6 +249,13 @@ msgstr ""
 msgid "Crewlist"
 msgstr "Bemanningslijst"
 #
+msgid ""
+"Crewmember is not onboard\n"
+"\n"
+"Please set column 'Onboard' to Yes\n"
+"(click the column twice)"
+msgstr ""
+#
 msgid "Current"
 msgstr "Stroom"
 #
@@ -290,6 +301,10 @@ msgstr "Dag(en)"
 msgid "Degres"
 msgstr "Graden:"
 #
+#, fuzzy
+msgid "Delete Item"
+msgstr "Verwijder opmaakstijl"
+#
 msgid "Delete Layout"
 msgstr "Verwijder opmaakstijl"
 #
@@ -299,6 +314,17 @@ msgstr "Regel verwijderen"
 #, c-format
 msgid "Delete Row Nr. %i ?"
 msgstr "Regelnr. %i verwijderen?"
+#
+#, fuzzy
+msgid "Delete Treenode"
+msgstr "Regel verwijderen"
+#
+msgid "Demo Engine stopped"
+msgstr ""
+#
+#, fuzzy
+msgid "Demo Sails up"
+msgstr "Details"
 #
 msgid "Depth"
 msgstr "Diepte"
@@ -380,6 +406,12 @@ msgstr ""
 msgid "Engine"
 msgstr "Motor"
 #
+msgid ""
+"Engine stopped\n"
+"\n"
+"Demo - Rightclick-Menu 'use Testextblocks' for help"
+msgstr ""
+#
 msgid "EngineTotal"
 msgstr "Ttl motor"
 #
@@ -439,6 +471,28 @@ msgstr ""
 #
 msgid "Heading"
 msgstr "Koers"
+#
+msgid ""
+"Help\n"
+"-----\n"
+"\n"
+"Open treenode\n"
+"  'Texts when using this Dialog only'\n"
+"  and select e.g. 'Remarks'\n"
+"\n"
+"Rightclick in TreeView for menu\n"
+"\n"
+"Add a item and rename it\n"
+"   USE UNIQUE NAMES FOR ITEMS !\n"
+"\n"
+"Insert text\n"
+"\n"
+"In 'Texts when using this Dialog only' you can insert/delete treenodes only\n"
+"\n"
+"Use Drag 'n Drop to move item from/to menu\n"
+"\n"
+"see next treenodes for more help"
+msgstr ""
 #
 msgid "Hide Equipment"
 msgstr "Verberg apparatuur"
@@ -551,6 +605,9 @@ msgstr "Het voorgaande journaal is:\n"
 msgid "Last line from Logbook\n"
 msgstr "Laatste regel in journaal\n"
 #
+msgid "Last waypoint of the Route"
+msgstr ""
+#
 msgid "Layouts installed"
 msgstr "Opmaakstijlen geïnstalleerd"
 #
@@ -661,8 +718,19 @@ msgstr "Nationaliteit"
 msgid "Navigation"
 msgstr "Navigatie"
 #
+#, c-format
+msgid "New Item%i"
+msgstr ""
+#
 msgid "New Logbook"
 msgstr "Nieuw journaal"
+#
+#, c-format
+msgid "New Node%i"
+msgstr ""
+#
+msgid "Next WP Name: "
+msgstr ""
 #
 #
 #
@@ -701,6 +769,9 @@ msgstr "Aantal wachten"
 #, c-format
 msgid "Old Logbook until %s"
 msgstr "Oud journaal tot %s"
+#
+msgid "Onboard"
+msgstr ""
 #
 msgid "Only Layouts with prefix:"
 msgstr "alleen opmaak startend met:"
@@ -833,6 +904,10 @@ msgstr "Herlaad opmaakstijlen"
 msgid "Remarks"
 msgstr "Opmerkingen"
 #
+#, fuzzy
+msgid "Rename Item"
+msgstr "Hernoem opmaakstijl"
+#
 msgid "Rename Layout"
 msgstr "Hernoem opmaakstijl"
 #
@@ -868,6 +943,13 @@ msgstr "Zeilnr."
 #
 msgid "Sails"
 msgstr "Zeilvoering"
+#
+msgid ""
+"Sails up\n"
+"Engine stopped\n"
+"\n"
+"Demo - Rightclick-Menu 'use Testextblocks' for help"
+msgstr ""
 #
 msgid "Sails used mostly"
 msgstr ""
@@ -1003,8 +1085,15 @@ msgstr "Toon golfhoogtes in:"
 msgid "Show all Layouts"
 msgstr "Toon alle opmaakstijlen"
 #
+msgid "Show all crew-entries"
+msgstr ""
+#
 msgid "Show hidden columns"
 msgstr "Toon verborgen kolommen"
+#
+#, fuzzy
+msgid "Show onboard only"
+msgstr "Toon Logbook icoon"
 #
 msgid "Show/Hide Equipmentgrid"
 msgstr "Toon/Verberg apparatuurgrid"
@@ -1104,6 +1193,34 @@ msgstr "Telefoon"
 #
 msgid "Temperature"
 msgstr "Temperatuur"
+#
+msgid "Text"
+msgstr ""
+#
+msgid "Textblocks"
+msgstr ""
+#
+msgid "Texts for Rightclick-Menu"
+msgstr ""
+#
+msgid "Texts when using this Dialog only"
+msgstr ""
+#
+msgid ""
+"The itemname is shown in the rightcklick-menu of the following Columns\n"
+"By clicking on it the text is inserted\n"
+"\n"
+msgstr ""
+#
+msgid ""
+"These texts are inserted into the grid-colmn\n"
+"by calling this dialog\n"
+"\n"
+"Select Item\n"
+"Click OK-Button\n"
+"\n"
+"Use Drag 'n Drop to place a item in menu"
+msgstr ""
 #
 msgid "Time"
 msgstr "Tijd"
@@ -1443,8 +1560,28 @@ msgstr "Zelfde wacht als"
 msgid "to"
 msgstr "tot"
 #
+msgid "use Textblocks..."
+msgstr ""
+#
 msgid "week(s)"
 msgstr "week(en)"
 #
 msgid "write your own label"
 msgstr "Maak eigen veldnaam"
+#
+#
+#
+#
+#
+#
+#
+#~ msgid ""
+#~ "\n"
+#~ "Name of Waypoint: %s\n"
+#~ "True bearing to destination: %4.1f%s\n"
+#~ "Range to destination: %4.2f%s"
+#~ msgstr ""
+#~ "\n"
+#~ "Naam routepunt  : %s\n"
+#~ "Ware Koers          : %4.1f%s\n"
+#~ "Verheid                 : %4.2f%s"

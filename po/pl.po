@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.6.1310\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-02-16 15:00+0100\n"
+"POT-Creation-Date: 2012-04-24 16:20+0200\n"
 "PO-Revision-Date: 2012-01-20 18:14+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
@@ -25,25 +25,14 @@ msgstr ""
 msgid "\n"
 msgstr "\n"
 #
-#, c-format
-msgid ""
-"\n"
-"Name of Waypoint: %s"
-msgstr ""
-"\n"
-"Nazwa Waypointa: %s"
-#
-#, c-format
+#, fuzzy, c-format
 msgid ""
 "\n"
 "Name of Waypoint: %s\n"
-"True bearing to destination: %4.1f%s\n"
-"Range to destination: %4.2f%s"
+"%s %s"
 msgstr ""
 "\n"
-"Nazwa Waypointa: %s\n"
-"Namiar Rzeczywisty na cel: %4.1f%s\n"
-"Odległość do celu: %4.2f%s"
+"Nazwa Waypointa: %s"
 #
 msgid ""
 "\n"
@@ -79,6 +68,9 @@ msgstr "\""
 msgid "'"
 msgstr "'"
 #
+msgid "(Unnamed Route)"
+msgstr ""
+#
 msgid "-Plugin"
 msgstr ""
 #
@@ -106,8 +98,16 @@ msgstr "Dodaj załogę"
 msgid "Add Equipment"
 msgstr "Dodaj wyposażenie"
 #
+#, fuzzy
+msgid "Add Item"
+msgstr "Dodaj załogę"
+#
 msgid "Add Line"
 msgstr "Dodaj Wpis"
+#
+#, fuzzy
+msgid "Add Treenode"
+msgstr "Dodaj załogę"
 #
 msgid "Add a line to the end of your logbook"
 msgstr "Dodaj wpis na końcu Dziennika"
@@ -241,6 +241,13 @@ msgstr ""
 msgid "Crewlist"
 msgstr "Lista załogi"
 #
+msgid ""
+"Crewmember is not onboard\n"
+"\n"
+"Please set column 'Onboard' to Yes\n"
+"(click the column twice)"
+msgstr ""
+#
 msgid "Current"
 msgstr "Prąd"
 #
@@ -288,6 +295,10 @@ msgstr "Dni"
 msgid "Degres"
 msgstr "Stopnie"
 #
+#, fuzzy
+msgid "Delete Item"
+msgstr "Usuń Szablon"
+#
 msgid "Delete Layout"
 msgstr "Usuń Szablon"
 #
@@ -297,6 +308,17 @@ msgstr "Usuń Wpis"
 #, c-format
 msgid "Delete Row Nr. %i ?"
 msgstr "Usunąć wiersz nr %i?"
+#
+#, fuzzy
+msgid "Delete Treenode"
+msgstr "Usuń Wpis"
+#
+msgid "Demo Engine stopped"
+msgstr ""
+#
+#, fuzzy
+msgid "Demo Sails up"
+msgstr "Szczegóły"
 #
 msgid "Depth"
 msgstr "Głębokość"
@@ -377,6 +399,12 @@ msgstr ""
 msgid "Engine"
 msgstr "Motogodziny"
 #
+msgid ""
+"Engine stopped\n"
+"\n"
+"Demo - Rightclick-Menu 'use Testextblocks' for help"
+msgstr ""
+#
 msgid "EngineTotal"
 msgstr ""
 "Motogodziny\n"
@@ -439,6 +467,28 @@ msgstr ""
 #
 msgid "Heading"
 msgstr "Kurs"
+#
+msgid ""
+"Help\n"
+"-----\n"
+"\n"
+"Open treenode\n"
+"  'Texts when using this Dialog only'\n"
+"  and select e.g. 'Remarks'\n"
+"\n"
+"Rightclick in TreeView for menu\n"
+"\n"
+"Add a item and rename it\n"
+"   USE UNIQUE NAMES FOR ITEMS !\n"
+"\n"
+"Insert text\n"
+"\n"
+"In 'Texts when using this Dialog only' you can insert/delete treenodes only\n"
+"\n"
+"Use Drag 'n Drop to move item from/to menu\n"
+"\n"
+"see next treenodes for more help"
+msgstr ""
 #
 msgid "Hide Equipment"
 msgstr "Ukryj Wyposażenie"
@@ -553,6 +603,9 @@ msgstr "Ostatni Dziennik\n"
 msgid "Last line from Logbook\n"
 msgstr "Ostatni wpis w Dzienniku\n"
 #
+msgid "Last waypoint of the Route"
+msgstr ""
+#
 msgid "Layouts installed"
 msgstr "Szablony zainstalowane"
 #
@@ -660,8 +713,19 @@ msgstr "Narodowość"
 msgid "Navigation"
 msgstr "Nawigacja"
 #
+#, c-format
+msgid "New Item%i"
+msgstr ""
+#
 msgid "New Logbook"
 msgstr "Nowy Dziennik"
+#
+#, c-format
+msgid "New Node%i"
+msgstr ""
+#
+msgid "Next WP Name: "
+msgstr ""
 #
 msgid "No"
 msgstr "Nie"
@@ -690,6 +754,9 @@ msgstr "Wachta"
 #, c-format
 msgid "Old Logbook until %s"
 msgstr "Archiwalny dziennik do %s"
+#
+msgid "Onboard"
+msgstr ""
 #
 msgid "Only Layouts with prefix:"
 msgstr "tylko Szablony z prefiksem:"
@@ -821,6 +888,10 @@ msgstr "Przeładuj Szablony"
 msgid "Remarks"
 msgstr "Uwagi"
 #
+#, fuzzy
+msgid "Rename Item"
+msgstr "Zmień nazwę Szablonu"
+#
 msgid "Rename Layout"
 msgstr "Zmień nazwę Szablonu"
 #
@@ -853,6 +924,13 @@ msgstr "Żagiel Nr."
 #
 msgid "Sails"
 msgstr "Żagle"
+#
+msgid ""
+"Sails up\n"
+"Engine stopped\n"
+"\n"
+"Demo - Rightclick-Menu 'use Testextblocks' for help"
+msgstr ""
 #
 msgid "Sails used mostly"
 msgstr ""
@@ -990,8 +1068,15 @@ msgstr "Pokaż Stan morza/Martwą falę w"
 msgid "Show all Layouts"
 msgstr "Pokaż wszystkie Szablony"
 #
+msgid "Show all crew-entries"
+msgstr ""
+#
 msgid "Show hidden columns"
 msgstr "Pokaż ukryte kolumny"
+#
+#, fuzzy
+msgid "Show onboard only"
+msgstr "Pokazuj ikonę Dziennika"
 #
 msgid "Show/Hide Equipmentgrid"
 msgstr "Pokaż/Ukryj Wyposażenie"
@@ -1095,6 +1180,34 @@ msgstr "Telefon"
 #
 msgid "Temperature"
 msgstr "Temperatura"
+#
+msgid "Text"
+msgstr ""
+#
+msgid "Textblocks"
+msgstr ""
+#
+msgid "Texts for Rightclick-Menu"
+msgstr ""
+#
+msgid "Texts when using this Dialog only"
+msgstr ""
+#
+msgid ""
+"The itemname is shown in the rightcklick-menu of the following Columns\n"
+"By clicking on it the text is inserted\n"
+"\n"
+msgstr ""
+#
+msgid ""
+"These texts are inserted into the grid-colmn\n"
+"by calling this dialog\n"
+"\n"
+"Select Item\n"
+"Click OK-Button\n"
+"\n"
+"Use Drag 'n Drop to place a item in menu"
+msgstr ""
 #
 msgid "Time"
 msgstr "Czas"
@@ -1421,11 +1534,39 @@ msgstr ""
 msgid "to"
 msgstr "do"
 #
+msgid "use Textblocks..."
+msgstr ""
+#
 msgid "week(s)"
 msgstr "tygodni"
 #
 msgid "write your own label"
 msgstr "wpisz własną etykietę"
+#
+#
+#
+#
+#
+#
+#
+#~ msgid ""
+#~ "\n"
+#~ "Name of Waypoint: %s\n"
+#~ "True bearing to destination: %4.1f%s\n"
+#~ "Range to destination: %4.2f%s"
+#~ msgstr ""
+#~ "\n"
+#~ "Nazwa Waypointa: %s\n"
+#~ "Namiar Rzeczywisty na cel: %4.1f%s\n"
+#~ "Odległość do celu: %4.2f%s"
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1483,6 +1624,14 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Nm"
 #~ msgstr "Nazwisko"
@@ -1503,9 +1652,25 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Search.."
 #~ msgstr "Wybierz Dziennik"
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #

@@ -13,6 +13,7 @@
 #include "boat.h"
 #include "OverView.h"
 #include "EzGrid.h"
+#include "tinyxml/tinyxml.h"
 
 #include <wx/string.h>
 #include <wx/button.h>
@@ -42,22 +43,24 @@
 #include <wx/mimetype.h>
 #include <wx/listctrl.h>
 #include <wx/gdicmn.h>
+#include <wx/dnd.h>
 
 ///////////////////////////////////////////////////////////////////////////
 
 #define LOGGRIDS 3
 
-#define DELETE_ROW		500
-#define SELECT_ROUTE	501
-#define MENUSAILS		502
-#define SHOWHIDDENCOL   503
-#define HIDDENCOLSEP	504
-#define HIDECOLUMN		506
-#define	MENUTIMER		505
-#define ID_LOGTIMER		510
-#define ID_GPSTIMER		510
-#define COLDFINGER_REM  511
-#define COLDFINGER_MOT  512
+#define DELETE_ROW				500
+#define SELECT_ROUTE			501
+#define MENUSAILS				502
+#define SHOWHIDDENCOL			503
+#define HIDDENCOLSEP			504
+#define HIDECOLUMN				506
+#define	MENUTIMER				505
+#define ID_LOGTIMER				510
+#define ID_GPSTIMER				510
+#define COLDFINGER				511
+#define MENUCREWALL				512
+#define MENUCREWONBOARD			513
 
 #define GPSTIMEOUT 5000
 #define LOGSAVETIME 600000
@@ -67,15 +70,14 @@
 class boat;
 class Logbook;
 class logbookkonni_pi;
+class ColdFinger;
 
 class LogbookDialog : public wxDialog 
 {
 	private:
-enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,BARO,WIND,WSPD,CURRENT,CSPD,
-			 WEATHER,CLOUDS,VISIBILITY,MOTOR,FUEL,SAILS,REEF,MREMARKS };	
-
 		wxString columns[92];
 		wxString			clouds[10];
+		ColdFinger*         coldfinger;
 
 		wxString			saveDialogFilter;
 		int					lastRowSelectedService;
@@ -88,8 +90,14 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		void				navigationHideColumn(wxCommandEvent& ev);
 		void				sortGrid(wxGrid* grid, int col, bool ascending);
 		void				clearDataDir();
+		void				addColdFingerDialog(wxMenu* m_menu1);
+		void				addColdFingerTextBlocks(wxMenu* m_menu1);
+		wxTreeItemId		LogbookDialog::FindMenuItem(int grid, int col, wxString name);
 
 	public:
+enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,BARO,WIND,WSPD,CURRENT,CSPD,
+			 WEATHER,CLOUDS,VISIBILITY,MOTOR,FUEL,SAILS,REEF,MREMARKS };
+
 		Boat*			boat;
 		CrewList*		crewList;
 		Maintenance*	maintenance;
@@ -271,6 +279,8 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,B
 		virtual void m_gridMotorSailsOnKeyDown( wxKeyEvent& event ) ;
 		virtual void crewAddOnButtonClick( wxCommandEvent& event ) ;
 		virtual void crewSaveOnButtonClick( wxCommandEvent& event ) ;
+		virtual void OnMenuSelectionOnboardCrew( wxCommandEvent& event );
+		virtual void OnMenuSelectionAllEntriesCrew( wxCommandEvent& event );
 		virtual void onButtonClickReloadLayoutsCrew( wxCommandEvent& event ) ;
 		virtual void onButtonClickEditLayoutCrew( wxCommandEvent& event ) ;
 		virtual void onRadioButtonHTMLCrew( wxCommandEvent& event ) ;
@@ -488,10 +498,10 @@ enum FORMAT {HTML,ODT};
 		bool isInArrayString(wxArrayString ar, wxString s);
 		wxDateTime getDateTo(wxString filename);
 
-		logbookkonni_pi*	logbookPlugIn;
-		wxString*			pHome_Locn;
-		Logbook*			logbook;
-		OverView*			overview;
+		logbookkonni_pi*	  logbookPlugIn;
+		wxString*			  pHome_Locn;
+		Logbook*			  logbook;
+		OverView*			  overview;
 
 		wxString			datePattern;
 		wxChar				dateSeparator;
@@ -672,12 +682,20 @@ private:
 //    DECLARE_DYNAMIC_CLASS_NO_COPY( wxGridStringTable )
 };
 
+class myTreeItem;
 //////////////////// Díalog ColdFinger //////////////////////////////////
 class ColdFinger : public wxDialog 
 {
 	private:
-	    bool modified;
-		wxTreeItemId selectedItem;
+		LogbookDialog	*dialog;
+	    bool			modified;
+		wxString		dataPath;
+		wxImageList*    imageList; 
+
+		void            init();
+		void			addElement(TiXmlElement* root, const char* key, const char* label);
+		wxTreeItemId	recursiveWrite(wxTreeItemId id, TiXmlElement *elem);
+		void			fillTree(wxTreeItemId id, TiXmlNode *elem);
 
 	protected:
 		wxSplitterWindow* m_splitter2;
@@ -691,15 +709,15 @@ class ColdFinger : public wxDialog
 		wxChoice* m_choice24;
 		wxStaticLine* m_staticline32;
 		wxStaticText* m_staticText97;
-		wxTextCtrl* m_textCtrl73;
 		wxStdDialogButtonSizer* m_sdbSizer8;
 		wxButton* m_sdbSizer8OK;
 		wxButton* m_sdbSizer8Cancel;
 		
 		// Virtual event handlers, overide them in your derived class
+		virtual void OnCloseCold( wxCloseEvent& event );
 		virtual void OnInitDialog( wxInitDialogEvent& event );
-		virtual void OnTreeBeginDragCold( wxTreeEvent& event ) { event.Skip(); }
-		virtual void OnTreeItemRightClickCold( wxTreeEvent& event ) { event.Skip(); }
+		virtual void OnTreeBeginDragCold( wxTreeEvent& event );
+		virtual void OnTreeItemRightClickCold( wxTreeEvent& event );
 		virtual void OnTreeSelChanged( wxTreeEvent& event );
 		virtual void OnMenuSelectionAddCold( wxCommandEvent& event );
 		virtual void OnMenuSelectionDeleteCold( wxCommandEvent& event );
@@ -707,16 +725,24 @@ class ColdFinger : public wxDialog
 		virtual void OnMenuSelectionaddNodeCold( wxCommandEvent& event );
 		virtual void OnMenuTreeSelectionDeleteNodeCold( wxCommandEvent& event );
 		virtual void OnTextCold( wxCommandEvent& event );
+		virtual void OnCancelButtonClickCold( wxCommandEvent& event );
 		virtual void OnOKButtonClickCold( wxCommandEvent& event );
 		
 	
 	public:
 		enum treenodes { NODE,ITEM };
 		wxTreeCtrl* m_treeCtrl3;
-		wxString text;
+		wxTextCtrl* m_textCtrl73;
+		myTreeItem* retItem;
+		wxTreeItemId selectedItem;
+		int				fo; 
+		int				it;
 		
-		ColdFinger( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Textblocks Dialog"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 524,392 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER ); 
+		ColdFinger( LogbookDialog* parent,  wxWindowID id = wxID_ANY, const wxString& title = wxT("Textblocks Dialog"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 524,392 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER ); 
 		~ColdFinger();
+
+		void	writeTextblocks();
+        void	loadTextBlocks();
 		
 		void m_splitter2OnIdle( wxIdleEvent& )
 		{
@@ -724,21 +750,45 @@ class ColdFinger : public wxDialog
 			m_splitter2->Disconnect( wxEVT_IDLE, wxIdleEventHandler( ColdFinger::m_splitter2OnIdle ), NULL, this );
 		}
 		
-		void m_treeCtrl3OnContextMenu( wxMouseEvent &event )
+/*		void m_treeCtrl3OnContextMenu( wxMouseEvent &event )
 		{
 			m_treeCtrl3->PopupMenu( m_menu9, event.GetPosition() );
 		}
-	
+*/
 };
 
 class myTreeItem : public wxTreeItemData
 {
 public:
-	myTreeItem(int type,wxString text);
+	myTreeItem( int type, wxString name, wxString text, wxString guid, wxString route, wxString guidWP, wxString WP, int grid, int gridcol, bool deleteable, bool add, bool menu);
+	myTreeItem( const myTreeItem* item);
 
 	int		 type;
+	wxString name;
 	wxString text;
+	wxString guid;
+	wxString route;
+	wxString guidWP;
+	wxString WP;
+	int      grid;
+	int      gridcol;
+	bool	 deleteable;
+	bool     add;
+	bool     menu;
 
+};
+
+class DnD : public wxTextDropTarget
+{
+public:
+    DnD(ColdFinger* d, wxTreeCtrl *pOwner, wxTreeCtrl* pSender) { m_pOwner = pOwner; m_pSender = pSender; dialog = d;}
+
+    virtual bool OnDropText(wxCoord x, wxCoord y, const wxString& str);
+
+private:
+    wxTreeCtrl *m_pOwner;
+	wxTreeCtrl* m_pSender;
+	ColdFinger* dialog;
 };
 
 #endif //__logbook__

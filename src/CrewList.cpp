@@ -91,12 +91,12 @@ void CrewList::loadData()
 	wxString s, line;
 	wxGrid* grid;
 	int lineCount, numRows;
+	bool newCol;
 
 	if(gridCrew->GetNumberRows() > 0)
-	{
 		gridCrew->DeleteRows(0,gridCrew->GetNumberRows());
+	if(gridWake->GetNumberRows() > 0)
 		gridWake->DeleteRows(0,gridWake->GetNumberRows());
-	}
 
 	crewListFile->Open();
 	lineCount = crewListFile->GetLineCount();
@@ -108,12 +108,19 @@ void CrewList::loadData()
 		line = crewListFile->GetLine(i);
 
 		gridCrew->AppendRows();
-
-		//count = gridCrew->GetNumberCols();
 		numRows = gridCrew->GetNumberRows()-1;
+		wxGridCellBoolEditor* boolEditor = new wxGridCellBoolEditor();
+		boolEditor->UseStringValues(_("Yes"));
+		gridCrew->SetCellEditor(numRows,0,boolEditor);
+		gridCrew->SetCellAlignment(wxALIGN_CENTRE,numRows,0);
 
 		wxStringTokenizer tkz(line, _T("\t"),wxTOKEN_RET_EMPTY);
-		int c = 0;
+		int c; 
+		if(tkz.CountTokens() == 14)
+			{ c = 1; newCol = true; }
+		else
+			{ c = 0; newCol = false; }
+
 		grid = gridCrew;
 
 		while ( tkz.HasMoreTokens() )
@@ -123,7 +130,14 @@ void CrewList::loadData()
 
 			grid->SetCellValue(numRows,c++,s);
 		}
+
+		if(newCol)
+		{
+			modified = true;
+			grid->SetCellValue(numRows,0,_("Yes"));
+		}
 	}
+
 	crewListFile->Close();
 
 	watchListFile->Open();
@@ -141,7 +155,6 @@ void CrewList::loadData()
 		gridWake->SetCellAlignment(i,0,wxALIGN_LEFT, wxALIGN_TOP);
 		gridWake->SetCellAlignment(i,1,wxALIGN_LEFT, wxALIGN_TOP);
 
-		//count = gridWake->GetNumberCols();
 		numRows = gridWake->GetNumberRows()-1;
 
 		wxStringTokenizer tkz(line, _T("\t"),wxTOKEN_RET_EMPTY);
@@ -155,7 +168,30 @@ void CrewList::loadData()
 			grid->SetCellValue(numRows,c++,s);
 		}
 	}
-	crewListFile->Close();
+	watchListFile->Close();
+}
+
+void CrewList::filterCrewMembers()
+{
+	rowHeight = gridCrew->GetRowHeight(0);
+	for(int row = 0; row <= gridCrew->GetNumberRows()-1; row++)
+	{
+		if(gridCrew->GetCellValue(row,ONBOARD) == _T(""))
+			gridCrew->SetRowHeight(row,0);
+	}
+
+	gridCrew->ForceRefresh();
+}
+
+void CrewList::showAllCrewMembers()
+{
+	for(int row = 0; row <= gridCrew->GetNumberRows()-1; row++)
+	{
+		if(gridCrew->GetCellValue(row,ONBOARD) == _T(""))
+			gridCrew->SetRowHeight(row,rowHeight);
+	}
+
+	gridCrew->ForceRefresh();
 }
 
 void CrewList::saveData()
@@ -203,19 +239,38 @@ void CrewList::addCrew(wxGrid* grid, wxGrid* wake)
 	modified = true;
 
 	gridCrew->AppendRows();
-	gridWake->AppendRows();
+
+	int numRows = gridCrew->GetNumberRows()-1;
+	wxGridCellBoolEditor* boolEditor = new wxGridCellBoolEditor();
+	boolEditor->UseStringValues(_("Yes"));
+	gridCrew->SetCellEditor(numRows,0,boolEditor);
+	gridCrew->SetCellAlignment(wxALIGN_CENTRE,numRows,0);
+	gridCrew->MakeCellVisible(numRows,NAME);
+
+	if(dialog->m_menu2->IsChecked(MENUCREWALL))
+		grid->SetCellValue(numRows,ONBOARD,_T(""));
+	else
+		grid->SetCellValue(numRows,ONBOARD,_("Yes"));
+
+/*	gridWake->AppendRows();
 	int lastRow = gridWake->GetNumberRows()-1;
 	gridWake->SetCellAlignment(lastRow,0,wxALIGN_LEFT, wxALIGN_TOP);
 	gridWake->SetCellAlignment(lastRow,1,wxALIGN_LEFT, wxALIGN_TOP);
 	gridWake->SetReadOnly(lastRow,0);
 	gridWake->SetReadOnly(lastRow,1);
 	gridWake->SetCellValue(gridWake->GetNumberRows()-1,gridWake->GetNumberCols()-1,_T(" "));
+*/
 	gridCrew->SetFocus();
-	gridCrew->SetGridCursor(lastRow,NAME);
+	gridCrew->SetGridCursor(numRows,NAME);
 }
 
 void CrewList::addToWatchList()
 {
+	if(gridCrew->GetCellValue(gridCrew->GetGridCursorRow(),ONBOARD) == _T(""))
+	{
+		wxMessageBox(_("Crewmember is not onboard\n\nPlease set column \'Onboard\' to Yes\n(click the column twice)"));
+		return;
+	}
 	gridWake->AppendRows();
 	int lastRow = gridWake->GetNumberRows()-1;
 	gridWake->SetCellAlignment(lastRow,LWNAME,wxALIGN_LEFT, wxALIGN_TOP);
@@ -228,6 +283,12 @@ void CrewList::addToWatchList()
 
 void CrewList::SameWatchAsDlg(int row)
 {
+	if(gridCrew->GetCellValue(gridCrew->GetGridCursorRow(),ONBOARD) == _T(""))
+	{
+		wxMessageBox(_("Crewmember is not onboard\n\nPlease set column \'Onboard\' to Yes\n(click the column twice)"));
+		return;
+	}
+
 	SameWatchAs* dlg = new SameWatchAs(dialog, row);
 
 	if(dlg->ShowModal() == wxID_OK)
@@ -269,21 +330,30 @@ void CrewList::changeCrew(wxGrid* grid, int row, int col, int offset)
 	modified = true;
 	wxString search;
 
-	if(col == 0 && offset == 0)
+	if(col == ONBOARD && dialog->m_menu2->IsChecked(MENUCREWONBOARD))
 	{
-			int rowWake = searchInWatch();
-			if(rowWake >= 0)
-				gridWake->SetCellValue(rowWake,0,gridCrew->GetCellValue(dialog->selGridRow,0));
+		if(grid->GetCellValue(row,col) == _T(""))
+		{
+			filterCrewMembers();
+			grid->ForceRefresh();
+		}
 	}
-	if(col == 2 && offset == 0)
+	if(col == NAME && offset == 0)
 	{
 			int rowWake = searchInWatch();
 			if(rowWake >= 0)
-				gridWake->SetCellValue(rowWake,1,gridCrew->GetCellValue(row,2));
+				gridWake->SetCellValue(rowWake,0,gridCrew->GetCellValue(dialog->selGridRow,NAME));
+	}
+	if(col == FIRSTNAME && offset == 0)
+	{
+			int rowWake = searchInWatch();
+			if(rowWake >= 0)
+				gridWake->SetCellValue(rowWake,1,gridCrew->GetCellValue(row,FIRSTNAME));
 	}
 
-	if(gridWake->GetCellValue(row,gridWake->GetNumberCols()-1) == _T(""))
+/*	if(gridWake->GetCellValue(row,gridWake->GetNumberCols()-1) == _T(""))
 		gridWake->SetCellValue(row,gridWake->GetNumberCols()-1,_T(" "));
+*/
 }
 
 int CrewList::searchInWatch() 
@@ -541,6 +611,8 @@ void CrewList::saveHTML(wxString savePath, wxString layout, bool mode)
 		int colsMax = dialog->m_gridCrew->GetNumberCols();
 		for(int row = 0; row < rowsMax; row++)
 		{
+			if(dialog->m_menu2->IsChecked(MENUCREWONBOARD) && dialog->m_gridCrew->GetCellValue(row,ONBOARD) == _T(""))
+				continue;
 			newMiddleHTML = middleHTML;
 			for(int col = 0; col < colsMax; col++)
 				newMiddleHTML = replacePlaceholder(newMiddleHTML,headerHTML,0,row,col,0);
@@ -884,6 +956,8 @@ void CrewList::saveODT(wxString savePath,wxString layout, bool mode)
 		int colsMax = dialog->m_gridCrew->GetNumberCols();
 		for(int row = 0; row < rowsMax; row++)
 		{
+			if(dialog->m_menu2->IsChecked(MENUCREWONBOARD) && dialog->m_gridCrew->GetCellValue(row,ONBOARD) == _T(""))
+				continue;
 			newMiddleODT = middleODT;
 			for(int col = 0; col < colsMax; col++)
 				newMiddleODT = replacePlaceholder(newMiddleODT,headerODT,0,row,col,mode);

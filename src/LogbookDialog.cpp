@@ -12,6 +12,7 @@
 #include "logbook_pi.h"
 #include "Options.h"
 #include "EzGrid.h"
+#include "tinyxml/tinyxml.h"
 //#ifdef __WXOSX__
 	#include "MessageBoxOSX.h"
 //#endif
@@ -611,44 +612,46 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridCrew = new wxGrid( m_panel21, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 	
 	// Grid
-	m_gridCrew->CreateGrid( 0, 14 );
+	m_gridCrew->CreateGrid( 0, 15 );
 	m_gridCrew->EnableEditing( true );
 	m_gridCrew->EnableGridLines( true );
 	m_gridCrew->EnableDragGridSize( false );
 	m_gridCrew->SetMargins( 0, 0 );
 	
 	// Columns
-	m_gridCrew->SetColSize( 0, 154 );
-	m_gridCrew->SetColSize( 1, 139 );
-	m_gridCrew->SetColSize( 2, 140 );
-	m_gridCrew->SetColSize( 3, 50 );
-	m_gridCrew->SetColSize( 4, 78 );
-	m_gridCrew->SetColSize( 5, 127 );
-	m_gridCrew->SetColSize( 6, 116 );
-	m_gridCrew->SetColSize( 7, 118 );
-	m_gridCrew->SetColSize( 8, 147 );
-	m_gridCrew->SetColSize( 9, 110 );
-	m_gridCrew->SetColSize( 10, 82 );
-	m_gridCrew->SetColSize( 11, 155 );
-	m_gridCrew->SetColSize( 12, 261 );
-	m_gridCrew->SetColSize( 13, 243 );
+	m_gridCrew->SetColSize( 0, 60 );
+	m_gridCrew->SetColSize( 1, 154 );
+	m_gridCrew->SetColSize( 2, 139 );
+	m_gridCrew->SetColSize( 3, 140 );
+	m_gridCrew->SetColSize( 4, 50 );
+	m_gridCrew->SetColSize( 5, 78 );
+	m_gridCrew->SetColSize( 6, 127 );
+	m_gridCrew->SetColSize( 7, 116 );
+	m_gridCrew->SetColSize( 8, 118 );
+	m_gridCrew->SetColSize( 9, 147 );
+	m_gridCrew->SetColSize( 10, 110 );
+	m_gridCrew->SetColSize( 11, 82 );
+	m_gridCrew->SetColSize( 12, 155 );
+	m_gridCrew->SetColSize( 13, 261 );
+	m_gridCrew->SetColSize( 14, 243 );
 	m_gridCrew->EnableDragColMove( false );
 	m_gridCrew->EnableDragColSize( true );
 	m_gridCrew->SetColLabelSize( 30 );
-	m_gridCrew->SetColLabelValue( 0, _("Name") );
-	m_gridCrew->SetColLabelValue( 1, _("Birthname") );
-	m_gridCrew->SetColLabelValue( 2, _("Firstname") );
-	m_gridCrew->SetColLabelValue( 3, _("Title") );
-	m_gridCrew->SetColLabelValue( 4, _("Date of Birth") );
-	m_gridCrew->SetColLabelValue( 5, _("Place of Birth") );
-	m_gridCrew->SetColLabelValue( 6, _("Nationality") );
-	m_gridCrew->SetColLabelValue( 7, _("Passport-Nr") );
-	m_gridCrew->SetColLabelValue( 8, _("Issued in") );
-	m_gridCrew->SetColLabelValue( 9, _("Date of Issue") );
-	m_gridCrew->SetColLabelValue( 10, _("Zip") );
-	m_gridCrew->SetColLabelValue( 11, _("Country") );
-	m_gridCrew->SetColLabelValue( 12, _("Town") );
-	m_gridCrew->SetColLabelValue( 13, _("Street") );
+	m_gridCrew->SetColLabelValue( 0, _("Onboard") );
+	m_gridCrew->SetColLabelValue( 1, _("Name") );
+	m_gridCrew->SetColLabelValue( 2, _("Birthname") );
+	m_gridCrew->SetColLabelValue( 3, _("Firstname") );
+	m_gridCrew->SetColLabelValue( 4, _("Title") );
+	m_gridCrew->SetColLabelValue( 5, _("Date of Birth") );
+	m_gridCrew->SetColLabelValue( 6, _("Place of Birth") );
+	m_gridCrew->SetColLabelValue( 7, _("Nationality") );
+	m_gridCrew->SetColLabelValue( 8, _("Passport-Nr") );
+	m_gridCrew->SetColLabelValue( 9, _("Issued in") );
+	m_gridCrew->SetColLabelValue( 10, _("Date of Issue") );
+	m_gridCrew->SetColLabelValue( 11, _("Zip") );
+	m_gridCrew->SetColLabelValue( 12, _("Country") );
+	m_gridCrew->SetColLabelValue( 13, _("Town") );
+	m_gridCrew->SetColLabelValue( 14, _("Street") );
 	m_gridCrew->SetColLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
 	
 	// Rows
@@ -661,6 +664,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	// Cell Defaults
 	m_gridCrew->SetDefaultCellAlignment( wxALIGN_LEFT, wxALIGN_TOP );
 	m_menu2 = new wxMenu();
+
 	wxMenuItem* m_menuItem2;
 	m_menuItem2 = new wxMenuItem( m_menu2, wxID_ANY, wxString( _("Delete Row") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menu2->Append( m_menuItem2 );
@@ -677,6 +681,18 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	wxMenuItem* m_menuItem22;
 	m_menuItem22 = new wxMenuItem( m_menu2, wxID_ANY, wxString( _("Show hidden columns") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menu2->Append( m_menuItem22 );
+
+	wxMenuItem* m_separator6;
+	m_separator6 = m_menu2->AppendSeparator();
+	
+	wxMenuItem* m_menuItem30;
+	m_menuItem30 = new wxMenuItem( m_menu2, MENUCREWONBOARD, wxString( _("Show onboard only") ) , wxEmptyString, wxITEM_CHECK );
+	m_menu2->Append( m_menuItem30 );
+	m_menuItem30->Check( true );
+	
+	wxMenuItem* m_menuItem31;
+	m_menuItem31 = new wxMenuItem( m_menu2, MENUCREWALL, wxString( _("Show all crew-entries") ) , wxEmptyString, wxITEM_CHECK );
+	m_menu2->Append( m_menuItem31 );
 
 	m_gridCrewWake = new wxGrid( m_panel21, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 	
@@ -1587,6 +1603,8 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridMotorSails->Connect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickMotorSails ), NULL, this );
 	m_gridOverview->Connect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickOverview ), NULL, this );
 	m_gridCrew->Connect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickCrew ), NULL, this );
+	this->Connect( m_menuItem30->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionOnboardCrew ) );
+	this->Connect( m_menuItem31->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionAllEntriesCrew ) );
 	m_gridCrewWake->Connect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickCrewWake ), NULL, this );
 	logSave->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::logSaveOnButtonClick ), NULL, this );
 	logView->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookDialog::logViewOnButtonClick ), NULL, this );
@@ -1763,7 +1781,6 @@ LogbookDialog::~LogbookDialog()
     delete logbookTimer;
 	logbookTimer = NULL;
 
-
 	// Disconnect Events
 	this->Disconnect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( LogbookDialog::LogbookDialogOnClose ) );
 	this->Disconnect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( LogbookDialog::LogbookDialogOnInitDialog ) );
@@ -1782,6 +1799,8 @@ LogbookDialog::~LogbookDialog()
 	m_gridMotorSails->Disconnect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickMotorSails ), NULL, this );
 	m_gridOverview->Disconnect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickOverview ), NULL, this );
 	m_gridCrew->Disconnect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickCrew ), NULL, this );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionOnboardCrew ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionAllEntriesCrew ) );
 	m_gridCrewWake->Disconnect( wxEVT_GRID_LABEL_LEFT_DCLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftDClickCrewWake ), NULL, this );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::m_TimerOnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::m_menuItem1OnMenuSelection ) );
@@ -1923,9 +1942,9 @@ LogbookDialog::~LogbookDialog()
 	delete crewList;
 	delete boat;
 	delete logbook;
+	delete coldfinger;
 
 	clearDataDir();
-
 }
 
 void LogbookDialog::clearDataDir()
@@ -2588,6 +2607,8 @@ Backup Logbook(*.txt)|*.txt");
 	m_gridCrew->SetColMinimalAcceptableWidth(0);
 	m_gridCrewWake->SetColMinimalAcceptableWidth(0);
 
+	m_gridCrew->SetRowMinimalAcceptableHeight(0);
+
 	getIniValues();
 
 	m_gridOverview->SetColMinimalWidth(OverView::FPATH,0);
@@ -2610,6 +2631,13 @@ Backup Logbook(*.txt)|*.txt");
 	this->Connect( wxEVT_TIMER, wxObjectEventFunction( &LogbookDialog::OnLogTimer ));
 	logbookTimer->Start(LOGSAVETIME);
 
+	logbookPlugIn->GetOriginalColors();
+
+	coldfinger = new ColdFinger(this);
+	coldfinger->Show(false);
+
+	crewList->filterCrewMembers();
+
 #ifdef PBVE_DEBUG
 	if(PBVE_DEBUG)
 	{
@@ -2618,7 +2646,7 @@ Backup Logbook(*.txt)|*.txt");
 	}
 #endif
 
-	logbookPlugIn->GetOriginalColors();
+
 
 #ifndef __WXMSW__  // wxWidgets won't set buttonwidth in Linux like in windows
 	m_buttonEditLayout->SetMinSize( wxSize( 25,-1 ) );
@@ -2670,15 +2698,21 @@ void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )
 		selGridRow--;
 		if(selGridRow < 0) selGridRow = 0;
 	}
-	else if(ev.GetId() == COLDFINGER_REM || ev.GetId() == COLDFINGER_MOT)
+	else if(ev.GetId() == COLDFINGER)
 	{
-		ColdFinger *dlg = new ColdFinger(this, ev.GetId());
-		if(dlg->ShowModal() == wxID_OK)
+		coldfinger->ShowModal();
+		if(!coldfinger->IsModal() && coldfinger->retItem != NULL)
 		{
-			if(ev.GetId() == COLDFINGER_REM)
-				m_gridGlobal->SetCellValue(dlg->text,selGridRow,13);
-			else
-				m_gridMotorSails->SetCellValue(_("test1"),selGridRow,8);
+			myTreeItem* item = coldfinger->retItem;
+			m_notebook8->SetSelection(item->grid);
+			//wxMessageBox(item->text);
+			wxString insert = logGrids[item->grid]->GetCellValue(selGridRow,item->gridcol);
+
+			logGrids[item->grid]->SetCellValue(insert+((insert.Length() == 0)?_T(""):_T("\n"))+item->text,selGridRow,item->gridcol);
+
+			logGrids[item->grid]->SetFocus();
+			logGrids[item->grid]->SetGridCursor(selGridRow,item->gridcol);
+			setEqualRowHeight(selGridRow);
 		}
 		
 	}
@@ -2760,7 +2794,7 @@ void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )
 		}
 		delete dlg;
 	}
-	else
+	else if(selGridCol == Logbook::WAKE && this->m_notebook8->GetSelection() == 0)
 	{
 		wxString s = logGrids[m_notebook8->GetSelection()]->GetCellValue(selGridRow,selGridCol);
 		logGrids[m_notebook8->GetSelection()]->SetCellValue(
@@ -2771,6 +2805,21 @@ void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )
 		);
 		setEqualRowHeight(selGridRow);
 		logGrids[m_notebook8->GetSelection()]->Refresh();
+	}
+	else if((selGridCol == Logbook::REMARKS       && m_notebook8->GetSelection() == 0) ||
+		    (selGridCol == Logbook::WEATHER-11    && m_notebook8->GetSelection() == 1) ||
+			(selGridCol == Logbook::VISIBILITY-11 && m_notebook8->GetSelection() == 1) ||
+			(selGridCol == Logbook::SAILS-24      && m_notebook8->GetSelection() == 2) ||
+			(selGridCol == Logbook::REEF-24       && m_notebook8->GetSelection() == 2) ||
+			(selGridCol == Logbook::MREMARKS-24   && m_notebook8->GetSelection() == 2) )
+	{
+		wxString s = logGrids[m_notebook8->GetSelection()]->GetCellValue(selGridRow,selGridCol);
+		wxTreeItemId id = FindMenuItem(m_notebook8->GetSelection(), selGridCol, m_menu1->GetLabelText(ev.GetId()));
+		wxString text = ((myTreeItem*)coldfinger->m_treeCtrl3->GetItemData(id))->text;
+		int grid = ((myTreeItem*)coldfinger->m_treeCtrl3->GetItemData(id))->grid;
+
+		logGrids[grid]->SetCellValue(selGridRow,selGridCol,s+((s.Length() == 0)?_T(""):_T("\n"))+text);
+		logGrids[grid]->SetGridCursor(selGridRow,selGridCol);
 	}
 }
 
@@ -2852,28 +2901,18 @@ void LogbookDialog::m_gridGlobalOnGridCellRightClick( wxGridEvent& ev )
 				wxCommandEventHandler( LogbookDialog::m_menuItem1OnMenuSelection ) );
 	}
 
-	if(ev.GetCol() == 13 && (m_notebook8->GetSelection() == 0))
+	if((selGridCol == Logbook::REMARKS       && m_notebook8->GetSelection() == 0) ||
+	   (selGridCol == Logbook::WEATHER-11    && m_notebook8->GetSelection() == 1) ||
+	   (selGridCol == Logbook::VISIBILITY-11 && m_notebook8->GetSelection() == 1) ||
+	   (selGridCol == Logbook::SAILS-24      && m_notebook8->GetSelection() == 2) ||
+ 	   (selGridCol == Logbook::REEF-24       && m_notebook8->GetSelection() == 2) ||
+	   (selGridCol == Logbook::MREMARKS-24   && m_notebook8->GetSelection() == 2)
+	   )
 	{
-		m_menu1->PrependSeparator();
-
-		wxMenuItem *item = new wxMenuItem( m_menu1, COLDFINGER_REM, 
-				_("use Textblocks..."), wxEmptyString, wxITEM_NORMAL );
-		m_menu1->Prepend( item );
-		this->Connect( item->GetId(), wxEVT_COMMAND_MENU_SELECTED, 
-				wxCommandEventHandler( LogbookDialog::m_menuItem1OnMenuSelection ) );
+		addColdFingerDialog(m_menu1);
+		addColdFingerTextBlocks(m_menu1);
 	}
-
-	if(ev.GetCol() == 8 && (m_notebook8->GetSelection() == 2))
-	{
-		m_menu1->PrependSeparator();
-
-		wxMenuItem *item = new wxMenuItem( m_menu1, COLDFINGER_MOT, 
-				_("use Textblocks..."), wxEmptyString, wxITEM_NORMAL );
-		m_menu1->Prepend( item );
-		this->Connect( item->GetId(), wxEVT_COMMAND_MENU_SELECTED, 
-				wxCommandEventHandler( LogbookDialog::m_menuItem1OnMenuSelection ) );
-	}
-
+/*
 	if(ev.GetCol() == 4 && (m_notebook8->GetSelection() == 2))
 	{
 		wxArrayString ar;
@@ -2896,7 +2935,7 @@ void LogbookDialog::m_gridGlobalOnGridCellRightClick( wxGridEvent& ev )
 			}
 		}
 	}
-
+*/
 	if(ev.GetCol() == 11 && (m_notebook8->GetSelection() == 1))
 	{
 		m_menu1->PrependSeparator();
@@ -2912,10 +2951,8 @@ void LogbookDialog::m_gridGlobalOnGridCellRightClick( wxGridEvent& ev )
 			//bmp.SetWidth(200), bmp.SetHeight(135);
 			item->SetBitmap(bmp);
 			temp->Append(item);
-			//m_menu1->Prepend( item );
 			m_menu1->Prepend( -1, clouds[i], temp );
-			//m_menu1->AppendSubMenu(temp,clouds[i]);
-		//	item->Check(false);
+
 			this->Connect( item->GetId(), wxEVT_COMMAND_MENU_SELECTED, 
 				wxCommandEventHandler( LogbookDialog::m_menuItem1OnMenuSelection ) );
 		}
@@ -2937,6 +2974,85 @@ void LogbookDialog::m_gridGlobalOnGridCellRightClick( wxGridEvent& ev )
 			this->Disconnect( id, wxEVT_COMMAND_MENU_SELECTED, 
 			wxCommandEventHandler( LogbookDialog::m_menuItem1OnMenuSelection ) );
 		}
+}
+
+void LogbookDialog::addColdFingerDialog(wxMenu* m_menu)
+{
+	m_menu->PrependSeparator();
+
+		wxMenuItem *item = new wxMenuItem( m_menu, COLDFINGER, 
+				_("use Textblocks..."), wxEmptyString, wxITEM_NORMAL );
+		m_menu1->Prepend( item );
+		this->Connect( item->GetId(), wxEVT_COMMAND_MENU_SELECTED, 
+				wxCommandEventHandler( LogbookDialog::m_menuItem1OnMenuSelection ) );
+}
+
+void LogbookDialog::addColdFingerTextBlocks(wxMenu* menu)
+{
+	wxTreeItemId first = FindMenuItem(-1,0,wxEmptyString);
+	FindMenuItem(m_notebook8->GetSelection(),selGridCol,wxEmptyString);
+
+//	wxMessageBox(coldfinger->m_treeCtrl3->GetItemText(first));
+}
+
+#include <stack>
+using namespace std;
+wxTreeItemId LogbookDialog::FindMenuItem(int grid, int col, wxString name)
+{
+	wxTreeCtrl* tree = coldfinger->m_treeCtrl3;
+	std::stack<wxTreeItemId> items;
+	if (tree->GetRootItem().IsOk())
+		items.push(tree->GetRootItem());
+
+	while (!items.empty())
+	{
+		wxTreeItemId next = items.top();
+		items.pop();
+
+		if(grid == -1)
+		{
+			if (next != tree->GetRootItem() && ((myTreeItem*)tree->GetItemData(next))->grid == -1)
+				return next;
+		}
+		else if(name == wxEmptyString)
+		{				//wxMessageBox(wxString::Format(_("%s %i %i %i %i %i"),tree->GetItemText(next),grid,col,((myTreeItem*)tree->GetItemData(next))->grid,((myTreeItem*)tree->GetItemData(next))->gridcol,((myTreeItem*)tree->GetItemData(next))->menu));
+
+			if (((next != tree->GetRootItem() && ((myTreeItem*)tree->GetItemData(next))->grid == grid)) && ((myTreeItem*)tree->GetItemData(next))->gridcol == col && 
+				((myTreeItem*)tree->GetItemData(next))->menu == true)
+			{	
+				wxTreeItemIdValue cookie;
+				next = tree->GetFirstChild(next, cookie);
+
+				while(next.IsOk())
+				{
+				wxMenuItem *item = new wxMenuItem( m_menu1, wxID_ANY, 
+					tree->GetItemText(next), wxEmptyString, wxITEM_NORMAL );
+				m_menu1->Prepend( item );
+				this->Connect( item->GetId(), wxEVT_COMMAND_MENU_SELECTED, 
+					wxCommandEventHandler( LogbookDialog::m_menuItem1OnMenuSelection ) );
+			//	wxMessageBox(wxString::Format(_("%i %i %i %i %i"),grid,col,((myTreeItem*)tree->GetItemData(next))->grid,((myTreeItem*)tree->GetItemData(next))->gridcol,((myTreeItem*)tree->GetItemData(next))->menu));
+				 next = tree->GetNextSibling(next);
+				}
+
+				return  wxTreeItemId();
+			}
+		}
+		else
+		{
+			if (next != tree->GetRootItem() && tree->GetItemText(next) == name)
+				return next;
+		}
+ 
+		wxTreeItemIdValue cookie;
+		wxTreeItemId nextChild = tree->GetFirstChild(next, cookie);
+		while (nextChild.IsOk())
+		{
+			items.push(nextChild);
+			nextChild = tree->GetNextSibling(nextChild);
+		}
+	}
+ 
+	return wxTreeItemId();
 }
 
 void LogbookDialog::m_gridWeatherOnGridCellRightClick( wxGridEvent& ev )
@@ -3694,6 +3810,20 @@ void LogbookDialog::m_menuItem3OnMenuSelection( wxCommandEvent& ev )
 {
 	boat->deleteRow(selGridRow);
 	boat->modified = true;
+}
+
+void LogbookDialog::OnMenuSelectionOnboardCrew( wxCommandEvent& event )
+{
+	m_menu2->Check(MENUCREWONBOARD,true);
+	m_menu2->Check(MENUCREWALL,false);
+	crewList->filterCrewMembers();
+}
+
+void LogbookDialog::OnMenuSelectionAllEntriesCrew( wxCommandEvent& event )
+{
+	m_menu2->Check(MENUCREWALL,true);
+	m_menu2->Check(MENUCREWONBOARD,false);
+	crewList->showAllCrewMembers();
 }
 
 wxDateTime LogbookDialog::getDateTo(wxString filename)
@@ -5417,11 +5547,15 @@ void myGridStringTable::SetColLabelValue( int col, const wxString& value )
     m_colLabels[col] = value;
 }
 
-/////////////////////// Cold Finger Conviniece /////////////////////
-///////////////////////////////////////////////////////////////////////////
 
-ColdFinger::ColdFinger( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+/////////////////////// Cold Finger Conviniece /////////////////////
+////////////////////////////////////////////////////////////////////
+//#include <wx/dnd.h>
+
+ColdFinger::ColdFinger( LogbookDialog* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
+	dialog =  parent;
+
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	
 	wxBoxSizer* bSizer27;
@@ -5437,29 +5571,28 @@ ColdFinger::ColdFinger( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_treeCtrl3 = new wxTreeCtrl( m_panel18, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTR_DEFAULT_STYLE|wxTR_EDIT_LABELS );
 	m_menu9 = new wxMenu();
 	wxMenuItem* m_menuItem24;
-	m_menuItem24 = new wxMenuItem( m_menu9, wxID_ANY, wxString( wxT("Add Item") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuItem24 = new wxMenuItem( m_menu9, wxID_ANY, wxString( _("Add Item") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menu9->Append( m_menuItem24 );
 	
 	wxMenuItem* m_menuItem25;
-	m_menuItem25 = new wxMenuItem( m_menu9, wxID_ANY, wxString( wxT("Delete Item") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuItem25 = new wxMenuItem( m_menu9, wxID_ANY, wxString( _("Delete Item") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menu9->Append( m_menuItem25 );
 	
 	wxMenuItem* m_menuItem26;
-	m_menuItem26 = new wxMenuItem( m_menu9, wxID_ANY, wxString( wxT("Rename Item") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuItem26 = new wxMenuItem( m_menu9, wxID_ANY, wxString( _("Rename Item") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menu9->Append( m_menuItem26 );
 	
 	wxMenuItem* m_separator5;
 	m_separator5 = m_menu9->AppendSeparator();
 	
 	wxMenuItem* m_menuItem27;
-	m_menuItem27 = new wxMenuItem( m_menu9, wxID_ANY, wxString( wxT("Add Treenode") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuItem27 = new wxMenuItem( m_menu9, wxID_ANY, wxString( _("Add Treenode") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menu9->Append( m_menuItem27 );
 	
 	wxMenuItem* m_menuItem28;
-	m_menuItem28 = new wxMenuItem( m_menu9, wxID_ANY, wxString( wxT("Delete TreeNode") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menuItem28 = new wxMenuItem( m_menu9, wxID_ANY, wxString( _("Delete Treenode") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menu9->Append( m_menuItem28 );
 	
-	m_treeCtrl3->Connect( wxEVT_RIGHT_DOWN, wxMouseEventHandler( ColdFinger::m_treeCtrl3OnContextMenu ), NULL, this ); 
 	
 	bSizer30->Add( m_treeCtrl3, 1, wxALL|wxEXPAND, 5 );
 	
@@ -5470,46 +5603,7 @@ ColdFinger::ColdFinger( wxWindow* parent, wxWindowID id, const wxString& title, 
 	wxBoxSizer* bSizer31;
 	bSizer31 = new wxBoxSizer( wxVERTICAL );
 	
-	m_staticText94 = new wxStaticText( m_panel19, wxID_ANY, wxT("Connect Text with Route/Waypoint:"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE );
-	m_staticText94->Wrap( -1 );
-	m_staticText94->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), 70, 90, 92, false, wxEmptyString ) );
-	
-	bSizer31->Add( m_staticText94, 0, wxALL|wxEXPAND, 5 );
-	
-	wxBoxSizer* bSizer29;
-	bSizer29 = new wxBoxSizer( wxHORIZONTAL );
-	
-	m_staticText95 = new wxStaticText( m_panel19, wxID_ANY, wxT("Route:"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
-	m_staticText95->Wrap( -1 );
-	bSizer29->Add( m_staticText95, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	wxString m_choice23Choices[] = { wxT("not implemented yet") };
-	int m_choice23NChoices = sizeof( m_choice23Choices ) / sizeof( wxString );
-	m_choice23 = new wxChoice( m_panel19, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choice23NChoices, m_choice23Choices, 0 );
-	m_choice23->SetSelection( 0 );
-	bSizer29->Add( m_choice23, 1, wxALL|wxEXPAND, 5 );
-	
-	bSizer31->Add( bSizer29, 0, wxEXPAND, 5 );
-	
-	wxBoxSizer* bSizer301;
-	bSizer301 = new wxBoxSizer( wxHORIZONTAL );
-	
-	m_staticText96 = new wxStaticText( m_panel19, wxID_ANY, wxT("WP:"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
-	m_staticText96->Wrap( -1 );
-	bSizer301->Add( m_staticText96, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	wxString m_choice24Choices[] = { wxT("not implemented yet") };
-	int m_choice24NChoices = sizeof( m_choice24Choices ) / sizeof( wxString );
-	m_choice24 = new wxChoice( m_panel19, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choice24NChoices, m_choice24Choices, 0 );
-	m_choice24->SetSelection( 0 );
-	bSizer301->Add( m_choice24, 1, wxALL|wxEXPAND, 5 );
-	
-	bSizer31->Add( bSizer301, 0, wxEXPAND, 5 );
-	
-	m_staticline32 = new wxStaticLine( m_panel19, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
-	bSizer31->Add( m_staticline32, 0, wxEXPAND | wxALL, 5 );
-	
-	m_staticText97 = new wxStaticText( m_panel19, wxID_ANY, wxT("Text"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE );
+	m_staticText97 = new wxStaticText( m_panel19, wxID_ANY, _("Text"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE );
 	m_staticText97->Wrap( -1 );
 	m_staticText97->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), 70, 90, 92, false, wxEmptyString ) );
 	
@@ -5538,6 +5632,7 @@ ColdFinger::ColdFinger( wxWindow* parent, wxWindowID id, const wxString& title, 
 	this->Centre( wxBOTH );
 	
 	// Connect Events
+	this->Connect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( ColdFinger::OnCloseCold ) );
 	this->Connect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( ColdFinger::OnInitDialog ) );
 	m_treeCtrl3->Connect( wxEVT_COMMAND_TREE_BEGIN_DRAG, wxTreeEventHandler( ColdFinger::OnTreeBeginDragCold ), NULL, this );
 	m_treeCtrl3->Connect( wxEVT_COMMAND_TREE_END_DRAG, wxTreeEventHandler( ColdFinger::OnTreeBeginDragCold ), NULL, this );
@@ -5550,11 +5645,17 @@ ColdFinger::ColdFinger( wxWindow* parent, wxWindowID id, const wxString& title, 
 	this->Connect( m_menuItem28->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( ColdFinger::OnMenuTreeSelectionDeleteNodeCold ) );
 	m_textCtrl73->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( ColdFinger::OnTextCold ), NULL, this );
 	m_sdbSizer8OK->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ColdFinger::OnOKButtonClickCold ), NULL, this );
+	m_sdbSizer8Cancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ColdFinger::OnCancelButtonClickCold ), NULL, this );
+
+	init();
 }
 
 ColdFinger::~ColdFinger()
 {
+	writeTextblocks();
+
 	// Disconnect Events
+	this->Disconnect( wxEVT_CLOSE_WINDOW, wxCloseEventHandler( ColdFinger::OnCloseCold ) );
 	this->Disconnect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( ColdFinger::OnInitDialog ) );
 	m_treeCtrl3->Disconnect( wxEVT_COMMAND_TREE_BEGIN_DRAG, wxTreeEventHandler( ColdFinger::OnTreeBeginDragCold ), NULL, this );
 	m_treeCtrl3->Disconnect( wxEVT_COMMAND_TREE_END_DRAG, wxTreeEventHandler( ColdFinger::OnTreeBeginDragCold ), NULL, this );
@@ -5567,35 +5668,160 @@ ColdFinger::~ColdFinger()
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( ColdFinger::OnMenuTreeSelectionDeleteNodeCold ) );
 	m_textCtrl73->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( ColdFinger::OnTextCold ), NULL, this );
 	m_sdbSizer8OK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ColdFinger::OnOKButtonClickCold ), NULL, this );
-	
+	m_sdbSizer8Cancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( ColdFinger::OnCancelButtonClickCold ), NULL, this );
+
+	delete m_menu9;
+}
+
+void ColdFinger::OnCloseCold( wxCloseEvent& event )
+{
+	if(modified)
+	{
+		((myTreeItem*)m_treeCtrl3->GetItemData(m_treeCtrl3->GetSelection()))->text = m_textCtrl73->GetValue();
+		writeTextblocks();
+	}
+
+	retItem = NULL;
+	Hide();
 }
 
 void ColdFinger::OnOKButtonClickCold( wxCommandEvent& event )
 {
 	if(modified)
+	{
 		((myTreeItem*)m_treeCtrl3->GetItemData(m_treeCtrl3->GetSelection()))->text = m_textCtrl73->GetValue();
+		writeTextblocks();
+	}
 
-	text = ((myTreeItem*)this->m_treeCtrl3->GetItemData(m_treeCtrl3->GetSelection()))->text;
+	retItem = (myTreeItem*)m_treeCtrl3->GetItemData(m_treeCtrl3->GetSelection());
+	if(retItem->type == NODE)
+		retItem = NULL;
 
-	Close();
-	event.Skip();
+	Hide();
+}
+
+void ColdFinger::OnCancelButtonClickCold( wxCommandEvent& ev )
+{
+	OnCloseCold( (wxCloseEvent&)ev );
+}
+
+#include "xmblue.xpm"
+void ColdFinger::init()
+{
+	imageList = new wxImageList();
+	imageList->Create(16,16);
+	fo = imageList->Add(wxBitmap (folder));
+	it = imageList->Add(wxBitmap (xmblue));
+	m_treeCtrl3->SetImageList(imageList);
+
+	dataPath = *(dialog->pHome_Locn);
+	dataPath += _T("data");
+	dataPath += wxFileName::GetPathSeparator();
+	dataPath += _T("Textblocks.xml");
+
+	loadTextBlocks();
+
+	if(!m_treeCtrl3->GetRootItem().IsOk())
+	{
+		myTreeItem *item = new myTreeItem(NODE,_("Textblocks"),
+			_("Help\n-----\n\nOpen treenode\n  \'Texts when using this Dialog only\'\n  and select e.g. \'Remarks\'\n\nRightclick in TreeView for menu\n\nAdd a item and rename it\n   USE UNIQUE NAMES FOR ITEMS !\n\nInsert text\n\nIn \'Texts when using this Dialog only\' you can insert/delete treenodes only\n\nUse Drag \'n Drop to move item from/to menu\n\nsee next treenodes for more help"),_T(""),_T(""),_T(""),_T(""),0,0,false,true,false);
+		selectedItem = m_treeCtrl3->AddRoot(item->name,fo,-1,item);
+		m_textCtrl73->SetValue(item->text);
+
+		item = new myTreeItem(NODE,_T(""),_("The itemname is shown in the rightcklick-menu of the following Columns\nBy clicking on it the text is inserted\n\n")+
+			dialog->m_gridGlobal->GetColLabelValue(Logbook::REMARKS)+_T("\n")+
+			dialog->m_gridWeather->GetColLabelValue(Logbook::WEATHER-11)+_T("\n")+
+			dialog->m_gridWeather->GetColLabelValue(Logbook::VISIBILITY-11)+_T("\n")+
+			dialog->m_gridMotorSails->GetColLabelValue(Logbook::SAILS-24)+_T("\n")+
+			dialog->m_gridMotorSails->GetColLabelValue(Logbook::REEF-24)+_T("\n")+
+			dialog->m_gridMotorSails->GetColLabelValue(Logbook::MREMARKS-24)
+			,_T(""),_T(""),_T(""),_T(""),-1,0,false,false,true);
+		wxTreeItemId menu = this->m_treeCtrl3->AppendItem(selectedItem,_("Texts for Rightclick-Menu"),fo,-1,item);
+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),0,Logbook::REMARKS,false,false,true);
+		wxTreeItemId test = this->m_treeCtrl3->AppendItem(menu,dialog->m_gridGlobal->GetColLabelValue(Logbook::REMARKS)+_T(" (")+
+			dialog->m_notebook8->GetPageText(0)+_T(")"),-fo,-1,item);
+
+		item = new myTreeItem(ITEM,_T(""),_("Sails up\nEngine stopped\n\nDemo - Rightclick-Menu \'use Testextblocks\' for help"),_T(""),_T(""),_T(""),_T(""),0,Logbook::REMARKS,false,false,true);
+		this->m_treeCtrl3->AppendItem(test,_("Demo Sails up"),it,-1,item);
+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),1,Logbook::WEATHER-11,false,false,true);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridWeather->GetColLabelValue(Logbook::WEATHER-11)+_T(" (")+
+			dialog->m_notebook8->GetPageText(1)+_T(")"),fo,-1,item);
+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),1,Logbook::VISIBILITY-11,false,false,true);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridWeather->GetColLabelValue(Logbook::VISIBILITY-11)+_T(" (")+
+			dialog->m_notebook8->GetPageText(1)+_T(")"),fo,-1,item);
+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),2,Logbook::SAILS-24,false,false,true);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridMotorSails->GetColLabelValue(Logbook::SAILS-24)+_T(" (")+
+			dialog->m_notebook8->GetPageText(2)+_T(")"),fo,-1,item);
+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),2,Logbook::REEF-24,false,false,true);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridMotorSails->GetColLabelValue(Logbook::REEF-24)+_T(" (")+
+			dialog->m_notebook8->GetPageText(2)+_T(")"),fo,-1,item);
+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),2,Logbook::MREMARKS-24,false,false,true);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridMotorSails->GetColLabelValue(Logbook::MREMARKS-24)+_T(" (")+
+			dialog->m_notebook8->GetPageText(2)+_T(")"),fo,-1,item);
+
+/////////////////// in dialog only ////////////
+		item = new myTreeItem(NODE,_T(""),_("These texts are inserted into the grid-colmn\nby calling this dialog\n\nSelect Item\nClick OK-Button\n\nUse Drag \'n Drop to place a item in menu"),_T(""),_T(""),_T(""),_T(""),-2,0,false,false,false);
+		menu = this->m_treeCtrl3->AppendItem(selectedItem,_("Texts when using this Dialog only"),fo,0,item);
+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),0,Logbook::REMARKS,false,true,false);
+		test = this->m_treeCtrl3->AppendItem(menu,dialog->m_gridGlobal->GetColLabelValue(Logbook::REMARKS)+_T(" (")+
+			dialog->m_notebook8->GetPageText(0)+_T(")"),-fo,-1,item);
+
+		item = new myTreeItem(ITEM,_T(""),_("Engine stopped\n\nDemo - Rightclick-Menu \'use Testextblocks\' for help"),_T(""),_T(""),_T(""),_T(""),0,Logbook::REMARKS,true,true,false);
+		this->m_treeCtrl3->AppendItem(test,_("Demo Engine stopped"),it,-1,item);
+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),1,Logbook::WEATHER-11,false,true,false);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridWeather->GetColLabelValue(Logbook::WEATHER-11)+_T(" (")+
+			dialog->m_notebook8->GetPageText(1)+_T(")"),fo,-1,item);
+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),1,Logbook::VISIBILITY-11,false,true,false);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridWeather->GetColLabelValue(Logbook::VISIBILITY-11)+_T(" (")+
+			dialog->m_notebook8->GetPageText(1)+_T(")"),fo,-1,item);
+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),2,Logbook::SAILS-24,false,true,false);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridMotorSails->GetColLabelValue(Logbook::SAILS-24)+_T(" (")+
+			dialog->m_notebook8->GetPageText(2)+_T(")"),fo,-1,item);
+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),2,Logbook::REEF-24,false,true,false);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridMotorSails->GetColLabelValue(Logbook::REEF-24)+_T(" (")+
+			dialog->m_notebook8->GetPageText(2)+_T(")"),fo,-1,item);
+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),2,Logbook::MREMARKS-24,false,true,false);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridMotorSails->GetColLabelValue(Logbook::MREMARKS-24)+_T(" (")+
+			dialog->m_notebook8->GetPageText(2)+_T(")"),fo,-1,item);
+		
+		modified = true;
+		this->writeTextblocks();
+	}
+	else
+	{
+		modified = false;
+	}
+
+	selectedItem = m_treeCtrl3->GetRootItem();
+	m_treeCtrl3->SetFocus();
+	m_treeCtrl3->SelectItem(selectedItem);
+	m_treeCtrl3->Expand(selectedItem);
+	retItem = NULL;
+
+	SetDropTarget(new DnD(this,m_treeCtrl3,m_treeCtrl3));
 }
 
 void ColdFinger::OnInitDialog(wxInitDialogEvent& event)
 {
-	modified = false;
-	myTreeItem *item = new myTreeItem(NODE,_("At Work\n\nHelp\n\nRightclick treeView for menu\nAdd a treenode\nAdd a item\nInsert text\nClick OK\n\n\nSave/Load not implemented yet !\nNodes/Item/Text disappers next time\nyou call this dialog"));
-	selectedItem = m_treeCtrl3->AddRoot(_("Textblocks"),-1,-1,item);
-	m_treeCtrl3->SelectItem(selectedItem);
-	m_treeCtrl3->SetFocus();
+
 }
 
 void ColdFinger::OnTreeSelChanged( wxTreeEvent& event )
 {   
 	if(modified)
-	{
 		((myTreeItem*)m_treeCtrl3->GetItemData(selectedItem))->text = m_textCtrl73->GetValue();
-	}
 
 	wxString t = ((myTreeItem*)m_treeCtrl3->GetItemData(event.GetItem()))->text;
 	selectedItem = event.GetItem();
@@ -5606,30 +5832,100 @@ void ColdFinger::OnTreeSelChanged( wxTreeEvent& event )
 
 void ColdFinger::OnMenuSelectionaddNodeCold( wxCommandEvent& event )
 {
+	static int i = 1;
+	wxTreeItemId parent;
+
+	myTreeItem *item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),fo,0,true,true,false);
+
+	if(((myTreeItem*)this->m_treeCtrl3->GetItemData(selectedItem))->type ==  ITEM)
+		parent = this->m_treeCtrl3->GetItemParent(selectedItem);
+	else
+		parent = selectedItem;
+
+	myTreeItem* parentdata = ((myTreeItem*)this->m_treeCtrl3->GetItemData(parent));
+	item->grid		 = parentdata->grid;
+	item->gridcol	 = parentdata->gridcol;
+	item->add		 = true;
+	item->deleteable = true;
+	item->menu       = parentdata->menu;
+
+	selectedItem = m_treeCtrl3->AppendItem(parent,wxString::Format(_("New Node%i"),i++),fo,-1,item);
+	m_treeCtrl3->SelectItem(selectedItem);
+	m_treeCtrl3->EditLabel(selectedItem);
 	modified = true;
-	myTreeItem *item = new myTreeItem(NODE,_T(""));
-	wxTreeItemId id = m_treeCtrl3->AppendItem(m_treeCtrl3->GetSelection(),_("New Node"),-1,-1,item);
-	m_treeCtrl3->SelectItem(id);
 }
 
 void ColdFinger::OnMenuTreeSelectionDeleteNodeCold( wxCommandEvent& event )
 {
+	if(m_treeCtrl3->GetSelection() == m_treeCtrl3->GetRootItem()) return;
+	if(((myTreeItem*)m_treeCtrl3->GetItemData(selectedItem))->deleteable == false) return;
+
+	m_treeCtrl3->Delete(selectedItem);
+	selectedItem = m_treeCtrl3->GetSelection();
 	modified = true;
-	m_treeCtrl3->Delete(m_treeCtrl3->GetSelection());
 }
 
 void ColdFinger::OnMenuSelectionAddCold( wxCommandEvent& event )
 {
+	static int i = 1;
+	wxTreeItemId parent;
+
+	myTreeItem *item = new myTreeItem(ITEM,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),it,0,true,true,false);
+
+	if(((myTreeItem*)this->m_treeCtrl3->GetItemData(m_treeCtrl3->GetSelection()))->type ==  ITEM)
+		parent = this->m_treeCtrl3->GetItemParent(selectedItem);
+	else
+		parent = selectedItem;
+
+	myTreeItem* parentdata = ((myTreeItem*)this->m_treeCtrl3->GetItemData(parent));
+	item->grid		 = parentdata->grid;
+	item->gridcol	 = parentdata->gridcol;
+	item->add		 = true;
+	item->deleteable = true;
+	item->menu       = parentdata->menu;
+
+	selectedItem = m_treeCtrl3->AppendItem(parent,wxString::Format(_("New Item%i"),i++),it,-1,item);
+	m_treeCtrl3->SelectItem(selectedItem);
+	m_treeCtrl3->EditLabel(selectedItem);
 	modified = true;
-	myTreeItem *item = new myTreeItem(ITEM,_T(""));
-	wxTreeItemId id = m_treeCtrl3->AppendItem(m_treeCtrl3->GetSelection(),_("New Item"),-1,-1,item);
-	m_treeCtrl3->SelectItem(id);
+}
+
+void ColdFinger::OnTreeItemRightClickCold( wxTreeEvent& event )
+{
+	if(event.GetItem() == this->m_treeCtrl3->GetRootItem()) return;
+
+
+	selectedItem = event.GetItem();
+	m_treeCtrl3->SelectItem(selectedItem);
+
+	myTreeItem* item = ((myTreeItem*)this->m_treeCtrl3->GetItemData(selectedItem));
+
+	if(item->grid == -1 || item->grid == -2) return;
+
+	if(item->deleteable == false)
+		m_menu9->Enable(m_menu9->FindItem(_("Delete Treenode")),false);
+	else
+		m_menu9->Enable(m_menu9->FindItem(_("Delete Treenode")),true);
+
+	if(item->add == false)
+		m_menu9->Enable(m_menu9->FindItem(_("Add Treenode")),false);
+	else
+		m_menu9->Enable(m_menu9->FindItem(_("Add Treenode")),true);
+
+	m_treeCtrl3->PopupMenu( m_menu9 );
 }
 
 void ColdFinger::OnMenuSelectionDeleteCold( wxCommandEvent& event )
 {
-	modified = true;
-	m_treeCtrl3->Delete(m_treeCtrl3->GetSelection());
+	if(((myTreeItem*)this->m_treeCtrl3->GetItemData(selectedItem))->deleteable == false ||
+		((myTreeItem*)this->m_treeCtrl3->GetItemData(selectedItem))->type == NODE) return;
+
+	if(selectedItem != m_treeCtrl3->GetRootItem())
+	{
+		m_treeCtrl3->Delete(selectedItem);
+		selectedItem = m_treeCtrl3->GetSelection();
+		modified = true;
+	}
 }
 
 void ColdFinger::OnMenuSelectionRenameCold( wxCommandEvent& event )
@@ -5643,10 +5939,257 @@ void ColdFinger::OnTextCold( wxCommandEvent& event )
 	modified = true;
 }
 
-/////////////////// used in ColdFinger /////////////////
-myTreeItem::myTreeItem(int type, wxString text)
+void ColdFinger::writeTextblocks()
 {
-	this->type = type;
-	this->text = text;
+	if(!modified) 
+		return;
+
+	TiXmlDocument doc(dataPath.mb_str(wxConvUTF8));  
+	
+ 	TiXmlDeclaration* decl = new TiXmlDeclaration( "1.0", "UTF-8", "" );  
+	doc.LinkEndChild( decl ); 
+
+	myTreeItem* item;
+	item = (myTreeItem*) m_treeCtrl3->GetItemData(m_treeCtrl3->GetRootItem());
+
+	TiXmlElement *root = new TiXmlElement("TextblocksXML");
+	doc.LinkEndChild( root ); 	
+
+	root->SetAttribute( "Name",item->name.mb_str(wxConvUTF8) );
+	root->SetAttribute( "Helptext",item->text.mb_str(wxConvUTF8) );
+	recursiveWrite(m_treeCtrl3->GetRootItem(), root);
+	doc.SaveFile();
+}
+
+void ColdFinger::addElement(TiXmlElement* root, const char* key, const char* label)
+{
+	TiXmlElement* celem = new TiXmlElement(key);
+	celem->LinkEndChild(new TiXmlText(label));
+	root->LinkEndChild(celem);		
+}
+
+wxTreeItemId ColdFinger::recursiveWrite(wxTreeItemId id, TiXmlElement *elem)
+{
+	wxTreeItemIdValue cookie;
+	wxTreeItemId child;
+    wxTreeItemId item = m_treeCtrl3->GetFirstChild(id, cookie );
+	TiXmlElement *childelem, *newElement;
+	childelem = elem;
+
+	while( item.IsOk() )
+	{
+		wxString sData = m_treeCtrl3->GetItemText(item);
+		myTreeItem* data = (myTreeItem*) m_treeCtrl3->GetItemData(item);
+						
+		newElement = new TiXmlElement((data->type)?"ITEM":"NODE");					
+
+			
+		addElement(newElement,"Type",wxString::Format(_T("%i"),data->type).mb_str());
+		addElement(newElement,"Name",sData.mb_str(wxConvUTF8));
+		addElement(newElement,"Text",data->text.mb_str(wxConvUTF8));
+		addElement(newElement,"GUID",data->guid.mb_str(wxConvUTF8));
+		addElement(newElement,"Route",data->route.mb_str(wxConvUTF8));							
+		addElement(newElement,"GUIDWP",data->guidWP.mb_str(wxConvUTF8));
+		addElement(newElement,"WP",data->WP.mb_str(wxConvUTF8));
+		addElement(newElement,"Grid",wxString::Format(_T("%i"),data->grid).mb_str());
+		addElement(newElement,"Column",wxString::Format(_T("%i"),data->gridcol).mb_str());
+		addElement(newElement,"Deleteable",wxString::Format(_T("%s"),(data->deleteable)?_T("true"):_T("false")).mb_str());
+		addElement(newElement,"Add",wxString::Format(_T("%s"),(data->add)?_T("true"):_T("false")).mb_str());
+		addElement(newElement,"Menu",wxString::Format(_T("%s"),(data->menu)?_T("true"):_T("false")).mb_str());
+
+		if( m_treeCtrl3->ItemHasChildren( item ) )
+			recursiveWrite( item, newElement );
+
+		elem = childelem;	
+		elem->LinkEndChild(newElement);
+		item = m_treeCtrl3->GetNextChild(item, cookie);
+	}
+     
+	/* Not found */
+	wxTreeItemId dummy;
+	return dummy;	
+}
+
+void ColdFinger::loadTextBlocks()
+{
+	TiXmlDocument doc(dataPath.mb_str(wxConvUTF8));
+	bool ok = doc.LoadFile();
+
+	if(ok)
+		fillTree(m_treeCtrl3->GetRootItem(), &doc);
+
+	modified = false;
+}
+
+void ColdFinger::fillTree(wxTreeItemId id, TiXmlNode* node)
+{
+	TiXmlNode* pChild;
+	static myTreeItem* elem	;
+	int t = node->Type();
+
+	switch ( t )
+	{
+	case TiXmlNode::TINYXML_ELEMENT:
+		if(wxString(node->Value(),wxConvUTF8) == _T("TextblocksXML"))
+		{
+			wxString name,text;
+			TiXmlAttribute* pAttrib=node->ToElement()->FirstAttribute();
+			if(wxString(pAttrib->Name(),wxConvUTF8) == _T("Name"))
+				name = wxString(pAttrib->Value(),wxConvUTF8);
+			pAttrib=pAttrib->Next();
+			if(wxString(pAttrib->Name(),wxConvUTF8) == _T("Helptext"))
+				text = wxString(pAttrib->Value(),wxConvUTF8);
+
+			elem = new myTreeItem(NODE,name,text,_T(""),_T(""),_T(""),_T(""),0,0,false,false,false);
+			id = m_treeCtrl3->AddRoot(name,fo,-1,elem);
+		}
+		if(wxString(node->Value(),wxConvUTF8) == _T("NODE"))
+		{
+			elem = new myTreeItem(0,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),0,0,false,false,false);
+			id = m_treeCtrl3->AppendItem(id,_T(""),fo,-1,elem);
+		}
+		if(wxString(node->Value(),wxConvUTF8) == _T("ITEM"))
+		{
+			elem = new myTreeItem(1,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),0,0,false,false,false);
+			id = m_treeCtrl3->AppendItem(id,_T(""),it,-1,elem);
+		}
+
+		if(wxString(node->Value(),wxConvUTF8) == _T("Type"))
+		{
+			elem->type = atoi(node->ToElement()->GetText());
+			m_treeCtrl3->SetItemText(id,elem->name);
+		}
+		if(wxString(node->Value(),wxConvUTF8) == _T("Name"))
+		{
+			elem->name = wxString(node->ToElement()->GetText(),wxConvUTF8);
+			m_treeCtrl3->SetItemText(id,elem->name);
+		}
+		if(wxString(node->Value(),wxConvUTF8) == _T("Text"))
+			elem->text = wxString(node->ToElement()->GetText(),wxConvUTF8);
+
+		if(wxString(node->Value(),wxConvUTF8) == _T("Grid"))
+		{
+			elem->grid = atoi(node->ToElement()->GetText());
+			m_treeCtrl3->SetItemText(id,elem->name);
+		}
+
+		if(wxString(node->Value(),wxConvUTF8) == _T("Column"))
+			elem->gridcol = atoi(node->ToElement()->GetText());
+
+		if(wxString(node->Value(),wxConvUTF8) == _T("Deleteable"))
+			elem->deleteable = (wxString(node->ToElement()->GetText(),wxConvUTF8) == _T("true"))?true:false;
+
+		if(wxString(node->Value(),wxConvUTF8) == _T("Add"))
+			elem->add = (wxString(node->ToElement()->GetText(),wxConvUTF8) == _T("true"))?true:false;
+
+		if(wxString(node->Value(),wxConvUTF8) == _T("Menu"))
+			elem->menu = (wxString(node->ToElement()->GetText(),wxConvUTF8) == _T("true"))?true:false;
+		break;
+	}
+
+	for ( pChild = node->FirstChild(); pChild != 0; pChild = pChild->NextSibling()) 
+	{
+		fillTree( id, pChild );
+	}
+}
+
+void ColdFinger::OnTreeBeginDragCold( wxTreeEvent& event )
+{
+	selectedItem = event.GetItem();
+	this->m_textCtrl73->SetValue(((myTreeItem*)m_treeCtrl3->GetItemData(selectedItem))->text);
+	m_treeCtrl3->SelectItem(selectedItem);
+
+	if(((myTreeItem*)this->m_treeCtrl3->GetItemData(selectedItem))->type == NODE)
+		return;
+
+	wxTextDataObject o(m_treeCtrl3->GetItemText(selectedItem));
+	wxDropSource dragSource( m_treeCtrl3 );
+	dragSource.SetData( o );
+	wxDragResult result = dragSource.DoDragDrop( TRUE );
+
+	switch (result)
+	{
+	    case wxDragCopy: /* copy the data */
+			modified = true;
+			break;
+	    case wxDragMove: /* move the data */
+			modified = true;
+			break;
+	    default:         /* do nothing */ break;
+	}
+
+}
+
+/////////////////// used in ColdFinger /////////////////
+myTreeItem::myTreeItem( int type, wxString name, wxString text, wxString guid, wxString route, wxString guidWP, wxString WP, int grid, int gridcol, bool deleteable, bool add, bool menu )
+{
+	this->type       = type;
+	this->name       = name;
+	this->text       = text;
+	this->guidWP     = guidWP;
+	this->route      = route;
+	this->guidWP     = guidWP;
+	this->WP         = WP;
+	this->grid       = grid;
+	this->gridcol    = gridcol;
+	this->deleteable = deleteable;
+	this->add        = add;
+	this->menu   	 = menu;
+}
+
+myTreeItem::myTreeItem(const myTreeItem* item)
+{
+	this->type       = item->type;
+	this->name       = item->name;
+	this->text       = item->text;
+	this->guidWP     = item->guidWP;
+	this->route      = item->route;
+	this->guidWP     = item->guidWP;
+	this->WP         = item->WP;
+	this->grid       = item->grid;
+	this->gridcol    = item->gridcol;
+	this->deleteable = item->deleteable;
+	this->add        = item->add;
+	this->menu   	 = item->menu;
+}
+
+
+bool DnD::OnDropText(wxCoord x, wxCoord y, const wxString& str)
+{
+	wxTreeItemId id,parent;
+
+	id = m_pOwner->HitTest(wxPoint(x,y));
+	if( id == m_pOwner->GetRootItem()) return false;
+	myTreeItem* my = (myTreeItem*)m_pOwner->GetItemData(id);
+
+	if(my->grid == -1 || my->grid == -2) return false;
+
+	if(my->type == ColdFinger::NODE)
+		parent = id;
+	else
+		parent = m_pOwner->GetItemParent(id);
+
+	myTreeItem* parentmy = (myTreeItem*)m_pOwner->GetItemData(dialog->selectedItem);
+	wxString s = m_pOwner->GetItemText(dialog->selectedItem);
+
+	parentmy->type       = ColdFinger::ITEM;
+	parentmy->grid       = my->grid;
+	parentmy->gridcol    = my->gridcol;
+	parentmy->deleteable = my->deleteable;
+	parentmy->add        = my->add;
+	parentmy->menu       = my->menu;
+
+	myTreeItem* newmy = new myTreeItem(parentmy);
+	wxTreeItemId newId = m_pOwner->InsertItem(parent,(newmy->type == ColdFinger::NODE)?0:id,s,(newmy->type == ColdFinger::NODE)?dialog->fo:dialog->it,-1,newmy);
+
+	m_pOwner->Delete(dialog->selectedItem);
+	dialog->selectedItem = newId;
+	dialog->m_textCtrl73->SetValue(newmy->text);
+	m_pOwner->SelectItem(newId);
+	m_pOwner->Expand(id);
+	//m_pOwner->ExpandAll();
+//	m_pOwner->Refresh();
+
+    return true;
 }
 

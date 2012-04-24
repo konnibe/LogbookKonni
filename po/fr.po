@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-15 19:13+0200\n"
+"POT-Creation-Date: 2012-04-24 16:20+0200\n"
 "PO-Revision-Date: 2012-04-11 16:28+0100\n"
 "Last-Translator: Gilletarom <gilletarom@netpratique.fr>\n"
 "Language-Team: \n"
@@ -105,10 +105,22 @@ msgstr ""
 "Ajouter un\n"
 "équipement"
 #
+#, fuzzy
+msgid "Add Item"
+msgstr ""
+"Ajouter un\n"
+"membre d'équipage"
+#
 msgid "Add Line"
 msgstr ""
 "Ajouter\n"
 "une ligne"
+#
+#, fuzzy
+msgid "Add Treenode"
+msgstr ""
+"Ajouter un\n"
+"membre d'équipage"
 #
 msgid "Add a line to the end of your logbook"
 msgstr "Ajouter une ligne à la fin du logbook"
@@ -143,21 +155,6 @@ msgstr "Etes vous certain  ?"
 #
 msgid "At"
 msgstr "A"
-#
-msgid ""
-"At Work\n"
-"\n"
-"Help\n"
-"\n"
-"Rightclick treeView for menu\n"
-"Add a treenode\n"
-"Add a item\n"
-"Insert text\n"
-"Click OK\n"
-"\n"
-"\n"
-"Save/Load not installed yet"
-msgstr ""
 #
 msgid ""
 "Automatic Line by Timer\n"
@@ -266,6 +263,13 @@ msgstr ""
 msgid "Crewlist"
 msgstr "Equipage"
 #
+msgid ""
+"Crewmember is not onboard\n"
+"\n"
+"Please set column 'Onboard' to Yes\n"
+"(click the column twice)"
+msgstr ""
+#
 msgid "Current"
 msgstr "Courant"
 #
@@ -317,6 +321,10 @@ msgstr "Jour(s)"
 msgid "Degres"
 msgstr "Degrés"
 #
+#, fuzzy
+msgid "Delete Item"
+msgstr "Supprimer la mise en page"
+#
 msgid "Delete Layout"
 msgstr "Supprimer la mise en page"
 #
@@ -326,6 +334,17 @@ msgstr "Supprimer la ligne"
 #, c-format
 msgid "Delete Row Nr. %i ?"
 msgstr "Supprimer la ligne n° %i ?"
+#
+#, fuzzy
+msgid "Delete Treenode"
+msgstr "Supprimer la ligne"
+#
+msgid "Demo Engine stopped"
+msgstr ""
+#
+#, fuzzy
+msgid "Demo Sails up"
+msgstr "Détails"
 #
 msgid "Depth"
 msgstr "Profondeur"
@@ -413,6 +432,12 @@ msgstr ""
 msgid "Engine"
 msgstr "Moteur"
 #
+msgid ""
+"Engine stopped\n"
+"\n"
+"Demo - Rightclick-Menu 'use Testextblocks' for help"
+msgstr ""
+#
 msgid "EngineTotal"
 msgstr "Total moteur"
 #
@@ -478,6 +503,28 @@ msgid "Heading"
 msgstr ""
 "Cap\n"
 "compas"
+#
+msgid ""
+"Help\n"
+"-----\n"
+"\n"
+"Open treenode\n"
+"  'Texts when using this Dialog only'\n"
+"  and select e.g. 'Remarks'\n"
+"\n"
+"Rightclick in TreeView for menu\n"
+"\n"
+"Add a item and rename it\n"
+"   USE UNIQUE NAMES FOR ITEMS !\n"
+"\n"
+"Insert text\n"
+"\n"
+"In 'Texts when using this Dialog only' you can insert/delete treenodes only\n"
+"\n"
+"Use Drag 'n Drop to move item from/to menu\n"
+"\n"
+"see next treenodes for more help"
+msgstr ""
 #
 msgid "Hide Equipment"
 msgstr "Voir les caractéristiques"
@@ -714,7 +761,8 @@ msgstr "Nationalité"
 msgid "Navigation"
 msgstr "Navigation"
 #
-msgid "New Item"
+#, c-format
+msgid "New Item%i"
 msgstr ""
 #
 msgid "New Logbook"
@@ -722,7 +770,8 @@ msgstr ""
 "Nouveau\n"
 "livre de bord"
 #
-msgid "New Node"
+#, c-format
+msgid "New Node%i"
 msgstr ""
 #
 msgid "Next WP Name: "
@@ -765,6 +814,9 @@ msgstr "Numéro du quart"
 #, c-format
 msgid "Old Logbook until %s"
 msgstr "Ancien livre de bord depuis %s"
+#
+msgid "Onboard"
+msgstr ""
 #
 msgid "Only Layouts with prefix:"
 msgstr "Seulement avec le préfixe de la mise en page :"
@@ -905,6 +957,10 @@ msgstr "Recharger les mises en page"
 msgid "Remarks"
 msgstr "Remarque"
 #
+#, fuzzy
+msgid "Rename Item"
+msgstr "Renommer les mises en page"
+#
 msgid "Rename Layout"
 msgstr "Renommer les mises en page"
 #
@@ -946,6 +1002,13 @@ msgstr ""
 #
 msgid "Sails"
 msgstr "Voiles"
+#
+msgid ""
+"Sails up\n"
+"Engine stopped\n"
+"\n"
+"Demo - Rightclick-Menu 'use Testextblocks' for help"
+msgstr ""
 #
 msgid "Sails used mostly"
 msgstr ""
@@ -1087,8 +1150,15 @@ msgstr "Vague/houle en"
 msgid "Show all Layouts"
 msgstr "Montrer les mises en page"
 #
+msgid "Show all crew-entries"
+msgstr ""
+#
 msgid "Show hidden columns"
 msgstr "Montrer les colonnes cachées"
+#
+#, fuzzy
+msgid "Show onboard only"
+msgstr "Montrer l'icône de LogBook"
 #
 msgid "Show/Hide Equipmentgrid"
 msgstr ""
@@ -1191,7 +1261,32 @@ msgstr "Téléphone"
 msgid "Temperature"
 msgstr "Température"
 #
+msgid "Text"
+msgstr ""
+#
 msgid "Textblocks"
+msgstr ""
+#
+msgid "Texts for Rightclick-Menu"
+msgstr ""
+#
+msgid "Texts when using this Dialog only"
+msgstr ""
+#
+msgid ""
+"The itemname is shown in the rightcklick-menu of the following Columns\n"
+"By clicking on it the text is inserted\n"
+"\n"
+msgstr ""
+#
+msgid ""
+"These texts are inserted into the grid-colmn\n"
+"by calling this dialog\n"
+"\n"
+"Select Item\n"
+"Click OK-Button\n"
+"\n"
+"Use Drag 'n Drop to place a item in menu"
 msgstr ""
 #
 msgid "Time"
@@ -1535,9 +1630,6 @@ msgstr "s"
 msgid "same watch as"
 msgstr "Même quart que"
 #
-msgid "test1"
-msgstr ""
-#
 # means
 # Logbook from date to date
 msgid "to"
@@ -1551,6 +1643,10 @@ msgstr "semaine(s)"
 #
 msgid "write your own label"
 msgstr "Ecrire votre  propre \"étiquette\" "
+#
+#
+#
+#
 #
 #
 #

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-15 19:13+0200\n"
+"POT-Creation-Date: 2012-04-24 16:20+0200\n"
 "PO-Revision-Date: 2012-02-17 13:33+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: Pavel Kalian <pavel@kalian.cz>\n"
@@ -96,8 +96,16 @@ msgstr "Přidej posádku"
 msgid "Add Equipment"
 msgstr "Přidat vybavení"
 #
+#, fuzzy
+msgid "Add Item"
+msgstr "Přidej posádku"
+#
 msgid "Add Line"
 msgstr "Přidat záznam"
+#
+#, fuzzy
+msgid "Add Treenode"
+msgstr "Přidej posádku"
 #
 msgid "Add a line to the end of your logbook"
 msgstr "Přidat řádku na konec deníku"
@@ -228,21 +236,6 @@ msgstr "Jsi si jist?"
 msgid "At"
 msgstr "U"
 #
-msgid ""
-"At Work\n"
-"\n"
-"Help\n"
-"\n"
-"Rightclick treeView for menu\n"
-"Add a treenode\n"
-"Add a item\n"
-"Insert text\n"
-"Click OK\n"
-"\n"
-"\n"
-"Save/Load not installed yet"
-msgstr ""
-#
 #
 msgid ""
 "Automatic Line by Timer\n"
@@ -338,6 +331,13 @@ msgstr ""
 #
 msgid "Crewlist"
 msgstr "Seznam posádky"
+#
+msgid ""
+"Crewmember is not onboard\n"
+"\n"
+"Please set column 'Onboard' to Yes\n"
+"(click the column twice)"
+msgstr ""
 #
 msgid "Current"
 msgstr "Proud"
@@ -452,6 +452,10 @@ msgstr "Dny"
 msgid "Degres"
 msgstr "Stupně"
 #
+#, fuzzy
+msgid "Delete Item"
+msgstr "Smaž rozvržení"
+#
 msgid "Delete Layout"
 msgstr "Smaž rozvržení"
 #
@@ -461,6 +465,17 @@ msgstr "Smaž záznam"
 #, c-format
 msgid "Delete Row Nr. %i ?"
 msgstr "Smazat řádku č. %i ?"
+#
+#, fuzzy
+msgid "Delete Treenode"
+msgstr "Smaž záznam"
+#
+msgid "Demo Engine stopped"
+msgstr ""
+#
+#, fuzzy
+msgid "Demo Sails up"
+msgstr "Detaily"
 #
 msgid "Depth"
 msgstr "Hloubka"
@@ -542,6 +557,12 @@ msgstr "Konec 6. hlídky"
 #
 msgid "Engine"
 msgstr "Motor"
+#
+msgid ""
+"Engine stopped\n"
+"\n"
+"Demo - Rightclick-Menu 'use Testextblocks' for help"
+msgstr ""
 #
 msgid "EngineTotal"
 msgstr "Motor celkem"
@@ -629,6 +650,28 @@ msgstr ""
 #
 msgid "Heading"
 msgstr "Směr"
+#
+msgid ""
+"Help\n"
+"-----\n"
+"\n"
+"Open treenode\n"
+"  'Texts when using this Dialog only'\n"
+"  and select e.g. 'Remarks'\n"
+"\n"
+"Rightclick in TreeView for menu\n"
+"\n"
+"Add a item and rename it\n"
+"   USE UNIQUE NAMES FOR ITEMS !\n"
+"\n"
+"Insert text\n"
+"\n"
+"In 'Texts when using this Dialog only' you can insert/delete treenodes only\n"
+"\n"
+"Use Drag 'n Drop to move item from/to menu\n"
+"\n"
+"see next treenodes for more help"
+msgstr ""
 #
 msgid "Hide Equipment"
 msgstr "Schovat vybavení"
@@ -953,13 +996,15 @@ msgstr "Národnost"
 msgid "Navigation"
 msgstr "Navigace"
 #
-msgid "New Item"
+#, c-format
+msgid "New Item%i"
 msgstr ""
 #
 msgid "New Logbook"
 msgstr "Nový lodní deník"
 #
-msgid "New Node"
+#, c-format
+msgid "New Node%i"
 msgstr ""
 #
 msgid "Next WP Name: "
@@ -993,6 +1038,9 @@ msgstr "Poč. hlídek"
 #, c-format
 msgid "Old Logbook until %s"
 msgstr "Starý deník do %s"
+#
+msgid "Onboard"
+msgstr ""
 #
 #
 msgid "Only Layouts with prefix:"
@@ -1240,6 +1288,10 @@ msgstr "Nahrát rozvržení"
 msgid "Remarks"
 msgstr "Poznámky"
 #
+#, fuzzy
+msgid "Rename Item"
+msgstr "Přejmenovat  rozvržení"
+#
 msgid "Rename Layout"
 msgstr "Přejmenovat  rozvržení"
 #
@@ -1330,6 +1382,13 @@ msgstr "Č. plachty"
 #
 msgid "Sails"
 msgstr "Plachty"
+#
+msgid ""
+"Sails up\n"
+"Engine stopped\n"
+"\n"
+"Demo - Rightclick-Menu 'use Testextblocks' for help"
+msgstr ""
 #
 msgid "Sails used mostly"
 msgstr "Nejpoužívanější plachty"
@@ -1467,8 +1526,16 @@ msgstr "Zobraz vlny/příboj v"
 msgid "Show all Layouts"
 msgstr "Zobraz všechna rozvržení"
 #
+msgid "Show all crew-entries"
+msgstr ""
+#
 msgid "Show hidden columns"
 msgstr "Zobrazit schované sloupce"
+#
+#
+#, fuzzy
+msgid "Show onboard only"
+msgstr "Zobraz ikonu deníku"
 #
 msgid "Show/Hide Equipmentgrid"
 msgstr "Ukaž/Schovej tab. vybavení"
@@ -1608,7 +1675,32 @@ msgstr "Telefon"
 msgid "Temperature"
 msgstr "Teplota"
 #
+msgid "Text"
+msgstr ""
+#
 msgid "Textblocks"
+msgstr ""
+#
+msgid "Texts for Rightclick-Menu"
+msgstr ""
+#
+msgid "Texts when using this Dialog only"
+msgstr ""
+#
+msgid ""
+"The itemname is shown in the rightcklick-menu of the following Columns\n"
+"By clicking on it the text is inserted\n"
+"\n"
+msgstr ""
+#
+msgid ""
+"These texts are inserted into the grid-colmn\n"
+"by calling this dialog\n"
+"\n"
+"Select Item\n"
+"Click OK-Button\n"
+"\n"
+"Use Drag 'n Drop to place a item in menu"
 msgstr ""
 #
 msgid "Time"
@@ -2001,9 +2093,6 @@ msgstr "s"
 msgid "same watch as"
 msgstr "Stejná hlídka jako"
 #
-msgid "test1"
-msgstr ""
-#
 #
 #
 #
@@ -2032,6 +2121,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -2042,6 +2135,10 @@ msgstr "Napiš vlastní popis"
 #~ "Jméno trasového bodut: %s\n"
 #~ "Skutečný směr k cíli: %4.1f%s\n"
 #~ "Vzdálenost k cíli: %4.2f%s"
+#
+#
+#
+#
 #
 #
 #
@@ -2306,6 +2403,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "BuyParts"
 #~ msgstr "Koupit díly"
@@ -2396,8 +2497,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Seznam posádky"
+#
+#
+#
+#
 #
 #
 #
@@ -2633,6 +2742,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Etmal "
 #~ msgstr "NM/24h"
 #
@@ -2666,8 +2779,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "FirstName"
 #~ msgstr "Jméno"
+#
+#
+#
+#
 #
 #
 #
@@ -2949,6 +3070,10 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "GrossTonnage"
 #~ msgstr "Celková registrovaná prostornost"
 #
@@ -3031,8 +3156,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Konniho lodní deník"
+#
+#
+#
+#
 #
 #
 #
@@ -3340,8 +3473,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "NetTonnage"
 #~ msgstr "Čistá registrovaná prostornost"
+#
+#
+#
+#
 #
 #
 #
@@ -3511,8 +3652,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Cesta k editoru HTML (volitelné)"
+#
+#
+#
+#
 #
 #
 #
@@ -3785,8 +3934,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Schedule"
 #~ msgstr "Rozvrh"
+#
+#
+#
+#
 #
 #
 #
@@ -3811,6 +3968,10 @@ msgstr "Napiš vlastní popis"
 #, fuzzy
 #~ msgid "Search.."
 #~ msgstr "Vybrat lodní deník"
+#
+#
+#
+#
 #
 #
 #
@@ -4083,8 +4244,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Show Maintence Rows coloured"
 #~ msgstr "Zobraz řádky údržby v barvě"
+#
+#
+#
+#
 #
 #
 #
@@ -4413,8 +4582,16 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Dnes"
+#
+#
+#
+#
 #
 #
 #
@@ -4553,6 +4730,10 @@ msgstr "Napiš vlastní popis"
 #, fuzzy
 #~ msgid "Traditional-Style"
 #~ msgstr "Národnost"
+#
+#
+#
+#
 #
 #
 #

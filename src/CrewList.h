@@ -14,7 +14,7 @@ class AutomaticWatch;
 class CrewList
 {
 public:
-	enum fields{NAME,BIRTHNAME,FIRSTNAME,TITLE,BIRTHDATE,BIRTHPLACE,NATIONALITY,
+	enum fields{ONBOARD,NAME,BIRTHNAME,FIRSTNAME,TITLE,BIRTHDATE,BIRTHPLACE,NATIONALITY,
 				PASSPORT,EST_IN,EST_ON,ZIP,COUNTRY,TOWN,STREET};
 
 	enum fieldsWake{LWNAME,LWFIRSTNAME,WAKESTART1,WAKEEND1,WAKESTART2,WAKEEND2,WAKESTART3,WAKEEND3,
@@ -23,6 +23,7 @@ public:
 	CrewList(LogbookDialog* d, wxString data, wxString lay, wxString layoutODT);
 	~CrewList(void);
 
+	void loadData();
 	void addCrew(wxGrid* grid, wxGrid* wake);
 	void changeCrew(wxGrid* grid, int row, int col, int offset);
 	void changeCrewWake(wxGrid* grid, int row, int col, int offset);
@@ -40,6 +41,8 @@ public:
 	void showAutomaticWatchDlg();
 	void addToWatchList();
 	void SameWatchAsDlg(int row);
+	void filterCrewMembers();
+	void showAllCrewMembers();
 
 	LogbookDialog*	dialog;
 	wxGrid*			gridCrew;
@@ -55,7 +58,6 @@ public:
 	bool modified;
 
 private:
-	void loadData();
 	wxString readLayout(wxString layoutFileName);
 	wxString readLayoutODT(wxString layoutFileName);
 	wxString replacePlaceholder(wxString html, wxString s, bool ngrid, int row, int col, bool mode);
@@ -65,6 +67,8 @@ private:
 
 	wxTextFile* crewListFile;
 	wxTextFile* watchListFile;
+
+	int rowHeight;
 	
 
 private:

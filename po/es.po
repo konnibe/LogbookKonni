@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-15 19:13+0200\n"
+"POT-Creation-Date: 2012-04-24 16:20+0200\n"
 "PO-Revision-Date: 2011-11-25 01:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -95,8 +95,16 @@ msgstr "Añadir tripulante"
 msgid "Add Equipment"
 msgstr "Añadir equipamiento"
 #
+#, fuzzy
+msgid "Add Item"
+msgstr "Añadir tripulante"
+#
 msgid "Add Line"
 msgstr "Añadir línea"
+#
+#, fuzzy
+msgid "Add Treenode"
+msgstr "Añadir tripulante"
 #
 msgid "Add a line to the end of your logbook"
 msgstr ""
@@ -232,21 +240,6 @@ msgstr "Estás seguro ?"
 msgid "At"
 msgstr "en"
 #
-msgid ""
-"At Work\n"
-"\n"
-"Help\n"
-"\n"
-"Rightclick treeView for menu\n"
-"Add a treenode\n"
-"Add a item\n"
-"Insert text\n"
-"Click OK\n"
-"\n"
-"\n"
-"Save/Load not installed yet"
-msgstr ""
-#
 #
 msgid ""
 "Automatic Line by Timer\n"
@@ -338,6 +331,13 @@ msgstr ""
 #
 msgid "Crewlist"
 msgstr "Listado de tripulación"
+#
+msgid ""
+"Crewmember is not onboard\n"
+"\n"
+"Please set column 'Onboard' to Yes\n"
+"(click the column twice)"
+msgstr ""
 #
 msgid "Current"
 msgstr "Corriente"
@@ -459,6 +459,10 @@ msgid "Degres"
 msgstr "Grados"
 #
 #, fuzzy
+msgid "Delete Item"
+msgstr "Seleccione Layout:"
+#
+#, fuzzy
 msgid "Delete Layout"
 msgstr "Seleccione Layout:"
 #
@@ -468,6 +472,17 @@ msgstr "Elimiar línea"
 #, c-format
 msgid "Delete Row Nr. %i ?"
 msgstr "Eliminar línea Nº. %i ?"
+#
+#, fuzzy
+msgid "Delete Treenode"
+msgstr "Elimiar línea"
+#
+msgid "Demo Engine stopped"
+msgstr ""
+#
+#, fuzzy
+msgid "Demo Sails up"
+msgstr "Detalles"
 #
 msgid "Depth"
 msgstr "Sonda"
@@ -551,6 +566,12 @@ msgstr "Fin 1ª guardia"
 #
 msgid "Engine"
 msgstr "Máquina"
+#
+msgid ""
+"Engine stopped\n"
+"\n"
+"Demo - Rightclick-Menu 'use Testextblocks' for help"
+msgstr ""
 #
 msgid "EngineTotal"
 msgstr "Máquina total"
@@ -641,6 +662,28 @@ msgstr ""
 #
 msgid "Heading"
 msgstr "Rumbo"
+#
+msgid ""
+"Help\n"
+"-----\n"
+"\n"
+"Open treenode\n"
+"  'Texts when using this Dialog only'\n"
+"  and select e.g. 'Remarks'\n"
+"\n"
+"Rightclick in TreeView for menu\n"
+"\n"
+"Add a item and rename it\n"
+"   USE UNIQUE NAMES FOR ITEMS !\n"
+"\n"
+"Insert text\n"
+"\n"
+"In 'Texts when using this Dialog only' you can insert/delete treenodes only\n"
+"\n"
+"Use Drag 'n Drop to move item from/to menu\n"
+"\n"
+"see next treenodes for more help"
+msgstr ""
 #
 #, fuzzy
 msgid "Hide Equipment"
@@ -969,13 +1012,15 @@ msgstr "Nacionalidad"
 msgid "Navigation"
 msgstr "Navigación"
 #
-msgid "New Item"
+#, c-format
+msgid "New Item%i"
 msgstr ""
 #
 msgid "New Logbook"
 msgstr "Bitácora nueva"
 #
-msgid "New Node"
+#, c-format
+msgid "New Node%i"
 msgstr ""
 #
 msgid "Next WP Name: "
@@ -1004,6 +1049,9 @@ msgstr "Guardia"
 #, fuzzy, c-format
 msgid "Old Logbook until %s"
 msgstr "Abrir fichero de bitácora antiguo"
+#
+msgid "Onboard"
+msgstr ""
 #
 msgid "Only Layouts with prefix:"
 msgstr ""
@@ -1252,6 +1300,10 @@ msgid "Remarks"
 msgstr "Comentarios"
 #
 #, fuzzy
+msgid "Rename Item"
+msgstr "Leer Layouts de nuevo"
+#
+#, fuzzy
 msgid "Rename Layout"
 msgstr "Leer Layouts de nuevo"
 #
@@ -1343,6 +1395,13 @@ msgstr "Vela-Nº"
 #
 msgid "Sails"
 msgstr "Velas"
+#
+msgid ""
+"Sails up\n"
+"Engine stopped\n"
+"\n"
+"Demo - Rightclick-Menu 'use Testextblocks' for help"
+msgstr ""
 #
 msgid "Sails used mostly"
 msgstr ""
@@ -1485,8 +1544,16 @@ msgstr "Ver oleaje/mar de fondo en"
 msgid "Show all Layouts"
 msgstr "Leer Layouts de nuevo"
 #
+msgid "Show all crew-entries"
+msgstr ""
+#
 msgid "Show hidden columns"
 msgstr ""
+#
+#
+#, fuzzy
+msgid "Show onboard only"
+msgstr "Ver ícono bitácora"
 #
 #, fuzzy
 msgid "Show/Hide Equipmentgrid"
@@ -1638,7 +1705,32 @@ msgstr "Teléfon0"
 msgid "Temperature"
 msgstr ""
 #
+msgid "Text"
+msgstr ""
+#
 msgid "Textblocks"
+msgstr ""
+#
+msgid "Texts for Rightclick-Menu"
+msgstr ""
+#
+msgid "Texts when using this Dialog only"
+msgstr ""
+#
+msgid ""
+"The itemname is shown in the rightcklick-menu of the following Columns\n"
+"By clicking on it the text is inserted\n"
+"\n"
+msgstr ""
+#
+msgid ""
+"These texts are inserted into the grid-colmn\n"
+"by calling this dialog\n"
+"\n"
+"Select Item\n"
+"Click OK-Button\n"
+"\n"
+"Use Drag 'n Drop to place a item in menu"
 msgstr ""
 #
 msgid "Time"
@@ -2052,9 +2144,6 @@ msgstr ""
 msgid "same watch as"
 msgstr ""
 #
-msgid "test1"
-msgstr ""
-#
 msgid "to"
 msgstr ""
 #
@@ -2066,6 +2155,10 @@ msgstr ""
 #
 msgid "write your own label"
 msgstr ""
+#
+#
+#
+#
 #
 #
 #
@@ -2241,8 +2334,16 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Listado de tripulación"
+#
+#
+#
+#
 #
 #
 #
@@ -2301,6 +2402,10 @@ msgstr ""
 #, fuzzy
 #~ msgid "Current from"
 #~ msgstr "Corriente"
+#
+#
+#
+#
 #
 #
 #
@@ -2464,8 +2569,16 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "GRT"
 #~ msgstr "BRT"
+#
+#
+#
+#
 #
 #
 #
@@ -2722,8 +2835,16 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Logbook files (*.txt)|*.txt"
 #~ msgstr "Ficheros bitácora (*.txt)|*.txt"
+#
+#
+#
+#
 #
 #
 #
@@ -2758,6 +2879,10 @@ msgstr ""
 #, fuzzy
 #~ msgid "Nm"
 #~ msgstr "Nombre"
+#
+#
+#
+#
 #
 #
 #
@@ -2925,8 +3050,16 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Ruta al editor HTML (opcional)"
+#
+#
+#
+#
 #
 #
 #
@@ -3197,8 +3330,16 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Schedule"
 #~ msgstr "Calendário"
+#
+#
+#
+#
 #
 #
 #
@@ -3343,9 +3484,17 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Seleccione Layout"
+#
+#
+#
+#
 #
 #
 #
@@ -3673,8 +3822,16 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
+#
+#
+#
 #
 #
 #
@@ -3883,9 +4040,17 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Ver"
+#
+#
+#
+#
 #
 #
 #
@@ -4203,6 +4368,10 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Wave Peak"
 #~ msgstr "Oleaje"
@@ -4261,9 +4430,17 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Wind from"
 #~ msgstr "Viento"
+#
+#
+#
+#
 #
 #
 #

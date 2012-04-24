@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-15 19:13+0200\n"
+"POT-Creation-Date: 2012-04-24 16:20+0200\n"
 "PO-Revision-Date: 2012-02-26 06:27+0100\n"
 "Last-Translator: Jacob Handrup <jacob@familienhandrup.dk>\n"
 "Language-Team: \n"
@@ -98,8 +98,16 @@ msgstr "Tilføj besætning"
 msgid "Add Equipment"
 msgstr "Tilføj udstyr"
 #
+#, fuzzy
+msgid "Add Item"
+msgstr "Tilføj besætning"
+#
 msgid "Add Line"
 msgstr "Tilføj linie"
+#
+#, fuzzy
+msgid "Add Treenode"
+msgstr "Tilføj besætning"
 #
 msgid "Add a line to the end of your logbook"
 msgstr "Tilføj linie i slutningen af logbogen"
@@ -134,21 +142,6 @@ msgstr "Er du sikker ?"
 #
 msgid "At"
 msgstr "Ved"
-#
-msgid ""
-"At Work\n"
-"\n"
-"Help\n"
-"\n"
-"Rightclick treeView for menu\n"
-"Add a treenode\n"
-"Add a item\n"
-"Insert text\n"
-"Click OK\n"
-"\n"
-"\n"
-"Save/Load not installed yet"
-msgstr ""
 #
 #
 msgid ""
@@ -246,6 +239,13 @@ msgstr ""
 msgid "Crewlist"
 msgstr "Besætningsliste"
 #
+msgid ""
+"Crewmember is not onboard\n"
+"\n"
+"Please set column 'Onboard' to Yes\n"
+"(click the column twice)"
+msgstr ""
+#
 msgid "Current"
 msgstr "Strøm"
 #
@@ -338,6 +338,10 @@ msgstr "Dag(e)"
 msgid "Degres"
 msgstr "Grader"
 #
+#, fuzzy
+msgid "Delete Item"
+msgstr "Slet layout"
+#
 msgid "Delete Layout"
 msgstr "Slet layout"
 #
@@ -347,6 +351,17 @@ msgstr "Slet række"
 #, c-format
 msgid "Delete Row Nr. %i ?"
 msgstr "Slet række nr. %i ?"
+#
+#, fuzzy
+msgid "Delete Treenode"
+msgstr "Slet række"
+#
+msgid "Demo Engine stopped"
+msgstr ""
+#
+#, fuzzy
+msgid "Demo Sails up"
+msgstr "Detaljer"
 #
 msgid "Depth"
 msgstr "Dybde"
@@ -426,6 +441,12 @@ msgstr "Slut på 6. vagt"
 msgid "Engine"
 msgstr "Motor"
 #
+msgid ""
+"Engine stopped\n"
+"\n"
+"Demo - Rightclick-Menu 'use Testextblocks' for help"
+msgstr ""
+#
 msgid "EngineTotal"
 msgstr "Motor ialt"
 #
@@ -504,6 +525,28 @@ msgstr ""
 #
 msgid "Heading"
 msgstr "Kurs"
+#
+msgid ""
+"Help\n"
+"-----\n"
+"\n"
+"Open treenode\n"
+"  'Texts when using this Dialog only'\n"
+"  and select e.g. 'Remarks'\n"
+"\n"
+"Rightclick in TreeView for menu\n"
+"\n"
+"Add a item and rename it\n"
+"   USE UNIQUE NAMES FOR ITEMS !\n"
+"\n"
+"Insert text\n"
+"\n"
+"In 'Texts when using this Dialog only' you can insert/delete treenodes only\n"
+"\n"
+"Use Drag 'n Drop to move item from/to menu\n"
+"\n"
+"see next treenodes for more help"
+msgstr ""
 #
 msgid "Hide Equipment"
 msgstr "Skjul udstyr"
@@ -773,13 +816,15 @@ msgstr "Nationalitet"
 msgid "Navigation"
 msgstr "Navigation"
 #
-msgid "New Item"
+#, c-format
+msgid "New Item%i"
 msgstr ""
 #
 msgid "New Logbook"
 msgstr "Ny logbog"
 #
-msgid "New Node"
+#, c-format
+msgid "New Node%i"
 msgstr ""
 #
 msgid "Next WP Name: "
@@ -828,6 +873,9 @@ msgstr "Nr. vagter"
 #, c-format
 msgid "Old Logbook until %s"
 msgstr "Gammel logbog indtil %s"
+#
+msgid "Onboard"
+msgstr ""
 #
 #
 msgid "Only Layouts with prefix:"
@@ -964,6 +1012,10 @@ msgstr "Hent layouts igen"
 msgid "Remarks"
 msgstr "Bemærkninger"
 #
+#, fuzzy
+msgid "Rename Item"
+msgstr "Omdøb layout"
+#
 msgid "Rename Layout"
 msgstr "Omdøb layout"
 #
@@ -996,6 +1048,13 @@ msgstr "Sejl nummer"
 #
 msgid "Sails"
 msgstr "Sejl"
+#
+msgid ""
+"Sails up\n"
+"Engine stopped\n"
+"\n"
+"Demo - Rightclick-Menu 'use Testextblocks' for help"
+msgstr ""
 #
 msgid "Sails used mostly"
 msgstr "Mest brugte sejl"
@@ -1129,8 +1188,16 @@ msgstr "Bølger/dønning i"
 msgid "Show all Layouts"
 msgstr "Vis alle layouts"
 #
+msgid "Show all crew-entries"
+msgstr ""
+#
 msgid "Show hidden columns"
 msgstr "Vis skjulte kolonner"
+#
+#
+#, fuzzy
+msgid "Show onboard only"
+msgstr "Vis logbogs Ikon"
 #
 msgid "Show/Hide Equipmentgrid"
 msgstr "Vis/Skjul udstyr"
@@ -1207,7 +1274,32 @@ msgstr "Telefon"
 msgid "Temperature"
 msgstr "Temperatur"
 #
+msgid "Text"
+msgstr ""
+#
 msgid "Textblocks"
+msgstr ""
+#
+msgid "Texts for Rightclick-Menu"
+msgstr ""
+#
+msgid "Texts when using this Dialog only"
+msgstr ""
+#
+msgid ""
+"The itemname is shown in the rightcklick-menu of the following Columns\n"
+"By clicking on it the text is inserted\n"
+"\n"
+msgstr ""
+#
+msgid ""
+"These texts are inserted into the grid-colmn\n"
+"by calling this dialog\n"
+"\n"
+"Select Item\n"
+"Click OK-Button\n"
+"\n"
+"Use Drag 'n Drop to place a item in menu"
 msgstr ""
 #
 msgid "Time"
@@ -1544,9 +1636,6 @@ msgstr "s"
 msgid "same watch as"
 msgstr "samme vagt som"
 #
-msgid "test1"
-msgstr ""
-#
 msgid "to"
 msgstr "til"
 #
@@ -1561,6 +1650,10 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -1571,6 +1664,10 @@ msgstr "skriv din egen label"
 #~ "Waypoint navn: %s\n"
 #~ "Sand pejling til destination: %4.1f%s\n"
 #~ "Afstand til destination: %4.2f%s"
+#
+#
+#
+#
 #
 #
 #
@@ -1695,6 +1792,10 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Crewliste"
 #
@@ -1731,8 +1832,16 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Current from"
 #~ msgstr "Strøm fra"
+#
+#
+#
+#
 #
 #
 #
@@ -1823,8 +1932,16 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Logbuch Konni"
+#
+#
+#
+#
 #
 #
 #
@@ -1859,6 +1976,10 @@ msgstr "skriv din egen label"
 #, fuzzy
 #~ msgid "Nm"
 #~ msgstr "Navn"
+#
+#
+#
+#
 #
 #
 #
@@ -1987,8 +2108,16 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
 #~ msgid "Save"
 #~ msgstr "Speichern"
+#
+#
+#
+#
 #
 #
 #
@@ -2106,9 +2235,17 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
+#
+#
+#
+#
 #
 #
 #

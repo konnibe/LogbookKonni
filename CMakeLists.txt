@@ -89,7 +89,13 @@ SET(SRC_LOGBOOKKONNI
         src/jsonwriter.h
         src/jsonreader.cpp
         src/jsonval.cpp
-        src/jsonwriter.cpp 				
+        src/jsonwriter.cpp
+		src/tinyxml/tinyxml.cpp
+		src/tinyxml/tinyxml.h
+		src/tinyxml/tinyxmlerror.cpp
+		src/tinyxml/tinyxmlparser.cpp
+		src/tinyxml/tinystr.cpp
+		src/tinyxml/tinystr.h 		
  	)
 
 SET(SRC_NMEA0183
