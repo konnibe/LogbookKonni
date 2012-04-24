@@ -92,7 +92,7 @@ class LogbookDialog : public wxDialog
 		void				clearDataDir();
 		void				addColdFingerDialog(wxMenu* m_menu1);
 		void				addColdFingerTextBlocks(wxMenu* m_menu1);
-		wxTreeItemId		LogbookDialog::FindMenuItem(int grid, int col, wxString name);
+		wxTreeItemId			FindMenuItem(int grid, int col, wxString name);
 
 	public:
 enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,BARO,WIND,WSPD,CURRENT,CSPD,

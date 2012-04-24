@@ -682,8 +682,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_menuItem22 = new wxMenuItem( m_menu2, wxID_ANY, wxString( _("Show hidden columns") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menu2->Append( m_menuItem22 );
 
-	wxMenuItem* m_separator6;
-	m_separator6 = m_menu2->AppendSeparator();
+	m_menu2->AppendSeparator();
 	
 	wxMenuItem* m_menuItem30;
 	m_menuItem30 = new wxMenuItem( m_menu2, MENUCREWONBOARD, wxString( _("Show onboard only") ) , wxEmptyString, wxITEM_CHECK );
@@ -2821,6 +2820,10 @@ void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )
 		logGrids[grid]->SetCellValue(selGridRow,selGridCol,s+((s.Length() == 0)?_T(""):_T("\n"))+text);
 		logGrids[grid]->SetGridCursor(selGridRow,selGridCol);
 	}
+	else if(selGridCol == Logbook::CLOUDS-11      && m_notebook8->GetSelection() == 1)
+	{
+	   logGrids[1]->SetCellValue(selGridRow,Logbook::CLOUDS-11,m_menu1->GetLabelText(ev.GetId()));
+	}
 }
 
 void LogbookDialog::OnMenuSelectionShowHiddenCols(wxCommandEvent &ev)
@@ -2941,13 +2944,14 @@ void LogbookDialog::m_gridGlobalOnGridCellRightClick( wxGridEvent& ev )
 		m_menu1->PrependSeparator();
 		wxString path = *pHome_Locn;
 		path += _T("data") + wxString(wxFileName::GetPathSeparator());
-		path +=_T("clouds") + wxString(wxFileName::GetPathSeparator());
+		path +=_T("Clouds") + wxString(wxFileName::GetPathSeparator());
 
 		for(int i = 0; i < 10; i++)
 		{
 			wxMenu *temp = new wxMenu();
 			wxMenuItem *item = new wxMenuItem( temp, wxID_ANY, clouds[i], wxEmptyString,wxITEM_NORMAL);
-			wxBitmap bmp( (path+clouds[i]+_T(".jpg")), wxBITMAP_TYPE_ANY);
+
+			const wxBitmap bmp ((path+clouds[i].Lower()+_T(".jpg")), wxBITMAP_TYPE_ANY);
 			//bmp.SetWidth(200), bmp.SetHeight(135);
 			item->SetBitmap(bmp);
 			temp->Append(item);
@@ -2989,7 +2993,7 @@ void LogbookDialog::addColdFingerDialog(wxMenu* m_menu)
 
 void LogbookDialog::addColdFingerTextBlocks(wxMenu* menu)
 {
-	wxTreeItemId first = FindMenuItem(-1,0,wxEmptyString);
+	FindMenuItem(-1,0,wxEmptyString);
 	FindMenuItem(m_notebook8->GetSelection(),selGridCol,wxEmptyString);
 
 //	wxMessageBox(coldfinger->m_treeCtrl3->GetItemText(first));
@@ -5582,8 +5586,7 @@ ColdFinger::ColdFinger( LogbookDialog* parent, wxWindowID id, const wxString& ti
 	m_menuItem26 = new wxMenuItem( m_menu9, wxID_ANY, wxString( _("Rename Item") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menu9->Append( m_menuItem26 );
 	
-	wxMenuItem* m_separator5;
-	m_separator5 = m_menu9->AppendSeparator();
+	m_menu9->AppendSeparator();
 	
 	wxMenuItem* m_menuItem27;
 	m_menuItem27 = new wxMenuItem( m_menu9, wxID_ANY, wxString( _("Add Treenode") ) , wxEmptyString, wxITEM_NORMAL );
@@ -5706,6 +5709,7 @@ void ColdFinger::OnCancelButtonClickCold( wxCommandEvent& ev )
 }
 
 #include "xmblue.xpm"
+#include <wx/imaglist.h>
 void ColdFinger::init()
 {
 	imageList = new wxImageList();
@@ -5742,7 +5746,7 @@ void ColdFinger::init()
 		wxTreeItemId test = this->m_treeCtrl3->AppendItem(menu,dialog->m_gridGlobal->GetColLabelValue(Logbook::REMARKS)+_T(" (")+
 			dialog->m_notebook8->GetPageText(0)+_T(")"),-fo,-1,item);
 
-		item = new myTreeItem(ITEM,_T(""),_("Sails up\nEngine stopped\n\nDemo - Rightclick-Menu \'use Testextblocks\' for help"),_T(""),_T(""),_T(""),_T(""),0,Logbook::REMARKS,false,false,true);
+		item = new myTreeItem(ITEM,_T(""),_("Sails up\nEngine stopped\n\nDemo - Rightclick-Menu \'use Testextblocks\' for help"),_T(""),_T(""),_T(""),_T(""),0,Logbook::REMARKS,true,false,true);
 		this->m_treeCtrl3->AppendItem(test,_("Demo Sails up"),it,-1,item);
 
 		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),1,Logbook::WEATHER-11,false,false,true);
@@ -5820,7 +5824,7 @@ void ColdFinger::OnInitDialog(wxInitDialogEvent& event)
 
 void ColdFinger::OnTreeSelChanged( wxTreeEvent& event )
 {   
-	if(modified)
+	if(modified && selectedItem.IsOk())
 		((myTreeItem*)m_treeCtrl3->GetItemData(selectedItem))->text = m_textCtrl73->GetValue();
 
 	wxString t = ((myTreeItem*)m_treeCtrl3->GetItemData(event.GetItem()))->text;
@@ -5858,10 +5862,12 @@ void ColdFinger::OnMenuSelectionaddNodeCold( wxCommandEvent& event )
 void ColdFinger::OnMenuTreeSelectionDeleteNodeCold( wxCommandEvent& event )
 {
 	if(m_treeCtrl3->GetSelection() == m_treeCtrl3->GetRootItem()) return;
-	if(((myTreeItem*)m_treeCtrl3->GetItemData(selectedItem))->deleteable == false) return;
+	if(((myTreeItem*)m_treeCtrl3->GetItemData(selectedItem))->deleteable == false ||
+	  ((myTreeItem*)m_treeCtrl3->GetItemData(selectedItem))->type == ITEM)
+	  return;
 
 	m_treeCtrl3->Delete(selectedItem);
-	selectedItem = m_treeCtrl3->GetSelection();
+	selectedItem = m_treeCtrl3->GetItemParent(selectedItem);
 	modified = true;
 }
 
@@ -5923,7 +5929,7 @@ void ColdFinger::OnMenuSelectionDeleteCold( wxCommandEvent& event )
 	if(selectedItem != m_treeCtrl3->GetRootItem())
 	{
 		m_treeCtrl3->Delete(selectedItem);
-		selectedItem = m_treeCtrl3->GetSelection();
+		selectedItem = m_treeCtrl3->GetItemParent(selectedItem);
 		modified = true;
 	}
 }
@@ -5973,14 +5979,13 @@ wxTreeItemId ColdFinger::recursiveWrite(wxTreeItemId id, TiXmlElement *elem)
 	wxTreeItemIdValue cookie;
 	wxTreeItemId child;
     wxTreeItemId item = m_treeCtrl3->GetFirstChild(id, cookie );
-	TiXmlElement *childelem, *newElement;
-	childelem = elem;
+	TiXmlElement *newElement;
 
 	while( item.IsOk() )
 	{
 		wxString sData = m_treeCtrl3->GetItemText(item);
 		myTreeItem* data = (myTreeItem*) m_treeCtrl3->GetItemData(item);
-						
+//wxMessageBox(sData);						
 		newElement = new TiXmlElement((data->type)?"ITEM":"NODE");					
 
 			
@@ -6000,9 +6005,8 @@ wxTreeItemId ColdFinger::recursiveWrite(wxTreeItemId id, TiXmlElement *elem)
 		if( m_treeCtrl3->ItemHasChildren( item ) )
 			recursiveWrite( item, newElement );
 
-		elem = childelem;	
 		elem->LinkEndChild(newElement);
-		item = m_treeCtrl3->GetNextChild(item, cookie);
+		item = m_treeCtrl3->GetNextSibling(item);
 	}
      
 	/* Not found */
@@ -6175,12 +6179,12 @@ bool DnD::OnDropText(wxCoord x, wxCoord y, const wxString& str)
 	parentmy->type       = ColdFinger::ITEM;
 	parentmy->grid       = my->grid;
 	parentmy->gridcol    = my->gridcol;
-	parentmy->deleteable = my->deleteable;
-	parentmy->add        = my->add;
+	parentmy->deleteable = true;
+	parentmy->add        = false;
 	parentmy->menu       = my->menu;
 
 	myTreeItem* newmy = new myTreeItem(parentmy);
-	wxTreeItemId newId = m_pOwner->InsertItem(parent,(newmy->type == ColdFinger::NODE)?0:id,s,(newmy->type == ColdFinger::NODE)?dialog->fo:dialog->it,-1,newmy);
+	wxTreeItemId newId = m_pOwner->InsertItem(parent,(newmy->type == ColdFinger::NODE)?(wxTreeItemId)0:id,s,(newmy->type == ColdFinger::NODE)?dialog->fo:dialog->it,-1,newmy);
 
 	m_pOwner->Delete(dialog->selectedItem);
 	dialog->selectedItem = newId;
