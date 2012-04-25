@@ -6184,7 +6184,7 @@ bool DnD::OnDropText(wxCoord x, wxCoord y, const wxString& str)
 	parentmy->menu       = my->menu;
 
 	myTreeItem* newmy = new myTreeItem(parentmy);
-	wxTreeItemId newId = m_pOwner->InsertItem(parent,(newmy->type == ColdFinger::NODE)?(wxTreeItemId)0:id,s,(newmy->type == ColdFinger::NODE)?dialog->fo:dialog->it,-1,newmy);
+	wxTreeItemId newId = m_pOwner->InsertItem(parent,(newmy->type == ColdFinger::NODE)?wxTreeItemId():id,s,(newmy->type == ColdFinger::NODE)?dialog->fo:dialog->it,-1,newmy);
 
 	m_pOwner->Delete(dialog->selectedItem);
 	dialog->selectedItem = newId;
