@@ -28,12 +28,17 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	this->opt = opt;
 	this->log_pi = log_pi;
 
-	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+//	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	
 	wxBoxSizer* bSizer21;
 	bSizer21 = new wxBoxSizer( wxVERTICAL );
 	
-	m_notebook4 = new wxNotebook( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
+	m_scrolledWindow1 = new wxScrolledWindow( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxHSCROLL|wxVSCROLL );
+	m_scrolledWindow1->SetScrollRate( 5, 5 );
+	wxBoxSizer* bSizer29;
+	bSizer29 = new wxBoxSizer( wxVERTICAL );
+
+	m_notebook4 = new wxNotebook( m_scrolledWindow1, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 	m_notebook4->SetBackgroundColour( wxSystemSettings::GetColour( wxSYS_COLOUR_ACTIVEBORDER ) );
 	
 	m_panel15 = new wxPanel( m_notebook4, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
@@ -46,20 +51,10 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	fgSizer29 = new wxFlexGridSizer( 1, 4, 0, 0 );
 	fgSizer29->SetFlexibleDirection( wxBOTH );
 	fgSizer29->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
-	
-	
 	fgSizer29->Add( 10, 15, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer29->Add( 10, 0, 1, wxEXPAND, 5 );
 	
 	m_checkBoxShowLogbook = new wxCheckBox( m_panel15, wxID_ANY, _("Show Logbook Icon"), wxDefaultPosition, wxSize( -1,-1 ), wxCHK_2STATE );
@@ -75,21 +70,13 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_choicePositionFormat = new wxChoice( m_panel15, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choicePositionFormatNChoices, m_choicePositionFormatChoices, 0 );
 	m_choicePositionFormat->SetSelection( 0 );
 	fgSizer29->Add( m_choicePositionFormat, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
-	
-	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 	m_checkBoxToolTips = new wxCheckBox( m_panel15, wxID_ANY, _("Show ToolTips"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_checkBoxToolTips->SetValue(true); 
 	fgSizer29->Add( m_checkBoxToolTips, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
-	
-	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer29->Add( 250, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 	m_checkBoxShowAllLayouts = new wxCheckBox( m_panel15, wxID_ANY, _("Show all Layouts"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -105,8 +92,6 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_textCtrlLayoutPrefix->SetToolTip( _("If You have created Your own Layouts\nprepend them with e.g. My_ \nThe _ is important") );
 	
 	fgSizer29->Add( m_textCtrlLayoutPrefix, 0, wxALL, 0 );
-	
-	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 	m_checkBoxNoGPS = new wxCheckBox( m_panel15, wxID_ANY, _("Write warning \"No GPS\""), wxDefaultPosition, wxDefaultSize, 0 );
@@ -114,14 +99,8 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_checkBoxNoGPS->SetToolTip( _("Uncheck if You have no GPS\nIf GPS is out of order, uncheck to\nprevent that the message repeats.") );
 	
 	fgSizer29->Add( m_checkBoxNoGPS, 0, wxALL, 0 );
-	
-	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 	m_staticText741 = new wxStaticText( m_panel15, wxID_ANY, _("     Winddirection set to:"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -135,13 +114,8 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_choiceWindTo->SetToolTip( _("default = Relative to Boat\nHeading = Actual wind direction") );
 	
 	fgSizer29->Add( m_choiceWindTo, 0, wxALL, 0 );
-	
-	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-
 	
 	m_checkBoxWayPoint = new wxCheckBox( m_panel15, wxID_ANY, _("If Waypoint arrived"), wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer29->Add( m_checkBoxWayPoint, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
@@ -154,13 +128,10 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_textCtrlWayPoint = new wxTextCtrl( m_panel15, wxID_ANY, wxT("automatic line\nWaypoint arrived:"), wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE );
 #endif	
 	fgSizer29->Add( m_textCtrlWayPoint, 0, wxALL|wxEXPAND, 0 );
-		
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 	m_checkBoxGuardChanged = new wxCheckBox( m_panel15, wxID_ANY, _("If Watch changed"), wxDefaultPosition, wxDefaultSize, 0 );
 	fgSizer29->Add( m_checkBoxGuardChanged, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
-	
-	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 #ifdef __WXOSX__
@@ -170,8 +141,6 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 #endif	
 //	m_textCtrlGuradChanged = new wxTextCtrl( m_panel15, wxID_ANY, _("automatic line\nchange of guards"), wxDefaultPosition, wxSize( -1,-1 ), wxTE_MULTILINE );
 	fgSizer29->Add( m_textCtrlGuradChanged, 0, wxALL|wxEXPAND, 0 );
-	
-	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 	m_checkBoxEverySM = new wxCheckBox( m_panel15, wxID_ANY, _("Append Line every Nm"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -187,14 +156,12 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 #endif
 //	m_textCtrlEverySMText = new wxTextCtrl( m_panel15, wxID_ANY, _("automatic line\nDistance > "), wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE );
 	fgSizer29->Add( m_textCtrlEverySMText, 0, wxALL|wxEXPAND, 0 );
-	
 	fgSizer10->Add( fgSizer29, 1, 0, 5 );
 	
 	wxFlexGridSizer* fgSizer35;
 	fgSizer35 = new wxFlexGridSizer( 2, 4, 0, 0 );
 	fgSizer35->SetFlexibleDirection( wxBOTH );
 	fgSizer35->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
-	
 	
 	fgSizer35->Add( 10, 0, 1, wxEXPAND, 5 );
 	
@@ -218,10 +185,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_textCtrlCourseMessageAfter->SetMinSize( wxSize( 30,-1 ) );
 	
 	fgSizer36->Add( m_textCtrlCourseMessageAfter, 0, wxALL, 0 );
-	
 	fgSizer35->Add( fgSizer36, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer35->Add( 74, 0, 1, wxEXPAND, 5 );
 #ifdef __WXOSX__
     m_textCtrlChancedCourse = new wxTextCtrl( m_panel15, wxID_ANY, _("automatic line\nchange of course >"), wxDefaultPosition, wxSize(250,40), wxTE_MULTILINE );
@@ -296,8 +260,6 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	fgSizer18 = new wxFlexGridSizer( 2, 8, 0, 0 );
 	fgSizer18->SetFlexibleDirection( wxBOTH );
 	fgSizer18->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
-	
-	
 	fgSizer18->Add( 70, 0, 1, wxEXPAND, 5 );
 	
 	m_radioBtnUTC = new wxRadioButton( m_panel15, wxID_ANY, _("UTC"), wxDefaultPosition, wxSize( 80,-1 ), 0 );
@@ -407,26 +369,12 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	fgSizer91 = new wxFlexGridSizer( 3, 7, 5, 0 );
 	fgSizer91->SetFlexibleDirection( wxBOTH );
 	fgSizer91->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
-	
-	
 	fgSizer91->Add( 140, 30, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 100, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 80, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 80, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 60, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 50, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 100, 0, 1, wxEXPAND, 5 );
 	
 	m_staticText34 = new wxStaticText( m_panel16, wxID_ANY, _("Navigation"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -475,14 +423,8 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	m_sSpeed = new wxTextCtrl( m_panel16, wxID_ANY, _("kts"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
 	fgSizer91->Add( m_sSpeed, 0, 0, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 	m_staticText40 = new wxStaticText( m_panel16, wxID_ANY, _("Show Depth in"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -501,14 +443,8 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	m_smeter = new wxTextCtrl( m_panel16, wxID_ANY, _("m"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
 	fgSizer91->Add( m_smeter, 0, 0, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 0 );
 	
 	m_staticText63 = new wxStaticText( m_panel16, wxID_ANY, _("Show Wave/Swell in"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -527,14 +463,8 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	m_sFeet = new wxTextCtrl( m_panel16, wxID_ANY, _("ft"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
 	fgSizer91->Add( m_sFeet, 0, 0, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 0 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 0 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 0 );
 	
 	m_staticText632 = new wxStaticText( m_panel16, wxID_ANY, _("Heading"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -553,11 +483,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	m_sFathom = new wxTextCtrl( m_panel16, wxID_ANY, _("fm"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
 	fgSizer91->Add( m_sFathom, 0, 0, 5 );
-	
-	
 	fgSizer91->Add( 0, 1, 1, wxEXPAND, 0 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 0 );
 	
 	m_staticText42 = new wxStaticText( m_panel16, wxID_ANY, _("Weather"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -579,55 +505,26 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	m_sKnots = new wxTextCtrl( m_panel16, wxID_ANY, _("kts"), wxDefaultPosition, wxSize( 40,-1 ), wxTE_PROCESS_ENTER );
 	fgSizer91->Add( m_sKnots, 0, 0, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 	m_sMeterSec = new wxTextCtrl( m_panel16, wxID_ANY, _("m/s"), wxDefaultPosition, wxSize( 40,-1 ), wxTE_PROCESS_ENTER );
 	fgSizer91->Add( m_sMeterSec, 0, 0, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 	m_sKmh = new wxTextCtrl( m_panel16, wxID_ANY, _("km/h"), wxDefaultPosition, wxSize( 40,-1 ), wxTE_PROCESS_ENTER );
 	fgSizer91->Add( m_sKmh, 0, 0, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 	m_staticText791 = new wxStaticText( m_panel16, wxID_ANY, _("Temperature"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -636,17 +533,9 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	m_textCtrlTemperature = new wxTextCtrl( m_panel16, wxID_ANY, _("F"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
 	fgSizer91->Add( m_textCtrlTemperature, 0, wxALL, 0 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 	m_staticText46 = new wxStaticText( m_panel16, wxID_ANY, _("Fuel/Water"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -668,11 +557,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	m_sMotorh = new wxTextCtrl( m_panel16, wxID_ANY, _("h"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
 	fgSizer91->Add( m_sMotorh, 0, 0, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 	m_staticText70 = new wxStaticText( m_panel16, wxID_ANY, _("Maintenance"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -763,14 +648,8 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	fgSizer321 = new wxFlexGridSizer( 2, 3, 0, 0 );
 	fgSizer321->SetFlexibleDirection( wxBOTH );
 	fgSizer321->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
-	
-	
 	fgSizer321->Add( 0, 40, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer321->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer321->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 	m_staticText761 = new wxStaticText( m_panel17, wxID_ANY, _("Path to ODT-Editor"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -830,22 +709,27 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_panel17->Layout();
 	fgSizer322->Fit( m_panel17 );
 	m_notebook4->AddPage( m_panel17, _("Paths"), false );
-	
-	bSizer21->Add( m_notebook4, 1, wxEXPAND | wxALL, 5 );
+
+	bSizer29->Add( m_notebook4, 1, wxEXPAND | wxALL, 5 );
 	
 	m_sdbSizer1 = new wxStdDialogButtonSizer();
-	m_sdbSizer1OK = new wxButton( this, wxID_OK );
+	m_sdbSizer1OK = new wxButton( m_scrolledWindow1, wxID_OK );
 	m_sdbSizer1->AddButton( m_sdbSizer1OK );
-	m_sdbSizer1Cancel = new wxButton( this, wxID_CANCEL );
+	m_sdbSizer1Cancel = new wxButton( m_scrolledWindow1, wxID_CANCEL );
 	m_sdbSizer1->AddButton( m_sdbSizer1Cancel );
 	m_sdbSizer1->Realize();
-	bSizer21->Add( m_sdbSizer1, 0, wxALIGN_CENTER, 5 );
-	
+
+	bSizer29->Add( m_sdbSizer1, 0, wxALIGN_CENTER, 5 );
+	m_scrolledWindow1->SetSizer( bSizer29 );
+	m_scrolledWindow1->Layout();
+	bSizer29->Fit( m_scrolledWindow1 );
+	bSizer21->Add( m_scrolledWindow1, 1, wxEXPAND | wxALL, 5 );
+
 	this->SetSizer( bSizer21 );
 	this->Layout();
 	
 	this->Centre( wxBOTH );
-	this->Fit();
+//	this->Fit();
 	// Connect Events
 	m_choicePositionFormat->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( LogbookOptions::onChoicePositionFormat ), NULL, this );
 	m_checkBoxShowAllLayouts->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::onCeckBoxShowAllLayouts ), NULL, this );

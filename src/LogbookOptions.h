@@ -43,37 +43,17 @@ class LogbookOptions : public wxDialog
 	private:
 	
 	public:
+		wxScrolledWindow* m_scrolledWindow1;
 		wxNotebook* m_notebook4;
 		wxPanel* m_panel15;
-		
-		
-		
-		
-		
 		wxCheckBox* m_checkBoxShowLogbook;
 		wxStaticText* m_staticText76;
-		
-		
-		
-		
 		wxCheckBox* m_checkBoxShowOnlySelectedLayouts;
-		
-		
-		
-		
 		wxStaticText* m_staticText741;
-		
-		
-		
-		
-		
 		wxStaticText* m_staticText74;
-		
 		wxStaticLine* m_staticline25;
 		wxStaticLine* m_staticline10;
-		
 		wxCheckBox* m_checkBoxTimer;
-		
 		wxStaticText* m_staticText56;
 		wxTextCtrl* m_textCtrTimerH;
 		wxStaticText* m_staticText58;
@@ -82,7 +62,6 @@ class LogbookOptions : public wxDialog
 		wxTextCtrl* m_textCtrlTimerS;
 		wxStaticText* m_staticText5811;
 		wxTextCtrl* m_timerText;
-		
 		wxRadioButton* m_radioBtnUTC;
 		wxStaticText* m_staticText71;
 		wxStaticLine* m_staticline22;
@@ -96,13 +75,7 @@ class LogbookOptions : public wxDialog
 		wxStaticText* m_staticText62;
 		wxStaticLine* m_staticline13;
 		wxPanel* m_panel16;
-		
 		wxStaticText* m_staticText791;		
-		
-		
-		
-		
-		
 		wxStaticText* m_staticText34;
 		wxStaticText* m_staticText31;
 		wxTextCtrl* m_sDeg;
@@ -110,59 +83,31 @@ class LogbookOptions : public wxDialog
 		wxTextCtrl* m_sMin;
 		wxStaticText* m_staticText36;
 		wxTextCtrl* m_sSec;
-		
 		wxStaticText* m_staticText38;
 		wxTextCtrl* m_sDist;
 		wxStaticText* m_staticText39;
 		wxTextCtrl* m_sSpeed;
-		
-		
-		
 		wxStaticText* m_staticText40;
 		wxStaticText* m_staticText41;
 		wxTextCtrl* m_smeter;
-		
-		
-		
 		wxStaticText* m_staticText63;
 		wxStaticText* m_staticText48;
 		wxTextCtrl* m_sFeet;
-		
-		
-		
 		wxStaticText* m_staticText632;
 		wxStaticText* m_staticText49;
 		wxTextCtrl* m_sFathom;
-		
-		
 		wxStaticText* m_staticText42;
 		wxStaticText* m_staticText43;
 		wxTextCtrl* m_sBaro;
 		wxStaticText* m_staticText44;
 		wxTextCtrl* m_sKnots;
-		
-		
-		
-		
-		
-		
 		wxTextCtrl* m_sMeterSec;
-		
-		
-		
-		
-		
-		
 		wxTextCtrl* m_sKmh;
-		
-		
 		wxStaticText* m_staticText46;
 		wxStaticText* m_staticText47;
 		wxTextCtrl* m_sLiter;
 		wxStaticText* m_staticText50;
 		wxTextCtrl* m_sMotorh;
-		
-		
 		wxStaticText* m_staticText70;
 		wxStaticText* m_staticText712;
 		wxStaticText* m_staticText72;
@@ -175,9 +120,6 @@ class LogbookOptions : public wxDialog
 		wxStaticText* m_staticText45;
 		wxChoice* m_choiceDir;
 		wxPanel* m_panel17;
-		
-		
-		
 		wxStaticText* m_staticText761;
 		wxBitmapButton* m_bpButtonODT;
 		wxStaticText* m_staticText77;
@@ -253,7 +195,7 @@ class LogbookOptions : public wxDialog
 		wxTextCtrl* m_textCtrlTemperature;
 
 
-		LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi* log_pi, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 613,586  ), long style = wxDEFAULT_DIALOG_STYLE );
+		LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi* log_pi, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 613,586  ), long style = wxDEFAULT_DIALOG_STYLE|wxVSCROLL );
 		~LogbookOptions();
 
 		void getValues();

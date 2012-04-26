@@ -164,6 +164,8 @@ int logbookkonni_pi::Init(void)
 
 bool logbookkonni_pi::DeInit(void)
 {
+	SendPluginMessage(_T("LOGBOOK_READY_FOR_REQUESTS"), _T("FALSE"));
+
 	if(m_timer->IsRunning())
 		m_timer->Stop();
 
@@ -179,7 +181,6 @@ bool logbookkonni_pi::DeInit(void)
 		m_plogbook_window->Close();
 		m_plogbook_window->Destroy();
 	}
-	SendPluginMessage(_T("LOGBOOK_READY_FOR_REQUESTS"), _T("FALSE"));
 	return true;
 }
 
@@ -651,13 +652,15 @@ void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 	}
 #endif
 
+int w,h;
+parent->GetParent()->GetSize(&w,&h);
 #ifdef __WXMSW__
-	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 613,541  ),
+	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 655,(h>=586)?586:h  ),
 		wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
 #elif defined __WXOSX__
-    optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 650,681 ),wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
+    optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 650,(h>=691)?691:h ),wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
 #else
-	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 613,681 ),
+	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 613,(h>=691)?691:h ),
 		wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );	
 #endif
 	optionsDialog->m_checkBoxShowLogbook->SetValue(m_bLOGShowIcon);
