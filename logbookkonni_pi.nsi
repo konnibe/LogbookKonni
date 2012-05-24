@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "logbookkonni_pi"
-!define PRODUCT_VERSION "0.917"
+!define PRODUCT_VERSION "0.919"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 XPStyle on
@@ -163,6 +163,8 @@ Section "Layouts" SEC03
   File /r "C:\ProgramData\opencpn\plugins\logbook\data\HTMLLayouts\*.html"
   SetOutPath "$APPDATA\opencpn\plugins\logbook\data\ODTLayouts"
   File /r "C:\ProgramData\opencpn\plugins\logbook\data\ODTLayouts\*.odt"
+  SetOutPath "$APPDATA\opencpn\plugins\logbook\data\Clouds"
+  File /r "C:\ProgramData\opencpn\plugins\logbook\data\Clouds\*.jpg"
 SectionEnd
 
 Section -Post

@@ -148,13 +148,11 @@ int logbookkonni_pi::Init(void)
 	}
 
 	return (
-		 //  WANTS_OVERLAY_CALLBACK	 |
            WANTS_CURSOR_LATLON       |
            WANTS_TOOLBAR_CALLBACK    |
            INSTALLS_TOOLBAR_TOOL     |
            WANTS_CONFIG              |
 		   WANTS_PREFERENCES         |
-         //  INSTALLS_CONTEXTMENU_ITEMS     |
            WANTS_NMEA_SENTENCES      |
            WANTS_NMEA_EVENTS		 |
            USES_AUI_MANAGER			 |
@@ -184,7 +182,6 @@ bool logbookkonni_pi::DeInit(void)
 	return true;
 }
 
-//Demo implementation of response mechanism
 
 void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_body)
 {
@@ -206,18 +203,6 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
 		  SetPluginMessage(id,out);
 		  return;
       }
-/*      else if(message_id == _T("LOGBOOK_LOG_LASTLINE_RESPONSE"))          // small demo how to get the data from the logbook
-      {																		// use SendMessage(_T("LOGBOOK_LOG_LASTLINE_REQUEST"),wxEmptyString);
-		  wxJSONReader reader;
-		  wxJSONValue  data;
-		  int numErrors = reader.Parse( message_body, &data );
-		  if(numErrors != 0) return;
-		  wxString str;
-		    for(int i = 0; i < 33; i++)
-				str += wxString::Format(_T("Data=%s\n"),data.ItemAt(i).AsString().c_str());
-		  wxMessageBox(str);
-	  }
-*/
       else if(message_id == _T("LOGBOOK_IS_READY_FOR_REQUEST"))
       {
 	  	SendPluginMessage(_T("LOGBOOK_READY_FOR_REQUESTS"), _T("TRUE"));
@@ -229,9 +214,6 @@ void logbookkonni_pi::SetPluginMessage(wxString &message_id, wxString &message_b
 		int priority, amount;
 		wxString category, title, unit, text, plugin;
 		wxString prText[6]; 
-
-	//	for(int z = 0; z < 6; z++) 
-		//	prText[z] = wxEmptyString;
 
 		int numErrors = reader.Parse( message_body, &data );
 		if(numErrors != 0) return;
@@ -616,26 +598,6 @@ int logbookkonni_pi::GetToolbarToolCount(void)
 
 void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 {
-/*	  wxJSONValue str;
-	  str[_T("Remarks")] = _T("Messaging Test");
-	  str[_T("MotorRemarks")] = _T("Messaging MotorTest");
-      wxJSONWriter w;
-      wxString out;
-      w.Write(str, out);
-
-	  SetPluginMessage(wxString(_T("LOGBOOK_LOG_ADDLINE_REQUEST")),out);
-*/
-/*	  wxJSONValue str;
-	  str[_T("WP_arrived")] = _T("001");
-	  str[_T("WP_next")] = _T("002");
-	  str[_T("isSkipped")] = true;
-      wxJSONWriter w;
-      wxString out;
-      w.Write(str, out);
-
-	  SetPluginMessage(wxString(_T("OCPN_WPT_ARRIVED")),out);
-*/
-//	  SendPluginMessage(_T("LOGBOOK_LOG_LASTLINE_REQUEST"),wxEmptyString);
 	
 #ifdef __WXOSX__
 // Not tested yet
@@ -652,15 +614,13 @@ void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 	}
 #endif
 
-int w,h;
-m_parent_window->GetSize(&w,&h);
 #ifdef __WXMSW__
-	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 655,(h>=586)?h:586  ),
+	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 655,586  ),
 		wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
 #elif defined __WXOSX__
-    optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 650,(h>=691)?h:691 ),wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
+    optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 650,691 ,wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
 #else
-	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 740,(h>=659)?h:659 ),
+	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 740,659 ,
 		wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );	
 #endif
 	optionsDialog->m_checkBoxShowLogbook->SetValue(m_bLOGShowIcon);
@@ -770,6 +730,13 @@ void logbookkonni_pi::SaveConfig()
 			pConf->Write ( _T ( "Days" ), opt->days );
 			pConf->Write ( _T ( "Weeks" ), opt->weeks );
 			pConf->Write ( _T ( "Month" ), opt->month );
+
+			pConf->Write ( _T ( "Watermaker" ), opt->watermaker);
+			pConf->Write ( _T ( "FuelTank" ),   opt->fuelTank);
+			pConf->Write ( _T ( "WaterTank" ),  opt->waterTank);
+			pConf->Write ( _T ( "Ampere" ),     opt->ampere);
+			pConf->Write ( _T ( "Bank1" ),      opt->bank1);
+			pConf->Write ( _T ( "Bank2" ),      opt->bank2);
 
 			pConf->Write ( _T ( "ShowDepth" ), opt->showDepth);
 			pConf->Write ( _T ( "ShowWaveSwell" ), opt->showWaveSwell);
@@ -900,6 +867,13 @@ void logbookkonni_pi::LoadConfig()
 			pConf->Read ( _T ( "Days" ), &opt->days );
 			pConf->Read ( _T ( "Weeks" ), &opt->weeks );
 			pConf->Read ( _T ( "Month" ), &opt->month );
+
+			pConf->Read ( _T ( "Watermaker" ), &opt->watermaker);
+			pConf->Read ( _T ( "FuelTank" ),   &opt->fuelTank);
+			pConf->Read ( _T ( "WaterTank" ),  &opt->waterTank);
+			pConf->Read ( _T ( "Ampere" ),     &opt->ampere);
+			pConf->Read ( _T ( "Bank1" ),      &opt->bank1);
+			pConf->Read ( _T ( "Bank2" ),      &opt->bank2);
 
 			pConf->Read ( _T ( "ShowDepth" ), &opt->showDepth);
 			pConf->Read ( _T ( "ShowWaveSwell" ), &opt->showWaveSwell);
@@ -1044,6 +1018,7 @@ void logbookkonni_pi::LoadConfig()
 				if(!r) break;
 			}
 #endif
+			opt->ampereh = opt->ampere+opt->motorh.Upper();
 	  }
 }
 

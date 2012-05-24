@@ -106,6 +106,8 @@ Maintenance::Maintenance(LogbookDialog* d, wxString data, wxString layout, wxStr
 	m_Priority[3] = _T("3"); 
 	m_Priority[4] = _T("4"); 
 	m_Priority[5] = _T("5"); 
+
+	//loadData();
 }
 
 Maintenance::~Maintenance(void)

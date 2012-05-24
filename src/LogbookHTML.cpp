@@ -316,6 +316,8 @@ wxString LogbookHTML::replacePlaceholder(wxString html,wxString htmlHeader,int g
 										html.Replace(wxT("#LCLOUDS#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true));
 										{
 										wxString cl = Export::replaceNewLine(mode,g->GetCellValue(row,col),false).Lower();
+										if(cl.IsEmpty())
+											cl = _T("nocloud");
 										if(cl.Contains(_T(" ")))
 											cl = cl.SubString(0,cl.find_first_of(' ')-1);
 										if(html.Contains(wxT("#PCLOUDS%23")))
@@ -338,17 +340,50 @@ wxString LogbookHTML::replacePlaceholder(wxString html,wxString htmlHeader,int g
 						case MOTORT:	html.Replace(wxT("#MOTORT#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false));
 										html.Replace(wxT("#LMOTORT#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true));
 								break;
+						case MOTOR1:	html.Replace(wxT("#MOTOR1#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false));
+										html.Replace(wxT("#LMOTOR1#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true));
+								break;
+						case MOTOR1T:	html.Replace(wxT("#MOTOR1T#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false));
+										html.Replace(wxT("#LMOTOR1T#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true));
+								break;
 						case FUEL:		html.Replace(wxT("#FUEL#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false));
 										html.Replace(wxT("#LFUEL#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true));
 								break;
 						case FUELT:		html.Replace(wxT("#FUELT#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false));
 										html.Replace(wxT("#LFUELT#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true));
 								break;
+						case GENE:		html.Replace(wxT("#GENE#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false));
+										html.Replace(wxT("#LGENE#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true));
+								break;
+						case GENET: 	html.Replace(wxT("#GENET#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false));
+										html.Replace(wxT("#LGENET#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true));
+								break;
+						case BANK1:		html.Replace(wxT("#BANK1#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false));
+										html.Replace(wxT("#LBANK1#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true));
+								break;
+						case BANK1T: 	html.Replace(wxT("#BANK1T#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false));
+										html.Replace(wxT("#LBANK1T#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true));
+								break;
+						case BANK2:		html.Replace(wxT("#BANK2#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false));
+										html.Replace(wxT("#LBANK2#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true));
+								break;
+						case BANK2T: 	html.Replace(wxT("#BANK2T#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false));
+										html.Replace(wxT("#LBANK2T#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true));
+								break;
 						case SAILS:		html.Replace(wxT("#SAILS#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false));
 										html.Replace(wxT("#LSAILS#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true));
 								break;
 						case REEF:		html.Replace(wxT("#REEF#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false));
 										html.Replace(wxT("#LREEF#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true));
+								break;
+						case WATERM:	html.Replace(wxT("#WATERM#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false));
+										html.Replace(wxT("#LWATERM#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true));
+								break;
+						case WATERMT:	html.Replace(wxT("#WATERMT#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false));
+										html.Replace(wxT("#LWATERMT#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true));
+								break;
+						case WATERMO:	html.Replace(wxT("#WATERMO#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false));
+										html.Replace(wxT("#LWATERMO#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true));
 								break;
 						case WATER:		html.Replace(wxT("#WATER#"),Export::replaceNewLine(mode,g->GetCellValue(row,col),false));
 										html.Replace(wxT("#LWATER#"),Export::replaceNewLine(mode,g->GetColLabelValue(col),true));

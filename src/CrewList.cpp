@@ -22,6 +22,8 @@ CrewList::CrewList(LogbookDialog* d, wxString data, wxString layout, wxString la
 	dialog = d;
 	gridCrew = d->m_gridCrew;
 	gridWake = d->m_gridCrewWake;
+	rowHeight = gridCrew->GetRowHeight(0);
+
 	this->layout = layout;
 	this->ODTLayout = layoutODT;
 	modified = false;
@@ -173,19 +175,30 @@ void CrewList::loadData()
 
 void CrewList::filterCrewMembers()
 {
-	rowHeight = gridCrew->GetRowHeight(0);
-	for(int row = 0; row <= gridCrew->GetNumberRows()-1; row++)
+	int i = 0;
+
+	for(int row = 0; row < gridCrew->GetNumberRows(); row++)
 	{
 		if(gridCrew->GetCellValue(row,ONBOARD) == _T(""))
+		{
 			gridCrew->SetRowHeight(row,0);
+			i++;
+		}
 	}
 
-	gridCrew->ForceRefresh();
+	if(i == gridCrew->GetNumberRows()) 
+	{
+		showAllCrewMembers();
+		dialog->m_menu2->Check(MENUCREWONBOARD,false);
+		dialog->m_menu2->Check(MENUCREWALL,true);
+	}
+	else
+		gridCrew->ForceRefresh();
 }
 
 void CrewList::showAllCrewMembers()
 {
-	for(int row = 0; row <= gridCrew->GetNumberRows()-1; row++)
+	for(int row = 0; row < gridCrew->GetNumberRows(); row++)
 	{
 		if(gridCrew->GetCellValue(row,ONBOARD) == _T(""))
 			gridCrew->SetRowHeight(row,rowHeight);
@@ -252,14 +265,6 @@ void CrewList::addCrew(wxGrid* grid, wxGrid* wake)
 	else
 		grid->SetCellValue(numRows,ONBOARD,_("Yes"));
 
-/*	gridWake->AppendRows();
-	int lastRow = gridWake->GetNumberRows()-1;
-	gridWake->SetCellAlignment(lastRow,0,wxALIGN_LEFT, wxALIGN_TOP);
-	gridWake->SetCellAlignment(lastRow,1,wxALIGN_LEFT, wxALIGN_TOP);
-	gridWake->SetReadOnly(lastRow,0);
-	gridWake->SetReadOnly(lastRow,1);
-	gridWake->SetCellValue(gridWake->GetNumberRows()-1,gridWake->GetNumberCols()-1,_T(" "));
-*/
 	gridCrew->SetFocus();
 	gridCrew->SetGridCursor(numRows,NAME);
 }
@@ -332,10 +337,17 @@ void CrewList::changeCrew(wxGrid* grid, int row, int col, int offset)
 
 	if(col == ONBOARD && dialog->m_menu2->IsChecked(MENUCREWONBOARD))
 	{
-		if(grid->GetCellValue(row,col) == _T(""))
+		if(grid->GetCellValue(row,col) == _T("") )
 		{
-			filterCrewMembers();
-			grid->ForceRefresh();
+//			if(!checkIsHiddenRow())
+				filterCrewMembers();
+/*			else
+			{
+				showAllCrewMembers();
+				dialog->m_menu2->Check(MENUCREWONBOARD,false);
+				dialog->m_menu2->Check(MENUCREWALL,true);
+			}*/
+			grid->ForceRefresh();				
 		}
 	}
 	if(col == NAME && offset == 0)

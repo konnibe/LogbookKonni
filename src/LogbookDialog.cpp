@@ -309,34 +309,56 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridMotorSails = new wxGrid( m_panel71, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxALWAYS_SHOW_SB );
 	
 	// Grid
-	m_gridMotorSails->CreateGrid( 0, 9 );
+	m_gridMotorSails->CreateGrid( 0, 20 );
 	m_gridMotorSails->EnableEditing( true );
 	m_gridMotorSails->EnableGridLines( true );
 	m_gridMotorSails->EnableDragGridSize( false );
 	m_gridMotorSails->SetMargins( 0, 0 );
 	
 	// Columns
-	m_gridMotorSails->SetColSize( 0, 63 );
-	m_gridMotorSails->SetColSize( 1, 91 );
-	m_gridMotorSails->SetColSize( 2, 73 );
-	m_gridMotorSails->SetColSize( 3, 73 );
-	m_gridMotorSails->SetColSize( 4, 110 );
-	m_gridMotorSails->SetColSize( 5, 76 );
-	m_gridMotorSails->SetColSize( 6, 70 );
-	m_gridMotorSails->SetColSize( 7, 84 );
-	m_gridMotorSails->SetColSize( 8, 263 );
+	m_gridMotorSails->SetColSize( 0, 62 );
+	m_gridMotorSails->SetColSize( 1, 76 );
+	m_gridMotorSails->SetColSize( 2, 63 );
+	m_gridMotorSails->SetColSize( 3, 76 );
+	m_gridMotorSails->SetColSize( 4, 63 );
+	m_gridMotorSails->SetColSize( 5, 70 );
+	m_gridMotorSails->SetColSize( 6, 113 );
+	m_gridMotorSails->SetColSize( 7, 67 );
+	m_gridMotorSails->SetColSize( 8, 63 );
+	m_gridMotorSails->SetColSize( 9, 66 );
+	m_gridMotorSails->SetColSize( 10, 52 );
+	m_gridMotorSails->SetColSize( 11, 75 );
+	m_gridMotorSails->SetColSize( 12, 116 );
+	m_gridMotorSails->SetColSize( 13, 62 );
+	m_gridMotorSails->SetColSize( 14, 97 );
+	m_gridMotorSails->SetColSize( 15, 75 );
+	m_gridMotorSails->SetColSize( 16, 61 );
+	m_gridMotorSails->SetColSize( 17, 56 );
+	m_gridMotorSails->SetColSize( 18, 80 );
+	m_gridMotorSails->SetColSize( 19, 298 );
 	m_gridMotorSails->EnableDragColMove( false );
 	m_gridMotorSails->EnableDragColSize( true );
 	m_gridMotorSails->SetColLabelSize( 30 );
-	m_gridMotorSails->SetColLabelValue( 0, _("Engine") );
-	m_gridMotorSails->SetColLabelValue( 1, _("EngineTotal") );
-	m_gridMotorSails->SetColLabelValue( 2, _("Fuel") );
-	m_gridMotorSails->SetColLabelValue( 3, _("FuelTotal") );
-	m_gridMotorSails->SetColLabelValue( 4, _("Sails") );
-	m_gridMotorSails->SetColLabelValue( 5, _("Reef") );
-	m_gridMotorSails->SetColLabelValue( 6, _("Water") );
-	m_gridMotorSails->SetColLabelValue( 7, _("WaterTotal") );
-	m_gridMotorSails->SetColLabelValue( 8, _("Remarks") );
+	m_gridMotorSails->SetColLabelValue( 0, wxT("Engine #1") );
+	m_gridMotorSails->SetColLabelValue( 1, wxT("EngineTotal") );
+	m_gridMotorSails->SetColLabelValue( 2, wxT("Engine #2") );
+	m_gridMotorSails->SetColLabelValue( 3, wxT("EngineTotal") );
+	m_gridMotorSails->SetColLabelValue( 4, wxT("Fuel") );
+	m_gridMotorSails->SetColLabelValue( 5, wxT("FuelTotal") );
+	m_gridMotorSails->SetColLabelValue( 6, wxT("Sails") );
+	m_gridMotorSails->SetColLabelValue( 7, wxT("Reef") );
+	m_gridMotorSails->SetColLabelValue( 8, wxT("Generator") );
+	m_gridMotorSails->SetColLabelValue( 9, wxT("Gen. total") );
+	m_gridMotorSails->SetColLabelValue( 10, wxT("Bank #1") );
+	m_gridMotorSails->SetColLabelValue( 11, wxT("AH #1 Total") );
+	m_gridMotorSails->SetColLabelValue( 12, wxT("Bank #2") );
+	m_gridMotorSails->SetColLabelValue( 13, wxT("AH #2 Total") );
+	m_gridMotorSails->SetColLabelValue( 14, wxT("Watermaker") );
+	m_gridMotorSails->SetColLabelValue( 15, wxT("W-Total") );
+	m_gridMotorSails->SetColLabelValue( 16, wxT("W-Output") );
+	m_gridMotorSails->SetColLabelValue( 17, wxT("Water") );
+	m_gridMotorSails->SetColLabelValue( 18, wxT("WaterTotal") );
+	m_gridMotorSails->SetColLabelValue( 19, wxT("Remarks") );
 	m_gridMotorSails->SetColLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
 	
 	// Rows
@@ -2348,9 +2370,9 @@ void LogbookDialog::m_gridGlobalOnGridSelectCell( wxGridEvent& ev )
 
 	int rowHeight = m_gridGlobal->GetRowHeight(selGridRow);
 
-	if(selGridCol == 13 && rowHeight < 120)
+	if(selGridCol == Logbook::REMARKS && rowHeight < 120)
 		m_gridGlobal->SetRowHeight(selGridRow,120);
-	else if(rowHeight == 120 && selGridCol != 13)
+	else if(rowHeight == 120 && selGridCol != Logbook::REMARKS)
 		setEqualRowHeight(selGridRow);
 
 	for(int i = 0; i < LOGGRIDS; i++)
@@ -2374,9 +2396,9 @@ void LogbookDialog::m_gridMotorSailsOnGridSelectCell( wxGridEvent& ev )
 	selGridRow = ev.GetRow();
 	previousColumn = ev.GetCol();
 
-	if(selGridCol == 8 && m_gridMotorSails->GetRowHeight(selGridRow) < 120)
+	if(selGridCol == Logbook::MREMARKS-logbook->sailsCol && m_gridMotorSails->GetRowHeight(selGridRow) < 120)
 		m_gridMotorSails->SetRowHeight(selGridRow,120);
-	else if(m_gridMotorSails->GetRowHeight(selGridRow) == 120 && selGridCol != 8)
+	else if(m_gridMotorSails->GetRowHeight(selGridRow) == 120 && selGridCol != Logbook::MREMARKS-logbook->sailsCol)
 		setEqualRowHeight(selGridRow);
 
 	for(int i = 0; i < LOGGRIDS; i++)
@@ -2590,10 +2612,13 @@ Backup Logbook(*.txt)|*.txt");
 	lastRowSelectedRepairs = 0;
 	lastRowSelectedBuyParts = 0;
 
-	logbook = new Logbook(this,data,layoutHTML,layoutODT);
-	overview = new OverView(this,data,layoutHTML,layoutODT);
-	crewList = new CrewList(this,data,layoutHTML,layoutODT);
-	boat=new Boat(this,data,layoutHTML,layoutODT);
+	logbook     = new Logbook    (this,data,layoutHTML,layoutODT);
+	logbook->loadData();
+
+	overview    = new OverView   (this,data,layoutHTML,layoutODT);
+	crewList    = new CrewList   (this,data,layoutHTML,layoutODT);
+	boat        = new Boat       (this,data,layoutHTML,layoutODT);
+
 	maintenance = new Maintenance(this,data,layoutHTML,layoutODT);
 	maintenance->loadData();
 
@@ -2612,8 +2637,6 @@ Backup Logbook(*.txt)|*.txt");
 
 	m_gridOverview->SetColMinimalWidth(OverView::FPATH,0);
 	m_gridOverview->SetColSize(OverView::FPATH,0);
-
-	setCellAlign(0);
 
 	m_logbook->SetSelection(0);
 	m_notebook8->SetSelection(0);
@@ -2805,12 +2828,12 @@ void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )
 		setEqualRowHeight(selGridRow);
 		logGrids[m_notebook8->GetSelection()]->Refresh();
 	}
-	else if((selGridCol == Logbook::REMARKS       && m_notebook8->GetSelection() == 0) ||
-		    (selGridCol == Logbook::WEATHER-11    && m_notebook8->GetSelection() == 1) ||
-			(selGridCol == Logbook::VISIBILITY-11 && m_notebook8->GetSelection() == 1) ||
-			(selGridCol == Logbook::SAILS-24      && m_notebook8->GetSelection() == 2) ||
-			(selGridCol == Logbook::REEF-24       && m_notebook8->GetSelection() == 2) ||
-			(selGridCol == Logbook::MREMARKS-24   && m_notebook8->GetSelection() == 2) )
+	else if((selGridCol == Logbook::REMARKS                        && m_notebook8->GetSelection() == 0) ||
+			(selGridCol == Logbook::WEATHER-   logbook->weatherCol && m_notebook8->GetSelection() == 1) ||
+			(selGridCol == Logbook::VISIBILITY-logbook->weatherCol && m_notebook8->GetSelection() == 1) ||
+			(selGridCol == Logbook::SAILS-     logbook->sailsCol   && m_notebook8->GetSelection() == 2) ||
+			(selGridCol == Logbook::REEF-      logbook->sailsCol   && m_notebook8->GetSelection() == 2) ||
+			(selGridCol == Logbook::MREMARKS-  logbook->sailsCol   && m_notebook8->GetSelection() == 2) )
 	{
 		wxString s = logGrids[m_notebook8->GetSelection()]->GetCellValue(selGridRow,selGridCol);
 		wxTreeItemId id = FindMenuItem(m_notebook8->GetSelection(), selGridCol, m_menu1->GetLabelText(ev.GetId()));
@@ -2820,9 +2843,9 @@ void LogbookDialog::m_menuItem1OnMenuSelection( wxCommandEvent& ev )
 		logGrids[grid]->SetCellValue(selGridRow,selGridCol,s+((s.Length() == 0)?_T(""):_T("\n"))+text);
 		logGrids[grid]->SetGridCursor(selGridRow,selGridCol);
 	}
-	else if(selGridCol == Logbook::CLOUDS-11      && m_notebook8->GetSelection() == 1)
+	else if(selGridCol == Logbook::CLOUDS-logbook->weatherCol && m_notebook8->GetSelection() == 1)
 	{
-	   logGrids[1]->SetCellValue(selGridRow,Logbook::CLOUDS-11,m_menu1->GetLabelText(ev.GetId()));
+		logGrids[1]->SetCellValue(selGridRow,Logbook::CLOUDS-logbook->weatherCol,m_menu1->GetLabelText(ev.GetId()));
 	}
 }
 
@@ -2881,11 +2904,11 @@ void LogbookDialog::m_gridGlobalOnGridCellRightClick( wxGridEvent& ev )
 	if(ev.GetCol() == 4 && (m_notebook8->GetSelection() == 0))
 	{
 		m_menu1->PrependSeparator();
-		for(int i = 0; i < m_gridCrew->GetNumberRows(); i++)
+		for(int i = 0; i < m_gridCrewWake->GetNumberRows(); i++)
 		{
 			wxMenuItem *item = new wxMenuItem( m_menu1, wxID_ANY, 
-				m_gridCrew->GetCellValue(i,2)+_T(" ")+
-				m_gridCrew->GetCellValue(i,0) , wxEmptyString, wxITEM_NORMAL );
+				m_gridCrewWake->GetCellValue(i,CrewList::LWFIRSTNAME)+_T(" ")+
+				m_gridCrewWake->GetCellValue(i,CrewList::LWNAME) , wxEmptyString, wxITEM_NORMAL );
 			m_menu1->Prepend( item );
 			this->Connect( item->GetId(), wxEVT_COMMAND_MENU_SELECTED, 
 				wxCommandEventHandler( LogbookDialog::m_menuItem1OnMenuSelection ) );
@@ -2904,12 +2927,12 @@ void LogbookDialog::m_gridGlobalOnGridCellRightClick( wxGridEvent& ev )
 				wxCommandEventHandler( LogbookDialog::m_menuItem1OnMenuSelection ) );
 	}
 
-	if((selGridCol == Logbook::REMARKS       && m_notebook8->GetSelection() == 0) ||
-	   (selGridCol == Logbook::WEATHER-11    && m_notebook8->GetSelection() == 1) ||
-	   (selGridCol == Logbook::VISIBILITY-11 && m_notebook8->GetSelection() == 1) ||
-	   (selGridCol == Logbook::SAILS-24      && m_notebook8->GetSelection() == 2) ||
- 	   (selGridCol == Logbook::REEF-24       && m_notebook8->GetSelection() == 2) ||
-	   (selGridCol == Logbook::MREMARKS-24   && m_notebook8->GetSelection() == 2)
+	if((selGridCol == Logbook::REMARKS                         && m_notebook8->GetSelection() == 0) ||
+		(selGridCol == Logbook::WEATHER-   logbook->weatherCol && m_notebook8->GetSelection() == 1) ||
+		(selGridCol == Logbook::VISIBILITY-logbook->weatherCol && m_notebook8->GetSelection() == 1) ||
+		(selGridCol == Logbook::SAILS-     logbook->sailsCol   && m_notebook8->GetSelection() == 2) ||
+		(selGridCol == Logbook::REEF-      logbook->sailsCol   && m_notebook8->GetSelection() == 2) ||
+		(selGridCol == Logbook::MREMARKS-  logbook->sailsCol   && m_notebook8->GetSelection() == 2)
 	   )
 	{
 		addColdFingerDialog(m_menu1);
@@ -2995,8 +3018,6 @@ void LogbookDialog::addColdFingerTextBlocks(wxMenu* menu)
 {
 	FindMenuItem(-1,0,wxEmptyString);
 	FindMenuItem(m_notebook8->GetSelection(),selGridCol,wxEmptyString);
-
-//	wxMessageBox(coldfinger->m_treeCtrl3->GetItemText(first));
 }
 
 #include <stack>
@@ -3019,8 +3040,7 @@ wxTreeItemId LogbookDialog::FindMenuItem(int grid, int col, wxString name)
 				return next;
 		}
 		else if(name == wxEmptyString)
-		{				//wxMessageBox(wxString::Format(_("%s %i %i %i %i %i"),tree->GetItemText(next),grid,col,((myTreeItem*)tree->GetItemData(next))->grid,((myTreeItem*)tree->GetItemData(next))->gridcol,((myTreeItem*)tree->GetItemData(next))->menu));
-
+		{			
 			if (((next != tree->GetRootItem() && ((myTreeItem*)tree->GetItemData(next))->grid == grid)) && ((myTreeItem*)tree->GetItemData(next))->gridcol == col && 
 				((myTreeItem*)tree->GetItemData(next))->menu == true)
 			{	
@@ -3304,20 +3324,6 @@ void LogbookDialog::startApplication(wxString filename, wxString ext)
 	}
 }
 
-void LogbookDialog::setCellAlign(int i)
-{
-		m_gridGlobal->SetCellAlignment(i,0,wxALIGN_LEFT, wxALIGN_TOP);
-		m_gridGlobal->SetCellAlignment(i,3,wxALIGN_CENTRE, wxALIGN_TOP);
-		m_gridGlobal->SetCellAlignment(i,4,wxALIGN_LEFT, wxALIGN_TOP);
-		m_gridGlobal->SetCellAlignment(i,13,wxALIGN_LEFT, wxALIGN_TOP);
-		m_gridWeather->SetCellAlignment(i,10,wxALIGN_LEFT, wxALIGN_TOP);
-		m_gridWeather->SetCellAlignment(i,11,wxALIGN_LEFT, wxALIGN_TOP);
-		m_gridWeather->SetCellAlignment(i,12,wxALIGN_LEFT, wxALIGN_TOP);
-		m_gridMotorSails->SetCellAlignment(i,4,wxALIGN_LEFT, wxALIGN_TOP);
-		m_gridMotorSails->SetCellAlignment(i,5,wxALIGN_LEFT, wxALIGN_TOP);
-		m_gridMotorSails->SetCellAlignment(i,8,wxALIGN_LEFT, wxALIGN_TOP);
-}
-
 void LogbookDialog::setIniValues()
 {
 	Options * opt = logbookPlugIn->opt;
@@ -3376,8 +3382,10 @@ void LogbookDialog::getIniValues()
 
 	for(int i = 0; i < LOGGRIDS; i++)
 	{
-		for(int n = 0; n < logGrids[i]->GetNumberCols(); n++)
+		for(unsigned int n = 0; n < (unsigned int) logGrids[i]->GetNumberCols(); n++)
 		{
+			if(n >= opt->MotorColWidth.Count() || n >= opt->NavColWidth.Count() || n >= opt->WeatherColWidth.Count()) break;
+
 			switch(i)
 			{
 			case 0:	logGrids[i]->SetColumnWidth(n,opt->NavColWidth[n]); break;
@@ -3682,6 +3690,9 @@ void LogbookDialog::m_menuItem2OnMenuSelection( wxCommandEvent& ev )
 {
 	crewList->deleteRow(selGridRow);
 	crewList->modified = true;
+
+	if(m_menu2->IsChecked(MENUCREWONBOARD))
+		crewList->filterCrewMembers();
 }
 
 /////////////////////////////////////////////////////////////
@@ -5749,24 +5760,24 @@ void ColdFinger::init()
 		item = new myTreeItem(ITEM,_T(""),_("Sails up\nEngine stopped\n\nDemo - Rightclick-Menu \'use Testextblocks\' for help"),_T(""),_T(""),_T(""),_T(""),0,Logbook::REMARKS,true,false,true);
 		this->m_treeCtrl3->AppendItem(test,_("Demo Sails up"),it,-1,item);
 
-		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),1,Logbook::WEATHER-11,false,false,true);
-		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridWeather->GetColLabelValue(Logbook::WEATHER-11)+_T(" (")+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),1,Logbook::WEATHER-dialog->logbook->weatherCol,false,false,true);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridWeather->GetColLabelValue(Logbook::WEATHER-dialog->logbook->weatherCol)+_T(" (")+
 			dialog->m_notebook8->GetPageText(1)+_T(")"),fo,-1,item);
 
-		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),1,Logbook::VISIBILITY-11,false,false,true);
-		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridWeather->GetColLabelValue(Logbook::VISIBILITY-11)+_T(" (")+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),1,Logbook::VISIBILITY-dialog->logbook->weatherCol,false,false,true);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridWeather->GetColLabelValue(Logbook::VISIBILITY-dialog->logbook->weatherCol)+_T(" (")+
 			dialog->m_notebook8->GetPageText(1)+_T(")"),fo,-1,item);
 
-		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),2,Logbook::SAILS-24,false,false,true);
-		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridMotorSails->GetColLabelValue(Logbook::SAILS-24)+_T(" (")+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),2,Logbook::SAILS-dialog->logbook->sailsCol,false,false,true);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridMotorSails->GetColLabelValue(Logbook::SAILS-dialog->logbook->sailsCol)+_T(" (")+
 			dialog->m_notebook8->GetPageText(2)+_T(")"),fo,-1,item);
 
-		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),2,Logbook::REEF-24,false,false,true);
-		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridMotorSails->GetColLabelValue(Logbook::REEF-24)+_T(" (")+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),2,Logbook::REEF-dialog->logbook->sailsCol,false,false,true);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridMotorSails->GetColLabelValue(Logbook::REEF-dialog->logbook->sailsCol)+_T(" (")+
 			dialog->m_notebook8->GetPageText(2)+_T(")"),fo,-1,item);
 
-		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),2,Logbook::MREMARKS-24,false,false,true);
-		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridMotorSails->GetColLabelValue(Logbook::MREMARKS-24)+_T(" (")+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),2,Logbook::MREMARKS-dialog->logbook->sailsCol,false,false,true);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridMotorSails->GetColLabelValue(Logbook::MREMARKS-dialog->logbook->sailsCol)+_T(" (")+
 			dialog->m_notebook8->GetPageText(2)+_T(")"),fo,-1,item);
 
 /////////////////// in dialog only ////////////
@@ -5780,24 +5791,24 @@ void ColdFinger::init()
 		item = new myTreeItem(ITEM,_T(""),_("Engine stopped\n\nDemo - Rightclick-Menu \'use Testextblocks\' for help"),_T(""),_T(""),_T(""),_T(""),0,Logbook::REMARKS,true,true,false);
 		this->m_treeCtrl3->AppendItem(test,_("Demo Engine stopped"),it,-1,item);
 
-		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),1,Logbook::WEATHER-11,false,true,false);
-		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridWeather->GetColLabelValue(Logbook::WEATHER-11)+_T(" (")+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),1,Logbook::WEATHER-dialog->logbook->weatherCol,false,true,false);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridWeather->GetColLabelValue(Logbook::WEATHER-dialog->logbook->weatherCol)+_T(" (")+
 			dialog->m_notebook8->GetPageText(1)+_T(")"),fo,-1,item);
 
-		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),1,Logbook::VISIBILITY-11,false,true,false);
-		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridWeather->GetColLabelValue(Logbook::VISIBILITY-11)+_T(" (")+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),1,Logbook::VISIBILITY-dialog->logbook->weatherCol,false,true,false);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridWeather->GetColLabelValue(Logbook::VISIBILITY-dialog->logbook->weatherCol)+_T(" (")+
 			dialog->m_notebook8->GetPageText(1)+_T(")"),fo,-1,item);
 
-		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),2,Logbook::SAILS-24,false,true,false);
-		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridMotorSails->GetColLabelValue(Logbook::SAILS-24)+_T(" (")+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),2,Logbook::SAILS-dialog->logbook->sailsCol,false,true,false);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridMotorSails->GetColLabelValue(Logbook::SAILS-dialog->logbook->sailsCol)+_T(" (")+
 			dialog->m_notebook8->GetPageText(2)+_T(")"),fo,-1,item);
 
-		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),2,Logbook::REEF-24,false,true,false);
-		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridMotorSails->GetColLabelValue(Logbook::REEF-24)+_T(" (")+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),2,Logbook::REEF-dialog->logbook->sailsCol,false,true,false);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridMotorSails->GetColLabelValue(Logbook::REEF-dialog->logbook->sailsCol)+_T(" (")+
 			dialog->m_notebook8->GetPageText(2)+_T(")"),fo,-1,item);
 
-		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),2,Logbook::MREMARKS-24,false,true,false);
-		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridMotorSails->GetColLabelValue(Logbook::MREMARKS-24)+_T(" (")+
+		item = new myTreeItem(NODE,_T(""),_T(""),_T(""),_T(""),_T(""),_T(""),2,Logbook::MREMARKS-dialog->logbook->sailsCol,false,true,false);
+		this->m_treeCtrl3->AppendItem(menu,dialog->m_gridMotorSails->GetColLabelValue(Logbook::MREMARKS-dialog->logbook->sailsCol)+_T(" (")+
 			dialog->m_notebook8->GetPageText(2)+_T(")"),fo,-1,item);
 		
 		modified = true;

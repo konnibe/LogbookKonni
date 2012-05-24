@@ -84,8 +84,8 @@ private:
 
 public:
 	enum fields{ ROUTE,RDATE,RTIME,SIGN,WAKE,DISTANCE,DTOTAL,POSITION,COG,COW,SOG,SOW,DEPTH,REMARKS,
-				 BARO,WIND,WSPD,CURRENT,CSPD,WAVE,SWELL,WEATHER,CLOUDS,VISIBILITY,
-				 MOTOR,MOTORT,FUEL,FUELT,SAILS,REEF,WATER,WATERT,MREMARKS,HYDRO,TEMPAIR,TEMPWATER};	
+				 BARO,HYDRO,TEMPAIR,TEMPWATER,WIND,WSPD,CURRENT,CSPD,WAVE,SWELL,WEATHER,CLOUDS,VISIBILITY,
+				 MOTOR,MOTORT,MOTOR1,MOTOR1T,FUEL,FUELT,SAILS,REEF,GENE,GENET,BANK1,BANK1T,BANK2,BANK2T,WATERM,WATERMT,WATERMO,WATER,WATERT,MREMARKS};	
 
 	LogbookDialog*	dialog;
 	LogbookHTML*	logbookHTML;
@@ -101,6 +101,8 @@ public:
 	bool			OCPN_Message;
 	wxString		activeRoute;
 	wxString		activeRouteGUID;
+	int				weatherCol;
+	int				sailsCol;
 
 public:
 	Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString layoutODT);
@@ -129,6 +131,9 @@ public:
 	wxString	title;
 
 private:
+	void     setCellAlign(int i);
+	wxString decimalToHours(double res, bool b);
+
 	wxString	logbookData_actuell;
 	bool		noAppend; // Old Logbook; append Rows not allowed
 };

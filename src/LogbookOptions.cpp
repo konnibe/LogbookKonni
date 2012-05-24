@@ -28,7 +28,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	this->opt = opt;
 	this->log_pi = log_pi;
 
-//	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	
 	wxBoxSizer* bSizer21;
 	bSizer21 = new wxBoxSizer( wxVERTICAL );
@@ -54,7 +54,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	fgSizer29->Add( 10, 15, 1, wxEXPAND, 5 );
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
+	fgSizer29->Add( 250, 0, 1, wxEXPAND, 5 );
 	fgSizer29->Add( 10, 0, 1, wxEXPAND, 5 );
 	
 	m_checkBoxShowLogbook = new wxCheckBox( m_panel15, wxID_ANY, _("Show Logbook Icon"), wxDefaultPosition, wxSize( -1,-1 ), wxCHK_2STATE );
@@ -72,13 +72,13 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	fgSizer29->Add( m_choicePositionFormat, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 	
-	m_checkBoxToolTips = new wxCheckBox( m_panel15, wxID_ANY, _("Show ToolTips"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_checkBoxToolTips = new wxCheckBox( m_panel15, wxID_ANY, wxT("Show ToolTips"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_checkBoxToolTips->SetValue(true); 
 	fgSizer29->Add( m_checkBoxToolTips, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-	fgSizer29->Add( 250, 0, 1, wxEXPAND, 5 );
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
-	
+	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
+
 	m_checkBoxShowAllLayouts = new wxCheckBox( m_panel15, wxID_ANY, _("Show all Layouts"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_checkBoxShowAllLayouts->SetValue(true); 
 	fgSizer29->Add( m_checkBoxShowAllLayouts, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
@@ -359,6 +359,162 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_panel15->Layout();
 	fgSizer10->Fit( m_panel15 );
 	m_notebook4->AddPage( m_panel15, _("Behavior"), true );
+	m_panel20 = new wxPanel( m_notebook4, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
+	wxBoxSizer* bSizer30;
+	bSizer30 = new wxBoxSizer( wxHORIZONTAL );
+	
+	
+	bSizer30->Add( 0, 0, 0, wxEXPAND, 5 );
+	
+	wxBoxSizer* bSizer31;
+	bSizer31 = new wxBoxSizer( wxVERTICAL );
+	
+	
+	bSizer31->Add( 0, 20, 0, wxEXPAND, 5 );
+	
+	m_staticText1041 = new wxStaticText( m_panel20, wxID_ANY, wxT("Only used when you enter 1/2, 1/4 ... in a total-field, or to calculate the watermaker\n"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE );
+	m_staticText1041->Wrap( -1 );
+	m_staticText1041->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), 70, 90, 92, false, wxEmptyString ) );
+	
+	bSizer31->Add( m_staticText1041, 0, wxALL|wxEXPAND, 5 );
+	
+	m_staticline34 = new wxStaticLine( m_panel20, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
+	bSizer31->Add( m_staticline34, 0, wxEXPAND | wxALL, 5 );
+	
+	wxFlexGridSizer* fgSizer44;
+	fgSizer44 = new wxFlexGridSizer( 0, 3, 0, 0 );
+	fgSizer44->SetFlexibleDirection( wxBOTH );
+	fgSizer44->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+	
+	m_staticText99 = new wxStaticText( m_panel20, wxID_ANY, wxT("Water"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText99->Wrap( -1 );
+	m_staticText99->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), 70, 90, 92, false, wxEmptyString ) );
+	m_staticText99->SetMinSize( wxSize( 150,-1 ) );
+	
+	fgSizer44->Add( m_staticText99, 0, wxALL, 0 );
+	
+	
+	fgSizer44->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	
+	fgSizer44->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	
+	fgSizer44->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	m_staticText100 = new wxStaticText( m_panel20, wxID_ANY, wxT("Tank"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText100->Wrap( -1 );
+	m_staticText100->SetMinSize( wxSize( 120,-1 ) );
+	
+	fgSizer44->Add( m_staticText100, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_textCtrlTankWater = new wxTextCtrl( m_panel20, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	fgSizer44->Add( m_textCtrlTankWater, 0, wxALL, 5 );
+	
+	
+	fgSizer44->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	m_staticText102 = new wxStaticText( m_panel20, wxID_ANY, wxT("Watermaker"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText102->Wrap( -1 );
+	m_staticText102->SetMinSize( wxSize( 120,-1 ) );
+	
+	fgSizer44->Add( m_staticText102, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_textCtrlWatermaker = new wxTextCtrl( m_panel20, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	m_textCtrlWatermaker->SetToolTip( wxT("Set gal/liter in Abbreviations ") );
+	
+	fgSizer44->Add( m_textCtrlWatermaker, 0, wxALL, 5 );
+	
+	bSizer31->Add( fgSizer44, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+	
+	m_staticline33 = new wxStaticLine( m_panel20, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
+	bSizer31->Add( m_staticline33, 0, wxEXPAND | wxALL, 5 );
+	
+	wxFlexGridSizer* fgSizer43;
+	fgSizer43 = new wxFlexGridSizer( 0, 3, 0, 0 );
+	fgSizer43->SetFlexibleDirection( wxBOTH );
+	fgSizer43->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+	
+	m_staticText96 = new wxStaticText( m_panel20, wxID_ANY, wxT("Fuel"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText96->Wrap( -1 );
+	m_staticText96->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), 70, 90, 92, false, wxEmptyString ) );
+	m_staticText96->SetMinSize( wxSize( 150,-1 ) );
+	
+	fgSizer43->Add( m_staticText96, 0, wxALL, 0 );
+	
+	
+	fgSizer43->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	
+	fgSizer43->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	
+	fgSizer43->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	m_staticText97 = new wxStaticText( m_panel20, wxID_ANY, wxT("Tank"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText97->Wrap( -1 );
+	m_staticText97->SetMinSize( wxSize( 120,-1 ) );
+	
+	fgSizer43->Add( m_staticText97, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_textCtrlTankFuel = new wxTextCtrl( m_panel20, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	fgSizer43->Add( m_textCtrlTankFuel, 0, wxALL, 5 );
+	
+	bSizer31->Add( fgSizer43, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+	
+	m_staticline32 = new wxStaticLine( m_panel20, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
+	bSizer31->Add( m_staticline32, 0, wxALL|wxEXPAND, 5 );
+	
+	wxFlexGridSizer* fgSizer45;
+	fgSizer45 = new wxFlexGridSizer( 0, 3, 0, 0 );
+	fgSizer45->SetFlexibleDirection( wxBOTH );
+	fgSizer45->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
+	
+	m_staticText104 = new wxStaticText( m_panel20, wxID_ANY, wxT("Battery"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText104->Wrap( -1 );
+	m_staticText104->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), 70, 90, 92, false, wxEmptyString ) );
+	m_staticText104->SetMinSize( wxSize( 150,-1 ) );
+	
+	fgSizer45->Add( m_staticText104, 0, wxALL, 0 );
+	
+	
+	fgSizer45->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	
+	fgSizer45->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	
+	fgSizer45->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	m_staticText105 = new wxStaticText( m_panel20, wxID_ANY, wxT("Bank #1"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText105->Wrap( -1 );
+	m_staticText105->SetMinSize( wxSize( 120,-1 ) );
+	
+	fgSizer45->Add( m_staticText105, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_textCtrlBank1 = new wxTextCtrl( m_panel20, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	fgSizer45->Add( m_textCtrlBank1, 0, wxALL, 5 );
+	
+	
+	fgSizer45->Add( 0, 0, 1, wxEXPAND, 5 );
+	
+	m_staticText107 = new wxStaticText( m_panel20, wxID_ANY, wxT("Bank #2"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText107->Wrap( -1 );
+	m_staticText107->SetMinSize( wxSize( 120,-1 ) );
+	
+	fgSizer45->Add( m_staticText107, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_textCtrlBank2 = new wxTextCtrl( m_panel20, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	fgSizer45->Add( m_textCtrlBank2, 0, wxALL, 5 );
+	
+	bSizer31->Add( fgSizer45, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+	
+	bSizer30->Add( bSizer31, 1, wxEXPAND, 5 );
+	
+	m_panel20->SetSizer( bSizer30 );
+	m_panel20->Layout();
+	bSizer30->Fit( m_panel20 );
+	m_notebook4->AddPage( m_panel20, wxT("Capacity"), false );
 	m_panel16 = new wxPanel( m_notebook4, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxFlexGridSizer* fgSizer30;
 	fgSizer30 = new wxFlexGridSizer( 2, 1, 5, 0 );
@@ -557,8 +713,13 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	m_sMotorh = new wxTextCtrl( m_panel16, wxID_ANY, _("h"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
 	fgSizer91->Add( m_sMotorh, 0, 0, 5 );
-	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
-	fgSizer91->Add( 0, 0, 1, wxEXPAND, 5 );
+
+	m_staticText106 = new wxStaticText( m_panel16, wxID_ANY, wxT("Ampere"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText106->Wrap( -1 );
+	fgSizer91->Add( m_staticText106, 0, wxALL, 5 );
+	
+	m_textCtrlAmpere = new wxTextCtrl( m_panel16, wxID_ANY, wxT("A"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
+	fgSizer91->Add( m_textCtrlAmpere, 0, wxALL, 0 );
 	
 	m_staticText70 = new wxStaticText( m_panel16, wxID_ANY, _("Maintenance"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText70->Wrap( -1 );
@@ -657,6 +818,8 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	fgSizer321->Add( m_staticText761, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	m_textCtrlODTEditor = new wxTextCtrl( m_panel17, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 420,-1 ), 0 );
+	m_textCtrlODTEditor->SetToolTip( _("to use MS-Word, append %s like this:\n\"C:\\yourPathToWinword\\WINWORD.EXE\" %s") );
+
 	fgSizer321->Add( m_textCtrlODTEditor, 0, wxALL|wxEXPAND, 5 );
 	
 	m_bpButtonODT = new wxBitmapButton( m_panel17, wxID_ANY, wxBitmap( folder ), wxDefaultPosition, wxDefaultSize, wxBU_AUTODRAW );
@@ -754,6 +917,16 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_checkBoxGuardChanged->Connect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::onCheckBoxGuardChanged ), NULL, this );
 	m_buttonUninstall->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::OnButtonClickUninstall ), NULL, this );
 	m_buttonResetPath->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::OnButtonResetPaths ), NULL, this );
+	m_sLiter->Connect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( LogbookOptions::onTextm_sLiter ), NULL, this );
+	m_textCtrlWatermaker->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::OnTextEnterm_textCtrlWatermaker ), NULL, this );
+	m_textCtrlBank1->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::OnTextEnterBank1 ), NULL, this );
+	m_textCtrlBank2->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::onTextEnterBank2 ), NULL, this );
+	m_textCtrlTankFuel->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::OnTextEnterFuelTank ), NULL, this );
+	m_textCtrlTankWater->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::OnTextEnterWaterTank ), NULL, this );
+
+
+
+
 
 	setValues();
 
@@ -797,6 +970,15 @@ LogbookOptions::~LogbookOptions()
 	m_checkBoxGuardChanged->Disconnect( wxEVT_COMMAND_CHECKBOX_CLICKED, wxCommandEventHandler( LogbookOptions::onCheckBoxGuardChanged ), NULL, this );
 	m_buttonUninstall->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::OnButtonClickUninstall ), NULL, this );
 	m_buttonResetPath->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( LogbookOptions::OnButtonResetPaths ), NULL, this );
+	m_sLiter->Disconnect( wxEVT_COMMAND_TEXT_UPDATED, wxCommandEventHandler( LogbookOptions::onTextm_sLiter ), NULL, this );
+	m_textCtrlWatermaker->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::OnTextEnterm_textCtrlWatermaker ), NULL, this );
+	m_textCtrlBank1->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::OnTextEnterBank1 ), NULL, this );
+	m_textCtrlBank2->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::onTextEnterBank2 ), NULL, this );
+	m_textCtrlTankFuel->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::OnTextEnterFuelTank ), NULL, this );
+	m_textCtrlTankWater->Disconnect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::OnTextEnterWaterTank ), NULL, this );
+
+
+
 }
 
 void LogbookOptions::OnButtonClickUninstall(wxCommandEvent& ev)
@@ -868,6 +1050,11 @@ void LogbookOptions::onChoicePositionFormat(wxCommandEvent &ev)
 
 void LogbookOptions::setValues()
 {
+	m_textCtrlTankFuel->SetValue(opt->fuelTank+_T(" ")+opt->vol);
+	m_textCtrlTankWater->SetValue(opt->waterTank+_T(" ")+opt->vol);
+	m_textCtrlBank1->SetValue(opt->bank1+_T(" ")+opt->ampereh);
+	m_textCtrlBank2->SetValue(opt->bank2+_T(" ")+opt->ampereh);
+	m_textCtrlWatermaker->SetValue(opt->watermaker+_T(" ")+opt->vol+_T("/")+opt->motorh);
 	m_checkBoxGuardChanged->SetValue(opt->guardChange);
 	m_textCtrlGuradChanged->SetValue(opt->guardChangeText);
 	m_checkBoxWayPoint->SetValue(opt->waypointArrived);
@@ -908,6 +1095,7 @@ void LogbookOptions::setValues()
 
 	m_sLiter->SetValue(opt->vol);
 	m_sMotorh->SetValue(opt->motorh);
+	m_textCtrlAmpere->SetValue(opt->ampere);
 
 	m_Days->SetValue(opt->days);
 	m_Weeks->SetValue(opt->weeks);
@@ -956,6 +1144,16 @@ void LogbookOptions::setValues()
 
 void LogbookOptions::getValues()
 {
+	wxString t = m_textCtrlWatermaker->GetValue();
+	opt->watermaker =  t.substr(0,t.find_first_of(' '));
+	t = m_textCtrlBank1->GetValue();
+	opt->bank1 =  t.substr(0,t.find_first_of(' '));
+	t = m_textCtrlBank2->GetValue();
+	opt->bank2 =  t.substr(0,t.find_first_of(' '));
+	t = m_textCtrlTankFuel->GetValue();
+	opt->fuelTank =  t.substr(0,t.find_first_of(' '));
+	t = m_textCtrlTankWater->GetValue();
+	opt->waterTank =  t.substr(0,t.find_first_of(' '));
 	opt->guardChange = m_checkBoxGuardChanged->GetValue();
 	opt->guardChangeText = m_textCtrlGuradChanged->GetValue();
 	opt->waypointArrived = m_checkBoxWayPoint->GetValue();
@@ -1000,6 +1198,7 @@ void LogbookOptions::getValues()
 
 	opt->vol    = m_sLiter->GetValue();
 	opt->motorh = m_sMotorh->GetValue();
+	opt->ampere = m_textCtrlAmpere->GetValue();
 
 	opt->days = m_Days->GetValue();
 	opt->weeks = m_Weeks->GetValue();
@@ -1225,6 +1424,47 @@ void LogbookOptions::onTextEnterm_sKmh( wxCommandEvent& ev )
 	choicesWind[2] = ev.GetString();
 	updateWindChoice();
 	m_choiceWind->SetFocus();
+}
+
+void LogbookOptions::onTextm_sLiter( wxCommandEvent& event )
+{
+	wxString t = opt->watermaker + _T(" ") + m_sLiter->GetValue() + _T("/") + opt->motorh;
+	this->m_textCtrlWatermaker->SetValue(t);
+}
+
+void LogbookOptions::OnTextEnterm_textCtrlWatermaker( wxCommandEvent& event )
+{
+	wxString t = m_textCtrlWatermaker->GetValue();
+	t = t.substr(0,t.find_first_of(' '))+ _T(" ") + m_sLiter->GetValue() + _T("/") + opt->motorh;
+	m_textCtrlWatermaker->SetValue(t);
+}
+
+void LogbookOptions::OnTextEnterFuelTank( wxCommandEvent& event )
+{
+	wxString t = m_textCtrlTankFuel->GetValue();
+	t = t.substr(0,t.find_first_of(' '))+ _T(" ") + m_sLiter->GetValue();
+	m_textCtrlTankFuel->SetValue(t);
+}
+
+void LogbookOptions::OnTextEnterWaterTank( wxCommandEvent& event )
+{
+	wxString t = m_textCtrlTankWater->GetValue();
+	t = t.substr(0,t.find_first_of(' '))+ _T(" ") + m_sLiter->GetValue();
+	m_textCtrlTankWater->SetValue(t);
+}
+
+void LogbookOptions::OnTextEnterBank1( wxCommandEvent& event )
+{
+	wxString t = m_textCtrlBank1->GetValue();
+	t = t.substr(0,t.find_first_of(' '))+ _T(" ") + opt->ampereh;
+	m_textCtrlBank1->SetValue(t);
+}
+
+void LogbookOptions::onTextEnterBank2( wxCommandEvent& event )
+{
+	wxString t = m_textCtrlBank2->GetValue();
+	t = t.substr(0,t.find_first_of(' '))+ _T(" ") + opt->ampereh;
+	m_textCtrlBank2->SetValue(t);
 }
 
 void LogbookOptions::onCeckBoxShowAllLayouts( wxCommandEvent& event )

@@ -100,6 +100,15 @@ public:
 	wxString    mailClientReset;
 	wxString    dataManagerReset;
 
+	//Capacity
+	wxString	fuelTank;
+	wxString	waterTank;
+	wxString	watermaker;
+	wxString	bank1;
+	wxString    bank2;
+	wxString    ampere;
+	wxString    ampereh;
+
 	//wxChoice
 	int		showDepth;
 	int		showWaveSwell;
@@ -133,9 +142,9 @@ public:
 	int		repairsGridLayoutChoiceODT;
 	int		buypartsGridLayoutChoiceODT;	
 
-	bool		local;
-	bool		UTC;
-	bool		gpsAuto;
+	bool	local;
+	bool	UTC;
+	bool	gpsAuto;
 	int		tzIndicator;
 	int		tzHour;
 

@@ -86,6 +86,14 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 	weeks = _("week(s)");
 	month = _("month");
 
+	//Capacity
+	fuelTank   = _T("0");
+	waterTank  = _T("0");
+	watermaker = _T("0");
+	bank1      = _T("0");
+	bank2      = _T("0");
+	ampere     = _T("A");
+
 	//wxChoice
 	showDepth = 0;
 	showWaveSwell = 0;
@@ -134,6 +142,7 @@ or change this text in Toolbox/Plugins/Logbook\n\nShift+Enter appends a new line
 		if((command = filetype1->GetOpenCommand(_T("x.odt"))) != wxEmptyString)
 		{
 			command = command.Remove(command.find_last_of(_T(" ")));
+
 			odtEditor   = command;
 			odtEditorReset = odtEditor;
 		}

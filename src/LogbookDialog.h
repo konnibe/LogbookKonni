@@ -95,8 +95,9 @@ class LogbookDialog : public wxDialog
 		wxTreeItemId			FindMenuItem(int grid, int col, wxString name);
 
 	public:
-enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,BARO,WIND,WSPD,CURRENT,CSPD,
-			 WEATHER,CLOUDS,VISIBILITY,MOTOR,FUEL,SAILS,REEF,MREMARKS };
+enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,
+			 BARO,WIND,WSPD,CURRENT,CSPD,WEATHER,CLOUDS,VISIBILITY,
+			 MOTOR,FUEL,SAILS,REEF,MREMARKS };
 
 		Boat*			boat;
 		CrewList*		crewList;
@@ -488,7 +489,7 @@ enum FORMAT {HTML,ODT};
 		void startBrowser(wxString filename);
 		void startApplication(wxString filename, wxString ext);
 		void loadLayoutChoice(wxString path, wxChoice* choice);
-		void setCellAlign(int count);
+//		void setCellAlign(int count);
 		void setEqualRowHeight(int row);
 		void init();
 		void OnTimerGPS(wxTimerEvent& ev);
