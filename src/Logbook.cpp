@@ -1578,7 +1578,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						res = hc_ - hp_;
 
 						if(row == 0 || res <= 0.0)
-							dialog->m_gridMotorSails->SetCellValue(row,col-1,wxString::Format(_T("00:00 %s"),opt->motorh));
+							dialog->m_gridMotorSails->SetCellValue(row,col-1,wxString::Format(_T("00:00 %s"),opt->motorh.c_str()));
 						else
 							dialog->m_gridMotorSails->SetCellValue(row,col-1,decimalToHours(res,false));
 
@@ -1719,14 +1719,14 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 
 						if(!tank)
 						{
-							dialog->m_gridMotorSails->SetCellValue(row,col-1,wxString::Format(_T("%s%.2f %s"),ind,abs(c),ap.c_str()));
+							dialog->m_gridMotorSails->SetCellValue(row,col-1,wxString::Format(_T("%s%.2f %s"),ind.c_str(),abs(c),ap.c_str()));
 						dialog->m_gridMotorSails->GetCellValue(row,col).ToDouble(&c);
-						dialog->m_gridMotorSails->SetCellValue(row,col,wxString::Format(_T("%.2f %s"),c,ap));
+						dialog->m_gridMotorSails->SetCellValue(row,col,wxString::Format(_T("%.2f %s"),c,ap.c_str()));
 						}
 						else
 						{
-						dialog->m_gridMotorSails->SetCellValue(row,col-1,wxString::Format(_T("%s%.2f %s"),ind,abs(t-c),ap.c_str()));
-						dialog->m_gridMotorSails->SetCellValue(row,col,wxString::Format(_T("%.2f %s"),abs(c),ap));
+							dialog->m_gridMotorSails->SetCellValue(row,col-1,wxString::Format(_T("%s%.2f %s"),ind.c_str(),abs(t-c),ap.c_str()));
+							dialog->m_gridMotorSails->SetCellValue(row,col,wxString::Format(_T("%.2f %s"),abs(c),ap.c_str()));
 						}
 						
 						int x;
