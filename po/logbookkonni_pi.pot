@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.6.1723\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-24 20:44+0200\n"
+"POT-Creation-Date: 2012-05-24 20:57+0200\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -449,6 +449,7 @@ msgid ""
 msgstr ""
 
 #: src/LogbookDialog.cpp:189 src/LogbookDialog.cpp:504
+#: src/LogbookDialog.cpp:2745
 msgid "Route"
 msgstr ""
 
@@ -498,7 +499,8 @@ msgstr ""
 msgid "Depth"
 msgstr ""
 
-#: src/LogbookDialog.cpp:202 src/LogbookDialog.cpp:1197
+#: src/LogbookDialog.cpp:202 src/LogbookDialog.cpp:361
+#: src/LogbookDialog.cpp:1197
 msgid "Remarks"
 msgstr ""
 
@@ -542,7 +544,8 @@ msgstr ""
 msgid "Air"
 msgstr ""
 
-#: src/LogbookDialog.cpp:278 src/LogbookDialog.cpp:517
+#: src/LogbookDialog.cpp:278 src/LogbookDialog.cpp:359
+#: src/LogbookDialog.cpp:517 src/LogbookOptions.cpp:389
 msgid "Water"
 msgstr ""
 
@@ -581,6 +584,75 @@ msgstr ""
 
 #: src/LogbookDialog.cpp:287
 msgid "Visibility"
+msgstr ""
+
+#: src/LogbookDialog.cpp:342
+msgid "Engine #1"
+msgstr ""
+
+#: src/LogbookDialog.cpp:343 src/LogbookDialog.cpp:345
+msgid "EngineTotal"
+msgstr ""
+
+#: src/LogbookDialog.cpp:344
+msgid "Engine #2"
+msgstr ""
+
+#: src/LogbookDialog.cpp:346 src/LogbookDialog.cpp:516
+#: src/LogbookOptions.cpp:438
+msgid "Fuel"
+msgstr ""
+
+#: src/LogbookDialog.cpp:347
+msgid "FuelTotal"
+msgstr ""
+
+#: src/LogbookDialog.cpp:348
+msgid "Sails"
+msgstr ""
+
+#: src/LogbookDialog.cpp:349
+msgid "Reef"
+msgstr ""
+
+#: src/LogbookDialog.cpp:350
+msgid "Generator"
+msgstr ""
+
+#: src/LogbookDialog.cpp:351
+msgid "Gen. total"
+msgstr ""
+
+#: src/LogbookDialog.cpp:352 src/LogbookOptions.cpp:489
+msgid "Bank #1"
+msgstr ""
+
+#: src/LogbookDialog.cpp:353
+msgid "AH #1 Total"
+msgstr ""
+
+#: src/LogbookDialog.cpp:354 src/LogbookOptions.cpp:501
+msgid "Bank #2"
+msgstr ""
+
+#: src/LogbookDialog.cpp:355
+msgid "AH #2 Total"
+msgstr ""
+
+#: src/LogbookDialog.cpp:356 src/LogbookOptions.cpp:417
+msgid "Watermaker"
+msgstr ""
+
+#: src/LogbookDialog.cpp:357
+msgid "W-Total"
+msgstr ""
+
+#: src/LogbookDialog.cpp:358
+msgid "W-Output"
+msgstr ""
+
+#: src/LogbookDialog.cpp:360
+msgid "WaterTotal"
 msgstr ""
 
 #: src/LogbookDialog.cpp:378
@@ -633,10 +705,6 @@ msgstr ""
 
 #: src/LogbookDialog.cpp:515
 msgid "Engine"
-msgstr ""
-
-#: src/LogbookDialog.cpp:516
-msgid "Fuel"
 msgstr ""
 
 #: src/LogbookDialog.cpp:518
@@ -1324,6 +1392,10 @@ msgstr ""
 msgid "Show Position Fomat"
 msgstr ""
 
+#: src/LogbookOptions.cpp:75
+msgid "Show ToolTips"
+msgstr ""
+
 #: src/LogbookOptions.cpp:82
 msgid "Show all Layouts"
 msgstr ""
@@ -1372,6 +1444,12 @@ msgstr ""
 
 #: src/LogbookOptions.cpp:120
 msgid "If Waypoint arrived"
+msgstr ""
+
+#: src/LogbookOptions.cpp:126 src/LogbookOptions.cpp:128
+msgid ""
+"automatic line\n"
+"Waypoint arrived:"
 msgstr ""
 
 #: src/LogbookOptions.cpp:133
@@ -1479,6 +1557,28 @@ msgstr ""
 msgid "Behavior"
 msgstr ""
 
+#: src/LogbookOptions.cpp:375
+msgid ""
+"Only used when you enter 1/2, 1/4 ... in a total-field, or to calculate the "
+"watermaker\n"
+msgstr ""
+
+#: src/LogbookOptions.cpp:405 src/LogbookOptions.cpp:454
+msgid "Tank"
+msgstr ""
+
+#: src/LogbookOptions.cpp:424
+msgid "Set gal/liter in Abbreviations "
+msgstr ""
+
+#: src/LogbookOptions.cpp:473
+msgid "Battery"
+msgstr ""
+
+#: src/LogbookOptions.cpp:517 src/LogbookOptions.cpp:703
+msgid "Capacity"
+msgstr ""
+
 #: src/LogbookOptions.cpp:542
 msgid "Degres"
 msgstr ""
@@ -1542,12 +1642,12 @@ msgstr ""
 msgid "Fuel/Water"
 msgstr ""
 
-#: src/LogbookOptions.cpp:703
-msgid "Capacity"
-msgstr ""
-
 #: src/LogbookOptions.cpp:710
 msgid "Motor Hours"
+msgstr ""
+
+#: src/LogbookOptions.cpp:717
+msgid "Ampere"
 msgstr ""
 
 #: src/LogbookOptions.cpp:730 src/LogbookOptions.cpp:734

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-24 20:44+0200\n"
+"POT-Creation-Date: 2012-05-24 20:57+0200\n"
 "PO-Revision-Date: 2012-04-14 17:50+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: rider2@kpnmail.nl <rider2@kpnmail.nl>\n"
@@ -85,6 +85,12 @@ msgstr "0"
 msgid "1. Watch of 1. Person"
 msgstr "1e Wacht van 1e persoon"
 #
+msgid "AH #1 Total"
+msgstr ""
+#
+msgid "AH #2 Total"
+msgstr ""
+#
 msgid "Abbreviations"
 msgstr "Eenheden en afkortingen"
 #
@@ -145,6 +151,9 @@ msgstr "Lucht"
 msgid "All Logbooks"
 msgstr "Alle journaals"
 #
+msgid "Ampere"
+msgstr ""
+#
 msgid "Append Line every Nm"
 msgstr "Regel toevoegen na elke (NM):"
 #
@@ -175,8 +184,18 @@ msgstr ""
 "U kunt dit Aan en Uit zetten en de instellingen ervan aanpassen in Toolbox/"
 "Plugins/Logbook. SHIFTt+ENTER voegt een nieuwe regel toe."
 #
+msgid "Bank #1"
+msgstr ""
+#
+msgid "Bank #2"
+msgstr ""
+#
 msgid "Barometer"
 msgstr "Luchtdruk"
+#
+#, fuzzy
+msgid "Battery"
+msgstr "Categorie"
 #
 msgid "Beam"
 msgstr "Breedte"
@@ -406,11 +425,26 @@ msgstr ""
 msgid "Engine"
 msgstr "Motor"
 #
+#, fuzzy
+msgid "Engine #1"
+msgstr "Motor"
+#
+#, fuzzy
+msgid "Engine #2"
+msgstr "Motor"
+#
 msgid ""
 "Engine stopped\n"
 "\n"
 "Demo - Rightclick-Menu 'use Testextblocks' for help"
 msgstr ""
+#
+#
+#
+#
+#
+msgid "EngineTotal"
+msgstr "Ttl motor"
 #
 msgid "Equipment"
 msgstr "Apparatuur"
@@ -442,8 +476,22 @@ msgstr "Brandstof"
 msgid "Fuel/Water"
 msgstr "Brandstof/Water"
 #
+#
+#
+#
+#
+msgid "FuelTotal"
+msgstr "Ttl brandstof"
+#
 msgid "GPS Auto"
 msgstr "GPS automatisch"
+#
+msgid "Gen. total"
+msgstr ""
+#
+#, fuzzy
+msgid "Generator"
+msgstr "Temperatuur"
 #
 msgid "Goto Route"
 msgstr "Ga naar route"
@@ -771,6 +819,11 @@ msgid "Only Layouts with prefix:"
 msgstr "alleen opmaak startend met:"
 #
 msgid ""
+"Only used when you enter 1/2, 1/4 ... in a total-field, or to calculate the "
+"watermaker\n"
+msgstr ""
+#
+msgid ""
 "Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV "
 "Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
 msgstr ""
@@ -876,6 +929,13 @@ msgstr "Prio"
 msgid "R"
 msgstr "H"
 #
+#
+#
+#
+#
+msgid "Reef"
+msgstr "Aantal riffen"
+#
 msgid "Registration"
 msgstr "Registratie"
 #
@@ -924,6 +984,13 @@ msgstr "STW"
 #
 msgid "Sail-Nr."
 msgstr "Zeilnr."
+#
+#
+#
+#
+#
+msgid "Sails"
+msgstr "Zeilvoering"
 #
 msgid ""
 "Sails up\n"
@@ -1044,6 +1111,9 @@ msgstr "Geef pad aan naar tekstbewerker (ODT)"
 msgid "Set Watches"
 msgstr "Pas wachtinstelling toe"
 #
+msgid "Set gal/liter in Abbreviations "
+msgstr ""
+#
 msgid "Show Depth in"
 msgstr "Toon dieptes in:"
 #
@@ -1056,6 +1126,13 @@ msgstr "Toon Logbook icoon"
 # Used in Options
 msgid "Show Position Fomat"
 msgstr "      Positieweergave als:"
+#
+#
+#
+#
+#
+msgid "Show ToolTips"
+msgstr "Toon ToolTips"
 #
 msgid "Show Wave/Swell in"
 msgstr "Toon golfhoogtes in:"
@@ -1165,6 +1242,9 @@ msgid "Swell Max."
 msgstr ""
 "Deining\n"
 "(max.)"
+#
+msgid "Tank"
+msgstr ""
 #
 msgid "Telephone"
 msgstr "Telefoon"
@@ -1285,6 +1365,17 @@ msgstr "Bekijk gegevens in browser (HTML) of in OpenOffice/LibreOffice (ODT)"
 msgid "Visibility"
 msgstr "Zicht"
 #
+msgid "W-Output"
+msgstr ""
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "W-Total"
+msgstr "Ttl water"
+#
 msgid "W/Strength"
 msgstr ""
 "Wind-\n"
@@ -1297,6 +1388,17 @@ msgid "Watch"
 msgstr "Wacht"
 #
 msgid "Water"
+msgstr "Water"
+#
+#
+#
+#
+#
+msgid "WaterTotal"
+msgstr "Ttl water"
+#
+#, fuzzy
+msgid "Watermaker"
 msgstr "Water"
 #
 msgid "Wave"
@@ -1408,6 +1510,14 @@ msgid ""
 msgstr ""
 "Automatische regelinvoer bij:\n"
 "Afgelegde Verheid >"
+#
+#, fuzzy
+msgid ""
+"automatic line\n"
+"Waypoint arrived:"
+msgstr ""
+"Automatische regelinvoer bij:\n"
+"Aankomst Routepunt"
 #
 msgid ""
 "automatic line\n"
@@ -1561,6 +1671,8 @@ msgstr "Maak eigen veldnaam"
 #
 #
 #
+#
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -1576,18 +1688,6 @@ msgstr "Maak eigen veldnaam"
 #
 #
 #
-#~ msgid "EngineTotal"
-#~ msgstr "Ttl motor"
-#
-#
-#
-#
-#
-#~ msgid "FuelTotal"
-#~ msgstr "Ttl brandstof"
-#
-#
-#
 #
 #
 #~ msgid ""
@@ -1596,31 +1696,3 @@ msgstr "Maak eigen veldnaam"
 #~ msgstr ""
 #~ "Voer 1.30 of 1,30 of 1:30\n"
 #~ "in voor 01:30 u"
-#
-#
-#
-#
-#
-#~ msgid "Reef"
-#~ msgstr "Aantal riffen"
-#
-#
-#
-#
-#
-#~ msgid "Sails"
-#~ msgstr "Zeilvoering"
-#
-#
-#
-#
-#
-#~ msgid "Show ToolTips"
-#~ msgstr "Toon ToolTips"
-#
-#
-#
-#
-#
-#~ msgid "WaterTotal"
-#~ msgstr "Ttl water"

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-24 20:44+0200\n"
+"POT-Creation-Date: 2012-05-24 20:57+0200\n"
 "PO-Revision-Date: 2011-11-25 01:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -72,6 +72,12 @@ msgid "0"
 msgstr ""
 #
 msgid "1. Watch of 1. Person"
+msgstr ""
+#
+msgid "AH #1 Total"
+msgstr ""
+#
+msgid "AH #2 Total"
 msgstr ""
 #
 #
@@ -231,6 +237,9 @@ msgstr ""
 msgid "All Logbooks"
 msgstr "Bitácora nueva"
 #
+msgid "Ampere"
+msgstr ""
+#
 msgid "Append Line every Nm"
 msgstr ""
 #
@@ -265,8 +274,18 @@ msgstr ""
 "\n"
 "Shift+Enter = añade línea"
 #
+msgid "Bank #1"
+msgstr ""
+#
+msgid "Bank #2"
+msgstr ""
+#
 msgid "Barometer"
 msgstr "Barómetro"
+#
+#, fuzzy
+msgid "Battery"
+msgstr "Categoría"
 #
 msgid "Beam"
 msgstr "Manga"
@@ -567,11 +586,26 @@ msgstr "Fin 1ª guardia"
 msgid "Engine"
 msgstr "Máquina"
 #
+#, fuzzy
+msgid "Engine #1"
+msgstr "Máquina"
+#
+#, fuzzy
+msgid "Engine #2"
+msgstr "Máquina"
+#
 msgid ""
 "Engine stopped\n"
 "\n"
 "Demo - Rightclick-Menu 'use Testextblocks' for help"
 msgstr ""
+#
+#
+#
+#
+#
+msgid "EngineTotal"
+msgstr "Máquina total"
 #
 msgid "Equipment"
 msgstr "Equipamiento"
@@ -634,7 +668,20 @@ msgstr "Combustible"
 msgid "Fuel/Water"
 msgstr "Combustible/Agua"
 #
+#
+#
+#
+#
+msgid "FuelTotal"
+msgstr "Combustible total"
+#
 msgid "GPS Auto"
+msgstr ""
+#
+msgid "Gen. total"
+msgstr ""
+#
+msgid "Generator"
 msgstr ""
 #
 #, fuzzy
@@ -1051,6 +1098,11 @@ msgid "Only Layouts with prefix:"
 msgstr ""
 #
 msgid ""
+"Only used when you enter 1/2, 1/4 ... in a total-field, or to calculate the "
+"watermaker\n"
+msgstr ""
+#
+msgid ""
 "Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV "
 "Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
 msgstr ""
@@ -1270,6 +1322,13 @@ msgstr "Prioridad"
 msgid "R"
 msgstr "R"
 #
+#
+#
+#
+#
+msgid "Reef"
+msgstr "Rizo"
+#
 msgid "Registration"
 msgstr "Nº de registro"
 #
@@ -1376,6 +1435,13 @@ msgstr "STW"
 #
 msgid "Sail-Nr."
 msgstr "Vela-Nº"
+#
+#
+#
+#
+#
+msgid "Sails"
+msgstr "Velas"
 #
 msgid ""
 "Sails up\n"
@@ -1498,6 +1564,9 @@ msgstr "Ruta al editor HTML"
 msgid "Set Watches"
 msgstr "Inicio 1ªguardia"
 #
+msgid "Set gal/liter in Abbreviations "
+msgstr ""
+#
 #
 msgid "Show Depth in"
 msgstr "Ver sonda en"
@@ -1511,6 +1580,9 @@ msgid "Show Logbook Icon"
 msgstr "Ver ícono bitácora"
 #
 msgid "Show Position Fomat"
+msgstr ""
+#
+msgid "Show ToolTips"
 msgstr ""
 #
 #
@@ -1677,6 +1749,9 @@ msgstr "Mar de fondo"
 msgid "Swell Max."
 msgstr "Mar de fondo"
 #
+msgid "Tank"
+msgstr ""
+#
 msgid "Telephone"
 msgstr "Teléfon0"
 #
@@ -1792,6 +1867,17 @@ msgstr ""
 msgid "Visibility"
 msgstr "Visibilidad"
 #
+msgid "W-Output"
+msgstr ""
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "W-Total"
+msgstr "Agua total"
+#
 msgid "W/Strength"
 msgstr "Fuerza viento"
 #
@@ -1802,6 +1888,17 @@ msgid "Watch"
 msgstr "Guardia"
 #
 msgid "Water"
+msgstr "Agua"
+#
+#
+#
+#
+#
+msgid "WaterTotal"
+msgstr "Agua total"
+#
+#, fuzzy
+msgid "Watermaker"
 msgstr "Agua"
 #
 msgid "Wave"
@@ -1999,6 +2096,11 @@ msgstr ""
 msgid ""
 "automatic line\n"
 "Distance > "
+msgstr ""
+#
+msgid ""
+"automatic line\n"
+"Waypoint arrived:"
 msgstr ""
 #
 msgid ""
@@ -2231,9 +2333,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "BuyParts"
 #~ msgstr "Comprar recambios"
+#
+#
 #
 #
 #
@@ -2395,16 +2501,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Current from"
 #~ msgstr "Corriente"
 #
 #
-#
-#
-#
-#~ msgid "EngineTotal"
-#~ msgstr "Máquina total"
 #
 #
 #
@@ -2450,11 +2553,6 @@ msgstr ""
 #~ msgstr "Nombre"
 #
 #
-#
-#
-#
-#~ msgid "FuelTotal"
-#~ msgstr "Combustible total"
 #
 #
 #
@@ -2595,6 +2693,8 @@ msgstr ""
 #
 #~ msgid "GRT"
 #~ msgstr "BRT"
+#
+#
 #
 #
 #
@@ -2869,8 +2969,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Logbook files (*.txt)|*.txt"
 #~ msgstr "Ficheros bitácora (*.txt)|*.txt"
+#
+#
 #
 #
 #
@@ -2914,6 +3018,8 @@ msgstr ""
 #, fuzzy
 #~ msgid "Nm"
 #~ msgstr "Nombre"
+#
+#
 #
 #
 #
@@ -3099,8 +3205,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Ruta al editor HTML (opcional)"
+#
+#
 #
 #
 #
@@ -3114,18 +3224,6 @@ msgstr ""
 #~ "para 1:30h"
 #
 #
-#
-#
-#
-#~ msgid "Reef"
-#~ msgstr "Rizo"
-#
-#
-#
-#
-#
-#~ msgid "Sails"
-#~ msgstr "Velas"
 #
 #
 #
@@ -3414,8 +3512,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Schedule"
 #~ msgstr "Calendário"
+#
+#
 #
 #
 #
@@ -3578,9 +3680,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Seleccione Layout"
+#
+#
 #
 #
 #
@@ -3926,8 +4032,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
+#
 #
 #
 #
@@ -4074,6 +4184,8 @@ msgstr ""
 #, fuzzy
 #~ msgid "Traditional-Style"
 #~ msgstr "Nacionalidad"
+#
+#
 #
 #
 #
@@ -4330,16 +4442,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "View Route"
 #~ msgstr "Ruta"
 #
 #
-#
-#
-#
-#~ msgid "WaterTotal"
-#~ msgstr "Agua total"
 #
 #
 #
@@ -4566,9 +4675,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Wind from"
 #~ msgstr "Viento"
+#
+#
 #
 #
 #

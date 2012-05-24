@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-24 20:44+0200\n"
+"POT-Creation-Date: 2012-05-24 20:57+0200\n"
 "PO-Revision-Date: 2012-04-24 16:21+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
@@ -79,6 +79,12 @@ msgstr ""
 msgid "1. Watch of 1. Person"
 msgstr "1. Wache der 1. Person"
 #
+msgid "AH #1 Total"
+msgstr ""
+#
+msgid "AH #2 Total"
+msgstr ""
+#
 #
 msgid "Abbreviations"
 msgstr "Abkürzungen"
@@ -131,6 +137,9 @@ msgstr "Luft"
 msgid "All Logbooks"
 msgstr "Alle Logbücher"
 #
+msgid "Ampere"
+msgstr ""
+#
 #
 msgid "Append Line every Nm"
 msgstr "Füge Zeile hinzu je Nm"
@@ -166,8 +175,18 @@ msgstr ""
 "\n"
 "Shift+Enter = Zeilenumbruch"
 #
+msgid "Bank #1"
+msgstr ""
+#
+msgid "Bank #2"
+msgstr ""
+#
 msgid "Barometer"
 msgstr ""
+#
+#, fuzzy
+msgid "Battery"
+msgstr "Kategory"
 #
 msgid "Beam"
 msgstr "Breite"
@@ -446,6 +465,14 @@ msgstr "Ende 6. Wache"
 msgid "Engine"
 msgstr "Maschine"
 #
+#, fuzzy
+msgid "Engine #1"
+msgstr "Maschine"
+#
+#, fuzzy
+msgid "Engine #2"
+msgstr "Maschine"
+#
 msgid ""
 "Engine stopped\n"
 "\n"
@@ -454,6 +481,13 @@ msgstr ""
 "Mascine gestoppt\n"
 "\n"
 "Demo - klicke im Rechtsklickmenu 'nutze Textblocks für Hilfe'"
+#
+#
+#
+#
+#
+msgid "EngineTotal"
+msgstr "Maschine gesamt"
 #
 msgid "Equipment"
 msgstr "Zubehör"
@@ -507,8 +541,22 @@ msgstr "Treibstoff"
 msgid "Fuel/Water"
 msgstr "Treibstoff/Wasser"
 #
+#
+#
+#
+#
+msgid "FuelTotal"
+msgstr "Treibstoff gesamt"
+#
 msgid "GPS Auto"
 msgstr ""
+#
+msgid "Gen. total"
+msgstr ""
+#
+#, fuzzy
+msgid "Generator"
+msgstr "Temperatur"
 #
 msgid "Goto Route"
 msgstr "Gehe zu Route"
@@ -912,6 +960,11 @@ msgid "Only Layouts with prefix:"
 msgstr "nur Layouts mit Prefix:"
 #
 msgid ""
+"Only used when you enter 1/2, 1/4 ... in a total-field, or to calculate the "
+"watermaker\n"
+msgstr ""
+#
+msgid ""
 "Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV "
 "Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
 msgstr ""
@@ -1018,6 +1071,13 @@ msgstr "Priorität"
 msgid "R"
 msgstr "R"
 #
+#
+#
+#
+#
+msgid "Reef"
+msgstr "Reff"
+#
 msgid "Registration"
 msgstr "Register-Nr."
 #
@@ -1063,6 +1123,13 @@ msgstr "FdW"
 #
 msgid "Sail-Nr."
 msgstr "Segel-Nr."
+#
+#
+#
+#
+#
+msgid "Sails"
+msgstr "Segel"
 #
 msgid ""
 "Sails up\n"
@@ -1182,6 +1249,9 @@ msgstr "Pfad zum ODT-Editor"
 msgid "Set Watches"
 msgstr "Wachzeiten setzen"
 #
+msgid "Set gal/liter in Abbreviations "
+msgstr ""
+#
 #
 msgid "Show Depth in"
 msgstr "Tiefe in"
@@ -1195,6 +1265,13 @@ msgstr "Zeige Logbuch-Icon"
 #
 msgid "Show Position Fomat"
 msgstr "Zeige Position im Format"
+#
+#
+#
+#
+#
+msgid "Show ToolTips"
+msgstr "Zeige Tooltips"
 #
 #
 msgid "Show Wave/Swell in"
@@ -1282,6 +1359,9 @@ msgstr "Swell durchsch."
 #
 msgid "Swell Max."
 msgstr "Swell max."
+#
+msgid "Tank"
+msgstr ""
 #
 msgid "Telephone"
 msgstr "Telefon"
@@ -1415,6 +1495,17 @@ msgstr "Sehen Sie Ihre Daten im Browser(HTML) oder Open/Libreoffice (ODT) an"
 msgid "Visibility"
 msgstr "Sicht"
 #
+msgid "W-Output"
+msgstr ""
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "W-Total"
+msgstr "Wasser gesamt"
+#
 msgid "W/Strength"
 msgstr "Windstärke"
 #
@@ -1425,6 +1516,17 @@ msgid "Watch"
 msgstr "Wache"
 #
 msgid "Water"
+msgstr "Wasser"
+#
+#
+#
+#
+#
+msgid "WaterTotal"
+msgstr "Wasser gesamt"
+#
+#, fuzzy
+msgid "Watermaker"
 msgstr "Wasser"
 #
 msgid "Wave"
@@ -1541,6 +1643,14 @@ msgid ""
 msgstr ""
 "automatische Zeile\n"
 "Distanz > "
+#
+#, fuzzy
+msgid ""
+"automatic line\n"
+"Waypoint arrived:"
+msgstr ""
+"automatische Zeile\n"
+"Wegpunlt erreicht"
 #
 msgid ""
 "automatic line\n"
@@ -1691,6 +1801,8 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -1727,9 +1839,13 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "AllLogbooks"
 #~ msgstr "Alle Logbücher"
+#
+#
 #
 #
 #
@@ -1870,8 +1986,12 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Crewliste"
+#
+#
 #
 #
 #
@@ -1919,11 +2039,6 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
-#~ msgid "EngineTotal"
-#~ msgstr "Maschine gesamt"
-#
-#
-#
 #
 #
 #
@@ -1951,11 +2066,6 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #~ msgstr "Vorname"
 #
 #
-#
-#
-#
-#~ msgid "FuelTotal"
-#~ msgstr "Treibstoff gesamt"
 #
 #
 #
@@ -2089,8 +2199,12 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Pfad zum HTML-Editor (optional)"
+#
+#
 #
 #
 #
@@ -2104,18 +2218,6 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #~ "für 1:30h ein."
 #
 #
-#
-#
-#
-#~ msgid "Reef"
-#~ msgstr "Reff"
-#
-#
-#
-#
-#
-#~ msgid "Sails"
-#~ msgstr "Segel"
 #
 #
 #
@@ -2193,6 +2295,8 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #~ msgid "Save"
 #~ msgstr "Speichern"
+#
+#
 #
 #
 #
@@ -2322,16 +2426,13 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
 #
 #
-#
-#
-#
-#~ msgid "Show ToolTips"
-#~ msgstr "Zeige Tooltips"
 #
 #
 #
@@ -2391,10 +2492,3 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Ansehen"
-#
-#
-#
-#
-#
-#~ msgid "WaterTotal"
-#~ msgstr "Wasser gesamt"

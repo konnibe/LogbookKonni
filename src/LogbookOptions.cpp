@@ -72,7 +72,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	fgSizer29->Add( m_choicePositionFormat, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 	
-	m_checkBoxToolTips = new wxCheckBox( m_panel15, wxID_ANY, _T("Show ToolTips"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_checkBoxToolTips = new wxCheckBox( m_panel15, wxID_ANY, _("Show ToolTips"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_checkBoxToolTips->SetValue(true); 
 	fgSizer29->Add( m_checkBoxToolTips, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
@@ -123,9 +123,9 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
 #ifdef __WXOSX__
-    m_textCtrlWayPoint = new wxTextCtrl( m_panel15, wxID_ANY, _T("automatic line\nWaypoint arrived:"), wxDefaultPosition, wxSize(250,40), wxTE_MULTILINE );
+    m_textCtrlWayPoint = new wxTextCtrl( m_panel15, wxID_ANY, _("automatic line\nWaypoint arrived:"), wxDefaultPosition, wxSize(250,40), wxTE_MULTILINE );
 #else
-	m_textCtrlWayPoint = new wxTextCtrl( m_panel15, wxID_ANY, _T("automatic line\nWaypoint arrived:"), wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE );
+	m_textCtrlWayPoint = new wxTextCtrl( m_panel15, wxID_ANY, _("automatic line\nWaypoint arrived:"), wxDefaultPosition, wxDefaultSize, wxTE_MULTILINE );
 #endif	
 	fgSizer29->Add( m_textCtrlWayPoint, 0, wxALL|wxEXPAND, 0 );
 	fgSizer29->Add( 0, 0, 1, wxEXPAND, 5 );
@@ -372,7 +372,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	bSizer31->Add( 0, 20, 0, wxEXPAND, 5 );
 	
-	m_staticText1041 = new wxStaticText( m_panel20, wxID_ANY, _T("Only used when you enter 1/2, 1/4 ... in a total-field, or to calculate the watermaker\n"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE );
+	m_staticText1041 = new wxStaticText( m_panel20, wxID_ANY, _("Only used when you enter 1/2, 1/4 ... in a total-field, or to calculate the watermaker\n"), wxDefaultPosition, wxDefaultSize, wxALIGN_CENTRE );
 	m_staticText1041->Wrap( -1 );
 	m_staticText1041->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), 70, 90, 92, false, wxEmptyString ) );
 	
@@ -386,7 +386,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	fgSizer44->SetFlexibleDirection( wxBOTH );
 	fgSizer44->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
-	m_staticText99 = new wxStaticText( m_panel20, wxID_ANY, _T("Water"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText99 = new wxStaticText( m_panel20, wxID_ANY, _("Water"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText99->Wrap( -1 );
 	m_staticText99->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), 70, 90, 92, false, wxEmptyString ) );
 	m_staticText99->SetMinSize( wxSize( 150,-1 ) );
@@ -402,7 +402,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	fgSizer44->Add( 0, 0, 1, wxEXPAND, 5 );
 	
-	m_staticText100 = new wxStaticText( m_panel20, wxID_ANY, _T("Tank"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText100 = new wxStaticText( m_panel20, wxID_ANY, _("Tank"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText100->Wrap( -1 );
 	m_staticText100->SetMinSize( wxSize( 120,-1 ) );
 	
@@ -414,14 +414,14 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	fgSizer44->Add( 0, 0, 1, wxEXPAND, 5 );
 	
-	m_staticText102 = new wxStaticText( m_panel20, wxID_ANY, _T("Watermaker"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText102 = new wxStaticText( m_panel20, wxID_ANY, _("Watermaker"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText102->Wrap( -1 );
 	m_staticText102->SetMinSize( wxSize( 120,-1 ) );
 	
 	fgSizer44->Add( m_staticText102, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	m_textCtrlWatermaker = new wxTextCtrl( m_panel20, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
-	m_textCtrlWatermaker->SetToolTip( _T("Set gal/liter in Abbreviations ") );
+	m_textCtrlWatermaker->SetToolTip( _("Set gal/liter in Abbreviations ") );
 	
 	fgSizer44->Add( m_textCtrlWatermaker, 0, wxALL, 5 );
 	
@@ -435,7 +435,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	fgSizer43->SetFlexibleDirection( wxBOTH );
 	fgSizer43->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
-	m_staticText96 = new wxStaticText( m_panel20, wxID_ANY, _T("Fuel"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText96 = new wxStaticText( m_panel20, wxID_ANY, _("Fuel"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText96->Wrap( -1 );
 	m_staticText96->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), 70, 90, 92, false, wxEmptyString ) );
 	m_staticText96->SetMinSize( wxSize( 150,-1 ) );
@@ -451,7 +451,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	fgSizer43->Add( 0, 0, 1, wxEXPAND, 5 );
 	
-	m_staticText97 = new wxStaticText( m_panel20, wxID_ANY, _T("Tank"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText97 = new wxStaticText( m_panel20, wxID_ANY, _("Tank"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText97->Wrap( -1 );
 	m_staticText97->SetMinSize( wxSize( 120,-1 ) );
 	
@@ -470,7 +470,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	fgSizer45->SetFlexibleDirection( wxBOTH );
 	fgSizer45->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
-	m_staticText104 = new wxStaticText( m_panel20, wxID_ANY, _T("Battery"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText104 = new wxStaticText( m_panel20, wxID_ANY, _("Battery"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText104->Wrap( -1 );
 	m_staticText104->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), 70, 90, 92, false, wxEmptyString ) );
 	m_staticText104->SetMinSize( wxSize( 150,-1 ) );
@@ -486,7 +486,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	fgSizer45->Add( 0, 0, 1, wxEXPAND, 5 );
 	
-	m_staticText105 = new wxStaticText( m_panel20, wxID_ANY, _T("Bank #1"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText105 = new wxStaticText( m_panel20, wxID_ANY, _("Bank #1"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText105->Wrap( -1 );
 	m_staticText105->SetMinSize( wxSize( 120,-1 ) );
 	
@@ -498,7 +498,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	
 	fgSizer45->Add( 0, 0, 1, wxEXPAND, 5 );
 	
-	m_staticText107 = new wxStaticText( m_panel20, wxID_ANY, _T("Bank #2"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText107 = new wxStaticText( m_panel20, wxID_ANY, _("Bank #2"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText107->Wrap( -1 );
 	m_staticText107->SetMinSize( wxSize( 120,-1 ) );
 	
@@ -514,7 +514,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_panel20->SetSizer( bSizer30 );
 	m_panel20->Layout();
 	bSizer30->Fit( m_panel20 );
-	m_notebook4->AddPage( m_panel20, _T("Capacity"), false );
+	m_notebook4->AddPage( m_panel20, _("Capacity"), false );
 	m_panel16 = new wxPanel( m_notebook4, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxTAB_TRAVERSAL );
 	wxFlexGridSizer* fgSizer30;
 	fgSizer30 = new wxFlexGridSizer( 2, 1, 5, 0 );
@@ -714,7 +714,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_sMotorh = new wxTextCtrl( m_panel16, wxID_ANY, _("h"), wxDefaultPosition, wxSize( 40,-1 ), 0 );
 	fgSizer91->Add( m_sMotorh, 0, 0, 5 );
 
-	m_staticText106 = new wxStaticText( m_panel16, wxID_ANY, _T("Ampere"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText106 = new wxStaticText( m_panel16, wxID_ANY, _("Ampere"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText106->Wrap( -1 );
 	fgSizer91->Add( m_staticText106, 0, wxALL, 5 );
 	

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-24 20:44+0200\n"
+"POT-Creation-Date: 2012-05-24 20:57+0200\n"
 "PO-Revision-Date: 2012-02-26 06:27+0100\n"
 "Last-Translator: Jacob Handrup <jacob@familienhandrup.dk>\n"
 "Language-Team: \n"
@@ -79,6 +79,12 @@ msgstr "0"
 msgid "1. Watch of 1. Person"
 msgstr "1. Vagt af 1. person"
 #
+msgid "AH #1 Total"
+msgstr ""
+#
+msgid "AH #2 Total"
+msgstr ""
+#
 #
 msgid "Abbreviations"
 msgstr "Forkortelser"
@@ -133,6 +139,9 @@ msgstr "Luft"
 msgid "All Logbooks"
 msgstr "Alle logbøger"
 #
+msgid "Ampere"
+msgstr ""
+#
 #
 msgid "Append Line every Nm"
 msgstr "Tilføj linie hver sm"
@@ -168,8 +177,18 @@ msgstr ""
 "\n"
 "Shift+Enter tilføjer ny linie"
 #
+msgid "Bank #1"
+msgstr ""
+#
+msgid "Bank #2"
+msgstr ""
+#
 msgid "Barometer"
 msgstr "Barometer"
+#
+#, fuzzy
+msgid "Battery"
+msgstr "Kategori"
 #
 msgid "Beam"
 msgstr "Bredde"
@@ -441,11 +460,26 @@ msgstr "Slut på 6. vagt"
 msgid "Engine"
 msgstr "Motor"
 #
+#, fuzzy
+msgid "Engine #1"
+msgstr "Motor"
+#
+#, fuzzy
+msgid "Engine #2"
+msgstr "Motor"
+#
 msgid ""
 "Engine stopped\n"
 "\n"
 "Demo - Rightclick-Menu 'use Testextblocks' for help"
 msgstr ""
+#
+#
+#
+#
+#
+msgid "EngineTotal"
+msgstr "Motor ialt"
 #
 msgid "Equipment"
 msgstr "Udstyr"
@@ -498,8 +532,22 @@ msgstr "Brændstof"
 msgid "Fuel/Water"
 msgstr "Brændstof/Vand"
 #
+#
+#
+#
+#
+msgid "FuelTotal"
+msgstr "Brændstof total"
+#
 msgid "GPS Auto"
 msgstr "GPS Auto"
+#
+msgid "Gen. total"
+msgstr ""
+#
+#, fuzzy
+msgid "Generator"
+msgstr "Temperatur"
 #
 msgid "Goto Route"
 msgstr "Gå til rute"
@@ -876,6 +924,11 @@ msgid "Only Layouts with prefix:"
 msgstr "kun layouts med Prefix:"
 #
 msgid ""
+"Only used when you enter 1/2, 1/4 ... in a total-field, or to calculate the "
+"watermaker\n"
+msgstr ""
+#
+msgid ""
 "Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV "
 "Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
 msgstr ""
@@ -983,6 +1036,13 @@ msgstr "Prioritet"
 msgid "R"
 msgstr "R"
 #
+#
+#
+#
+#
+msgid "Reef"
+msgstr "Reb"
+#
 msgid "Registration"
 msgstr "Registrerings-Nr."
 #
@@ -1029,6 +1089,13 @@ msgstr "STW"
 #
 msgid "Sail-Nr."
 msgstr "Sejl nummer"
+#
+#
+#
+#
+#
+msgid "Sails"
+msgstr "Sejl"
 #
 msgid ""
 "Sails up\n"
@@ -1144,6 +1211,9 @@ msgstr "Indstil sti til ODT-Editor"
 msgid "Set Watches"
 msgstr "Sæt vagter"
 #
+msgid "Set gal/liter in Abbreviations "
+msgstr ""
+#
 #
 msgid "Show Depth in"
 msgstr "Dybder i"
@@ -1157,6 +1227,13 @@ msgstr "Vis logbogs Ikon"
 #
 msgid "Show Position Fomat"
 msgstr "Vis position format"
+#
+#
+#
+#
+#
+msgid "Show ToolTips"
+msgstr "Vis ToolTips"
 #
 #
 msgid "Show Wave/Swell in"
@@ -1245,6 +1322,9 @@ msgstr "Gennemsnitlig dønning"
 #
 msgid "Swell Max."
 msgstr "Maximale dønning"
+#
+msgid "Tank"
+msgstr ""
 #
 msgid "Telephone"
 msgstr "Telefon"
@@ -1367,6 +1447,17 @@ msgstr "Se data i Browser(HTML) eller Open/Libreoffice (ODT) "
 msgid "Visibility"
 msgstr "Sigtbarhed"
 #
+msgid "W-Output"
+msgstr ""
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "W-Total"
+msgstr "Vand ialt"
+#
 msgid "W/Strength"
 msgstr "Vindstyrke"
 #
@@ -1377,6 +1468,17 @@ msgid "Watch"
 msgstr "Vagt"
 #
 msgid "Water"
+msgstr "Vand"
+#
+#
+#
+#
+#
+msgid "WaterTotal"
+msgstr "Vand ialt"
+#
+#, fuzzy
+msgid "Watermaker"
 msgstr "Vand"
 #
 msgid "Wave"
@@ -1491,6 +1593,12 @@ msgid ""
 msgstr ""
 "automatisk linie\n"
 "Distance > "
+#
+#, fuzzy
+msgid ""
+"automatic line\n"
+"Waypoint arrived:"
+msgstr "automatisk linie Ankomst Waypoint"
 #
 msgid ""
 "automatic line\n"
@@ -1640,6 +1748,8 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -1650,6 +1760,8 @@ msgstr "skriv din egen label"
 #~ "Waypoint navn: %s\n"
 #~ "Sand pejling til destination: %4.1f%s\n"
 #~ "Afstand til destination: %4.2f%s"
+#
+#
 #
 #
 #
@@ -1792,8 +1904,12 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Crewliste"
+#
+#
 #
 #
 #
@@ -1844,11 +1960,6 @@ msgstr "skriv din egen label"
 #
 #
 #
-#~ msgid "EngineTotal"
-#~ msgstr "Motor ialt"
-#
-#
-#
 #
 #
 #
@@ -1891,11 +2002,6 @@ msgstr "skriv din egen label"
 #~ msgstr "Fornavn"
 #
 #
-#
-#
-#
-#~ msgid "FuelTotal"
-#~ msgstr "Brændstof total"
 #
 #
 #
@@ -1963,6 +2069,8 @@ msgstr "skriv din egen label"
 #
 #~ msgid "Logbook Konni"
 #~ msgstr "Logbuch Konni"
+#
+#
 #
 #
 #
@@ -2074,8 +2182,12 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Pfad zum HTML-Editor (optional)"
+#
+#
 #
 #
 #
@@ -2089,18 +2201,6 @@ msgstr "skriv din egen label"
 #~ "for 1:30t."
 #
 #
-#
-#
-#
-#~ msgid "Reef"
-#~ msgstr "Reb"
-#
-#
-#
-#
-#
-#~ msgid "Sails"
-#~ msgstr "Sejl"
 #
 #
 #
@@ -2179,6 +2279,8 @@ msgstr "skriv din egen label"
 #
 #~ msgid "Save"
 #~ msgstr "Speichern"
+#
+#
 #
 #
 #
@@ -2314,16 +2416,13 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
 #
 #
-#
-#
-#
-#~ msgid "Show ToolTips"
-#~ msgstr "Vis ToolTips"
 #
 #
 #
@@ -2384,10 +2483,3 @@ msgstr "skriv din egen label"
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Ansehen"
-#
-#
-#
-#
-#
-#~ msgid "WaterTotal"
-#~ msgstr "Vand ialt"

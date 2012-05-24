@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.6.1310\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-24 20:44+0200\n"
+"POT-Creation-Date: 2012-05-24 20:57+0200\n"
 "PO-Revision-Date: 2012-05-19 13:02+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
@@ -80,6 +80,12 @@ msgstr "0"
 msgid "1. Watch of 1. Person"
 msgstr ""
 #
+msgid "AH #1 Total"
+msgstr ""
+#
+msgid "AH #2 Total"
+msgstr ""
+#
 msgid "Abbreviations"
 msgstr "Skróty"
 #
@@ -135,6 +141,9 @@ msgstr ""
 msgid "All Logbooks"
 msgstr "Wszystkie Dzienniki"
 #
+msgid "Ampere"
+msgstr ""
+#
 msgid "Append Line every Nm"
 msgstr "Dodawaj Wpis co X mm"
 #
@@ -168,8 +177,18 @@ msgstr ""
 "\n"
 "Shift+Enter dodaje nową linię"
 #
+msgid "Bank #1"
+msgstr ""
+#
+msgid "Bank #2"
+msgstr ""
+#
 msgid "Barometer"
 msgstr "Ciśnienie"
+#
+#, fuzzy
+msgid "Battery"
+msgstr "Kategoria"
 #
 msgid "Beam"
 msgstr "Szerokość"
@@ -399,11 +418,28 @@ msgstr ""
 msgid "Engine"
 msgstr "Motogodziny"
 #
+#, fuzzy
+msgid "Engine #1"
+msgstr "Motogodziny"
+#
+#, fuzzy
+msgid "Engine #2"
+msgstr "Motogodziny"
+#
 msgid ""
 "Engine stopped\n"
 "\n"
 "Demo - Rightclick-Menu 'use Testextblocks' for help"
 msgstr ""
+#
+#
+#
+#
+#
+msgid "EngineTotal"
+msgstr ""
+"Motogodziny\n"
+"łącznie"
 #
 msgid "Equipment"
 msgstr "Wyposażenie"
@@ -436,8 +472,24 @@ msgstr "Paliwo"
 msgid "Fuel/Water"
 msgstr "Paliwo/Woda"
 #
+#
+#
+#
+#
+msgid "FuelTotal"
+msgstr ""
+"Paliwo\n"
+"łącznie"
+#
 msgid "GPS Auto"
 msgstr "Automatyczny z GPS"
+#
+msgid "Gen. total"
+msgstr ""
+#
+#, fuzzy
+msgid "Generator"
+msgstr "Temperatura"
 #
 msgid "Goto Route"
 msgstr "Idź do Trasy"
@@ -752,6 +804,11 @@ msgid "Only Layouts with prefix:"
 msgstr "tylko Szablony z prefiksem:"
 #
 msgid ""
+"Only used when you enter 1/2, 1/4 ... in a total-field, or to calculate the "
+"watermaker\n"
+msgstr ""
+#
+msgid ""
 "Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV "
 "Format OpenOffice(*.csv)|*.csv|Backup Logbook(*.txt)|*.txt"
 msgstr ""
@@ -856,6 +913,13 @@ msgstr "Priorytet"
 msgid "R"
 msgstr "P"
 #
+#
+#
+#
+#
+msgid "Reef"
+msgstr "Refy"
+#
 msgid "Registration"
 msgstr "Rejestracja"
 #
@@ -901,6 +965,13 @@ msgstr "Vw"
 #
 msgid "Sail-Nr."
 msgstr "Żagiel Nr."
+#
+#
+#
+#
+#
+msgid "Sails"
+msgstr "Żagle"
 #
 msgid ""
 "Sails up\n"
@@ -1024,6 +1095,9 @@ msgstr ""
 "Początek\n"
 "I wachty"
 #
+msgid "Set gal/liter in Abbreviations "
+msgstr ""
+#
 msgid "Show Depth in"
 msgstr "Pokazuj Głębokość w"
 #
@@ -1035,6 +1109,13 @@ msgstr "Pokazuj ikonę Dziennika"
 #
 msgid "Show Position Fomat"
 msgstr "Format Pozycji"
+#
+#
+#
+#
+#
+msgid "Show ToolTips"
+msgstr "Pokazuj podpowiedzi-dymki"
 #
 msgid "Show Wave/Swell in"
 msgstr "Pokaż Stan morza/Martwą falę w"
@@ -1148,6 +1229,9 @@ msgid "Swell Max."
 msgstr ""
 "Maksymalna\n"
 "martwa fala"
+#
+msgid "Tank"
+msgstr ""
 #
 msgid "Telephone"
 msgstr "Telefon"
@@ -1267,6 +1351,17 @@ msgstr "Zobacz w przeglądarce (HTML) lub OpenOffice (ODT)"
 msgid "Visibility"
 msgstr "Widzialność"
 #
+msgid "W-Output"
+msgstr ""
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "W-Total"
+msgstr "Woda łącznie"
+#
 msgid "W/Strength"
 msgstr "Siła Wiatru"
 #
@@ -1277,6 +1372,17 @@ msgid "Watch"
 msgstr "Wachta"
 #
 msgid "Water"
+msgstr "Woda"
+#
+#
+#
+#
+#
+msgid "WaterTotal"
+msgstr "Woda łącznie"
+#
+#, fuzzy
+msgid "Watermaker"
 msgstr "Woda"
 #
 msgid "Wave"
@@ -1379,6 +1485,14 @@ msgid ""
 msgstr ""
 "wpis automatyczny\n"
 "Odległość > "
+#
+#, fuzzy
+msgid ""
+"automatic line\n"
+"Waypoint arrived:"
+msgstr ""
+"wpis automatyczny\n"
+"osiągnięto Waypoint"
 #
 msgid ""
 "automatic line\n"
@@ -1529,6 +1643,8 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -1541,13 +1657,6 @@ msgstr "wpisz własną etykietę"
 #~ "Odległość do celu: %4.2f%s"
 #
 #
-#
-#
-#
-#~ msgid "EngineTotal"
-#~ msgstr ""
-#~ "Motogodziny\n"
-#~ "łącznie"
 #
 #
 #
@@ -1596,13 +1705,6 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
-#~ msgid "FuelTotal"
-#~ msgstr ""
-#~ "Paliwo\n"
-#~ "łącznie"
-#
-#
-#
 #
 #
 #
@@ -1648,6 +1750,8 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#
+#
 #~ msgid ""
 #~ "Please enter like 1.30 or 1,30 or 1:30\n"
 #~ "for 1:30h"
@@ -1656,18 +1760,6 @@ msgstr "wpisz własną etykietę"
 #~ "dla 1:30h"
 #
 #
-#
-#
-#
-#~ msgid "Reef"
-#~ msgstr "Refy"
-#
-#
-#
-#
-#
-#~ msgid "Sails"
-#~ msgstr "Żagle"
 #
 #
 #
@@ -1701,17 +1793,3 @@ msgstr "wpisz własną etykietę"
 #, fuzzy
 #~ msgid "Search.."
 #~ msgstr "Wybierz Dziennik"
-#
-#
-#
-#
-#
-#~ msgid "Show ToolTips"
-#~ msgstr "Pokazuj podpowiedzi-dymki"
-#
-#
-#
-#
-#
-#~ msgid "WaterTotal"
-#~ msgstr "Woda łącznie"
