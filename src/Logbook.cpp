@@ -1542,10 +1542,10 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						double hp,hc,mp,mc;
 						double res,hp_,hc_;
 
-						if(!s.Contains(_T(":")) || !s.Contains(_T(",")) || !s.Contains(_T("."))) 
+						if(!s.Contains(_T(":")) && !s.Contains(_T(",")) && !s.Contains(_T("."))) 
 							s += _T(":");
 
-						if(!s.Contains(_T(",")) || !s.Contains(_T(".")))
+						if(s.Contains(_T(",")) || s.Contains(_T(".")))
 						{
 							double d;
 							s.Replace(_T(","),_T("."));
@@ -1720,8 +1720,8 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						if(!tank)
 						{
 							dialog->m_gridMotorSails->SetCellValue(row,col-1,wxString::Format(_T("%s%.2f %s"),ind.c_str(),abs(c),ap.c_str()));
-						dialog->m_gridMotorSails->GetCellValue(row,col).ToDouble(&c);
-						dialog->m_gridMotorSails->SetCellValue(row,col,wxString::Format(_T("%.2f %s"),c,ap.c_str()));
+							dialog->m_gridMotorSails->GetCellValue(row,col).ToDouble(&c);
+							dialog->m_gridMotorSails->SetCellValue(row,col,wxString::Format(_T("%.2f %s"),c,ap.c_str()));
 						}
 						else
 						{
