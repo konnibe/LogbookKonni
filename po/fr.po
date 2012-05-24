@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-24 16:20+0200\n"
+"POT-Creation-Date: 2012-05-24 20:44+0200\n"
 "PO-Revision-Date: 2012-04-11 16:28+0100\n"
 "Last-Translator: Gilletarom <gilletarom@netpratique.fr>\n"
 "Language-Team: \n"
@@ -438,9 +438,6 @@ msgid ""
 "Demo - Rightclick-Menu 'use Testextblocks' for help"
 msgstr ""
 #
-msgid "EngineTotal"
-msgstr "Total moteur"
-#
 msgid "Equipment"
 msgstr "Equipement"
 #
@@ -470,11 +467,6 @@ msgstr "Carburant"
 #
 msgid "Fuel/Water"
 msgstr "Carburant/Eau"
-#
-msgid "FuelTotal"
-msgstr ""
-"Carburant\n"
-"total"
 #
 msgid "GPS Auto"
 msgstr "GPS automatique"
@@ -890,13 +882,6 @@ msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45 PM"
 msgstr "Veuillez entrer 4 chiffres au format 24h ex : 1545 = 03:45 PM"
 #
 msgid ""
-"Please enter like 1.30 or 1,30 or 1:30\n"
-"for 1:30h"
-msgstr ""
-"Veuillez entrer 1.30 or 1,30 or 1:30\n"
-"pour 1:30h"
-#
-msgid ""
 "Please enter the Date in the format:\n"
 "   "
 msgstr ""
@@ -939,11 +924,6 @@ msgid "R"
 msgstr ""
 "R\n"
 " "
-#
-msgid "Reef"
-msgstr ""
-"Nombre\n"
-"de ris"
 #
 msgid "Registration"
 msgstr "Inscription"
@@ -999,9 +979,6 @@ msgid "Sail-Nr."
 msgstr ""
 "N°\n"
 "de voile"
-#
-msgid "Sails"
-msgstr "Voiles"
 #
 msgid ""
 "Sails up\n"
@@ -1140,9 +1117,6 @@ msgstr "Montrer l'icône de LogBook"
 # Used in Options
 msgid "Show Position Fomat"
 msgstr "Montrer position format"
-#
-msgid "Show ToolTips"
-msgstr "Montrer les info-bulles"
 #
 msgid "Show Wave/Swell in"
 msgstr "Vague/houle en"
@@ -1391,11 +1365,6 @@ msgstr "Visé par"
 msgid "Water"
 msgstr "Eau"
 #
-msgid "WaterTotal"
-msgstr ""
-"Total\n"
-"eau"
-#
 msgid "Wave"
 msgstr "Vague"
 #
@@ -1635,6 +1604,12 @@ msgstr "Même quart que"
 msgid "to"
 msgstr "à"
 #
+#, c-format
+msgid ""
+"to use MS-Word, append %s like this:\n"
+"\"C:\\yourPathToWinword\\WINWORD.EXE\" %s"
+msgstr ""
+#
 msgid "use Textblocks..."
 msgstr ""
 #
@@ -1643,6 +1618,11 @@ msgstr "semaine(s)"
 #
 msgid "write your own label"
 msgstr "Ecrire votre  propre \"étiquette\" "
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1660,3 +1640,62 @@ msgstr "Ecrire votre  propre \"étiquette\" "
 #~ "Nom du Waypoint             : %s\n"
 #~ "Cap vrai vers l'arrivée      : %4.1f%s\n"
 #~ "Distance jusqu'à l'arrivée : %4.2f%s"
+#
+#
+#
+#
+#
+#~ msgid "EngineTotal"
+#~ msgstr "Total moteur"
+#
+#
+#
+#
+#
+#~ msgid "FuelTotal"
+#~ msgstr ""
+#~ "Carburant\n"
+#~ "total"
+#
+#
+#
+#
+#
+#~ msgid ""
+#~ "Please enter like 1.30 or 1,30 or 1:30\n"
+#~ "for 1:30h"
+#~ msgstr ""
+#~ "Veuillez entrer 1.30 or 1,30 or 1:30\n"
+#~ "pour 1:30h"
+#
+#
+#
+#
+#
+#~ msgid "Reef"
+#~ msgstr ""
+#~ "Nombre\n"
+#~ "de ris"
+#
+#
+#
+#
+#
+#~ msgid "Sails"
+#~ msgstr "Voiles"
+#
+#
+#
+#
+#
+#~ msgid "Show ToolTips"
+#~ msgstr "Montrer les info-bulles"
+#
+#
+#
+#
+#
+#~ msgid "WaterTotal"
+#~ msgstr ""
+#~ "Total\n"
+#~ "eau"

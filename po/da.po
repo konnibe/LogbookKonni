@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-24 16:20+0200\n"
+"POT-Creation-Date: 2012-05-24 20:44+0200\n"
 "PO-Revision-Date: 2012-02-26 06:27+0100\n"
 "Last-Translator: Jacob Handrup <jacob@familienhandrup.dk>\n"
 "Language-Team: \n"
@@ -447,9 +447,6 @@ msgid ""
 "Demo - Rightclick-Menu 'use Testextblocks' for help"
 msgstr ""
 #
-msgid "EngineTotal"
-msgstr "Motor ialt"
-#
 msgid "Equipment"
 msgstr "Udstyr"
 #
@@ -500,9 +497,6 @@ msgstr "Brændstof"
 #
 msgid "Fuel/Water"
 msgstr "Brændstof/Vand"
-#
-msgid "FuelTotal"
-msgstr "Brændstof total"
 #
 msgid "GPS Auto"
 msgstr "GPS Auto"
@@ -950,13 +944,6 @@ msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45 PM"
 msgstr "Anfør 4 cifre i 24h-format f.eks 1545 = 15:45:00"
 #
 msgid ""
-"Please enter like 1.30 or 1,30 or 1:30\n"
-"for 1:30h"
-msgstr ""
-"Anfør 1.30 eller 1,30 eller 1:30\n"
-"for 1:30t."
-#
-msgid ""
 "Please enter the Date in the format:\n"
 "   "
 msgstr ""
@@ -995,9 +982,6 @@ msgstr "Prioritet"
 #
 msgid "R"
 msgstr "R"
-#
-msgid "Reef"
-msgstr "Reb"
 #
 msgid "Registration"
 msgstr "Registrerings-Nr."
@@ -1045,9 +1029,6 @@ msgstr "STW"
 #
 msgid "Sail-Nr."
 msgstr "Sejl nummer"
-#
-msgid "Sails"
-msgstr "Sejl"
 #
 msgid ""
 "Sails up\n"
@@ -1176,9 +1157,6 @@ msgstr "Vis logbogs Ikon"
 #
 msgid "Show Position Fomat"
 msgstr "Vis position format"
-#
-msgid "Show ToolTips"
-msgstr "Vis ToolTips"
 #
 #
 msgid "Show Wave/Swell in"
@@ -1400,9 +1378,6 @@ msgstr "Vagt"
 #
 msgid "Water"
 msgstr "Vand"
-#
-msgid "WaterTotal"
-msgstr "Vand ialt"
 #
 msgid "Wave"
 msgstr "Bølgehøjde"
@@ -1639,6 +1614,12 @@ msgstr "samme vagt som"
 msgid "to"
 msgstr "til"
 #
+#, c-format
+msgid ""
+"to use MS-Word, append %s like this:\n"
+"\"C:\\yourPathToWinword\\WINWORD.EXE\" %s"
+msgstr ""
+#
 msgid "use Textblocks..."
 msgstr ""
 #
@@ -1647,6 +1628,11 @@ msgstr "uge(r)"
 #
 msgid "write your own label"
 msgstr "skriv din egen label"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1664,6 +1650,11 @@ msgstr "skriv din egen label"
 #~ "Waypoint navn: %s\n"
 #~ "Sand pejling til destination: %4.1f%s\n"
 #~ "Afstand til destination: %4.2f%s"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1796,8 +1787,18 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Crewliste"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1843,6 +1844,18 @@ msgstr "skriv din egen label"
 #
 #
 #
+#~ msgid "EngineTotal"
+#~ msgstr "Motor ialt"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1876,6 +1889,18 @@ msgstr "skriv din egen label"
 #, fuzzy
 #~ msgid "FirstName"
 #~ msgstr "Fornavn"
+#
+#
+#
+#
+#
+#~ msgid "FuelTotal"
+#~ msgstr "Brændstof total"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1938,6 +1963,11 @@ msgstr "skriv din egen label"
 #
 #~ msgid "Logbook Konni"
 #~ msgstr "Logbuch Konni"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2039,8 +2069,43 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Pfad zum HTML-Editor (optional)"
+#
+#
+#
+#
+#
+#~ msgid ""
+#~ "Please enter like 1.30 or 1,30 or 1:30\n"
+#~ "for 1:30h"
+#~ msgstr ""
+#~ "Anfør 1.30 eller 1,30 eller 1:30\n"
+#~ "for 1:30t."
+#
+#
+#
+#
+#
+#~ msgid "Reef"
+#~ msgstr "Reb"
+#
+#
+#
+#
+#
+#~ msgid "Sails"
+#~ msgstr "Sejl"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2114,6 +2179,11 @@ msgstr "skriv din egen label"
 #
 #~ msgid "Save"
 #~ msgstr "Speichern"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2239,9 +2309,26 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
+#
+#
+#
+#
+#
+#~ msgid "Show ToolTips"
+#~ msgstr "Vis ToolTips"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2297,3 +2384,10 @@ msgstr "skriv din egen label"
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Ansehen"
+#
+#
+#
+#
+#
+#~ msgid "WaterTotal"
+#~ msgstr "Vand ialt"

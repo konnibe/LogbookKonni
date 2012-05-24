@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-24 16:20+0200\n"
+"POT-Creation-Date: 2012-05-24 20:44+0200\n"
 "PO-Revision-Date: 2011-11-25 01:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -573,9 +573,6 @@ msgid ""
 "Demo - Rightclick-Menu 'use Testextblocks' for help"
 msgstr ""
 #
-msgid "EngineTotal"
-msgstr "Máquina total"
-#
 msgid "Equipment"
 msgstr "Equipamiento"
 #
@@ -636,9 +633,6 @@ msgstr "Combustible"
 #
 msgid "Fuel/Water"
 msgstr "Combustible/Agua"
-#
-msgid "FuelTotal"
-msgstr "Combustible total"
 #
 msgid "GPS Auto"
 msgstr ""
@@ -1243,13 +1237,6 @@ msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45 PM"
 msgstr ""
 #
 msgid ""
-"Please enter like 1.30 or 1,30 or 1:30\n"
-"for 1:30h"
-msgstr ""
-"Entre por favor 1.30 o 1,30 o 1:30\n"
-"para 1:30h"
-#
-msgid ""
 "Please enter the Date in the format:\n"
 "   "
 msgstr ""
@@ -1282,9 +1269,6 @@ msgstr "Prioridad"
 #
 msgid "R"
 msgstr "R"
-#
-msgid "Reef"
-msgstr "Rizo"
 #
 msgid "Registration"
 msgstr "Nº de registro"
@@ -1392,9 +1376,6 @@ msgstr "STW"
 #
 msgid "Sail-Nr."
 msgstr "Vela-Nº"
-#
-msgid "Sails"
-msgstr "Velas"
 #
 msgid ""
 "Sails up\n"
@@ -1530,9 +1511,6 @@ msgid "Show Logbook Icon"
 msgstr "Ver ícono bitácora"
 #
 msgid "Show Position Fomat"
-msgstr ""
-#
-msgid "Show ToolTips"
 msgstr ""
 #
 #
@@ -1825,9 +1803,6 @@ msgstr "Guardia"
 #
 msgid "Water"
 msgstr "Agua"
-#
-msgid "WaterTotal"
-msgstr "Agua total"
 #
 msgid "Wave"
 msgstr "Oleaje"
@@ -2147,6 +2122,12 @@ msgstr ""
 msgid "to"
 msgstr ""
 #
+#, c-format
+msgid ""
+"to use MS-Word, append %s like this:\n"
+"\"C:\\yourPathToWinword\\WINWORD.EXE\" %s"
+msgstr ""
+#
 msgid "use Textblocks..."
 msgstr ""
 #
@@ -2155,6 +2136,11 @@ msgstr ""
 #
 msgid "write your own label"
 msgstr ""
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2338,8 +2324,18 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Listado de tripulación"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2407,6 +2403,18 @@ msgstr ""
 #
 #
 #
+#~ msgid "EngineTotal"
+#~ msgstr "Máquina total"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2440,6 +2448,18 @@ msgstr ""
 #, fuzzy
 #~ msgid "FirstName"
 #~ msgstr "Nombre"
+#
+#
+#
+#
+#
+#~ msgid "FuelTotal"
+#~ msgstr "Combustible total"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2575,6 +2595,11 @@ msgstr ""
 #
 #~ msgid "GRT"
 #~ msgstr "BRT"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2839,8 +2864,18 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Logbook files (*.txt)|*.txt"
 #~ msgstr "Ficheros bitácora (*.txt)|*.txt"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2879,6 +2914,11 @@ msgstr ""
 #, fuzzy
 #~ msgid "Nm"
 #~ msgstr "Nombre"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3054,8 +3094,43 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Ruta al editor HTML (opcional)"
+#
+#
+#
+#
+#
+#~ msgid ""
+#~ "Please enter like 1.30 or 1,30 or 1:30\n"
+#~ "for 1:30h"
+#~ msgstr ""
+#~ "Entre por favor 1.30 o 1,30 o 1:30\n"
+#~ "para 1:30h"
+#
+#
+#
+#
+#
+#~ msgid "Reef"
+#~ msgstr "Rizo"
+#
+#
+#
+#
+#
+#~ msgid "Sails"
+#~ msgstr "Velas"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3334,8 +3409,18 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Schedule"
 #~ msgstr "Calendário"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3488,9 +3573,19 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Seleccione Layout"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3826,8 +3921,18 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3969,6 +4074,11 @@ msgstr ""
 #, fuzzy
 #~ msgid "Traditional-Style"
 #~ msgstr "Nacionalidad"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -4215,9 +4325,26 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "View Route"
 #~ msgstr "Ruta"
+#
+#
+#
+#
+#
+#~ msgid "WaterTotal"
+#~ msgstr "Agua total"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -4434,9 +4561,19 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Wind from"
 #~ msgstr "Viento"
+#
+#
+#
+#
+#
 #
 #
 #

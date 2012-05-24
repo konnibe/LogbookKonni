@@ -339,26 +339,26 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridMotorSails->EnableDragColMove( false );
 	m_gridMotorSails->EnableDragColSize( true );
 	m_gridMotorSails->SetColLabelSize( 30 );
-	m_gridMotorSails->SetColLabelValue( 0, wxT("Engine #1") );
-	m_gridMotorSails->SetColLabelValue( 1, wxT("EngineTotal") );
-	m_gridMotorSails->SetColLabelValue( 2, wxT("Engine #2") );
-	m_gridMotorSails->SetColLabelValue( 3, wxT("EngineTotal") );
-	m_gridMotorSails->SetColLabelValue( 4, wxT("Fuel") );
-	m_gridMotorSails->SetColLabelValue( 5, wxT("FuelTotal") );
-	m_gridMotorSails->SetColLabelValue( 6, wxT("Sails") );
-	m_gridMotorSails->SetColLabelValue( 7, wxT("Reef") );
-	m_gridMotorSails->SetColLabelValue( 8, wxT("Generator") );
-	m_gridMotorSails->SetColLabelValue( 9, wxT("Gen. total") );
-	m_gridMotorSails->SetColLabelValue( 10, wxT("Bank #1") );
-	m_gridMotorSails->SetColLabelValue( 11, wxT("AH #1 Total") );
-	m_gridMotorSails->SetColLabelValue( 12, wxT("Bank #2") );
-	m_gridMotorSails->SetColLabelValue( 13, wxT("AH #2 Total") );
-	m_gridMotorSails->SetColLabelValue( 14, wxT("Watermaker") );
-	m_gridMotorSails->SetColLabelValue( 15, wxT("W-Total") );
-	m_gridMotorSails->SetColLabelValue( 16, wxT("W-Output") );
-	m_gridMotorSails->SetColLabelValue( 17, wxT("Water") );
-	m_gridMotorSails->SetColLabelValue( 18, wxT("WaterTotal") );
-	m_gridMotorSails->SetColLabelValue( 19, wxT("Remarks") );
+	m_gridMotorSails->SetColLabelValue( 0, _T("Engine #1") );
+	m_gridMotorSails->SetColLabelValue( 1, _T("EngineTotal") );
+	m_gridMotorSails->SetColLabelValue( 2, _T("Engine #2") );
+	m_gridMotorSails->SetColLabelValue( 3, _T("EngineTotal") );
+	m_gridMotorSails->SetColLabelValue( 4, _T("Fuel") );
+	m_gridMotorSails->SetColLabelValue( 5, _T("FuelTotal") );
+	m_gridMotorSails->SetColLabelValue( 6, _T("Sails") );
+	m_gridMotorSails->SetColLabelValue( 7, _T("Reef") );
+	m_gridMotorSails->SetColLabelValue( 8, _T("Generator") );
+	m_gridMotorSails->SetColLabelValue( 9, _T("Gen. total") );
+	m_gridMotorSails->SetColLabelValue( 10, _T("Bank #1") );
+	m_gridMotorSails->SetColLabelValue( 11, _T("AH #1 Total") );
+	m_gridMotorSails->SetColLabelValue( 12, _T("Bank #2") );
+	m_gridMotorSails->SetColLabelValue( 13, _T("AH #2 Total") );
+	m_gridMotorSails->SetColLabelValue( 14, _T("Watermaker") );
+	m_gridMotorSails->SetColLabelValue( 15, _T("W-Total") );
+	m_gridMotorSails->SetColLabelValue( 16, _T("W-Output") );
+	m_gridMotorSails->SetColLabelValue( 17, _T("Water") );
+	m_gridMotorSails->SetColLabelValue( 18, _T("WaterTotal") );
+	m_gridMotorSails->SetColLabelValue( 19, _T("Remarks") );
 	m_gridMotorSails->SetColLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
 	
 	// Rows
@@ -426,7 +426,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	
 	bSizer61->Add( m_buttonEditLayoutOview, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_radioBtnHTMLOverview = new wxRadioButton( m_panel142, wxID_ANY, wxT("HTML"), wxDefaultPosition, wxDefaultSize, wxRB_GROUP );
+	m_radioBtnHTMLOverview = new wxRadioButton( m_panel142, wxID_ANY, _T("HTML"), wxDefaultPosition, wxDefaultSize, wxRB_GROUP );
 	m_radioBtnHTMLOverview->SetValue( true ); 
 	bSizer61->Add( m_radioBtnHTMLOverview, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	

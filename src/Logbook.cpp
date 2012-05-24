@@ -1691,9 +1691,9 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 
 							if(col == FUELT-sailsCol) 
 								opt->fuelTank.ToLong(&capacity);
-							else if( col == BANK1-sailsCol)
+							else if( col == BANK1T-sailsCol)
 								opt->bank1.ToLong(&capacity);
-							else if(col == BANK2-sailsCol)
+							else if(col == BANK2T-sailsCol)
 								opt->bank2.ToLong(&capacity);
 							else
 								opt->waterTank.ToLong(&capacity);
@@ -1719,14 +1719,14 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 
 						if(!tank)
 						{
-							dialog->m_gridMotorSails->SetCellValue(row,col-1,wxString::Format(_T("%s%.2f %s"),ind.c_str(),abs(c),ap.c_str()));
+							dialog->m_gridMotorSails->SetCellValue(row,col-1,wxString::Format(_T("%s%.2f %s"),ind.c_str(),fabs(c),ap.c_str()));
 							dialog->m_gridMotorSails->GetCellValue(row,col).ToDouble(&c);
 							dialog->m_gridMotorSails->SetCellValue(row,col,wxString::Format(_T("%.2f %s"),c,ap.c_str()));
 						}
 						else
 						{
-							dialog->m_gridMotorSails->SetCellValue(row,col-1,wxString::Format(_T("%s%.2f %s"),ind.c_str(),abs(t-c),ap.c_str()));
-							dialog->m_gridMotorSails->SetCellValue(row,col,wxString::Format(_T("%.2f %s"),abs(c),ap.c_str()));
+							dialog->m_gridMotorSails->SetCellValue(row,col-1,wxString::Format(_T("%s%.2f %s"),ind.c_str(),fabs(t-c),ap.c_str()));
+							dialog->m_gridMotorSails->SetCellValue(row,col,wxString::Format(_T("%.2f %s"),fabs(c),ap.c_str()));
 						}
 						
 						int x;

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-04-24 16:20+0200\n"
+"POT-Creation-Date: 2012-05-24 20:44+0200\n"
 "PO-Revision-Date: 2012-04-14 17:50+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: rider2@kpnmail.nl <rider2@kpnmail.nl>\n"
@@ -412,9 +412,6 @@ msgid ""
 "Demo - Rightclick-Menu 'use Testextblocks' for help"
 msgstr ""
 #
-msgid "EngineTotal"
-msgstr "Ttl motor"
-#
 msgid "Equipment"
 msgstr "Apparatuur"
 #
@@ -444,9 +441,6 @@ msgstr "Brandstof"
 #
 msgid "Fuel/Water"
 msgstr "Brandstof/Water"
-#
-msgid "FuelTotal"
-msgstr "Ttl brandstof"
 #
 msgid "GPS Auto"
 msgstr "GPS automatisch"
@@ -843,13 +837,6 @@ msgid "Please enter 4 digits in 24h-Format like 1545 = 03:45 PM"
 msgstr "Voer 4 cijfers in 24-uur format in, zoals: 1545 = 03:45 PM"
 #
 msgid ""
-"Please enter like 1.30 or 1,30 or 1:30\n"
-"for 1:30h"
-msgstr ""
-"Voer 1.30 of 1,30 of 1:30\n"
-"in voor 01:30 u"
-#
-msgid ""
 "Please enter the Date in the format:\n"
 "   "
 msgstr ""
@@ -888,9 +875,6 @@ msgstr "Prio"
 #
 msgid "R"
 msgstr "H"
-#
-msgid "Reef"
-msgstr "Aantal riffen"
 #
 msgid "Registration"
 msgstr "Registratie"
@@ -940,9 +924,6 @@ msgstr "STW"
 #
 msgid "Sail-Nr."
 msgstr "Zeilnr."
-#
-msgid "Sails"
-msgstr "Zeilvoering"
 #
 msgid ""
 "Sails up\n"
@@ -1075,9 +1056,6 @@ msgstr "Toon Logbook icoon"
 # Used in Options
 msgid "Show Position Fomat"
 msgstr "      Positieweergave als:"
-#
-msgid "Show ToolTips"
-msgstr "Toon ToolTips"
 #
 msgid "Show Wave/Swell in"
 msgstr "Toon golfhoogtes in:"
@@ -1321,9 +1299,6 @@ msgstr "Wacht"
 msgid "Water"
 msgstr "Water"
 #
-msgid "WaterTotal"
-msgstr "Ttl water"
-#
 msgid "Wave"
 msgstr "Golven"
 #
@@ -1560,6 +1535,12 @@ msgstr "Zelfde wacht als"
 msgid "to"
 msgstr "tot"
 #
+#, c-format
+msgid ""
+"to use MS-Word, append %s like this:\n"
+"\"C:\\yourPathToWinword\\WINWORD.EXE\" %s"
+msgstr ""
+#
 msgid "use Textblocks..."
 msgstr ""
 #
@@ -1568,6 +1549,11 @@ msgstr "week(en)"
 #
 msgid "write your own label"
 msgstr "Maak eigen veldnaam"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1585,3 +1571,56 @@ msgstr "Maak eigen veldnaam"
 #~ "Naam routepunt  : %s\n"
 #~ "Ware Koers          : %4.1f%s\n"
 #~ "Verheid                 : %4.2f%s"
+#
+#
+#
+#
+#
+#~ msgid "EngineTotal"
+#~ msgstr "Ttl motor"
+#
+#
+#
+#
+#
+#~ msgid "FuelTotal"
+#~ msgstr "Ttl brandstof"
+#
+#
+#
+#
+#
+#~ msgid ""
+#~ "Please enter like 1.30 or 1,30 or 1:30\n"
+#~ "for 1:30h"
+#~ msgstr ""
+#~ "Voer 1.30 of 1,30 of 1:30\n"
+#~ "in voor 01:30 u"
+#
+#
+#
+#
+#
+#~ msgid "Reef"
+#~ msgstr "Aantal riffen"
+#
+#
+#
+#
+#
+#~ msgid "Sails"
+#~ msgstr "Zeilvoering"
+#
+#
+#
+#
+#
+#~ msgid "Show ToolTips"
+#~ msgstr "Toon ToolTips"
+#
+#
+#
+#
+#
+#~ msgid "WaterTotal"
+#~ msgstr "Ttl water"
