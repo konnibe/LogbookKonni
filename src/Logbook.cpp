@@ -1661,7 +1661,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 									tkz.GetNextToken().ToDouble(&m);
 									h = h + (m*(100/60)/100);
 									double output = watermaker * h;
-									dialog->m_gridMotorSails->SetCellValue(row,Logbook::WATERMO-sailsCol,wxString::Format(_T("+%2.2f %s"),output,opt->vol));
+									dialog->m_gridMotorSails->SetCellValue(row,Logbook::WATERMO-sailsCol,wxString::Format(_T("+%2.2f %s"),output,opt->vol.c_str()));
 									computeCell(grid,row,Logbook::WATERMO-sailsCol, dialog->m_gridMotorSails->GetCellValue(row,Logbook::WATERMO-sailsCol),false);
 								}
 							}						
@@ -1719,13 +1719,13 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 
 						if(!tank)
 						{
-						dialog->m_gridMotorSails->SetCellValue(row,col-1,wxString::Format(_T("%s%.2f %s"),ind,abs(c),ap));
+							dialog->m_gridMotorSails->SetCellValue(row,col-1,wxString::Format(_T("%s%.2f %s"),ind,abs(c),ap.c_str()));
 						dialog->m_gridMotorSails->GetCellValue(row,col).ToDouble(&c);
 						dialog->m_gridMotorSails->SetCellValue(row,col,wxString::Format(_T("%.2f %s"),c,ap));
 						}
 						else
 						{
-						dialog->m_gridMotorSails->SetCellValue(row,col-1,wxString::Format(_T("%s%.2f %s"),ind,abs(t-c),ap));
+						dialog->m_gridMotorSails->SetCellValue(row,col-1,wxString::Format(_T("%s%.2f %s"),ind,abs(t-c),ap.c_str()));
 						dialog->m_gridMotorSails->SetCellValue(row,col,wxString::Format(_T("%.2f %s"),abs(c),ap));
 						}
 						
@@ -1754,7 +1754,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						else 
 							ch = '+';
 
-						s = wxString::Format(_T("%.2f %s"),wxAtof(s),ap);
+						s = wxString::Format(_T("%.2f %s"),wxAtof(s),ap.c_str());
 						s.Replace(_T("."),dialog->decimalPoint);
 						
 						if(ch != '-' && ch != '+')
@@ -1777,7 +1777,7 @@ wxString  Logbook::decimalToHours(double res,bool b)
 	int t = (int) res;
 	double r = res - t;
 	wxString fmt = (b)?_T("%05i:%02.0f %s"):_T("%02i:%02.0f %s");
-	wxString str =  wxString::Format(fmt,t,r*100,opt->motorh);
+	wxString str =  wxString::Format(fmt,t,r*100,opt->motorh.c_str());
 	return str;
 }
 
