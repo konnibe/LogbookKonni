@@ -618,9 +618,9 @@ void logbookkonni_pi::ShowPreferencesDialog( wxWindow* parent )
 	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 655,586  ),
 		wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
 #elif defined __WXOSX__
-    optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 650,691 ,wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
+    optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 650,691 ) ,wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
 #else
-	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 740,659 ,
+	optionsDialog = new LogbookOptions(parent, opt, this, -1, _("Logbook Preferences"), wxDefaultPosition,  wxSize( 740,659 ) ,
 		wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );	
 #endif
 	optionsDialog->m_checkBoxShowLogbook->SetValue(m_bLOGShowIcon);
