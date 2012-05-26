@@ -3396,7 +3396,6 @@ void LogbookDialog::getIniValues()
 	colCount[1] = opt->WeatherColWidth.Count();
 	colCount[2] = opt->MotorColWidth.Count();
 
-	int z;
 	if((opt->navGridLayoutChoice == -1) || (opt->NavColWidth.GetCount() == 0)) return;
 
 	for(int i = 0; i < LOGGRIDS; i++)

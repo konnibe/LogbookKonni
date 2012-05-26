@@ -1861,7 +1861,7 @@ wxString Logbook::computeCell(int grid, int row, int col, wxString s, bool mode)
 		else
 		{
 			double t,t1 = 0.0 ,t2 = 0.0;
-			int ind = 1;
+			//int ind = 1;
 
 			s = dialog->logGrids[grid]->GetCellValue(i,col);
 			s.Replace(_T(","),_T("."));
