@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2012-05-24 20:57+0200\n"
-"PO-Revision-Date: 2012-05-26 14:57+0100\n"
+"PO-Revision-Date: 2012-05-26 15:09+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -470,9 +470,7 @@ msgstr "Glisser-déposer pour changer l'ordre dans la liste"
 
 #
 msgid "E"
-msgstr ""
-"D\n"
-" "
+msgstr "D"
 
 #
 msgid "Edit Layout"
@@ -1162,9 +1160,7 @@ msgstr "Öncelik"
 
 #
 msgid "R"
-msgstr ""
-"Y\n"
-" "
+msgstr "Y"
 
 #
 #

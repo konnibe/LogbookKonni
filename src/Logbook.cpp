@@ -699,17 +699,17 @@ void Logbook::loadData()
 
 		if(fields < dialog->totalColumns) // data from 0.910 ? need zero-values to calculate the columns 
 			{
-				dialog->m_gridMotorSails->SetCellValue(row,MOTOR1-sailsCol, wxString::Format(_T("%s %s"),nullhstr,opt->motorh));
-				dialog->m_gridMotorSails->SetCellValue(row,MOTOR1T-sailsCol,wxString::Format(_T("%s %s"),nullhstr,opt->motorh));
-				dialog->m_gridMotorSails->SetCellValue(row,GENE-sailsCol,   wxString::Format(_T("%s %s"),nullhstr,opt->motorh));
-				dialog->m_gridMotorSails->SetCellValue(row,GENET-sailsCol,  wxString::Format(_T("%s %s"),nullhstr,opt->motorh));
-				dialog->m_gridMotorSails->SetCellValue(row,BANK1-sailsCol,  wxString::Format(_T("%2.2f %s"),nullval,opt->ampereh));
-				dialog->m_gridMotorSails->SetCellValue(row,BANK1T-sailsCol, wxString::Format(_T("%2.2f %s"),nullval,opt->ampereh));
-				dialog->m_gridMotorSails->SetCellValue(row,BANK2-sailsCol,  wxString::Format(_T("%2.2f %s"),nullval,opt->ampereh));
-				dialog->m_gridMotorSails->SetCellValue(row,BANK2T-sailsCol, wxString::Format(_T("%2.2f %s"),nullval,opt->ampereh));
-				dialog->m_gridMotorSails->SetCellValue(row,WATERM-sailsCol, wxString::Format(_T("%s %s"),nullhstr,opt->motorh));
-				dialog->m_gridMotorSails->SetCellValue(row,WATERMT-sailsCol,wxString::Format(_T("%s %s"),nullhstr,opt->motorh));
-				dialog->m_gridMotorSails->SetCellValue(row,WATERMO-sailsCol,wxString::Format(_T("%2.2f %s"),nullval,opt->vol));
+				dialog->m_gridMotorSails->SetCellValue(row,MOTOR1-sailsCol, wxString::Format(_T("%s %s"),nullhstr.c_str(),opt->motorh.c_str()));
+				dialog->m_gridMotorSails->SetCellValue(row,MOTOR1T-sailsCol,wxString::Format(_T("%s %s"),nullhstr.c_str(),opt->motorh.c_str()));
+				dialog->m_gridMotorSails->SetCellValue(row,GENE-sailsCol,   wxString::Format(_T("%s %s"),nullhstr.c_str(),opt->motorh.c_str()));
+				dialog->m_gridMotorSails->SetCellValue(row,GENET-sailsCol,  wxString::Format(_T("%s %s"),nullhstr.c_str(),opt->motorh.c_str()));
+				dialog->m_gridMotorSails->SetCellValue(row,BANK1-sailsCol,  wxString::Format(_T("%2.2f %s"),nullval,opt->ampereh.c_str()));
+				dialog->m_gridMotorSails->SetCellValue(row,BANK1T-sailsCol, wxString::Format(_T("%2.2f %s"),nullval,opt->ampereh.c_str()));
+				dialog->m_gridMotorSails->SetCellValue(row,BANK2-sailsCol,  wxString::Format(_T("%2.2f %s"),nullval,opt->ampereh.c_str()));
+				dialog->m_gridMotorSails->SetCellValue(row,BANK2T-sailsCol, wxString::Format(_T("%2.2f %s"),nullval,opt->ampereh.c_str()));
+				dialog->m_gridMotorSails->SetCellValue(row,WATERM-sailsCol, wxString::Format(_T("%s %s"),nullhstr.c_str(),opt->motorh.c_str()));
+				dialog->m_gridMotorSails->SetCellValue(row,WATERMT-sailsCol,wxString::Format(_T("%s %s"),nullhstr.c_str(),opt->motorh.c_str()));
+				dialog->m_gridMotorSails->SetCellValue(row,WATERMO-sailsCol,wxString::Format(_T("%2.2f %s"),nullval,opt->vol.c_str()));
 			}
 
 		dialog->setEqualRowHeight(row);
