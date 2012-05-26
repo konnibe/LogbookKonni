@@ -3414,7 +3414,6 @@ void LogbookDialog::getIniValues()
 				logGrids[i]->SetColumnWidth(n,opt->MotorColWidth[n]); 
 				break;
 			}
-			z = opt->MotorColWidth[n];
 		}
 	}
 
