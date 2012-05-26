@@ -1791,10 +1791,12 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 
 wxString  Logbook::decimalToHours(double res,bool b)
 {
-	int t = (int) res;
-	double r = res - t;
+	int h = (int) res;
+	double m = res - t;
+	m = m * (60/100) * 100;
+
 	wxString fmt = (b)?_T("%05i:%02.0f %s"):_T("%02i:%02.0f %s");
-	wxString str =  wxString::Format(fmt,t,r*100,opt->motorh.c_str());
+	wxString str =  wxString::Format(fmt,h,m,opt->motorh.c_str());
 	return str;
 }
 
