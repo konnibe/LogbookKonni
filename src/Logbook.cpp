@@ -583,7 +583,7 @@ void Logbook::loadData()
 
 		wxStringTokenizer tkz(t, _T("\t"),wxTOKEN_RET_EMPTY );
 		int c = 0;
-		int fields =  tkz.CountTokens();
+		unsigned int fields =  tkz.CountTokens();
 
 		while ( tkz.HasMoreTokens() )
 		{
@@ -1698,7 +1698,6 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 					{
 						double div = 1.0;
 						long capacity;
-						bool   tank = false;
 						wxString ap;
 						double t,c;
 						wxString ind;
