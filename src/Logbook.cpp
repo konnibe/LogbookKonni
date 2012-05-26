@@ -583,7 +583,7 @@ void Logbook::loadData()
 
 		wxStringTokenizer tkz(t, _T("\t"),wxTOKEN_RET_EMPTY );
 		int c = 0;
-		unsigned int fields =  tkz.CountTokens();
+		int fields =  tkz.CountTokens();
 
 		while ( tkz.HasMoreTokens() )
 		{
