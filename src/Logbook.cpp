@@ -555,6 +555,8 @@ void Logbook::clearAllGrids()
 void Logbook::loadData()
 {
 	wxString s = _T(""),t;
+	wxString nullhstr = _T("00:00");
+	double nullval = 0.0;
 
 	dialog->selGridCol = dialog->selGridRow = 0;
 	title = _("Active Logbook");
@@ -581,6 +583,8 @@ void Logbook::loadData()
 
 		wxStringTokenizer tkz(t, _T("\t"),wxTOKEN_RET_EMPTY );
 		int c = 0;
+		int fields =  tkz.CountTokens();
+
 		while ( tkz.HasMoreTokens() )
 		{
 			s = dialog->restoreDangerChar(tkz.GetNextToken());
@@ -683,7 +687,7 @@ void Logbook::loadData()
 				break;
 			case 46:	dialog->m_gridMotorSails->SetCellValue(row,WATERMO-sailsCol,s);
 				break;
-			}
+			}			
 			c++;
 		}
 		wxString temp = dialog->m_gridGlobal->GetCellValue(row,DISTANCE);
@@ -692,6 +696,21 @@ void Logbook::loadData()
 		if((dialog->m_gridGlobal->GetCellValue(row,SIGN) == wxEmptyString || 
 			dialog->m_gridGlobal->GetCellValue(row,SIGN).GetChar(0) == ' ') && dist > 0)
 				dialog->m_gridGlobal->SetCellValue(row,SIGN,_T("S"));
+
+		if(fields < dialog->totalColumns) // data from 0.910 ? need zero-values to calculate the columns 
+			{
+				dialog->m_gridMotorSails->SetCellValue(row,MOTOR1-sailsCol, wxString::Format(_T("%s %s"),nullhstr,opt->motorh));
+				dialog->m_gridMotorSails->SetCellValue(row,MOTOR1T-sailsCol,wxString::Format(_T("%s %s"),nullhstr,opt->motorh));
+				dialog->m_gridMotorSails->SetCellValue(row,GENE-sailsCol,   wxString::Format(_T("%s %s"),nullhstr,opt->motorh));
+				dialog->m_gridMotorSails->SetCellValue(row,GENET-sailsCol,  wxString::Format(_T("%s %s"),nullhstr,opt->motorh));
+				dialog->m_gridMotorSails->SetCellValue(row,BANK1-sailsCol,  wxString::Format(_T("%2.2f %s"),nullval,opt->ampereh));
+				dialog->m_gridMotorSails->SetCellValue(row,BANK1T-sailsCol, wxString::Format(_T("%2.2f %s"),nullval,opt->ampereh));
+				dialog->m_gridMotorSails->SetCellValue(row,BANK2-sailsCol,  wxString::Format(_T("%2.2f %s"),nullval,opt->ampereh));
+				dialog->m_gridMotorSails->SetCellValue(row,BANK2T-sailsCol, wxString::Format(_T("%2.2f %s"),nullval,opt->ampereh));
+				dialog->m_gridMotorSails->SetCellValue(row,WATERM-sailsCol, wxString::Format(_T("%s %s"),nullhstr,opt->motorh));
+				dialog->m_gridMotorSails->SetCellValue(row,WATERMT-sailsCol,wxString::Format(_T("%s %s"),nullhstr,opt->motorh));
+				dialog->m_gridMotorSails->SetCellValue(row,WATERMO-sailsCol,wxString::Format(_T("%2.2f %s"),nullval,opt->vol));
+			}
 
 		dialog->setEqualRowHeight(row);
 		row++;
@@ -716,6 +735,7 @@ void Logbook::setCellAlign(int i)
 		dialog->m_gridGlobal->SetCellAlignment    (i,ROUTE,                wxALIGN_LEFT, wxALIGN_TOP);
 		dialog->m_gridGlobal->SetCellAlignment    (i,RTIME,                wxALIGN_CENTRE, wxALIGN_TOP);
 		dialog->m_gridGlobal->SetCellAlignment    (i,SIGN,                 wxALIGN_LEFT, wxALIGN_TOP);
+		dialog->m_gridGlobal->SetCellAlignment    (i,WAKE,                 wxALIGN_LEFT, wxALIGN_TOP);
 		dialog->m_gridGlobal->SetCellAlignment    (i,REMARKS,              wxALIGN_LEFT, wxALIGN_TOP);
 		dialog->m_gridWeather->SetCellAlignment   (i,WEATHER-weatherCol,   wxALIGN_LEFT, wxALIGN_TOP);
 		dialog->m_gridWeather->SetCellAlignment   (i,CLOUDS-weatherCol,    wxALIGN_LEFT, wxALIGN_TOP);
@@ -1149,6 +1169,8 @@ void Logbook::update()
 	modified = false;
 
 	dialog->logGrids[0]->Refresh();
+	dialog->logGrids[1]->Refresh();
+	dialog->logGrids[2]->Refresh();
 	
 	int count;
 	if((count  = dialog->logGrids[0]->GetNumberRows() )== 0) { wxFile f; f.Create(data_locn,true); return; }
@@ -1586,7 +1608,8 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 
 						if(row < dialog->m_gridMotorSails->GetNumberRows()-1)
 							computeCell(grid,row+1,col-1,dialog->m_gridMotorSails->GetCellValue(row+1,col-1),true);
-
+						if(row == dialog->m_gridGlobal->GetNumberRows()-1)
+									dialog->maintenance->checkService(row);
 					}
 	else if(grid == 2 && ((col == MOTOR-sailsCol || col == MOTOR1-sailsCol || 
 		                   col == GENE-sailsCol  || col == WATERM-sailsCol)  && !s.IsEmpty()))
@@ -1620,6 +1643,9 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 							t = true;
 							sep = _T(":");
 						}
+
+						if(true != t)
+							s.Append(_(":0"));
 
 /*						if(t != true)
 							{
@@ -1708,7 +1734,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 							dialog->m_gridMotorSails->GetCellValue(row,col).ToDouble(&c);
 						}
 						else
-						{ t =0; c = 0; }
+						{ t = 0; c = 0; }
 
 						ind = (c < t)?_T("-"):_T("+");
 
@@ -1725,7 +1751,10 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						}
 						else
 						{
-							dialog->m_gridMotorSails->SetCellValue(row,col-1,wxString::Format(_T("%s%.2f %s"),ind.c_str(),fabs(t-c),ap.c_str()));
+							if(row != 0)
+								dialog->m_gridMotorSails->SetCellValue(row,col-1,wxString::Format(_T("%s%.2f %s"),ind.c_str(),fabs(t-c),ap.c_str()));
+							else
+								dialog->m_gridMotorSails->SetCellValue(row,col-1,wxString::Format(_T("%s0.00 %s"),ind.c_str(),ap.c_str()));
 							dialog->m_gridMotorSails->SetCellValue(row,col,wxString::Format(_T("%.2f %s"),fabs(c),ap.c_str()));
 						}
 						
@@ -1736,6 +1765,8 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 							x =1;
 						if(row < dialog->m_gridMotorSails->GetNumberRows()-1)
 							computeCell(grid,row+1,col-x,dialog->m_gridMotorSails->GetCellValue(row+1,col-x),false);
+						if(row == dialog->m_gridGlobal->GetNumberRows()-1)
+									dialog->maintenance->checkService(row);
 					}
 	else if(grid == 2 && ( col == FUEL-sailsCol    || col == WATER-sailsCol || 
 		                   col == WATERMO-sailsCol || col == BANK1-sailsCol || col == BANK2-sailsCol) && !s.IsEmpty())
@@ -1768,6 +1799,8 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						}
 
 						computeCell(grid, row, col,s, false);
+						if(row == dialog->m_gridGlobal->GetNumberRows()-1)
+									dialog->maintenance->checkService(row);
 					}
 	return;
 }

@@ -71,7 +71,7 @@ public:
 	wxString	layout_locnRepairs;
 	wxString	layout_locnBuyParts;
 
-	wxString		m_choices[7];
+	wxString		m_choices[12];
 
 private:
 	LogbookDialog*	dialog;

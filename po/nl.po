@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-24 20:57+0200\n"
+"POT-Creation-Date: 2012-05-26 11:40+0200\n"
 "PO-Revision-Date: 2012-04-14 17:50+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: rider2@kpnmail.nl <rider2@kpnmail.nl>\n"
@@ -59,6 +59,22 @@ msgstr ""
 msgid "\""
 msgstr "\""
 #
+#
+#
+#
+#
+#, fuzzy
+msgid "#1 Total"
+msgstr "Ttl water"
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "#2 Total"
+msgstr "Ttl water"
+#
 msgid "'"
 msgstr "'"
 #
@@ -84,6 +100,21 @@ msgstr "0"
 #
 msgid "1. Watch of 1. Person"
 msgstr "1e Wacht van 1e persoon"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid ":0"
+msgstr "0"
 #
 msgid "AH #1 Total"
 msgstr ""
@@ -187,7 +218,19 @@ msgstr ""
 msgid "Bank #1"
 msgstr ""
 #
+msgid "Bank #1 gen."
+msgstr ""
+#
+msgid "Bank #1 used"
+msgstr ""
+#
 msgid "Bank #2"
+msgstr ""
+#
+msgid "Bank #2 gen."
+msgstr ""
+#
+msgid "Bank #2 used"
 msgstr ""
 #
 msgid "Barometer"
@@ -422,7 +465,8 @@ msgstr ""
 "6e Wacht:\n"
 "eind"
 #
-msgid "Engine"
+#, fuzzy
+msgid "Engine "
 msgstr "Motor"
 #
 #, fuzzy
@@ -438,13 +482,6 @@ msgid ""
 "\n"
 "Demo - Rightclick-Menu 'use Testextblocks' for help"
 msgstr ""
-#
-#
-#
-#
-#
-msgid "EngineTotal"
-msgstr "Ttl motor"
 #
 msgid "Equipment"
 msgstr "Apparatuur"
@@ -1181,16 +1218,6 @@ msgstr ""
 "Vaart\n"
 "(max.)"
 #
-msgid "Speed STW Avg."
-msgstr ""
-"STW\n"
-"(gem.)"
-#
-msgid "Speed STW Max."
-msgstr ""
-"STW\n"
-"(max.)"
-#
 msgid "Start"
 msgstr "Start"
 #
@@ -1390,12 +1417,19 @@ msgstr "Wacht"
 msgid "Water"
 msgstr "Water"
 #
+#, fuzzy
+msgid "Water used"
+msgstr "Water"
+#
 #
 #
 #
 #
 msgid "WaterTotal"
 msgstr "Ttl water"
+#
+msgid "Waterm. Outp"
+msgstr ""
 #
 #, fuzzy
 msgid "Watermaker"
@@ -1673,6 +1707,7 @@ msgstr "Maak eigen veldnaam"
 #
 #
 #
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -1689,6 +1724,15 @@ msgstr "Maak eigen veldnaam"
 #
 #
 #
+#~ msgid "EngineTotal"
+#~ msgstr "Ttl motor"
+#
+#
+#
+#
+#
+#
+#
 #
 #~ msgid ""
 #~ "Please enter like 1.30 or 1,30 or 1:30\n"
@@ -1696,3 +1740,15 @@ msgstr "Maak eigen veldnaam"
 #~ msgstr ""
 #~ "Voer 1.30 of 1,30 of 1:30\n"
 #~ "in voor 01:30 u"
+#
+#
+#~ msgid "Speed STW Avg."
+#~ msgstr ""
+#~ "STW\n"
+#~ "(gem.)"
+#
+#
+#~ msgid "Speed STW Max."
+#~ msgstr ""
+#~ "STW\n"
+#~ "(max.)"

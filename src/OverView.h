@@ -38,6 +38,17 @@ struct total{
 	double				speedpeakSTW;
 	int					enginehours;
 	int					enginemin;
+	int					enginehours2;
+	int					enginemin2;
+	int					watermhours;
+	int					watermmin;
+	double              watermo;
+	int					generatorhours;
+	int					generatormin;
+	double				bank1u;
+	double				bank2u;
+	double				bank1g;
+	double				bank2g;
 	double				fuel;
 	double				water;
 	double				winddir;
@@ -63,7 +74,8 @@ struct total{
 class OverView : public Export
 {
 public:
-	enum gridfields{FLOG, FROUTE, FSTART, FEND, FJOURNEY, FDISTANCE, FETMAL, FBESTETMAL, FSPEED, FBSPEED, FSPEEDSTW, FBSPEEDSTW, FENGINE, FFUEL, FWATER, FWINDDIR, FWIND, FWINDPEAK, 
+	enum gridfields{FLOG, FROUTE, FSTART, FEND, FJOURNEY, FDISTANCE, FETMAL, FBESTETMAL, FSPEED, FBSPEED,/* FSPEEDSTW, FBSPEEDSTW,*/ FENGINE1, FENGINE2,FFUEL, 
+		            FGENERATOR,FBANK1G,FBANK1U,FBANK2G,FBANK2U,FWATERM,FWATERMO,FWATER, FWINDDIR, FWIND, FWINDPEAK, 
 					FCURRENTDIR, FCURRENT, FCURRENTPEAK, FWAVE, FWAVEPEAK, FSWELL, FSWELLPEAK, FSAILS, FPATH };
 	OverView(LogbookDialog* d, wxString data, wxString lay, wxString layoutODT);
 	~OverView(void);
@@ -84,9 +96,11 @@ public:
 	struct total		oneLogbookTotal;
 
 private:
-	enum logfields{ROUTE,DATE, TIME, SIGN,WATCH, DISTANCE, DISTANCETOTAL, POSITION, COG, HEADING, SOG, STW, DEPTH,
-					REMARKS, BAROMETER, WIND, WINDFORCE, CURRENT, CURRENTFORCE, WAVE, SWELL, WEATHER,
-					CLOUDS, VISIBILITY, ENGINE, ENGINETOTAL, FUEL, FUELTOTAL, SAILS, REEF,WATER, WATERTOTAL, MREMARKS};
+	enum logfields{ROUTE,DATE, TIME, SIGN,WATCH, DISTANCE, DISTANCETOTAL, POSITION, COG, HEADING, SOG, STW, DEPTH, REMARKS, 
+		           BAROMETER, WIND, WINDFORCE, CURRENT, CURRENTFORCE, WAVE, SWELL, WEATHER,	CLOUDS, VISIBILITY, 
+				   ENGINE1, ENGINE1T,FUEL, FUELTOTAL,  SAILS, REEF, WATER, WATERTOTAL, MREMARKS, 
+				   HYDRO, TEMPAIR, TEMPWATER, ENGINE2, ENGINE2T, GENERATOR, GENERATORT, BANK1, BANK1T, BANK2, BANK2T,
+	               WATERM, WATERMT, WATERMO};
 
 	void loadLogbookData(wxString filename, bool colour);
 	void loadAllLogbooks();
@@ -129,6 +143,17 @@ private:
 	double				speedpeakSTW;
 	int					enginehours;
 	int					enginemin;
+	int					enginehours2;
+	int					enginemin2;
+	int					watermhours;
+	int					watermmin;
+	double              watermo;
+	int					generatorhours;
+	int					generatormin;
+	double				bank1u;
+	double				bank2u;
+	double				bank1g;
+	double				bank2g;
 	double				fuel;
 	double				water;
 	double				winddir;

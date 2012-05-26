@@ -340,9 +340,9 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridMotorSails->EnableDragColSize( true );
 	m_gridMotorSails->SetColLabelSize( 30 );
 	m_gridMotorSails->SetColLabelValue( 0, _("Engine #1") );
-	m_gridMotorSails->SetColLabelValue( 1, _("EngineTotal") );
+	m_gridMotorSails->SetColLabelValue( 1, _("#1 Total") );
 	m_gridMotorSails->SetColLabelValue( 2, _("Engine #2") );
-	m_gridMotorSails->SetColLabelValue( 3, _("EngineTotal") );
+	m_gridMotorSails->SetColLabelValue( 3, _("#2 Total") );
 	m_gridMotorSails->SetColLabelValue( 4, _("Fuel") );
 	m_gridMotorSails->SetColLabelValue( 5, _("FuelTotal") );
 	m_gridMotorSails->SetColLabelValue( 6, _("Sails") );
@@ -465,7 +465,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridOverview = new wxGrid( m_panel142, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 	
 	// Grid
-	m_gridOverview->CreateGrid( 1, 27 );
+	m_gridOverview->CreateGrid( 1, 33 );
 	m_gridOverview->EnableEditing( false );
 	m_gridOverview->EnableGridLines( true );
 	m_gridOverview->EnableDragGridSize( false );
@@ -486,17 +486,25 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridOverview->SetColSize( 11, 80 );
 	m_gridOverview->SetColSize( 12, 80 );
 	m_gridOverview->SetColSize( 13, 114 );
-	m_gridOverview->SetColSize( 14, 80 );
+	m_gridOverview->SetColSize( 14, 108 );
 	m_gridOverview->SetColSize( 15, 93 );
 	m_gridOverview->SetColSize( 16, 129 );
 	m_gridOverview->SetColSize( 17, 80 );
 	m_gridOverview->SetColSize( 18, 80 );
 	m_gridOverview->SetColSize( 19, 100 );
 	m_gridOverview->SetColSize( 20, 80 );
-	m_gridOverview->SetColSize( 21, 80 );
+	m_gridOverview->SetColSize( 21, 108 );
 	m_gridOverview->SetColSize( 22, 80 );
 	m_gridOverview->SetColSize( 23, 80 );
-	m_gridOverview->SetColSize( 24, 80 );
+	m_gridOverview->SetColSize( 24, 123 );
+	m_gridOverview->SetColSize( 25, 80 );
+	m_gridOverview->SetColSize( 26, 80 );
+	m_gridOverview->SetColSize( 27, 80 );
+	m_gridOverview->SetColSize( 28, 80 );
+	m_gridOverview->SetColSize( 29, 80 );
+	m_gridOverview->SetColSize( 30, 80 );
+	m_gridOverview->SetColSize( 31, 110 );
+	m_gridOverview->SetColSize( 32, 80 );
 	m_gridOverview->EnableDragColMove( false );
 	m_gridOverview->EnableDragColSize( true );
 	m_gridOverview->SetColLabelSize( 30 );
@@ -510,23 +518,29 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridOverview->SetColLabelValue( 7, _("Best Dist. p. Day") );
 	m_gridOverview->SetColLabelValue( 8, _("Speed Avg.") );
 	m_gridOverview->SetColLabelValue( 9, _("Speed Max.") );
-	m_gridOverview->SetColLabelValue( 10, _("Speed STW Avg.") );
-	m_gridOverview->SetColLabelValue( 11, _("Speed STW Max.") );
-	m_gridOverview->SetColLabelValue( 12, _("Engine") );
-	m_gridOverview->SetColLabelValue( 13, _("Fuel") );
-	m_gridOverview->SetColLabelValue( 14, _("Water") );
-	m_gridOverview->SetColLabelValue( 15, _("Winddirection Avg.") );
-	m_gridOverview->SetColLabelValue( 16, _("Wind Avg.") );
-	m_gridOverview->SetColLabelValue( 17, _("Wind Max.") );
-	m_gridOverview->SetColLabelValue( 18, _("Currentdirection Avg.") );
-	m_gridOverview->SetColLabelValue( 19, _("Current Avg.") );
-	m_gridOverview->SetColLabelValue( 20, _("Current Max.") );
-	m_gridOverview->SetColLabelValue( 21, _("Wave Avg.") );
-	m_gridOverview->SetColLabelValue( 22, _("Wave Max.") );
-	m_gridOverview->SetColLabelValue( 23, _("Swell Avg.") );
-	m_gridOverview->SetColLabelValue( 24, _("Swell Max.") );
-	m_gridOverview->SetColLabelValue( 25, _("Sails used mostly") );
-	m_gridOverview->SetColLabelValue( 26, _("Path") );
+	m_gridOverview->SetColLabelValue( 10, _("Engine #1") );
+	m_gridOverview->SetColLabelValue( 11, _("Engine #2") );
+	m_gridOverview->SetColLabelValue( 12, _("Fuel") );
+	m_gridOverview->SetColLabelValue( 13, _("Generator") );
+	m_gridOverview->SetColLabelValue( 14, _("Bank #1 gen.") );
+	m_gridOverview->SetColLabelValue( 15, _("Bank #1 used") );
+	m_gridOverview->SetColLabelValue( 16, _("Bank #2 gen.") );
+	m_gridOverview->SetColLabelValue( 17, _("Bank #2 used") );
+	m_gridOverview->SetColLabelValue( 18, _("Watermaker") );
+	m_gridOverview->SetColLabelValue( 19, _("Waterm. Outp") );
+	m_gridOverview->SetColLabelValue( 20, _("Water used") );
+	m_gridOverview->SetColLabelValue( 21, _("Winddirection Avg.") );
+	m_gridOverview->SetColLabelValue( 22, _("Wind Avg.") );
+	m_gridOverview->SetColLabelValue( 23, _("Wind Max.") );
+	m_gridOverview->SetColLabelValue( 24, _("Currentdirection Avg.") );
+	m_gridOverview->SetColLabelValue( 25, _("Current Avg.") );
+	m_gridOverview->SetColLabelValue( 26, _("Current Max.") );
+	m_gridOverview->SetColLabelValue( 27, _("Wave Avg.") );
+	m_gridOverview->SetColLabelValue( 28, _("Wave Max.") );
+	m_gridOverview->SetColLabelValue( 29, _("Swell Avg.") );
+	m_gridOverview->SetColLabelValue( 30, _("Swell Max.") );
+	m_gridOverview->SetColLabelValue( 31, _("Sails used mostly") );
+	m_gridOverview->SetColLabelValue( 32, _("Path") );
 	m_gridOverview->SetColLabelAlignment( wxALIGN_CENTRE, wxALIGN_CENTRE );
 	
 	// Rows
@@ -3377,21 +3391,31 @@ void LogbookDialog::setIniValues()
 void LogbookDialog::getIniValues()
 {
 	Options * opt = logbookPlugIn->opt;
+	unsigned int colCount[3];
+	colCount[0] = opt->NavColWidth.Count();
+	colCount[1] = opt->WeatherColWidth.Count();
+	colCount[2] = opt->MotorColWidth.Count();
 
+	int z;
 	if((opt->navGridLayoutChoice == -1) || (opt->NavColWidth.GetCount() == 0)) return;
 
 	for(int i = 0; i < LOGGRIDS; i++)
 	{
 		for(unsigned int n = 0; n < (unsigned int) logGrids[i]->GetNumberCols(); n++)
 		{
-			if(n >= opt->MotorColWidth.Count() || n >= opt->NavColWidth.Count() || n >= opt->WeatherColWidth.Count()) break;
+			if(n >= colCount[i]) break;
 
 			switch(i)
 			{
-			case 0:	logGrids[i]->SetColumnWidth(n,opt->NavColWidth[n]); break;
-			case 1: logGrids[i]->SetColumnWidth(n,opt->WeatherColWidth[n]); break;
-			case 2: logGrids[i]->SetColumnWidth(n,opt->MotorColWidth[n]); break;
+			case 0:	logGrids[i]->SetColumnWidth(n,opt->NavColWidth[n]); 
+				break;
+			case 1: logGrids[i]->SetColumnWidth(n,opt->WeatherColWidth[n]); 
+				break;
+			case 2: 
+				logGrids[i]->SetColumnWidth(n,opt->MotorColWidth[n]); 
+				break;
 			}
+			z = opt->MotorColWidth[n];
 		}
 	}
 
@@ -3942,7 +3966,7 @@ void LogbookDialog::onButtonClickReloadLayoutsServiceHTML(wxCommandEvent &ev)
 void LogbookDialog::onGridCellLeftClickService(wxGridEvent &ev)
 {
 	if((ev.GetCol() == maintenance->WARN || ev.GetCol() == maintenance->URGENT) && 
-		m_gridMaintanence->GetCellValue(ev.GetRow(), maintenance->IF) == maintenance->m_choices[3])
+		m_gridMaintanence->GetCellValue(ev.GetRow(), maintenance->IF) == maintenance->m_choices[8])
 	{
 		 maintenance->showDateDialog(ev.GetRow(),ev.GetCol(),m_gridMaintanence);
 		 maintenance->cellCollChanged(ev.GetCol(),ev.GetRow());

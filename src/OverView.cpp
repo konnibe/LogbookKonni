@@ -324,7 +324,10 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 				break;
 			case DEPTH:				
 			case REMARKS:			
-			case BAROMETER:			
+			case BAROMETER:
+			case HYDRO:
+			case TEMPAIR:
+			case TEMPWATER:
 				break;
 			case WIND:				if(!s.IsEmpty())
 									{
@@ -378,7 +381,7 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 			case CLOUDS:			
 			case VISIBILITY:
 				break;
-			case ENGINE:			tkz1.SetString(s, _T(":"),wxTOKEN_RET_EMPTY );
+			case ENGINE1:			tkz1.SetString(s, _T(":"),wxTOKEN_RET_EMPTY );
 									long hours, minutes;
 									tkz1.GetNextToken().ToLong(&hours);
 									tkz1.GetNextToken().ToLong(&minutes);
@@ -387,14 +390,57 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 									oneLogbookTotal.enginehours += hours; oneLogbookTotal.enginemin += minutes;
 									if(oneLogbookTotal.enginemin >= 60) { oneLogbookTotal.enginehours++; oneLogbookTotal.enginemin -= 60; }
 				break;
-			case ENGINETOTAL:		
+			case ENGINE2:			
+									{	tkz1.SetString(s, _T(":"),wxTOKEN_RET_EMPTY );
+										long hours, minutes;
+										tkz1.GetNextToken().ToLong(&hours);
+										tkz1.GetNextToken().ToLong(&minutes);
+										enginehours2 += hours; enginemin2 += minutes;
+										if(enginemin2 >= 60) { enginehours2++; enginemin2 -= 60; }
+										oneLogbookTotal.enginehours2 += hours; oneLogbookTotal.enginemin2 += minutes;
+										if(oneLogbookTotal.enginemin2 >= 60) { oneLogbookTotal.enginehours2++; oneLogbookTotal.enginemin2 -= 60; }
+									}					
 				break;
-			case FUEL:				s.ToDouble(&x);
-									if(x < 0)
-									{
+			case GENERATOR:			
+									{	tkz1.SetString(s, _T(":"),wxTOKEN_RET_EMPTY );
+										long hours, minutes;
+										tkz1.GetNextToken().ToLong(&hours);
+										tkz1.GetNextToken().ToLong(&minutes);
+										generatorhours += hours; generatormin += minutes;
+										if(generatormin >= 60) { generatorhours++; generatormin -= 60; }
+										oneLogbookTotal.generatorhours += hours; oneLogbookTotal.generatormin += minutes;
+										if(oneLogbookTotal.generatormin >= 60) { oneLogbookTotal.generatorhours++; oneLogbookTotal.generatormin -= 60; }
+									}					
+				break;
+			case WATERM:			
+									{	tkz1.SetString(s, _T(":"),wxTOKEN_RET_EMPTY );
+										long hours, minutes;
+										tkz1.GetNextToken().ToLong(&hours);
+										tkz1.GetNextToken().ToLong(&minutes);
+										watermhours += hours; watermmin += minutes;
+										if(watermmin >= 60) { watermhours++; watermmin -= 60; }
+										oneLogbookTotal.watermhours += hours; oneLogbookTotal.watermmin += minutes;
+										if(oneLogbookTotal.watermmin >= 60) { oneLogbookTotal.watermhours++; oneLogbookTotal.watermmin -= 60; }
+									}					
+				break;
+			case ENGINE1T:		
+				break;
+			case FUEL:				if(s.GetChar(0) == '+') break;									
+				                    s.ToDouble(&x);
+									if(s.GetChar(0) != '-') s.Prepend(_T("-"));  // version 0.910 has no minus sign
+
+								//	if(x < 0)
+								//	{
 										fuel += x;
 										oneLogbookTotal.fuel += x;
-									}
+								//	}
+				break;
+			case WATERMO:			s.ToDouble(&x);
+								//	if(x < 0)
+								//	{
+										watermo += x;
+										oneLogbookTotal.watermo += x;
+								//	}
 				break;
 			case FUELTOTAL:			
 				break;
@@ -425,12 +471,41 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 				break;
 			case REEF:				
 				break;
-			case WATER:				s.ToDouble(&x);
-									if(x < 0)
-									{
+			case WATER:				if(s.GetChar(0) == '+') break;				 // add water used only
+									if(s.GetChar(0) != '-') s.Prepend(_T("-"));  // version 0.910 has no minus sign
+									s.ToDouble(&x);
+									
+									x = fabs(x);
+								//	if(x < 0)
+								//	{
 										water += x;
 										oneLogbookTotal.water += x;
-									}
+								//	}
+				break;
+			case BANK1:			
+								s.ToDouble(&x);
+								if(x >= 0)
+								{
+									bank1g += x;
+									oneLogbookTotal.bank1g += x;
+								}
+								else
+								{
+									bank1u += fabs(x); 
+									oneLogbookTotal.bank1u += bank1u;
+								}
+				break;
+			case BANK2:			s.ToDouble(&x);
+								if(x >= 0)
+								{
+									bank2g += x;
+									oneLogbookTotal.bank2g += x;
+								}
+								else
+								{
+									bank2u += fabs(x); 
+									oneLogbookTotal.bank2u += bank2u;
+								}
 				break;
 			case WATERTOTAL:		
 				break;
@@ -459,6 +534,17 @@ void OverView::resetValues()
 	bestetmaltemp = 0;
 	enginehours = 0;
 	enginemin = 0;
+	enginehours2 = 0;
+	enginemin2 = 0;
+	watermhours = 0;
+	watermmin = 0;
+	watermo = 0;
+	generatorhours = 0;
+	generatormin = 0;
+	bank1u = 0;
+	bank2u = 0;
+	bank1g = 0;
+	bank2g = 0;
 	distance = 0;
 	speed = 0;
 	speedpeak = 0;
@@ -505,6 +591,17 @@ void OverView::oneLogbookTotalReset()
 	oneLogbookTotal.speedpeakSTW = 0;
 	oneLogbookTotal.enginehours = 0;
 	oneLogbookTotal.enginemin = 0;
+	oneLogbookTotal.enginehours2 = 0;
+	oneLogbookTotal.enginemin2 = 0;
+	oneLogbookTotal.watermhours = 0;
+	oneLogbookTotal.watermmin = 0;
+	oneLogbookTotal.watermo = 0;
+	oneLogbookTotal.generatorhours = 0;
+	oneLogbookTotal.generatormin = 0;
+	oneLogbookTotal.bank1u = 0;
+	oneLogbookTotal.bank2u = 0;
+	oneLogbookTotal.bank1g = 0;
+	oneLogbookTotal.bank2g = 0;
 	oneLogbookTotal.fuel = 0;
 	oneLogbookTotal.water = 0;
 	oneLogbookTotal.winddir = 0;
@@ -565,13 +662,27 @@ void OverView::writeSumColumn(int row, wxString logbook, wxString path, bool col
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FWATER,temp);
 #else
-	temp = wxString::Format(_T("%6.2f %s"),abs(fuel),opt->vol.c_str());
+	temp = wxString::Format(_T("%6.2f %s"),fabs(fuel),opt->vol.c_str());
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FFUEL,temp);
-	temp = wxString::Format(_T("%6.2f %s"),abs(water),opt->vol.c_str());
+	temp = wxString::Format(_T("%6.2f %s"),fabs(water),opt->vol.c_str());
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FWATER,temp);
 #endif
+
+	temp = wxString::Format(_T("%3.2f %s"),bank1u,opt->ampereh.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FBANK1U,temp);
+	temp = wxString::Format(_T("%3.2f %s"),bank1g,opt->ampereh.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FBANK1G,temp);
+	temp = wxString::Format(_T("%3.2f %s"),bank2u,opt->ampereh.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FBANK2U,temp);
+	temp = wxString::Format(_T("%3.2f %s"),bank2g,opt->ampereh.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FBANK2G,temp);
+
 	if(windcount)
 		temp = wxString::Format(_T("%6.2f %s"),wind/windcount,_T("kts"));
 	else
@@ -613,26 +724,43 @@ void OverView::writeSumColumn(int row, wxString logbook, wxString path, bool col
 	grid->SetCellValue(row,FSWELLPEAK,temp);
 
 	if(currentcount)
-		wxString::Format(_T("%6.2f %s"),currentdir/currentcount,opt->Deg.c_str());
+		temp = wxString::Format(_T("%6.2f %s"),currentdir/currentcount,opt->Deg.c_str());
 	else
 		temp = nothing;
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FCURRENTDIR,temp);
 
 	if(currentcount)
-		temp = wxString::Format(_T("%6.2f %s"),current/currentcount,d.c_str());
+		temp = wxString::Format(_T("%6.2f %s"),current/currentcount,opt->speed.c_str());
 	else
 		temp = nothing;
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FCURRENT,temp);
 
-	temp = wxString::Format(_T("%6.2f %s"),currentpeak,d.c_str());
+	temp = wxString::Format(_T("%6.2f %s"),currentpeak,opt->speed.c_str());
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FCURRENTPEAK,temp);
 
 	temp = wxString::Format(_T("%0002i:%02i %s"),enginehours,enginemin,opt->motorh.c_str());
 	temp.Replace(_T("."),parent->decimalPoint);
-	grid->SetCellValue(row,FENGINE,temp);
+	grid->SetCellValue(row,FENGINE1,temp);
+
+	temp = wxString::Format(_T("%0002i:%02i %s"),enginehours2,enginemin2,opt->motorh.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FENGINE2,temp);
+
+	temp = wxString::Format(_T("%0002i:%02i %s"),generatorhours,generatormin,opt->motorh.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FGENERATOR,temp);
+
+	temp = wxString::Format(_T("%0002i:%02i %s"),watermhours,watermmin,opt->motorh.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FWATERM,temp);
+
+	temp = wxString::Format(_T("%3.2f %s"),watermo,opt->vol.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FWATERMO,temp);
+
 
 	if(speedcount)
 		temp = wxString::Format(_T("%6.2f %s"),speed/speedcount,opt->speed.c_str());
@@ -645,16 +773,16 @@ void OverView::writeSumColumn(int row, wxString logbook, wxString path, bool col
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FBSPEED,temp);
 
-	if(speedcountSTW)
-		temp = wxString::Format(_T("%6.2f %s"),speedSTW/speedcountSTW,opt->speed.c_str());
-	else
-		temp = nothing;
-	temp.Replace(_T("."),parent->decimalPoint);
-	grid->SetCellValue(row,FSPEEDSTW,temp);
+//	if(speedcountSTW)
+//		temp = wxString::Format(_T("%6.2f %s"),speedSTW/speedcountSTW,opt->speed.c_str());
+//	else
+//		temp = nothing;
+//	temp.Replace(_T("."),parent->decimalPoint);
+//	grid->SetCellValue(row,FSPEEDSTW,temp);
 
-	temp = wxString::Format(_T("%6.2f %s"),speedpeakSTW,opt->speed.c_str());
-	temp.Replace(_T("."),parent->decimalPoint);
-	grid->SetCellValue(row,FBSPEEDSTW,temp);
+//	temp = wxString::Format(_T("%6.2f %s"),speedpeakSTW,opt->speed.c_str());
+//	temp.Replace(_T("."),parent->decimalPoint);
+//	grid->SetCellValue(row,FBSPEEDSTW,temp);
 
 	grid->SetCellValue(row,FPATH,path);
 
@@ -733,6 +861,20 @@ void OverView::writeSumColumnLogbook(total data, int row, wxString logbook, bool
 	temp.Replace(_T("."),parent->decimalPoint);
 	grid->SetCellValue(row,FWATER,temp);
 #endif
+
+	temp = wxString::Format(_T("%3.2f %s"),data.bank1u,opt->ampereh.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FBANK1U,temp);
+	temp = wxString::Format(_T("%3.2f %s"),data.bank1g,opt->ampereh.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FBANK1G,temp);
+	temp = wxString::Format(_T("%3.2f %s"),data.bank2u,opt->ampereh.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FBANK2U,temp);
+	temp = wxString::Format(_T("%3.2f %s"),data.bank2g,opt->ampereh.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FBANK2G,temp);
+
 	if(data.windcount)
 		temp = wxString::Format(_T("%6.2f %s"),data.wind/data.windcount,_T("kts"));
 	else
@@ -793,7 +935,23 @@ void OverView::writeSumColumnLogbook(total data, int row, wxString logbook, bool
 
 	temp = wxString::Format(_T("%0002i:%02i %s"),data.enginehours,data.enginemin,opt->motorh.c_str());
 	temp.Replace(_T("."),parent->decimalPoint);
-	grid->SetCellValue(row,FENGINE,temp);
+	grid->SetCellValue(row,FENGINE1,temp);
+
+	temp = wxString::Format(_T("%0002i:%02i %s"),data.enginehours2,data.enginemin2,opt->motorh.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FENGINE2,temp);
+
+	temp = wxString::Format(_T("%0002i:%02i %s"),data.generatorhours,data.generatormin,opt->motorh.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FGENERATOR,temp);
+
+	temp = wxString::Format(_T("%0002i:%02i %s"),data.watermhours,data.watermmin,opt->motorh.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FWATERM,temp);
+
+	temp = wxString::Format(_T("%3.2f %s"),data.watermo,opt->vol.c_str());
+	temp.Replace(_T("."),parent->decimalPoint);
+	grid->SetCellValue(row,FWATERMO,temp);
 
 	if(data.speedcount)
 		temp = wxString::Format(_T("%6.2f %s"),data.speed/data.speedcount,opt->speed.c_str());
@@ -811,11 +969,11 @@ void OverView::writeSumColumnLogbook(total data, int row, wxString logbook, bool
 	else
 		temp = nothing;
 	temp.Replace(_T("."),parent->decimalPoint);
-	grid->SetCellValue(row,FSPEEDSTW,temp);
+//	grid->SetCellValue(row,FSPEEDSTW,temp);
 
 	temp = wxString::Format(_T("%6.2f %s"),data.speedpeakSTW,opt->speed.c_str());
 	temp.Replace(_T("."),parent->decimalPoint);
-	grid->SetCellValue(row,FBSPEEDSTW,temp);
+//	grid->SetCellValue(row,FBSPEEDSTW,temp);
 
 	wxDateTime startdt, enddt;
 
@@ -918,13 +1076,25 @@ wxString OverView::setPlaceHolders(int mode, wxGrid *grid, int row, wxString mid
 	newMiddleODT.Replace(wxT("#LSPEED#"),grid->GetTable()->GetColLabelValue(FSPEED));
 	newMiddleODT.Replace(wxT("#FBSPEED#"),replaceNewLine(mode,grid->GetCellValue(row,FBSPEED),false));
 	newMiddleODT.Replace(wxT("#LBSPEED#"),grid->GetTable()->GetColLabelValue(FBSPEED));
-	newMiddleODT.Replace(wxT("#FSPEEDSTW#"),replaceNewLine(mode,grid->GetCellValue(row,FSPEEDSTW),false));
-	newMiddleODT.Replace(wxT("#LSPEEDSTW#"),grid->GetTable()->GetColLabelValue(FSPEEDSTW));
-	newMiddleODT.Replace(wxT("#FBSPEEDSTW#"),replaceNewLine(mode,grid->GetCellValue(row,FBSPEEDSTW),false));
-	newMiddleODT.Replace(wxT("#LBSPEEDSTW#"),grid->GetTable()->GetColLabelValue(FBSPEEDSTW));
+	newMiddleODT.Replace(wxT("#FENGINE1#"),replaceNewLine(mode,grid->GetCellValue(row,FENGINE2),false));
+	newMiddleODT.Replace(wxT("#LENGINE1#"),grid->GetTable()->GetColLabelValue(FENGINE2));
+	newMiddleODT.Replace(wxT("#FGENERATOR#"),replaceNewLine(mode,grid->GetCellValue(row,FGENERATOR),false));
+	newMiddleODT.Replace(wxT("#LGENERATOR#"),grid->GetTable()->GetColLabelValue(FGENERATOR));
+	newMiddleODT.Replace(wxT("#FWATERM#"),replaceNewLine(mode,grid->GetCellValue(row,FWATERM),false));
+	newMiddleODT.Replace(wxT("#LWATERM#"),grid->GetTable()->GetColLabelValue(FWATERM));
+	newMiddleODT.Replace(wxT("#FWATERMO#"),replaceNewLine(mode,grid->GetCellValue(row,FWATERMO),false));
+	newMiddleODT.Replace(wxT("#LWATERMO#"),grid->GetTable()->GetColLabelValue(FWATERMO));
+	newMiddleODT.Replace(wxT("#FBANK1G#"),replaceNewLine(mode,grid->GetCellValue(row,FBANK1G),false));
+	newMiddleODT.Replace(wxT("#LBANK1G#"),grid->GetTable()->GetColLabelValue(FBANK1G));
+	newMiddleODT.Replace(wxT("#FBANK1U#"),replaceNewLine(mode,grid->GetCellValue(row,FBANK1U),false));
+	newMiddleODT.Replace(wxT("#LBANK1U#"),grid->GetTable()->GetColLabelValue(FBANK1U));
+	newMiddleODT.Replace(wxT("#FBANK2G#"),replaceNewLine(mode,grid->GetCellValue(row,FBANK2G),false));
+	newMiddleODT.Replace(wxT("#LBANK2G#"),grid->GetTable()->GetColLabelValue(FBANK2G));
+	newMiddleODT.Replace(wxT("#FBANK2U#"),replaceNewLine(mode,grid->GetCellValue(row,FBANK2U),false));
+	newMiddleODT.Replace(wxT("#LBANK2U#"),grid->GetTable()->GetColLabelValue(FBANK2U));
 
-	newMiddleODT.Replace(wxT("#FENGINE#"),replaceNewLine(mode,grid->GetCellValue(row,FENGINE),false));
-	newMiddleODT.Replace(wxT("#LENGINE#"),grid->GetTable()->GetColLabelValue(FENGINE));
+	newMiddleODT.Replace(wxT("#FENGINE#"),replaceNewLine(mode,grid->GetCellValue(row,FENGINE1),false));
+	newMiddleODT.Replace(wxT("#LENGINE#"),grid->GetTable()->GetColLabelValue(FENGINE1));
 	newMiddleODT.Replace(wxT("#FFUEL#"),replaceNewLine(mode,grid->GetCellValue(row,FFUEL),false));
 	newMiddleODT.Replace(wxT("#LFUEL#"),grid->GetTable()->GetColLabelValue(FFUEL));
 	newMiddleODT.Replace(wxT("#FWATER#"),replaceNewLine(mode,grid->GetCellValue(row,FWATER),false));

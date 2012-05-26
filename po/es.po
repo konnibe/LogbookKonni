@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-24 20:57+0200\n"
+"POT-Creation-Date: 2012-05-26 11:40+0200\n"
 "PO-Revision-Date: 2011-11-25 01:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -59,6 +59,22 @@ msgstr ""
 msgid "\""
 msgstr "\""
 #
+#
+#
+#
+#
+#, fuzzy
+msgid "#1 Total"
+msgstr "Agua total"
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "#2 Total"
+msgstr "Agua total"
+#
 msgid "'"
 msgstr "'"
 #
@@ -72,6 +88,9 @@ msgid "0"
 msgstr ""
 #
 msgid "1. Watch of 1. Person"
+msgstr ""
+#
+msgid ":0"
 msgstr ""
 #
 msgid "AH #1 Total"
@@ -277,7 +296,19 @@ msgstr ""
 msgid "Bank #1"
 msgstr ""
 #
+msgid "Bank #1 gen."
+msgstr ""
+#
+msgid "Bank #1 used"
+msgstr ""
+#
 msgid "Bank #2"
+msgstr ""
+#
+msgid "Bank #2 gen."
+msgstr ""
+#
+msgid "Bank #2 used"
 msgstr ""
 #
 msgid "Barometer"
@@ -583,7 +614,8 @@ msgstr "Fin 1ª guardia"
 msgid "End 6.Watch"
 msgstr "Fin 1ª guardia"
 #
-msgid "Engine"
+#, fuzzy
+msgid "Engine "
 msgstr "Máquina"
 #
 #, fuzzy
@@ -599,13 +631,6 @@ msgid ""
 "\n"
 "Demo - Rightclick-Menu 'use Testextblocks' for help"
 msgstr ""
-#
-#
-#
-#
-#
-msgid "EngineTotal"
-msgstr "Máquina total"
 #
 msgid "Equipment"
 msgstr "Equipamiento"
@@ -1639,17 +1664,6 @@ msgstr "Velocidad"
 msgid "Speed Max."
 msgstr "Mar de fondo"
 #
-#, fuzzy
-msgid "Speed STW Avg."
-msgstr "Velocidad"
-#
-#
-#
-#
-#, fuzzy
-msgid "Speed STW Max."
-msgstr "Mar de fondo"
-#
 #
 #
 #
@@ -1890,12 +1904,19 @@ msgstr "Guardia"
 msgid "Water"
 msgstr "Agua"
 #
+#, fuzzy
+msgid "Water used"
+msgstr "Agua"
+#
 #
 #
 #
 #
 msgid "WaterTotal"
 msgstr "Agua total"
+#
+msgid "Waterm. Outp"
+msgstr ""
 #
 #, fuzzy
 msgid "Watermaker"
@@ -2335,9 +2356,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "BuyParts"
 #~ msgstr "Comprar recambios"
+#
 #
 #
 #
@@ -2503,9 +2526,19 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Current from"
 #~ msgstr "Corriente"
+#
+#
+#
+#
+#
+#
+#~ msgid "EngineTotal"
+#~ msgstr "Máquina total"
+#
 #
 #
 #
@@ -2691,8 +2724,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "GRT"
 #~ msgstr "BRT"
+#
 #
 #
 #
@@ -2971,8 +3006,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Logbook files (*.txt)|*.txt"
 #~ msgstr "Ficheros bitácora (*.txt)|*.txt"
+#
 #
 #
 #
@@ -3018,6 +3055,7 @@ msgstr ""
 #, fuzzy
 #~ msgid "Nm"
 #~ msgstr "Nombre"
+#
 #
 #
 #
@@ -3207,8 +3245,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Ruta al editor HTML (opcional)"
+#
 #
 #
 #
@@ -3222,6 +3262,7 @@ msgstr ""
 #~ msgstr ""
 #~ "Entre por favor 1.30 o 1,30 o 1:30\n"
 #~ "para 1:30h"
+#
 #
 #
 #
@@ -3514,8 +3555,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Schedule"
 #~ msgstr "Calendário"
+#
 #
 #
 #
@@ -3682,9 +3725,24 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Seleccione Layout"
+#
+#
+#, fuzzy
+#~ msgid "Speed STW Avg."
+#~ msgstr "Velocidad"
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Speed STW Max."
+#~ msgstr "Mar de fondo"
+#
 #
 #
 #
@@ -4034,8 +4092,10 @@ msgstr ""
 #
 #
 #
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
 #
 #
 #
@@ -4266,9 +4326,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Ver"
+#
 #
 #
 #
@@ -4608,6 +4670,7 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Wave Peak"
 #~ msgstr "Oleaje"
@@ -4677,9 +4740,11 @@ msgstr ""
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Wind from"
 #~ msgstr "Viento"
+#
 #
 #
 #

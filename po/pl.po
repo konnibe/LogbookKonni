@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.6.1310\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-24 20:57+0200\n"
+"POT-Creation-Date: 2012-05-26 11:40+0200\n"
 "PO-Revision-Date: 2012-05-19 13:02+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
@@ -65,6 +65,22 @@ msgstr ""
 msgid "\""
 msgstr "\""
 #
+#
+#
+#
+#
+#, fuzzy
+msgid "#1 Total"
+msgstr "Woda łącznie"
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "#2 Total"
+msgstr "Woda łącznie"
+#
 msgid "'"
 msgstr "'"
 #
@@ -79,6 +95,10 @@ msgstr "0"
 #
 msgid "1. Watch of 1. Person"
 msgstr ""
+#
+#, fuzzy
+msgid ":0"
+msgstr "0"
 #
 msgid "AH #1 Total"
 msgstr ""
@@ -180,7 +200,19 @@ msgstr ""
 msgid "Bank #1"
 msgstr ""
 #
+msgid "Bank #1 gen."
+msgstr ""
+#
+msgid "Bank #1 used"
+msgstr ""
+#
 msgid "Bank #2"
+msgstr ""
+#
+msgid "Bank #2 gen."
+msgstr ""
+#
+msgid "Bank #2 used"
 msgstr ""
 #
 msgid "Barometer"
@@ -415,7 +447,8 @@ msgstr ""
 "Koniec\n"
 "VI wachty"
 #
-msgid "Engine"
+#, fuzzy
+msgid "Engine "
 msgstr "Motogodziny"
 #
 #, fuzzy
@@ -431,15 +464,6 @@ msgid ""
 "\n"
 "Demo - Rightclick-Menu 'use Testextblocks' for help"
 msgstr ""
-#
-#
-#
-#
-#
-msgid "EngineTotal"
-msgstr ""
-"Motogodziny\n"
-"łącznie"
 #
 msgid "Equipment"
 msgstr "Wyposażenie"
@@ -1164,16 +1188,6 @@ msgstr ""
 "Maksymalna\n"
 "prędkość"
 #
-msgid "Speed STW Avg."
-msgstr ""
-"Średnia\n"
-"Vw"
-#
-msgid "Speed STW Max."
-msgstr ""
-"Maksymalna\n"
-"Vw"
-#
 msgid "Start"
 msgstr "Początek"
 #
@@ -1374,12 +1388,19 @@ msgstr "Wachta"
 msgid "Water"
 msgstr "Woda"
 #
+#, fuzzy
+msgid "Water used"
+msgstr "Woda"
+#
 #
 #
 #
 #
 msgid "WaterTotal"
 msgstr "Woda łącznie"
+#
+msgid "Waterm. Outp"
+msgstr ""
 #
 #, fuzzy
 msgid "Watermaker"
@@ -1645,6 +1666,7 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -1655,6 +1677,17 @@ msgstr "wpisz własną etykietę"
 #~ "Nazwa Waypointa: %s\n"
 #~ "Namiar Rzeczywisty na cel: %4.1f%s\n"
 #~ "Odległość do celu: %4.2f%s"
+#
+#
+#
+#
+#
+#
+#~ msgid "EngineTotal"
+#~ msgstr ""
+#~ "Motogodziny\n"
+#~ "łącznie"
+#
 #
 #
 #
@@ -1742,9 +1775,11 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Nm"
 #~ msgstr "Nazwisko"
+#
 #
 #
 #
@@ -1790,6 +1825,19 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#
 #, fuzzy
 #~ msgid "Search.."
 #~ msgstr "Wybierz Dziennik"
+#
+#
+#~ msgid "Speed STW Avg."
+#~ msgstr ""
+#~ "Średnia\n"
+#~ "Vw"
+#
+#
+#~ msgid "Speed STW Max."
+#~ msgstr ""
+#~ "Maksymalna\n"
+#~ "Vw"

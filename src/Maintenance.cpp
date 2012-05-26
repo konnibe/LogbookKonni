@@ -89,13 +89,18 @@ Maintenance::Maintenance(LogbookDialog* d, wxString data, wxString layout, wxStr
 
 	setLayoutLocation();
 
-	m_choices[0] = dialog->m_gridGlobal->GetColLabelValue(6)+_T(" +"); // Distance/T
-	m_choices[1] = dialog->m_gridMotorSails->GetColLabelValue(1)+_T(" +"); // Motor/h
-	m_choices[2] = dialog->m_gridGlobal->GetColLabelValue(3); // Sign
-	m_choices[3] = _("Fix Date");
-	m_choices[4] = _("Date + Days");
-	m_choices[5] = _("Date + Weeks");
-	m_choices[6] = _("Date + Month");
+	m_choices[0] = dialog->m_gridGlobal->GetColLabelValue(6)+_T(" +");								// Distance/T
+	m_choices[1] = wxString(_("Engine "))+dialog->m_gridMotorSails->GetColLabelValue(1)+_T(" +");	// Motor1/h
+	m_choices[2] = wxString(_("Engine "))+dialog->m_gridMotorSails->GetColLabelValue(3)+_T(" +");	// Motor2/h
+	m_choices[3] = dialog->m_gridMotorSails->GetColLabelValue(8)+_T(" +");							// Generator/h
+	m_choices[4] = dialog->m_gridMotorSails->GetColLabelValue(10)+_T(" +");							// Bank1/AH
+	m_choices[5] = dialog->m_gridMotorSails->GetColLabelValue(12)+_T(" +");							// Bank2/AH
+	m_choices[6] = dialog->m_gridMotorSails->GetColLabelValue(14)+_T(" +");							// Watermaker/h
+	m_choices[7] = dialog->m_gridGlobal->GetColLabelValue(3);										// Sign
+	m_choices[8]  = _("Fix Date");
+	m_choices[9]  = _("Date + Days");
+	m_choices[10] = _("Date + Weeks");
+	m_choices[11] = _("Date + Month");
 
 	m_YesNo[0] = _("Yes"); 
 	m_YesNo[1] = _("No"); 
@@ -179,7 +184,7 @@ void Maintenance::addLine()
 	setAlignmentService();
 
 	grid->SetCellRenderer(lastRow, IF, new wxGridCellChoiceRenderer);
-	grid->SetCellEditor(lastRow,IF,new wxFastComboEditor(7,m_choices,true));
+	grid->SetCellEditor(lastRow,IF,new wxFastComboEditor(12,m_choices,true));
 
 	grid->SetCellRenderer(lastRow, ACTIVE, new wxGridCellChoiceRenderer);
 	grid->SetCellEditor(lastRow,ACTIVE,new wxFastComboEditor(2,m_YesNo,true));
@@ -410,10 +415,11 @@ void Maintenance::checkService(int row)
 	wxString g, yesno;
 	int choice = -1;
 	double startValue, warnValue, urgentValue;
-	double distanceTotal, motorTotal;
+	double distanceTotal, motorTotal, motorTotal2, generator, watermaker, bank1, bank2;
 	wxString sign, cell;
 	int border = 0;
 	wxColour rowBack;
+	int sailscol = dialog->logbook->sailsCol;
 
 	for(int r = 0; r < grid->GetNumberRows(); r++)
 	{
@@ -431,8 +437,18 @@ void Maintenance::checkService(int row)
 
 		cell = dialog->m_gridGlobal->GetCellValue(row,6);
 		cell.ToDouble(&distanceTotal);
-		cell = dialog->m_gridMotorSails->GetCellValue(row,1);
+		cell = dialog->m_gridMotorSails->GetCellValue(row,Logbook::MOTORT-sailscol);
 		cell.ToDouble(&motorTotal);
+		cell = dialog->m_gridMotorSails->GetCellValue(row,Logbook::MOTOR1T-sailscol);
+		cell.ToDouble(&motorTotal2);
+		cell = dialog->m_gridMotorSails->GetCellValue(row,Logbook::GENET-sailscol);
+		cell.ToDouble(&generator);
+		cell = dialog->m_gridMotorSails->GetCellValue(row,Logbook::WATERMT-sailscol);
+		cell.ToDouble(&watermaker);
+		cell = dialog->m_gridMotorSails->GetCellValue(row,Logbook::BANK1T-sailscol);
+		cell.ToDouble(&bank1);
+		cell = dialog->m_gridMotorSails->GetCellValue(row,Logbook::BANK2T-sailscol);
+		cell.ToDouble(&bank2);
 
 		if(g == m_choices[0])
 			choice = 0;
@@ -448,16 +464,27 @@ void Maintenance::checkService(int row)
 			choice = 5;
 		else if (g == m_choices[6])
 			choice = 6;
+		else if (g == m_choices[7])
+			choice = 7;
+		else if (g == m_choices[8])
+			choice = 8;
+		else if (g == m_choices[9])
+			choice = 9;
+		else if (g == m_choices[10])
+			choice = 10;
+		else if (g == m_choices[11])
+			choice = 11;
 
 		if(yesno != _("No"))
 		{
 			switch(choice)
 			{
-			case 0:
+			case 0: //Distance
 				if(distanceTotal >= startValue+urgentValue)
 				{
 					border = 2;
 					rowBack = red;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(red,row,Logbook::DTOTAL-sailscol);
 					break;
 				}
 				else if(distanceTotal >= startValue+warnValue)
@@ -465,16 +492,21 @@ void Maintenance::checkService(int row)
 					if(border != 2)
 						border = 1;
 					rowBack = yellow;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(yellow,row,Logbook::DTOTAL-sailscol);
 					break;
 				}
 				else
+				{
 					rowBack = green;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(white,row,Logbook::DTOTAL-sailscol);
+				}
 				break;
-			case 1:
+			case 1: // Engine #1
 				if(motorTotal >= startValue+urgentValue)
 				{
 					border = 2;
 					rowBack = red;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(red,row,Logbook::MOTORT-sailscol);
 					break;
 				}
 				else if(motorTotal >= startValue+warnValue)
@@ -482,22 +514,138 @@ void Maintenance::checkService(int row)
 					if(border != 2)
 						border = 1;
 					rowBack = yellow;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(yellow,row,Logbook::MOTORT-sailscol);
 					break;
 				}
 				else
+				{
 					rowBack = green;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(white,row,Logbook::MOTORT-sailscol);
+				}
 				break;
-			case 2:
+			case 2: // Engine #2
+				if(motorTotal2 >= startValue+urgentValue)
+				{
+					border = 2;
+					rowBack = red;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(red,row,Logbook::MOTOR1T-sailscol);
+					break;
+				}
+				else if(motorTotal2 >= startValue+warnValue)
+				{
+					if(border != 2)
+						border = 1;
+					rowBack = yellow;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(yellow,row,Logbook::MOTOR1T-sailscol);
+					break;
+				}
+				else
+				{
+					rowBack = green;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(white,row,Logbook::MOTOR1T-sailscol);
+				}
+				break;
+			case 3: // Generator
+				if(generator >= startValue+urgentValue)
+				{
+					border = 2;
+					rowBack = red;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(red,row,Logbook::GENET-sailscol);
+					break;
+				}
+				else if(generator >= startValue+warnValue)
+				{
+					if(border != 2)
+						border = 1;
+					rowBack = yellow;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(yellow,row,Logbook::GENET-sailscol);
+					break;
+				}
+				else
+				{
+					rowBack = green;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(white,row,Logbook::GENET-sailscol);
+				}
+				break;
+			case 4: // Bank #1
+				if(bank1 <= /*startValue-*/urgentValue)
+				{
+					border = 2;
+					rowBack = red;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(red,row,Logbook::BANK1T-sailscol);
+					break;
+				}
+				else if(bank1 <= /*startValue-*/warnValue)
+				{
+					if(border != 2)
+						border = 1;
+					rowBack = yellow;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(yellow,row,Logbook::BANK1T-sailscol);
+					break;
+				}
+				else
+				{
+					rowBack = green;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(white,row,Logbook::BANK1T-sailscol);
+				}
+				break;
+			case 5: // Bank #2
+				if(bank2 <= /*startValue-*/urgentValue)
+				{
+					border = 2;
+					rowBack = red;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(red,row,Logbook::BANK2T-sailscol);
+					break;
+				}
+				else if(bank2 <= /*startValue-*/warnValue)
+				{
+					if(border != 2)
+						border = 1;
+					rowBack = yellow;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(yellow,row,Logbook::BANK2T-sailscol);
+					break;
+				}
+				else
+				{
+					rowBack = green;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(white,row,Logbook::BANK2T-sailscol);
+				}
+				break;
+			case 6: // WaterMaker
+				if(watermaker >= startValue+urgentValue)
+				{
+					border = 2;
+					rowBack = red;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(red,row,Logbook::WATERMT-sailscol);
+					break;
+				}
+				else if(watermaker >= startValue+warnValue)
+				{
+					if(border != 2)
+						border = 1;
+					rowBack = yellow;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(yellow,row,Logbook::WATERMT-sailscol);
+					break;
+				}
+				{
+					rowBack = green;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(white,row,Logbook::WATERMT-sailscol);
+				}
+				break;
+			case 7: //Sign
 				if(grid->GetCellValue(r,URGENT) == dialog->m_gridGlobal->GetCellValue(row,3))
 				{
 					border = 2;
 					rowBack = red;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(red,row,Logbook::SIGN);
 					break;
 				}
-				else
+				{
 					rowBack = green;
+					dialog->m_gridMotorSails->SetCellBackgroundColour(white,row,Logbook::SIGN);
+				}
 				break;
-			case 3:	
+			case 8:	
 				date = grid->GetCellValue(r,URGENT);
 				dturgent.ParseDate(date);
 				date = grid->GetCellValue(r,WARN);
@@ -520,7 +668,7 @@ void Maintenance::checkService(int row)
 				else
 					rowBack = green;
 				break;
-			case 4:
+			case 9:
 				date = dialog->m_gridMaintanence->GetCellValue(r,START);
 				dtstart.ParseDate(date.data());
 				long days;
@@ -550,7 +698,7 @@ void Maintenance::checkService(int row)
 				else
 					rowBack = green;
 				break;
-			case 5:
+			case 10:
 				date = dialog->m_gridMaintanence->GetCellValue(r,START);
 				dtstart.ParseDate(date.data());
 				long weeks;
@@ -580,7 +728,7 @@ void Maintenance::checkService(int row)
 				else
 					rowBack = green;
 				break;
-			case 6:
+			case 11:
 				date = dialog->m_gridMaintanence->GetCellValue(r,START);
 				dtstart.ParseDate(date.data());
 				long month;
@@ -784,39 +932,81 @@ void Maintenance::setRowBackgroundBuyParts(int row, wxColour &c)
 
 void Maintenance::cellCollChanged(int col, int row)
 {
+	int sailscol = dialog->logbook->sailsCol;
+	
 	if(dialog->m_gridGlobal->GetNumberRows() == 0) return;
 
 	if(col == IF)
 	{
 		wxString g = grid->GetCellValue(selectedRow,IF);
 
-		if(g == m_choices[0])
+		if(g == m_choices[0]) // Distance
 		{
 					grid->SetCellValue(selectedRow,START,
 							dialog->m_gridGlobal->GetCellValue(
-							dialog->m_gridGlobal->GetNumberRows()-1,6));
+							dialog->m_gridGlobal->GetNumberRows()-1,Logbook::DTOTAL));
 						grid->SetCellValue(selectedRow,WARN,_T("1"));
 						grid->SetCellValue(selectedRow,URGENT,_T("2"));
 		}
-		else if (g == m_choices[1])
+		else if (g == m_choices[1]) //Engine #1
 		{
 						grid->SetCellValue(selectedRow,START,
 							dialog->m_gridMotorSails->GetCellValue(
-							dialog->m_gridMotorSails->GetNumberRows()-1,1));
+							dialog->m_gridMotorSails->GetNumberRows()-1,Logbook::MOTORT-sailscol));
 						grid->SetCellValue(selectedRow,WARN,_T("1"));
 						grid->SetCellValue(selectedRow,URGENT,_T("2"));
 		}
-		else if (g == m_choices[2])
+		else if (g == m_choices[2]) //Engine #2
+		{
+						grid->SetCellValue(selectedRow,START,
+							dialog->m_gridMotorSails->GetCellValue(
+							dialog->m_gridMotorSails->GetNumberRows()-1,Logbook::MOTOR1T-sailscol));
+						grid->SetCellValue(selectedRow,WARN,_T("1"));
+						grid->SetCellValue(selectedRow,URGENT,_T("2"));
+		}
+		else if (g == m_choices[3]) //Generator
+		{
+						grid->SetCellValue(selectedRow,START,
+							dialog->m_gridMotorSails->GetCellValue(
+							dialog->m_gridMotorSails->GetNumberRows()-1,Logbook::GENET-sailscol));
+						grid->SetCellValue(selectedRow,WARN,_T("1"));
+						grid->SetCellValue(selectedRow,URGENT,_T("2"));
+		}
+		else if (g == m_choices[4]) //Bank #1
+		{
+						grid->SetCellValue(selectedRow,START,
+							dialog->m_gridMotorSails->GetCellValue(
+							dialog->m_gridMotorSails->GetNumberRows()-1,Logbook::BANK1T-sailscol));
+						grid->SetCellValue(selectedRow,WARN,_T("1"));
+						grid->SetCellValue(selectedRow,URGENT,_T("2"));
+		}
+		else if (g == m_choices[5]) //Bank #2
+		{
+						grid->SetCellValue(selectedRow,START,
+							dialog->m_gridMotorSails->GetCellValue(
+							dialog->m_gridMotorSails->GetNumberRows()-1,Logbook::BANK2T-sailscol));
+						grid->SetCellValue(selectedRow,WARN,_T("1"));
+						grid->SetCellValue(selectedRow,URGENT,_T("2"));
+		}
+		else if (g == m_choices[6]) //Watermaker
+		{
+						grid->SetCellValue(selectedRow,START,
+							dialog->m_gridMotorSails->GetCellValue(
+							dialog->m_gridMotorSails->GetNumberRows()-1,Logbook::WATERMT-sailscol));
+						grid->SetCellValue(selectedRow,WARN,_T("1"));
+						grid->SetCellValue(selectedRow,URGENT,_T("2"));
+		}
+		else if (g == m_choices[7]) //Sign
 						grid->SetCellValue(selectedRow,WARN,
 							dialog->m_gridGlobal->GetCellValue(
-							dialog->m_gridGlobal->GetNumberRows()-1,3));
-		else if (g == m_choices[3])
+							dialog->m_gridGlobal->GetNumberRows()-1,Logbook::SIGN));
+		else if (g == m_choices[8])
 		{
 						grid->SetCellValue(selectedRow,START,_T(""));
 						grid->SetCellValue(selectedRow,WARN,  (wxDateTime::Now().Add(wxDateSpan(0,0,0,1))).FormatDate());
 						grid->SetCellValue(selectedRow,URGENT,(wxDateTime::Now().Add(wxDateSpan(0,0,0,1))).FormatDate());
 		}
-		else if (g == m_choices[4] || g == m_choices[5] || g == m_choices[6])
+		else if (g == m_choices[9] || g == m_choices[10] || g == m_choices[11])
 		{
 						grid->SetCellValue(selectedRow,START,wxDateTime::Now().FormatDate());
 						grid->SetCellValue(selectedRow,WARN,_T("1"));
@@ -831,7 +1021,10 @@ void Maintenance::cellCollChanged(int col, int row)
 
 		wxString g = grid->GetCellValue(row,IF);
 
-		if(g == m_choices[0] || g == m_choices[1])
+		if(g == m_choices[0] || g == m_choices[1] || // Distance || Engine #1
+		   g == m_choices[2] || g == m_choices[3] || // Engine #2 || Generator
+		   g == m_choices[4] || g == m_choices[5] || // Bank 1 || Bank2
+		   g == m_choices[6] )                       // Watermaker
 		{
 			wxString s = grid->GetCellValue(row,START);
 			s = s.substr(s.find_last_of(' '));
@@ -839,7 +1032,7 @@ void Maintenance::cellCollChanged(int col, int row)
 			grid->GetCellValue(row,col).ToDouble(&d);
 			ss = wxString::Format(_T("%5.0f %s"),d,s.c_str());
 		}
-		else if(g == m_choices[4] || g == m_choices[5] || g == m_choices[6])
+		else if(g == m_choices[9] || g == m_choices[10] || g == m_choices[11])
 		{
 			wxString s;
 			if(g == m_choices[4])

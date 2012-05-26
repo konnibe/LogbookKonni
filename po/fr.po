@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-24 20:57+0200\n"
+"POT-Creation-Date: 2012-05-26 11:40+0200\n"
 "PO-Revision-Date: 2012-04-11 16:28+0100\n"
 "Last-Translator: Gilletarom <gilletarom@netpratique.fr>\n"
 "Language-Team: \n"
@@ -57,6 +57,26 @@ msgstr ""
 msgid "\""
 msgstr "\""
 #
+#
+#
+#
+#
+#, fuzzy
+msgid "#1 Total"
+msgstr ""
+"Total\n"
+"eau"
+#
+#
+#
+#
+#
+#, fuzzy
+msgid "#2 Total"
+msgstr ""
+"Total\n"
+"eau"
+#
 msgid "'"
 msgstr "'"
 #
@@ -82,6 +102,21 @@ msgstr "0"
 #
 msgid "1. Watch of 1. Person"
 msgstr "1. Watch of 1. Person"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid ":0"
+msgstr "0"
 #
 msgid "AH #1 Total"
 msgstr ""
@@ -193,7 +228,19 @@ msgstr ""
 msgid "Bank #1"
 msgstr ""
 #
+msgid "Bank #1 gen."
+msgstr ""
+#
+msgid "Bank #1 used"
+msgstr ""
+#
 msgid "Bank #2"
+msgstr ""
+#
+msgid "Bank #2 gen."
+msgstr ""
+#
+msgid "Bank #2 used"
 msgstr ""
 #
 msgid "Barometer"
@@ -448,7 +495,8 @@ msgstr ""
 "Quart 6 :\n"
 "Fin"
 #
-msgid "Engine"
+#, fuzzy
+msgid "Engine "
 msgstr "Moteur"
 #
 #, fuzzy
@@ -464,13 +512,6 @@ msgid ""
 "\n"
 "Demo - Rightclick-Menu 'use Testextblocks' for help"
 msgstr ""
-#
-#
-#
-#
-#
-msgid "EngineTotal"
-msgstr "Total moteur"
 #
 msgid "Equipment"
 msgstr "Equipement"
@@ -1248,16 +1289,6 @@ msgstr ""
 "Vitesse\n"
 "maximale"
 #
-msgid "Speed STW Avg."
-msgstr ""
-"Vitesse/eau\n"
-"moyenne"
-#
-msgid "Speed STW Max."
-msgstr ""
-"Vitesse/eau\n"
-"maximale"
-#
 msgid "Start"
 msgstr "Début"
 #
@@ -1462,6 +1493,10 @@ msgstr "Visé par"
 msgid "Water"
 msgstr "Eau"
 #
+#, fuzzy
+msgid "Water used"
+msgstr "Eau"
+#
 #
 #
 #
@@ -1470,6 +1505,9 @@ msgid "WaterTotal"
 msgstr ""
 "Total\n"
 "eau"
+#
+msgid "Waterm. Outp"
+msgstr ""
 #
 #, fuzzy
 msgid "Watermaker"
@@ -1748,6 +1786,7 @@ msgstr "Ecrire votre  propre \"étiquette\" "
 #
 #
 #
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -1764,6 +1803,15 @@ msgstr "Ecrire votre  propre \"étiquette\" "
 #
 #
 #
+#~ msgid "EngineTotal"
+#~ msgstr "Total moteur"
+#
+#
+#
+#
+#
+#
+#
 #
 #~ msgid ""
 #~ "Please enter like 1.30 or 1,30 or 1:30\n"
@@ -1771,3 +1819,15 @@ msgstr "Ecrire votre  propre \"étiquette\" "
 #~ msgstr ""
 #~ "Veuillez entrer 1.30 or 1,30 or 1:30\n"
 #~ "pour 1:30h"
+#
+#
+#~ msgid "Speed STW Avg."
+#~ msgstr ""
+#~ "Vitesse/eau\n"
+#~ "moyenne"
+#
+#
+#~ msgid "Speed STW Max."
+#~ msgstr ""
+#~ "Vitesse/eau\n"
+#~ "maximale"
