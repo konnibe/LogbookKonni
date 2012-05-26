@@ -93,8 +93,8 @@ Maintenance::Maintenance(LogbookDialog* d, wxString data, wxString layout, wxStr
 	m_choices[1] = wxString(_("Engine "))+dialog->m_gridMotorSails->GetColLabelValue(1)+_T(" +");	// Motor1/h
 	m_choices[2] = wxString(_("Engine "))+dialog->m_gridMotorSails->GetColLabelValue(3)+_T(" +");	// Motor2/h
 	m_choices[3] = dialog->m_gridMotorSails->GetColLabelValue(8)+_T(" +");							// Generator/h
-	m_choices[4] = dialog->m_gridMotorSails->GetColLabelValue(10)+_T(" +");							// Bank1/AH
-	m_choices[5] = dialog->m_gridMotorSails->GetColLabelValue(12)+_T(" +");							// Bank2/AH
+	m_choices[4] = dialog->m_gridMotorSails->GetColLabelValue(10)+_T(" =");							// Bank1/AH
+	m_choices[5] = dialog->m_gridMotorSails->GetColLabelValue(12)+_T(" =");							// Bank2/AH
 	m_choices[6] = dialog->m_gridMotorSails->GetColLabelValue(14)+_T(" +");							// Watermaker/h
 	m_choices[7] = dialog->m_gridGlobal->GetColLabelValue(3);										// Sign
 	m_choices[8]  = _("Fix Date");
@@ -498,7 +498,8 @@ void Maintenance::checkService(int row)
 				else
 				{
 					rowBack = green;
-					dialog->m_gridMotorSails->SetCellBackgroundColour(white,row,Logbook::DTOTAL-sailscol);
+					for(int i = 0; i < dialog->m_gridGlobal->GetNumberRows(); i++)
+						dialog->m_gridMotorSails->SetCellBackgroundColour(white,i,Logbook::DTOTAL-sailscol);
 				}
 				break;
 			case 1: // Engine #1
@@ -520,7 +521,8 @@ void Maintenance::checkService(int row)
 				else
 				{
 					rowBack = green;
-					dialog->m_gridMotorSails->SetCellBackgroundColour(white,row,Logbook::MOTORT-sailscol);
+					for(int i = 0; i < dialog->m_gridMotorSails->GetNumberRows(); i++)
+						dialog->m_gridMotorSails->SetCellBackgroundColour(white,i,Logbook::MOTORT-sailscol);
 				}
 				break;
 			case 2: // Engine #2
@@ -542,7 +544,8 @@ void Maintenance::checkService(int row)
 				else
 				{
 					rowBack = green;
-					dialog->m_gridMotorSails->SetCellBackgroundColour(white,row,Logbook::MOTOR1T-sailscol);
+					for(int i = 0; i < dialog->m_gridMotorSails->GetNumberRows(); i++)
+						dialog->m_gridMotorSails->SetCellBackgroundColour(white,i,Logbook::MOTOR1T-sailscol);
 				}
 				break;
 			case 3: // Generator
@@ -564,7 +567,8 @@ void Maintenance::checkService(int row)
 				else
 				{
 					rowBack = green;
-					dialog->m_gridMotorSails->SetCellBackgroundColour(white,row,Logbook::GENET-sailscol);
+					for(int i = 0; i < dialog->m_gridMotorSails->GetNumberRows(); i++)
+						dialog->m_gridMotorSails->SetCellBackgroundColour(white,i,Logbook::GENET-sailscol);
 				}
 				break;
 			case 4: // Bank #1
@@ -586,7 +590,8 @@ void Maintenance::checkService(int row)
 				else
 				{
 					rowBack = green;
-					dialog->m_gridMotorSails->SetCellBackgroundColour(white,row,Logbook::BANK1T-sailscol);
+					for(int i = 0; i < dialog->m_gridMotorSails->GetNumberRows(); i++)
+						dialog->m_gridMotorSails->SetCellBackgroundColour(white,i,Logbook::BANK1T-sailscol);
 				}
 				break;
 			case 5: // Bank #2
@@ -608,7 +613,8 @@ void Maintenance::checkService(int row)
 				else
 				{
 					rowBack = green;
-					dialog->m_gridMotorSails->SetCellBackgroundColour(white,row,Logbook::BANK2T-sailscol);
+					for(int i = 0; i < dialog->m_gridMotorSails->GetNumberRows(); i++)
+						dialog->m_gridMotorSails->SetCellBackgroundColour(white,i,Logbook::BANK2T-sailscol);
 				}
 				break;
 			case 6: // WaterMaker
@@ -629,7 +635,8 @@ void Maintenance::checkService(int row)
 				}
 				{
 					rowBack = green;
-					dialog->m_gridMotorSails->SetCellBackgroundColour(white,row,Logbook::WATERMT-sailscol);
+					for(int i = 0; i < dialog->m_gridMotorSails->GetNumberRows(); i++)
+						dialog->m_gridMotorSails->SetCellBackgroundColour(white,i,Logbook::WATERMT-sailscol);
 				}
 				break;
 			case 7: //Sign
@@ -642,7 +649,8 @@ void Maintenance::checkService(int row)
 				}
 				{
 					rowBack = green;
-					dialog->m_gridMotorSails->SetCellBackgroundColour(white,row,Logbook::SIGN);
+					for(int i = 0; i < dialog->m_gridMotorSails->GetNumberRows(); i++)
+						dialog->m_gridMotorSails->SetCellBackgroundColour(white,i,Logbook::SIGN);
 				}
 				break;
 			case 8:	
@@ -859,6 +867,7 @@ void Maintenance::setBuyPartsPriority(wxGrid *grid ,int row, int p, int t)
 
 void Maintenance::setRowDone(int row)
 {
+	int sailscol = dialog->logbook->sailsCol;
 	wxString g = grid->GetCellValue(selectedRow,IF);
 	int choice = -1;
 
@@ -876,30 +885,65 @@ void Maintenance::setRowDone(int row)
 			choice = 5;
 	else if (g == m_choices[6])
 			choice = 6;
+	else if (g == m_choices[7])
+			choice = 7;
+	else if (g == m_choices[8])
+			choice = 8;
+	else if (g == m_choices[9])
+			choice = 9;
+	else if (g == m_choices[10])
+			choice = 10;
+	else if (g == m_choices[11])
+			choice = 11;
 
 	switch(choice)
 	{
 	case 0:
 		grid->SetCellValue(selectedRow,START,
 		  			   dialog->m_gridGlobal->GetCellValue(
-					   dialog->m_gridGlobal->GetNumberRows()-1,6));
+					   dialog->m_gridGlobal->GetNumberRows()-1,Logbook::DTOTAL));
 		break;
 	case 1:
 		grid->SetCellValue(selectedRow,START,
 			dialog->m_gridMotorSails->GetCellValue(
-					   dialog->m_gridGlobal->GetNumberRows()-1,1));
+			dialog->m_gridGlobal->GetNumberRows()-1,Logbook::MOTORT-sailscol));
 		break;
 	case 2:
+		grid->SetCellValue(selectedRow,START,
+			dialog->m_gridMotorSails->GetCellValue(
+			dialog->m_gridGlobal->GetNumberRows()-1,Logbook::MOTOR1T-sailscol));
+		break;
+	case 3:
+		grid->SetCellValue(selectedRow,START,
+			dialog->m_gridMotorSails->GetCellValue(
+			dialog->m_gridGlobal->GetNumberRows()-1,Logbook::GENET-sailscol));
+		break;
+	case 4:
+		grid->SetCellValue(selectedRow,START,
+			dialog->m_gridMotorSails->GetCellValue(
+			dialog->m_gridGlobal->GetNumberRows()-1,Logbook::BANK1T-sailscol));
+		break;
+	case 5:
+		grid->SetCellValue(selectedRow,START,
+			dialog->m_gridMotorSails->GetCellValue(
+			dialog->m_gridGlobal->GetNumberRows()-1,Logbook::BANK2T-sailscol));
+		break;
+	case 6:
+		grid->SetCellValue(selectedRow,START,
+			dialog->m_gridMotorSails->GetCellValue(
+			dialog->m_gridGlobal->GetNumberRows()-1,Logbook::WATERMT-sailscol));
+		break;
+	case 7:
 		grid->SetCellValue(selectedRow,ACTIVE,_("No"));
 		checkService(dialog->m_gridGlobal->GetNumberRows()-1);
 		break;
-	case 3:
+	case 8:
 		grid->SetCellValue(selectedRow,ACTIVE,_("No"));
 		grid->SetCellValue(selectedRow,WARN,wxDateTime::Now().FormatDate());
 		grid->SetCellValue(selectedRow,URGENT,wxDateTime::Now().FormatDate());
-	case 4:
-	case 5:
-	case 6:
+	case 9:
+	case 10:
+	case 11:
 		grid->SetCellValue(selectedRow,START,wxDateTime::Now().FormatDate());
 		break;
 	}

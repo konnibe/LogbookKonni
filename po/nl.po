@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-26 11:40+0200\n"
+"POT-Creation-Date: 2012-05-26 12:35+0200\n"
 "PO-Revision-Date: 2012-04-14 17:50+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: rider2@kpnmail.nl <rider2@kpnmail.nl>\n"
@@ -1708,6 +1708,11 @@ msgstr "Maak eigen veldnaam"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -1724,8 +1729,18 @@ msgstr "Maak eigen veldnaam"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "EngineTotal"
 #~ msgstr "Ttl motor"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1742,10 +1757,20 @@ msgstr "Maak eigen veldnaam"
 #~ "in voor 01:30 u"
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Speed STW Avg."
 #~ msgstr ""
 #~ "STW\n"
 #~ "(gem.)"
+#
+#
+#
+#
+#
 #
 #
 #~ msgid "Speed STW Max."

@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-26 11:40+0200\n"
+"POT-Creation-Date: 2012-05-26 12:35+0200\n"
 "PO-Revision-Date: 2012-04-11 16:28+0100\n"
 "Last-Translator: Gilletarom <gilletarom@netpratique.fr>\n"
 "Language-Team: \n"
@@ -1787,6 +1787,11 @@ msgstr "Ecrire votre  propre \"étiquette\" "
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -1803,8 +1808,18 @@ msgstr "Ecrire votre  propre \"étiquette\" "
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "EngineTotal"
 #~ msgstr "Total moteur"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1821,10 +1836,20 @@ msgstr "Ecrire votre  propre \"étiquette\" "
 #~ "pour 1:30h"
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Speed STW Avg."
 #~ msgstr ""
 #~ "Vitesse/eau\n"
 #~ "moyenne"
+#
+#
+#
+#
+#
 #
 #
 #~ msgid "Speed STW Max."

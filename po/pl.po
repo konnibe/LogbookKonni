@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.6.1310\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-26 11:40+0200\n"
+"POT-Creation-Date: 2012-05-26 12:35+0200\n"
 "PO-Revision-Date: 2012-05-19 13:02+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
@@ -1667,6 +1667,11 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -1683,10 +1688,20 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "EngineTotal"
 #~ msgstr ""
 #~ "Motogodziny\n"
 #~ "łącznie"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1776,9 +1791,19 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Nm"
 #~ msgstr "Nazwisko"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1826,15 +1851,30 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Search.."
 #~ msgstr "Wybierz Dziennik"
+#
+#
+#
+#
+#
 #
 #
 #~ msgid "Speed STW Avg."
 #~ msgstr ""
 #~ "Średnia\n"
 #~ "Vw"
+#
+#
+#
+#
+#
 #
 #
 #~ msgid "Speed STW Max."

@@ -1765,7 +1765,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 							x =1;
 						if(row < dialog->m_gridMotorSails->GetNumberRows()-1)
 							computeCell(grid,row+1,col-x,dialog->m_gridMotorSails->GetCellValue(row+1,col-x),false);
-						if(row == dialog->m_gridGlobal->GetNumberRows()-1)
+						//if(row == dialog->m_gridGlobal->GetNumberRows()-1)
 									dialog->maintenance->checkService(row);
 					}
 	else if(grid == 2 && ( col == FUEL-sailsCol    || col == WATER-sailsCol || 
@@ -1799,7 +1799,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						}
 
 						computeCell(grid, row, col,s, false);
-						if(row == dialog->m_gridGlobal->GetNumberRows()-1)
+						//if(row == dialog->m_gridGlobal->GetNumberRows()-1)
 									dialog->maintenance->checkService(row);
 					}
 	return;
