@@ -117,8 +117,9 @@ void CrewList::loadData()
 		gridCrew->SetCellAlignment(wxALIGN_CENTRE,numRows,0);
 
 		wxStringTokenizer tkz(line, _T("\t"),wxTOKEN_RET_EMPTY);
-		int c; 
-		if(tkz.CountTokens() == 14)
+		int c;
+		int colCount = gridCrew->GetNumberCols();
+		if(tkz.CountTokens() != colCount)
 			{ c = 1; newCol = true; }
 		else
 			{ c = 0; newCol = false; }
@@ -131,6 +132,7 @@ void CrewList::loadData()
 			s = dialog->restoreDangerChar(s);
 
 			grid->SetCellValue(numRows,c++,s);
+			if(c == colCount) break;
 		}
 
 		if(newCol)
