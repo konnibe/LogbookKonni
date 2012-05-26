@@ -1573,7 +1573,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 							s.Replace(_T(","),_T("."));
 							s.ToDouble(&d);
 							int h = (int) d;
-							int m = 60*(d - h);
+							int m = (60*(d - h));
 							s = wxString::Format(_T("%i:%i"),h,m);
 
 						}
@@ -1594,8 +1594,8 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						tkz1.GetNextToken().ToDouble(&hc);
 						tkz1.GetNextToken().ToDouble(&mc);
 
-						hc_ = hc + (mc*(100/60)/100);
-						hp_ = hp + (mp*(100/60)/100);
+						hc_ = hc + ((mc*(100.0/60.0))/100);
+						hp_ = hp + ((mp*(100.0/60.0))/100);
 
 						res = hc_ - hp_;
 
@@ -1793,10 +1793,10 @@ wxString  Logbook::decimalToHours(double res,bool b)
 {
 	int h = (int) res;
 	double m = res - h;
-	//m = m * (60/100) * 100;
+	m = m * (60.0/100.0)*100;
 
 	wxString fmt = (b)?_T("%05i:%02.0f %s"):_T("%02i:%02.0f %s");
-	wxString str =  wxString::Format(fmt,h,m*100,opt->motorh.c_str());
+	wxString str =  wxString::Format(fmt,h,m,opt->motorh.c_str());
 	return str;
 }
 
