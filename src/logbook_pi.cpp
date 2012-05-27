@@ -653,17 +653,12 @@ void logbookkonni_pi::OnToolbarToolCallback(int id)
         m_plogbook_window = new LogbookDialog(this, m_timer, m_parent_window, wxID_ANY,_("Active Logbook"), wxDefaultPosition, wxSize( opt->dlgWidth,opt->dlgHeight ), wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER);
 		m_plogbook_window->init();
 		this->m_plogbook_window->CenterOnParent();
-		//m_plogbook_window->SetPosition(wxPoint(-1,this->m_parent_window->GetParent()->GetPosition().y+80));
 	}
 	else
-	//	m_plogbook_window->Centre();
-	{
 		if(m_plogbook_window->IsIconized()) m_plogbook_window->Iconize(false);
-		//m_plogbook_window->SetPosition(wxPoint(-1,this->m_parent_window->GetParent()->GetPosition().y+80));
-	}
 	
 	m_plogbook_window->Show(); 
-			this->m_plogbook_window->CenterOnParent();
+    m_plogbook_window->CenterOnParent();
 	m_plogbook_window->SetFocus();
 
     if (m_plogbook_window->IsShown())

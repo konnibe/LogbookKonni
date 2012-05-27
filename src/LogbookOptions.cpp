@@ -1412,7 +1412,7 @@ void LogbookOptions::onTextEnterm_sKmh( wxCommandEvent& ev )
 
 void LogbookOptions::onTextm_sLiter( wxCommandEvent& event )
 {
-	wxString t = opt->watermaker + _T(" ") + m_sLiter->GetValue() + _T("/") + opt->motorh;
+	wxString t = opt->watermaker + _T(" ") + m_sLiter->GetValue().c_str() + _T("/") + opt->motorh.c_str();
 	this->m_textCtrlWatermaker->SetValue(t);
 }
 
@@ -1422,7 +1422,7 @@ void LogbookOptions::OnTextEnterm_textCtrlWatermaker( wxCommandEvent& event )
 	wxString t = m_textCtrlWatermaker->GetValue();
 	t.ToLong(&a);
 	m_textCtrlWatermaker->Clear();
-	t = wxString::Format(_T("%i %s/%s"),a, m_sLiter->GetValue(),opt->motorh.c_str());
+	t = wxString::Format(_T("%i %s/%s"),a, m_sLiter->GetValue().c_str(),opt->motorh.c_str());
 
 	m_textCtrlWatermaker->SetValue(t);
 	m_textCtrlTankFuel->SetFocus();
@@ -1434,7 +1434,7 @@ void LogbookOptions::OnTextEnterFuelTank( wxCommandEvent& event )
 	wxString t = m_textCtrlTankFuel->GetValue();
 	t.ToLong(&a);
 	m_textCtrlTankFuel->Clear();
-	t = wxString::Format(_T("%i %s"),a, m_sLiter->GetValue());
+	t = wxString::Format(_T("%i %s"),a, m_sLiter->GetValue().c_str());
 
 	m_textCtrlTankFuel->SetValue(t);
 	m_textCtrlBank1->SetFocus();
@@ -1446,7 +1446,7 @@ void LogbookOptions::OnTextEnterWaterTank( wxCommandEvent& event )
 	wxString t = m_textCtrlTankWater->GetValue();
 	t.ToLong(&a);
 	m_textCtrlTankWater->Clear();
-	t = wxString::Format(_T("%i %s"),a, m_sLiter->GetValue());
+	t = wxString::Format(_T("%i %s"),a, m_sLiter->GetValue().c_str());
 
 	m_textCtrlTankWater->SetValue(t);
 	m_textCtrlWatermaker->SetFocus();
@@ -1458,7 +1458,7 @@ void LogbookOptions::OnTextEnterBank1( wxCommandEvent& event )
 	wxString t = m_textCtrlBank1->GetValue();
 	t.ToLong(&a);
 	m_textCtrlBank1->Clear();
-	t = wxString::Format(_T("%i %s"),a, opt->ampereh);
+	t = wxString::Format(_T("%i %s"),a, opt->ampereh.c_str());
 
 	m_textCtrlBank1->SetValue(t);
 	m_textCtrlBank2->SetFocus();
@@ -1470,7 +1470,7 @@ void LogbookOptions::onTextEnterBank2( wxCommandEvent& event )
 	wxString t = m_textCtrlBank2->GetValue();
 	t.ToLong(&a);
 	m_textCtrlBank2->Clear();
-	t = wxString::Format(_T("%i %s"),a, opt->ampereh);
+	t = wxString::Format(_T("%i %s"),a, opt->ampereh.c_str());
 
 	m_textCtrlBank2->SetValue(t);
 	m_textCtrlTankWater->SetFocus();
