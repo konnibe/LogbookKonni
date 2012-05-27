@@ -390,16 +390,9 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_staticText99->Wrap( -1 );
 	m_staticText99->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), 70, 90, 92, false, wxEmptyString ) );
 	m_staticText99->SetMinSize( wxSize( 150,-1 ) );
-	
 	fgSizer44->Add( m_staticText99, 0, wxALL, 0 );
-	
-	
 	fgSizer44->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer44->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer44->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 	m_staticText100 = new wxStaticText( m_panel20, wxID_ANY, _("Tank"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -439,16 +432,9 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_staticText96->Wrap( -1 );
 	m_staticText96->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), 70, 90, 92, false, wxEmptyString ) );
 	m_staticText96->SetMinSize( wxSize( 150,-1 ) );
-	
 	fgSizer43->Add( m_staticText96, 0, wxALL, 0 );
-	
-	
 	fgSizer43->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer43->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer43->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 	m_staticText97 = new wxStaticText( m_panel20, wxID_ANY, _("Tank"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -474,16 +460,9 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_staticText104->Wrap( -1 );
 	m_staticText104->SetFont( wxFont( wxNORMAL_FONT->GetPointSize(), 70, 90, 92, false, wxEmptyString ) );
 	m_staticText104->SetMinSize( wxSize( 150,-1 ) );
-	
 	fgSizer45->Add( m_staticText104, 0, wxALL, 0 );
-	
-	
 	fgSizer45->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer45->Add( 0, 0, 1, wxEXPAND, 5 );
-	
-	
 	fgSizer45->Add( 0, 0, 1, wxEXPAND, 5 );
 	
 	m_staticText105 = new wxStaticText( m_panel20, wxID_ANY, _("Bank #1"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -1175,8 +1154,8 @@ void LogbookOptions::getValues()
 	opt->tsec  = m_textCtrlTimerS->GetValue();
 	opt->ttext = m_timerText->GetValue();
 
-	opt->timerSec = (wxAtol(opt->thour)* 3600 +
-					 wxAtol(opt->tmin) *60 +
+	opt->timerSec = (wxAtol(opt->thour)* 3600000 +
+					 wxAtol(opt->tmin) *60000 +
 					 wxAtol(opt->tsec) * 1000);
 
 	opt->Deg = m_sDeg->GetValue();
@@ -1243,8 +1222,8 @@ void LogbookOptions::getValues()
 
 void LogbookOptions::m_checkBoxTimerOnCheckBox( wxCommandEvent& ev )
 {
-	opt->timerSec = (wxAtol(m_textCtrTimerH->GetValue())* 3600000 +
-					 wxAtol(m_textCtrlTimerM->GetValue()) * 60000 +
+	opt->timerSec = (wxAtol(m_textCtrTimerH->GetValue())  * 3600000 +
+					 wxAtol(m_textCtrlTimerM->GetValue()) * 60000   +
 					 wxAtol(m_textCtrlTimerS->GetValue()) * 1000);
 
 	long sec = opt->timerSec;
@@ -1263,35 +1242,40 @@ void LogbookOptions::m_checkBoxTimerOnCheckBox( wxCommandEvent& ev )
 
 	if(ev.IsChecked())
 	{
+		opt->thour = m_textCtrTimerH->GetValue();
+		opt->tmin  = m_textCtrlTimerM->GetValue();
+		opt->tsec  = m_textCtrlTimerS->GetValue();
+
 		m_textCtrTimerH->Enable(false);
 		m_textCtrlTimerM->Enable(false);
 		m_textCtrlTimerS->Enable(false);
 		this->opt->timer = true;
 
+		log_pi->m_plogbook_window->setTitleExt();
 		if(log_pi->m_plogbook_window == NULL)
 		{
 			log_pi->m_plogbook_window =
-				new LogbookDialog(log_pi, log_pi->m_timer, log_pi->m_parent_window, wxID_ANY,_("Active Logbook"), wxDefaultPosition, wxSize( opt->dlgWidth,opt->dlgHeight ), wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER);					log_pi->m_plogbook_window->init();
+				new LogbookDialog(log_pi, log_pi->m_timer, log_pi->m_parent_window, wxID_ANY,_("Active Logbook"), wxDefaultPosition, wxSize( opt->dlgWidth,opt->dlgHeight ), wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER);					
+		    log_pi->m_plogbook_window->init();
 		}
 		else
-		{
-			log_pi->m_plogbook_window->setTitleExt();
 			log_pi->m_plogbook_window->SetTitle(log_pi->m_plogbook_window->GetTitle()+ log_pi->m_plogbook_window->titleExt);
-		}
 
 		log_pi->m_timer->Start(sec);
 	}
 	else
 	{
+		if(log_pi->m_timer->IsRunning())
+			log_pi->m_timer->Stop();
+
 		m_textCtrTimerH->Enable(true);
 		m_textCtrlTimerM->Enable(true);
 		m_textCtrlTimerS->Enable(true);
+
 		this->opt->timer = false;
+
 		if(log_pi->m_plogbook_window != NULL)
-		{
-			log_pi->m_timer->Stop();
 			log_pi->m_plogbook_window->SetTitle(log_pi->m_plogbook_window->GetTitle().BeforeFirst(' '));
-		}
 	}
 }
 
@@ -1434,37 +1418,62 @@ void LogbookOptions::onTextm_sLiter( wxCommandEvent& event )
 
 void LogbookOptions::OnTextEnterm_textCtrlWatermaker( wxCommandEvent& event )
 {
+	long a;
 	wxString t = m_textCtrlWatermaker->GetValue();
-	t = t.substr(0,t.find_first_of(' '))+ _T(" ") + m_sLiter->GetValue() + _T("/") + opt->motorh;
+	t.ToLong(&a);
+	m_textCtrlWatermaker->Clear();
+	t = wxString::Format(_T("%i %s/%s"),a, m_sLiter->GetValue(),opt->motorh.c_str());
+
 	m_textCtrlWatermaker->SetValue(t);
+	m_textCtrlTankFuel->SetFocus();
 }
 
 void LogbookOptions::OnTextEnterFuelTank( wxCommandEvent& event )
 {
+	long a;
 	wxString t = m_textCtrlTankFuel->GetValue();
-	t = t.substr(0,t.find_first_of(' '))+ _T(" ") + m_sLiter->GetValue();
+	t.ToLong(&a);
+	m_textCtrlTankFuel->Clear();
+	t = wxString::Format(_T("%i %s"),a, m_sLiter->GetValue());
+
 	m_textCtrlTankFuel->SetValue(t);
+	m_textCtrlBank1->SetFocus();
 }
 
 void LogbookOptions::OnTextEnterWaterTank( wxCommandEvent& event )
 {
+	long a;
 	wxString t = m_textCtrlTankWater->GetValue();
-	t = t.substr(0,t.find_first_of(' '))+ _T(" ") + m_sLiter->GetValue();
+	t.ToLong(&a);
+	m_textCtrlTankWater->Clear();
+	t = wxString::Format(_T("%i %s"),a, m_sLiter->GetValue());
+
 	m_textCtrlTankWater->SetValue(t);
+	m_textCtrlWatermaker->SetFocus();
 }
 
 void LogbookOptions::OnTextEnterBank1( wxCommandEvent& event )
 {
+	long a;
 	wxString t = m_textCtrlBank1->GetValue();
-	t = t.substr(0,t.find_first_of(' '))+ _T(" ") + opt->ampereh;
+	t.ToLong(&a);
+	m_textCtrlBank1->Clear();
+	t = wxString::Format(_T("%i %s"),a, opt->ampereh);
+
 	m_textCtrlBank1->SetValue(t);
+	m_textCtrlBank2->SetFocus();
 }
 
 void LogbookOptions::onTextEnterBank2( wxCommandEvent& event )
 {
+	long a;
 	wxString t = m_textCtrlBank2->GetValue();
-	t = t.substr(0,t.find_first_of(' '))+ _T(" ") + opt->ampereh;
+	t.ToLong(&a);
+	m_textCtrlBank2->Clear();
+	t = wxString::Format(_T("%i %s"),a, opt->ampereh);
+
 	m_textCtrlBank2->SetValue(t);
+	m_textCtrlTankWater->SetFocus();
 }
 
 void LogbookOptions::onCeckBoxShowAllLayouts( wxCommandEvent& event )

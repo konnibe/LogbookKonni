@@ -62,6 +62,7 @@
 #define MENUCREWALL				512
 #define MENUCREWONBOARD			513
 
+
 #define GPSTIMEOUT 5000
 #define LOGSAVETIME 600000
 ///////////////////////////////////////////////////////////////////////////////
@@ -302,6 +303,7 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,
 		virtual void m_gridEquipmentOnGridCellChange( wxGridEvent& event ) ;
 		virtual void m_gridEquipmentOnGridCellRightClick( wxGridEvent& event ) ;
 		virtual void m_menuItem3OnMenuSelection( wxCommandEvent& event ) ;
+		virtual void OnMenuSelectionTimerInterval( wxCommandEvent& event );
 		virtual void OnMenuSelectionShowHiddenCols( wxCommandEvent& event );
 		virtual void onButtobClickAddLineService( wxCommandEvent& event ) ;
 		virtual void onButtobClickSaveService( wxCommandEvent& event ) ;
@@ -791,5 +793,44 @@ private:
 	wxTreeCtrl* m_pSender;
 	ColdFinger* dialog;
 };
+
+#include <wx/artprov.h>
+#include <wx/xrc/xmlres.h>
+#include <wx/spinctrl.h>
+#include <wx/gdicmn.h>
+////////////// Timer-Interval Dialog ///////////
+class TimerInterval : public wxDialog 
+{
+	private:
+		wxSpinCtrl* m_spinCtrlH;
+		wxStaticText* m_staticTextH;
+		wxSpinCtrl* m_spinCtrlM;
+		wxStaticText* m_staticTextM;
+		wxSpinCtrl* m_spinCtrlS;
+		wxStaticText* m_staticTextS;
+
+		Options* opt;
+		LogbookDialog* dialog;
+		bool timerruns;
+
+		void init(Options* opt, LogbookDialog* dialog);
+	
+	protected:
+		wxStdDialogButtonSizer* m_sdbSizer9;
+		wxButton* m_sdbSizer9OK;
+		wxButton* m_sdbSizer9Cancel;
+		
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnButtonOKClick( wxCommandEvent& event );
+		
+	
+	public:
+		
+		TimerInterval( wxWindow* parent, Options* opt, wxWindowID id = wxID_ANY, const wxString& title = _("Set Timer Interval"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 219,100 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		~TimerInterval();
+	
+};
+
+
 
 #endif //__logbook__

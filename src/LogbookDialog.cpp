@@ -218,6 +218,10 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_menu1->Append( m_menuItem41 );
 	m_menuItem41->Check( true );
 	
+	wxMenuItem* m_menuItemTimerInterval;
+	m_menuItemTimerInterval = new wxMenuItem( m_menu1, wxID_ANY, wxString( _("Set Timer Interval") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu1->Append( m_menuItemTimerInterval );
+
 	wxMenuItem* m_menuItem1;
 	m_menuItem1 = new wxMenuItem( m_menu1, 500, wxString( _("Delete Row") ) , wxEmptyString, wxITEM_NORMAL );
 	m_menu1->Append( m_menuItem1 );
@@ -1650,6 +1654,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridGlobal->Connect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( LogbookDialog::m_gridGlobalOnGridSelectCell ), NULL, this );
 	m_gridGlobal->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( LogbookDialog::m_gridGlobalOnKeyDown ), NULL, this );
 	this->Connect( m_menuItem41->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::m_TimerOnMenuSelection ) );
+	this->Connect( m_menuItemTimerInterval->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionTimerInterval ) );
 	this->Connect( m_menuItem1->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::m_menuItem1OnMenuSelection ) );
 	this->Connect( m_menuItem15->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHideColumn ) );
 	this->Connect( m_menuItem16->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHideColumnOverView ) );
@@ -1840,6 +1845,7 @@ LogbookDialog::~LogbookDialog()
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::m_TimerOnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::m_menuItem1OnMenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHideColumn ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionTimerInterval ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHideColumnOverView ) );
 	m_gridWeather->Disconnect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::m_gridWeatherOnGridCellRightClick ), NULL, this );
 	m_gridWeather->Disconnect( wxEVT_GRID_CELL_CHANGE, wxGridEventHandler( LogbookDialog::m_gridWeatherOnGridCmdCellChange ), NULL, this );
@@ -3192,7 +3198,7 @@ void LogbookDialog::m_TimerOnMenuSelection( wxCommandEvent& ev )
 		::wxMessageBox(_("Timer has 0 h 0 Min 0 sec.\n\nPlease change settings in Options"),_T(""));
 #endif
 				
-	if(ev.IsChecked() && sec > 0)
+	if(ev.IsChecked() && sec > 0 )
 	{
 		timer->Start(sec);
 		logbookPlugIn->opt->timer = true;
@@ -3228,6 +3234,13 @@ void LogbookDialog::onRadioButtonODT(wxCommandEvent &ev)
 void LogbookDialog::LogbookDialogOnClose( wxCloseEvent& ev )
 {
 	this->Hide();
+}
+
+void LogbookDialog::OnMenuSelectionTimerInterval( wxCommandEvent& event )
+{
+	TimerInterval* ti = new TimerInterval(this,logbookPlugIn->opt);
+	ti->ShowModal();
+	delete ti;
 }
 
 void LogbookDialog::loadLayoutChoice(wxString path, wxChoice* choice)
@@ -6230,3 +6243,100 @@ bool DnD::OnDropText(wxCoord x, wxCoord y, const wxString& str)
     return true;
 }
 
+////////////// Timer-Interval Dialog ///////
+TimerInterval::TimerInterval( wxWindow* parent, Options* opt, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+{
+	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
+	
+	wxBoxSizer* bSizer32;
+	bSizer32 = new wxBoxSizer( wxVERTICAL );
+	
+	wxBoxSizer* bSizer33;
+	bSizer33 = new wxBoxSizer( wxHORIZONTAL );
+	
+	m_spinCtrlH = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 50,-1 ), wxSP_ARROW_KEYS, 0, 24, 24 );
+	bSizer33->Add( m_spinCtrlH, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_staticTextH = new wxStaticText( this, wxID_ANY, wxT("h"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextH->Wrap( -1 );
+	bSizer33->Add( m_staticTextH, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
+	
+	m_spinCtrlM = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 50,-1 ), wxSP_ARROW_KEYS, 0, 59, 0 );
+	bSizer33->Add( m_spinCtrlM, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_staticTextM = new wxStaticText( this, wxID_ANY, wxT("m"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextM->Wrap( -1 );
+	bSizer33->Add( m_staticTextM, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
+	
+	m_spinCtrlS = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 50,-1 ), wxSP_ARROW_KEYS, 0, 10, 0 );
+	bSizer33->Add( m_spinCtrlS, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	
+	m_staticTextS = new wxStaticText( this, wxID_ANY, wxT("s"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextS->Wrap( -1 );
+	bSizer33->Add( m_staticTextS, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
+	
+	bSizer32->Add( bSizer33, 1, wxEXPAND, 5 );
+	
+	m_sdbSizer9 = new wxStdDialogButtonSizer();
+	m_sdbSizer9OK = new wxButton( this, wxID_OK );
+	m_sdbSizer9->AddButton( m_sdbSizer9OK );
+	m_sdbSizer9Cancel = new wxButton( this, wxID_CANCEL );
+	m_sdbSizer9->AddButton( m_sdbSizer9Cancel );
+	m_sdbSizer9->Realize();
+	bSizer32->Add( m_sdbSizer9, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
+	
+	this->SetSizer( bSizer32 );
+	this->Layout();
+	
+	this->Centre( wxBOTH );
+	
+	// Connect Events
+	m_sdbSizer9OK->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( TimerInterval::OnButtonOKClick ), NULL, this );
+	init(opt, (LogbookDialog*)parent);
+}
+
+TimerInterval::~TimerInterval()
+{
+	// Disconnect Events
+	m_sdbSizer9OK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( TimerInterval::OnButtonOKClick ), NULL, this );
+	
+}
+
+void TimerInterval::OnButtonOKClick( wxCommandEvent& event )
+{
+	opt->thour = wxString::Format(_T("%i"),this->m_spinCtrlH->GetValue());
+	opt->tmin  = wxString::Format(_T("%i"),this->m_spinCtrlM->GetValue());
+	opt->tsec  = wxString::Format(_T("%i"),this->m_spinCtrlS->GetValue());
+
+	opt->timerSec = (m_spinCtrlH->GetValue()  * 3600000 +
+					 m_spinCtrlM->GetValue() * 60000   +
+					 m_spinCtrlS->GetValue() * 1000);
+
+	dialog->setTitleExt();
+
+	if(timerruns)
+	{
+		dialog->logbookPlugIn->m_timer->Start(opt->timerSec);
+		dialog->SetTitle(dialog->GetTitle()+ dialog->titleExt);
+	}
+	this->Close();
+}
+
+void TimerInterval::init(Options* opt, LogbookDialog* dialog)
+{
+	this->opt = opt;
+	this->dialog = dialog;
+	timerruns = false;
+
+	if(dialog->logbookPlugIn->m_timer->IsRunning())
+	{
+		dialog->logbookPlugIn->m_timer->Stop();
+		timerruns = true;
+		dialog->SetTitle(dialog->GetTitle().BeforeFirst(' '));
+	}
+	
+	m_spinCtrlH->SetValue(opt->thour);
+	m_spinCtrlM->SetValue(opt->tmin);
+	m_spinCtrlS->SetValue(opt->tsec);
+
+}

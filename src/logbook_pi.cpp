@@ -128,7 +128,7 @@ int logbookkonni_pi::Init(void)
 	wxMenu dummy_menu;
 
 	timer = new LogbookTimer(this);
-	m_timer = new wxTimer(timer,wxID_ANY);
+	m_timer = new wxTimer(timer,ID_LOGTIMER);
 	timer->Connect( wxEVT_TIMER, wxObjectEventFunction( &LogbookTimer::OnTimer ));
 	
 	SendPluginMessage(_T("LOGBOOK_READY_FOR_REQUESTS"), _T("TRUE"));
@@ -652,16 +652,18 @@ void logbookkonni_pi::OnToolbarToolCallback(int id)
 	{
         m_plogbook_window = new LogbookDialog(this, m_timer, m_parent_window, wxID_ANY,_("Active Logbook"), wxDefaultPosition, wxSize( opt->dlgWidth,opt->dlgHeight ), wxDEFAULT_DIALOG_STYLE|wxMAXIMIZE_BOX|wxMINIMIZE_BOX|wxRESIZE_BORDER);
 		m_plogbook_window->init();
-		m_plogbook_window->SetPosition(wxPoint(-1,this->m_parent_window->GetParent()->GetPosition().y+80));
+		this->m_plogbook_window->CenterOnParent();
+		//m_plogbook_window->SetPosition(wxPoint(-1,this->m_parent_window->GetParent()->GetPosition().y+80));
 	}
 	else
 	//	m_plogbook_window->Centre();
 	{
 		if(m_plogbook_window->IsIconized()) m_plogbook_window->Iconize(false);
-		m_plogbook_window->SetPosition(wxPoint(-1,this->m_parent_window->GetParent()->GetPosition().y+80));
+		//m_plogbook_window->SetPosition(wxPoint(-1,this->m_parent_window->GetParent()->GetPosition().y+80));
 	}
 	
 	m_plogbook_window->Show(); 
+			this->m_plogbook_window->CenterOnParent();
 	m_plogbook_window->SetFocus();
 
     if (m_plogbook_window->IsShown())
