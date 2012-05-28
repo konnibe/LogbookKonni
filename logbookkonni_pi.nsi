@@ -7,8 +7,6 @@
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 XPStyle on
 RequestExecutionLevel admin
-#RequestExecutionLevel user
-
 
 Name "${PRODUCT_NAME} ${PRODUCT_VERSION}"
 OutFile "LogbookKonni-Setup.exe"
@@ -39,50 +37,10 @@ LicenseData $(myLicenseData)
 */
 
 ;Name $(Name)
-/*
-; Directly change the inner lang strings (Same as ComponentText)
-LangString ^ComponentsText ${LANG_ENGLISH} "English component page"
-LangString ^ComponentsText ${LANG_DUTCH} "Dutch component page"
-LangString ^ComponentsText ${LANG_FRENCH} "French component page"
-LangString ^ComponentsText ${LANG_GERMAN} "German component page"
-LangString ^ComponentsText ${LANG_KOREAN} "Korean component page"
-LangString ^ComponentsText ${LANG_RUSSIAN} "Russian component page"
-LangString ^ComponentsText ${LANG_SPANISH} "Spanish component page"
-LangString ^ComponentsText ${LANG_SWEDISH} "Swedish component page"
-LangString ^ComponentsText ${LANG_TRADCHINESE} "Traditional Chinese component page"
-LangString ^ComponentsText ${LANG_SIMPCHINESE} "Simplified Chinese component page"
-LangString ^ComponentsText ${LANG_SLOVAK} "Slovak component page"
-*/
+
 ; Set one text for all languages (simply don't use a LangString)
 CompletedText "LogbookKonni completed"
-/*
-; A LangString for the section name
-LangString Sec1Name ${LANG_ENGLISH} "English section #1"
-LangString Sec1Name ${LANG_DUTCH} "Dutch section #1"
-LangString Sec1Name ${LANG_FRENCH} "French section #1"
-LangString Sec1Name ${LANG_GERMAN} "German section #1"
-LangString Sec1Name ${LANG_KOREAN} "Korean section #1"
-LangString Sec1Name ${LANG_RUSSIAN} "Russian section #1"
-LangString Sec1Name ${LANG_SPANISH} "Spanish section #1"
-LangString Sec1Name ${LANG_SWEDISH} "Swedish section #1"
-LangString Sec1Name ${LANG_TRADCHINESE} "Trandional Chinese section #1"
-LangString Sec1Name ${LANG_SIMPCHINESE} "Simplified Chinese section #1"
-LangString Sec1Name ${LANG_SLOVAK} "Slovak section #1"
-*/
-/*
-; A multilingual message
-LangString Message ${LANG_ENGLISH} "English message"
-LangString Message ${LANG_DUTCH} "Dutch message"
-LangString Message ${LANG_FRENCH} "French message"
-LangString Message ${LANG_GERMAN} "German message"
-LangString Message ${LANG_KOREAN} "Korean message"
-LangString Message ${LANG_RUSSIAN} "Russian message"
-LangString Message ${LANG_SPANISH} "Spanish message"
-LangString Message ${LANG_SWEDISH} "Swedish message"
-LangString Message ${LANG_TRADCHINESE} "Trandional Chinese message"
-LangString Message ${LANG_SIMPCHINESE} "Simplified Chinese message"
-LangString Message ${LANG_SLOVAK} "Slovak message"
-*/
+
 
 #InstallDir "$PROGRAMFILES\OpenCPN"
 InstallDir "$PROGRAMFILES"
@@ -187,44 +145,7 @@ Function un.onInit
   MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "Please close OpenCPN now, if it's running for a clean uninstall,$\nbut don't close this window.$\n$\nDo You like to uninstall $(^Name), all of it's components and data?" IDYES +2
   Abort
 FunctionEnd
-/*
-Function InstLanguageFiles
- Exch $R0 ; exclude file
- Exch
- Exch $R1 ; route dir
- Push $R2
- Push $R3
 
-  FindFirst $R3 $R2 "$R1\*.*"
-  IfErrors Exit
-
-  Top:
-;   StrCmp $R2 "." Next
-   StrCmp $R2 ".." Next
-;   StrCmp $R2 $R0 Next
-   IfFileExists "$R1\$R2\LC_MESSAGES\opencpn-logbookkonni_pi.mo"  Inst Next
-
-   #Goto Exit ;uncomment this to stop it being recursive (delete only one file)
-
-   Inst:
- ;   detailprint "$R1\$R2\LC_MESSAGES\opencpn-logbookkonni_pi.mo"
-    SetOutPath $R1\$R2\LC_MESSAGES
-    File "opencpn-logbookkonni*.*"
-   Next:
-    ClearErrors
-    FindNext $R3 $R2
-    IfErrors Exit
-   Goto Top
-
-  Exit:
-  FindClose $R3
-
- Pop $R3
- Pop $R2
- Pop $R1
- Pop $R0
-FunctionEnd
-*/
 Function un.RmLanguageFiles
  Exch $R0 ; exclude file
  Exch

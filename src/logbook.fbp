@@ -1874,7 +1874,7 @@
                                                                 <object class="wxMenu" expanded="1">
                                                                     <property name="label">MyMenu</property>
                                                                     <property name="name">m_menu1</property>
-                                                                    <property name="permission">protected</property>
+                                                                    <property name="permission">public</property>
                                                                     <object class="wxMenuItem" expanded="0">
                                                                         <property name="bitmap"></property>
                                                                         <property name="checked">1</property>
@@ -38669,7 +38669,7 @@
                                 <property name="id">wxID_ANY</property>
                                 <property name="initial">0</property>
                                 <property name="layer"></property>
-                                <property name="max">10</property>
+                                <property name="max">59</property>
                                 <property name="max_size"></property>
                                 <property name="maximize_button">0</property>
                                 <property name="maximum_size"></property>

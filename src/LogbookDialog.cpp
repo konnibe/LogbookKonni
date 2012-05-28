@@ -3191,13 +3191,19 @@ void LogbookDialog::m_TimerOnMenuSelection( wxCommandEvent& ev )
 {
 	long sec = logbookPlugIn->opt->timerSec;
 
-	if(sec <= 0) 
+	while(logbookPlugIn->opt->timerSec <= 0)
+	{
+		TimerInterval* ti = new TimerInterval(this,this->logbookPlugIn->opt);
 #ifdef __WXOSX__
         ::MessageBoxOSX(NULL,_("Timer has 0 h 0 Min 0 sec.\n\nPlease change settings in Options"),_T("Information"),wxID_OK);
 #else
 		::wxMessageBox(_("Timer has 0 h 0 Min 0 sec.\n\nPlease change settings in Options"),_T(""));
 #endif
-				
+		ti->ShowModal();
+		sec = logbookPlugIn->opt->timerSec;
+		delete ti;
+	}
+
 	if(ev.IsChecked() && sec > 0 )
 	{
 		timer->Start(sec);
@@ -6268,7 +6274,7 @@ TimerInterval::TimerInterval( wxWindow* parent, Options* opt, wxWindowID id, con
 	m_staticTextM->Wrap( -1 );
 	bSizer33->Add( m_staticTextM, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	
-	m_spinCtrlS = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 50,-1 ), wxSP_ARROW_KEYS, 0, 10, 0 );
+	m_spinCtrlS = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 50,-1 ), wxSP_ARROW_KEYS, 0, 59, 0 );
 	bSizer33->Add( m_spinCtrlS, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	m_staticTextS = new wxStaticText( this, wxID_ANY, wxT("s"), wxDefaultPosition, wxDefaultSize, 0 );
@@ -6314,11 +6320,17 @@ void TimerInterval::OnButtonOKClick( wxCommandEvent& event )
 
 	dialog->setTitleExt();
 
-	if(timerruns)
+	if(timerruns && opt->timerSec > 0)
 	{
 		dialog->logbookPlugIn->m_timer->Start(opt->timerSec);
 		dialog->SetTitle(dialog->GetTitle()+ dialog->titleExt);
 	}
+	else
+	{
+		dialog->logbookPlugIn->m_timer->Stop();
+		opt->timer = false;
+	}
+
 	this->Close();
 }
 
@@ -6332,7 +6344,7 @@ void TimerInterval::init(Options* opt, LogbookDialog* dialog)
 	{
 		dialog->logbookPlugIn->m_timer->Stop();
 		timerruns = true;
-		dialog->SetTitle(dialog->GetTitle().BeforeFirst(' '));
+		dialog->SetTitle(dialog->GetTitle().BeforeFirst('-'));
 	}
 	
 	m_spinCtrlH->SetValue(opt->thour);

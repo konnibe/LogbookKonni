@@ -1275,7 +1275,7 @@ void LogbookOptions::m_checkBoxTimerOnCheckBox( wxCommandEvent& ev )
 		this->opt->timer = false;
 
 		if(log_pi->m_plogbook_window != NULL)
-			log_pi->m_plogbook_window->SetTitle(log_pi->m_plogbook_window->GetTitle().BeforeFirst(' '));
+			log_pi->m_plogbook_window->SetTitle(log_pi->m_plogbook_window->GetTitle().BeforeFirst('-'));
 	}
 }
 
