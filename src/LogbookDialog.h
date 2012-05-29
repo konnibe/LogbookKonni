@@ -503,6 +503,7 @@ enum FORMAT {HTML,ODT};
 
 		logbookkonni_pi*	  logbookPlugIn;
 		wxString*			  pHome_Locn;
+		wxString              image_locn;
 		Logbook*			  logbook;
 		OverView*			  overview;
 

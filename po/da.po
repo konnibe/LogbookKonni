@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-26 12:35+0200\n"
-"PO-Revision-Date: 2012-05-26 08:07+0100\n"
+"POT-Creation-Date: 2012-05-26 18:30+0200\n"
+"PO-Revision-Date: 2012-05-28 05:53+0100\n"
 "Last-Translator: Jacob Handrup <jacob@familienhandrup.dk>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -65,13 +65,11 @@ msgstr ""
 msgid "\""
 msgstr "\""
 #
-#, fuzzy
 msgid "#1 Total"
-msgstr "AH #1 total"
+msgstr "#1 total"
 #
-#, fuzzy
 msgid "#2 Total"
-msgstr "AH #2 total"
+msgstr "#2 total"
 #
 msgid "'"
 msgstr "'"
@@ -88,9 +86,8 @@ msgstr "0"
 msgid "1. Watch of 1. Person"
 msgstr "1. Vagt af 1. person"
 #
-#, fuzzy
 msgid ":0"
-msgstr "0"
+msgstr ":0"
 #
 msgid "AH #1 Total"
 msgstr "AH #1 total"
@@ -191,24 +188,20 @@ msgstr ""
 msgid "Bank #1"
 msgstr "Bank #1"
 #
-#, fuzzy
 msgid "Bank #1 gen."
-msgstr "Bank #1"
+msgstr "Bank #1 produceret"
 #
-#, fuzzy
 msgid "Bank #1 used"
-msgstr "Bank #1"
+msgstr "Bank #1 forbrug"
 #
 msgid "Bank #2"
 msgstr "Bank #2"
 #
-#, fuzzy
 msgid "Bank #2 gen."
-msgstr "Bank #2"
+msgstr "Bank #2 produceret"
 #
-#, fuzzy
 msgid "Bank #2 used"
-msgstr "Bank #2"
+msgstr "Bank #2 forbrug"
 #
 msgid "Barometer"
 msgstr "Barometer"
@@ -484,7 +477,6 @@ msgstr "Slut på 5. vagt"
 msgid "End 6.Watch"
 msgstr "Slut på 6. vagt"
 #
-#, fuzzy
 msgid "Engine "
 msgstr "Motor"
 #
@@ -1516,9 +1508,8 @@ msgstr "Vagt"
 msgid "Water"
 msgstr "Vand"
 #
-#, fuzzy
 msgid "Water used"
-msgstr "Vand"
+msgstr "Forbrug af Vand"
 #
 #
 #
@@ -1528,7 +1519,7 @@ msgid "WaterTotal"
 msgstr "Vand Total"
 #
 msgid "Waterm. Outp"
-msgstr ""
+msgstr "Ferskvandsmaskine produktion"
 #
 msgid "Watermaker"
 msgstr "Ferskvandsmaskine"
@@ -1811,6 +1802,8 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -1821,6 +1814,8 @@ msgstr "skriv din egen label"
 #~ "Waypoint navn: %s\n"
 #~ "Sand pejling til destination: %4.1f%s\n"
 #~ "Afstand til destination: %4.2f%s"
+#
+#
 #
 #
 #
@@ -1979,8 +1974,12 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Crewliste"
+#
+#
 #
 #
 #
@@ -2045,8 +2044,12 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
 #~ msgid "EngineTotal"
 #~ msgstr "Motor Total"
+#
+#
 #
 #
 #
@@ -2171,8 +2174,12 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Logbuch Konni"
+#
+#
 #
 #
 #
@@ -2300,8 +2307,12 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Pfad zum HTML-Editor (optional)"
+#
+#
 #
 #
 #
@@ -2405,8 +2416,12 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
 #~ msgid "Save"
 #~ msgstr "Speichern"
+#
+#
 #
 #
 #
@@ -2558,9 +2573,13 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
+#
+#
 #
 #
 #
@@ -2577,8 +2596,12 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
 #~ msgid "Speed STW Max."
 #~ msgstr "Maximal STW fart"
+#
+#
 #
 #
 #

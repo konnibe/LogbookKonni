@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-26 12:35+0200\n"
+"POT-Creation-Date: 2012-05-26 18:30+0200\n"
 "PO-Revision-Date: 2012-04-11 16:28+0100\n"
 "Last-Translator: Gilletarom <gilletarom@netpratique.fr>\n"
 "Language-Team: \n"
@@ -1792,6 +1792,8 @@ msgstr "Ecrire votre  propre \"étiquette\" "
 #
 #
 #
+#
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -1802,6 +1804,8 @@ msgstr "Ecrire votre  propre \"étiquette\" "
 #~ "Nom du Waypoint             : %s\n"
 #~ "Cap vrai vers l'arrivée      : %4.1f%s\n"
 #~ "Distance jusqu'à l'arrivée : %4.2f%s"
+#
+#
 #
 #
 #
@@ -1828,6 +1832,8 @@ msgstr "Ecrire votre  propre \"étiquette\" "
 #
 #
 #
+#
+#
 #~ msgid ""
 #~ "Please enter like 1.30 or 1,30 or 1:30\n"
 #~ "for 1:30h"
@@ -1841,10 +1847,14 @@ msgstr "Ecrire votre  propre \"étiquette\" "
 #
 #
 #
+#
+#
 #~ msgid "Speed STW Avg."
 #~ msgstr ""
 #~ "Vitesse/eau\n"
 #~ "moyenne"
+#
+#
 #
 #
 #

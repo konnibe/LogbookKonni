@@ -402,6 +402,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	fgSizer44->Add( m_staticText100, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	m_textCtrlTankWater = new wxTextCtrl( m_panel20, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	m_textCtrlTankWater->SetToolTip( _("Set gal/liter in Abbreviations ") );
 	fgSizer44->Add( m_textCtrlTankWater, 0, wxALL, 5 );
 	
 	
@@ -444,6 +445,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	fgSizer43->Add( m_staticText97, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
 	m_textCtrlTankFuel = new wxTextCtrl( m_panel20, wxID_ANY, wxT("0"), wxDefaultPosition, wxDefaultSize, wxTE_PROCESS_ENTER );
+	m_textCtrlTankFuel->SetToolTip( _("Set gal/liter in Abbreviations ") );
 	fgSizer43->Add( m_textCtrlTankFuel, 0, wxALL, 5 );
 	
 	bSizer31->Add( fgSizer43, 0, wxALIGN_CENTER_HORIZONTAL, 5 );
@@ -903,10 +905,6 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_textCtrlTankFuel->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::OnTextEnterFuelTank ), NULL, this );
 	m_textCtrlTankWater->Connect( wxEVT_COMMAND_TEXT_ENTER, wxCommandEventHandler( LogbookOptions::OnTextEnterWaterTank ), NULL, this );
 
-
-
-
-
 	setValues();
 
 	if(opt->timer)
@@ -920,7 +918,7 @@ LogbookOptions::LogbookOptions( wxWindow* parent, Options* opt, logbookkonni_pi*
 	m_buttonUninstall->Enable(false);
 #endif
 
-
+	m_buttonInstallLanguages->Disable();
 }
 
 LogbookOptions::~LogbookOptions()
@@ -1412,8 +1410,15 @@ void LogbookOptions::onTextEnterm_sKmh( wxCommandEvent& ev )
 
 void LogbookOptions::onTextm_sLiter( wxCommandEvent& event )
 {
-	wxString t = opt->watermaker + _T(" ") + m_sLiter->GetValue().c_str() + _T("/") + opt->motorh.c_str();
+	wxString t = wxString::Format(_("%i %s/%s"),wxAtoi(opt->watermaker),m_sLiter->GetValue(),opt->motorh);
 	this->m_textCtrlWatermaker->SetValue(t);
+
+	t = wxString::Format(_("%i %s"),wxAtoi(m_textCtrlTankWater->GetValue()),m_sLiter->GetValue());
+	this->m_textCtrlTankWater->SetValue(t);
+
+	t = wxString::Format(_("%i %s"),wxAtoi(m_textCtrlTankFuel->GetValue()),m_sLiter->GetValue());
+	this->m_textCtrlTankFuel->SetValue(t);
+
 }
 
 void LogbookOptions::OnTextEnterm_textCtrlWatermaker( wxCommandEvent& event )

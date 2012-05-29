@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-24 20:57+0200\n"
-"PO-Revision-Date: 2012-05-26 15:09+0100\n"
+"POT-Creation-Date: 2012-05-26 18:30+0200\n"
+"PO-Revision-Date: 2012-05-29 23:16+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -68,6 +68,16 @@ msgid "\""
 msgstr "\""
 
 #
+#, fuzzy
+msgid "#1 Total"
+msgstr "AH #1 Toplamı"
+
+#
+#, fuzzy
+msgid "#2 Total"
+msgstr "AH #2 Toplamı"
+
+#
 msgid "'"
 msgstr "'"
 
@@ -97,6 +107,22 @@ msgstr "0"
 #
 msgid "1. Watch of 1. Person"
 msgstr "1. 1. Tayfanın nöbeti"
+
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+msgid ":0"
+msgstr "0"
 
 #
 msgid "AH #1 Total"
@@ -210,19 +236,40 @@ msgid ""
 "\n"
 "Shift+Enter appends a new line"
 msgstr ""
-"Ligne automatique par la minuterie\n"
+"Zamanlamayla eklenen satır\n"
 "\n"
-"Vous pouvez activer/désactiver l'intervalle de temps\n"
-"ou changer ce choix dans la \"Boite à outils\" d'OpenCPN, onglet \"Compléments\" puis \"Livre de bord\"\n"
+"İçdüzenleme için bir zamanlayıcı \n"
+"belirleyebilir/kaldırabilirsiniz\n"
+"ya da bu metni değiştirebilirsiniz (Araçkutusu/eklentiler/seyirdefteri)\"\n"
 "\n"
-"Shift+Entre ouvre une nouvelle ligne"
+"Shift+Entre la yeni bir satır ekleyebilirsiniz."
 
 #
 msgid "Bank #1"
 msgstr "Bank #1"
 
 #
+#, fuzzy
+msgid "Bank #1 gen."
+msgstr "Bank #1"
+
+#
+#, fuzzy
+msgid "Bank #1 used"
+msgstr "Bank #1"
+
+#
 msgid "Bank #2"
+msgstr "Bank #2"
+
+#
+#, fuzzy
+msgid "Bank #2 gen."
+msgstr "Bank #2"
+
+#
+#, fuzzy
+msgid "Bank #2 used"
 msgstr "Bank #2"
 
 #
@@ -408,7 +455,7 @@ msgstr "Satır sil"
 #
 #, c-format
 msgid "Delete Row Nr. %i ?"
-msgstr "Numaralı satır sil° %i ?"
+msgstr "Numaralı satırı simek mi istiyorsunuz %i ?"
 
 #
 msgid "Delete Treenode"
@@ -420,7 +467,7 @@ msgstr "Demo Makine durdu"
 
 #
 msgid "Demo Sails up"
-msgstr "Demo yelken basıldı"
+msgstr "Demo Yelken basıldı"
 
 #
 msgid "Depth"
@@ -466,11 +513,13 @@ msgstr "Draft"
 
 #
 msgid "Drag 'n Drop to change the order in the list"
-msgstr "Glisser-déposer pour changer l'ordre dans la liste"
+msgstr "Listedeki sıralamayı \"sürükle/bırak\"la değiştirebilirsiniz."
 
 #
 msgid "E"
-msgstr "D"
+msgstr ""
+"D\n"
+" "
 
 #
 msgid "Edit Layout"
@@ -526,7 +575,8 @@ msgstr ""
 "   Sonu"
 
 #
-msgid "Engine"
+#, fuzzy
+msgid "Engine "
 msgstr "Makine"
 
 #
@@ -545,17 +595,7 @@ msgid ""
 msgstr ""
 "Makine durdu\n"
 "\n"
-"Demo - Sağ tuş-Menu yardım için 'Testextblocks kullan'"
-
-#
-#
-#
-#
-#
-msgid "EngineTotal"
-msgstr ""
-"Makine\n"
-"Toplam"
+"Demo - Yardım için, Menu sağtuş 'Testextblocks'"
 
 #
 msgid "Equipment"
@@ -893,9 +933,9 @@ msgstr ""
 "\n"
 "Seyir Defterine ilişkin sorunlarınızı lütfen foruma gönderin\n"
 "http://www.cruisersforum.com/forums/f134/logbook-konni-for-opencpn-68945.html\n"
+"\n"
 "Ayrıca Youtube'da, \"LogbookKonni\"yi arayarak, size yardımcı olabilecek videolara ulaşabilirsiniz.\n"
-"Seyir Defterinin hazırlanması sırasında, son derece yararlı önerileri için \n"
-"OpenCPN topluluğuna çok teşekkür ederim."
+"Seyir Defterinin hazırlanması sırasında, son derece yararlı önerileri için OpenCPN topluluğuna çok teşekkür ederim."
 
 #
 #, c-format
@@ -951,7 +991,7 @@ msgstr "NM"
 
 #
 msgid "Name"
-msgstr "Adı"
+msgstr "Soyadı"
 
 #
 msgid "Name      "
@@ -1061,7 +1101,7 @@ msgstr "Yol"
 
 #
 msgid "Path to Datamanager"
-msgstr "Veriyöneticisine yolu"
+msgstr "Veriyöneticisi yolu"
 
 #
 msgid ""
@@ -1073,7 +1113,7 @@ msgstr ""
 
 #
 msgid "Path to MailClient"
-msgstr "Mail Alıcısına yol"
+msgstr "Mail alıcısına yol"
 
 #
 msgid "Path to ODT-Editor"
@@ -1144,7 +1184,7 @@ msgstr "Lütfen derece, dakika ve saniye yi aynı karakterlerle yazın."
 
 #
 msgid "Please fill in one character in Degrees, Minuts and Seconds"
-msgstr "Veuillez remplir en degrés, minutes, secondes"
+msgstr "Lütfen Derece, Dakika ve Saniye olarak doldurun."
 
 #
 msgid "Policy"
@@ -1160,7 +1200,9 @@ msgstr "Öncelik"
 
 #
 msgid "R"
-msgstr "Y"
+msgstr ""
+"Y\n"
+" "
 
 #
 #
@@ -1275,7 +1317,7 @@ msgstr "Seyir Defteri dosyasını sakla"
 
 #
 msgid "Save Overview File"
-msgstr "Owerview dosyasını sakla"
+msgstr "Gözat (overview) dosyasını sakla"
 
 #
 msgid "Save Repairs File"
@@ -1340,7 +1382,7 @@ msgid ""
 "find the active logbook as old logbook here"
 msgstr ""
 "Eski Seyir Defterii seç\n"
-"Yeni Seyir Defteri yaratıldığında geçerli jurnali \n"
+"Yeni Seyir Defteri yaratıldığında geçerli Seyir Defteri \n"
 "eski Seyir Defteri olarak  burada bulacaksınız."
 
 #
@@ -1483,18 +1525,6 @@ msgid "Speed Max."
 msgstr ""
 "En Yüksek\n"
 "    Hız"
-
-#
-msgid "Speed STW Avg."
-msgstr ""
-"Ortalama \n"
-"STW hızı"
-
-#
-msgid "Speed STW Max."
-msgstr ""
-"En Yüksek \n"
-"STW Hızı"
 
 #
 msgid "Start"
@@ -1763,12 +1793,21 @@ msgid "Water"
 msgstr "Su"
 
 #
+#, fuzzy
+msgid "Water used"
+msgstr "Su"
+
+#
 #
 #
 #
 #
 msgid "WaterTotal"
 msgstr "Toplam Su"
+
+#
+msgid "Waterm. Outp"
+msgstr ""
 
 #
 msgid "Watermaker"
@@ -1831,9 +1870,8 @@ msgid ""
 "Wind is set now to Realative to boat\n"
 "\n"
 msgstr ""
-"Le vent était fixé à \"Vent vrai\",\n"
-"mais le GPS ne renvoie aucune information.\n"
-"Le vent est maintenant le \"vent apparent\" \n"
+"Gerçek rüzgar, pruva olarak belirlendi fakat GPS veri göndermiyor.\n"
+"Rüzgar şimdilik tekneden hissedilen rüzgara göre ayarlandı \n"
 "\n"
 
 #

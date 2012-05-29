@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-05-26 12:35+0200\n"
+"POT-Creation-Date: 2012-05-26 18:30+0200\n"
 "PO-Revision-Date: 2011-11-25 01:38+0100\n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -2362,9 +2362,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "BuyParts"
 #~ msgstr "Comprar recambios"
+#
+#
 #
 #
 #
@@ -2542,6 +2546,8 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Current from"
 #~ msgstr "Corriente"
@@ -2556,8 +2562,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "EngineTotal"
 #~ msgstr "Máquina total"
+#
+#
 #
 #
 #
@@ -2755,8 +2765,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "GRT"
 #~ msgstr "BRT"
+#
+#
 #
 #
 #
@@ -3047,8 +3061,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Logbook files (*.txt)|*.txt"
 #~ msgstr "Ficheros bitácora (*.txt)|*.txt"
+#
+#
 #
 #
 #
@@ -3100,6 +3118,8 @@ msgstr ""
 #, fuzzy
 #~ msgid "Nm"
 #~ msgstr "Nombre"
+#
+#
 #
 #
 #
@@ -3301,8 +3321,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Ruta al editor HTML (opcional)"
+#
+#
 #
 #
 #
@@ -3322,6 +3346,8 @@ msgstr ""
 #~ msgstr ""
 #~ "Entre por favor 1.30 o 1,30 o 1:30\n"
 #~ "para 1:30h"
+#
+#
 #
 #
 #
@@ -3626,8 +3652,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Schedule"
 #~ msgstr "Calendário"
+#
+#
 #
 #
 #
@@ -3806,9 +3836,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Seleccione Layout"
+#
+#
 #
 #
 #
@@ -3829,9 +3863,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Speed STW Max."
 #~ msgstr "Mar de fondo"
+#
+#
 #
 #
 #
@@ -4193,8 +4231,12 @@ msgstr ""
 #
 #
 #
+#
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
+#
 #
 #
 #
@@ -4437,9 +4479,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Ver"
+#
+#
 #
 #
 #
@@ -4791,6 +4837,8 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Wave Peak"
 #~ msgstr "Oleaje"
@@ -4866,9 +4914,13 @@ msgstr ""
 #
 #
 #
+#
+#
 #, fuzzy
 #~ msgid "Wind from"
 #~ msgstr "Viento"
+#
+#
 #
 #
 #

@@ -2621,6 +2621,12 @@ Backup Logbook(*.txt)|*.txt");
 	if(!wxDir::Exists(data))
 		wxMkdir(data);
 
+	image_locn = data;
+	image_locn.append(_T("Images"));
+	appendOSDirSlash(&image_locn);
+	if(!wxDir::Exists(image_locn))
+		wxMkdir(image_locn);
+
 	layoutHTML = data;
 	layoutHTML.append(_T("HTMLLayouts"));
 	appendOSDirSlash(&layoutHTML);

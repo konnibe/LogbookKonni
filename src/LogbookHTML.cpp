@@ -34,6 +34,14 @@ LogbookHTML::~LogbookHTML(void)
 
 void LogbookHTML::viewHTML(wxString path, wxString layout, bool mode)
 {
+//	wxMessageBox( layout_locn+layout+_T(".html"));
+
+	if(layout.Contains(_T("Help")))
+	{
+		path = layout_locn+layout+_T(".html");
+		parent->startBrowser(path);
+		return;
+	}
 	setSelection();
 
 	wxString file = toHTML(path, layout, mode);

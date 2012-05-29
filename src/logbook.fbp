@@ -19508,7 +19508,7 @@
                                     <object class="notebookpage" expanded="0">
                                         <property name="bitmap"></property>
                                         <property name="label">Behavior</property>
-                                        <property name="select">1</property>
+                                        <property name="select">0</property>
                                         <object class="wxPanel" expanded="0">
                                             <property name="BottomDockable">1</property>
                                             <property name="LeftDockable">1</property>
@@ -24221,7 +24221,7 @@
                                     <object class="notebookpage" expanded="0">
                                         <property name="bitmap"></property>
                                         <property name="label">Capacity</property>
-                                        <property name="select">0</property>
+                                        <property name="select">1</property>
                                         <object class="wxPanel" expanded="0">
                                             <property name="BottomDockable">1</property>
                                             <property name="LeftDockable">1</property>
@@ -24779,7 +24779,7 @@
                                                                         <property name="style">wxTE_PROCESS_ENTER</property>
                                                                         <property name="subclass"></property>
                                                                         <property name="toolbar_pane">0</property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">Set gal/liter in Abbreviations </property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
@@ -25365,7 +25365,7 @@
                                                                         <property name="style">wxTE_PROCESS_ENTER</property>
                                                                         <property name="subclass"></property>
                                                                         <property name="toolbar_pane">0</property>
-                                                                        <property name="tooltip"></property>
+                                                                        <property name="tooltip">Set gal/liter in Abbreviations </property>
                                                                         <property name="validator_data_type"></property>
                                                                         <property name="validator_style">wxFILTER_NONE</property>
                                                                         <property name="validator_type">wxDefaultValidator</property>
