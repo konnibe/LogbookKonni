@@ -22,6 +22,14 @@ sudo make install
 
 that's it.
 
+**** Apple-Users: ****
+if you get a compiler-error like this:
+
+Desktop/opencpn/plugins/LogbookKonni_pi/src/LogbookOptions.cpp:546: error: converting to execution character set: Illegal byte sequence
+
+please overwrite in the file LogbookOptions.cpp line 546 
+the _T("x") with _T("°"), (x = the wrong character, ° = the Degree-character)
+
 Install Layouts (Linux only)
 ----------------------------
 they are nessesary to display data e.g. in a browser
