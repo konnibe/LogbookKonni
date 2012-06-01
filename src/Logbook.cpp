@@ -330,28 +330,23 @@ void Logbook::SetSentence(wxString &sentence)
 void Logbook::setDateTimeString(wxDateTime dt)
 {
 	mUTCDateTime = dt;
-	bool goLocal = false;
 
 	if(opt->gpsAuto)
 	{
-		if(newPosition.WEflag == 'E')
-			opt->tzIndicator = 1;
-		else
+		if(newPosition.NSflag == 'E')
 			opt->tzIndicator = 0;
-
-		int tz = ((int)newPosition.longitude) % 15;
-		if(!tz)
-			opt->tzHour = ((int)newPosition.longitude) / 15;
-		goLocal = true;
-	}
-	if(opt->local || goLocal)
-	{
-		wxTimeSpan span(opt->tzHour, 0, 0, 0);
-		if(opt->tzIndicator == 0)
-			mCorrectedDateTime = mUTCDateTime + span;
 		else
-			mCorrectedDateTime = mUTCDateTime - span;
+			opt->tzIndicator = 1;
+
+		opt->tzHour = (int) newPosition.longitude / 15;
 	}
+
+	wxTimeSpan span(opt->tzHour, 0, 0, 0);
+	if(opt->tzIndicator == 0)
+		mCorrectedDateTime = mUTCDateTime + span;
+	else
+		mCorrectedDateTime = mUTCDateTime - span;
+
 	if(opt->UTC)
 		mCorrectedDateTime = mUTCDateTime;
 
@@ -733,8 +728,9 @@ void Logbook::loadData()
 void Logbook::setCellAlign(int i)
 {
 		dialog->m_gridGlobal->SetCellAlignment    (i,ROUTE,                wxALIGN_LEFT, wxALIGN_TOP);
+		dialog->m_gridGlobal->SetCellAlignment    (i,RDATE,                wxALIGN_CENTRE, wxALIGN_TOP);
 		dialog->m_gridGlobal->SetCellAlignment    (i,RTIME,                wxALIGN_CENTRE, wxALIGN_TOP);
-		dialog->m_gridGlobal->SetCellAlignment    (i,SIGN,                 wxALIGN_LEFT, wxALIGN_TOP);
+		dialog->m_gridGlobal->SetCellAlignment    (i,SIGN,                 wxALIGN_CENTRE, wxALIGN_TOP);
 		dialog->m_gridGlobal->SetCellAlignment    (i,WAKE,                 wxALIGN_LEFT, wxALIGN_TOP);
 		dialog->m_gridGlobal->SetCellAlignment    (i,REMARKS,              wxALIGN_LEFT, wxALIGN_TOP);
 		dialog->m_gridWeather->SetCellAlignment   (i,WEATHER-weatherCol,   wxALIGN_LEFT, wxALIGN_TOP);

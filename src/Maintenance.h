@@ -72,6 +72,7 @@ public:
 	wxString	layout_locnBuyParts;
 
 	wxString		m_choices[12];
+	wxString		m_YesNo[2];
 
 private:
 	LogbookDialog*	dialog;
@@ -102,7 +103,6 @@ private:
 	wxString		layout;
 	wxString		ODTLayout;
 
-	wxString		m_YesNo[2];
 	wxString		m_Priority[6];
 
 	wxString		data_locn;
@@ -130,9 +130,9 @@ class DateDialog : public wxDialog
 		
 	
 	public:
-		
-		DateDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Select a date"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 193,211 ), long style = wxDEFAULT_DIALOG_STYLE );
-		~DateDialog();
 		wxCalendarCtrl* m_calendar2;
+		
+		DateDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Select a date"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 221,198 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER ); 
+		~DateDialog();
 	
 };

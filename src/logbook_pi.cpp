@@ -1023,8 +1023,7 @@ void logbookkonni_pi::LoadConfig()
 
 void logbookkonni_pi::loadLayouts(wxWindow *parent)
 {
-	static const wxChar *FILETYPES = _T(
-		"OpenCPN_Logbook_Layouts.zip");
+	wxString FILE = _T("OpenCPN_Logbook_Layouts.zip");
 	std::auto_ptr<wxZipEntry> entry;
 	wxString path, sep;
 	sep = wxFileName::GetPathSeparator();
@@ -1060,6 +1059,7 @@ void logbookkonni_pi::loadLayouts(wxWindow *parent)
 
 	wxString data1 = data;
 	wxString data2 = data;
+	wxString data3 = data;
 
 	data.Append(_T("HTMLLayouts"));
 	data.append(sep);
@@ -1076,8 +1076,13 @@ void logbookkonni_pi::loadLayouts(wxWindow *parent)
 	if(!wxDir::Exists(data2))
 		wxMkdir(data2);
 
+	data3.Append(_T("Images"));
+	data3.append(sep);
+	if(!wxDir::Exists(data3))
+		wxMkdir(data3);
+
 	wxFileDialog* openFileDialog =
-		new wxFileDialog( parent, _("Select zipped Layout-Files"), _T(""), FILETYPES, FILETYPES,
+		new wxFileDialog( parent, _("Select zipped Layout-Files"), _T(""), _T(""), _T("*.zip"),
 		                  wxOPEN, wxDefaultPosition);
  
 	if ( openFileDialog->ShowModal() == wxID_OK )
@@ -1091,12 +1096,16 @@ void logbookkonni_pi::loadLayouts(wxWindow *parent)
 				path = data;
 			else if(entry->GetName().Contains(_T("ODTLayouts")))
 				path = data1;
-			else
+			else if(entry->GetName().Contains(_T("Clouds")))
 				path = data2;
+			else
+				path = data3;
 
 			wxString name = entry->GetName();
 
-			if(!name.Contains(_T(".htm")) && !name.Contains(_T(".odt")) && !name.Contains(_T(".jpg"))) continue;
+			if(!name.Contains(_T(".htm")) && !name.Contains(_T(".odt")) && 
+				!name.Contains(_T(".jpg")) && !name.Contains(_T(".PNG")))
+				continue;
 			wxString fn = name.AfterLast(wxFileName::GetPathSeparator());
 
 			if(name.Contains(sep+_T("boat")))

@@ -18815,8 +18815,8 @@
             <property name="resize">Resizable</property>
             <property name="row"></property>
             <property name="show">1</property>
-            <property name="size">193,211</property>
-            <property name="style">wxDEFAULT_DIALOG_STYLE</property>
+            <property name="size">201,222</property>
+            <property name="style">wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER</property>
             <property name="subclass"></property>
             <property name="title">Select a date</property>
             <property name="toolbar_pane">0</property>

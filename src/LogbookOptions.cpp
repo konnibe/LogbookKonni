@@ -1410,13 +1410,13 @@ void LogbookOptions::onTextEnterm_sKmh( wxCommandEvent& ev )
 
 void LogbookOptions::onTextm_sLiter( wxCommandEvent& event )
 {
-	wxString t = wxString::Format(_("%i %s/%s"),wxAtoi(opt->watermaker),m_sLiter->GetValue(),opt->motorh);
+	wxString t = wxString::Format(_T("%i %s/%s"),wxAtoi(opt->watermaker),m_sLiter->GetValue(),opt->motorh);
 	this->m_textCtrlWatermaker->SetValue(t);
 
-	t = wxString::Format(_("%i %s"),wxAtoi(m_textCtrlTankWater->GetValue()),m_sLiter->GetValue());
+	t = wxString::Format(_T("%i %s"),wxAtoi(m_textCtrlTankWater->GetValue()),m_sLiter->GetValue());
 	this->m_textCtrlTankWater->SetValue(t);
 
-	t = wxString::Format(_("%i %s"),wxAtoi(m_textCtrlTankFuel->GetValue()),m_sLiter->GetValue());
+	t = wxString::Format(_T("%i %s"),wxAtoi(m_textCtrlTankFuel->GetValue()),m_sLiter->GetValue());
 	this->m_textCtrlTankFuel->SetValue(t);
 
 }

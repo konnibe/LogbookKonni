@@ -4037,6 +4037,9 @@ void LogbookDialog::onMenuSelectionServiceOK(wxCommandEvent &ev)
 
 void LogbookDialog::onMenuSelectionServiceDelete( wxCommandEvent& ev )
 {
+	m_gridMaintanence->SetCellValue(maintenance->m_YesNo[1],maintenance->selectedRow,Maintenance::ACTIVE);
+	maintenance->checkService(m_gridGlobal->GetNumberRows()-1);
+
 	m_gridMaintanence->DeleteRows(maintenance->selectedRow);
 	maintenance->checkService(m_gridGlobal->GetNumberRows()-1);
 }

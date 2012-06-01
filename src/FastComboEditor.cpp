@@ -8,33 +8,6 @@
 #include <wx/tokenzr.h>
 #include "EzGrid.h"
 
-class wxSComboBox : public wxComboBox
-{
-public:
-   wxSComboBox();
-	wxSComboBox(wxWindow *parent, wxWindowID id,
-			const wxString& value = wxEmptyString,
-			const wxPoint& pos = wxDefaultPosition,
-			const wxSize& size = wxDefaultSize,
-			int n = 0, const wxString choices[] = NULL,
-			long style = 0,
-			const wxValidator& validator = wxDefaultValidator,
-			const wxString& name = wxComboBoxNameStr);
-	void SetCellData(int nRow, int nCol, wxGrid* pGrid)
-	{
-		m_nRow = nRow;
-		m_nCol = nCol;
-		m_pGrid = pGrid;
-	}
-private:
-	DECLARE_EVENT_TABLE()
-	void OnChange(wxCommandEvent& event);
-	int m_nRow;
-	int m_nCol; 
-	wxGrid* m_pGrid;
-};
-
-
 wxSComboBox::wxSComboBox(wxWindow *parent, wxWindowID id,
 		const wxString& value,
 		const wxPoint& pos,
@@ -61,6 +34,7 @@ void wxSComboBox::OnChange(wxCommandEvent& event)
 	{
 //		m_pGrid->GetTable()->SetValue(m_nRow, m_nCol, event.GetString());
 		m_pGrid->SetCellValue(m_nRow, m_nCol, event.GetString());
+
 		wxGridEvent gridEvt(m_pGrid->GetId(),
 			wxEVT_GRID_CELL_CHANGE, m_pGrid, m_nRow, m_nCol);
 		gridEvt.SetString(event.GetString());
