@@ -36,7 +36,7 @@
 #endif //precompiled headers
 
 #define     PLUGIN_VERSION_MAJOR    0
-#define     PLUGIN_VERSION_MINOR    921
+#define     PLUGIN_VERSION_MINOR    922
 
 #define     MY_API_VERSION_MAJOR    1
 #define     MY_API_VERSION_MINOR    6	

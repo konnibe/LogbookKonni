@@ -817,6 +817,13 @@ Please create a new logbook to minimize the loadingtime.\n\nIf you have a runnin
 			dialog->logGrids[2]->SetCellValue(lastRow,BANK1T-sailsCol,dialog->logGrids[2]->GetCellValue(lastRow-1,BANK1T-sailsCol));
 			dialog->logGrids[2]->SetCellValue(lastRow,BANK2T-sailsCol,dialog->logGrids[2]->GetCellValue(lastRow-1,BANK2T-sailsCol));
 		}
+	else
+	{
+			dialog->logGrids[2]->SetCellValue(lastRow,FUELT- sailsCol,opt->fuelTank.c_str());
+			dialog->logGrids[2]->SetCellValue(lastRow,WATERT-sailsCol,opt->waterTank.c_str());
+			dialog->logGrids[2]->SetCellValue(lastRow,BANK1T-sailsCol,opt->bank1.c_str());
+			dialog->logGrids[2]->SetCellValue(lastRow,BANK2T-sailsCol,opt->bank2.c_str());
+	}
 
 	if(sDate != _T(""))
 		{
@@ -849,12 +856,12 @@ Please create a new logbook to minimize the loadingtime.\n\nIf you have a runnin
 	dialog->logGrids[2]->SetCellValue(lastRow,MOTOR-sailsCol,_T("00.00"));
 	dialog->logGrids[2]->SetCellValue(lastRow,MOTOR1-sailsCol,_T("00.00"));
 	dialog->logGrids[2]->SetCellValue(lastRow,GENE-sailsCol,_T("00.00"));
+//	dialog->logGrids[2]->SetCellValue(lastRow,BANK1-sailsCol,_T("0"));
+//	dialog->logGrids[2]->SetCellValue(lastRow,BANK2-sailsCol,_T("0"));
 	dialog->logGrids[2]->SetCellValue(lastRow,WATERM-sailsCol,_T("00.00"));
 	dialog->logGrids[2]->SetCellValue(lastRow,WATERMO-sailsCol,_T("0"));
-	dialog->logGrids[2]->SetCellValue(lastRow,FUEL-sailsCol,_T("0"));
-	dialog->logGrids[2]->SetCellValue(lastRow,WATER-sailsCol,_T("0"));
-	dialog->logGrids[2]->SetCellValue(lastRow,BANK1-sailsCol,_T("0"));
-	dialog->logGrids[2]->SetCellValue(lastRow,BANK2-sailsCol,_T("0"));
+//	dialog->logGrids[2]->SetCellValue(lastRow,FUEL-sailsCol,_T("0"));
+//	dialog->logGrids[2]->SetCellValue(lastRow,WATER-sailsCol,_T("0"));
 	dialog->logGrids[2]->SetCellValue(lastRow,MREMARKS-sailsCol,_T(" "));
 	dialog->logGrids[0]->SetCellValue(lastRow,WAKE,getWake());
 

@@ -832,6 +832,49 @@ class TimerInterval : public wxDialog
 	
 };
 
+///////////////////////////////////////////////////////////////////////////////
+/// Class CourseTrad
+///////////////////////////////////////////////////////////////////////////////
+class CourseTrad : public wxDialog 
+{
+	private:
+		wxTextCtrl* m_textCtrlDeg1;
+		wxStaticText* m_staticTextDeg1;
+		wxTextCtrl* m_textCtrlmin1;
+		wxStaticText* m_staticTextmin1;
+		wxTextCtrl* m_textCtrlsec1;
+		wxStaticText* m_staticTextdiv1;
+		wxTextCtrl* m_textCtrlsecfrac1;
+		wxStaticText* m_staticTextsec1;
+		wxStaticText* m_staticText1NS;
+		wxFlexGridSizer* fgSizer441;
+		wxTextCtrl* m_textCtrlDeg2;
+		wxStaticText* m_staticTextDeg2;
+		wxTextCtrl* m_textCtrlmin2;
+		wxStaticText* m_staticTextmin2;
+		wxTextCtrl* m_textCtrlsec2;
+		wxStaticText* m_staticTextdiv2;
+		wxTextCtrl* m_textCtrlsecfrac2;
+		wxStaticText* m_staticTextsec2;
 
+		void init(LogbookDialog* dlg);
+	
+	protected:
+		wxStaticText* m_staticTextWE;
+		wxStdDialogButtonSizer* m_sdbSizer10;
+		wxButton* m_sdbSizer10OK;
+		wxButton* m_sdbSizer10Cancel;
+		
+		// Virtual event handlers, overide them in your derived class
+		virtual void OnCancelButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnOKButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		
+	
+	public:
+		
+		CourseTrad( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Course"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 248,119 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		~CourseTrad();
+	
+};
 
 #endif //__logbook__

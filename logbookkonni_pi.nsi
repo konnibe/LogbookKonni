@@ -2,7 +2,7 @@
 
 ; HM NIS Edit Wizard helper defines
 !define PRODUCT_NAME "logbookkonni_pi"
-!define PRODUCT_VERSION "0.921"
+!define PRODUCT_VERSION "1.0"
 !define PRODUCT_UNINST_KEY "Software\Microsoft\Windows\CurrentVersion\Uninstall\${PRODUCT_NAME}"
 !define PRODUCT_UNINST_ROOT_KEY "HKLM"
 XPStyle on
@@ -42,8 +42,8 @@ LicenseData $(myLicenseData)
 CompletedText "LogbookKonni completed"
 
 
-#InstallDir "$PROGRAMFILES\OpenCPN"
-InstallDir "$PROGRAMFILES"
+InstallDir "$PROGRAMFILES\OpenCPN"
+;InstallDir "$PROGRAMFILES"
 Page directory
 Page instfiles
 Icon "${NSISDIR}\Contrib\Graphics\Icons\modern-install.ico"
@@ -121,11 +121,11 @@ SectionEnd
 Section "Layouts" SEC03
   SetShellVarContext all
   SetOutPath "$APPDATA\opencpn\plugins\logbook\data\HTMLLayouts"
-  File /r "C:\ProgramData\opencpn\plugins\logbook\data\HTMLLayouts\*.html"
+  File /r "C:\Users\Konni\Documents\Visual Studio 2010\Projects\opencpn\plugins\LogbookKonni_pi\data\HTMLLayouts\*.html"
   SetOutPath "$APPDATA\opencpn\plugins\logbook\data\ODTLayouts"
-  File /r "C:\ProgramData\opencpn\plugins\logbook\data\ODTLayouts\*.odt"
+  File /r "C:\Users\Konni\Documents\Visual Studio 2010\Projects\opencpn\plugins\LogbookKonni_pi\data\ODTLayouts\*.odt"
   SetOutPath "$APPDATA\opencpn\plugins\logbook\data\Clouds"
-  File /r "C:\ProgramData\opencpn\plugins\logbook\data\Clouds\*.jpg"
+  File /r "C:\Users\Konni\Documents\Visual Studio 2010\Projects\opencpn\plugins\LogbookKonni_pi\data\Clouds\*.jpg"
 SectionEnd
 
 Section -Post
@@ -142,7 +142,7 @@ Function un.onUninstSuccess
 FunctionEnd
 
 Function un.onInit
-  MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "Please close OpenCPN now, if it's running for a clean uninstall,$\nbut don't close this window.$\n$\nDo You like to uninstall $(^Name), all of it's components and data?" IDYES +2
+  MessageBox MB_ICONQUESTION|MB_YESNO|MB_DEFBUTTON2 "Please close OpenCPN now, if it's running for a clean uninstall,$\nbut don't close this window.$\n$\nDo You like to uninstall $(^Name), all of it's components and data?All your logbooks are deleted !!" IDYES +2
   Abort
 FunctionEnd
 
@@ -184,7 +184,7 @@ FunctionEnd
 
 Section Uninstall
   SetShellVarContext all
- ; RMDir /r $APPDATA\opencpn\plugins\logbook
+  RMDir /r $APPDATA\opencpn\plugins\logbook
   DeleteINISec $APPDATA\opencpn\opencpn.ini PlugIns/Logbook
   DeleteINISec $APPDATA\opencpn\opencpn.ini PlugIns/Logbook/OverviewGridColWidth
   DeleteINISec $APPDATA\opencpn\opencpn.ini PlugIns/Logbook/ServiceGridColWidth
