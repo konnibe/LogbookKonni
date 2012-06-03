@@ -6412,7 +6412,7 @@ PositionDlg::PositionDlg( wxWindow* parent, wxWindowID id, const wxString& title
 	m_staticTextsec1->Wrap( -1 );
 	fgSizer44->Add( m_staticTextsec1, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_textCtrlNS = new wxTextCtrl( this, wxID_ANY, wxT("N"), wxDefaultPosition, wxSize( 20,-1 ), 0 );
+	m_textCtrlNS = new wxTextCtrl( this, wxID_ANY, wxT("N"), wxDefaultPosition, wxSize( 25,-1 ), 0 );
 	fgSizer44->Add( m_textCtrlNS, 0, wxALL, 5 );
 	
 	bSizer34->Add( fgSizer44, 0, wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT, 5 );
@@ -6442,7 +6442,7 @@ PositionDlg::PositionDlg( wxWindow* parent, wxWindowID id, const wxString& title
 	m_staticTextsec2->Wrap( -1 );
 	fgSizer441->Add( m_staticTextsec2, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_textCtrlWE = new wxTextCtrl( this, wxID_ANY, wxT("W"), wxDefaultPosition, wxSize( 20,-1 ), 0 );
+	m_textCtrlWE = new wxTextCtrl( this, wxID_ANY, wxT("W"), wxDefaultPosition, wxSize( 25,-1 ), 0 );
 	fgSizer441->Add( m_textCtrlWE, 0, wxALL, 5 );
 	
 	bSizer34->Add( fgSizer441, 0, wxALIGN_RIGHT, 5 );
