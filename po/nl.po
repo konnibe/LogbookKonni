@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-02 20:13+0200\n"
+"POT-Creation-Date: 2012-06-03 20:53+0200\n"
 "PO-Revision-Date: 2012-04-14 17:50+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: rider2@kpnmail.nl <rider2@kpnmail.nl>\n"
@@ -202,6 +202,9 @@ msgstr ""
 "Automatische regel per tijdinterval:\n"
 "U kunt dit Aan en Uit zetten en de instellingen ervan aanpasen in Toolbox/"
 "Plugins/Logbook"
+#
+msgid "Automatic Watch Interval"
+msgstr ""
 #
 msgid ""
 "Automatic line by timer\n"
@@ -1146,6 +1149,10 @@ msgid "Set Path to ODT-Editor"
 msgstr "Geef pad aan naar tekstbewerker (ODT)"
 #
 #, fuzzy
+msgid "Set Same Watch as"
+msgstr "Zelfde wacht als"
+#
+#, fuzzy
 msgid "Set Timer Interval"
 msgstr "- Timer Aan - Tijdinterval:"
 #
@@ -1416,6 +1423,10 @@ msgid "Warnvalue"
 msgstr "Alarmwaarde"
 #
 msgid "Watch"
+msgstr "Wacht"
+#
+#, fuzzy
+msgid "Watchtime:"
 msgstr "Wacht"
 #
 msgid "Water"
@@ -1722,6 +1733,9 @@ msgstr "Maak eigen veldnaam"
 #
 #
 #
+#
+#
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -1732,6 +1746,9 @@ msgstr "Maak eigen veldnaam"
 #~ "Naam routepunt  : %s\n"
 #~ "Ware Koers          : %4.1f%s\n"
 #~ "Verheid                 : %4.2f%s"
+#
+#
+#
 #
 #
 #
@@ -1768,6 +1785,9 @@ msgstr "Maak eigen veldnaam"
 #
 #
 #
+#
+#
+#
 #~ msgid ""
 #~ "Please enter like 1.30 or 1,30 or 1:30\n"
 #~ "for 1:30h"
@@ -1786,10 +1806,16 @@ msgstr "Maak eigen veldnaam"
 #
 #
 #
+#
+#
+#
 #~ msgid "Speed STW Avg."
 #~ msgstr ""
 #~ "STW\n"
 #~ "(gem.)"
+#
+#
+#
 #
 #
 #

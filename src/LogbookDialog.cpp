@@ -2403,12 +2403,14 @@ void LogbookDialog::m_gridGlobalOnGridSelectCell( wxGridEvent& ev )
 
 	if(selGridCol == Logbook::POSITION)
 	{
-		CourseTrad* dlg = new CourseTrad(this);
-		if(dlg->ShowModal() == wxID_OK)
+		PositionDlg* dlg = new PositionDlg(this);
+		int i = dlg->ShowModal();
+		if( i == wxID_OK)
 		{
-
+			m_gridGlobal->SetCellValue(dlg->retstr,selGridRow,Logbook::POSITION);
+			logbook->getModifiedCellValue(0,selGridRow,0,Logbook::POSITION);
+			setEqualRowHeight(selGridRow);
 		}
-
 		delete dlg;
 	}
 
@@ -6351,7 +6353,7 @@ void TimerInterval::OnButtonOKClick( wxCommandEvent& event )
 		opt->timer = false;
 	}
 
-	this->Close();
+	Close();
 }
 
 void TimerInterval::init(Options* opt, LogbookDialog* dialog)
@@ -6373,8 +6375,8 @@ void TimerInterval::init(Options* opt, LogbookDialog* dialog)
 
 }
 
-//////////////// Dialog CourseTrad ////////////////
-CourseTrad::CourseTrad( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
+//////////////// Dialog PositionDlg ////////////////
+PositionDlg::PositionDlg( wxWindow* parent, wxWindowID id, const wxString& title, const wxPoint& pos, const wxSize& size, long style ) : wxDialog( parent, id, title, pos, size, style )
 {
 	this->SetSizeHints( wxDefaultSize, wxDefaultSize );
 	
@@ -6392,34 +6394,26 @@ CourseTrad::CourseTrad( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_textCtrlDeg1 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 30,-1 ), 0 );
 	fgSizer44->Add( m_textCtrlDeg1, 0, wxALL, 5 );
 	
-	m_staticTextDeg1 = new wxStaticText( this, wxID_ANY, wxT(" "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextDeg1 = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticTextDeg1->Wrap( -1 );
 	fgSizer44->Add( m_staticTextDeg1, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_textCtrlmin1 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 30,-1 ), 0 );
+	m_textCtrlmin1 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 60,-1 ), 0 );
 	fgSizer44->Add( m_textCtrlmin1, 0, wxALL, 5 );
 	
-	m_staticTextmin1 = new wxStaticText( this, wxID_ANY, wxT(" "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextmin1 = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticTextmin1->Wrap( -1 );
 	fgSizer44->Add( m_staticTextmin1, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_textCtrlsec1 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 30,-1 ), 0 );
+	m_textCtrlsec1 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 60,-1 ), 0 );
 	fgSizer44->Add( m_textCtrlsec1, 0, wxALL, 5 );
 	
-	m_staticTextdiv1 = new wxStaticText( this, wxID_ANY, wxT(" "), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticTextdiv1->Wrap( -1 );
-	fgSizer44->Add( m_staticTextdiv1, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	m_textCtrlsecfrac1 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 30,-1 ), 0 );
-	fgSizer44->Add( m_textCtrlsecfrac1, 0, wxALL, 5 );
-	
-	m_staticTextsec1 = new wxStaticText( this, wxID_ANY, wxT(" "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextsec1 = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticTextsec1->Wrap( -1 );
 	fgSizer44->Add( m_staticTextsec1, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_staticText1NS = new wxStaticText( this, wxID_ANY, wxT(" "), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticText1NS->Wrap( -1 );
-	fgSizer44->Add( m_staticText1NS, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	m_textCtrlNS = new wxTextCtrl( this, wxID_ANY, wxT("N"), wxDefaultPosition, wxSize( 20,-1 ), 0 );
+	fgSizer44->Add( m_textCtrlNS, 0, wxALL, 5 );
 	
 	bSizer34->Add( fgSizer44, 0, wxALIGN_CENTER_VERTICAL|wxALIGN_RIGHT, 5 );
 	
@@ -6430,38 +6424,35 @@ CourseTrad::CourseTrad( wxWindow* parent, wxWindowID id, const wxString& title, 
 	m_textCtrlDeg2 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 30,-1 ), 0 );
 	fgSizer441->Add( m_textCtrlDeg2, 0, wxALL, 5 );
 	
-	m_staticTextDeg2 = new wxStaticText( this, wxID_ANY, wxT(" "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextDeg2 = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticTextDeg2->Wrap( -1 );
 	fgSizer441->Add( m_staticTextDeg2, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_textCtrlmin2 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 30,-1 ), 0 );
+	m_textCtrlmin2 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 60,-1 ), 0 );
 	fgSizer441->Add( m_textCtrlmin2, 0, wxALL, 5 );
 	
-	m_staticTextmin2 = new wxStaticText( this, wxID_ANY, wxT(" "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextmin2 = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticTextmin2->Wrap( -1 );
 	fgSizer441->Add( m_staticTextmin2, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_textCtrlsec2 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 30,-1 ), 0 );
+	m_textCtrlsec2 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 60,-1 ), 0 );
 	fgSizer441->Add( m_textCtrlsec2, 0, wxALL, 5 );
 	
-	m_staticTextdiv2 = new wxStaticText( this, wxID_ANY, wxT(" "), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticTextdiv2->Wrap( -1 );
-	fgSizer441->Add( m_staticTextdiv2, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
-	
-	m_textCtrlsecfrac2 = new wxTextCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 30,-1 ), 0 );
-	fgSizer441->Add( m_textCtrlsecfrac2, 0, wxALL, 5 );
-	
-	m_staticTextsec2 = new wxStaticText( this, wxID_ANY, wxT(" "), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextsec2 = new wxStaticText( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticTextsec2->Wrap( -1 );
 	fgSizer441->Add( m_staticTextsec2, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_staticTextWE = new wxStaticText( this, wxID_ANY, wxT(" "), wxDefaultPosition, wxDefaultSize, 0 );
-	m_staticTextWE->Wrap( -1 );
-	fgSizer441->Add( m_staticTextWE, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
+	m_textCtrlWE = new wxTextCtrl( this, wxID_ANY, wxT("W"), wxDefaultPosition, wxSize( 20,-1 ), 0 );
+	fgSizer441->Add( m_textCtrlWE, 0, wxALL, 5 );
 	
 	bSizer34->Add( fgSizer441, 0, wxALIGN_RIGHT, 5 );
 	
 	bSizer35->Add( bSizer34, 1, wxEXPAND, 5 );
+	
+	wxArrayString m_choiceFormatChoices;
+	m_choiceFormat = new wxChoice( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, m_choiceFormatChoices, 0 );
+	m_choiceFormat->SetSelection( 0 );
+	bSizer35->Add( m_choiceFormat, 0, wxALL|wxALIGN_CENTER_HORIZONTAL, 5 );
 	
 	m_sdbSizer10 = new wxStdDialogButtonSizer();
 	m_sdbSizer10OK = new wxButton( this, wxID_OK );
@@ -6477,21 +6468,24 @@ CourseTrad::CourseTrad( wxWindow* parent, wxWindowID id, const wxString& title, 
 	this->Centre( wxBOTH );
 	
 	// Connect Events
-	m_sdbSizer10Cancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( CourseTrad::OnCancelButtonClick ), NULL, this );
-	m_sdbSizer10OK->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( CourseTrad::OnOKButtonClick ), NULL, this );
+	m_sdbSizer10Cancel->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PositionDlg::OnCancelButtonClick ), NULL, this );
+	m_sdbSizer10OK->Connect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PositionDlg::OnOKButtonClick ), NULL, this );
+	m_choiceFormat->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( PositionDlg::OnChoice ), NULL, this );
+
 
 	init((LogbookDialog*)parent);
 }
 
-CourseTrad::~CourseTrad()
+PositionDlg::~PositionDlg()
 {
-	// Disconnect Events
-	m_sdbSizer10OK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( CourseTrad::OnOKButtonClick ), NULL, this );
-	
+	m_choiceFormat->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( PositionDlg::OnChoice ), NULL, this );
+	m_sdbSizer10Cancel->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PositionDlg::OnCancelButtonClick ), NULL, this );
+	m_sdbSizer10OK->Disconnect( wxEVT_COMMAND_BUTTON_CLICKED, wxCommandEventHandler( PositionDlg::OnOKButtonClick ), NULL, this );
 }
 
-void CourseTrad::init(LogbookDialog* dlg)
+void PositionDlg::init(LogbookDialog* dlg)
 {
+	this->dlg = dlg;
 	Options* opt = dlg->logbookPlugIn->opt;
 
 	m_staticTextDeg1->SetLabel(opt->Deg);
@@ -6500,18 +6494,173 @@ void CourseTrad::init(LogbookDialog* dlg)
 	m_staticTextmin2->SetLabel(opt->Min);
 	m_staticTextsec1->SetLabel(opt->Sec);
 	m_staticTextsec2->SetLabel(opt->Sec);
-	m_staticTextdiv1->SetLabel(dlg->decimalPoint);
-	m_staticTextdiv1->SetLabel(dlg->decimalPoint);
+
+	m_choiceFormat->Append(wxT("054\xB0 12.1234'"));
+	m_choiceFormat->Append(wxT("054\xB0 12' 12.34\""));
+	m_choiceFormat->Select(opt->traditional);
+	oldSel = m_choiceFormat->GetSelection();
 
 	wxString tmp = dlg->m_gridGlobal->GetCellValue(dlg->selGridRow,Logbook::POSITION);
-	int i = tmp.find_first_of(opt->Deg.GetChar(0));
-	m_textCtrlDeg1->SetValue(tmp.substr(0,i));
+	if(tmp.IsEmpty() && dlg->selGridRow != 0)
+		tmp = dlg->m_gridGlobal->GetCellValue(dlg->selGridRow-1,Logbook::POSITION);
 
-/*	m_textCtrlmin1->SetValue(tkz.GetNextToken());
-	wxString temp = tkz.GetNextToken();
-	tmp.Replace(_T("\n"),_T(""));
-	wxStringTokenizer tkz1(temp,dlg->decimalPoint);
-	m_textCtrlsec1->SetValue(tkz1.GetNextToken());
-	m_textCtrlsecfrac1->SetValue(tkz1.GetNextToken());
-	m_staticText1NS->SetLabel(tkz.GetNextToken());*/
+	if(tmp.Contains(_T("\"")))
+	{
+		m_textCtrlDeg1->SetValue(tmp.substr(0,3));
+		m_textCtrlmin1->SetValue(tmp.substr(5,2));
+		m_textCtrlsec1->SetValue(tmp.substr(9,5));
+		m_textCtrlNS->  SetValue(tmp.substr(16,1));
+		m_textCtrlDeg2->SetValue(tmp.substr(18,3));
+		m_textCtrlmin2->SetValue(tmp.substr(23,2));
+		m_textCtrlsec2->SetValue(tmp.substr(27,5));
+		m_textCtrlWE->SetLabel(tmp.substr(34,1));
+
+		if(!opt->traditional)
+			   setFormat(1);
+	}
+	else if(!tmp.IsEmpty())
+	{
+		m_textCtrlDeg1->SetValue(tmp.substr(0,3));
+		m_textCtrlmin1->SetValue(tmp.substr(5,7));
+		m_textCtrlNS->  SetValue(tmp.substr(14,1));
+		m_textCtrlDeg2->SetValue(tmp.substr(16,3));
+		m_textCtrlmin2->SetValue(tmp.substr(21,7));
+		m_textCtrlWE->SetLabel(tmp.substr(30,1));
+
+		if(opt->traditional)
+			   setFormat(0);
+	}
+
+	if(!opt->traditional)
+	{
+		m_textCtrlsec1->Enable(false);
+		m_textCtrlsec2->Enable(false);
+	}
+
+	this->Fit();
+}
+
+void PositionDlg::OnChoice( wxCommandEvent& event )
+{
+	if(event.GetSelection() == oldSel)
+		return;
+
+	if(event.GetSelection() == 1)
+	{
+			m_textCtrlsec1->Enable(true);
+			m_textCtrlsec2->Enable(true);
+			setFormat(0);
+	}
+	else
+	{
+			setFormat(1);
+			m_textCtrlsec1->Enable(false);
+			m_textCtrlsec2->Enable(false);
+	}
+	oldSel = event.GetSelection();
+}
+
+void PositionDlg::setFormat(int fmt)
+{
+	Options* opt = dlg->logbookPlugIn->opt;
+
+	if(fmt)
+	{
+		double min1,sec1,min2,sec2;
+		min1 = wxAtof(replaceComma(m_textCtrlmin1->GetValue()));
+		min2 = wxAtof(replaceComma(m_textCtrlmin2->GetValue()));
+
+		sec1 = wxAtof(replaceComma(m_textCtrlsec1->GetValue()))/60;
+		sec2 = wxAtof(replaceComma(m_textCtrlsec2->GetValue()))/60;
+
+		min1 += sec1;
+		min2 += sec2;
+
+		m_textCtrlmin1->SetValue(wxString::Format(_T("%07.4f"),min1));
+		m_textCtrlmin2->SetValue(wxString::Format(_T("%07.4f"),min2));
+		m_textCtrlsec1->Clear();
+		m_textCtrlsec2->Clear();
+	}
+	else
+	{
+		double min1,sec1,min2,sec2;
+		min1 = wxAtoi(m_textCtrlmin1->GetValue());
+		min2 = wxAtoi(m_textCtrlmin2->GetValue());
+
+		if(m_choiceFormat->GetSelection() == 1)
+		{
+			sec1 = (wxAtof(replaceComma(m_textCtrlmin1->GetValue()))-(int)min1)*60;
+			sec2 = (wxAtof(replaceComma(m_textCtrlmin2->GetValue()))-(int)min2)*60;
+		}
+		else
+		{
+			sec1 = wxAtof(replaceComma(m_textCtrlsec1->GetValue()));
+			sec2 = wxAtof(replaceComma(m_textCtrlsec2->GetValue()));
+		}
+
+		m_textCtrlmin1->SetValue(wxString::Format(_T("%02.0f"),min1));
+		m_textCtrlmin2->SetValue(wxString::Format(_T("%02.0f"),min2));
+		m_textCtrlsec1->SetValue(wxString::Format(_T("%06.3f"),sec1));
+		m_textCtrlsec2->SetValue(wxString::Format(_T("%06.3f"),sec2));
+	}
+}
+
+wxString PositionDlg::replaceComma(wxString s)
+{
+	wxString tmp = s;
+	tmp.Replace(_T(","),_T("."));
+	return tmp;
+}
+
+void PositionDlg::OnOKButtonClick( wxCommandEvent& event )
+{
+	Options* opt = dlg->logbookPlugIn->opt;
+	double min1,sec1,min2,sec2;
+
+	this->m_textCtrlsec1->Enable(true);
+	this->m_textCtrlsec2->Enable(true);
+
+	wxString deg1    = wxString::Format(_T("%03.0f"),wxAtof(m_textCtrlDeg1->GetValue()));
+	wxString deg2    = wxString::Format(_T("%03.0f"),wxAtof(m_textCtrlDeg2->GetValue()));
+	min1 = wxAtof(replaceComma(m_textCtrlmin1->GetValue()));
+	min2 = wxAtof(replaceComma(m_textCtrlmin2->GetValue()));
+
+	if(opt->traditional)
+	{
+		if(this->m_choiceFormat->GetSelection() == 0)
+		{
+			min1 = (int) min1;
+			min2 = (int) min2;
+			sec1 = (wxAtof(replaceComma(m_textCtrlmin1->GetValue()))-min1)*60;
+			sec2 = (wxAtof(replaceComma(m_textCtrlmin2->GetValue()))-min2)*60;
+		}
+		else
+		{
+			sec1 = wxAtof(replaceComma(m_textCtrlsec1->GetValue()));
+			sec2 = wxAtof(replaceComma(m_textCtrlsec2->GetValue()));
+		}
+
+		wxString min1str = wxString::Format(_T("%02.0f"),min1);
+		wxString min2str = wxString::Format(_T("%02.0f"),min2);
+		wxString sec1str = wxString::Format(_T("%05.2f"),sec1);
+		wxString sec2str = wxString::Format(_T("%05.2f"),sec2);
+
+		retstr = deg1+min1str+sec1str+m_textCtrlNS->GetValue().Lower()+deg2+min2str+sec2str+m_textCtrlWE->GetValue().Lower();
+	}
+	else
+	{
+		sec1 = wxAtof(replaceComma(m_textCtrlsec1->GetValue()))/60;
+		sec2 = wxAtof(replaceComma(m_textCtrlsec2->GetValue()))/60;
+
+		min1 += sec1;
+		min2 += sec2;
+
+		wxString min1str = wxString::Format(_T("%07.4f"),min1);
+		wxString min2str = wxString::Format(_T("%07.4f"),min2);
+
+		retstr = deg1+min1str+m_textCtrlNS->GetValue().Lower()+deg2+min2str+m_textCtrlWE->GetValue().Lower();
+	}
+
+	retstr.Replace(_T("."),dlg->decimalPoint);
+	EndModal(wxID_OK);
 }

@@ -63,7 +63,6 @@ private:
 	wxString			toSDMMOpenCPN ( int NEflag, double a, bool hi_precision );
 	void				setPositionString(double lat,int north, double lon, int east);
 	void				setDateTimeString(wxDateTime s);
-	void				getModifiedCellValue(int grid, int row, int selcol, int col);
 	wxString			computeCell(int grid,int row, int col, wxString s, bool mode);
 	void				clearAllGrids();
 	wxString			calculateDistance(wxString fromstr, wxString tostr);
@@ -126,6 +125,7 @@ public:
 	bool checkGPS(bool appendClick);
 	void checkWayPoint(RMB rmb);
 	void showSearchDlg(int row, int col);
+	void getModifiedCellValue(int grid, int row, int selcol, int col);
 
 	wxTextFile* logbookFile;
 	wxString	title;

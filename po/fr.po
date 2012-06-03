@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-02 20:13+0200\n"
-"PO-Revision-Date: 2012-04-11 16:28+0100\n"
+"POT-Creation-Date: 2012-06-03 12:00+0200\n"
+"PO-Revision-Date: 2012-06-03 00:12+0100\n"
 "Last-Translator: Gilletarom <gilletarom@netpratique.fr>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,14 +17,15 @@ msgstr ""
 msgid "\n"
 msgstr "\n"
 #
-#, fuzzy, c-format
+#, c-format
 msgid ""
 "\n"
 "Name of Waypoint: %s\n"
 "%s %s"
 msgstr ""
 "\n"
-"Nom du waypoint : %s"
+"Nom du waypoint : %s\n"
+"%s %s"
 #
 msgid ""
 "\n"
@@ -57,34 +58,20 @@ msgstr ""
 msgid "\""
 msgstr "\""
 #
-#
-#
-#
-#
-#, fuzzy
 msgid "#1 Total"
-msgstr ""
-"Total\n"
-"eau"
+msgstr "#1 Total"
 #
-#
-#
-#
-#
-#, fuzzy
 msgid "#2 Total"
-msgstr ""
-"Total\n"
-"eau"
+msgstr "#2 Total"
 #
 msgid "'"
 msgstr "'"
 #
 msgid "(Unnamed Route)"
-msgstr ""
+msgstr "(Route sans nom)"
 #
 msgid "-Plugin"
-msgstr "-Plug-in"
+msgstr "-Complément"
 #
 #
 #
@@ -103,26 +90,14 @@ msgstr "0"
 msgid "1. Watch of 1. Person"
 msgstr "1. Watch of 1. Person"
 #
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
 msgid ":0"
-msgstr "0"
+msgstr ":0"
 #
 msgid "AH #1 Total"
-msgstr ""
+msgstr "AH #1 Total"
 #
 msgid "AH #2 Total"
-msgstr ""
+msgstr "AH #2 Total"
 #
 msgid "Abbreviations"
 msgstr "Abréviations"
@@ -146,22 +121,16 @@ msgstr ""
 "Ajouter un\n"
 "équipement"
 #
-#, fuzzy
 msgid "Add Item"
-msgstr ""
-"Ajouter un\n"
-"membre d'équipage"
+msgstr "Ajouter un item"
 #
 msgid "Add Line"
 msgstr ""
 "Ajouter\n"
 "une ligne"
 #
-#, fuzzy
 msgid "Add Treenode"
-msgstr ""
-"Ajouter un\n"
-"membre d'équipage"
+msgstr "Ajouter un noeud d'arbre"
 #
 msgid "Add a line to the end of your logbook"
 msgstr "Ajouter une ligne à la fin du logbook"
@@ -189,7 +158,7 @@ msgid "All Logbooks"
 msgstr "Tous les livres de bord"
 #
 msgid "Ampere"
-msgstr ""
+msgstr "Ampère"
 #
 msgid "Append Line every Nm"
 msgstr "Ouvrir une ligne tous les Nm"
@@ -207,7 +176,10 @@ msgid ""
 msgstr ""
 "Ligne automatique par minuterie\n"
 "Vous pouvez activer/désactiver la minuterie\n"
-"ou modifiez ce choix dans les options"
+"ou modifier ce choix dans les options"
+#
+msgid "Automatic Watch Interval"
+msgstr ""
 #
 msgid ""
 "Automatic line by timer\n"
@@ -226,29 +198,28 @@ msgstr ""
 "Shift+Entre ouvre une nouvelle ligne"
 #
 msgid "Bank #1"
-msgstr ""
+msgstr "Batterie #1"
 #
 msgid "Bank #1 gen."
-msgstr ""
+msgstr "Batterie #1 gen."
 #
 msgid "Bank #1 used"
-msgstr ""
+msgstr "Batterie #1 utilisé"
 #
 msgid "Bank #2"
-msgstr ""
+msgstr "Batterie #2"
 #
 msgid "Bank #2 gen."
-msgstr ""
+msgstr "Batterie #2 gen."
 #
 msgid "Bank #2 used"
-msgstr ""
+msgstr "batterie #2 utilisé"
 #
 msgid "Barometer"
 msgstr "Baromètre"
 #
-#, fuzzy
 msgid "Battery"
-msgstr "Catégories"
+msgstr "Batterie"
 #
 msgid "Beam"
 msgstr ""
@@ -335,6 +306,9 @@ msgid ""
 "Please set column 'Onboard' to Yes\n"
 "(click the column twice)"
 msgstr ""
+"Ce membre de l'équipage n'est pas à bord\n"
+"jSVP, aller dans la colonne \"A bord\" et choissez \"Oui\"\n"
+"(Cliquez deux fois dans la colonne)"
 #
 msgid "Current"
 msgstr "Courant"
@@ -387,9 +361,8 @@ msgstr "Jour(s)"
 msgid "Degres"
 msgstr "Degrés"
 #
-#, fuzzy
 msgid "Delete Item"
-msgstr "Supprimer la mise en page"
+msgstr "Supprimer un item"
 #
 msgid "Delete Layout"
 msgstr "Supprimer la mise en page"
@@ -401,16 +374,14 @@ msgstr "Supprimer la ligne"
 msgid "Delete Row Nr. %i ?"
 msgstr "Supprimer la ligne n° %i ?"
 #
-#, fuzzy
 msgid "Delete Treenode"
-msgstr "Supprimer la ligne"
+msgstr "Supprimer un noeud d'arbre"
 #
 msgid "Demo Engine stopped"
-msgstr ""
+msgstr "Démonstration moteur arrêté"
 #
-#, fuzzy
 msgid "Demo Sails up"
-msgstr "Détails"
+msgstr "Démonstartion voiles hautes"
 #
 msgid "Depth"
 msgstr "Profondeur"
@@ -495,23 +466,23 @@ msgstr ""
 "Quart 6 :\n"
 "Fin"
 #
-#, fuzzy
 msgid "Engine "
 msgstr "Moteur"
 #
-#, fuzzy
 msgid "Engine #1"
-msgstr "Moteur"
+msgstr "Moteur #1"
 #
-#, fuzzy
 msgid "Engine #2"
-msgstr "Moteur"
+msgstr "Moteur #2"
 #
 msgid ""
 "Engine stopped\n"
 "\n"
 "Demo - Rightclick-Menu 'use Testextblocks' for help"
 msgstr ""
+"Moteur arrêté\n"
+"\n"
+"Démonstaration : Clic droit \"Utilisez Tester bloc de texte\" pour l'aide."
 #
 msgid "Equipment"
 msgstr "Equipement"
@@ -543,10 +514,6 @@ msgstr "Carburant"
 msgid "Fuel/Water"
 msgstr "Carburant/Eau"
 #
-#
-#
-#
-#
 msgid "FuelTotal"
 msgstr ""
 "Carburant\n"
@@ -556,11 +523,10 @@ msgid "GPS Auto"
 msgstr "GPS automatique"
 #
 msgid "Gen. total"
-msgstr ""
+msgstr "Gen. total"
 #
-#, fuzzy
 msgid "Generator"
-msgstr "Température"
+msgstr "Alternateur"
 #
 msgid "Goto Route"
 msgstr "Faire route"
@@ -608,6 +574,26 @@ msgid ""
 "\n"
 "see next treenodes for more help"
 msgstr ""
+"Aide\n"
+"-----\n"
+"\n"
+"Ouvrez l'arbre\n"
+"  'Texte en utilisant le dialogue seulement'\n"
+"  et sélectionnez par exemple \"Remarques\"\n"
+"\n"
+"Clic droit sur l'arbre du menu\n"
+"\n"
+"Ajouter un item et renommer le\n"
+"   Utiliser seulement des noms pour les items !\n"
+"\n"
+"Insérez un texte\n"
+"\n"
+"Dans \"Texts en uitilisant seulement ce dialogue\" vous pouvez seulement "
+"insérer/supprimert/delete des noeuds de l'arbre\n"
+"\n"
+"Utilisez \"Glisser déposer\" pour déplacer un item hors ou dans le menu\n"
+"\n"
+"Regardez le noeud suivant pour plus d'aide."
 #
 msgid "Hide Equipment"
 msgstr "Voir les caractéristiques"
@@ -659,7 +645,7 @@ msgid ""
 "If You have created Your own layouts\n"
 "with prefix e.g. My_"
 msgstr ""
-"Si vous avez créé vos prorpres mises en page\n"
+"Si vous avez créé vos propres mises en page\n"
 "avec le préfixe par exemple My_"
 #
 msgid "In Column"
@@ -732,7 +718,7 @@ msgid "Last line from Logbook\n"
 msgstr "Dernière ligne du livre de bord\n"
 #
 msgid "Last waypoint of the Route"
-msgstr ""
+msgstr "Dernier waypoint de la route"
 #
 msgid "Layouts installed"
 msgstr "Mises en page  installée"
@@ -846,7 +832,7 @@ msgstr "Navigation"
 #
 #, c-format
 msgid "New Item%i"
-msgstr ""
+msgstr "Nouvel item%i"
 #
 msgid "New Logbook"
 msgstr ""
@@ -855,10 +841,10 @@ msgstr ""
 #
 #, c-format
 msgid "New Node%i"
-msgstr ""
+msgstr "Nouveau noeud%i"
 #
 msgid "Next WP Name: "
-msgstr ""
+msgstr "Nom du prochain WP :"
 #
 #
 #
@@ -899,7 +885,7 @@ msgid "Old Logbook until %s"
 msgstr "Ancien livre de bord depuis %s"
 #
 msgid "Onboard"
-msgstr ""
+msgstr "A bord"
 #
 msgid "Only Layouts with prefix:"
 msgstr "Seulement avec le préfixe de la mise en page :"
@@ -908,6 +894,8 @@ msgid ""
 "Only used when you enter 1/2, 1/4 ... in a total-field, or to calculate the "
 "watermaker\n"
 msgstr ""
+"Utilisé seulement si vous entrez 1/2, 1/4 ... dans un champ, ou pour calculer "
+"le niveau d'eau\n"
 #
 msgid ""
 "Opendocument SpreadSheet(*.ods)|*.ods|Excel 2003 Format(*.xml)|*.xml|CSV "
@@ -1021,10 +1009,6 @@ msgstr ""
 "R\n"
 " "
 #
-#
-#
-#
-#
 msgid "Reef"
 msgstr ""
 "Nombre\n"
@@ -1042,9 +1026,8 @@ msgstr "Recharger les mises en page"
 msgid "Remarks"
 msgstr "Remarque"
 #
-#, fuzzy
 msgid "Rename Item"
-msgstr "Renommer les mises en page"
+msgstr "Renommer l'item"
 #
 msgid "Rename Layout"
 msgstr "Renommer les mises en page"
@@ -1085,10 +1068,6 @@ msgstr ""
 "N°\n"
 "de voile"
 #
-#
-#
-#
-#
 msgid "Sails"
 msgstr "Voiles"
 #
@@ -1098,6 +1077,11 @@ msgid ""
 "\n"
 "Demo - Rightclick-Menu 'use Testextblocks' for help"
 msgstr ""
+"Voiles haute\n"
+"Moteur arrté\n"
+"\n"
+"Démonstration - Clic droit sur le menu -  Rightclick-Menu Utilisez \"Bloc de "
+"texte\"."
 #
 msgid "Sails used mostly"
 msgstr ""
@@ -1182,7 +1166,7 @@ msgid "Select one of the old logbooks"
 msgstr "Sélectionner un des anciens livres de bord"
 #
 msgid "Select zipped Languages-Files"
-msgstr "Sélectionner la langue du fichier zip"
+msgstr "Sélectionner la langue du fichier"
 #
 msgid "Select zipped Layout-Files"
 msgstr "Sélectionner le fichier de mise en page"
@@ -1215,14 +1199,17 @@ msgid "Set Path to ODT-Editor"
 msgstr "Activer le chemin de l'éditeur Odt"
 #
 #, fuzzy
+msgid "Set Same Watch as"
+msgstr "Même quart que "
+#
 msgid "Set Timer Interval"
-msgstr "- Minuterie active  - Délai :"
+msgstr "Choisir l'intervalle de temps"
 #
 msgid "Set Watches"
 msgstr "Appliquer les quarts"
 #
 msgid "Set gal/liter in Abbreviations "
-msgstr ""
+msgstr "Choisir Gal/litre comme abréviations"
 #
 msgid "Show Depth in"
 msgstr "Profondeur en"
@@ -1237,10 +1224,6 @@ msgstr "Montrer l'icône de LogBook"
 msgid "Show Position Fomat"
 msgstr "Montrer position format"
 #
-#
-#
-#
-#
 msgid "Show ToolTips"
 msgstr "Montrer les info-bulles"
 #
@@ -1251,14 +1234,13 @@ msgid "Show all Layouts"
 msgstr "Montrer les mises en page"
 #
 msgid "Show all crew-entries"
-msgstr ""
+msgstr "Montrer toutes les entrées de la liste d'équipage"
 #
 msgid "Show hidden columns"
 msgstr "Montrer les colonnes cachées"
 #
-#, fuzzy
 msgid "Show onboard only"
-msgstr "Montrer l'icône de LogBook"
+msgstr "Montrer seulement les membres à bord"
 #
 msgid "Show/Hide Equipmentgrid"
 msgstr ""
@@ -1346,7 +1328,7 @@ msgstr ""
 "la plus haute"
 #
 msgid "Tank"
-msgstr ""
+msgstr "Réservoir"
 #
 msgid "Telephone"
 msgstr "Téléphone"
@@ -1355,22 +1337,25 @@ msgid "Temperature"
 msgstr "Température"
 #
 msgid "Text"
-msgstr ""
+msgstr "Texte"
 #
 msgid "Textblocks"
-msgstr ""
+msgstr "Blocs de texte"
 #
 msgid "Texts for Rightclick-Menu"
-msgstr ""
+msgstr "Texte du menu contextuel"
 #
 msgid "Texts when using this Dialog only"
-msgstr ""
+msgstr "Textes en utilisant seulement le dialogue"
 #
 msgid ""
 "The itemname is shown in the rightcklick-menu of the following Columns\n"
 "By clicking on it the text is inserted\n"
 "\n"
 msgstr ""
+"Le nom de l'item est montré dans le menu contextuel de la colonne suivante\n"
+"en cliquant dans le texte, le texte est inséré\n"
+"\n"
 #
 msgid ""
 "These texts are inserted into the grid-colmn\n"
@@ -1381,6 +1366,11 @@ msgid ""
 "\n"
 "Use Drag 'n Drop to place a item in menu"
 msgstr ""
+"Ces textes sont insérés dans la grille des colonnes en cliquant ce dialogue\n"
+"\n"
+"Cliquez sur \"ok\"\n"
+"\n"
+"Utilisez le \"glisser déposer\" pour placer l'item dans le menu"
 #
 msgid "Time"
 msgstr "Heure"
@@ -1428,15 +1418,15 @@ msgid ""
 "If GPS is out of order, uncheck to\n"
 "prevent that the message repeats."
 msgstr ""
-"Décoché si vous n'avez pas de GPS\n"
+"Décochez si vous n'avez pas de GPS\n"
 "Si votre GPS est hors service, décochez\n"
-"pour prévenir des méssages à répétition."
+"pour prévenir des messages à répétition."
 #
 msgid "Uninstall"
 msgstr "Désinstaller"
 #
 msgid "Uninstall Logbook"
-msgstr "Désinstaller le plug-in logbook"
+msgstr "Désinstaller le complément Logbook"
 #
 msgid ""
 "Uninstalls\n"
@@ -1447,10 +1437,10 @@ msgid ""
 "and cleans the OpenCPN.ini"
 msgstr ""
 "Désinstallation :\n"
-"  Plug_in Logbook,\n"
+"  Complément Logbook,\n"
 "  Toutes les données du livre de bord,\n"
 "  Toutes les mises en page,\n"
-"  Toutes es fichiers de langues associés au plug_in Logbook\n"
+"  Toutes les fichiers de langues associés au complément Logbook\n"
 "Et nettoyage du fichier d'initialisation d'OpenCPN : OpenCPN.ini"
 #
 msgid "Urgentvalue"
@@ -1471,17 +1461,10 @@ msgid "Visibility"
 msgstr "Visibilité"
 #
 msgid "W-Output"
-msgstr ""
+msgstr "W-Output"
 #
-#
-#
-#
-#
-#, fuzzy
 msgid "W-Total"
-msgstr ""
-"Total\n"
-"eau"
+msgstr "Capacité d'eau"
 #
 msgid "W/Strength"
 msgstr ""
@@ -1494,16 +1477,15 @@ msgstr "Valeur d'alarme"
 msgid "Watch"
 msgstr "Visé par"
 #
+#, fuzzy
+msgid "Watchtime:"
+msgstr "Visé par"
+#
 msgid "Water"
 msgstr "Eau"
 #
-#, fuzzy
 msgid "Water used"
-msgstr "Eau"
-#
-#
-#
-#
+msgstr "Eau utilisée"
 #
 msgid "WaterTotal"
 msgstr ""
@@ -1511,11 +1493,10 @@ msgstr ""
 "eau"
 #
 msgid "Waterm. Outp"
-msgstr ""
+msgstr "Eau consommée"
 #
-#, fuzzy
 msgid "Watermaker"
-msgstr "Eau"
+msgstr "Niveau d'eau"
 #
 msgid "Wave"
 msgstr "Vague"
@@ -1633,11 +1614,12 @@ msgstr ""
 "Ligne automatique\n"
 "Distance > "
 #
-#, fuzzy
 msgid ""
 "automatic line\n"
 "Waypoint arrived:"
-msgstr "Ligne automatique pour le waypoint d'arrivé"
+msgstr ""
+"Ligne automatique\n"
+"waypoint d'arrivé :"
 #
 msgid ""
 "automatic line\n"
@@ -1725,7 +1707,7 @@ msgstr "fth"
 #
 # Sur une version FR l'utilisateur souhaitera plus saisir des Litres.
 msgid "gal"
-msgstr "Litre"
+msgstr "Gal"
 #
 msgid "h"
 msgstr "h"
@@ -1734,7 +1716,7 @@ msgid "km/h"
 msgstr "km/h"
 #
 msgid "kts"
-msgstr "Noeuds"
+msgstr "Kts"
 #
 msgid "m"
 msgstr "m"
@@ -1755,7 +1737,7 @@ msgid "s"
 msgstr "s"
 #
 msgid "same watch as"
-msgstr "Même quart que"
+msgstr "Même quart que "
 #
 # means
 # Logbook from date to date
@@ -1767,121 +1749,14 @@ msgid ""
 "to use MS-Word, append %s like this:\n"
 "\"C:\\yourPathToWinword\\WINWORD.EXE\" %s"
 msgstr ""
+"Pour utiliser MS-Word, ouvrir %s comme ceci :\n"
+"\"C:\\Votre_Chemin_pour_Winword\\WINWORD.EXE\" %s"
 #
 msgid "use Textblocks..."
-msgstr ""
+msgstr "Utiliser les blocs de texte ..."
 #
 msgid "week(s)"
 msgstr "semaine(s)"
 #
 msgid "write your own label"
 msgstr "Ecrire votre  propre \"étiquette\" "
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#~ msgid ""
-#~ "\n"
-#~ "Name of Waypoint: %s\n"
-#~ "True bearing to destination: %4.1f%s\n"
-#~ "Range to destination: %4.2f%s"
-#~ msgstr ""
-#~ "\n"
-#~ "Nom du Waypoint             : %s\n"
-#~ "Cap vrai vers l'arrivée      : %4.1f%s\n"
-#~ "Distance jusqu'à l'arrivée : %4.2f%s"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#~ msgid "EngineTotal"
-#~ msgstr "Total moteur"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#~ msgid ""
-#~ "Please enter like 1.30 or 1,30 or 1:30\n"
-#~ "for 1:30h"
-#~ msgstr ""
-#~ "Veuillez entrer 1.30 or 1,30 or 1:30\n"
-#~ "pour 1:30h"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#~ msgid "Speed STW Avg."
-#~ msgstr ""
-#~ "Vitesse/eau\n"
-#~ "moyenne"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#~ msgid "Speed STW Max."
-#~ msgstr ""
-#~ "Vitesse/eau\n"
-#~ "maximale"

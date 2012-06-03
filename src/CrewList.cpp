@@ -1261,7 +1261,7 @@ AutomaticWatch::AutomaticWatch( wxWindow* parent, wxWindowID id, const wxString&
 	m_staticTextPersons->Wrap( -1 );
 	fgSizer341->Add( m_staticTextPersons, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_staticText82 = new wxStaticText( this, wxID_ANY, wxT("Watchtime:"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticText82 = new wxStaticText( this, wxID_ANY, _("Watchtime:"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticText82->Wrap( -1 );
 	fgSizer341->Add( m_staticText82, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.6.1310\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-02 20:13+0200\n"
+"POT-Creation-Date: 2012-06-03 20:53+0200\n"
 "PO-Revision-Date: 2012-05-19 13:02+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
@@ -181,6 +181,9 @@ msgstr ""
 "wpis automatyczny Timera\n"
 "możesz włączyć/wyłączyć Timer\n"
 "lub zmienić ten tekst w Preferencjach."
+#
+msgid "Automatic Watch Interval"
+msgstr ""
 #
 msgid ""
 "Automatic line by timer\n"
@@ -1114,6 +1117,12 @@ msgid "Set Path to ODT-Editor"
 msgstr "Ustaw ścieżkę do edytora ODT"
 #
 #, fuzzy
+msgid "Set Same Watch as"
+msgstr ""
+"Początek\n"
+"I wachty"
+#
+#, fuzzy
 msgid "Set Timer Interval"
 msgstr " - Timer włączony - Interwał: "
 #
@@ -1387,6 +1396,10 @@ msgid "Warnvalue"
 msgstr "Ostrzeżenie"
 #
 msgid "Watch"
+msgstr "Wachta"
+#
+#, fuzzy
+msgid "Watchtime:"
 msgstr "Wachta"
 #
 msgid "Water"
@@ -1681,6 +1694,9 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#
+#
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -1707,10 +1723,16 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#
+#
+#
 #~ msgid "EngineTotal"
 #~ msgstr ""
 #~ "Motogodziny\n"
 #~ "łącznie"
+#
+#
+#
 #
 #
 #
@@ -1820,9 +1842,15 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#
+#
+#
 #, fuzzy
 #~ msgid "Nm"
 #~ msgstr "Nazwisko"
+#
+#
+#
 #
 #
 #
@@ -1890,9 +1918,15 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#
+#
+#
 #, fuzzy
 #~ msgid "Search.."
 #~ msgstr "Wybierz Dziennik"
+#
+#
+#
 #
 #
 #
@@ -1909,6 +1943,9 @@ msgstr "wpisz własną etykietę"
 #~ msgstr ""
 #~ "Średnia\n"
 #~ "Vw"
+#
+#
+#
 #
 #
 #

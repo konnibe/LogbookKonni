@@ -833,9 +833,9 @@ class TimerInterval : public wxDialog
 };
 
 ///////////////////////////////////////////////////////////////////////////////
-/// Class CourseTrad
+/// Class PositionDlg
 ///////////////////////////////////////////////////////////////////////////////
-class CourseTrad : public wxDialog 
+class PositionDlg : public wxDialog 
 {
 	private:
 		wxTextCtrl* m_textCtrlDeg1;
@@ -843,21 +843,23 @@ class CourseTrad : public wxDialog
 		wxTextCtrl* m_textCtrlmin1;
 		wxStaticText* m_staticTextmin1;
 		wxTextCtrl* m_textCtrlsec1;
-		wxStaticText* m_staticTextdiv1;
-		wxTextCtrl* m_textCtrlsecfrac1;
 		wxStaticText* m_staticTextsec1;
-		wxStaticText* m_staticText1NS;
+		wxTextCtrl* m_textCtrlNS;
 		wxFlexGridSizer* fgSizer441;
 		wxTextCtrl* m_textCtrlDeg2;
 		wxStaticText* m_staticTextDeg2;
 		wxTextCtrl* m_textCtrlmin2;
 		wxStaticText* m_staticTextmin2;
 		wxTextCtrl* m_textCtrlsec2;
-		wxStaticText* m_staticTextdiv2;
-		wxTextCtrl* m_textCtrlsecfrac2;
 		wxStaticText* m_staticTextsec2;
+		wxTextCtrl* m_textCtrlWE;
+		wxChoice* m_choiceFormat;
 
-		void init(LogbookDialog* dlg);
+		void           init(LogbookDialog* dlg);
+		void           setFormat(int fmt);
+		wxString       replaceComma(wxString s);
+		LogbookDialog* dlg;
+		int            oldSel;
 	
 	protected:
 		wxStaticText* m_staticTextWE;
@@ -867,14 +869,16 @@ class CourseTrad : public wxDialog
 		
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnCancelButtonClick( wxCommandEvent& event ) { event.Skip(); }
-		virtual void OnOKButtonClick( wxCommandEvent& event ) { event.Skip(); }
+		virtual void OnOKButtonClick( wxCommandEvent& event );
+		virtual void OnChoice( wxCommandEvent& event );
 		
 	
 	public:
 		
-		CourseTrad( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Course"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 248,119 ), long style = wxDEFAULT_DIALOG_STYLE ); 
-		~CourseTrad();
-	
+		PositionDlg( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Position"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 250,127 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
+	    ~PositionDlg();
+
+		wxString retstr;
 };
 
 #endif //__logbook__

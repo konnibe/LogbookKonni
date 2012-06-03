@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-02 20:13+0200\n"
+"POT-Creation-Date: 2012-06-03 20:53+0200\n"
 "PO-Revision-Date: 2012-06-02 14:51+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
@@ -176,6 +176,9 @@ msgstr ""
 "Automatischer Eintrag durch Timerr\n"
 "Sie können einen Timer ein- oder ausschalten\n"
 "oder diesen Text ändern unter Optionen"
+#
+msgid "Automatic Watch Interval"
+msgstr ""
 #
 msgid ""
 "Automatic line by timer\n"
@@ -1266,6 +1269,10 @@ msgstr "Pfad zum Mail-Program"
 msgid "Set Path to ODT-Editor"
 msgstr "Pfad zum ODT-Editor"
 #
+#, fuzzy
+msgid "Set Same Watch as"
+msgstr "dieselbe Wachzeit wie"
+#
 msgid "Set Timer Interval"
 msgstr "Setze das Timer-Interval"
 #
@@ -1529,6 +1536,10 @@ msgid "Warnvalue"
 msgstr "Warnbetrag"
 #
 msgid "Watch"
+msgstr "Wache"
+#
+#, fuzzy
+msgid "Watchtime:"
 msgstr "Wache"
 #
 msgid "Water"
@@ -1836,6 +1847,9 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -1885,9 +1899,15 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
 #, fuzzy
 #~ msgid "AllLogbooks"
 #~ msgstr "Alle Logbücher"
+#
+#
+#
 #
 #
 #
@@ -2054,8 +2074,14 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Crewliste"
+#
+#
+#
 #
 #
 #
@@ -2127,6 +2153,9 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
 #~ msgid "EngineTotal"
 #~ msgstr "Maschine gesamt"
 #
@@ -2168,8 +2197,14 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
 #~ msgid "FirstName"
 #~ msgstr "Vorname"
+#
+#
+#
 #
 #
 #
@@ -2329,8 +2364,14 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Pfad zum HTML-Editor (optional)"
+#
+#
+#
 #
 #
 #
@@ -2443,8 +2484,14 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
 #~ msgid "Save"
 #~ msgstr "Speichern"
+#
+#
+#
 #
 #
 #
@@ -2600,9 +2647,15 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
+#
+#
+#
 #
 #
 #
@@ -2629,8 +2682,14 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
 #~ msgid "Speed STW Max."
 #~ msgstr "Fahrt d.W. max."
+#
+#
+#
 #
 #
 #

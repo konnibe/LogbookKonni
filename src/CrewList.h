@@ -130,7 +130,7 @@ class AutomaticWatch : public wxDialog
 		
 		int dndIndex;
 		
-		AutomaticWatch( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxT("Automatic Watch Interval"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 398,339 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER ); 
+		AutomaticWatch( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Automatic Watch Interval"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 398,339 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER ); 
 		~AutomaticWatch();
 	
 };
@@ -174,7 +174,7 @@ class SameWatchAs : public wxDialog
 		wxChoice* m_choice23;
 		wxStaticText* m_staticTextPersonName;
 
-		SameWatchAs( wxWindow* parent, int gridRow, wxWindowID id = wxID_ANY, const wxString& title = wxT("Set Same Watch as"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 350,125 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		SameWatchAs( wxWindow* parent, int gridRow, wxWindowID id = wxID_ANY, const wxString& title = _("Set Same Watch as"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 350,125 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~SameWatchAs();
 	
 };

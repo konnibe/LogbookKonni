@@ -1383,23 +1383,33 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						dialog->logGrids[grid]->SetCellValue(row,col,s);
 						if(row != 0)
 						{
-							double distTotal,dist ;
-							dialog->logGrids[grid]->SetCellValue(row,5,
-								calculateDistance(dialog->logGrids[grid]->GetCellValue(row-1,col),s));
-							wxString temp = dialog->logGrids[grid]->GetCellValue(row-1,6);
+							for(int i = row; i < dialog->logGrids[grid]->GetNumberRows(); i++)
+							{
+							double distTotal,dist;
+							dialog->logGrids[grid]->SetCellValue(i,5,
+								calculateDistance(dialog->logGrids[grid]->GetCellValue(i-1,col),s));
+							wxString temp = dialog->logGrids[grid]->GetCellValue(i-1,6);
 							temp.Replace(_T(","),_T("."));
 							temp.ToDouble(&distTotal);
-							temp = dialog->logGrids[grid]->GetCellValue(row,5);
+							temp = dialog->logGrids[grid]->GetCellValue(i,5);
 							temp.Replace(_T(","),_T("."));
 							temp.ToDouble(&dist);
 							s= wxString::Format(_T("%9.2f %s"),distTotal+dist,opt->distance.c_str());
 							s.Replace(_T("."),dialog->decimalPoint);
-							dialog->logGrids[grid]->SetCellValue(row,6,s);
+							dialog->logGrids[grid]->SetCellValue(i,6,s);
 
 							if(dist >= 0.1)
-								dialog->m_gridGlobal->SetCellValue(row,3,_T("S"));
+								dialog->m_gridGlobal->SetCellValue(i,3,_T("S"));
 							else
-								dialog->m_gridGlobal->SetCellValue(row,3,dialog->m_gridGlobal->GetCellValue(row-1,3));
+								dialog->m_gridGlobal->SetCellValue(i,3,dialog->m_gridGlobal->GetCellValue(i-1,3));
+
+							if(i < dialog->m_gridGlobal->GetNumberRows()-1)
+							{
+								s = dialog->logGrids[grid]->GetCellValue(i+1,col);
+								if(s.IsEmpty() || s == _T(" "))
+									break;
+							}
+							}
 								
 						}
 					}
