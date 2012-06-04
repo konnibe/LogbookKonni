@@ -1820,7 +1820,7 @@
                                                                 <event name="OnEnterWindow"></event>
                                                                 <event name="OnEraseBackground"></event>
                                                                 <event name="OnGridCellChange"></event>
-                                                                <event name="OnGridCellLeftClick"></event>
+                                                                <event name="OnGridCellLeftClick">OnGridCellLeftClickGlobal</event>
                                                                 <event name="OnGridCellLeftDClick"></event>
                                                                 <event name="OnGridCellRightClick">m_gridGlobalOnGridCellRightClick</event>
                                                                 <event name="OnGridCellRightDClick"></event>
@@ -1856,7 +1856,7 @@
                                                                 <event name="OnKillFocus"></event>
                                                                 <event name="OnLeaveWindow"></event>
                                                                 <event name="OnLeftDClick"></event>
-                                                                <event name="OnLeftDown"></event>
+                                                                <event name="OnLeftDown">OnLeftButtonDown</event>
                                                                 <event name="OnLeftUp"></event>
                                                                 <event name="OnMiddleDClick"></event>
                                                                 <event name="OnMiddleDown"></event>
@@ -38893,7 +38893,7 @@
             <property name="resize">Resizable</property>
             <property name="row"></property>
             <property name="show">1</property>
-            <property name="size">250,147</property>
+            <property name="size">254,147</property>
             <property name="style">wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER</property>
             <property name="subclass"></property>
             <property name="title">Position</property>
@@ -39555,7 +39555,7 @@
                                         <property name="resize">Resizable</property>
                                         <property name="row"></property>
                                         <property name="show">1</property>
-                                        <property name="size">20,-1</property>
+                                        <property name="size">25,-1</property>
                                         <property name="style"></property>
                                         <property name="subclass"></property>
                                         <property name="toolbar_pane">0</property>
@@ -40198,7 +40198,7 @@
                                         <property name="resize">Resizable</property>
                                         <property name="row"></property>
                                         <property name="show">1</property>
-                                        <property name="size">20,-1</property>
+                                        <property name="size">25,-1</property>
                                         <property name="style"></property>
                                         <property name="subclass"></property>
                                         <property name="toolbar_pane">0</property>

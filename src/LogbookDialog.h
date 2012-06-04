@@ -85,6 +85,7 @@ class LogbookDialog : public wxDialog
 		int					lastRowSelectedRepairs;
 		int					lastRowSelectedBuyParts;
 		int					previousColumn;
+		bool				noOpenPositionDlg;
 
 		void				declareExportHeader();
 		bool				checkHiddenColumns(wxGrid* grid,int i,bool use);
@@ -374,6 +375,7 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,
 		virtual void OnGridLabelLeftClickRepairs( wxGridEvent& event );
 		virtual void OnGridLabelLeftClickBuyParts( wxGridEvent& event );
 		virtual void onGridLabelLeftClickCrew( wxGridEvent& event );
+		virtual void OnGridCellLeftClickGlobal( wxGridEvent& event );
 
 		virtual void OnGridEditorShownCrew( wxGridEvent& event );
 

@@ -1723,6 +1723,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	this->Connect( m_menuItem22->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHiddenCrew ) );
 	this->Connect( m_menuItem23->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHiddenWake ) );
 	m_gridCrew->Connect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::onGridLabelLeftClickCrew ), NULL, this );
+	m_gridGlobal->Connect( wxEVT_GRID_CELL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::OnGridCellLeftClickGlobal ), NULL, this );
 
 	m_gridMaintanence->Connect( wxEVT_GRID_CELL_CHANGE, wxGridEventHandler( LogbookDialog::onGridCellServiceChange ), NULL, this );
 	m_gridMaintanence->Connect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( LogbookDialog::onGridCellServiceSelected ), NULL, this );
@@ -1916,6 +1917,7 @@ LogbookDialog::~LogbookDialog()
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHiddenCrew ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHiddenWake ) );
 	m_gridCrew->Disconnect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::onGridLabelLeftClickCrew ), NULL, this );
+	m_gridGlobal->Disconnect( wxEVT_GRID_CELL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::OnGridCellLeftClickGlobal ), NULL, this );
 
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceOK ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceBuyParts ) );
@@ -2077,7 +2079,10 @@ void LogbookDialog::navigationHideColumn(wxCommandEvent& ev)
 
 void LogbookDialog::m_gridGlobalOnKeyDown( wxKeyEvent& ev )
 {
+	noOpenPositionDlg = true;
 	wxTextCtrl *ctrl = (wxTextCtrl*)ev.GetEventObject();
+
+	selGridCol  = logGrids[m_notebook8->GetSelection()]->GetGridCursorCol();
 
 	if (ev.ShiftDown() && ev.GetKeyCode() == WXK_RETURN)
 	{	
@@ -2088,6 +2093,9 @@ void LogbookDialog::m_gridGlobalOnKeyDown( wxKeyEvent& ev )
 
 	if (ev.GetKeyCode() == WXK_RETURN)
 	{	
+//		if(selGridCol == Logbook::POSITION)
+//				noOpenPositionDlg = false;
+
 		ev.Skip();
 		setEqualRowHeight(selGridRow);
 		for(int i = 0; i < LOGGRIDS; i++)
@@ -2097,7 +2105,6 @@ void LogbookDialog::m_gridGlobalOnKeyDown( wxKeyEvent& ev )
 
 	if ((ev.ShiftDown() && ev.GetKeyCode() == WXK_TAB) || (ev.GetKeyCode() == WXK_LEFT))
 	{	
-		selGridCol  = logGrids[m_notebook8->GetSelection()]->GetGridCursorCol();
 		if(selGridCol == 0)
 		{
 			if(m_notebook8->GetSelection() == 0)
@@ -2121,7 +2128,6 @@ void LogbookDialog::m_gridGlobalOnKeyDown( wxKeyEvent& ev )
 
 	if (ev.GetKeyCode() == WXK_TAB || ev.GetKeyCode() == WXK_RIGHT)
 	{	
-		selGridCol  = logGrids[m_notebook8->GetSelection()]->GetGridCursorCol();
 		if(selGridCol == logGrids[m_notebook8->GetSelection()]->GetNumberCols()-1)
 		{
 			if(m_notebook8->GetSelection() == LOGGRIDS - 1)
@@ -2203,6 +2209,12 @@ bool LogbookDialog::checkHiddenColumns(wxGrid* grid,int i, bool use)
 	}
 	grid->SetGridCursor(selGridRow,selGridCol);
 	return skip;
+}
+
+void LogbookDialog::OnGridCellLeftClickGlobal( wxGridEvent& event )
+{
+	noOpenPositionDlg = false;
+	event.Skip();
 }
 
 void LogbookDialog::gridGlobalScrolled( wxScrollWinEvent& ev )
@@ -2378,6 +2390,7 @@ bool LogbookDialog::isInArrayString(wxArrayString ar, wxString s)
 
 void LogbookDialog::m_gridGlobalOnGridSelectCell( wxGridEvent& ev )
 {
+
 	for(int i = 0; i < LOGGRIDS; i++)
 		logGrids[i]->ClearSelection();
 
@@ -2401,7 +2414,7 @@ void LogbookDialog::m_gridGlobalOnGridSelectCell( wxGridEvent& ev )
 		logGrids[i]->MakeCellVisible(selGridRow,selGridCol);
 	}
 
-	if(selGridCol == Logbook::POSITION)
+	if(selGridCol == Logbook::POSITION && !noOpenPositionDlg)
 	{
 		PositionDlg* dlg = new PositionDlg(this);
 		int i = dlg->ShowModal();
@@ -2474,6 +2487,7 @@ void LogbookDialog::setTitleExt()
 void LogbookDialog::init()
 {	
 	sashPos = -1;
+	noOpenPositionDlg = false;
 	decimalPoint = wxLocale::GetInfo(wxLOCALE_DECIMAL_POINT, wxLOCALE_CAT_NUMBER);
 	setDatePattern();
 
@@ -6615,11 +6629,18 @@ wxString PositionDlg::replaceComma(wxString s)
 void PositionDlg::OnOKButtonClick( wxCommandEvent& event )
 {
 	Options* opt = dlg->logbookPlugIn->opt;
-	double min1,sec1,min2,sec2;
+	double degf1, degf2,min1,sec1,min2,sec2;
+
+	wxString min1str;
+	wxString min2str;
+	wxString sec1str;
+	wxString sec2str;
 
 	this->m_textCtrlsec1->Enable(true);
 	this->m_textCtrlsec2->Enable(true);
 
+	degf1 = wxAtof(m_textCtrlDeg1->GetValue());
+	degf2 = wxAtof(m_textCtrlDeg2->GetValue());
 	wxString deg1    = wxString::Format(_T("%03.0f"),wxAtof(m_textCtrlDeg1->GetValue()));
 	wxString deg2    = wxString::Format(_T("%03.0f"),wxAtof(m_textCtrlDeg2->GetValue()));
 	min1 = wxAtof(replaceComma(m_textCtrlmin1->GetValue()));
@@ -6640,10 +6661,10 @@ void PositionDlg::OnOKButtonClick( wxCommandEvent& event )
 			sec2 = wxAtof(replaceComma(m_textCtrlsec2->GetValue()));
 		}
 
-		wxString min1str = wxString::Format(_T("%02.0f"),min1);
-		wxString min2str = wxString::Format(_T("%02.0f"),min2);
-		wxString sec1str = wxString::Format(_T("%05.2f"),sec1);
-		wxString sec2str = wxString::Format(_T("%05.2f"),sec2);
+		min1str = wxString::Format(_T("%02.0f"),min1);
+		min2str = wxString::Format(_T("%02.0f"),min2);
+		sec1str = wxString::Format(_T("%05.2f"),sec1);
+		sec2str = wxString::Format(_T("%05.2f"),sec2);
 
 		retstr = deg1+min1str+sec1str+m_textCtrlNS->GetValue().Lower()+deg2+min2str+sec2str+m_textCtrlWE->GetValue().Lower();
 	}
@@ -6655,12 +6676,58 @@ void PositionDlg::OnOKButtonClick( wxCommandEvent& event )
 		min1 += sec1;
 		min2 += sec2;
 
-		wxString min1str = wxString::Format(_T("%07.4f"),min1);
-		wxString min2str = wxString::Format(_T("%07.4f"),min2);
+		min1str = wxString::Format(_T("%07.4f"),min1);
+		min2str = wxString::Format(_T("%07.4f"),min2);
 
 		retstr = deg1+min1str+m_textCtrlNS->GetValue().Lower()+deg2+min2str+m_textCtrlWE->GetValue().Lower();
 	}
 
-	retstr.Replace(_T("."),dlg->decimalPoint);
-	EndModal(wxID_OK);
+	wxString NS = m_textCtrlNS->GetValue().Upper();
+	wxString WE = m_textCtrlWE->GetValue().Upper();
+
+	if(degf1 < 0.0  || degf1 > 359.0)
+	{
+		m_textCtrlDeg1->SetFocus();
+		m_textCtrlDeg1->SetSelection(-1,-1);
+	}
+	else if(degf2 < 0.0 || degf2 > 359.0)
+	{
+		m_textCtrlDeg2->SetFocus();
+		m_textCtrlDeg2->SetSelection(-1,-1);
+	}
+	else if(min1 < 0.0 || min1 > 59.9999)
+	{
+		m_textCtrlmin1->SetFocus();
+		m_textCtrlmin1->SetSelection(-1,-1);
+	}
+	else if(min2 < 0.0 || min2 > 59.9999)
+	{
+		m_textCtrlmin2->SetFocus();
+		m_textCtrlmin2->SetSelection(-1,-1);
+	}
+	else if(sec1< 0.0 || sec1 > 59.9999)
+	{
+		m_textCtrlsec1->SetFocus();
+		m_textCtrlsec1->SetSelection(-1,-1);
+	}
+	else if(sec2 < 0.0 || sec2 > 59.9999)
+	{
+		m_textCtrlsec2->SetFocus();
+		m_textCtrlsec2->SetSelection(-1,-1);
+	}
+	else if(NS != _T("N") && NS != _T("S"))
+	{
+		m_textCtrlNS->SetFocus();
+		m_textCtrlNS->SetSelection(-1,-1);
+	}
+	else if(WE != _T("W") && WE != _T("E"))
+	{
+		m_textCtrlWE->SetFocus();
+		m_textCtrlWE->SetSelection(-1,-1);
+	}
+	else
+	{
+		retstr.Replace(_T("."),dlg->decimalPoint);
+		EndModal(wxID_OK);
+	}
 }

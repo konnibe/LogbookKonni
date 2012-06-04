@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-03 20:53+0200\n"
+"POT-Creation-Date: 2012-06-04 19:48+0200\n"
 "PO-Revision-Date: 2012-06-02 14:51+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
@@ -1850,6 +1850,11 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -1902,9 +1907,19 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "AllLogbooks"
 #~ msgstr "Alle Logbücher"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2077,8 +2092,18 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Crewliste"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2156,6 +2181,11 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "EngineTotal"
 #~ msgstr "Maschine gesamt"
 #
@@ -2200,8 +2230,18 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "FirstName"
 #~ msgstr "Vorname"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2367,8 +2407,18 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Pfad zum HTML-Editor (optional)"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2487,8 +2537,18 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Save"
 #~ msgstr "Speichern"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2650,9 +2710,19 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2685,8 +2755,18 @@ msgstr "schreiben Sie Ihr eigenes Label"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Speed STW Max."
 #~ msgstr "Fahrt d.W. max."
+#
+#
+#
+#
+#
 #
 #
 #

@@ -48,7 +48,6 @@ private:
 	wxString			sLogText;
 	Options				*opt;
 	bool				noSentence;
-	bool				gpsStatus;
 	bool				bCOW;
 	double				dCOW;
 	double				dCOG;
@@ -129,6 +128,7 @@ public:
 
 	wxTextFile* logbookFile;
 	wxString	title;
+	bool		gpsStatus;
 
 private:
 	void     setCellAlign(int i);

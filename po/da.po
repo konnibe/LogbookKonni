@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-03 20:53+0200\n"
+"POT-Creation-Date: 2012-06-04 19:48+0200\n"
 "PO-Revision-Date: 2012-05-28 05:53+0100\n"
 "Last-Translator: Jacob Handrup <jacob@familienhandrup.dk>\n"
 "Language-Team: \n"
@@ -1825,6 +1825,11 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -1835,6 +1840,11 @@ msgstr "skriv din egen label"
 #~ "Waypoint navn: %s\n"
 #~ "Sand pejling til destination: %4.1f%s\n"
 #~ "Afstand til destination: %4.2f%s"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2009,8 +2019,18 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Crewliste"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2091,8 +2111,18 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "EngineTotal"
 #~ msgstr "Motor Total"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2233,8 +2263,18 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Logbuch Konni"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2378,8 +2418,18 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Pfad zum HTML-Editor (optional)"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2499,8 +2549,18 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Save"
 #~ msgstr "Speichern"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2668,9 +2728,19 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Select boat-layout to view"
 #~ msgstr "Wähle Route"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2703,8 +2773,18 @@ msgstr "skriv din egen label"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Speed STW Max."
 #~ msgstr "Maximal STW fart"
+#
+#
+#
+#
+#
 #
 #
 #

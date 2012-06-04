@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-03 20:53+0200\n"
+"POT-Creation-Date: 2012-06-04 19:48+0200\n"
 "PO-Revision-Date: 2012-05-24 21:09+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: Pavel Kalian <pavel@kalian.cz>\n"
@@ -2300,6 +2300,11 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -2310,6 +2315,11 @@ msgstr "Napiš vlastní popis"
 #~ "Jméno trasového bodut: %s\n"
 #~ "Skutečný směr k cíli: %4.1f%s\n"
 #~ "Vzdálenost k cíli: %4.2f%s"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2624,9 +2634,19 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "BuyParts"
 #~ msgstr "Koupit díly"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2824,6 +2844,11 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Current from"
 #~ msgstr "Proud z"
 #
@@ -2845,8 +2870,18 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "EngineTotal"
 #~ msgstr "Motor celkem"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3105,8 +3140,18 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "FirstName"
 #~ msgstr "Jméno"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3438,6 +3483,11 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "GrossTonnage"
 #~ msgstr "Celková registrovaná prostornost"
 #
@@ -3545,8 +3595,18 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Konniho lodní deník"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3904,8 +3964,18 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "NetTonnage"
 #~ msgstr "Čistá registrovaná prostornost"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -4125,8 +4195,18 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Path to HTML-Editor (optional)"
 #~ msgstr "Cesta k editoru HTML (volitelné)"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -4154,6 +4234,11 @@ msgstr "Napiš vlastní popis"
 #~ msgstr ""
 #~ "Prosím zadej jako 1.30 nebo 1,30 nebo 1:30\n"
 #~ "pro 1:30h"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -4476,8 +4561,18 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Schedule"
 #~ msgstr "Rozvrh"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -4527,6 +4622,11 @@ msgstr "Napiš vlastní popis"
 #, fuzzy
 #~ msgid "Search.."
 #~ msgstr "Vybrat lodní deník"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -4849,8 +4949,18 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Show Maintence Rows coloured"
 #~ msgstr "Zobraz řádky údržby v barvě"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -4886,8 +4996,18 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Speed STW Max."
 #~ msgstr "Max rychlost vodou"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -5266,8 +5386,18 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Dnes"
+#
+#
+#
+#
+#
 #
 #
 #
@@ -5431,6 +5561,11 @@ msgstr "Napiš vlastní popis"
 #, fuzzy
 #~ msgid "Traditional-Style"
 #~ msgstr "Národnost"
+#
+#
+#
+#
+#
 #
 #
 #

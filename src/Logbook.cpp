@@ -558,14 +558,40 @@ void Logbook::loadData()
 
 	clearAllGrids();
 
-	wxFileInputStream input( data_locn );
-	wxTextInputStream* stream = new wxTextInputStream (input);
-
 	dialog->m_gridGlobal->BeginBatch();
 	dialog->m_gridWeather->BeginBatch();
 	dialog->m_gridMotorSails->BeginBatch();
 
 	int row = 0;
+
+	/** make a backup of 0.910 */
+	wxString sep = wxFileName::GetPathSeparator();
+	wxString source = *dialog->pHome_Locn +_T("data") + sep;
+	wxString dest   = *dialog->pHome_Locn +_T("data") + sep + _T("910_Backup");
+
+	wxFileInputStream input1( data_locn );
+	wxTextInputStream* stream1 = new wxTextInputStream (input1);
+	t = stream1->ReadLine();
+	wxStringTokenizer tkz(t, _T("\t"),wxTOKEN_RET_EMPTY );
+	int k = tkz.CountTokens() ;
+
+	if(tkz.CountTokens() == 33 && !wxDir::Exists(dest))
+	{
+		::wxMkdir(dest);
+		wxArrayString files;
+		wxDir dir;
+		dir.GetAllFiles(source.RemoveLast(),&files,_T("*.txt"),wxDIR_FILES);
+		for(unsigned int i = 0; i < files.Count(); i++)
+		{
+			wxFileName fn(files[i]);
+			::wxCopyFile(files[i],dest+sep+fn.GetFullName(),true);
+		}
+	}
+	
+	/***************************/
+
+	wxFileInputStream input( data_locn );
+	wxTextInputStream* stream = new wxTextInputStream (input);
 
 	while( !(t = stream->ReadLine()).IsEmpty())
 	{
@@ -739,6 +765,8 @@ void Logbook::setCellAlign(int i)
 		dialog->m_gridMotorSails->SetCellAlignment(i,SAILS-sailsCol,       wxALIGN_LEFT, wxALIGN_TOP);
 		dialog->m_gridMotorSails->SetCellAlignment(i,REEF-sailsCol,        wxALIGN_LEFT, wxALIGN_TOP);
 		dialog->m_gridMotorSails->SetCellAlignment(i,MREMARKS-sailsCol,    wxALIGN_LEFT, wxALIGN_TOP);
+
+		dialog->m_gridGlobal->SetReadOnly(i,POSITION,true);
 }
 
 void Logbook::switchToActuellLogbook()
