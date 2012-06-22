@@ -3566,9 +3566,9 @@ void LogbookDialog::OnGridCellRightClickWake( wxGridEvent& event )
 
 void LogbookDialog::OnMenuSelectionAsc( wxCommandEvent& event )
 {
-	int row, col;
+	int col;
 
-	row = m_gridCrew->GetGridCursorRow();
+	//row = m_gridCrew->GetGridCursorRow();
 	col = m_gridCrew->GetGridCursorCol();
 
 	sortGrid(m_gridCrew,col,true);
