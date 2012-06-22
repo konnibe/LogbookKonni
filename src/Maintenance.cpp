@@ -410,7 +410,7 @@ void Maintenance::checkService(int row)
 
 	if(dialog->m_gridGlobal->GetNumberRows() == 0) return;
 
-	wxFastComboEditor* edi = (wxFastComboEditor*) grid->GetCellEditor(row,ACTIVE);
+//	wxFastComboEditor* edi = (wxFastComboEditor*) grid->GetCellEditor(row,ACTIVE);
 //	int sel = edi->Combo()->GetSelection();
 	wxString date;
 	wxDateTime dtstart, dturgent, dtwarn;

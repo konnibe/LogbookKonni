@@ -119,7 +119,7 @@ void CrewList::loadData()
 		wxStringTokenizer tkz(line, _T("\t"),wxTOKEN_RET_EMPTY);
 		int c;
 		int colCount = gridCrew->GetNumberCols();
-		if(tkz.CountTokens() != colCount)
+		if(tkz.CountTokens() != (unsigned int) colCount)
 			{ c = 1; newCol = true; }
 		else
 			{ c = 0; newCol = false; }

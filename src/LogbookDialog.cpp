@@ -733,8 +733,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_menuItem31 = new wxMenuItem( m_menu2, MENUCREWALL, wxString( _("Show all crew-entries") ) , wxEmptyString, wxITEM_CHECK );
 	m_menu2->Append( m_menuItem31 );
 
-	wxMenuItem* m_separator7;
-	m_separator7 = m_menu2->AppendSeparator();
+	m_menu2->AppendSeparator();
 
 	wxMenuItem* m_menuItem32;
 	m_menuItem32 = new wxMenuItem( m_menu2, wxID_ANY, wxString( _("Sort ascending") ) , wxEmptyString, wxITEM_NORMAL );
@@ -3501,7 +3500,7 @@ void LogbookDialog::getIniValues()
 
 void LogbookDialog::sortGrid(wxGrid* grid, int col, bool ascending)
 {
-	bool sort = false, allsort = false;
+	bool sort = false;
 	crewList->showAllCrewMembers();
 
 	myGridStringTable* data = (myGridStringTable*)grid->GetTable();
@@ -3542,17 +3541,6 @@ void LogbookDialog::sortGrid(wxGrid* grid, int col, bool ascending)
 		}while(i < grid->GetNumberRows()-1);
 	}while(sort);
 
-/*	if(!allsort && ascending == true)
-	{
-		sortGrid(grid, col, false);
-		return;
-	}
-	else if(!allsort && ascending == false)
-	{
-		sortGrid(grid, col, true);
-		return;
-	}
-*/
 	data->m_data = arr;
 
 	if(m_menu2->IsChecked(MENUCREWONBOARD))
@@ -3588,9 +3576,9 @@ void LogbookDialog::OnMenuSelectionAsc( wxCommandEvent& event )
 
 void LogbookDialog::OnMenuSelectionDesc( wxCommandEvent& event )
 {
-	int row, col;
+	int col;
 
-	row = m_gridCrew->GetGridCursorRow();
+//	row = m_gridCrew->GetGridCursorRow();
 	col = m_gridCrew->GetGridCursorCol();
 
 	sortGrid(m_gridCrew,col,false);
@@ -6389,14 +6377,14 @@ TimerInterval::TimerInterval( wxWindow* parent, Options* opt, wxWindowID id, con
 	m_spinCtrlM = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 50,-1 ), wxSP_ARROW_KEYS, 0, 59, 0 );
 	bSizer33->Add( m_spinCtrlM, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_staticTextM = new wxStaticText( this, wxID_ANY, opt->motorh.c_str(), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextM = new wxStaticText( this, wxID_ANY, _T("m"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticTextM->Wrap( -1 );
 	bSizer33->Add( m_staticTextM, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	
 	m_spinCtrlS = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 50,-1 ), wxSP_ARROW_KEYS, 0, 59, 0 );
 	bSizer33->Add( m_spinCtrlS, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_staticTextS = new wxStaticText( this, wxID_ANY, opt->motorh.c_str(), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextS = new wxStaticText( this, wxID_ANY, _T("s"), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticTextS->Wrap( -1 );
 	bSizer33->Add( m_staticTextS, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	
@@ -6659,7 +6647,7 @@ void PositionDlg::OnChoice( wxCommandEvent& event )
 
 void PositionDlg::setFormat(int fmt)
 {
-	Options* opt = dlg->logbookPlugIn->opt;
+	//Options* opt = dlg->logbookPlugIn->opt;
 
 	if(fmt)
 	{

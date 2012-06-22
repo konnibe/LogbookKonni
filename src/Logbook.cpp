@@ -571,7 +571,7 @@ void Logbook::loadData()
 	wxTextInputStream* stream1 = new wxTextInputStream (input1);
 	t = stream1->ReadLine();
 	wxStringTokenizer tkz(t, _T("\t"),wxTOKEN_RET_EMPTY );
-	int k = tkz.CountTokens() ;
+	//int k = tkz.CountTokens() ;
 
 	if(tkz.CountTokens() == 33 && !wxDir::Exists(dest))
 	{
@@ -2478,7 +2478,7 @@ void LogbookSearch::OnButtonClickForward( wxCommandEvent& event )
 
 	for(; searchrow < parent->logGrids[gridNo]->GetNumberRows(); searchrow++)
 	{
-		bool tt = parent->myParseDate(parent->logGrids[0]->GetCellValue(searchrow,Logbook::RDATE),dt);
+		parent->myParseDate(parent->logGrids[0]->GetCellValue(searchrow,Logbook::RDATE),dt);
 
 		if(m_choiceGreaterEqual->GetSelection() == 0)
 		{
