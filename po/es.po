@@ -2,9 +2,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-04 19:48+0200\n"
-"PO-Revision-Date: 2011-11-25 01:38+0100\n"
-"Last-Translator: \n"
+"POT-Creation-Date: 2012-06-22 18:40+0200\n"
+"PO-Revision-Date: 2012-06-20 11:54+0100\n"
+"Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -15,9 +15,6 @@ msgstr ""
 "X-Poedit-Language: Spanish\n"
 "X-Poedit-Country: Spain\n"
 "X-Poedit-SearchPath-0: .\n"
-#
-msgid "\n"
-msgstr ""
 #
 #, c-format
 msgid ""
@@ -84,13 +81,7 @@ msgstr ""
 msgid "-Plugin"
 msgstr ""
 #
-msgid "0"
-msgstr ""
-#
 msgid "1. Watch of 1. Person"
-msgstr ""
-#
-msgid ":0"
 msgstr ""
 #
 msgid "AH #1 Total"
@@ -770,9 +761,8 @@ msgstr "Casco"
 msgid "Hull Identification No."
 msgstr ""
 #
-#, fuzzy
-msgid "Hydrometer"
-msgstr "Barómetro"
+msgid "Hygrometer"
+msgstr "Hygrometro"
 #
 msgid "If"
 msgstr "Si"
@@ -1538,6 +1528,10 @@ msgstr "Seleccione bitácora"
 msgid "Select Route"
 msgstr "Seleccione ruta"
 #
+#, fuzzy
+msgid "Select a date"
+msgstr "Seleccione ruta"
+#
 msgid ""
 "Select a layout which is displayed\n"
 "with button \"View\""
@@ -1659,6 +1653,12 @@ msgstr "Siento, tu bitácora no tiene entradas"
 #
 msgid "Sorry, no Layout installed"
 msgstr "Siento, está sin instalar un layout"
+#
+msgid "Sort ascending"
+msgstr ""
+#
+msgid "Sort descending"
+msgstr ""
 #
 #, fuzzy
 msgid "Speed"
@@ -1787,6 +1787,9 @@ msgid "Text"
 msgstr ""
 #
 msgid "Textblocks"
+msgstr ""
+#
+msgid "Textblocks Dialog"
 msgstr ""
 #
 msgid "Texts for Rightclick-Menu"
@@ -2288,6 +2291,48 @@ msgstr ""
 #
 #
 #
+#, fuzzy
+#~ msgid "&Cut"
+#~ msgstr "País"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2509,8 +2554,58 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "CrewList"
 #~ msgstr "Listado de tripulación"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2615,6 +2710,50 @@ msgstr ""
 #
 #
 #
+#, fuzzy
+#~ msgid "Delete"
+#~ msgstr "Elimiar línea"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2625,6 +2764,31 @@ msgstr ""
 #
 #~ msgid "EngineTotal"
 #~ msgstr "Máquina total"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2848,8 +3012,58 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "GRT"
 #~ msgstr "BRT"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3166,8 +3380,58 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Logbook files (*.txt)|*.txt"
 #~ msgstr "Ficheros bitácora (*.txt)|*.txt"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3344,9 +3608,76 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Not implemented yet"
 #~ msgstr "no implementado aún"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Paste"
+#~ msgstr "Fecha"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3487,12 +3818,62 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid ""
 #~ "Please enter like 1.30 or 1,30 or 1:30\n"
 #~ "for 1:30h"
 #~ msgstr ""
 #~ "Entre por favor 1.30 o 1,30 o 1:30\n"
 #~ "para 1:30h"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3823,8 +4204,58 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Schedule"
 #~ msgstr "Calendário"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3879,6 +4310,48 @@ msgstr ""
 #, fuzzy
 #~ msgid "Search.."
 #~ msgstr "Seleccione bitácora"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Select all"
+#~ msgstr "Seleccione ruta"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -4052,6 +4525,31 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Speed STW Avg."
 #~ msgstr "Velocidad"
@@ -4078,9 +4576,71 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Speed STW Max."
 #~ msgstr "Mar de fondo"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Static Watchtimes"
+#~ msgstr "Inicio 1ªguardia"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -4468,8 +5028,58 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Hoy"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -4738,9 +5348,59 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "View "
 #~ msgstr "Ver"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -5118,6 +5778,31 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Wave Peak"
 #~ msgstr "Oleaje"
@@ -5206,118 +5891,31 @@ msgstr ""
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Wind from"
 #~ msgstr "Viento"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#~ msgid "en_"
-#~ msgstr "es_"

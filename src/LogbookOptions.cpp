@@ -1249,7 +1249,6 @@ void LogbookOptions::m_checkBoxTimerOnCheckBox( wxCommandEvent& ev )
 		m_textCtrlTimerS->Enable(false);
 		this->opt->timer = true;
 
-		log_pi->m_plogbook_window->setTitleExt();
 		if(log_pi->m_plogbook_window == NULL)
 		{
 			log_pi->m_plogbook_window =
@@ -1259,6 +1258,7 @@ void LogbookOptions::m_checkBoxTimerOnCheckBox( wxCommandEvent& ev )
 		else
 			log_pi->m_plogbook_window->SetTitle(log_pi->m_plogbook_window->GetTitle()+ log_pi->m_plogbook_window->titleExt);
 
+		log_pi->m_plogbook_window->setTitleExt();
 		log_pi->m_timer->Start(sec);
 	}
 	else

@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.5.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-04 19:48+0200\n"
-"PO-Revision-Date: 2012-05-24 21:09+0100\n"
+"POT-Creation-Date: 2012-06-22 18:40+0200\n"
+"PO-Revision-Date: 2012-06-20 11:53+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: Pavel Kalian <pavel@kalian.cz>\n"
 "MIME-Version: 1.0\n"
@@ -17,9 +17,6 @@ msgstr ""
 "X-Poedit-Language: Czech\n"
 "X-Poedit-Country: CZECH REPUBLIC\n"
 "X-Poedit-SourceCharset: utf-8\n"
-#
-msgid "\n"
-msgstr ""
 #
 #, c-format
 msgid ""
@@ -88,14 +85,8 @@ msgstr "(Nepojmenovaná trasa)"
 msgid "-Plugin"
 msgstr "-Doplněk"
 #
-msgid "0"
-msgstr ""
-#
 msgid "1. Watch of 1. Person"
 msgstr "1. Hlídka 1. Osoby"
-#
-msgid ":0"
-msgstr ""
 #
 msgid "AH #1 Total"
 msgstr ""
@@ -779,8 +770,8 @@ msgstr "Trup"
 msgid "Hull Identification No."
 msgstr "Identifikační číslo trupu"
 #
-msgid "Hydrometer"
-msgstr "Vodoměr"
+msgid "Hygrometer"
+msgstr "Hygrometer"
 #
 msgid "If"
 msgstr "Pokud"
@@ -1541,6 +1532,10 @@ msgstr "Vybrat lodní deník"
 msgid "Select Route"
 msgstr "Vyber trasu"
 #
+#, fuzzy
+msgid "Select a date"
+msgstr "Vyber trasu"
+#
 msgid ""
 "Select a layout which is displayed\n"
 "with button \"View\""
@@ -1664,6 +1659,12 @@ msgstr "Promiň, Tvůj deník nemá žádné řádky"
 msgid "Sorry, no Layout installed"
 msgstr "Promiň, není instalováno žádné rozvržení"
 #
+msgid "Sort ascending"
+msgstr ""
+#
+msgid "Sort descending"
+msgstr ""
+#
 msgid "Speed"
 msgstr "Rychlost"
 #
@@ -1782,6 +1783,9 @@ msgid "Text"
 msgstr ""
 #
 msgid "Textblocks"
+msgstr ""
+#
+msgid "Textblocks Dialog"
 msgstr ""
 #
 msgid "Texts for Rightclick-Menu"
@@ -2305,6 +2309,29 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid ""
 #~ "\n"
 #~ "Name of Waypoint: %s\n"
@@ -2315,6 +2342,44 @@ msgstr "Napiš vlastní popis"
 #~ "Jméno trasového bodut: %s\n"
 #~ "Skutečný směr k cíli: %4.1f%s\n"
 #~ "Vzdálenost k cíli: %4.2f%s"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "&Cut"
+#~ msgstr "Stát"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2639,9 +2704,55 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "BuyParts"
 #~ msgstr "Koupit díly"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2849,8 +2960,71 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Current from"
 #~ msgstr "Proud z"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Delete"
+#~ msgstr "Smaž záznam"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -2877,6 +3051,29 @@ msgstr "Napiš vlastní popis"
 #
 #~ msgid "EngineTotal"
 #~ msgstr "Motor celkem"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3145,8 +3342,54 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "FirstName"
 #~ msgstr "Jméno"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3488,6 +3731,29 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "GrossTonnage"
 #~ msgstr "Celková registrovaná prostornost"
 #
@@ -3600,8 +3866,54 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Logbook Konni"
 #~ msgstr "Konniho lodní deník"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -3969,8 +4281,54 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "NetTonnage"
 #~ msgstr "Čistá registrovaná prostornost"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -4087,6 +4445,44 @@ msgstr "Napiš vlastní popis"
 #, fuzzy
 #~ msgid "Not implemented yet"
 #~ msgstr "zatím neimplementováno"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Paste"
+#~ msgstr "Datum"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -4228,12 +4624,58 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid ""
 #~ "Please enter like 1.30 or 1,30 or 1:30\n"
 #~ "for 1:30h"
 #~ msgstr ""
 #~ "Prosím zadej jako 1.30 nebo 1,30 nebo 1:30\n"
 #~ "pro 1:30h"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -4566,8 +5008,54 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Schedule"
 #~ msgstr "Rozvrh"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -4622,6 +5110,44 @@ msgstr "Napiš vlastní popis"
 #, fuzzy
 #~ msgid "Search.."
 #~ msgstr "Vybrat lodní deník"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Select all"
+#~ msgstr "Vyber"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -4954,8 +5480,54 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Show Maintence Rows coloured"
 #~ msgstr "Zobraz řádky údržby v barvě"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -5001,8 +5573,66 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Speed STW Max."
 #~ msgstr "Max rychlost vodou"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Static Watchtimes"
+#~ msgstr "Nastav hlídky"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -5391,8 +6021,54 @@ msgstr "Napiš vlastní popis"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Today"
 #~ msgstr "Dnes"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -5561,6 +6237,29 @@ msgstr "Napiš vlastní popis"
 #, fuzzy
 #~ msgid "Traditional-Style"
 #~ msgstr "Národnost"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #

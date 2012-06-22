@@ -2,7 +2,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-04 19:48+0200\n"
+"POT-Creation-Date: 2012-06-22 18:40+0200\n"
 "PO-Revision-Date: 2012-04-14 17:50+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: rider2@kpnmail.nl <rider2@kpnmail.nl>\n"
@@ -15,9 +15,6 @@ msgstr ""
 "X-Poedit-Language: Dutch\n"
 "X-Poedit-Country: NETHERLANDS\n"
 "X-Poedit-SearchPath-0: .\n"
-#
-msgid "\n"
-msgstr "\n"
 #
 #, fuzzy, c-format
 msgid ""
@@ -84,37 +81,8 @@ msgstr ""
 msgid "-Plugin"
 msgstr "-PlugIn"
 #
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-msgid "0"
-msgstr "0"
-#
 msgid "1. Watch of 1. Person"
 msgstr "1e Wacht van 1e persoon"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#, fuzzy
-msgid ":0"
-msgstr "0"
 #
 msgid "AH #1 Total"
 msgstr ""
@@ -591,7 +559,8 @@ msgstr "Romp"
 msgid "Hull Identification No."
 msgstr "Rompnr."
 #
-msgid "Hydrometer"
+#, fuzzy
+msgid "Hygrometer"
 msgstr "Luchtvochtigheid"
 #
 msgid "If"
@@ -1096,6 +1065,12 @@ msgstr "Selecteer journaal"
 msgid "Select Route"
 msgstr "Selecteer route"
 #
+# Me semble plus approprié que le terme :
+# Sélectionner la route du fait du contexte d'affichage
+#, fuzzy
+msgid "Select a date"
+msgstr "Selecteer route"
+#
 msgid ""
 "Select a layout which is displayed\n"
 "with button \"View\""
@@ -1216,6 +1191,12 @@ msgstr "Fout: het journaal bevat geen regel(s)!"
 msgid "Sorry, no Layout installed"
 msgstr "Fout: geen opmaakstijlen geïnstalleerd!"
 #
+msgid "Sort ascending"
+msgstr ""
+#
+msgid "Sort descending"
+msgstr ""
+#
 msgid "Speed"
 msgstr "Vaart"
 #
@@ -1294,6 +1275,9 @@ msgid "Text"
 msgstr ""
 #
 msgid "Textblocks"
+msgstr ""
+#
+msgid "Textblocks Dialog"
 msgstr ""
 #
 msgid "Texts for Rightclick-Menu"
@@ -1713,6 +1697,38 @@ msgstr "Maak eigen veldnaam"
 #
 #
 #
+#~ msgid "\n"
+#~ msgstr "\n"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1765,6 +1781,104 @@ msgstr "Maak eigen veldnaam"
 #
 #
 #
+#, fuzzy
+#~ msgid "&Cut"
+#~ msgstr "Land"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#~ msgid "0"
+#~ msgstr "0"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid ":0"
+#~ msgstr "0"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Delete"
+#~ msgstr "Regel verwijderen"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1777,6 +1891,48 @@ msgstr "Maak eigen veldnaam"
 #
 #~ msgid "EngineTotal"
 #~ msgstr "Ttl motor"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Paste"
+#~ msgstr "Datum"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1823,6 +1979,50 @@ msgstr "Maak eigen veldnaam"
 #
 #
 #
+# Me semble plus approprié que le terme :
+# Sélectionner la route du fait du contexte d'affichage
+#, fuzzy
+#~ msgid "Select all"
+#~ msgstr "Selecteer datum"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1853,7 +2053,44 @@ msgstr "Maak eigen veldnaam"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #~ msgid "Speed STW Max."
 #~ msgstr ""
 #~ "STW\n"
 #~ "(max.)"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Static Watchtimes"
+#~ msgstr "Pas wachtinstelling toe"

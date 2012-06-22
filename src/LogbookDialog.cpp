@@ -277,7 +277,7 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	m_gridWeather->EnableDragColSize( true );
 	m_gridWeather->SetColLabelSize( 30 );
 	m_gridWeather->SetColLabelValue( 0, _("Barometer") );
-	m_gridWeather->SetColLabelValue( 1, _("Hydrometer") );
+	m_gridWeather->SetColLabelValue( 1, _("Hygrometer") );
 	m_gridWeather->SetColLabelValue( 2, _("Air") );
 	m_gridWeather->SetColLabelValue( 3, _("Water") );
 	m_gridWeather->SetColLabelValue( 4, _("Wind") );
@@ -732,6 +732,17 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	wxMenuItem* m_menuItem31;
 	m_menuItem31 = new wxMenuItem( m_menu2, MENUCREWALL, wxString( _("Show all crew-entries") ) , wxEmptyString, wxITEM_CHECK );
 	m_menu2->Append( m_menuItem31 );
+
+	wxMenuItem* m_separator7;
+	m_separator7 = m_menu2->AppendSeparator();
+
+	wxMenuItem* m_menuItem32;
+	m_menuItem32 = new wxMenuItem( m_menu2, wxID_ANY, wxString( _("Sort ascending") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu2->Append( m_menuItem32 );
+	
+	wxMenuItem* m_menuItem33;
+	m_menuItem33 = new wxMenuItem( m_menu2, wxID_ANY, wxString( _("Sort descending") ) , wxEmptyString, wxITEM_NORMAL );
+	m_menu2->Append( m_menuItem33 );
 
 	m_gridCrewWake = new wxGrid( m_panel21, wxID_ANY, wxDefaultPosition, wxDefaultSize, 0 );
 	
@@ -1719,15 +1730,20 @@ LogbookDialog::LogbookDialog(logbookkonni_pi * d, wxTimer* t, wxWindow* parent, 
 	this->Connect( m_menuItem21->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::m_menuItem21MenuSelection ) );
 	this->Connect( m_menuItemSameWatch->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionSameWatch ) );
 	this->Connect( m_menuItemAddWake->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionAddWatch ) );
+	this->Connect( m_menuItem32->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionAsc ) );
+	this->Connect( m_menuItem33->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionDesc ) );
+
 	m_gridCrew->Connect( wxEVT_GRID_EDITOR_SHOWN, wxGridEventHandler( LogbookDialog::OnGridEditorShownCrew ), NULL, this );
+
 	this->Connect( m_menuItem22->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHiddenCrew ) );
 	this->Connect( m_menuItem23->GetId(), wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHiddenWake ) );
-	m_gridCrew->Connect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::onGridLabelLeftClickCrew ), NULL, this );
 	m_gridGlobal->Connect( wxEVT_GRID_CELL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::OnGridCellLeftClickGlobal ), NULL, this );
 
 	m_gridMaintanence->Connect( wxEVT_GRID_CELL_CHANGE, wxGridEventHandler( LogbookDialog::onGridCellServiceChange ), NULL, this );
 	m_gridMaintanence->Connect( wxEVT_GRID_SELECT_CELL, wxGridEventHandler( LogbookDialog::onGridCellServiceSelected ), NULL, this );
 	m_gridCrewWake->Connect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::OnGridCellRightClickWake ), NULL, this );
+	m_gridCrew->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( LogbookDialog::OnKeyDownCrew ), NULL, this );
+	m_gridCrewWake->Connect( wxEVT_KEY_DOWN, wxKeyEventHandler( LogbookDialog::OnKeyDownWatch ), NULL, this );
 	m_gridMaintanence->Connect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftClickService ), NULL, this );
 	m_gridMaintenanceBuyParts->Connect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftClickBuyParts ), NULL, this );
 	m_gridMaintanenceRepairs->Connect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::OnGridLabelLeftClickRepairs ), NULL, this );
@@ -1911,12 +1927,17 @@ LogbookDialog::~LogbookDialog()
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::m_menuItem19MenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::m_menuItem21MenuSelection ) );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionAddWatch ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionAsc ) );
+	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionDesc ) );
+
 	m_gridCrewWake->Disconnect( wxEVT_GRID_CELL_RIGHT_CLICK, wxGridEventHandler( LogbookDialog::OnGridCellRightClickWake ), NULL, this );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionSameWatch ) );
 	m_gridCrew->Disconnect( wxEVT_GRID_EDITOR_SHOWN, wxGridEventHandler( LogbookDialog::OnGridEditorShownCrew ), NULL, this );
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHiddenCrew ) );
+	m_gridCrew->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( LogbookDialog::OnKeyDownCrew ), NULL, this );
+	m_gridCrewWake->Disconnect( wxEVT_KEY_DOWN, wxKeyEventHandler( LogbookDialog::OnKeyDownWatch ), NULL, this );
+
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::OnMenuSelectionHiddenWake ) );
-	m_gridCrew->Disconnect( wxEVT_GRID_LABEL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::onGridLabelLeftClickCrew ), NULL, this );
 	m_gridGlobal->Disconnect( wxEVT_GRID_CELL_LEFT_CLICK, wxGridEventHandler( LogbookDialog::OnGridCellLeftClickGlobal ), NULL, this );
 
 	this->Disconnect( wxID_ANY, wxEVT_COMMAND_MENU_SELECTED, wxCommandEventHandler( LogbookDialog::onMenuSelectionServiceOK ) );
@@ -2686,8 +2707,6 @@ Backup Logbook(*.txt)|*.txt");
 
 	m_gridCrew->SetRowMinimalAcceptableHeight(0);
 
-	getIniValues();
-
 	m_gridOverview->SetColMinimalWidth(OverView::FPATH,0);
 	m_gridOverview->SetColSize(OverView::FPATH,0);
 
@@ -2697,6 +2716,8 @@ Backup Logbook(*.txt)|*.txt");
 	m_gridGlobal->SetGridCursor(0,0);
 	m_gridWeather->SetGridCursor(0,0);
 	m_gridMotorSails->SetGridCursor(0,0);
+
+	getIniValues();
 
 	GPSTimer = new wxTimer(this,ID_GPSTIMER);
 	this->Connect( wxEVT_TIMER, wxObjectEventFunction( &LogbookDialog::OnTimerGPS ));
@@ -2991,30 +3012,7 @@ void LogbookDialog::m_gridGlobalOnGridCellRightClick( wxGridEvent& ev )
 		addColdFingerDialog(m_menu1);
 		addColdFingerTextBlocks(m_menu1);
 	}
-/*
-	if(ev.GetCol() == 4 && (m_notebook8->GetSelection() == 2))
-	{
-		wxArrayString ar;
 
-		m_menu1->PrependSeparator();
-
-		for(int i = 0; i < m_gridGlobal->GetNumberRows()-1; i++)
-		{
-			sails = m_gridMotorSails->GetCellValue(i,4);
-			sails.Replace(_("\n"),_T(","));
-			if(!isInArrayString(ar,sails) && 
-				!sails.IsEmpty())
-			{
-				ar.Add(sails);
-				wxMenuItem *item = new wxMenuItem( m_menu1, wxID_ANY, 
-					sails, wxEmptyString, wxITEM_NORMAL );
-				m_menu1->Prepend( item );
-				this->Connect( item->GetId(), wxEVT_COMMAND_MENU_SELECTED, 
-					wxCommandEventHandler( LogbookDialog::m_menuItem1OnMenuSelection ) );		
-			}
-		}
-	}
-*/
 	if(ev.GetCol() == 11 && (m_notebook8->GetSelection() == 1))
 	{
 		m_menu1->PrependSeparator();
@@ -3503,7 +3501,9 @@ void LogbookDialog::getIniValues()
 
 void LogbookDialog::sortGrid(wxGrid* grid, int col, bool ascending)
 {
-	bool sort = false;
+	bool sort = false, allsort = false;
+	crewList->showAllCrewMembers();
+
 	myGridStringTable* data = (myGridStringTable*)grid->GetTable();
 
 	wxGridStringArray arr = data->m_data;
@@ -3541,10 +3541,24 @@ void LogbookDialog::sortGrid(wxGrid* grid, int col, bool ascending)
 			i++;
 		}while(i < grid->GetNumberRows()-1);
 	}while(sort);
+
+/*	if(!allsort && ascending == true)
+	{
+		sortGrid(grid, col, false);
+		return;
+	}
+	else if(!allsort && ascending == false)
+	{
+		sortGrid(grid, col, true);
+		return;
+	}
+*/
 	data->m_data = arr;
 
-	grid->AutoSizeRows();
-	grid->ForceRefresh();
+	if(m_menu2->IsChecked(MENUCREWONBOARD))
+		crewList->filterCrewMembers();
+	else
+		grid->ForceRefresh();
 }
 
 //////////////////////////////////////////////////////////
@@ -3562,20 +3576,24 @@ void LogbookDialog::OnGridCellRightClickWake( wxGridEvent& event )
     m_gridCrewWake->PopupMenu(m_menu21);
 }
 
-void LogbookDialog::onGridLabelLeftClickCrew( wxGridEvent& event )
+void LogbookDialog::OnMenuSelectionAsc( wxCommandEvent& event )
 {
 	int row, col;
-	row = event.GetRow();
-	col = event.GetCol();
 
-	this->m_gridCrew->SetFocus();
+	row = m_gridCrew->GetGridCursorRow();
+	col = m_gridCrew->GetGridCursorCol();
 
-	if(row != -1 || (row == -1 && col == -1)) { event.Skip(); return; }
+	sortGrid(m_gridCrew,col,true);
+}
 
-	this->m_gridCrew->SetGridCursor(0,col);
-	static bool ascending = true;
-	this->sortGrid(this->m_gridCrew,event.GetCol(),ascending);
-	ascending = !ascending;
+void LogbookDialog::OnMenuSelectionDesc( wxCommandEvent& event )
+{
+	int row, col;
+
+	row = m_gridCrew->GetGridCursorRow();
+	col = m_gridCrew->GetGridCursorCol();
+
+	sortGrid(m_gridCrew,col,false);
 }
 
 void LogbookDialog::OnGridLabelLeftDClickCrew( wxGridEvent& ev )
@@ -3753,10 +3771,10 @@ void LogbookDialog::m_gridCrewOnGridCellRightClick( wxGridEvent& ev )
 	selGridRow = ev.GetRow();
 	selGridCol = ev.GetCol();
 
-	crewList->lastSelectedName      = m_gridCrew->GetCellValue(ev.GetRow(),CrewList::NAME); 
-	crewList->lastSelectedFirstName = m_gridCrew->GetCellValue(ev.GetRow(),CrewList::FIRSTNAME); 
+	crewList->lastSelectedName      = m_gridCrew->GetCellValue(selGridRow,CrewList::NAME); 
+	crewList->lastSelectedFirstName = m_gridCrew->GetCellValue(selGridRow,CrewList::FIRSTNAME); 
 
-	m_gridCrew->SetGridCursor(ev.GetRow(),ev.GetCol());
+	m_gridCrew->SetGridCursor(selGridRow,selGridCol);
 	m_gridCrew->PopupMenu( m_menu2, ev.GetPosition() );
 }
 
@@ -3767,6 +3785,72 @@ void LogbookDialog::m_menuItem2OnMenuSelection( wxCommandEvent& ev )
 
 	if(m_menu2->IsChecked(MENUCREWONBOARD))
 		crewList->filterCrewMembers();
+}
+
+void LogbookDialog::OnKeyDownCrew( wxKeyEvent& ev )
+{
+	int offset;
+	int col = m_gridCrew->GetGridCursorCol();
+	int row = m_gridCrew->GetGridCursorRow();
+
+	if((ev.GetKeyCode() != WXK_TAB) || (ev.ShiftDown() && ev.GetKeyCode() != WXK_TAB)) 
+		{ ev.Skip(); return; }
+
+	if ((ev.ShiftDown() && ev.GetKeyCode() == WXK_TAB) || 
+		(ev.GetKeyCode() == WXK_LEFT))
+			offset = -1; 
+
+	if ((!ev.ShiftDown() && ev.GetKeyCode() == WXK_TAB) || 
+		(ev.GetKeyCode() == WXK_RIGHT))
+			offset = 1; 
+
+	while((col+offset < m_gridCrew->GetNumberCols()-1) && (col+offset > 0))
+	{
+		if(m_gridCrew->GetColSize(col+offset) == 0)
+			col += offset;
+		else
+			break;
+	}
+
+	if(col+offset == 0 && m_gridCrew->GetColSize(0) == 0)
+		col = m_gridCrew->GetNumberCols()-1;
+	if((col+offset == m_gridCrew->GetNumberCols()-1) && (m_gridCrew->GetColSize(col+offset) == 0))
+		col = 0;
+	m_gridCrew->SetGridCursor(row,col);
+	ev.Skip();
+}
+
+void LogbookDialog::OnKeyDownWatch( wxKeyEvent& ev )
+{
+	int offset;
+	int col = m_gridCrewWake->GetGridCursorCol();
+	int row = m_gridCrewWake->GetGridCursorRow();
+
+	if((ev.GetKeyCode() != WXK_TAB) || (ev.ShiftDown() && ev.GetKeyCode() != WXK_TAB)) 
+		{ ev.Skip(); return; }
+
+	if ((ev.ShiftDown() && ev.GetKeyCode() == WXK_TAB) || 
+		(ev.GetKeyCode() == WXK_LEFT))
+			offset = -1; 
+
+	if ((!ev.ShiftDown() && ev.GetKeyCode() == WXK_TAB) || 
+		(ev.GetKeyCode() == WXK_RIGHT))
+			offset = 1; 
+
+	while((col+offset < m_gridCrewWake->GetNumberCols()-1) && (col+offset > 0))
+	{
+		if(m_gridCrewWake->GetColSize(col+offset) == 0)
+			col += offset;
+		else
+			break;
+	}
+
+	if(col+offset == 0 && m_gridCrewWake->GetColSize(0) == 0)
+		col = m_gridCrewWake->GetNumberCols()-1;
+	if((col+offset == m_gridCrewWake->GetNumberCols()-1) && (m_gridCrewWake->GetColSize(col+offset) == 0))
+		col = 0;
+	m_gridCrewWake->SetGridCursor(row,col);
+	ev.Skip();
 }
 
 /////////////////////////////////////////////////////////////
@@ -4734,7 +4818,6 @@ const wxChar* LogbookDialog::myParseTime(wxString s, wxDateTime& dt)
 	const wxChar* c;
 	bool correction = false;
 
-//	wxMessageBox(wxString::Format(_T("%i"),s.GetChar(0)));
 	if((int) s.GetChar(0) == 19979 || (int) s.GetChar(0) == 19978 )  // chinese time starts with this two chars
 	{																 // ParseTime will not handle this correct
 		if((int) s.GetChar(0) == 19979)  // is it like 'F with a broken arm' ?
@@ -6299,21 +6382,21 @@ TimerInterval::TimerInterval( wxWindow* parent, Options* opt, wxWindowID id, con
 	m_spinCtrlH = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 50,-1 ), wxSP_ARROW_KEYS, 0, 24, 24 );
 	bSizer33->Add( m_spinCtrlH, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_staticTextH = new wxStaticText( this, wxID_ANY, wxT("h"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextH = new wxStaticText( this, wxID_ANY, opt->motorh.c_str(), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticTextH->Wrap( -1 );
 	bSizer33->Add( m_staticTextH, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	
 	m_spinCtrlM = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 50,-1 ), wxSP_ARROW_KEYS, 0, 59, 0 );
 	bSizer33->Add( m_spinCtrlM, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_staticTextM = new wxStaticText( this, wxID_ANY, wxT("m"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextM = new wxStaticText( this, wxID_ANY, opt->motorh.c_str(), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticTextM->Wrap( -1 );
 	bSizer33->Add( m_staticTextM, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	
 	m_spinCtrlS = new wxSpinCtrl( this, wxID_ANY, wxEmptyString, wxDefaultPosition, wxSize( 50,-1 ), wxSP_ARROW_KEYS, 0, 59, 0 );
 	bSizer33->Add( m_spinCtrlS, 0, wxALL|wxALIGN_CENTER_VERTICAL, 5 );
 	
-	m_staticTextS = new wxStaticText( this, wxID_ANY, wxT("s"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_staticTextS = new wxStaticText( this, wxID_ANY, opt->motorh.c_str(), wxDefaultPosition, wxDefaultSize, 0 );
 	m_staticTextS->Wrap( -1 );
 	bSizer33->Add( m_staticTextS, 0, wxALL|wxALIGN_CENTER_VERTICAL, 0 );
 	

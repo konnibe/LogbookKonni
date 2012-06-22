@@ -94,8 +94,8 @@ Maintenance::Maintenance(LogbookDialog* d, wxString data, wxString layout, wxStr
 	m_choices[1] = wxString(_("Engine "))+dialog->m_gridMotorSails->GetColLabelValue(1)+_T(" +");	// Motor1/h
 	m_choices[2] = wxString(_("Engine "))+dialog->m_gridMotorSails->GetColLabelValue(3)+_T(" +");	// Motor2/h
 	m_choices[3] = dialog->m_gridMotorSails->GetColLabelValue(8)+_T(" +");							// Generator/h
-	m_choices[4] = dialog->m_gridMotorSails->GetColLabelValue(10)+_T(" <=");						// Bank1/AH
-	m_choices[5] = dialog->m_gridMotorSails->GetColLabelValue(12)+_T(" <=");						// Bank2/AH
+	m_choices[4] = dialog->m_gridMotorSails->GetColLabelValue(11)+_T(" <=");						// Bank1/AH
+	m_choices[5] = dialog->m_gridMotorSails->GetColLabelValue(13)+_T(" <=");						// Bank2/AH
 	m_choices[6] = dialog->m_gridMotorSails->GetColLabelValue(14)+_T(" +");							// Watermaker/h
 	m_choices[7] = dialog->m_gridGlobal->GetColLabelValue(3);										// Sign
 	m_choices[8]  = _("Fix Date");
@@ -683,11 +683,10 @@ void Maintenance::checkService(int row)
 				break;
 			case 8:	
 				date = grid->GetCellValue(r,URGENT);
-				dturgent.ParseDate(date);
+				dialog->myParseDate(date, dturgent);
 				date = grid->GetCellValue(r,WARN);
-				dtwarn.ParseDate(date);
-				dtstart.ParseDate(dtstart.Now().FormatDate());
-
+				dialog->myParseDate(date, dtwarn);
+				dtstart = wxDateTime::Now();
 				if(dtstart >= dturgent)
 				{
 					border = 2;
@@ -705,27 +704,29 @@ void Maintenance::checkService(int row)
 					rowBack = green;
 				break;
 			case 9:
-				date = dialog->m_gridMaintanence->GetCellValue(r,START);
-				dtstart.ParseDate(date.data());
+				{
 				long days;
+				date = dialog->m_gridMaintanence->GetCellValue(r,START);
+				dialog->myParseDate(date, dtstart);
+
 				grid->GetCellValue(r,WARN).ToLong(&days);
 				spanw.SetDays((int)days);
+				dtwarn = dtstart;
+				dtwarn += spanw;
 				grid->GetCellValue(r,URGENT).ToLong(&days);
 				spanu.SetDays((int)days);
 				dturgent = dtstart;
 				dturgent += spanu;
-				dtwarn = dtstart;
-				dtwarn += spanw;
-				dtstart.ParseDate(dtstart.Now().FormatDate());
+				dtstart = wxDateTime::Now();
 
 				if(dtstart >= dturgent )
 				{
 					border = 2;
-					rowBack = red;
+					rowBack = red; 
 					break;
 				}
 				else if(dtstart >= dtwarn )
-				{
+				{	
 					if(border != 2)
 						border = 1;
 					rowBack = yellow;
@@ -733,29 +734,32 @@ void Maintenance::checkService(int row)
 				}
 				else
 					rowBack = green;
+				}
 				break;
 			case 10:
-				date = dialog->m_gridMaintanence->GetCellValue(r,START);
-				dtstart.ParseDate(date.data());
+				{
 				long weeks;
+				date = dialog->m_gridMaintanence->GetCellValue(r,START);
+				dialog->myParseDate(date, dtstart);
+
 				grid->GetCellValue(r,WARN).ToLong(&weeks);
-				spanw.SetWeeks((int) weeks);
-				grid->GetCellValue(r,URGENT).ToLong(&weeks);
-				spanu.SetWeeks((int) weeks);
-				dturgent = dtstart;
-				dturgent += spanu;
+				spanw.SetWeeks((int)weeks);
 				dtwarn = dtstart;
 				dtwarn += spanw;
-				dtstart.ParseDate(dtstart.Now().FormatDate());
+				grid->GetCellValue(r,URGENT).ToLong(&weeks);
+				spanu.SetWeeks((int)weeks);
+				dturgent = dtstart;
+				dturgent += spanu;
+				dtstart = wxDateTime::Now();
 
 				if(dtstart >= dturgent )
 				{
 					border = 2;
-					rowBack = red;
+					rowBack = red; 
 					break;
 				}
-				else if(dtstart >= dtwarn)
-				{
+				else if(dtstart >= dtwarn )
+				{	
 					if(border != 2)
 						border = 1;
 					rowBack = yellow;
@@ -763,29 +767,32 @@ void Maintenance::checkService(int row)
 				}
 				else
 					rowBack = green;
+				}
 				break;
 			case 11:
-				date = dialog->m_gridMaintanence->GetCellValue(r,START);
-				dtstart.ParseDate(date.data());
+				{
 				long month;
+				date = dialog->m_gridMaintanence->GetCellValue(r,START);
+				dialog->myParseDate(date, dtstart);
+
 				grid->GetCellValue(r,WARN).ToLong(&month);
 				spanw.SetMonths((int)month);
-				grid->GetCellValue(r,URGENT).ToLong(&month);
-				spanu.SetMonths((int) month);
-				dturgent = dtstart;
-				dturgent += spanu;
 				dtwarn = dtstart;
 				dtwarn += spanw;
-				dtstart.ParseDate(dtstart.Now().FormatDate());
+				grid->GetCellValue(r,URGENT).ToLong(&month);
+				spanu.SetMonths((int)month);
+				dturgent = dtstart;
+				dturgent += spanu;
+				dtstart = wxDateTime::Now();
 
 				if(dtstart >= dturgent )
 				{
 					border = 2;
-					rowBack = red;
+					rowBack = red; 
 					break;
 				}
-				else if(dtstart >= dtwarn)
-				{
+				else if(dtstart >= dtwarn )
+				{	
 					if(border != 2)
 						border = 1;
 					rowBack = yellow;
@@ -793,6 +800,8 @@ void Maintenance::checkService(int row)
 				}
 				else
 					rowBack = green;
+				}
+				break;
 			}
 		    setRowBackground(r,rowBack);
 		}
@@ -988,7 +997,7 @@ void Maintenance::setRowDone(int row)
 
 void Maintenance::setRepairDone(int row)
 {
-	repairs->SetCellValue(row,RPRIORITY,_("0"));
+	repairs->SetCellValue(row,RPRIORITY,_T("0"));
 	setRowBackgroundRepairs(row, white);
 	checkBuyParts();
 }

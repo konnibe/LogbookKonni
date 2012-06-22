@@ -414,27 +414,7 @@ wxString LogbookHTML::replacePlaceholder(wxString html,wxString htmlHeader,int g
 		return str;
 	}
 }
-/*
-wxString LogbookHTML::replaceNewLine(wxString s, bool mode, bool label)
-{
-	s.Replace(wxT("&"),wxT("&amp;"));
-	s.Replace(wxT("&"),wxT("&amp;"));
-	s.Replace(wxT("&"),wxT("&amp;"));
-	s.Replace(wxT("&"),wxT("&amp;"));
-	s.Replace(wxT("\""),wxT("&quot;"));
 
-	if(mode == 0)
-		{// HTML
-		  s.Replace(wxT("\n"),wxT("<br>"));
-		} 
-	else
-		{// ODT
-		  s.Replace(wxT("\n"),wxT("<text:line-break/>"));
-		}
-
-	return s;
-}
-*/
 bool LogbookHTML::checkLayoutError(int result, wxString html, wxString layout)
 {
 	if(result == wxNOT_FOUND)

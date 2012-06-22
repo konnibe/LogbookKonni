@@ -98,7 +98,9 @@ class AutomaticWatch : public wxDialog
 {
 	private:
 	LogbookDialog* parent;
-	wxString       m_ctrlText;	
+	wxString       m_ctrlText;
+	wxRadioButton* m_radioBtnStatic;
+	wxRadioButton* m_radioBtnIndividual;
 
 	void setStrings(int i);
 
@@ -119,7 +121,6 @@ class AutomaticWatch : public wxDialog
 		void OnInit( wxInitDialogEvent& event );
 		void OnListBeginDrag( wxListEvent& event );
 		void OnChoice( wxCommandEvent& event );
-		
 	
 	public:
 		wxListCtrl* m_listCtrlWatchNames;

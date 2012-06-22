@@ -374,8 +374,11 @@ enum fields{ ROWHIGHT,ROUTE,RDATE,RTIME,WAKE,DISTANCE,POSITION,COG,SOG,REMARKS,
 		virtual void OnGridLabelLeftClickService( wxGridEvent& event );
 		virtual void OnGridLabelLeftClickRepairs( wxGridEvent& event );
 		virtual void OnGridLabelLeftClickBuyParts( wxGridEvent& event );
-		virtual void onGridLabelLeftClickCrew( wxGridEvent& event );
 		virtual void OnGridCellLeftClickGlobal( wxGridEvent& event );
+		virtual void OnMenuSelectionAsc( wxCommandEvent& event );
+		virtual void OnMenuSelectionDesc( wxCommandEvent& event );
+		virtual void OnKeyDownCrew( wxKeyEvent& event );
+		virtual void OnKeyDownWatch( wxKeyEvent& event );
 
 		virtual void OnGridEditorShownCrew( wxGridEvent& event );
 
@@ -634,7 +637,7 @@ class SelectLogbook : public wxDialog
 #ifdef __WXMSW__		
 		SelectLogbook( wxWindow* parent, wxString path, wxWindowID id = wxID_ANY, const wxString& title = _("Select Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 297,252), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER );
 #else
-		SelectLogbook( wxWindow* parent, wxString path, wxWindowID id = wxID_ANY, const wxString& title = wxT("Select Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 297,260), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER  );		
+		SelectLogbook( wxWindow* parent, wxString path, wxWindowID id = wxID_ANY, const wxString& title = _("Select Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 297,260), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER  );		
 #endif
 		~SelectLogbook();
 	
@@ -744,7 +747,7 @@ class ColdFinger : public wxDialog
 		int				fo; 
 		int				it;
 		
-		ColdFinger( LogbookDialog* parent,  wxWindowID id = wxID_ANY, const wxString& title = wxT("Textblocks Dialog"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 524,392 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER ); 
+		ColdFinger( LogbookDialog* parent,  wxWindowID id = wxID_ANY, const wxString& title = _("Textblocks Dialog"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 524,392 ), long style = wxDEFAULT_DIALOG_STYLE|wxRESIZE_BORDER ); 
 		~ColdFinger();
 
 		void	writeTextblocks();

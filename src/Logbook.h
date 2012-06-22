@@ -227,7 +227,7 @@ class LogbookSearch : public wxDialog
 		wxDatePickerCtrl* m_datePicker;
 		wxButton* m_buttonSelectDate;
 
-		LogbookSearch( wxWindow* parent, int row, int col, wxWindowID id = wxID_ANY, const wxString& title = wxT("Search in Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 353,219 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		LogbookSearch( wxWindow* parent, int row, int col, wxWindowID id = wxID_ANY, const wxString& title = _("Search in Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 353,219 ), long style = wxDEFAULT_DIALOG_STYLE ); 
 		~LogbookSearch();
 	
 };

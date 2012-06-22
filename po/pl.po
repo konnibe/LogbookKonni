@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: logbookkonni_pi 2.6.1310\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-06-04 19:48+0200\n"
-"PO-Revision-Date: 2012-05-19 13:02+0100\n"
+"POT-Creation-Date: 2012-06-22 18:40+0200\n"
+"PO-Revision-Date: 2012-06-22 17:41+0100\n"
 "Last-Translator: Konni <konnibe@hotmail.de>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -21,9 +21,6 @@ msgstr ""
 "X-Poedit-Country: POLAND\n"
 "X-Poedit-SearchPath-0: C:\\Users\\Konni\\Documents\\Visual Studio 2010"
 "\\Projects\\opencpn\\plugins\\LogbookKonni_pi\\src\n"
-#
-msgid "\n"
-msgstr "\n"
 #
 #, fuzzy, c-format
 msgid ""
@@ -90,15 +87,8 @@ msgstr ""
 msgid "-Plugin"
 msgstr ""
 #
-msgid "0"
-msgstr "0"
-#
 msgid "1. Watch of 1. Person"
 msgstr ""
-#
-#, fuzzy
-msgid ":0"
-msgstr "0"
 #
 msgid "AH #1 Total"
 msgstr ""
@@ -398,9 +388,7 @@ msgstr ""
 "dobowy"
 #
 msgid "DistanceTotal"
-msgstr ""
-"Całkowita\n"
-"Droga"
+msgstr "Całkowita Droga"
 #
 msgid "Draft"
 msgstr "Zanurzenie"
@@ -450,17 +438,14 @@ msgstr ""
 "Koniec\n"
 "VI wachty"
 #
-#, fuzzy
 msgid "Engine "
 msgstr "Motogodziny"
 #
-#, fuzzy
 msgid "Engine #1"
-msgstr "Motogodziny"
+msgstr "Motogodziny #1"
 #
-#, fuzzy
 msgid "Engine #2"
-msgstr "Motogodziny"
+msgstr "Motogodziny #2"
 #
 msgid ""
 "Engine stopped\n"
@@ -514,9 +499,8 @@ msgstr "Automatyczny z GPS"
 msgid "Gen. total"
 msgstr ""
 #
-#, fuzzy
 msgid "Generator"
-msgstr "Temperatura"
+msgstr "generator prądu"
 #
 msgid "Goto Route"
 msgstr "Idź do Trasy"
@@ -574,8 +558,8 @@ msgstr "Kadłub"
 msgid "Hull Identification No."
 msgstr "Numer Identyfikacyjny Kadłuba"
 #
-msgid "Hydrometer"
-msgstr "Hydrometr"
+msgid "Hygrometer"
+msgstr "Hygrometr"
 #
 msgid "If"
 msgstr "Jeżeli"
@@ -1064,6 +1048,10 @@ msgstr "Wybierz Dziennik"
 msgid "Select Route"
 msgstr "Wybierz Trasę"
 #
+#, fuzzy
+msgid "Select a date"
+msgstr "Wybierz Trasę"
+#
 msgid ""
 "Select a layout which is displayed\n"
 "with button \"View\""
@@ -1188,6 +1176,12 @@ msgstr "Niestety, Twój Dziennik nie zawiera wpisów"
 msgid "Sorry, no Layout installed"
 msgstr "Nie zainstalowano Szablonu"
 #
+msgid "Sort ascending"
+msgstr ""
+#
+msgid "Sort descending"
+msgstr ""
+#
 msgid "Speed"
 msgstr "Prędkość"
 #
@@ -1270,6 +1264,9 @@ msgid "Text"
 msgstr ""
 #
 msgid "Textblocks"
+msgstr ""
+#
+msgid "Textblocks Dialog"
 msgstr ""
 #
 msgid "Texts for Rightclick-Menu"
@@ -1674,6 +1671,38 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#~ msgid "\n"
+#~ msgstr "\n"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1726,6 +1755,82 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#, fuzzy
+#~ msgid "&Cut"
+#~ msgstr "Kraj"
+#
+#
+#
+#
+#
+#~ msgid "0"
+#~ msgstr "0"
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid ":0"
+#~ msgstr "0"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Delete"
+#~ msgstr "Usuń Wpis"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1740,6 +1845,31 @@ msgstr "wpisz własną etykietę"
 #~ msgstr ""
 #~ "Motogodziny\n"
 #~ "łącznie"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1865,9 +1995,76 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Nm"
 #~ msgstr "Nazwisko"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#, fuzzy
+#~ msgid "Paste"
+#~ msgstr "Data"
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #
 #
 #
@@ -1951,6 +2148,31 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
+#
 #, fuzzy
 #~ msgid "Search.."
 #~ msgstr "Wybierz Dziennik"
@@ -1968,37 +2190,20 @@ msgstr "wpisz własną etykietę"
 #
 #
 #
+#, fuzzy
+#~ msgid "Select all"
+#~ msgstr "Wybierz Trasę"
 #
 #
 #
 #
 #
 #
-#~ msgid "Speed STW Avg."
+#
+#
+#
+#, fuzzy
+#~ msgid "Static Watchtimes"
 #~ msgstr ""
-#~ "Średnia\n"
-#~ "Vw"
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#
-#~ msgid "Speed STW Max."
-#~ msgstr ""
-#~ "Maksymalna\n"
-#~ "Vw"
+#~ "Początek\n"
+#~ "I wachty"

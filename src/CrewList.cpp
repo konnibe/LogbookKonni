@@ -449,11 +449,11 @@ bool CrewList::checkHourFormat(wxString s, int row, int col, wxDateTime* dt)
 
 void CrewList::setWatches(AutomaticWatch* dlg, wxString time)
 {
-	wxDateTime dt, df;
+	wxDateTime dt,df;
 	dialog->myParseTime(time, dt);
 	dialog->myParseTime(dlg->m_staticTextLengthWatch->GetLabel(),df);
-	wxTimeSpan diff(df.GetHour(),df.GetMinute()-1, df.GetSecond());
-//	wxTimeSpan diffm(0,01,0);
+	wxTimeSpan diff(df.GetHour(),df.GetMinute(), df.GetSecond());
+	wxTimeSpan diffm(0,1,0);
 
 	int end = ((dlg->m_choice20->GetSelection()) * 2) + WAKEEND1;
 
@@ -464,13 +464,11 @@ void CrewList::setWatches(AutomaticWatch* dlg, wxString time)
 		{
 				gridWake->SetCellValue(row,col,dt.Format(_T("%H:%M")));
 				dt.Add(diff);
+				dt.Subtract(diffm);
 				gridWake->SetCellValue(row,col+1,dt.Format(_T("%H:%M")));
-//				dt.Add(diffm);
+				dt.Add(diffm);
 		}
 	}
-
-	if(gridWake->GetCellValue(0,WAKESTART1) != gridWake->GetCellValue(row-1,col-1))
-		gridWake->SetCellValue(row-1,col-1,gridWake->GetCellValue(0,WAKESTART1));
 
 	modified = true;
 }
@@ -1247,7 +1245,22 @@ AutomaticWatch::AutomaticWatch( wxWindow* parent, wxWindowID id, const wxString&
 	
 	m_staticline28 = new wxStaticLine( this, wxID_ANY, wxDefaultPosition, wxDefaultSize, wxLI_HORIZONTAL );
 	bSizer23->Add( m_staticline28, 0, wxEXPAND | wxALL, 5 );
+
+/*	wxFlexGridSizer* fgSizer46;
+	fgSizer46 = new wxFlexGridSizer( 0, 2, 0, 0 );
+	fgSizer46->SetFlexibleDirection( wxBOTH );
+	fgSizer46->SetNonFlexibleGrowMode( wxFLEX_GROWMODE_SPECIFIED );
 	
+	m_radioBtnStatic = new wxRadioButton( this, wxID_ANY, _("Static Watchtimes"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_radioBtnStatic->SetValue( true ); 
+	fgSizer46->Add( m_radioBtnStatic, 0, wxALL, 5 );
+	
+	m_radioBtnIndividual = new wxRadioButton( this, wxID_ANY, _("Individiual Watchtimes"), wxDefaultPosition, wxDefaultSize, 0 );
+	m_radioBtnIndividual->SetToolTip( _("Experimental") );
+	
+	fgSizer46->Add( m_radioBtnIndividual, 0, wxALL, 5 );
+	
+	bSizer23->Add( fgSizer46, 0, wxALIGN_CENTER_HORIZONTAL, 5 );*/
 	wxFlexGridSizer* fgSizer341;
 	fgSizer341 = new wxFlexGridSizer( 0, 6, 0, 0 );
 	fgSizer341->SetFlexibleDirection( wxBOTH );
@@ -1300,6 +1313,8 @@ AutomaticWatch::AutomaticWatch( wxWindow* parent, wxWindowID id, const wxString&
 	// Connect Events
 	this->Connect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( AutomaticWatch::OnInit ) );
 	m_listCtrlWatchNames->Connect( wxEVT_COMMAND_LIST_BEGIN_DRAG, wxListEventHandler( AutomaticWatch::OnListBeginDrag ), NULL, this );
+//	m_radioBtnStatic->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( AutomaticWatch::OnRadioButtonStatic ), NULL, this );
+//	m_radioBtnIndividual->Connect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( AutomaticWatch::OnRadioButtonIndividual ), NULL, this );
 	m_choice20->Connect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( AutomaticWatch::OnChoice ), NULL, this );
 }
 
@@ -1308,7 +1323,10 @@ AutomaticWatch::~AutomaticWatch()
 	// Disconnect Events
 	this->Disconnect( wxEVT_INIT_DIALOG, wxInitDialogEventHandler( AutomaticWatch::OnInit ) );
 	m_listCtrlWatchNames->Disconnect( wxEVT_COMMAND_LIST_BEGIN_DRAG, wxListEventHandler( AutomaticWatch::OnListBeginDrag ), NULL, this );
+//	m_radioBtnStatic->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( AutomaticWatch::OnRadioButtonStatic ), NULL, this );
+//	m_radioBtnIndividual->Disconnect( wxEVT_COMMAND_RADIOBUTTON_SELECTED, wxCommandEventHandler( AutomaticWatch::OnRadioButtonIndividual ), NULL, this );
 	m_choice20->Disconnect( wxEVT_COMMAND_CHOICE_SELECTED, wxCommandEventHandler( AutomaticWatch::OnChoice ), NULL, this );
+
 	
 }
 
@@ -1361,7 +1379,7 @@ void AutomaticWatch::setStrings(int i)
 	dt = dt.Set(0,0);
 	wxTimeSpan diff(0,0,watchtime);
 	dt.Add(diff);
-	this->m_staticTextLengthWatch->SetLabel(dt.Format(_T("%H:%M:%S")).c_str());
+	this->m_staticTextLengthWatch->SetLabel(dt.Format(_T("%H:%M")).c_str());
 }
 
 void AutomaticWatch::OnListBeginDrag( wxListEvent& event )
@@ -1515,5 +1533,4 @@ void SameWatchAs::OnInitDialog( wxInitDialogEvent& event )
 
 	m_choice23->SetSelection(0);
 }
-
 

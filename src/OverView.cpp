@@ -454,7 +454,7 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 											{
 												int a = it->second;
 												it->second = ++a;
-												result += it->first+_("\n");
+												result += it->first+_T("\n");
 												found = true;
 											}
 										}

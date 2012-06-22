@@ -85,8 +85,6 @@ Logbook::Logbook(LogbookDialog* parent, wxString data, wxString layout, wxString
 	oldPosition.latitude = 500;
 	activeRoute = wxEmptyString;
 	activeRouteGUID = wxEmptyString;
-
-//	loadData();
 }
 
 Logbook::~Logbook(void)
@@ -1686,7 +1684,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						}
 
 						if(true != t)
-							s.Append(_(":0"));
+							s.Append(_T(":0"));
 
 /*						if(t != true)
 							{
@@ -2446,17 +2444,17 @@ void LogbookSearch::OnInitDialog( wxInitDialogEvent& event )
 	searchrow = 0;
 
 	parent->myParseDate(parent->m_gridGlobal->GetCellValue(0,1),dt);
-	this->m_datePicker->SetValue(dt);
+	m_datePicker->SetValue(dt);
 
 	int gridNo = parent->m_notebook8->GetSelection();
 	for(int i = 0; i < parent->logGrids[gridNo]->GetNumberCols(); i++)
 		this->m_choice23->Append(parent->logGrids[gridNo]->GetColLabelValue(i));
 
-	this->m_choice23->SetSelection(col);
-	this->m_textCtrl72->SetFocus();
+	m_choice23->SetSelection(col);
+	m_textCtrl72->SetFocus();
 
-	this->m_radioBtnAll->Hide();
-	this->Fit();
+	m_radioBtnAll->Hide();
+	Fit();
 }
 
 void LogbookSearch::OnButtonClickSelectDate( wxCommandEvent& event )
@@ -2480,7 +2478,7 @@ void LogbookSearch::OnButtonClickForward( wxCommandEvent& event )
 
 	for(; searchrow < parent->logGrids[gridNo]->GetNumberRows(); searchrow++)
 	{
-		parent->myParseDate(parent->logGrids[gridNo]->GetCellValue(searchrow,Logbook::RDATE),dt);
+		bool tt = parent->myParseDate(parent->logGrids[0]->GetCellValue(searchrow,Logbook::RDATE),dt);
 
 		if(m_choiceGreaterEqual->GetSelection() == 0)
 		{
@@ -2518,7 +2516,7 @@ void LogbookSearch::OnButtonClickBack( wxCommandEvent& event )
 
 	for(; searchrow >= 0; searchrow--)
 	{
-		parent->myParseDate(parent->logGrids[gridNo]->GetCellValue(searchrow,Logbook::RDATE),dt);
+		parent->myParseDate(parent->logGrids[0]->GetCellValue(searchrow,Logbook::RDATE),dt);
 		if(m_choiceGreaterEqual->GetSelection() == 0)
 		{
 			if(m_choiceGreaterEqual->GetSelection() == 0)
