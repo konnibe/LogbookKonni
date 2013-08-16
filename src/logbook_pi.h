@@ -39,10 +39,10 @@
 #define     PLUGIN_VERSION_MINOR    1
 
 #define     MY_API_VERSION_MAJOR    1
-#define     MY_API_VERSION_MINOR    6	
+#define     MY_API_VERSION_MINOR    6
 
 
-#include "../../../include/ocpn_plugin.h"
+#include <opencpn/ocpn_plugin.h>
 #include "nmea0183/nmea0183.h"
 #include "MessageBoxOSX.h"
 
@@ -148,7 +148,7 @@ private:
 
 class LogbookTimer : public wxWindow
 {
- 
+
 public:
 	LogbookTimer(logbookkonni_pi* l) : wxWindow() { plogbook_pi = l; }
 

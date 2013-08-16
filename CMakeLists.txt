@@ -1,9 +1,9 @@
 ##---------------------------------------------------------------------------
 ## Author:      bdbcat aka. dsr (Dave Register)
-## Copyright:   
+## Copyright:
 ## License:     wxWidgets License
 ##---------------------------------------------------------------------------
- 
+
 
 # define minimum cmake version
 CMAKE_MINIMUM_REQUIRED(VERSION 2.6.2)
@@ -45,11 +45,19 @@ IF(WIN32)
     ADD_DEFINITIONS(-D_CRT_NONSTDC_NO_DEPRECATE -D_CRT_SECURE_NO_DEPRECATE)
 ENDIF(WIN32)
 
+IF(UNIX AND NOT APPLE)
+  SET(PREFIX_PLUGINS /usr/lib/opencpn)
+  SET(PREFIX_DATA /usr/share)
+ENDIF(UNIX AND NOT APPLE)
+
+SET(wxWidgets_USE_LIBS base core net xml html adv)
+SET(BUILD_SHARED_LIBS TRUE)
+FIND_PACKAGE(wxWidgets REQUIRED)
 INCLUDE(${wxWidgets_USE_FILE})
 
 FIND_PACKAGE(Gettext REQUIRED)
 
-# For convenience we define the sources as a variable. You can add 
+# For convenience we define the sources as a variable. You can add
 # header files and cpp/c files and CMake will sort them out
 
 SET(SRC_LOGBOOKKONNI
@@ -72,16 +80,16 @@ SET(SRC_LOGBOOKKONNI
 		src/boat.h
 		src/boat.cpp
 		src/Maintenance.h
-		src/Maintenance.cpp	
-		src/OverView.h		
-		src/OverView.cpp	
+		src/Maintenance.cpp
+		src/OverView.h
+		src/OverView.cpp
 		src/Export.h
 		src/Export.cpp
-		src/FastComboEditor.h		
+		src/FastComboEditor.h
 		src/FastComboEditor.cpp
 		src/EzGrid.h
 		src/EzGrid.cpp
-		src/GridCellChoiceRenderer.h	
+		src/GridCellChoiceRenderer.h
 		src/GridCellChoiceRenderer.cpp
         src/json_defs.h
         src/jsonreader.h
@@ -95,7 +103,7 @@ SET(SRC_LOGBOOKKONNI
 		src/tinyxml/tinyxmlerror.cpp
 		src/tinyxml/tinyxmlparser.cpp
 		src/tinyxml/tinystr.cpp
-		src/tinyxml/tinystr.h 		
+		src/tinyxml/tinystr.h
  	)
 
 SET(SRC_NMEA0183
@@ -178,7 +186,23 @@ IF(WIN32)
   INSTALL(TARGETS ${PACKAGE_NAME} RUNTIME DESTINATION "plugins")
 ENDIF(WIN32)
 
- 	  	 
+FIND_PACKAGE(GTK2 2.6)
+IF (GTK2_FOUND)
+    MESSAGE (STATUS "Found GTK2")
+    ADD_DEFINITIONS(-DocpnUSE_GTK_OPTIMIZE)
+    ADD_DEFINITIONS(-DocpnHAS_GTK)
+    INCLUDE_DIRECTORIES(${GTK2_INCLUDE_DIRS})
+    SET(EXTRA_LIBS ${EXTRA_LIBS} ${GTK2_LIBRARIES})
+
+    # Add a definition to satisfy some linux system builds, avoiding Apple builds
+    IF (NOT WIN32 AND NOT APPLE)
+       ADD_DEFINITIONS("`pkg-config --cflags --libs gtk+-2.0`")
+    ENDIF (NOT WIN32 AND NOT APPLE)
+
+ELSE(GTK2_FOUND)
+    MESSAGE (STATUS "GTK2 Not found...")
+ENDIF (GTK2_FOUND)
+
 # find src/ -name \*.cpp -or -name \*.c -or -name \*.h -or -name \*.hpp >po/POTFILES.in
 FIND_PROGRAM(GETTEXT_XGETTEXT_EXECUTABLE xgettext)
 IF (GETTEXT_XGETTEXT_EXECUTABLE)
@@ -255,4 +279,4 @@ ENDIF(GETTEXT_MSGFMT_EXECUTABLE)
 
 
 
- 	  	 
+
