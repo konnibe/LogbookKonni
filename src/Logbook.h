@@ -5,7 +5,7 @@
   #include "wx/wx.h"
 #endif //precompiled headers
 
-#include "../../../include/ocpn_plugin.h"
+#include <opencpn/ocpn_plugin.h>
 #include "LogbookHTML.h"
 #include "nmea0183/nmea0183.h"
 
@@ -83,7 +83,7 @@ private:
 public:
 	enum fields{ ROUTE,RDATE,RTIME,SIGN,WAKE,DISTANCE,DTOTAL,POSITION,COG,COW,SOG,SOW,DEPTH,REMARKS,
 				 BARO,HYDRO,TEMPAIR,TEMPWATER,WIND,WSPD,CURRENT,CSPD,WAVE,SWELL,WEATHER,CLOUDS,VISIBILITY,
-				 MOTOR,MOTORT,MOTOR1,MOTOR1T,FUEL,FUELT,SAILS,REEF,GENE,GENET,BANK1,BANK1T,BANK2,BANK2T,WATERM,WATERMT,WATERMO,WATER,WATERT,MREMARKS};	
+				 MOTOR,MOTORT,MOTOR1,MOTOR1T,FUEL,FUELT,SAILS,REEF,GENE,GENET,BANK1,BANK1T,BANK2,BANK2T,WATERM,WATERMT,WATERMO,WATER,WATERT,MREMARKS};
 
 	LogbookDialog*	dialog;
 	LogbookHTML*	logbookHTML;
@@ -155,45 +155,45 @@ private:
 ///////////////////////////////////////////////////////////////////////////////
 /// Class NoAppendDialog
 ///////////////////////////////////////////////////////////////////////////////
-class NoAppendDialog : public wxDialog 
+class NoAppendDialog : public wxDialog
 {
 	private:
-	
+
 	protected:
 		wxStaticText* m_staticText73;
 		wxStdDialogButtonSizer* m_sdbSizer5;
 		wxButton* m_sdbSizer5OK;
-	
+
 	public:
-		
+
 		NoAppendDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = _("Information"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 255,130 ), long style = wxDEFAULT_DIALOG_STYLE );
 		~NoAppendDialog();
-	
+
 };
 ////////////////////////////
 // PVBE Dialog
 ///////////////////////////
-class PBVEDialog : public wxFrame 
+class PBVEDialog : public wxFrame
 {
 	private:
 		LogbookDialog* dialog;
 	protected:
 
-	
+
 	public:
 		virtual void PBVEDialogOnClose( wxCloseEvent& event );
 		void OnCloseWindow(wxCloseEvent& ev);
-		wxTextCtrl* m_textCtrlPVBE;		
+		wxTextCtrl* m_textCtrlPVBE;
 		PBVEDialog( wxWindow* parent, wxWindowID id = wxID_ANY, const wxString& title = wxEmptyString, const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 500,300 ), long style = wxDEFAULT_FRAME_STYLE|wxTAB_TRAVERSAL );
 		~PBVEDialog();
-	
+
 };
 
 #include <wx/datectrl.h>
 ///////////////////////////////////////////////////////////////////////////////
 /// Class LogbookSearch
 ///////////////////////////////////////////////////////////////////////////////
-class LogbookSearch : public wxDialog 
+class LogbookSearch : public wxDialog
 {
 	private:
 		LogbookDialog* parent;
@@ -210,14 +210,14 @@ class LogbookSearch : public wxDialog
 		wxStaticLine* m_staticline39;
 		wxButton* m_buttonBack;
 		wxButton* m_buttonForward;
-		
+
 		// Virtual event handlers, overide them in your derived class
 		virtual void OnInitDialog( wxInitDialogEvent& event );
 		virtual void OnButtonClickBack( wxCommandEvent& event );
 		virtual void OnButtonClickForward( wxCommandEvent& event );
 		virtual void OnButtonClickSelectDate( wxCommandEvent& event );
-		
-	
+
+
 	public:
 		wxRadioButton* m_radioBtnActuell;
 		wxRadioButton* m_radioBtnAll;
@@ -227,8 +227,8 @@ class LogbookSearch : public wxDialog
 		wxDatePickerCtrl* m_datePicker;
 		wxButton* m_buttonSelectDate;
 
-		LogbookSearch( wxWindow* parent, int row, int col, wxWindowID id = wxID_ANY, const wxString& title = _("Search in Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 353,219 ), long style = wxDEFAULT_DIALOG_STYLE ); 
+		LogbookSearch( wxWindow* parent, int row, int col, wxWindowID id = wxID_ANY, const wxString& title = _("Search in Logbook"), const wxPoint& pos = wxDefaultPosition, const wxSize& size = wxSize( 353,219 ), long style = wxDEFAULT_DIALOG_STYLE );
 		~LogbookSearch();
-	
+
 };
 #endif
