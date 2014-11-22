@@ -739,9 +739,9 @@ void LogbookHTML::toXML(wxString path)
 	s += _T("</Row>>");
 	xmlFile << s;
 
+	line = stream->ReadLine();
 	while(!input.Eof())
 	{
-		wxString line = stream->ReadLine();
 		wxStringTokenizer tkz(line, _T("\t"));
 		s = wxString::Format(_T("<Row ss:Height=\"%u\">"),parent->m_gridGlobal->GetRowHeight(count++));
 
@@ -761,6 +761,7 @@ void LogbookHTML::toXML(wxString path)
 		}
 		s += _T("</Row>>");
 		xmlFile << s;
+		line = stream->ReadLine();
 	}
 
 	xmlFile << parent->xmlEnd;
@@ -805,9 +806,9 @@ void LogbookHTML::toODS(wxString path)
 	}
 	txt << _T("</table:table-row>");
 
+	line = stream->ReadLine();
 	while(!input.Eof())
 	{
-		wxString line = stream->ReadLine();
 		txt << _T("<table:table-row table:style-name=\"ro2\">");
 		wxStringTokenizer tkz(line, _T("\t"));
 
@@ -842,7 +843,7 @@ void LogbookHTML::toODS(wxString path)
 			txt << _T("</table:table-cell>");
 		}
 		txt << _T("</table:table-row>");
-
+		line = stream->ReadLine();
 	}
 	txt << parent->contentEnd;
 
