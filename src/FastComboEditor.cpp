@@ -90,11 +90,11 @@ void wxFastComboEditor::Create(wxWindow* parent,
 	wxGridCellEditor::Create(parent, id, evtHandler);
 }
 
-void wxFastComboEditor::PaintBackground(const wxRect& rectCell,
-											 wxGridCellAttr * attr)
-{
-	wxGridCellEditor::PaintBackground(rectCell, attr);
-}
+//void wxFastComboEditor::PaintBackground(const wxRect& rectCell,
+//											 wxGridCellAttr * attr)
+//{
+//	wxGridCellEditor::PaintBackground(rectCell, attr);
+//}
 
 void wxFastComboEditor::BeginEdit(int row, int col, wxGrid* grid)
 {
@@ -174,6 +174,12 @@ bool wxFastComboEditor::EndEdit(int row, int col,
 	return changed;
 }
 
+bool wxFastComboEditor::EndEdit(int row, int col, const wxGrid *grid,
+                         const wxString& oldval, wxString *newval)
+{
+	return false;
+}                         
+
 void wxFastComboEditor::Reset()
 {
 	Combo()->SetValue(m_startValue);
@@ -205,4 +211,9 @@ void wxFastComboEditor::SetParameters(size_t count, const wxString choices[])
 			m_choices.Add(choices[n]);
 		}
 	}
+}
+
+void wxFastComboEditor::ApplyEdit(int row, int col, wxGrid* grid)
+{
+	
 }

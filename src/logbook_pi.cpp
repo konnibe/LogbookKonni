@@ -1083,7 +1083,7 @@ void logbookkonni_pi::loadLayouts(wxWindow *parent)
 
 	wxFileDialog* openFileDialog =
 		new wxFileDialog( parent, _("Select zipped Layout-Files"), _T(""), _T(""), _T("*.zip"),
-		                  wxOPEN, wxDefaultPosition);
+		                  wxFD_OPEN, wxDefaultPosition);
  
 	if ( openFileDialog->ShowModal() == wxID_OK )
 	{
@@ -1165,13 +1165,14 @@ void logbookkonni_pi::loadLanguages(wxWindow *parent)
 #endif
 	wxString sep = wxFileName::GetPathSeparator(); 
 	wxString languagePath;
-	wxStandardPaths sp;
+	//wxStandardPaths sp;
 #ifdef __WXMSW__
-	languagePath = sp.GetExecutablePath();
+	languagePath = wxStandar.GetExecutablePath();
 	languagePath = languagePath.Remove(languagePath.find_last_of(sep));
     languagePath.append(sep + _T("share") + sep + _T("locale") + sep);
 #elif defined __POSIX__
-	languagePath = sp.GetInstallPrefix();
+//	languagePath = sp.GetInstallPrefix();
+	languagePath = wxStandardPaths::GetInstallPrefix();
 	languagePath.append(sep + _T("share") + sep + _T("locale") + sep);
 #elif defined __WXOSX__
 	languagePath = sp.GetExecutablePath();
@@ -1182,7 +1183,7 @@ void logbookkonni_pi::loadLanguages(wxWindow *parent)
 
 	wxFileDialog* openFileDialog =
 		new wxFileDialog( parent, _("Select zipped Languages-Files"), _T(""), FILETYPES, FILETYPES,
-		                  wxOPEN, wxDefaultPosition);
+		                  wxFD_OPEN, wxDefaultPosition);
 	if ( openFileDialog->ShowModal() == wxID_OK )
 	{
 		wxFFileInputStream in(openFileDialog->GetPath());

@@ -177,7 +177,7 @@ void Logbook::SetSentence(wxString &sentence)
                   if(m_NMEA0183.Parse())
                   {
 					dt = dt.Set(m_NMEA0183.Zda.Day,(wxDateTime::Month)(m_NMEA0183.Zda.Month-1),m_NMEA0183.Zda.Year);
-					dt.ParseTime(dt.ParseFormat(m_NMEA0183.Zda.UTCTime,_T("%H%M%S")));
+					dt.ParseTime((const char*)dt.ParseFormat(m_NMEA0183.Zda.UTCTime,_T("%H%M%S")));
 
 					setDateTimeString(dt);
 				  }
@@ -241,7 +241,7 @@ void Logbook::SetSentence(wxString &sentence)
 					m_NMEA0183.Rmc.Date.SubString(2,3).ToLong(&month);
 					m_NMEA0183.Rmc.Date.SubString(4,5).ToLong(&year);
 					dt.Set(((int)day),(wxDateTime::Month)(month-1),((int)year+2000));
-					dt.ParseTime(dt.ParseFormat(m_NMEA0183.Rmc.UTCTime,_T("%H%M%S")));
+					dt.ParseTime((const char*)dt.ParseFormat(m_NMEA0183.Rmc.UTCTime,_T("%H%M%S")));
 
 					setDateTimeString(dt);
 
@@ -909,6 +909,8 @@ Please create a new logbook to minimize the loadingtime.\n\nIf you have a runnin
 		dialog->m_gridWeather->MakeCellVisible(lastRow,0);
 		dialog->m_gridMotorSails->MakeCellVisible(lastRow,0);
 	}
+	
+	update();
 }
 
 void Logbook::checkCourseChanged()
@@ -1464,7 +1466,7 @@ void  Logbook::getModifiedCellValue(int grid, int row, int selCol, int col)
 						if(s != _T(""))
 						{
 							s.Replace(_T(","),_T("."));
-							s = wxString::Format(_T("%2.2f %s"),wxAtof(s),+opt->speed.c_str());
+							s = wxString::Format(_T("%2.2f %s"),wxAtof(s),+opt->speed.ToAscii());
 							s.Replace(_T("."),dialog->decimalPoint);
 							dialog->logGrids[grid]->SetCellValue(row,col,s);
 						}

@@ -4764,7 +4764,7 @@ bool LogbookDialog::myParseDate(wxString s, wxDateTime &dt)
 
 	int i = 0;
 	wxString temp = s.substr(0,s.find_first_of(dateSeparator));
-	switch(datePattern.GetChar(i))
+	switch((char)datePattern.GetChar(i))
 		{
 		case 'd': temp.ToLong(&day); i += 3;
 			break;
@@ -4774,7 +4774,7 @@ bool LogbookDialog::myParseDate(wxString s, wxDateTime &dt)
 			break;
 		}
 	temp = s.substr(s.find_first_of(dateSeparator)+1,s.find_last_of(dateSeparator)-2);
-	switch(datePattern.GetChar(i))
+	switch((char)datePattern.GetChar(i))
 		{
 		case 'd': temp.ToLong(&day); i += 3;
 			break;
@@ -4784,7 +4784,7 @@ bool LogbookDialog::myParseDate(wxString s, wxDateTime &dt)
 			break;
 		}
 	temp = s.substr(s.find_last_of(dateSeparator)+1);
-	switch(datePattern.GetChar(i))
+	switch((char)datePattern.GetChar(i))
 		{
 		case 'd': temp.ToLong(&day); i += 3;
 			break;
@@ -5312,7 +5312,7 @@ void SelectLogbook::OnInit(wxInitDialogEvent& ev)
 			wxStringTokenizer tk(t,_T("	"));
 			tk.GetNextToken();
 			wxString date = tk.GetNextToken();
-			date = dtfrom.ParseDate(date);
+			//date = dtfrom.ParseDate(date);
 			filename = wxString::Format(_("Logbook from %s to %s"),dtfrom.FormatDate().c_str(), dtto.FormatDate().c_str()); 
 		}
 		m_listCtrlSelectLogbook->InsertItem(i,filename);

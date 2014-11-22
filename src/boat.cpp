@@ -214,12 +214,14 @@ wxString Boat::readLayoutFileODT(wxString layout)
 {
 	wxString odt = _T("");
 
-	wxString filename = layout_locn + layout + _T(".odt");
+	wxFileInputStream filename (layout_locn + layout + _T(".odt"));
 
-	if(wxFileExists(filename))
+	if(filename.Ok())
 	{
 		static const wxString fn = _T("content.xml");
-		wxZipInputStream zip(filename,fn);
+		wxZipEntry wxZE(fn);
+		wxZipInputStream zip(filename);
+		zip.OpenEntry(wxZE);
 		wxTextInputStream txt(zip);
 		while(!zip.Eof())
 			odt += txt.ReadLine();
@@ -679,9 +681,9 @@ void Boat::toHTML(wxString path, wxString layout, bool mode)
 	html.Replace(_T("#LEQUIP#"),parent->sbSizer12->GetStaticBox()->GetLabel());
 
 	if(html.Contains(wxT("<!--Repeat -->")))
-		html = repeatArea(html);
+		html = repeatArea(html).ToAscii();
 	
-	wxString str(html, wxConvUTF8);	
+	wxString str(html.ToAscii(), wxConvUTF8);	
 
 	boatHTMLFile->Write(str);
 	boatHTMLFile->Close();
@@ -1048,10 +1050,10 @@ void Boat::saveODS( wxString path, bool mode )
 //	bool empty = false;
 	long emptyCol = 0;
 
-	while(wxString line = stream->ReadLine())
+	wxString line = stream->ReadLine();
+	while(!input.Eof())
 	{
 		int col = 0;
-		if(input.Eof()) break;
 		txt << _T("<table:table-row table:style-name=\"ro2\">");
 		wxStringTokenizer tkz(line, _T("\t"),wxTOKEN_RET_EMPTY );
 
@@ -1093,6 +1095,7 @@ void Boat::saveODS( wxString path, bool mode )
 		}
 		txt << _T("</table:table-row>");;
 
+		wxString line = stream->ReadLine();
 	}
 	txt << parent->contentEnd;
 
