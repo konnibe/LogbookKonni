@@ -30,12 +30,14 @@ wxString Export::readLayoutODT(wxString path,wxString layout)
 	wxString odt = _T("");
 
 
-	wxString filename = path + layout + _T(".odt");
+	wxFileInputStream filename (path + layout + _T(".odt"));
 
-	if(wxFileExists(filename))
+	if(filename.Ok())
 	{
 		static const wxString fn = _T("content.xml");
-		wxZipInputStream zip(filename,fn);
+		wxZipEntry wxZE(fn);
+		wxZipInputStream zip(filename);
+		zip.OpenEntry(wxZE);
 		wxTextInputStream txt(zip);
 		while(!zip.Eof())
 			odt += txt.ReadLine();

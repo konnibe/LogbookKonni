@@ -410,7 +410,7 @@ wxString LogbookHTML::replacePlaceholder(wxString html,wxString htmlHeader,int g
 		return html;
 	else 
 	{
-		wxString str(html, wxConvUTF8);
+		wxString str(html.ToAscii(), wxConvUTF8);
 		return str;
 	}
 }
@@ -460,12 +460,15 @@ wxString LogbookHTML::readLayoutFileODT(wxString layout)
 {
 	wxString odt = _T("");
 
-	wxString filename = layout_locn + layout + _T(".odt");
+//	wxString filename = layout_locn + layout + _T(".odt");
+	wxFileInputStream filename (layout_locn + layout + _T(".odt"));
 
-	if(wxFileExists(filename))
+	if(filename.Ok())
 	{
 		static const wxString fn = _T("content.xml");
-		wxZipInputStream zip(filename,fn);
+		wxZipEntry wxZE(fn);
+		wxZipInputStream zip(filename);
+		zip.OpenEntry(wxZE);
 		wxTextInputStream txt(zip);
 		while(!zip.Eof())
 			odt += txt.ReadLine();
@@ -669,9 +672,9 @@ void LogbookHTML::toCSV(wxString path)
 	}
 	csvFile << _T("\n");
 
-	while(wxString line = stream->ReadLine())
+	line = stream->ReadLine();
+	while(!input.Eof())
 	{
-		if(input.Eof()) break;
 
 		wxStringTokenizer tkz(line, _T("\t"));
 
@@ -688,6 +691,7 @@ void LogbookHTML::toCSV(wxString path)
 		s.RemoveLast();
 		csvFile << s+_T("\n");
 		s = _T("");
+		line = stream->ReadLine();
 	}
 	output.Close();
 }
@@ -735,9 +739,9 @@ void LogbookHTML::toXML(wxString path)
 	s += _T("</Row>>");
 	xmlFile << s;
 
-	while(wxString line = stream->ReadLine())
+	line = stream->ReadLine();
+	while(!input.Eof())
 	{
-		if(input.Eof()) break;
 		wxStringTokenizer tkz(line, _T("\t"));
 		s = wxString::Format(_T("<Row ss:Height=\"%u\">"),parent->m_gridGlobal->GetRowHeight(count++));
 
@@ -757,6 +761,7 @@ void LogbookHTML::toXML(wxString path)
 		}
 		s += _T("</Row>>");
 		xmlFile << s;
+		line = stream->ReadLine();
 	}
 
 	xmlFile << parent->xmlEnd;
@@ -801,9 +806,9 @@ void LogbookHTML::toODS(wxString path)
 	}
 	txt << _T("</table:table-row>");
 
-	while(wxString line = stream->ReadLine())
+	line = stream->ReadLine();
+	while(!input.Eof())
 	{
-		if(input.Eof()) break;
 		txt << _T("<table:table-row table:style-name=\"ro2\">");
 		wxStringTokenizer tkz(line, _T("\t"));
 
@@ -838,7 +843,7 @@ void LogbookHTML::toODS(wxString path)
 			txt << _T("</table:table-cell>");
 		}
 		txt << _T("</table:table-row>");
-
+		line = stream->ReadLine();
 	}
 	txt << parent->contentEnd;
 

@@ -259,7 +259,8 @@ void Maintenance::loadData()
 	wxTextInputStream* stream = new wxTextInputStream (input);
 
 	int row = 0;
-	while( (t = stream->ReadLine()))
+	t = stream->ReadLine();
+	while(!input.Eof())
 	{
 		if(input.Eof()) break;
 		addLine();
@@ -283,13 +284,15 @@ void Maintenance::loadData()
 			c++;
 		}
 		row++;
+		t = stream->ReadLine();
 	}
 
 	wxFileInputStream input1( data_locnBuyParts );
 	wxTextInputStream* stream1 = new wxTextInputStream (input1);
 
 	row = 0;
-	while( (t = stream1->ReadLine()))
+	t = stream1->ReadLine();
+	while(!input1.Eof())
 	{
 		if(input1.Eof()) break;
 		addLineBuyParts();
@@ -320,15 +323,16 @@ void Maintenance::loadData()
 		}
 		buyparts->AutoSizeRow(row,false);
 		row++;
+		t = stream1->ReadLine();
 	}
 
 	wxFileInputStream input2( data_locnRepairs );
 	wxTextInputStream* stream2 = new wxTextInputStream (input2);
 
 	row = 0;
-	while( (t = stream2->ReadLine()))
+	t = stream2->ReadLine();
+	while(!input2.Eof())
 	{
-		if(input2.Eof()) break;
 		addLineRepairs();
 
 		wxStringTokenizer tkz(t, _T("\t"),wxTOKEN_RET_EMPTY );
@@ -349,6 +353,7 @@ void Maintenance::loadData()
 		}
 		repairs->AutoSizeRow(row,false);
 		row++;
+		t = stream2->ReadLine();
 	}
 
 	checkService(dialog->m_gridGlobal->GetNumberRows()-1);
@@ -1058,13 +1063,13 @@ void Maintenance::cellCollChanged(int col, int row)
 		}
 		else if (g == m_choices[4]) //Bank #1
 		{
-						grid->SetCellValue(selectedRow,START,opt->bank1+_T(" ")+opt->ampereh.c_str());
+						grid->SetCellValue(selectedRow,START,opt->bank1+_T(" ")+opt->ampereh);
 						grid->SetCellValue(selectedRow,WARN,wxString::Format(_T("%i"),(int)(wxAtoi(opt->bank1)/100*25)));
 						grid->SetCellValue(selectedRow,URGENT,wxString::Format(_T("%i"),(int)(wxAtoi(opt->bank1)/100*15)));
 		}
 		else if (g == m_choices[5]) //Bank #2
 		{
-						grid->SetCellValue(selectedRow,START,opt->bank2+_T(" ")+opt->ampereh.c_str());
+						grid->SetCellValue(selectedRow,START,opt->bank2+_T(" ")+opt->ampereh);
 						grid->SetCellValue(selectedRow,WARN,wxString::Format(_T("%i"),(int)(wxAtoi(opt->bank2)/100*25)));
 						grid->SetCellValue(selectedRow,URGENT,wxString::Format(_T("%i"),(int)(wxAtoi(opt->bank2)/100*15)));
 		}

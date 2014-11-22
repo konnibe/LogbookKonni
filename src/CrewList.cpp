@@ -1001,12 +1001,14 @@ wxString CrewList::readLayoutODT(wxString layout)
 {
 	wxString odt = _T("");
 
-	wxString filename = layout_locn + layout + _T(".odt");
+	wxFileInputStream filename (layout_locn + layout + _T(".odt"));
 
-	if(wxFileExists(filename))
+	if(filename.Ok())
 	{
 		static const wxString fn = _T("content.xml");
-		wxZipInputStream zip(filename,fn);
+		wxZipEntry wxZE(fn);
+		wxZipInputStream zip(filename);
+		zip.OpenEntry(wxZE);
 		wxTextInputStream txt(zip);
 		while(!zip.Eof())
 			odt += txt.ReadLine();
@@ -1141,9 +1143,10 @@ void CrewList::saveODS(wxString path)
 
 //	bool empty = false;
 	long emptyCol = 0;
-	while(wxString line = stream->ReadLine())
+
+	line = stream->ReadLine();
+	while(!input.Eof())
 	{
-		if(input.Eof()) break;
 		txt << _T("<table:table-row table:style-name=\"ro2\">");
 		wxStringTokenizer tkz(line, _T("\t"),wxTOKEN_RET_EMPTY);
 
@@ -1176,7 +1179,7 @@ void CrewList::saveODS(wxString path)
 			txt << _T("</table:table-cell>");
 		}
 		txt << _T("</table:table-row>");;
-
+		line = stream->ReadLine();
 	}
 	txt << dialog->contentEnd;
 

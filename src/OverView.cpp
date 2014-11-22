@@ -218,9 +218,9 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 
 	wxString route = _T("xxx");
 	int rowNewLogbook = -1;
-	while( (t = stream->ReadLine()))
+	t = stream->ReadLine();
+	while(!input.Eof())
 	{
-		if(input.Eof()) break;
 		sign = wxEmptyString;
 		rowNewLogbook++;
 		wxStringTokenizer tkz(t, _T("\t"),wxTOKEN_RET_EMPTY );
@@ -517,6 +517,7 @@ void OverView::loadLogbookData(wxString logbook, bool colour)
 //		if(write)
 			writeSumColumn(lastrow, logbook, path, colour);
 		test = false;
+		t = stream->ReadLine();
 	}
 	if(!showAllLogbooks)
 		writeSumColumnLogbook(oneLogbookTotal,lastrow, logbook, colour);

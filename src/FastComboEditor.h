@@ -27,6 +27,9 @@ public:
 	wxGridCellEditor *Clone() const;
 	wxString GetValue() const;
 	wxSComboBox *Combo() const { return (wxSComboBox*)m_control; }	
+	void ApplyEdit(int row, int col, wxGrid* grid);
+	bool EndEdit(int row, int col, const wxGrid *grid,
+                         const wxString& oldval, wxString *newval);
 	
 protected:
 	wxPoint m_pointActivate;
